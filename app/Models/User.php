@@ -12,6 +12,7 @@ use Multicaret\Acquaintances\Traits\CanLike;
 use Multicaret\Acquaintances\Traits\CanSubscribe;
 use QCod\Gamify\Gamify;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -20,6 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use CanFollow, CanBeFollowed;
     use CanSubscribe;
     use QueryCacheable;
+    use HasFactory;
 
     public $cacheFor = 3600;
     protected static $flushCacheOnUpdate = true;
