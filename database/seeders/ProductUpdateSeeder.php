@@ -14,6 +14,6 @@ class ProductUpdateSeeder extends Seeder
      */
     public function run()
     {
-        ProductUpdate::factory()->count(500)->create();
+        ProductUpdate::factory()->count(200)->create();
     }
 }
