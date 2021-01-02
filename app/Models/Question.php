@@ -8,10 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Question extends Model implements Viewable
 {
-    use InteractsWithViews, CanBeLiked, QueryCacheable, CanBeSubscribed;
+    use InteractsWithViews;
+    use CanBeLiked, CanBeSubscribed;
+    use QueryCacheable;
+    use HasFactory;
 
     public $cacheFor = 3600;
     protected static $flushCacheOnUpdate = true;

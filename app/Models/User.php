@@ -17,9 +17,9 @@ use Rennokki\QueryCache\Traits\QueryCacheable;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use CanLike;
-    use Notifiable, Gamify;
-    use CanFollow, CanBeFollowed;
-    use CanSubscribe;
+    use Notifiable;
+    use Gamify;
+    use CanFollow, CanBeFollowed, CanSubscribe;
     use QueryCacheable;
     use HasFactory;
 
