@@ -16,7 +16,8 @@ class AdminSeeder extends Seeder
     public function run()
     {
         User::factory()->create([
-            'firstname' => 'Admin',
+            'firstname' => 'Taskord',
+            'lastname' => 'Admin',
             'username' => 'admin',
             'email' => 'admin@taskord.com',
             'avatar' => 'https://i.imgur.com/QpfHEy6.png',
@@ -25,7 +26,8 @@ class AdminSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            'firstname' => 'Test',
+            'firstname' => 'Taskord',
+            'lastname' => 'Test',
             'username' => 'test',
         ]);
     }
