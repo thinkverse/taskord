@@ -40,7 +40,7 @@ class CompletedTasks extends Component
         return view('livewire.pages.open.completed-tasks', [
             'week_dates' => json_encode($week_dates, JSON_NUMERIC_CHECK),
             'completed_tasks' => $this->readyToLoad ? json_encode($completed_tasks, JSON_NUMERIC_CHECK) : [],
-            'completed_tasks_count' => $this->readyToLoad ? $completed_tasks_count : '···',
+            'completed_tasks_count' => $this->readyToLoad ? number_format($completed_tasks_count) : '···',
         ]);
     }
 }
