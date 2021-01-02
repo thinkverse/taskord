@@ -41,7 +41,7 @@ class Unread extends Component
     public function render()
     {
         return view('livewire.notification.unread', [
-            'notifications' => $this->readyToLoad ? $this->paginate(user()->unreadNotifications) : [],
+            'notifications' => $this->readyToLoad ? $this->paginate(auth()->user()->unreadNotifications) : [],
         ]);
     }
 }

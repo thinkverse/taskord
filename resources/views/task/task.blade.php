@@ -27,7 +27,7 @@
                 'perPage' => 10
             ])
             @auth
-            @if (!user()->isFlagged)
+            @if (!auth()->user()->isFlagged)
                 @livewire('comment.create-comment', [
                     'task' => $task
                 ])

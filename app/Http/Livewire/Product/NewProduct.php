@@ -54,11 +54,11 @@ class NewProduct extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
 
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
@@ -84,7 +84,7 @@ class NewProduct extends Component
             }
 
             $product = Product::create([
-                'user_id' =>  user()->id,
+                'user_id' =>  auth()->user()->id,
                 'name' => $this->name,
                 'slug' => $this->slug,
                 'avatar' => $url,
@@ -100,7 +100,7 @@ class NewProduct extends Component
 
             if ($launched_status) {
                 $randomTask = Arr::random(config('taskord.tasks.templates'));
-                (new CreateNewTask(user(), [
+                (new CreateNewTask(auth()->user(), [
                     'product_id' => $product->id,
                     'task' => sprintf($randomTask, $product->slug),
                     'done' => true,
@@ -109,7 +109,7 @@ class NewProduct extends Component
                 ]))();
             }
 
-            user()->touch();
+            auth()->user()->touch();
             activity()
                 ->withProperties(['type' => 'Product'])
                 ->log('Created a new product | Product Slug: #'.$product->slug);

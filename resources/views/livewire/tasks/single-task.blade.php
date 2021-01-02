@@ -36,7 +36,7 @@
                     {!! Helper::renderDueDate($task->due_at) !!}
                 @endif
             </span>
-            @if (user()->id === $task->user->id)
+            @if (auth()->user()->id === $task->user->id)
                 @if ($confirming === $task->id)
                 <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled" aria-label="Confirm Delete">
                     Are you sure?

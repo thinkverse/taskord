@@ -24,7 +24,7 @@ class Follow extends Component
         $throttler = Throttle::get(Request::instance(), 10, 5);
         $throttler->hit();
         if (count($throttler) > 20) {
-            Helper::flagAccount(user());
+            Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
             activity()
@@ -35,17 +35,17 @@ class Follow extends Component
         }
 
         if (Auth::check()) {
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (user()->id === $this->user->id) {
+            if (auth()->user()->id === $this->user->id) {
                 return $this->alert('warning', 'You can\'t follow yourself!');
             } else {
-                user()->toggleFollow($this->user);
+                auth()->user()->toggleFollow($this->user);
                 $this->user->refresh();
-                user()->touch();
-                if (user()->isFollowing($this->user)) {
-                    $this->user->notify(new Followed(user()));
+                auth()->user()->touch();
+                if (auth()->user()->isFollowing($this->user)) {
+                    $this->user->notify(new Followed(auth()->user()));
                 }
                 activity()
                     ->withProperties(['type' => 'User'])

@@ -38,11 +38,11 @@ class CreateComment extends Component
                 'comment' => 'required',
             ]);
 
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
@@ -53,21 +53,21 @@ class CreateComment extends Component
             }
 
             $comment = Comment::create([
-                'user_id' =>  user()->id,
+                'user_id' =>  auth()->user()->id,
                 'task_id' =>  $this->task->id,
                 'comment' => $this->comment,
             ]);
-            user()->touch();
+            auth()->user()->touch();
 
             $this->emit('commentAdded');
             $this->comment = '';
             Helper::mentionUsers($users, $comment, 'comment');
             Helper::notifySubscribers($comment->task->subscribers, $comment, 'comment');
-            if (! user()->hasSubscribed($comment->task)) {
-                user()->subscribe($comment->task);
+            if (! auth()->user()->hasSubscribed($comment->task)) {
+                auth()->user()->subscribe($comment->task);
                 $this->emit('taskSubscribed');
             }
-            if (user()->id !== $this->task->user->id) {
+            if (auth()->user()->id !== $this->task->user->id) {
                 $this->task->user->notify(new Commented($comment));
                 givePoint(new CommentCreated($comment));
             }

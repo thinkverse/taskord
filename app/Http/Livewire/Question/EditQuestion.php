@@ -41,11 +41,11 @@ class EditQuestion extends Component
                 'body' => 'required|min:3|max:10000',
             ]);
 
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
@@ -53,12 +53,12 @@ class EditQuestion extends Component
 
             $patronOnly = ! $this->patronOnly ? false : true;
 
-            if (user()->staffShip or user()->id === $question->user_id) {
+            if (auth()->user()->staffShip or auth()->user()->id === $question->user_id) {
                 $question->title = $this->title;
                 $question->body = $this->body;
                 $question->patronOnly = $this->patronOnly;
                 $question->save();
-                user()->touch();
+                auth()->user()->touch();
 
                 activity()
                     ->withProperties(['type' => 'Question'])

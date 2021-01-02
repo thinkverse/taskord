@@ -12,8 +12,8 @@
     <div class="col-lg-7 mt-5">
         @auth
         @php
-        $username = "@".user()->username;
-        $email = urlencode(user()->email);
+        $username = "@".auth()->user()->username;
+        $email = urlencode(auth()->user()->email);
         $url = "https://tally.so/embed/5mVVam?username=".$username."&email=".$email."&transparentBackground=1";
         @endphp
         <iframe

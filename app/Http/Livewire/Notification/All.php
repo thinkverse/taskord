@@ -41,7 +41,7 @@ class All extends Component
     public function render()
     {
         return view('livewire.notification.all', [
-            'notifications' => $this->readyToLoad ? $this->paginate(user()->notifications) : [],
+            'notifications' => $this->readyToLoad ? $this->paginate(auth()->user()->notifications) : [],
         ]);
     }
 }

@@ -14,7 +14,7 @@ class AuthMutator
     public function __invoke($_, array $args)
     {
         if (Auth::check()) {
-            if (user()->isSuspended) {
+            if (auth()->user()->isSuspended) {
                 return [
                     'response' => 'Your account is suspended!',
                 ];
@@ -27,15 +27,15 @@ class AuthMutator
             $credentials = Arr::only($args, ['email', 'password']);
 
             if (Auth::once($credentials)) {
-                if (user()->isSuspended) {
+                if (auth()->user()->isSuspended) {
                     return [
                         'response' => 'Your account is suspended!',
                     ];
                 }
 
                 return [
-                    'user' => user(),
-                    'token' => user()->api_token,
+                    'user' => auth()->user(),
+                    'token' => auth()->user()->api_token,
                     'response' => 'Success',
                 ];
             } else {

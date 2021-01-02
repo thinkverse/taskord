@@ -22,9 +22,9 @@ class Status extends Component
     public function clearStatus()
     {
         if (Auth::check()) {
-            user()->status = null;
-            user()->status_emoji = null;
-            user()->save();
+            auth()->user()->status = null;
+            auth()->user()->status_emoji = null;
+            auth()->user()->save();
             $this->emit('statusUpdated');
             activity()
                 ->withProperties(['type' => 'User'])
@@ -44,9 +44,9 @@ class Status extends Component
             }
 
             if (strlen($event['status']) !== 0) {
-                user()->status = $event['status'];
-                user()->status_emoji = $event['status_emoji'];
-                user()->save();
+                auth()->user()->status = $event['status'];
+                auth()->user()->status_emoji = $event['status_emoji'];
+                auth()->user()->save();
                 $this->emit('statusUpdated');
                 activity()
                     ->withProperties(['type' => 'User'])
@@ -54,9 +54,9 @@ class Status extends Component
 
                 return $this->alert('success', 'Status set successfully!');
             } else {
-                user()->status = null;
-                user()->status_emoji = null;
-                user()->save();
+                auth()->user()->status = null;
+                auth()->user()->status_emoji = null;
+                auth()->user()->save();
                 $this->emit('statusUpdated');
                 activity()
                     ->withProperties(['type' => 'User'])

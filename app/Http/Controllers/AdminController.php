@@ -8,9 +8,9 @@ class AdminController extends Controller
 {
     public static function toggle()
     {
-        if (user()->staffShip) {
-            user()->staffShip = false;
-            user()->save();
+        if (auth()->user()->staffShip) {
+            auth()->user()->staffShip = false;
+            auth()->user()->save();
             activity()
                 ->withProperties(['type' => 'Admin'])
                 ->log('Disabled Staff Ship');
@@ -19,8 +19,8 @@ class AdminController extends Controller
                 'status' => 'disabled',
             ]);
         } else {
-            user()->staffShip = true;
-            user()->save();
+            auth()->user()->staffShip = true;
+            auth()->user()->save();
             activity()
                 ->withProperties(['type' => 'Admin'])
                 ->log('Enabled Staff Ship');

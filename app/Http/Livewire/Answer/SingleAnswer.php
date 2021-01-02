@@ -24,7 +24,7 @@ class SingleAnswer extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(user());
+            Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
             activity()
@@ -35,13 +35,13 @@ class SingleAnswer extends Component
         }
 
         if (Auth::check()) {
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (user()->id === $this->answer->user->id) {
+            if (auth()->user()->id === $this->answer->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own answer!');
             }
             Helper::togglePraise($this->answer, 'ANSWER');
@@ -56,7 +56,7 @@ class SingleAnswer extends Component
     public function hide()
     {
         if (Auth::check()) {
-            if (user()->isStaff and user()->staffShip) {
+            if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->answer);
                 activity()
                     ->withProperties(['type' => 'Admin'])
@@ -79,17 +79,17 @@ class SingleAnswer extends Component
     public function deleteAnswer()
     {
         if (Auth::check()) {
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (user()->staffShip or user()->id === $this->answer->user->id) {
+            if (auth()->user()->staffShip or auth()->user()->id === $this->answer->user->id) {
                 activity()
                     ->withProperties(['type' => 'Answer'])
                     ->log('Deleted an answer | Answer ID: '.$this->answer->id);
                 $this->answer->delete();
                 $this->emit('answerDeleted');
-                user()->touch();
+                auth()->user()->touch();
 
                 return $this->alert('success', 'Answer has been deleted successfully!');
             } else {

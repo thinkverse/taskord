@@ -31,7 +31,7 @@ class SingleTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(user());
+            Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
             activity()
@@ -42,20 +42,20 @@ class SingleTask extends Component
         }
 
         if (Auth::check()) {
-            if (user()->id === $this->task->user->id) {
+            if (auth()->user()->id === $this->task->user->id) {
                 if ($this->task->done) {
                     $this->task->done_at = carbon();
-                    user()->touch();
+                    auth()->user()->touch();
                     activity()
                         ->withProperties(['type' => 'Task'])
                         ->log('Updated a task as pending | Task ID: '.$this->task->id);
                 } else {
                     $this->task->done_at = carbon();
-                    user()->touch();
-                    if (user()->hasGoal) {
-                        user()->daily_goal_reached++;
-                        user()->save();
-                        CheckGoal::dispatch(user(), $this->task);
+                    auth()->user()->touch();
+                    if (auth()->user()->hasGoal) {
+                        auth()->user()->daily_goal_reached++;
+                        auth()->user()->save();
+                        CheckGoal::dispatch(auth()->user(), $this->task);
                     }
                     givePoint(new TaskCompleted($this->task));
                     activity()
@@ -80,7 +80,7 @@ class SingleTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(user());
+            Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
             activity()
@@ -91,14 +91,14 @@ class SingleTask extends Component
         }
 
         if (Auth::check()) {
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (user()->id === $this->task->user->id) {
+            if (auth()->user()->id === $this->task->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own task!');
             }
             Helper::togglePraise($this->task, 'TASK');
@@ -113,7 +113,7 @@ class SingleTask extends Component
     public function hide()
     {
         if (Auth::check()) {
-            if (user()->isStaff and user()->staffShip) {
+            if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->task);
                 activity()
                     ->withProperties(['type' => 'Admin'])
@@ -136,11 +136,11 @@ class SingleTask extends Component
     public function deleteTask()
     {
         if (Auth::check()) {
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (user()->staffShip or user()->id === $this->task->user->id) {
+            if (auth()->user()->staffShip or auth()->user()->id === $this->task->user->id) {
                 activity()
                     ->withProperties(['type' => 'Task'])
                     ->log('Deleted a task | Task ID: '.$this->task->id);
@@ -149,7 +149,7 @@ class SingleTask extends Component
                 }
                 $this->task->delete();
                 $this->emitUp('taskDeleted');
-                user()->touch();
+                auth()->user()->touch();
 
                 return $this->alert('success', 'Task has been deleted successfully!');
             } else {

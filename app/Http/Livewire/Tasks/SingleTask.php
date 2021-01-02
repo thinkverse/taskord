@@ -27,7 +27,7 @@ class SingleTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(user());
+            Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
             activity()
@@ -40,14 +40,14 @@ class SingleTask extends Component
         if (Auth::check()) {
             $this->task->done = ! $this->task->done;
             $this->task->done_at = carbon();
-            user()->touch();
+            auth()->user()->touch();
             givePoint(new TaskCompleted($this->task));
             $this->task->save();
             $this->emit('taskChecked');
-            if (user()->hasGoal and $this->task->done) {
-                user()->daily_goal_reached++;
-                user()->save();
-                CheckGoal::dispatch(user(), $this->task);
+            if (auth()->user()->hasGoal and $this->task->done) {
+                auth()->user()->daily_goal_reached++;
+                auth()->user()->save();
+                CheckGoal::dispatch(auth()->user(), $this->task);
             }
             activity()
                 ->withProperties(['type' => 'Task'])
@@ -67,11 +67,11 @@ class SingleTask extends Component
     public function deleteTask()
     {
         if (Auth::check()) {
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (user()->staffShip or user()->id === $this->task->user->id) {
+            if (auth()->user()->staffShip or auth()->user()->id === $this->task->user->id) {
                 activity()
                     ->withProperties(['type' => 'Task'])
                     ->log('Deleted a task | Task ID: '.$this->task->id);
@@ -80,7 +80,7 @@ class SingleTask extends Component
                 }
                 $this->task->delete();
                 $this->emitUp('taskDeleted');
-                user()->touch();
+                auth()->user()->touch();
             } else {
                 return $this->alert('error', 'Forbidden!');
             }

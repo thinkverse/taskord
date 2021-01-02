@@ -2,9 +2,9 @@
     <a class="nav-link text-white" href="{{ route('notifications.unread') }}" aria-label="Notifications">
         <x-heroicon-o-bell class="heroicon-notification me-0" />
         @auth
-        @if (user()->unreadNotifications->count('id') !== 0)
+        @if (auth()->user()->unreadNotifications->count('id') !== 0)
         <span class="notification-count bg-danger fw-bold rounded">
-            {{ user()->unreadNotifications->count('id') }}
+            {{ auth()->user()->unreadNotifications->count('id') }}
         </span>
         @endif
         @endauth

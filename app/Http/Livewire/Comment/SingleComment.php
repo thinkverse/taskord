@@ -24,7 +24,7 @@ class SingleComment extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(user());
+            Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
             activity()
@@ -35,14 +35,14 @@ class SingleComment extends Component
         }
 
         if (Auth::check()) {
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (user()->id === $this->comment->user->id) {
+            if (auth()->user()->id === $this->comment->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own comment!');
             }
             Helper::togglePraise($this->comment, 'COMMENT');
@@ -57,7 +57,7 @@ class SingleComment extends Component
     public function hide()
     {
         if (Auth::check()) {
-            if (user()->isStaff and user()->staffShip) {
+            if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->comment);
                 activity()
                     ->withProperties(['type' => 'Admin'])
@@ -80,16 +80,16 @@ class SingleComment extends Component
     public function deleteComment()
     {
         if (Auth::check()) {
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (user()->staffShip or user()->id === $this->comment->user->id) {
+            if (auth()->user()->staffShip or auth()->user()->id === $this->comment->user->id) {
                 activity()
                     ->withProperties(['type' => 'Comment'])
                     ->log('Deleted a comment | Comment ID: '.$this->comment->id);
                 $this->comment->delete();
                 $this->emit('commentDeleted');
-                user()->touch();
+                auth()->user()->touch();
 
                 return $this->alert('success', 'Comment has been deleted successfully!');
             } else {

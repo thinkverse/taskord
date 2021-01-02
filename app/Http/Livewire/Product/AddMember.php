@@ -27,12 +27,12 @@ class AddMember extends Component
             if ($user->products->contains($this->product) or $user->id === $this->product->owner->id) {
                 return $this->alert('error', 'User is already in the team');
             }
-            if (user()->username === $this->username) {
+            if (auth()->user()->username === $this->username) {
                 return $this->alert('error', 'You can\'t add yourself to the team!');
             }
             $user->products()->attach($this->product);
             $this->alert('success', 'User has been added to the team!');
-            $user->notify(new MemberAdded($this->product, user()->id));
+            $user->notify(new MemberAdded($this->product, auth()->user()->id));
             activity()
                 ->withProperties(['type' => 'Product'])
                 ->log('Added @'.$user->username.' to #'.$this->product->slug);

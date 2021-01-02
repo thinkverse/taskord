@@ -23,7 +23,7 @@ class Rsvp extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(user());
+            Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
             activity()
@@ -34,18 +34,18 @@ class Rsvp extends Component
         }
 
         if (Auth::check()) {
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (user()->id === $this->meetup->user_id) {
+            if (auth()->user()->id === $this->meetup->user_id) {
                 return $this->alert('warning', 'You can\'t RSVP your own meetup!');
             } else {
-                user()->toggleSubscribe($this->meetup);
+                auth()->user()->toggleSubscribe($this->meetup);
                 $this->meetup->refresh();
-                user()->touch();
+                auth()->user()->touch();
             }
         } else {
             return $this->alert('error', 'Forbidden!');

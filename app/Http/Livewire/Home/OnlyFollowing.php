@@ -10,14 +10,14 @@ class OnlyFollowing extends Component
     public function onlyFollowingsTasks()
     {
         if (Auth::check()) {
-            user()->onlyFollowingsTasks = ! user()->onlyFollowingsTasks;
-            user()->save();
+            auth()->user()->onlyFollowingsTasks = ! auth()->user()->onlyFollowingsTasks;
+            auth()->user()->save();
             $this->emit('onlyFollowings');
             activity()
                     ->withProperties(['type' => 'User'])
                     ->log('Toggled only followings tasks');
 
-            if (user()->onlyFollowingsTasks) {
+            if (auth()->user()->onlyFollowingsTasks) {
                 return $this->alert('success', 'Only following users tasks will be visible!');
             } else {
                 return $this->alert('success', 'All users tasks will be visible!');

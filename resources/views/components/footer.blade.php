@@ -24,7 +24,7 @@
         Contact
     </a>
     @auth
-    @if (user()->staffShip)
+    @if (auth()->user()->staffShip)
     <span class="pe-2 text-danger">
         Admin mode on
     </span>

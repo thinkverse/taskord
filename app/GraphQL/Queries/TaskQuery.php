@@ -22,7 +22,7 @@ class TaskQuery
     public function hasPraised($task, array $args)
     {
         if (Auth::check()) {
-            return user()->hasLiked($task);
+            return auth()->user()->hasLiked($task);
         } else {
             return null;
         }

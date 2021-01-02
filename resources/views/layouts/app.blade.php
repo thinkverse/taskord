@@ -21,8 +21,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @auth
-    @if (user()->isPatron or user()->isStaff)
-    @if (user()->darkMode)
+    @if (auth()->user()->isPatron or auth()->user()->isStaff)
+    @if (auth()->user()->darkMode)
     <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
     @endif
     @endif
@@ -35,8 +35,8 @@
 <body>
     <div id="app">
         @auth
-        @if (user()->isStaff)
-            @if (user()->staffShip)
+        @if (auth()->user()->isStaff)
+            @if (auth()->user()->staffShip)
             <div class="admin-bar">
                 @livewire('admin.adminbar')
             </div>
@@ -52,7 +52,7 @@
             </div>
         @endif
         @auth
-        @if (user()->isFlagged)
+        @if (auth()->user()->isFlagged)
         <div class="alert alert-danger rounded-0" role="alert">
             <div class="fw-bold">
                 <x-heroicon-o-flag class="heroicon" />
@@ -63,7 +63,7 @@
             </div>
         </div>
         @endif
-        @if (!user()->hasVerifiedEmail())
+        @if (!auth()->user()->hasVerifiedEmail())
         <div class="alert alert-warning rounded-0" role="alert">
             <div class="fw-bold">
                 <x-heroicon-o-mail class="heroicon" />

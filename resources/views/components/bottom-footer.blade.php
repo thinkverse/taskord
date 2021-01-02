@@ -42,7 +42,7 @@
             GitLab
         </a>
         @auth
-        @if (user()->staffShip)
+        @if (auth()->user()->staffShip)
         <span class="text-danger">
             Admin mode on
         </span>

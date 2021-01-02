@@ -28,7 +28,7 @@ class Api extends Component
         $throttler = Throttle::get(Request::instance(), 5, 5);
         $throttler->hit();
         if (count($throttler) > 10) {
-            Helper::flagAccount(user());
+            Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
             activity()
@@ -39,9 +39,9 @@ class Api extends Component
         }
 
         if (Auth::check()) {
-            if (user()->id === $this->user->id) {
-                user()->api_token = Str::random(60);
-                user()->save();
+            if (auth()->user()->id === $this->user->id) {
+                auth()->user()->api_token = Str::random(60);
+                auth()->user()->save();
                 $this->emit('tokenRegenerated');
                 activity()
                     ->withProperties(['type' => 'User'])

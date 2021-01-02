@@ -27,7 +27,7 @@ class Subscribe extends Component
         $throttler = Throttle::get(Request::instance(), 10, 5);
         $throttler->hit();
         if (count($throttler) > 20) {
-            Helper::flagAccount(user());
+            Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
             activity()
@@ -38,18 +38,18 @@ class Subscribe extends Component
         }
 
         if (Auth::check()) {
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (user()->id === $this->task->user->id) {
+            if (auth()->user()->id === $this->task->user->id) {
                 return $this->alert('warning', 'You can\'t subscribe your own task!');
             } else {
-                user()->toggleSubscribe($this->task);
+                auth()->user()->toggleSubscribe($this->task);
                 $this->task->refresh();
-                user()->touch();
+                auth()->user()->touch();
                 activity()
                     ->withProperties(['type' => 'Task'])
                     ->log('Toggled task subscribe | Task ID: '.$this->task->id);

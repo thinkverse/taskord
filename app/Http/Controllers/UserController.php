@@ -46,7 +46,7 @@ class UserController extends Controller
                 ->count('id'),
         ];
 
-        if (Auth::check() && user()->id === $user->id or Auth::check() && user()->staffShip) {
+        if (Auth::check() && auth()->user()->id === $user->id or Auth::check() && auth()->user()->staffShip) {
             return view($type, $response);
         } elseif ($user->isFlagged) {
             return view('errors.404');
@@ -58,51 +58,51 @@ class UserController extends Controller
     public function profileSettings()
     {
         return view('user.settings.profile', [
-            'user' => user(),
+            'user' => auth()->user(),
         ]);
     }
 
     public function accountSettings()
     {
         return view('user.settings.account', [
-            'user' => user(),
+            'user' => auth()->user(),
         ]);
     }
 
     public function patronSettings()
     {
         return view('user.settings.patron', [
-            'user' => user(),
+            'user' => auth()->user(),
         ]);
     }
 
     public function passwordSettings()
     {
         return view('user.settings.password', [
-            'user' => user(),
+            'user' => auth()->user(),
         ]);
     }
 
     public function notificationsSettings()
     {
         return view('user.settings.notifications', [
-            'user' => user(),
+            'user' => auth()->user(),
         ]);
     }
 
     public function exportAccount()
     {
         if (Auth::check()) {
-            $account = User::find(user()->id);
+            $account = User::find(auth()->user()->id);
             $followings = $account->followings;
             $followers = $account->followers;
-            $tasks = Task::where('user_id', user()->id)->get();
-            $comment = Comment::where('user_id', user()->id)->get();
-            $products = Product::where('user_id', user()->id)->get();
-            $product_updates = ProductUpdate::where('user_id', user()->id)->get();
-            $questions = Question::where('user_id', user()->id)->get();
-            $answers = Answer::where('user_id', user()->id)->get();
-            $patron = Patron::where('user_id', user()->id)->get();
+            $tasks = Task::where('user_id', auth()->user()->id)->get();
+            $comment = Comment::where('user_id', auth()->user()->id)->get();
+            $products = Product::where('user_id', auth()->user()->id)->get();
+            $product_updates = ProductUpdate::where('user_id', auth()->user()->id)->get();
+            $questions = Question::where('user_id', auth()->user()->id)->get();
+            $answers = Answer::where('user_id', auth()->user()->id)->get();
+            $patron = Patron::where('user_id', auth()->user()->id)->get();
             $data = collect([
                 'account' => $account,
                 'followings' => $followings,
@@ -134,13 +134,13 @@ class UserController extends Controller
     public function exportLogs()
     {
         if (Auth::check()) {
-            $logs = Activity::causedBy(user())
+            $logs = Activity::causedBy(auth()->user())
                 ->get();
             $data = collect([
                 'logs' => $logs,
             ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-            $file_name = carbon()->format('d_m_Y_h_i_s').'_'.user()->username.'_logs.json';
+            $file_name = carbon()->format('d_m_Y_h_i_s').'_'.auth()->user()->username.'_logs.json';
             $response = response($data, 200, [
                 'Content-Type' => 'application/json',
                 'Content-Disposition' => 'attachment; filename="'.$file_name.'"',
@@ -158,35 +158,35 @@ class UserController extends Controller
     public function integrationsSettings()
     {
         return view('user.settings.integrations', [
-            'user' => user(),
+            'user' => auth()->user(),
         ]);
     }
 
     public function apiSettings()
     {
         return view('user.settings.api', [
-            'user' => user(),
+            'user' => auth()->user(),
         ]);
     }
 
     public function logsSettings()
     {
         return view('user.settings.logs', [
-            'user' => user(),
+            'user' => auth()->user(),
         ]);
     }
 
     public function dataSettings()
     {
         return view('user.settings.data', [
-            'user' => user(),
+            'user' => auth()->user(),
         ]);
     }
 
     public function deleteSettings()
     {
         return view('user.settings.delete', [
-            'user' => user(),
+            'user' => auth()->user(),
         ]);
     }
 
@@ -225,9 +225,9 @@ class UserController extends Controller
 
     public function darkMode()
     {
-        if (user()->darkMode) {
-            user()->darkMode = false;
-            user()->save();
+        if (auth()->user()->darkMode) {
+            auth()->user()->darkMode = false;
+            auth()->user()->save();
             activity()
                 ->withProperties(['type' => 'User'])
                 ->log('Disabled Dark mode');
@@ -236,8 +236,8 @@ class UserController extends Controller
                 'status' => 'disabled',
             ]);
         } else {
-            user()->darkMode = true;
-            user()->save();
+            auth()->user()->darkMode = true;
+            auth()->user()->save();
             activity()
                 ->withProperties(['type' => 'User'])
                 ->log('Enabled Dark mode');

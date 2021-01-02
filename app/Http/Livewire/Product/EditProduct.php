@@ -72,7 +72,7 @@ class EditProduct extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
 
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
@@ -92,7 +92,7 @@ class EditProduct extends Component
                 $product->avatar = $avatar;
             }
 
-            if (user()->staffShip or user()->id === $product->owner->id) {
+            if (auth()->user()->staffShip or auth()->user()->id === $product->owner->id) {
                 $isNewelyLaunched = false;
 
                 if ($this->launched and ! $product->launched) {
@@ -114,7 +114,7 @@ class EditProduct extends Component
 
                 if ($isNewelyLaunched) {
                     $randomTask = Arr::random(config('taskord.tasks.templates'));
-                    (new CreateNewTask(user(), [
+                    (new CreateNewTask(auth()->user(), [
                         'product_id' => $product->id,
                         'task' => sprintf($randomTask, $product->slug),
                         'done' => true,
@@ -123,7 +123,7 @@ class EditProduct extends Component
                     ]))();
                 }
 
-                user()->touch();
+                auth()->user()->touch();
 
                 $this->flash('success', 'Product has been updated!');
                 activity()
@@ -147,15 +147,15 @@ class EditProduct extends Component
     public function deleteProduct()
     {
         if (Auth::check()) {
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (user()->staffShip or user()->id === $this->product->owner->id) {
+            if (auth()->user()->staffShip or auth()->user()->id === $this->product->owner->id) {
                 activity()
                     ->withProperties(['type' => 'Product'])
                     ->log('Deleted a product | Product Slug: #'.$this->product->slug);
@@ -166,7 +166,7 @@ class EditProduct extends Component
                 $this->product->tasks()->delete();
                 $this->product->webhooks()->delete();
                 $this->product->delete();
-                user()->touch();
+                auth()->user()->touch();
                 $this->flash('success', 'Product has been deleted!');
 
                 return redirect()->route('products.newest');

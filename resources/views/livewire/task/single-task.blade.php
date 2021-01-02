@@ -54,7 +54,7 @@
             {{ $task->done ? "checked" : "unchecked" }}
             {{
                 Auth::check() &&
-                user()->id === $task->user_id ?
+                auth()->user()->id === $task->user_id ?
                 "enabled" : "disabled"
             }}
         />
@@ -94,7 +94,7 @@
         <div class="pt-3">
             @auth
             @if (!$task->user->isPrivate and !$task->hidden)
-            @if (user()->hasLiked($task))
+            @if (auth()->user()->hasLiked($task))
             <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
                 <x-heroicon-s-thumb-up class="heroicon-small me-0" />
                 <span class="small text-white fw-bold">
@@ -147,7 +147,7 @@
                 @endif
             </a>
             @auth
-            @if (user()->staffShip or user()->id === $task->user->id)
+            @if (auth()->user()->staffShip or auth()->user()->id === $task->user->id)
                 @if ($confirming === $task->id)
                 <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
                     Are you sure?
@@ -158,7 +158,7 @@
                 </button>
                 @endif
             @endif
-            @if (user()->staffShip)
+            @if (auth()->user()->staffShip)
             <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins" aria-label="Hide">
                 <x-heroicon-o-eye-off class="heroicon-small me-0" /> Hide
             </button>
@@ -173,10 +173,10 @@
             {{
                 !$task->done_at ?
                     carbon($task->created_at)
-                        ->setTimezone(user()->timezone)
+                        ->setTimezone(auth()->user()->timezone)
                         ->format('g:i A · M d, Y') :
                     carbon($task->done_at)
-                        ->setTimezone(user()->timezone)
+                        ->setTimezone(auth()->user()->timezone)
                         ->format('g:i A · M d, Y')
             }}
             @else

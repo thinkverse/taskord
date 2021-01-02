@@ -230,7 +230,7 @@
                                         {{ $user->username }}
                                     @endif
                                     @auth
-                                    @if (user()->staffShip)
+                                    @if (auth()->user()->staffShip)
                                         <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                                     @endif
                                     @endauth
@@ -246,7 +246,7 @@
                                         </a>
                                     @endif
                                     @auth
-                                    @if ($user->isFollowing(user()))
+                                    @if ($user->isFollowing(auth()->user()))
                                         <span class="ms-2 badge bg-light text-secondary">Follows you</span>
                                     @endif
                                     @endauth

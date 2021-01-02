@@ -21,23 +21,23 @@ class CreateQuestion extends Component
                 'body' => 'required|min:3|max:10000',
             ]);
 
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
             $patronOnly = ! $this->patronOnly ? false : true;
 
             $question = Question::create([
-                'user_id' =>  user()->id,
+                'user_id' =>  auth()->user()->id,
                 'title' => $this->title,
                 'body' => $this->body,
                 'patronOnly' => $patronOnly,
             ]);
-            user()->touch();
+            auth()->user()->touch();
 
             givePoint(new QuestionCreated($question));
             activity()

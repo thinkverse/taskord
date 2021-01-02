@@ -40,11 +40,11 @@ class LoadMore extends Component
         if ($this->loadMore) {
             if ($this->type === 'unread') {
                 return view('livewire.notification.unread', [
-                    'notifications' => $this->paginate(user()->notifications),
+                    'notifications' => $this->paginate(auth()->user()->notifications),
                 ]);
             } else {
                 return view('livewire.notification.all', [
-                    'notifications' => $this->paginate(user()->notifications),
+                    'notifications' => $this->paginate(auth()->user()->notifications),
                 ]);
             }
         } else {

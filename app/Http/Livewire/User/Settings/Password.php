@@ -36,7 +36,7 @@ class Password extends Component
     public function updatePassword()
     {
         if (Auth::check()) {
-            if (user()->id === $this->user->id) {
+            if (auth()->user()->id === $this->user->id) {
                 $this->validate([
                     'currentPassword' => 'required',
                     'newPassword' => 'required|min:8|pwned',
@@ -46,12 +46,12 @@ class Password extends Component
                     'newPassword.pwned' => 'This password has been pwned before',
                 ]);
 
-                if (! Hash::check($this->currentPassword, user()->password)) {
+                if (! Hash::check($this->currentPassword, auth()->user()->password)) {
                     return $this->alert('error', 'Current password does not match!');
                 }
 
-                user()->password = Hash::make($this->newPassword);
-                user()->save();
+                auth()->user()->password = Hash::make($this->newPassword);
+                auth()->user()->save();
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('Changed account password');

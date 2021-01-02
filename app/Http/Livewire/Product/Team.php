@@ -23,7 +23,7 @@ class Team extends Component
     {
         if (Auth::check()) {
             $this->user->products()->detach($this->product);
-            $this->user->notify(new MemberRemoved($this->product, user()->id));
+            $this->user->notify(new MemberRemoved($this->product, auth()->user()->id));
             activity()
                 ->withProperties(['type' => 'Product'])
                 ->log('Removed @'.$this->user->username.' from #'.$this->product->slug);

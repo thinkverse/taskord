@@ -30,9 +30,9 @@ class LoadMore extends Component
     public function render()
     {
         if ($this->loadMore) {
-            if (Auth::check() && user()->onlyFollowingsTasks) {
-                $userIds = user()->followings->pluck('id');
-                $userIds->push(user()->id);
+            if (Auth::check() && auth()->user()->onlyFollowingsTasks) {
+                $userIds = auth()->user()->followings->pluck('id');
+                $userIds->push(auth()->user()->id);
                 $tasks = Task::cacheFor(60 * 60)
                     ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images')
                     ->whereIn('user_id', $userIds)

@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             @auth
-                @if (!user()->isFlagged)
+                @if (!auth()->user()->isFlagged)
                 @livewire('tasks.create-task')
                 @endif
             @endauth

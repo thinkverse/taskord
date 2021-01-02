@@ -26,7 +26,7 @@ class SingleQuestion extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(user());
+            Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
             activity()
@@ -37,14 +37,14 @@ class SingleQuestion extends Component
         }
 
         if (Auth::check()) {
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (user()->id === $this->question->user->id) {
+            if (auth()->user()->id === $this->question->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own question!');
             }
             Helper::togglePraise($this->question, 'QUESTION');
@@ -59,7 +59,7 @@ class SingleQuestion extends Component
     public function hide()
     {
         if (Auth::check()) {
-            if (user()->isStaff and user()->staffShip) {
+            if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->question);
                 activity()
                     ->withProperties(['type' => 'Admin'])
@@ -82,16 +82,16 @@ class SingleQuestion extends Component
     public function deleteQuestion()
     {
         if (Auth::check()) {
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (user()->staffShip or user()->id === $this->question->user_id) {
+            if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {
                 activity()
                     ->withProperties(['type' => 'Question'])
                     ->log('Deleted a question | Question ID: '.$this->question->id);
                 $this->question->delete();
-                user()->touch();
+                auth()->user()->touch();
                 $this->flash('success', 'Question has been deleted successfully!');
 
                 return redirect()->route('questions.newest');

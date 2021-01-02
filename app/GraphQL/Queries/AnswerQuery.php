@@ -22,7 +22,7 @@ class AnswerQuery
     public function hasPraised($answer, array $args)
     {
         if (Auth::check()) {
-            return user()->hasLiked($answer);
+            return auth()->user()->hasLiked($answer);
         } else {
             return null;
         }

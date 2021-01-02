@@ -23,20 +23,20 @@ class TaskMutator
         }
 
         if (Auth::check()) {
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return [
                     'response' => 'Your email is not verified!',
                 ];
             }
 
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return [
                     'response' => 'Your account is flagged!',
                 ];
             }
 
             $task = Task::create([
-                'user_id' =>  user()->id,
+                'user_id' =>  auth()->user()->id,
                 'product_id' =>  null,
                 'task' => $args['task'],
                 'done' => $args['done'],
@@ -70,13 +70,13 @@ class TaskMutator
         }
 
         if (Auth::check()) {
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return [
                     'response' => 'Your email is not verified!',
                 ];
             }
 
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return [
                     'response' => 'Your account is flagged!',
                 ];
@@ -85,7 +85,7 @@ class TaskMutator
             $task = Task::find($args['id']);
 
             if ($task) {
-                if ($task->user->id === user()->id) {
+                if ($task->user->id === auth()->user()->id) {
                     return [
                         'task' => $task,
                         'response' => 'You can\'t praise your own task!',
@@ -126,7 +126,7 @@ class TaskMutator
         }
 
         if (Auth::check()) {
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return [
                     'response' => 'Your account is flagged!',
                 ];
@@ -135,10 +135,10 @@ class TaskMutator
             $task = Task::find($args['id']);
 
             if ($task) {
-                if (user()->id === $task->user->id) {
+                if (auth()->user()->id === $task->user->id) {
                     Storage::delete($task->image);
                     $task->delete();
-                    user()->touch();
+                    auth()->user()->touch();
 
                     return [
                         'response' => 'Task deleted successfully!',

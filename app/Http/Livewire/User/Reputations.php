@@ -20,7 +20,7 @@ class Reputations extends Component
     public function render()
     {
         $points = DB::table('reputations')
-            ->where('payee_id', user()->id)
+            ->where('payee_id', auth()->user()->id)
             ->latest()
             ->paginate(50);
 

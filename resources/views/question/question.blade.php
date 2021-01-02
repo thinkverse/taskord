@@ -21,7 +21,7 @@
                 ])
             </div>
             @auth
-            @if (!user()->isFlagged)
+            @if (!auth()->user()->isFlagged)
                 @livewire('answer.create-answer', [
                     'question' => $question
                 ])

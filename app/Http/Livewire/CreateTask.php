@@ -38,8 +38,8 @@ class CreateTask extends Component
     public function checkState()
     {
         if (Auth::check()) {
-            user()->checkState = ! user()->checkState;
-            user()->save();
+            auth()->user()->checkState = ! auth()->user()->checkState;
+            auth()->user()->save();
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -65,7 +65,7 @@ class CreateTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(user());
+            Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
             activity()
@@ -85,11 +85,11 @@ class CreateTask extends Component
                 'images.max' => 'Only 5 Images are allowed!',
             ]);
 
-            if (! user()->hasVerifiedEmail()) {
+            if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (user()->isFlagged) {
+            if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
@@ -109,7 +109,7 @@ class CreateTask extends Component
                 $images = null;
             }
 
-            $state = user()->checkState;
+            $state = auth()->user()->checkState;
 
             if ($state) {
                 $done_at = carbon();
@@ -123,7 +123,7 @@ class CreateTask extends Component
                 $product_id = $this->product->id;
             }
 
-            $task = (new CreateNewTask(user(), [
+            $task = (new CreateNewTask(auth()->user(), [
                 'product_id' =>  $product_id,
                 'task' => $this->task,
                 'done' => $state,
@@ -137,10 +137,10 @@ class CreateTask extends Component
             $this->resetInputFields();
             Helper::mentionUsers($users, $task, 'task');
             givePoint(new TaskCreated($task));
-            if (user()->hasGoal and $task->done) {
-                user()->daily_goal_reached++;
-                user()->save();
-                CheckGoal::dispatch(user(), $task);
+            if (auth()->user()->hasGoal and $task->done) {
+                auth()->user()->daily_goal_reached++;
+                auth()->user()->save();
+                CheckGoal::dispatch(auth()->user(), $task);
             }
 
             return $this->alert('success', 'Task has been created!');

@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     @auth
-                    @if (user()->isPatron)
+                    @if (auth()->user()->isPatron)
                     <div class="mb-3">
                         <div class="fw-bold mb-2">Patron only</div>
                         <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patronOnly">

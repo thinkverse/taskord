@@ -10,9 +10,9 @@ class Delete extends Component
     public function deleteAll()
     {
         if (Auth::check()) {
-            user()->notifications()->delete();
+            auth()->user()->notifications()->delete();
             $this->emit('deleteAll');
-            user()->touch();
+            auth()->user()->touch();
             activity()
                 ->withProperties(['type' => 'Notification'])
                 ->log('Deleted all notifications');

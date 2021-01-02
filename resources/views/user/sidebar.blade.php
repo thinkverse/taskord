@@ -1,12 +1,12 @@
 <div class="col-sm d-inline-bock text-truncate">
     <div class="d-block">
         @auth
-        @if (user()->staffShip)
+        @if (auth()->user()->staffShip)
             @livewire('user.moderator', [
                 'user' => $user
             ])
         @endif
-        @if (user()->id === $user->id)
+        @if (auth()->user()->id === $user->id)
         @section('scripts')
         <script src="{{ mix('js/emoji-picker.js') }}"></script>
         @stop
