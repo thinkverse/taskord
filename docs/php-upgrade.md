@@ -40,4 +40,6 @@ sudo systemctl restart php8.0-fpm
 sudo supervisorctl reread
 sudo supervisorctl update
 sudo supervisorctl start all
+php artisan horizon:terminate
+php artisan horizon:purge
 ```
