@@ -111,7 +111,7 @@ if (! function_exists('carbon')) {
     {
         try {
             return new Carbon(...$args);
-        } catch (Exception) {
+        } catch (Exception $exception) {
             return null;
         }
     }
