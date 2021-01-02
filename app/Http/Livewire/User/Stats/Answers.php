@@ -25,7 +25,7 @@ class Answers extends Component
     {
         $created_at = $this->user->created_at->format('Y-m-d');
         $current_date = carbon()->format('Y-m-d');
-        $period = CarbonPeriod::create($created_at, '10 days', $current_date);
+        $period = CarbonPeriod::create($created_at, '7 days', $current_date);
         $answers_count = Answer::cacheFor(60 * 60)
             ->select('id')
             ->where('user_id', $this->user->id)
@@ -39,7 +39,7 @@ class Answers extends Component
             $count = Answer::cacheFor(60 * 60)
                 ->select('id')
                 ->where('user_id', $this->user->id)
-                ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(10)])
+                ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(7)])
                 ->count();
             array_push($answers, $count);
         }

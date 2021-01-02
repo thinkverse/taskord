@@ -25,7 +25,7 @@ class CompletedTasks extends Component
     {
         $created_at = $this->user->created_at->format('Y-m-d');
         $current_date = carbon()->format('Y-m-d');
-        $period = CarbonPeriod::create($created_at, '10 days', $current_date);
+        $period = CarbonPeriod::create($created_at, '7 days', $current_date);
         $completed_tasks_count = Task::cacheFor(60 * 60)
             ->select('id')
             ->where([
@@ -45,7 +45,7 @@ class CompletedTasks extends Component
                     ['user_id', $this->user->id],
                     ['done', true],
                 ])
-                ->whereBetween('done_at', [carbon($date), carbon($date)->addDays(10)])
+                ->whereBetween('done_at', [carbon($date), carbon($date)->addDays(7)])
                 ->count();
             array_push($completed_tasks, $count);
         }

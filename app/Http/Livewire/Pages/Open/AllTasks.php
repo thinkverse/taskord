@@ -19,7 +19,7 @@ class AllTasks extends Component
     {
         $created_at = carbon('Sep 1 2020')->format('Y-m-d');
         $current_date = carbon()->format('Y-m-d');
-        $period = CarbonPeriod::create($created_at, '10 days', $current_date);
+        $period = CarbonPeriod::create($created_at, '7 days', $current_date);
         $all_tasks_count = Task::cacheFor(60 * 60)
             ->select('id')
             ->count();
@@ -31,7 +31,7 @@ class AllTasks extends Component
             array_push($week_dates, carbon($date)->format('d M Y'));
             $count = Task::cacheFor(60 * 60)
                 ->select('id')
-                ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(10)])
+                ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(7)])
                 ->count();
             array_push($all_tasks, $count);
         }
