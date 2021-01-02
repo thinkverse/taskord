@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +13,7 @@ class AdminSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
         DB::table('users')->insert([
             'username' => 'test',
@@ -38,9 +37,9 @@ class AdminSeeder extends Seeder
             'isDeveloper' => true,
             'isBeta' => true,
             'isPatron' => true,
-            'created_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
-            'updated_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
-            'email_verified_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => '2020-04-20 13:14:01',
+            'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
 
         DB::table('users')->insert([
@@ -58,8 +57,8 @@ class AdminSeeder extends Seeder
             'isDeveloper' => true,
             'isBeta' => true,
             'isPatron' => true,
-            'created_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
-            'updated_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => '2020-04-20 13:14:01',
         ]);
 
         DB::table('users')->insert([
@@ -77,9 +76,8 @@ class AdminSeeder extends Seeder
             'isBeta' => true,
             'isPatron' => true,
             'api_token' => 'Ajfow3xVyqqHD3lRFirc6bRD8xzPov65XdXDbevR6ytxKS3pXoINUgIVRNpc',
-            'created_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
-            'updated_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
-            'email_verified_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
+            'created_at' => date('Y-m-d H:i:s'),
+            'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
 
         DB::table('users')->insert([
@@ -98,9 +96,8 @@ class AdminSeeder extends Seeder
             'isPatron' => true,
             'isFlagged' => true,
             'isSuspended' => true,
-            'created_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
-            'updated_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
-            'email_verified_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => '2020-04-20 13:14:01',
         ]);
     }
 }
