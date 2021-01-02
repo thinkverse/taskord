@@ -23,7 +23,7 @@ class CommentFactory extends Factory
     {
         return [
             'user_id' => $this->faker->numberBetween($min = 1, $max = 50),
-            'task_id' => $this->faker->numberBetween($min = 1, $max = 50),
+            'task_id' => $this->faker->numberBetween($min = 1, $max = 500),
             'comment' => $this->faker->sentence($nbWords = 10, $variableNbWords = true),
             'created_at' => $this->faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
             'updated_at' => $this->faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),

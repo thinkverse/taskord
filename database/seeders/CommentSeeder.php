@@ -19,6 +19,6 @@ class CommentSeeder extends Seeder
             'task_id' => 1,
         ]);
 
-        Comment::factory()->count(450)->create();
+        Comment::factory()->count(950)->create();
     }
 }
