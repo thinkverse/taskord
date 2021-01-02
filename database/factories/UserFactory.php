@@ -41,6 +41,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => Hash::make('test'),
             'remember_token' => Str::random(10),
+            'api_token' => Str::random(60),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
             'email_verified_at' => date('Y-m-d H:i:s'),
