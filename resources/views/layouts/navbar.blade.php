@@ -46,10 +46,10 @@
                         @if (auth()->user()->staffShip)
                         <li><a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">👥 Meetups</a></li>
                         <li><a class="dropdown-item text-dark" href="#">🤔 Help</a></li>
-                        <li><a class="dropdown-item text-dark" href="#">📊 Open</a></li>
                         @endif
                         <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">⚓ Integration</a></li>
                         @endauth
+                        <li><a class="dropdown-item text-dark" href="{{ route('open') }}">📊 Open</a></li>
                         <li><a class="dropdown-item text-dark" href="https://gitlab.com/taskord/taskord/-/milestones" target="_blank" rel="noreferrer">🚧 Roadmap</a></li>
                     </ul>
                 </li>
