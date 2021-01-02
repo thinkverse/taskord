@@ -17,6 +17,7 @@
         <div class="card-body">
             @livewire('pages.open.all-tasks')
             @livewire('pages.open.completed-tasks')
+            @livewire('pages.open.reputations')
         </div>
     </div>
 </div>
