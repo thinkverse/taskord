@@ -20,7 +20,7 @@
         chart: { type: 'bar', height: 300, animations: { enabled: false }},
         dataLabels: { enabled: false },
         series: [{name: 'Answers', data: <?php echo $answers ?> }],
-        xaxis: { categories: <?php echo $week_dates ?> }
+        xaxis: { categories: <?php echo $week_dates ?>, labels: { show: false } }
     }
 
     var answers = new ApexCharts(document.querySelector("#answers"), options);

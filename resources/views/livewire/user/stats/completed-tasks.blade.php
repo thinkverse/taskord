@@ -20,7 +20,7 @@
         chart: { type: 'bar', height: 300, animations: { enabled: false }},
         dataLabels: { enabled: false },
         series: [{name: 'Tasks', data: <?php echo $completed_tasks ?> }],
-        xaxis: { categories: <?php echo $week_dates ?> }
+        xaxis: { categories: <?php echo $week_dates ?>, labels: { show: false } }
     }
 
     var completedTasks = new ApexCharts(document.querySelector("#completedTasks"), options);
