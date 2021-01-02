@@ -22,6 +22,7 @@ class CompletedTasks extends Component
         $period = CarbonPeriod::create($created_at, '7 days', $current_date);
         $completed_tasks_count = Task::cacheFor(60 * 60)
             ->select('id')
+            ->where('done', true)
             ->count();
 
         $week_dates = [];
