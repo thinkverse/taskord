@@ -14,13 +14,6 @@ class TaskSeeder extends Seeder
      */
     public function run()
     {
-        Task::factory()->create([
-            'user_id' => 1,
-            'product_id' => 1,
-            'task' => 'Hello, World!',
-            'done' => true,
-        ]);
-
-        Task::factory()->count(499)->create();
+        Task::factory()->count(500)->create();
     }
 }
