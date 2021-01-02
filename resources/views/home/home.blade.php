@@ -90,7 +90,7 @@
                             {{ number_format(auth()->user()->followers()->count()) }}
                             {{ auth()->user()->followers()->count() === 1 ? "Follower" : "Followers" }}
                         </a>
-                        <span class="d-none d-lg-block d-xl-none">
+                        <span>
                             <x-heroicon-o-fire class="heroicon text-secondary" />
                             {{ number_format(auth()->user()->getPoints()) }}
                             {{ auth()->user()->getPoints() < 2 ? 'Reputation' : 'Reputations' }}
