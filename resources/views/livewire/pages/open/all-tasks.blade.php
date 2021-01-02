@@ -17,7 +17,7 @@
     @if ($readyToLoad)
     <script>
     var options = {
-        chart: { type: 'line', height: 300, animations: { enabled: false }},
+        chart: { type: 'bar', height: 300, animations: { enabled: false }},
         dataLabels: { enabled: false },
         series: [{name: 'Tasks', data: <?php echo $all_tasks ?> }],
         xaxis: { categories: <?php echo $week_dates ?>, labels: { show: false } }
