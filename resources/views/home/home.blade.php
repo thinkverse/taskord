@@ -83,17 +83,17 @@
                         <a class="text-dark" href="{{ route('user.following', ['username' => auth()->user()->username]) }}">
                             <x-heroicon-o-user-add class="heroicon text-secondary" />
                             {{ auth()->user()->followings()->count() }}
-                            Following
+                            {{ str_plural('Following', auth()->user()->followings()->count()) }}
                         </a>
                         <a class="text-dark" href="{{ route('user.followers', ['username' => auth()->user()->username]) }}">
                             <x-heroicon-o-users class="heroicon text-secondary" />
                             {{ number_format(auth()->user()->followers()->count()) }}
-                            {{ auth()->user()->followers()->count() === 1 ? "Follower" : "Followers" }}
+                            {{ str_plural('Follower', auth()->user()->followers()->count()) }}
                         </a>
-                        <span>
+                        <span title="{{ number_format(auth()->user()->getPoints()) }} Reputations">
                             <x-heroicon-o-fire class="heroicon text-secondary" />
                             {{ number_format(auth()->user()->getPoints()) }}
-                            {{ auth()->user()->getPoints() < 2 ? 'Reputation' : 'Reputations' }}
+                            {{ str_plural('Rep', auth()->user()->getPoints()) }}
                         </span>
                     </div>
                 </div>
