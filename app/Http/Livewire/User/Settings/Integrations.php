@@ -61,9 +61,7 @@ class Integrations extends Component
                     $this->name = '';
                     $this->product = '';
                     session()->flash('created', $webhook);
-                    activity()
-                        ->withProperties(['type' => 'User'])
-                        ->log('Created a new webhook | Webhook ID: '.$webhook->id);
+                    loggy('User', auth()->user(), 'Created a new webhook | Webhook ID: '.$webhook->id);
 
                     return $this->alert('success', 'New webhook has been created!');
                 } else {
@@ -81,9 +79,7 @@ class Integrations extends Component
     {
         if (Auth::check()) {
             if (auth()->user()->id === $this->user->id) {
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Deleted a webhook | Webhook ID: '.$id);
+                loggy('User', auth()->user(), 'Deleted a webhook | Webhook ID: '.$id);
                 $webhook = Webhook::find($id);
                 $webhook->delete();
                 $this->emit('webhookDeleted');

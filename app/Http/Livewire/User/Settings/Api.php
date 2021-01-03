@@ -41,9 +41,7 @@ class Api extends Component
                 auth()->user()->api_token = Str::random(60);
                 auth()->user()->save();
                 $this->emit('tokenRegenerated');
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Created a new API key');
+                loggy('User', auth()->user(), 'Created a new API key');
 
                 return $this->alert('success', 'New API key been generated successfully');
             } else {
