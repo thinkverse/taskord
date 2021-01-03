@@ -34,9 +34,7 @@ class Integrations extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            activity()
-                ->withProperties(['type' => 'Throttle'])
-                ->log('Rate limited while creating an API integration');
+            loggy('Throttle', auth()->user(), 'Rate limited while creating an API integration');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }

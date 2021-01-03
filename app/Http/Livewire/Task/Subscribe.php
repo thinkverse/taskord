@@ -30,9 +30,7 @@ class Subscribe extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            activity()
-                ->withProperties(['type' => 'Throttle'])
-                ->log('Rate limited while subscribing to the task');
+            loggy('Throttle', auth()->user(), 'Rate limited while subscribing to the task');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }

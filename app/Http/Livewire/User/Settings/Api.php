@@ -31,9 +31,7 @@ class Api extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            activity()
-                ->withProperties(['type' => 'Throttle'])
-                ->log('Rate limited while generating a token');
+            loggy('Throttle', auth()->user(), 'Rate limited while generating a API token');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }

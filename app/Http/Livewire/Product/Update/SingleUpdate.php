@@ -28,9 +28,7 @@ class SingleUpdate extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            activity()
-                ->withProperties(['type' => 'Throttle'])
-                ->log('Rate limited while praising the update');
+            loggy('Throttle', auth()->user(), 'Rate limited while praising the update');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }

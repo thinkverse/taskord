@@ -27,9 +27,7 @@ class SingleComment extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            activity()
-                ->withProperties(['type' => 'Throttle'])
-                ->log('Rate limited while praising the comment');
+            loggy('Throttle', auth()->user(), 'Rate limited while praising the comment');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
