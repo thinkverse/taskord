@@ -227,7 +227,7 @@
             </div>
             @if ($page_type === 'unread')
             <div>
-                <button class="btn btn-sm btn-task ps-5">
+                <button wire:click="markSingleNotificationAsRead" class="btn btn-sm btn-task ps-5">
                     <x-heroicon-o-check class="heroicon-2x text-secondary me-0" />
                 </button>
             </div>
