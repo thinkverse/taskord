@@ -17,7 +17,6 @@ main {
 }
 
 h1 {
-  font-size: 10rem;
   letter-spacing: .10em;
 }
 </style>
