@@ -28,8 +28,8 @@ if ($user->lastname and $user->lastname) {
             @endauth
             @if (
                 !$user->isPrivate or
-                auth()->user()->id === $user->id or
-                Auth::check() && auth()->user()->staffShip
+                Auth::check() and auth()->user()->id === $user->id or
+                Auth::check() and auth()->user()->staffShip
             )
             @livewire('user.tasks', [
                 'type' => 'user.done',

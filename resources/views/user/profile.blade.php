@@ -133,8 +133,8 @@
     <div class="card-footer text-muted">
         @if (
             !$user->isPrivate or
-            auth()->user()->id === $user->id or
-            Auth::check() && auth()->user()->staffShip
+            Auth::check() and auth()->user()->id === $user->id or
+            Auth::check() and auth()->user()->staffShip
         )
         <a class="text-dark fw-bold me-4" href="{{ route('user.done', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif">Done</span>
