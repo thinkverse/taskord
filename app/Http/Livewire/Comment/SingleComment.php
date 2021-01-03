@@ -57,9 +57,7 @@ class SingleComment extends Component
         if (Auth::check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->comment);
-                activity()
-                    ->withProperties(['type' => 'Admin'])
-                    ->log('Toggled hide comment | Comment ID: '.$this->comment->id);
+                loggy('Admin', auth()->user(), 'Toggled hide comment | Comment ID: '.$this->comment->id);
 
                 return $this->alert('success', 'Comment is hidden from public!');
             } else {

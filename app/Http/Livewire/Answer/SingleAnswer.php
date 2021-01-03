@@ -56,9 +56,7 @@ class SingleAnswer extends Component
         if (Auth::check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->answer);
-                activity()
-                    ->withProperties(['type' => 'Admin'])
-                    ->log('Toggled hide answer | Answer ID: '.$this->answer->id);
+                loggy('Admin', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
 
                 return $this->alert('success', 'Answer is hidden from public!');
             } else {

@@ -59,9 +59,7 @@ class SingleQuestion extends Component
         if (Auth::check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->question);
-                activity()
-                    ->withProperties(['type' => 'Admin'])
-                    ->log('Toggled hide question | Question ID: '.$this->question->id);
+                loggy('Admin', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
 
                 return $this->alert('success', 'Question is hidden from public!');
             } else {
