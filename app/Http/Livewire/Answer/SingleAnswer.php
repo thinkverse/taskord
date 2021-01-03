@@ -43,9 +43,7 @@ class SingleAnswer extends Component
                 return $this->alert('warning', 'You can\'t praise your own answer!');
             }
             Helper::togglePraise($this->answer, 'ANSWER');
-            activity()
-                ->withProperties(['type' => 'Answer'])
-                ->log('Toggled answer praise | Answer ID: '.$this->answer->id);
+            loggy('Answer', auth()->user(), 'Toggled answer praise | Answer ID: '.$this->answer->id);
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -80,9 +78,7 @@ class SingleAnswer extends Component
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->answer->user->id) {
-                activity()
-                    ->withProperties(['type' => 'Answer'])
-                    ->log('Deleted an answer | Answer ID: '.$this->answer->id);
+                loggy('Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
                 $this->answer->delete();
                 $this->emit('answerDeleted');
                 auth()->user()->touch();

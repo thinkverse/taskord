@@ -44,9 +44,7 @@ class SingleComment extends Component
                 return $this->alert('warning', 'You can\'t praise your own comment!');
             }
             Helper::togglePraise($this->comment, 'COMMENT');
-            activity()
-                ->withProperties(['type' => 'Comment'])
-                ->log('Toggled comment praise | Comment ID: '.$this->comment->id);
+            loggy('Comment', auth()->user(), 'Toggled comment praise | Comment ID: '.$this->comment->id);
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -80,9 +78,7 @@ class SingleComment extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
             if (auth()->user()->staffShip or auth()->user()->id === $this->comment->user->id) {
-                activity()
-                    ->withProperties(['type' => 'Comment'])
-                    ->log('Deleted a comment | Comment ID: '.$this->comment->id);
+                loggy('Comment', auth()->user(), 'Deleted a comment | Comment ID: '.$this->comment->id);
                 $this->comment->delete();
                 $this->emit('commentDeleted');
                 auth()->user()->touch();
