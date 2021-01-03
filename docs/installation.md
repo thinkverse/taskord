@@ -52,6 +52,12 @@ sudo apt install mysql-server
 sudo apt install memcached -y
 ```
 
+### Redis
+
+```sh
+sudo apt install redis-server -y
+```
+
 ### Supervisor
 
 ```sh
