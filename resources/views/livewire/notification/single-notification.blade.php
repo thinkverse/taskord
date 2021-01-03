@@ -6,7 +6,7 @@
         }
     @endphp
     <div class="card mb-3">
-        <div class="card-body d-flex justify-content-between">
+        <div class="card-body d-flex justify-content-between align-items-center">
             <div>
                 <span class="fw-bold">
                     @if (
@@ -227,7 +227,9 @@
             </div>
             @if ($page_type === 'unread')
             <div>
-                <x-heroicon-o-check class="heroicon-2x text-secondary me-0" />
+                <button class="btn btn-sm btn-task ps-5">
+                    <x-heroicon-o-check class="heroicon-2x text-secondary me-0" />
+                </button>
             </div>
             @endif
         </div>
