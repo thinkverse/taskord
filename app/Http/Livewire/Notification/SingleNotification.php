@@ -22,6 +22,12 @@ class SingleNotification extends Component
     }
 
     public function markSingleNotificationAsRead() {
-        dd('g');
+        auth()->user()->unreadNotifications->where('id', $this->notification_id)->markAsRead();
+        $this->emit('markAsRead');
+        activity()
+            ->withProperties(['type' => 'Notification'])
+            ->log('Single notification is marked as read');
+
+        return $this->alert('success', 'Notifications is marked as read!');
     }
 }

@@ -15,7 +15,7 @@ class MarkAsRead extends Component
             auth()->user()->touch();
             activity()
                 ->withProperties(['type' => 'Notification'])
-                ->log('Notifications mark as read');
+                ->log('All notifications are marked as read');
 
             return $this->alert('success', 'Notifications has been marked as read!');
         } else {
