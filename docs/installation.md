@@ -72,7 +72,6 @@ Fork Taskord's repository, https://gitlab.com/taskord/taskord/-/forks/new
 
 ### Clone the Repo
 
-
 ```sh
 mkdir -p /var/www/
 cd /var/www/
