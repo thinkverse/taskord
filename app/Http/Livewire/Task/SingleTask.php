@@ -111,9 +111,7 @@ class SingleTask extends Component
         if (Auth::check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->task);
-                activity()
-                    ->withProperties(['type' => 'Admin'])
-                    ->log('Toggled task hide | Task ID: '.$this->task->id);
+                loggy('Admin', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
 
                 return $this->alert('success', 'Task is hidden from public!');
             } else {
