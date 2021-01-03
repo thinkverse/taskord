@@ -29,6 +29,7 @@
     @endauth
     <livewire:styles />
     @if (App::environment() === 'production')
+    @laravelPWA
     <script async src="https://cdn.splitbee.io/sb.js"></script>
     @endif
 </head>
