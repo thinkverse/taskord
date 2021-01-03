@@ -3,6 +3,17 @@ require("./tribute");
 require("./tippy");
 import { isInViewport } from "observe-element-in-viewport";
 
+// Greetings
+console.log(
+  "%cTaskord",
+  `
+    color:#6a63ec;
+    font-size: 50px;
+    font-weight: bold;
+    -webkit-text-stroke: 0.5px white;
+  `
+);
+
 document.addEventListener("DOMContentLoaded", async () => {
   // Pagination
   Livewire.hook('component.initialized', () => {
