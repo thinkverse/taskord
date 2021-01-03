@@ -20,6 +20,7 @@
     <link rel="icon" href="/images/logo.svg" sizes="any" type="image/svg+xml">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    @laravelPWA
     @auth
     @if (auth()->user()->isPatron or auth()->user()->isStaff)
     @if (auth()->user()->darkMode)
@@ -29,7 +30,6 @@
     @endauth
     <livewire:styles />
     @if (App::environment() === 'production')
-    @laravelPWA
     <script async src="https://cdn.splitbee.io/sb.js"></script>
     @endif
 </head>
