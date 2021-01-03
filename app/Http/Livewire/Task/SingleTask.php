@@ -44,9 +44,7 @@ class SingleTask extends Component
                 if ($this->task->done) {
                     $this->task->done_at = carbon();
                     auth()->user()->touch();
-                    activity()
-                        ->withProperties(['type' => 'Task'])
-                        ->log('Updated a task as pending | Task ID: '.$this->task->id);
+                    loggy('Task', auth()->user(), 'Updated a task as pending | Task ID: '.$this->task->id);
                 } else {
                     $this->task->done_at = carbon();
                     auth()->user()->touch();
@@ -56,9 +54,7 @@ class SingleTask extends Component
                         CheckGoal::dispatch(auth()->user(), $this->task);
                     }
                     givePoint(new TaskCompleted($this->task));
-                    activity()
-                        ->withProperties(['type' => 'Task'])
-                        ->log('Updated a task as done | Task ID: '.$this->task->id);
+                    loggy('Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
                 }
                 $this->task->done = ! $this->task->done;
                 $this->task->save();
@@ -98,9 +94,7 @@ class SingleTask extends Component
                 return $this->alert('warning', 'You can\'t praise your own task!');
             }
             Helper::togglePraise($this->task, 'TASK');
-            activity()
-                ->withProperties(['type' => 'Task'])
-                ->log('Toggled task praise | Task ID: '.$this->task->id);
+            loggy('Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -135,9 +129,7 @@ class SingleTask extends Component
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->task->user->id) {
-                activity()
-                    ->withProperties(['type' => 'Task'])
-                    ->log('Deleted a task | Task ID: '.$this->task->id);
+                loggy('Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
                 foreach ($this->task->images ?? [] as $image) {
                     Storage::delete($image);
                 }
