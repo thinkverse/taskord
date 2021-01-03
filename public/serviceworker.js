@@ -13,6 +13,9 @@ var filesToCache = [
     '/images/icons/icon-512x512.png',
 ];
 
+// Imagekit network based optimization
+importScripts("https://runtime.imagekit.io/taskordimg/v1/js/network-based-adaption.js?v=" + new Date().getTime());
+
 // Cache on install
 self.addEventListener("install", event => {
     this.skipWaiting();
