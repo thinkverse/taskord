@@ -3,6 +3,7 @@ var filesToCache = [
     '/offline',
     '/css/app.css',
     '/js/app.js',
+    '/js/bootstrap.js',
     '/images/icons/icon-72x72.png',
     '/images/icons/icon-96x96.png',
     '/images/icons/icon-128x128.png',
@@ -11,6 +12,8 @@ var filesToCache = [
     '/images/icons/icon-192x192.png',
     '/images/icons/icon-384x384.png',
     '/images/icons/icon-512x512.png',
+    '/images/logo.svg',
+    '/images/beta.svg',
 ];
 
 // Imagekit network based optimization
