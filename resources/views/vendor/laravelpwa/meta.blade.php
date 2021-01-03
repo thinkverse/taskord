@@ -25,9 +25,9 @@
         navigator.serviceWorker.register('/serviceworker.js', {
             scope: '.'
         }).then(function (registration) {
-            console.log('Taskord: ServiceWorker registration successful with scope: ', registration.scope);
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
         }, function (err) {
-            console.log('Taskord: ServiceWorker registration failed: ', err);
+            console.log('ServiceWorker registration failed: ', err);
         });
     }
 </script>
