@@ -30,7 +30,7 @@
     @endauth
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <div class="text-uppercase fw-bold text-secondary pb-2">
-        Daily Activity
+        Activity Graph
     </div>
     <div class="card mb-4">
         @livewire('product.graph', [
