@@ -4,6 +4,7 @@ namespace App\Actions;
 
 use App\Models\Task;
 use App\Models\User;
+use App\Jobs\LogActivity;
 
 class CreateNewTask
 {
@@ -36,10 +37,7 @@ class CreateNewTask
     public function updateActivity(Task $task)
     {
         $message = "Created a new task via {$task->source}";
-
-        activity()
-                ->withProperties(['type' => 'Task'])
-                ->log(\sprintf('%s | Task ID: %d', $message, $task->id));
+        LogActivity::dispatch('Task', $this->user, \sprintf('%s | Task ID: %d', $message, $task->id));
     }
 
     public function createTaskModel(): Task
