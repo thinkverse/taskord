@@ -105,10 +105,14 @@ if (! function_exists('carbon')) {
      * @author Caleb Porzio <calebporzio@gmail.com>
      * @link   https://github.com/calebporzio/awesome-helpers
      *
-     * @return \Illuminate\Support\Carbon
+     * @return \Illuminate\Support\Carbon|null
      */
-    function carbon(...$args): Carbon
+    function carbon(...$args): ?Carbon
     {
-        return new Carbon(...$args);
+        try {
+            return new Carbon(...$args);
+        } catch (Exception $exception) {
+            return null;
+        }
     }
 }
