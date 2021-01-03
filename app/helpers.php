@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use App\Jobs\LogActivity;
 
 /**
  * This file contains helper functions for Taskord.
@@ -114,5 +115,12 @@ if (! function_exists('carbon')) {
         } catch (Exception $exception) {
             return null;
         }
+    }
+}
+
+if (! function_exists('loggy')) {
+    function loggy($type, $user, $message)
+    {
+        return LogActivity::dispatch($type, $user, $message);
     }
 }
