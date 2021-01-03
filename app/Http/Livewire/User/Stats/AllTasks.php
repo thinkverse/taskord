@@ -25,7 +25,7 @@ class AllTasks extends Component
     {
         $created_at = $this->user->created_at->format('Y-m-d');
         $current_date = carbon()->format('Y-m-d');
-        $period = CarbonPeriod::create($created_at, '7 days', $current_date);
+        $period = CarbonPeriod::create($created_at, '5 days', $current_date);
         $all_tasks_count = Task::cacheFor(60 * 60)
             ->select('id')
             ->where('user_id', $this->user->id)
@@ -39,7 +39,7 @@ class AllTasks extends Component
             $count = Task::cacheFor(60 * 60)
                 ->select('id')
                 ->where('user_id', $this->user->id)
-                ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(7)])
+                ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(5)])
                 ->count();
             array_push($all_tasks, $count);
         }

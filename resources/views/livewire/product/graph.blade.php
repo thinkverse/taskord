@@ -1,9 +1,7 @@
-<div class="card" wire:init="loadGraph">
+<div wire:init="loadGraph">
     @if (!$readyToLoad)
-    <div class="card-body">
-        <div class="spinner-border spinner-border-sm taskord-spinner text-secondary me-2" role="status"></div>
-        Loading activity graph...
-    </div>
+    <div class="spinner-border spinner-border-sm taskord-spinner text-secondary me-2" role="status"></div>
+    Loading activity graph...
     @else
     <div id="activityGraph"></div>
     @endif
@@ -11,11 +9,13 @@
     <script>
     var options = {
         chart: {
-            type: 'line',
+            type: 'area',
             height: 100,
             animations: { enabled: false },
             toolbar: { show: false }
         },
+        colors: ["#198754"],
+        stroke: { width: [2, 1], curve: 'smooth' },
         tooltip: { enabled: false },
         grid: { show: false },
         dataLabels: { enabled: false },
