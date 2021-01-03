@@ -21,6 +21,7 @@
                 'type' => $notification->type,
                 'data' => $notification->data,
                 'created_at' => $notification->created_at,
+                'page_type' => 'all',
             ], key($notification->id))
         </div>
     @endforeach

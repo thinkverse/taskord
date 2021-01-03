@@ -6,6 +6,7 @@
         }
     @endphp
     <div class="card mb-3">
+        {{ $page_type }}
         <div class="card-body">
             <span class="fw-bold">
                 @if (
