@@ -46,9 +46,7 @@ class SingleQuestion extends Component
                 return $this->alert('warning', 'You can\'t praise your own question!');
             }
             Helper::togglePraise($this->question, 'QUESTION');
-            activity()
-                ->withProperties(['type' => 'Question'])
-                ->log('Toggled question praise | Question ID: '.$this->question->id);
+            loggy('Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -83,9 +81,7 @@ class SingleQuestion extends Component
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {
-                activity()
-                    ->withProperties(['type' => 'Question'])
-                    ->log('Deleted a question | Question ID: '.$this->question->id);
+                loggy('Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
                 $this->question->delete();
                 auth()->user()->touch();
                 $this->flash('success', 'Question has been deleted successfully!');

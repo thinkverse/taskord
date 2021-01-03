@@ -48,9 +48,7 @@ class Subscribe extends Component
                 auth()->user()->toggleSubscribe($this->question);
                 $this->question->refresh();
                 auth()->user()->touch();
-                activity()
-                    ->withProperties(['type' => 'Question'])
-                    ->log('Toggled question subscribe | Question ID: '.$this->question->id);
+                loggy('Question', auth()->user(), 'Toggled question subscribe | Question ID: '.$this->question->id);
             }
         } else {
             return $this->alert('error', 'Forbidden!');
