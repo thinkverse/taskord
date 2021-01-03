@@ -44,9 +44,7 @@ class Follow extends Component
                 if (auth()->user()->isFollowing($this->user)) {
                     $this->user->notify(new Followed(auth()->user()));
                 }
-                activity()
-                    ->withProperties(['type' => 'Notification'])
-                    ->log('Toggled user follow | Username: @'.$this->user->username);
+                loggy('Notification', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
             }
         } else {
             return $this->alert('error', 'Forbidden!');
