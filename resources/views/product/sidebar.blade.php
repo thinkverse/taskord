@@ -28,6 +28,15 @@
         'product' => $product
     ])
     @endauth
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <div class="text-uppercase fw-bold text-secondary pb-2">
+        Daily Activity
+    </div>
+    <div class="card mb-4">
+        @livewire('product.graph', [
+            'product_id' => $product->id
+        ])
+    </div>
     @if ($product->website or $product->twitter or $product->producthunt or $product->repo)
     <div class="text-uppercase fw-bold text-secondary pb-2">
         Social

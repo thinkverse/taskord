@@ -1,7 +1,9 @@
 <div wire:init="loadGraph">
     @if (!$readyToLoad)
-    <div class="spinner-border spinner-border-sm taskord-spinner text-secondary me-2" role="status"></div>
-    Loading activity graph...
+    <div class="card-body">
+        <div class="spinner-border spinner-border-sm taskord-spinner text-secondary me-2" role="status"></div>
+        Loading activity graph...
+    </div>
     @else
     <div id="activityGraph"></div>
     @endif

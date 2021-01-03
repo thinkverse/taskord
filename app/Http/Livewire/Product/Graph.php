@@ -23,9 +23,9 @@ class Graph extends Component
 
     public function render()
     {
-        $created_at = carbon('Sep 1 2020')->format('Y-m-d');
+        $start_date = carbon('60 days ago')->format('Y-m-d');
         $current_date = carbon()->format('Y-m-d');
-        $period = CarbonPeriod::create($created_at, '10 days', $current_date);
+        $period = CarbonPeriod::create($start_date, '1 day', $current_date);
 
         $week_dates = [];
         $tasks = [];
@@ -34,7 +34,7 @@ class Graph extends Component
             $count = Task::cacheFor(86400)
                 ->select('id', 'created_at')
                 ->where('product_id', $this->product_id)
-                ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(10)])
+                ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(1)])
                 ->count();
 
             array_push($tasks, $count);
