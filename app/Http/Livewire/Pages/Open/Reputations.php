@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Pages\Open;
 
-use App\Models\Task;
+use App\Models\User;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -21,9 +21,7 @@ class Reputations extends Component
         $created_at = carbon('Sep 1 2020')->format('Y-m-d');
         $current_date = carbon()->format('Y-m-d');
         $period = CarbonPeriod::create($created_at, $current_date);
-        $reputations_count = Task::cacheFor(60 * 60)
-            ->select('id')
-            ->count();
+        $reputations_count = User::sum('reputation');
 
         $week_dates = [];
         $reputations = [];

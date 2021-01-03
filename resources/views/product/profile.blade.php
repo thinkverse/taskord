@@ -56,9 +56,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm">
+        <div class="col-sm d-flex align-items-center">
+            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
             <div class="card-body">
-                @livewire('product.graph')
+                @livewire('product.graph', [
+                    'product_id' => $product->id
+                ])
             </div>
         </div>
     </div>
