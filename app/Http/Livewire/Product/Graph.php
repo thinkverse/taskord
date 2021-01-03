@@ -43,6 +43,7 @@ class Graph extends Component
         return view('livewire.product.graph', [
             'week_dates' => $this->readyToLoad ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
             'tasks' => $this->readyToLoad ? json_encode($tasks, JSON_NUMERIC_CHECK) : [],
+            'count' => $this->readyToLoad ? array_sum($tasks) : 0,
         ]);
     }
 }

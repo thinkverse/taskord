@@ -5,7 +5,13 @@
         Loading activity graph...
     </div>
     @else
-    <div id="activityGraph"></div>
+        @if ($count === 0)
+        <div class="card-body">
+            This product has no activity
+        </div>
+        @else
+        <div id="activityGraph"></div>
+        @endif
     @endif
     @if ($readyToLoad)
     <script>
