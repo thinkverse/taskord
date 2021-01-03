@@ -19,6 +19,15 @@
         ])
         @endif
         @endauth
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <div class="text-uppercase fw-bold text-secondary pb-2">
+            Daily Activity
+        </div>
+        <div class="card mb-4">
+            @livewire('user.graph', [
+                'user_id' => $user->id
+            ])
+        </div>
         @if ($user->sponsor)
         <div class="text-uppercase fw-bold text-secondary pb-2">
             <x-heroicon-o-heart class="heroicon text-danger" />

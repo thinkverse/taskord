@@ -25,7 +25,7 @@ class Graph extends Component
     {
         $start_date = carbon('60 days ago')->format('Y-m-d');
         $current_date = carbon()->format('Y-m-d');
-        $period = CarbonPeriod::create($start_date, '1 day', $current_date);
+        $period = CarbonPeriod::create($start_date, $current_date);
 
         $week_dates = [];
         $tasks = [];
@@ -34,7 +34,7 @@ class Graph extends Component
             $count = Task::cacheFor(86400)
                 ->select('id', 'created_at')
                 ->where('product_id', $this->product_id)
-                ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(1)])
+                ->whereDate('created_at', carbon($date))
                 ->count();
 
             array_push($tasks, $count);
