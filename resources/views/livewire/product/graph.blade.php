@@ -16,10 +16,21 @@
             animations: { enabled: false },
             toolbar: { show: false }
         },
+        tooltip: { enabled: false },
+        grid: { show: false },
         dataLabels: { enabled: false },
         series: [{name: 'Tasks', data: <?php echo $tasks ?> }],
-        xaxis: { categories: <?php echo $week_dates ?>, labels: { show: false } },
-        yaxis: { labels: { show: false } }
+        xaxis: {
+            categories: <?php echo $week_dates ?>,
+            labels: { show: false },
+            axisTicks: { show: false },
+            axisBorder: { show: false }
+        },
+        yaxis: {
+            labels: { show: false },
+            axisTicks: { show: false },
+            axisBorder: { show: false }
+        }
     }
 
     var activityGraph = new ApexCharts(document.querySelector("#activityGraph"), options);

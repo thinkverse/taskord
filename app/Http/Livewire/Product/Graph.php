@@ -31,10 +31,10 @@ class Graph extends Component
         $tasks = [];
         foreach ($period->toArray() as $date) {
             array_push($week_dates, carbon($date)->format('d M Y'));
-            $count = DB::table('reputations')
-                ->select('id', 'point')
+            $count = Task::select('id', 'created_at')
+                ->where('product_id', $this->product_id)
                 ->whereDate('created_at', carbon($date))
-                ->sum('point');
+                ->count();
 
             array_push($tasks, $count);
         }
