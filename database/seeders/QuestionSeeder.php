@@ -9,6 +9,13 @@ class QuestionSeeder extends Seeder
 {
     public function run()
     {
-        Question::factory()->count(100)->create();
+        Question::factory()->create([
+            'user_id' => 1,
+            'title' => "Hello, World!",
+            'body' => "Hello, World!",
+            'patronOnly' => false,
+        ]);
+
+        Question::factory()->count(99)->create();
     }
 }
