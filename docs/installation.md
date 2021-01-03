@@ -32,7 +32,7 @@ sudo apt install composer -y
 
 ```sh
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo apt install -y nodejs
 npm install -g yarn
 ```
 
@@ -51,7 +51,7 @@ sudo apt install memcached -y
 ### Supervisor
 
 ```sh
-sudo apt-get install supervisor
+sudo apt install supervisor
 ```
 
 ## Installing Taskord
