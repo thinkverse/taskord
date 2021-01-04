@@ -124,10 +124,3 @@ if (! function_exists('loggy')) {
         return LogActivity::dispatch($type, $user, $message);
     }
 }
-
-if (! function_exists('opsuser')) {
-    function opsuser(): User
-    {
-        return User::where('username', 'opsbot')->first();
-    }
-}

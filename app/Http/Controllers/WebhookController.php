@@ -187,7 +187,6 @@ class WebhookController extends Controller
             foreach ($users as $user) {
                 $user->notify(new VersionReleased($message));
             }
-            loggy('Admin', opsuser(), 'New version Webhook has been Initiated');
 
             return response('success', 200);
         } else {
