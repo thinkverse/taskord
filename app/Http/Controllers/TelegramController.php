@@ -41,12 +41,12 @@ class TelegramController extends Controller
     public function authUser($token, $chat_id)
     {
         if (strlen($token) !== 60) {
-            return $this->send($chat_id, 'Oops! Please enter the valid API token!');
+            return $this->send($chat_id, 'Oops! Please enter the valid API token 🔑');
         }
 
         $user = User::where('api_token', $token)->first();
         if (! $user) {
-            return $this->send($chat_id, 'Oops! Please enter the valid API token!');
+            return $this->send($chat_id, 'Oops! Please enter the valid API token 🔑');
         }
 
         if ($user->telegram_chat_id) {
@@ -55,7 +55,7 @@ class TelegramController extends Controller
             $user->telegram_chat_id = $chat_id;
             $user->save();
 
-            return $this->send($chat_id, 'Authentication successful ✅');
+            return $this->send($chat_id, '*Authentication successful* ✅');
         }
     }
 
@@ -100,11 +100,11 @@ class TelegramController extends Controller
                 
             if (count($tasks) > 0) {
                 if (! $user->hasVerifiedEmail()) {
-                    return $this->send($chat_id, '💌 Your email is not verified!');
+                    return $this->send($chat_id, '💌 Your email is not *verified*!');
                 }
 
                 if ($user->isFlagged) {
-                    return $this->send($chat_id, '🚩 Your account is flagged!');
+                    return $this->send($chat_id, '🚩 Your account is *flagged*!');
                 }
                 
                 $res = [];
@@ -114,7 +114,7 @@ class TelegramController extends Controller
                 
                 return $this->send($chat_id, implode("\n\n", $res));
             } else {
-                return $this->send($chat_id, 'All done! No pending tasks 👏');
+                return $this->send($chat_id, '*All done!* No pending tasks 👏');
             }
         }
     }
@@ -122,7 +122,7 @@ class TelegramController extends Controller
     public function markAsDone($id, $chat_id)
     {
         if (! $id) {
-            return $this->send($chat_id, '⚠ You should give ID!');
+            return $this->send($chat_id, '⚠ You should give *Task ID* `Eg: /done 28`');
         }
 
         if ($this->authCheck($chat_id)) {
@@ -134,21 +134,21 @@ class TelegramController extends Controller
                 }
 
                 if (! $user->hasVerifiedEmail()) {
-                    return $this->send($chat_id, '💌 Your email is not verified!');
+                    return $this->send($chat_id, '💌 Your email is not *verified*!');
                 }
 
                 if ($user->isFlagged) {
-                    return $this->send($chat_id, '🚩 Your account is flagged!');
+                    return $this->send($chat_id, '🚩 Your account is *flagged*!');
                 }
 
                 if ($task->done) {
-                    return $this->send($chat_id, 'Task #'.$task->id.' is already done ✅');
+                    return $this->send($chat_id, 'Task #'.$task->id.' is *already done* ✅');
                 } else {
                     $task->done = true;
                     $task->done_at = carbon();
                     $task->save();
 
-                    return $this->send($chat_id, 'Task #'.$task->id.' has been marked as done ✅');
+                    return $this->send($chat_id, 'Task #'.$task->id.' has been *marked as done* ✅');
                 }
             } else {
                 return $this->send($chat_id, 'Oops! Task not exist 🙅');
@@ -164,7 +164,7 @@ class TelegramController extends Controller
                 $user->telegram_chat_id = null;
                 $user->save();
 
-                return $this->send($chat_id, '🚪 Logout successful');
+                return $this->send($chat_id, '🚪 *Logout successful*');
             }
         }
     }
@@ -175,7 +175,7 @@ class TelegramController extends Controller
         if ($user) {
             return true;
         } else {
-            $this->send($chat_id, '🔒 You\'re not logged in. /auth <token> to begin.!');
+            $this->send($chat_id, '🔒 *You\'re not logged in. /auth <token> to begin*');
 
             return false;
         }
