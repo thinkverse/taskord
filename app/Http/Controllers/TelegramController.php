@@ -185,7 +185,16 @@ class TelegramController extends Controller
         if ($this->authCheck($chat_id)) {
             $user = User::where('telegram_chat_id', $chat_id)->first();
             if ($user) {
-                $res = "WIP";
+                $res = "*Your account stats ✨*\n\n"
+                       ."🔥 *".number_format($user->getPoints())."* Reputations\n"
+                       ."✅ *".number_format($user->tasks()->whereDone(true)->count())."* tasks completed\n"
+                       ."⏳ *".number_format($user->tasks()->whereDone(false)->count())."* tasks pending\n"
+                       ."📦 *".number_format($user->ownedProducts()->whereLaunched(true)->count())."* products launched\n"
+                       ."📦 *".number_format($user->ownedProducts()->count())."* products owned\n"
+                       ."👥 *".number_format($user->products()->count())."* products you are member of\n"
+                       ."💬 *".number_format($user->comments()->count())."* comments posted\n"
+                       ."❓ *".number_format($user->questions()->count())."* questions asked\n"
+                       ."💬 *".number_format($user->answers()->count())."* questions answered\n";
                 return $this->send($chat_id, $res);
             }
         }
