@@ -32,7 +32,7 @@ return [
     |             ]
     */
     'bots'                         => [
-        'mybot' => [
+        'taskordbot' => [
             'username'            => 'TELEGRAM_BOT_USERNAME',
             'token'               => env('TELEGRAM_BOT_TOKEN', 'YOUR-BOT-TOKEN'),
             'certificate_path'    => env('TELEGRAM_CERTIFICATE_PATH', 'YOUR-CERTIFICATE-PATH'),
@@ -41,11 +41,6 @@ return [
                 //Acme\Project\Commands\MyTelegramBot\BotCommand::class
             ],
         ],
-
-        //        'mySecondBot' => [
-        //            'username'  => 'AnotherTelegram_Bot',
-        //            'token' => '123456:abc',
-        //        ],
     ],
 
     /*
@@ -57,7 +52,7 @@ return [
     | your default bot for regular use.
     |
     */
-    'default'                      => 'mybot',
+    'default'                      => 'taskordbot',
 
     /*
     |--------------------------------------------------------------------------
