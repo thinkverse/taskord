@@ -17,6 +17,9 @@ class TelegramController extends Controller
         if (Str::of($message)->startsWith('/pair')) {
             $token = substr($message, strpos($message, '/pair') + 6);
             $this->authUser($token, $chat_id);
+        } else if (Str::of($message)->startsWith('/task')) {
+            $task = substr($message, strpos($message, '/todo') + 6);
+            $this->createTask($task, $chat_id);
         } else {
             Telegram::sendMessage([
                 'chat_id' => $chat_id,
@@ -54,6 +57,36 @@ class TelegramController extends Controller
                 'chat_id' => $user->telegram_chat_id,
                 'text' => 'Authentication successful!',
             ]);
+        }
+    }
+    
+    public function createTask($todo, $chat_id)
+    {
+        if (strlen($todo) < 6) {
+            return Telegram::sendMessage([
+                'chat_id' => $chat_id,
+                'text' => 'Task should have at least 5 characters!',
+            ]);
+        }
+        
+        if ($this->authCheck($chat_id)) {
+            $user = User::where('telegram_chat_id', $chat_id)->first();
+            return Telegram::sendMessage([
+                'chat_id' => $user->telegram_chat_id,
+                'text' => 'Task Created!',
+            ]);
+        }
+    }
+    
+    public function authCheck($chat_id) {
+        $user = User::where('telegram_chat_id', $chat_id)->first();
+        if (! $user->telegram_chat_id) {
+            return Telegram::sendMessage([
+                'chat_id' => $chat_id,
+                'text' => 'Please Auth!',
+            ]);
+        } else {
+            return true;
         }
     }
 }
