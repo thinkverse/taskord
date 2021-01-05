@@ -7,6 +7,9 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Telegram;
+use Intervention\Image\Facades\Image;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Storage;
 
 class TelegramController extends Controller
 {
@@ -14,8 +17,18 @@ class TelegramController extends Controller
     {
         $updates = Telegram::getWebhookUpdates();
         if (isset($updates->message['message_id'])) {
-            $message = $updates->message['text'];
-            $chat_id = $updates->message['from']['id'];
+            if (isset($updates->message['photo'])) {
+                $message = isset($updates->message['caption']) ? $updates->message['caption'] : '/start';
+                $file_id = $updates->message['photo'][1]['file_id'];
+                $chat_id = $updates->message['from']['id'];
+            } elseif (isset($updates->message['document'])) {
+                $message = '/start';
+                $chat_id = $updates->message['from']['id'];
+            } else {
+                $message = $updates->message['text'];
+                $file_id = null;
+                $chat_id = $updates->message['from']['id'];
+            }
         } else {
             return false;
         }
@@ -25,10 +38,10 @@ class TelegramController extends Controller
             $this->authUser($token, $chat_id);
         } elseif (Str::of($message)->startsWith('/todo')) {
             $task = substr($message, strpos($message, '/todo') + 6);
-            $this->createTask($task, $chat_id, false);
+            $this->createTask($task, $chat_id, $file_id, false);
         } elseif (Str::of($message)->startsWith('/done')) {
             $task = substr($message, strpos($message, '/done') + 6);
-            $this->createTask($task, $chat_id, true);
+            $this->createTask($task, $chat_id, $file_id, true);
         } elseif (Str::of($message)->startsWith('/complete')) {
             $id = substr($message, strpos($message, '/complete') + 10);
             $this->toggleStatus($id, $chat_id, true);
@@ -68,7 +81,7 @@ class TelegramController extends Controller
         }
     }
 
-    public function createTask($todo, $chat_id, $status)
+    public function createTask($todo, $chat_id, $file_id, $status)
     {
         if (strlen($todo) < 5) {
             return $this->send($chat_id, '⚠ Task should have at least 5 characters');
@@ -84,10 +97,26 @@ class TelegramController extends Controller
             if ($user->isFlagged) {
                 return $this->send($chat_id, '🚩 Your account is flagged!');
             }
+            
+            if ($file_id) {
+                $image = [];
+                $client = new Client();
+                $res = $client->request('GET', 'https://api.telegram.org/bot'.config('telegram.bots.taskordbot.token').'/getFile?file_id='.$file_id);
+                $res_file_path = json_decode($res->getBody(), true)['result']['file_path'];
+                $img = Image::make('https://api.telegram.org/file/bot'.config('telegram.bots.taskordbot.token').'/'.$res_file_path)
+                    ->encode('jpg', 80);
+                $imageName = Str::random(32).'.png';
+                Storage::disk('public')->put('photos/'.$imageName, (string) $img);
+                $uri = 'photos/'.$imageName;
+                array_push($image, $uri);
+            } else {
+                $image = null;
+            }
 
             $task = (new CreateNewTask($user, [
                 'task' => $todo,
                 'done' => $status,
+                'images' => $image,
                 'done_at' => $status ? carbon() : null,
                 'type' => 'user',
                 'source' => 'Telegram',
