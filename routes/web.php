@@ -15,6 +15,8 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebhookController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Telegram;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('bot/sendmessage', function() {
+    Telegram::sendMessage([
+        'chat_id' => '1084454902',
+        'text' => 'Hello world!'
+    ]);
+    return;
+});
 
 // Auth
 Auth::routes();
