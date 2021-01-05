@@ -109,10 +109,10 @@ class TelegramController extends Controller
                 
                 $res = [];
                 foreach ($tasks as $task) {
-                    array_push($res, '⏳ ' . $task->task . ' #' . $task->id);
+                    array_push($res, '⏳ *' . $task->task . '* [#' . $task->id. '](https://taskord.com/task/' . $task->id . ')');
                 }
                 
-                return $this->send($chat_id, implode(",\n\n", $res));
+                return $this->send($chat_id, implode("\n\n", $res));
             } else {
                 return $this->send($chat_id, 'All done! No pending tasks 👏');
             }
@@ -186,6 +186,8 @@ class TelegramController extends Controller
         return Telegram::sendMessage([
             'chat_id' => $chat_id,
             'text' => $message,
+            'disable_web_page_preview' => true,
+            'parse_mode' => 'Markdown',
         ]);
     }
 }
