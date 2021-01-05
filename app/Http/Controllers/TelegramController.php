@@ -211,6 +211,7 @@ class TelegramController extends Controller
                ."/complete `<task id>` - Complete a pending task\n"
                ."/uncomplete `<task id>` - Uncomplete a completed task\n\n"
                ."*Profile*\n\n"
+               ."/stats - See your account stats\n"
                ."/pending - See all pending tasks\n\n"
                ."*Account*\n\n"
                ."/auth `<API token>` - Connect Taskord account with Telegram\n"
