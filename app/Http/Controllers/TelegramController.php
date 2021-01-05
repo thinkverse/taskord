@@ -13,7 +13,6 @@ class TelegramController extends Controller
     public function getUpdates()
     {
         $updates = Telegram::getWebhookUpdates();
-        error_log('edit');
         $message ="Test";
         $chat_id = $updates->message->from->id;
 
