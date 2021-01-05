@@ -85,6 +85,14 @@ class TelegramController extends Controller
                     return $this->send($chat_id, 'Forbidden!');
                 }
                 
+                if (! $user->hasVerifiedEmail()) {
+                    return $this->send($chat_id, 'Your email is not verified!');
+                }
+    
+                if ($user->isFlagged) {
+                    return $this->send($chat_id, 'Your account is flagged!');
+                }
+                
                 if ($task->done) {
                     return $this->send($chat_id, 'Task #'.$task->id.' is already done');
                 } else {
