@@ -25,6 +25,8 @@ class TelegramController extends Controller
         } elseif (Str::of($message)->startsWith('/done')) {
             $id = substr($message, strpos($message, '/done') + 6);
             $this->markAsDone($id, $chat_id);
+        } elseif (Str::of($message)->startsWith('/logout')) {
+            $this->logout($chat_id);
         } else {
             return $this->send($chat_id, 'Please enter the valid command!');
         }
@@ -113,6 +115,17 @@ class TelegramController extends Controller
             } else {
                 return $this->send($chat_id, 'Task not exist!');
             }
+        }
+    }
+    
+    public function logout($chat_id)
+    {
+        if ($this->authCheck($chat_id)) {
+            $user = User::where('telegram_chat_id', $chat_id)->first();
+            $user->telegram_chat_id = null;
+            $user->save();
+            
+            return $this->send($chat_id, 'Logout successful!');
         }
     }
 
