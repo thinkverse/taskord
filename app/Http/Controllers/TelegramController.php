@@ -35,39 +35,39 @@ class TelegramController extends Controller
     public function authUser($token, $chat_id)
     {
         if (strlen($token) !== 60) {
-            return $this->send($chat_id, 'Please enter the valid API token!');
+            return $this->send($chat_id, 'Oops! Please enter the valid API token!');
         }
 
         $user = User::where('api_token', $token)->first();
         if (! $user) {
-            return $this->send($chat_id, 'Oops! Please check your token!');
+            return $this->send($chat_id, 'Oops! Please enter the valid API token!');
         }
 
         if ($user->telegram_chat_id) {
-            return $this->send($chat_id, 'You are already authenticated!');
+            return $this->send($chat_id, 'You are already authenticated ✅');
         } else {
             $user->telegram_chat_id = $chat_id;
             $user->save();
 
-            return $this->send($chat_id, 'Authentication successful!');
+            return $this->send($chat_id, 'Authentication successful ✅');
         }
     }
 
     public function createTask($todo, $chat_id)
     {
         if (strlen($todo) < 6) {
-            return $this->send($chat_id, 'Task should have at least 5 characters!');
+            return $this->send($chat_id, '⚠ Task should have at least 5 characters');
         }
 
         if ($this->authCheck($chat_id)) {
             $user = User::where('telegram_chat_id', $chat_id)->first();
 
             if (! $user->hasVerifiedEmail()) {
-                return $this->send($chat_id, 'Your email is not verified!');
+                return $this->send($chat_id, '💌 Your email is not verified!');
             }
 
             if ($user->isFlagged) {
-                return $this->send($chat_id, 'Your account is flagged!');
+                return $this->send($chat_id, '🚩 Your account is flagged!');
             }
 
             $task = (new CreateNewTask($user, [
@@ -77,7 +77,7 @@ class TelegramController extends Controller
                 'source' => 'Telegram',
             ]))();
 
-            return $this->send($chat_id, 'Task has been Created - #'.$task->id);
+            return $this->send($chat_id, '⏳ A new pending task has been Created - #'.$task->id);
         }
     }
 
