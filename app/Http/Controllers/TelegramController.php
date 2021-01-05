@@ -10,23 +10,38 @@ class TelegramController extends Controller
 {
     public function getUpdates() {
         $updates = Telegram::getWebhookUpdates();
+        error_log($updates);
         $message = $updates->message->text;
         
-        if (Str::contains($message, '/pair')) {
-            error_log('pair');
+        if (Str::of($message)->startsWith('/pair')) {
+            $token = substr($message, strpos($message, "/pair") + 6);
+            $this->authUser($token);
         } else {
             error_log('wrong command');
         }
     }
     
-    public function authUser($token = 'x0M0PzA0s5zvolvPqTIgOcCmcmpODRJpkKYUlh2uI31JZPTHgxTkUabFV0H4') {
+    public function authUser($token) {
+        if (strlen($token) !== 60) {
+            Telegram::sendMessage([
+                'chat_id' => $user->telegram_chat_id,
+                'text' => 'Please enter the valid API token!'
+            ]);
+        }
+        
         $user = User::where('api_token', $token)->first();
         if (! $user) {
-            return dd('get away');
+            Telegram::sendMessage([
+                'chat_id' => $user->telegram_chat_id,
+                'text' => 'Oops! Please check your token!'
+            ]);
         }
         
         if ($user->telegram_chat_id) {
-            dd('you already have one');
+            Telegram::sendMessage([
+                'chat_id' => $user->telegram_chat_id,
+                'text' => 'You are already authenticated!'
+            ]);
         } else {
             $user->telegram_chat_id = '1084454902';
             $user->save();
