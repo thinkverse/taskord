@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIntegrationsTable extends Migration
+class AddTelegramChatIdToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateIntegrationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('integrations', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        Schema::table('users', function (Blueprint $table) {
             $table->string('telegram_chat_id')->nullable()->default(null);
-            $table->timestamps();
         });
     }
 
@@ -28,6 +25,8 @@ class CreateIntegrationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('integrations');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }
