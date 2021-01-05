@@ -59,6 +59,14 @@ class TelegramController extends Controller
 
         if ($this->authCheck($chat_id)) {
             $user = User::where('telegram_chat_id', $chat_id)->first();
+            
+            if (! $user->hasVerifiedEmail()) {
+                return $this->send($chat_id, 'Your email is not verified!');
+            }
+
+            if ($user->isFlagged) {
+                return $this->send($chat_id, 'Your account is flagged!');
+            }
 
             $task = (new CreateNewTask($user, [
                 'task' => $todo,
