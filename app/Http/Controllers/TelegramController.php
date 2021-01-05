@@ -29,6 +29,8 @@ class TelegramController extends Controller
         } elseif (Str::of($message)->startsWith('/done')) {
             $id = substr($message, strpos($message, '/done') + 6);
             $this->markAsDone($id, $chat_id);
+        } elseif (Str::of($message)->startsWith('/pending')) {
+            $this->getPending($chat_id);
         } elseif (Str::of($message)->startsWith('/logout')) {
             $this->logout($chat_id);
         } else {
@@ -82,6 +84,38 @@ class TelegramController extends Controller
             ]))();
 
             return $this->send($chat_id, '⏳ A new pending task has been Created - #'.$task->id);
+        }
+    }
+    
+    public function getPending($chat_id)
+    {
+        if ($this->authCheck($chat_id)) {
+            $user = User::where('telegram_chat_id', $chat_id)->first();
+            $tasks = Task::cacheFor(60 * 60)
+                ->where([
+                    ['user_id', $user->id],
+                    ['done', false]
+                ])
+                ->get();
+                
+            if (count($tasks) > 0) {
+                if (! $user->hasVerifiedEmail()) {
+                    return $this->send($chat_id, '💌 Your email is not verified!');
+                }
+
+                if ($user->isFlagged) {
+                    return $this->send($chat_id, '🚩 Your account is flagged!');
+                }
+                
+                $res = [];
+                foreach ($tasks as $task) {
+                    array_push($res, '⏳ ' . $task->task . ' #' . $task->id);
+                }
+                
+                return $this->send($chat_id, implode(",\n\n", $res));
+            } else {
+                return $this->send($chat_id, 'All done! No pending tasks 👏');
+            }
         }
     }
 
