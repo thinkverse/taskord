@@ -122,20 +122,23 @@ class TelegramController extends Controller
     {
         if ($this->authCheck($chat_id)) {
             $user = User::where('telegram_chat_id', $chat_id)->first();
-            $user->telegram_chat_id = null;
-            $user->save();
-
-            return $this->send($chat_id, 'Logout successful!');
+            if ($user) {
+                $user->telegram_chat_id = null;
+                $user->save();
+    
+                return $this->send($chat_id, 'Logout successful!');
+            }
         }
     }
 
     public function authCheck($chat_id)
     {
         $user = User::where('telegram_chat_id', $chat_id)->first();
-        if (! $user->telegram_chat_id) {
-            return $this->send($chat_id, 'Please Auth!');
-        } else {
+        if ($user) {
             return true;
+        } else {
+            $this->send($chat_id, 'You\'re not logged in. /auth <token> to begin.!');
+            return false;
         }
     }
 
