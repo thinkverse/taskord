@@ -22,10 +22,10 @@ class TelegramController extends Controller
                 $message = isset($updates->message['caption']) ? $updates->message['caption'] : '/start';
                 $file_id = $updates->message['photo'][1]['file_id'];
                 $chat_id = $updates->message['from']['id'];
-            } elseif (isset($updates->message['document'])) { // Avoid Document
-                $message = '/start';
-                $chat_id = $updates->message['from']['id'];
-            } elseif (isset($updates->message['sticker'])) { // Avoid Sticker
+            } elseif (
+                isset($updates->message['document']) or // Avoid Document
+                isset($updates->message['sticker']) // Avoid Sticker
+            ) {
                 $message = '/start';
                 $chat_id = $updates->message['from']['id'];
             } else {
