@@ -20,8 +20,8 @@ class TelegramController extends Controller
             return false;
         }
 
-        if (Str::of($message)->startsWith('/pair')) {
-            $token = substr($message, strpos($message, '/pair') + 6);
+        if (Str::of($message)->startsWith('/auth')) {
+            $token = substr($message, strpos($message, '/auth') + 6);
             $this->authUser($token, $chat_id);
         } elseif (Str::of($message)->startsWith('/task')) {
             $task = substr($message, strpos($message, '/todo') + 6);
