@@ -216,5 +216,4 @@ Route::group(['prefix' => 'site'], function () {
 // Site
 Route::group(['prefix' => 'bot'], function () {
     Route::post('getUpdates', [TelegramController::class, 'getUpdates']);
-    Route::get('authUser', [TelegramController::class, 'authUser']);
 });
