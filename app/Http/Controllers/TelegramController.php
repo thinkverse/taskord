@@ -18,7 +18,7 @@ class TelegramController extends Controller
         } else {
             error_log('new');
         }
-        $message ="Test";
+        $message = 'Test';
         $chat_id = $updates->message->from->id;
 
         if (Str::of($message)->startsWith('/pair')) {
