@@ -23,16 +23,21 @@ class TelegramController extends Controller
         if (Str::of($message)->startsWith('/auth')) {
             $token = substr($message, strpos($message, '/auth') + 6);
             $this->authUser($token, $chat_id);
-        } elseif (Str::of($message)->startsWith('/task')) {
+        } elseif (Str::of($message)->startsWith('/todo')) {
             $task = substr($message, strpos($message, '/todo') + 6);
-            $this->createTask($task, $chat_id);
+            $this->createTask($task, $chat_id, false);
         } elseif (Str::of($message)->startsWith('/done')) {
-            $id = substr($message, strpos($message, '/done') + 6);
-            $this->markAsDone($id, $chat_id);
+            $task = substr($message, strpos($message, '/done') + 6);
+            $this->createTask($task, $chat_id, true);
+        } elseif (Str::of($message)->startsWith('/complete')) {
+            $id = substr($message, strpos($message, '/complete') + 10);
+            $this->markAsComplete($id, $chat_id);
         } elseif (Str::of($message)->startsWith('/pending')) {
             $this->getPending($chat_id);
         } elseif (Str::of($message)->startsWith('/logout')) {
             $this->logout($chat_id);
+        } elseif (Str::of($message)->startsWith('/start')) {
+            $this->start($chat_id);
         } else {
             return $this->send($chat_id, 'Please enter the valid command!');
         }
@@ -59,9 +64,9 @@ class TelegramController extends Controller
         }
     }
 
-    public function createTask($todo, $chat_id)
+    public function createTask($todo, $chat_id, $status)
     {
-        if (strlen($todo) < 6) {
+        if (strlen($todo) < 5) {
             return $this->send($chat_id, '⚠ Task should have at least 5 characters');
         }
 
@@ -78,12 +83,15 @@ class TelegramController extends Controller
 
             $task = (new CreateNewTask($user, [
                 'task' => $todo,
-                'done' => false,
+                'done' => $status,
+                'done_at' => $status ? carbon() : null,
                 'type' => 'user',
                 'source' => 'Telegram',
             ]))();
 
-            return $this->send($chat_id, '⏳ A new pending task has been Created - #'.$task->id);
+            return $status ? 
+                $this->send($chat_id, '✅ *A new completed task has been created* [#'.$task->id.'](https://taskord.com/task/'.$task->id.')') :
+                $this->send($chat_id, '⏳ *A new pending task has been created* [#'.$task->id.'](https://taskord.com/task/'.$task->id.')');
         }
     }
 
@@ -119,7 +127,7 @@ class TelegramController extends Controller
         }
     }
 
-    public function markAsDone($id, $chat_id)
+    public function markAsComplete($id, $chat_id)
     {
         if (! $id) {
             return $this->send($chat_id, '⚠ You should give *Task ID* `Eg: /done 28`');
@@ -154,6 +162,11 @@ class TelegramController extends Controller
                 return $this->send($chat_id, 'Oops! Task not exist 🙅');
             }
         }
+    }
+    
+    public function start($chat_id)
+    {
+        return $this->send($chat_id, '🚪 *Logout successful*');
     }
 
     public function logout($chat_id)
