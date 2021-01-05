@@ -14,6 +14,7 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebhookController;
+use App\Http\Controllers\TelegramController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -210,4 +211,10 @@ Route::group(['prefix' => 'popover'], function () {
 // Site
 Route::group(['prefix' => 'site'], function () {
     Route::view('shortcuts', 'site.shortcuts')->name('shortcuts')->middleware('auth');
+});
+
+
+// Site
+Route::group(['prefix' => 'bot'], function () {
+    Route::post('getUpdates', [TelegramController::class, 'getUpdates']);
 });
