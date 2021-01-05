@@ -16,12 +16,16 @@ class TelegramController extends Controller
     public function getUpdates()
     {
         $updates = Telegram::getWebhookUpdates();
+        error_log($updates);
         if (isset($updates->message['message_id'])) {
             if (isset($updates->message['photo'])) {
                 $message = isset($updates->message['caption']) ? $updates->message['caption'] : '/start';
                 $file_id = $updates->message['photo'][1]['file_id'];
                 $chat_id = $updates->message['from']['id'];
-            } elseif (isset($updates->message['document'])) {
+            } elseif (isset($updates->message['document'])) { // Avoid Document
+                $message = '/start';
+                $chat_id = $updates->message['from']['id'];
+            } elseif (isset($updates->message['sticker'])) { // Avoid Sticker
                 $message = '/start';
                 $chat_id = $updates->message['from']['id'];
             } else {
