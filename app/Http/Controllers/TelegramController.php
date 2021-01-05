@@ -12,16 +12,21 @@ class TelegramController extends Controller
         $updates = Telegram::getWebhookUpdates();
         error_log($updates);
         $message = $updates->message->text;
+        $chat_id = $updates->message->from->id;
         
         if (Str::of($message)->startsWith('/pair')) {
             $token = substr($message, strpos($message, "/pair") + 6);
-            $this->authUser($token);
+            $this->authUser($token, $chat_id);
         } else {
             error_log('wrong command');
+            Telegram::sendMessage([
+                'chat_id' => $chat_id,
+                'text' => 'Please enter the valid command!'
+            ]);
         }
     }
     
-    public function authUser($token) {
+    public function authUser($token, $chat_id) {
         if (strlen($token) !== 60) {
             Telegram::sendMessage([
                 'chat_id' => $user->telegram_chat_id,
@@ -43,7 +48,7 @@ class TelegramController extends Controller
                 'text' => 'You are already authenticated!'
             ]);
         } else {
-            $user->telegram_chat_id = '1084454902';
+            $user->telegram_chat_id = $chat_id;
             $user->save();
             Telegram::sendMessage([
                 'chat_id' => $user->telegram_chat_id,
