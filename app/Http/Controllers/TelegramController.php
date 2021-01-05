@@ -12,12 +12,8 @@ class TelegramController extends Controller
 {
     public function getUpdates()
     {
-        $updates = Telegram::getWebhookUpdates();
-        if ($updates->message->text) {
-            $message = $updates->message->text;
-        } else {
-            $message = $updates->text;
-        }
+        $updates = Telegram::getUpdates();
+        $message = $updates->message->text;
         $chat_id = $updates->message->from->id;
 
         if (Str::of($message)->startsWith('/pair')) {
