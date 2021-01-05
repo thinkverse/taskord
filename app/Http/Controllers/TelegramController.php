@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Telegram;
+use App\Actions\CreateNewTask;
 
 class TelegramController extends Controller
 {
@@ -71,9 +72,17 @@ class TelegramController extends Controller
         
         if ($this->authCheck($chat_id)) {
             $user = User::where('telegram_chat_id', $chat_id)->first();
+            
+            $task = (new CreateNewTask($user, [
+                'task' => $todo,
+                'done' => false,
+                'type' => 'user',
+                'source' => 'Telegram',
+            ]))();
+            
             return Telegram::sendMessage([
                 'chat_id' => $user->telegram_chat_id,
-                'text' => 'Task Created!',
+                'text' => 'Task has been Created - #'.$task->id,
             ]);
         }
     }
