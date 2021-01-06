@@ -2,11 +2,21 @@
 
 ## Unreleased
 
-### **v1.0.4**
-
--
-
 ## Released
+
+### **v1.0.4** (Jan 06, 2020)
+
+- Taskord will load much faster, thanks to **Livewire defer loading** 💨
+- Taskord is now a **Progressive web app (PWA)** 🚅
+- Icons are now more clear in **dark mode** 🌑
+- New task will be created when a product is **launched** 🚀
+- ? mark to open **keyboard shortcut dialog** ⌨
+- Able to mark a **single notification as read** ✅
+- **Bot commits** from GitHub are now skipped 🤖
+- **Replies count** is now visible for all questions 1️⃣
+- **Modal confirmation** while deleting/resetting your account 🚮
+- All images are now served via **Imagekit CDN** 🌐
+- Finally, we squashed a lot of **major/minor bugs** 🐛
 
 ### **v1.0.3** (Dec 27, 2020)
 
