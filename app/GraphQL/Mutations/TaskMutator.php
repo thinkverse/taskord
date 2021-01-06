@@ -46,7 +46,6 @@ class TaskMutator
                 'type' => 'user',
                 'source' => $args['source'],
             ]);
-            givePoint(new TaskCreated($task));
 
             return [
                 'task' => $task,

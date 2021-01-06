@@ -4,6 +4,7 @@ namespace App\Actions;
 
 use App\Models\Task;
 use App\Models\User;
+use App\Gamify\Points\TaskCreated;
 
 class CreateNewTask
 {
@@ -35,6 +36,7 @@ class CreateNewTask
 
     public function updateActivity(Task $task)
     {
+        givePoint(new TaskCreated($task));
         $message = "Created a new task via {$task->source}";
         loggy('Task', $this->user, \sprintf('%s | Task ID: %d', $message, $task->id));
     }

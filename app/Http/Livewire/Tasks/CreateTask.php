@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Tasks;
 
 use App\Actions\CreateNewTask;
-use App\Gamify\Points\TaskCreated;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -98,7 +97,6 @@ class CreateTask extends Component
             Helper::mentionUsers($users, $task, 'task');
             $this->emit('taskAdded');
             $this->reset();
-            givePoint(new TaskCreated($task));
         } else {
             return $this->alert('error', 'Forbidden!');
         }
