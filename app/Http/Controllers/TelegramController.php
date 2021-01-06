@@ -118,7 +118,6 @@ class TelegramController extends Controller
             }
             
             $product_id = Helper::getProductIDFromMention($todo, $user);
-            // error_log($product_id);
 
             $task = (new CreateNewTask($user, [
                 'product_id' =>  $product_id,
