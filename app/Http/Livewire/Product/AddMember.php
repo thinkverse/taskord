@@ -31,12 +31,11 @@ class AddMember extends Component
                 return $this->alert('error', 'You can\'t add yourself to the team!');
             }
             $user->products()->attach($this->product);
-            $this->alert('success', 'User has been added to the team!');
             $user->notify(new MemberAdded($this->product, auth()->user()->id));
             loggy('Product', auth()->user(), 'Added @'.$user->username.' to #'.$this->product->slug);
-            $this->username = '';
-
-            return $this->alert('success', 'User has been added to the team!');
+            $this->flash('success', 'User has been added to the team!');
+            
+            return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }
     }
 }
