@@ -61,11 +61,11 @@ it('can parse mentions to markdown', function (
     ['@test', ['test'], '[@test](/@test)'],
 ]);
 
-it('can return empty array if no product mentions are found', function () {
-    $products = Helper::getProductIDFromMention('no users found');
+// it('can return empty array if no product mentions are found', function () {
+//     $products = Helper::getProductIDFromMention('no users found');
 
-    expect($products)->toBeEmpty();
-});
+//     expect($products)->toBeEmpty();
+// });
 
 it('can render task with user mentions correctly', function ($task, $expected) {
     expect(Helper::renderTask($task))->toEqual($expected);
