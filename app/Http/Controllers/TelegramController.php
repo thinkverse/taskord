@@ -130,7 +130,7 @@ class TelegramController extends Controller
                 'source' => 'Telegram',
             ]))();
 
-            Helper::mentionUsers($users, $todo, $user, 'task');
+            Helper::mentionUsers($users, $task, $user, 'task');
 
             return $status ?
                 $this->send($chat_id, '✅ *A new completed task has been created* [#'.$task->id.'](https://taskord.com/task/'.$task->id.')') :
