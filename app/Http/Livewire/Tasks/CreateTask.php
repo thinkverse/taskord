@@ -67,8 +67,6 @@ class CreateTask extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            $users = Helper::getUsernamesFromMentions($this->task);
-
             if ($this->images) {
                 $images = [];
                 foreach ($this->images as $image) {
@@ -94,7 +92,6 @@ class CreateTask extends Component
                 'type' => $product_id ? 'product' : 'user',
             ]))();
 
-            Helper::mentionUsers($users, $task, auth()->user(), 'task');
             $this->emit('taskAdded');
             $this->reset();
         } else {

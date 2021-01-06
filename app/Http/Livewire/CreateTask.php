@@ -90,8 +90,6 @@ class CreateTask extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            $users = Helper::getUsernamesFromMentions($this->task);
-
             if ($this->images) {
                 $images = [];
                 foreach ($this->images as $image) {
@@ -132,7 +130,6 @@ class CreateTask extends Component
 
             $this->emit('taskAdded');
             $this->resetInputFields();
-            Helper::mentionUsers($users, $task, auth()->user(), 'task');
             if (auth()->user()->hasGoal and $task->done) {
                 auth()->user()->daily_goal_reached++;
                 auth()->user()->save();
