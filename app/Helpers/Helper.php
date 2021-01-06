@@ -92,13 +92,13 @@ class Helper
         $user->save();
     }
 
-    public static function mentionUsers($users, $task, $type)
+    public static function mentionUsers($users, $task, $auth, $type)
     {
         if ($users) {
             for ($i = 0; $i < count($users); $i++) {
                 $user = User::where('username', $users[$i])->first();
                 if ($user !== null) {
-                    if ($user->id !== auth()->user()->id) {
+                    if ($user->id !== $auth->id) {
                         $user->notify(new Mentioned($task, $type));
                     }
                 }

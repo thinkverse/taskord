@@ -94,7 +94,7 @@ class CreateTask extends Component
                 'type' => $product_id ? 'product' : 'user',
             ]))();
 
-            Helper::mentionUsers($users, $task, 'task');
+            Helper::mentionUsers($users, $task, auth()->user(), 'task');
             $this->emit('taskAdded');
             $this->reset();
         } else {

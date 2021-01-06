@@ -117,6 +117,7 @@ class TelegramController extends Controller
                 $image = null;
             }
 
+            $users = Helper::getUsernamesFromMentions($todo);
             $product_id = Helper::getProductIDFromMention($todo, $user);
 
             $task = (new CreateNewTask($user, [
@@ -128,6 +129,8 @@ class TelegramController extends Controller
                 'type' => $product_id ? 'product' : 'user',
                 'source' => 'Telegram',
             ]))();
+            
+            Helper::mentionUsers($users, $todo, $user, 'task');
 
             return $status ?
                 $this->send($chat_id, '✅ *A new completed task has been created* [#'.$task->id.'](https://taskord.com/task/'.$task->id.')') :

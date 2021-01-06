@@ -132,7 +132,7 @@ class CreateTask extends Component
 
             $this->emit('taskAdded');
             $this->resetInputFields();
-            Helper::mentionUsers($users, $task, 'task');
+            Helper::mentionUsers($users, $task, auth()->user(), 'task');
             if (auth()->user()->hasGoal and $task->done) {
                 auth()->user()->daily_goal_reached++;
                 auth()->user()->save();
