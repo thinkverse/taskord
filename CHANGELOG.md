@@ -4,7 +4,9 @@
 
 ### **v1.0.5** (WIP)
 
-- 
+- Now users and products have **Activity Graph** 📊
+- [**Open page**](https://taskord.com/open) is now public as a part of open startup 📈
+- Users can now see their **account stats** 📊
 
 ## Released
 
