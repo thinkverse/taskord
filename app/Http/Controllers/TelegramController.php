@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Telegram;
+use Helper;
 
 class TelegramController extends Controller
 {
     public function getUpdates()
     {
         $updates = Telegram::getWebhookUpdates();
-        error_log($updates);
         if (isset($updates->message['message_id'])) {
             if (isset($updates->message['photo'])) {
                 $message = isset($updates->message['caption']) ? $updates->message['caption'] : '/start';
@@ -116,13 +116,17 @@ class TelegramController extends Controller
             } else {
                 $image = null;
             }
+            
+            $product_id = Helper::getProductIDFromMention($todo, $user);
+            // error_log($product_id);
 
             $task = (new CreateNewTask($user, [
+                'product_id' =>  $product_id,
                 'task' => $todo,
                 'done' => $status,
                 'images' => $image,
                 'done_at' => $status ? carbon() : null,
-                'type' => 'user',
+                'type' => $product_id ? 'product' : 'user',
                 'source' => 'Telegram',
             ]))();
 

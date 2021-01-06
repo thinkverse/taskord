@@ -142,7 +142,7 @@ class Helper
         return $markdown;
     }
 
-    public static function getProductIDFromMention($string)
+    public static function getProductIDFromMention($string, $user)
     {
         preg_match_all("/(#[\w-]+)/u", $string, $matches);
 
@@ -151,10 +151,15 @@ class Helper
         }
 
         $products = collect(str_replace('#', '', $mentions));
+        
+        error_log($products
+            ->map(fn ($product) => Product::where('slug', $product)->first())->whereNotNull('id')
+            ->filter(fn ($product) => $product->user_id === $user->id or $user->products->contains($product))
+            ->pluck('id')->first());
 
         return $products
             ->map(fn ($product) => Product::where('slug', $product)->first())->whereNotNull('id')
-            ->filter(fn ($product) => $product->user_id === auth()->user()->id or auth()->user()->products->contains($product))
+            ->filter(fn ($product) => $product->user_id === $user->id or $user->products->contains($product))
             ->pluck('id')->first();
     }
 

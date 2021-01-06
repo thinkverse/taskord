@@ -115,7 +115,7 @@ class CreateTask extends Component
             }
 
             if (! $this->product) {
-                $product_id = Helper::getProductIDFromMention($this->task);
+                $product_id = Helper::getProductIDFromMention($this->task, auth()->user());
             } else {
                 $product_id = $this->product->id;
             }
