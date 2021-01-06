@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### **v1.0.5** (WIP)
+
+- 
+
 ## Released
 
 ### **v1.0.4** (Jan 06, 2020)
