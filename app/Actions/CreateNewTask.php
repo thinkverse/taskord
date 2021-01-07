@@ -29,7 +29,7 @@ class CreateNewTask
 
     public function updateActivity(Task $task)
     {
-        givePoint(new TaskCreated($task, $this->user));
+        givePoint(new TaskCreated($task));
         $users = Helper::getUsernamesFromMentions($task->task);
         Helper::mentionUsers($users, $task, $this->user, 'task');
         $message = "Created a new task via {$task->source}";
