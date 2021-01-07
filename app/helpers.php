@@ -119,7 +119,7 @@ if (! function_exists('carbon')) {
 }
 
 if (! function_exists('loggy')) {
-    function loggy($ip = null, $type, $user, $message)
+    function loggy($ip = '127.0.0.1', $type, $user, $message)
     {
         return LogActivity::dispatch($ip, $type, $user, $message);
     }
