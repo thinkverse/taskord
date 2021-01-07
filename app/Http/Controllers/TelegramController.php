@@ -20,6 +20,7 @@ class TelegramController extends Controller
         $updates = Telegram::getWebhookUpdates();
         $response = $updates->message;
         if (isset($response['message_id'])) {
+            $chat_id = $response['from']['id'];
             if (
                 isset($response['document']) or // Avoid Document
                 isset($response['sticker']) or // Avoid Sticker
@@ -28,24 +29,25 @@ class TelegramController extends Controller
                 isset($response['contact']) or // Avoid contact
                 isset($response['forward_from']) // Avoid forwards
             ) {
-                $chat_id = $response['from']['id'];
-
                 return $this->send($chat_id, '⚠ *Oops! Not allowed!*');
             } elseif (isset($response['photo'])) {
                 $message = isset($response['caption']) ? $response['caption'] : '/start';
                 $file_id = $response['photo'][1]['file_id'];
-                $chat_id = $response['from']['id'];
             } else {
                 $message = $response['text'];
                 $file_id = null;
-                $chat_id = $response['from']['id'];
             }
         } else {
             return false;
         }
-
+        
+        return $this->command($chat_id, $message, $file_id);
+    }
+    
+    public function command($chat_id, $message, $file_id)
+    {
         $user = User::where('telegram_chat_id', $chat_id)->first();
-
+        
         switch (true) {
             case Str::of($message)->startsWith('/start'):
                 return (new Start($chat_id))();
