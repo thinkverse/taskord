@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\CreateNewTask;
 use App\Telegram\CreateTask;
 use App\Telegram\ToggleTaskStatus;
+use App\Telegram\Logout;
 use App\Telegram\AuthUser;
 use App\Models\Task;
 use App\Models\User;
@@ -68,7 +69,9 @@ class TelegramController extends Controller
         } elseif (Str::of($message)->startsWith('/pending')) {
             $this->getPending($chat_id);
         } elseif (Str::of($message)->startsWith('/logout')) {
-            $this->logout($chat_id);
+            if ($this->authCheck($chat_id)) {
+                return (new Logout($chat_id))();
+            }
         } elseif (Str::of($message)->startsWith('/start')) {
             $this->start($chat_id);
         } elseif (Str::of($message)->startsWith('/stats')) {
@@ -153,19 +156,6 @@ class TelegramController extends Controller
         return $this->send($chat_id, $res);
     }
 
-    public function logout($chat_id)
-    {
-        if ($this->authCheck($chat_id)) {
-            $user = User::where('telegram_chat_id', $chat_id)->first();
-            if ($user) {
-                $user->telegram_chat_id = null;
-                $user->save();
-
-                return $this->send($chat_id, '🚪 *Logout successful*');
-            }
-        }
-    }
-    
     public function authCheck($chat_id)
     {
         $user = User::where('telegram_chat_id', $chat_id)->first();
