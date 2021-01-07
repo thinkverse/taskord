@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Actions\CreateNewTask;
+use App\Telegram\CreateTask;
 use App\Models\Task;
 use App\Models\User;
 use GuzzleHttp\Client;
@@ -36,16 +37,18 @@ class TelegramController extends Controller
         } else {
             return false;
         }
+        
+        $user = User::where('telegram_chat_id', $chat_id)->first();
 
         if (Str::of($message)->startsWith('/auth')) {
             $token = substr($message, strpos($message, '/auth') + 6);
             $this->authUser($token, $chat_id);
         } elseif (Str::of($message)->startsWith('/todo')) {
             $task = substr($message, strpos($message, '/todo') + 6);
-            $this->createTask($task, $chat_id, $file_id, false);
+            return (new CreateTask($user, $task, $file_id, false))();
         } elseif (Str::of($message)->startsWith('/done')) {
             $task = substr($message, strpos($message, '/done') + 6);
-            $this->createTask($task, $chat_id, $file_id, true);
+            return (new CreateTask($user, $task, $file_id, true))();
         } elseif (Str::of($message)->startsWith('/complete')) {
             $id = substr($message, strpos($message, '/complete') + 10);
             $this->toggleStatus($id, $chat_id, true);
@@ -82,56 +85,6 @@ class TelegramController extends Controller
             $user->save();
 
             return $this->send($chat_id, '*Authentication successful* ✅');
-        }
-    }
-
-    public function createTask($todo, $chat_id, $file_id, $status)
-    {
-        if (strlen($todo) < 5) {
-            return $this->send($chat_id, '⚠ Task should have at least 5 characters');
-        }
-
-        if ($this->authCheck($chat_id)) {
-            $user = User::where('telegram_chat_id', $chat_id)->first();
-
-            if (! $user->hasVerifiedEmail()) {
-                return $this->send($chat_id, '💌 Your email is not verified!');
-            }
-
-            if ($user->isFlagged) {
-                return $this->send($chat_id, '🚩 Your account is flagged!');
-            }
-
-            if ($file_id) {
-                $image = [];
-                $client = new Client();
-                $res = $client->request('GET', 'https://api.telegram.org/bot'.config('telegram.bots.taskordbot.token').'/getFile?file_id='.$file_id);
-                $res_file_path = json_decode($res->getBody(), true)['result']['file_path'];
-                $img = Image::make('https://api.telegram.org/file/bot'.config('telegram.bots.taskordbot.token').'/'.$res_file_path)
-                    ->encode('jpg', 80);
-                $imageName = Str::random(32).'.png';
-                Storage::disk('public')->put('photos/'.$imageName, (string) $img);
-                $uri = 'photos/'.$imageName;
-                array_push($image, $uri);
-            } else {
-                $image = null;
-            }
-
-            $product_id = Helper::getProductIDFromMention($todo, $user);
-
-            $task = (new CreateNewTask($user, [
-                'product_id' =>  $product_id,
-                'task' => $todo,
-                'done' => $status,
-                'images' => $image,
-                'done_at' => $status ? carbon() : null,
-                'type' => $product_id ? 'product' : 'user',
-                'source' => 'Telegram',
-            ]))();
-
-            return $status ?
-                $this->send($chat_id, '✅ *A new completed task has been created* [#'.$task->id.'](https://taskord.com/task/'.$task->id.')') :
-                $this->send($chat_id, '⏳ *A new pending task has been created* [#'.$task->id.'](https://taskord.com/task/'.$task->id.')');
         }
     }
 
