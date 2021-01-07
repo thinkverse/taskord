@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById("load-more").disabled = true;
       }
     });
-  })
+  });
 
   // Initial Pagination
   const target = document.querySelector("#load-more");
