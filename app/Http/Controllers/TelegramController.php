@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\CreateNewTask;
 use App\Telegram\CreateTask;
+use App\Telegram\Stats;
 use App\Telegram\Pending;
 use App\Telegram\ToggleTaskStatus;
 use App\Telegram\Logout;
@@ -76,32 +77,15 @@ class TelegramController extends Controller
                 return (new Logout($chat_id))();
             }
         } elseif (Str::of($message)->startsWith('/start')) {
-            $this->start($chat_id);
+            if ($this->authCheck($chat_id)) {
+                return (new Stats($user))();
+            }
         } elseif (Str::of($message)->startsWith('/stats')) {
-            $this->stats($chat_id);
+            if ($this->authCheck($chat_id)) {
+                return (new Stats($user))();
+            }
         } else {
             return $this->send($chat_id, 'Please enter the valid command!');
-        }
-    }
-
-    public function stats($chat_id)
-    {
-        if ($this->authCheck($chat_id)) {
-            $user = User::where('telegram_chat_id', $chat_id)->first();
-            if ($user) {
-                $res = "*Your account stats ✨*\n\n"
-                       .'🔥 *'.number_format($user->getPoints())."* Reputations\n"
-                       .'✅ *'.number_format($user->tasks()->whereDone(true)->count())."* tasks completed\n"
-                       .'⏳ *'.number_format($user->tasks()->whereDone(false)->count())."* tasks pending\n"
-                       .'📦 *'.number_format($user->ownedProducts()->whereLaunched(true)->count())."* products launched\n"
-                       .'📦 *'.number_format($user->ownedProducts()->count())."* products owned\n"
-                       .'👥 *'.number_format($user->products()->count())."* products you are member of\n"
-                       .'💬 *'.number_format($user->comments()->count())."* comments posted\n"
-                       .'❓ *'.number_format($user->questions()->count())."* questions asked\n"
-                       .'💬 *'.number_format($user->answers()->count())."* questions answered\n";
-
-                return $this->send($chat_id, $res);
-            }
         }
     }
 
