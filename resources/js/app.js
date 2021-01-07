@@ -16,7 +16,7 @@ console.log(
 
 document.addEventListener("DOMContentLoaded", async () => {
   // Pagination
-  Livewire.hook('component.initialized', () => {
+  Livewire.hook("component.initialized", () => {
     window.addEventListener("scroll", () => {
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
       if (scrollTop + window.innerHeight > document.documentElement.scrollHeight - 100) {
