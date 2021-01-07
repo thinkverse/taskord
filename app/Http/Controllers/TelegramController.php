@@ -41,6 +41,10 @@ class TelegramController extends Controller
         $user = User::where('telegram_chat_id', $chat_id)->first();
         
         switch (true) {
+            case Str::of($message)->startsWith('/start'):
+                return (new Start($chat_id))();
+            break;
+            
             case Str::of($message)->startsWith('/auth'):
                 $token = substr($message, strpos($message, '/auth') + 6);
 
@@ -84,20 +88,16 @@ class TelegramController extends Controller
                     return (new Pending($user))();
                 }
             break;
+
+            case Str::of($message)->startsWith('/stats'):
+                if ($this->authCheck($chat_id)) {
+                    return (new Stats($user))();
+                }
+            break;
             
             case Str::of($message)->startsWith('/logout'):
                 if ($this->authCheck($chat_id)) {
                     return (new Logout($chat_id))();
-                }
-            break;
-            
-            case Str::of($message)->startsWith('/start'):
-                return (new Start($chat_id))();
-            break;
-            
-            case Str::of($message)->startsWith('/stats'):
-                if ($this->authCheck($chat_id)) {
-                    return (new Stats($user))();
                 }
             break;
             
