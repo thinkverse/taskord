@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{ $activity->id }}</td>
                     <td class="text-secondary">
-                        {{ $activity->created_at->format('l, d M Y H:i:s') }} UTC
+                        {{ $activity->created_at->format('D, d M Y H:i:s') }} GMT
                     </td>
                     <td>
                         @if ($activity->getExtraProperty('ip'))
