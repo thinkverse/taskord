@@ -31,26 +31,16 @@ class ToggleTaskStatus
     
     public function __invoke()
     {
-        $user = User::where('api_token', $this->token)->first();
-        $user_count = User::where('telegram_chat_id', $user->telegram_chat_id)->count('id');
-        if (! $user or strlen($this->token) !== 60) {
-            $helper = "Go to https://taskord.com/settings/api and copy your *API Token 🔑*\n\n"
-                .'And paste it here `/auth <API token>`';
-
-            return $this->send($this->chat_id, $helper);
+        if (! $this->id) {
+            return $this->send($this->user->telegram_chat_id, '⚠ You should give *Task ID* `Eg: /done 28`');
         }
         
-        if ($user_count > 1) {
-            return $this->send($this->chat_id, "*This Telegram account is already associated with another account* 👀");
+        if (! $this->user->hasVerifiedEmail()) {
+            return $this->send($this->user->telegram_chat_id, '💌 Your email is not verified!');
         }
 
-        if ($user->telegram_chat_id) {
-            return $this->send($user->telegram_chat_id, '*You are already authenticated* ✅');
-        } else {
-            $user->telegram_chat_id = $this->chat_id;
-            $user->save();
-
-            return $this->send($user->telegram_chat_id, '*Authentication successful* ✅');
+        if ($this->user->isFlagged) {
+            return $this->send($this->user->telegram_chat_id, '🚩 Your account is flagged!');
         }
     }
 
