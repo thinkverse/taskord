@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\CreateNewTask;
 use App\Telegram\CreateTask;
 use App\Telegram\Stats;
+use App\Telegram\Start;
 use App\Telegram\Pending;
 use App\Telegram\ToggleTaskStatus;
 use App\Telegram\Logout;
@@ -77,9 +78,7 @@ class TelegramController extends Controller
                 return (new Logout($chat_id))();
             }
         } elseif (Str::of($message)->startsWith('/start')) {
-            if ($this->authCheck($chat_id)) {
-                return (new Stats($user))();
-            }
+            return (new Start($chat_id))();
         } elseif (Str::of($message)->startsWith('/stats')) {
             if ($this->authCheck($chat_id)) {
                 return (new Stats($user))();
@@ -87,28 +86,6 @@ class TelegramController extends Controller
         } else {
             return $this->send($chat_id, 'Please enter the valid command!');
         }
-    }
-
-    public function start($chat_id)
-    {
-        $res = "*Hi 👋, I'm Taskord Bot, I can help you stay productive without leaving your chat application.*\n\n"
-               ."You can use these commands\n\n"
-               ."*New Task*\n\n"
-               ."/todo `<task>` - Create a new pending task\n"
-               ."/done `<task>` - Create a new completed task\n\n"
-               ."*Task Status*\n\n"
-               ."/complete `<task id>` - Complete a pending task\n"
-               ."/uncomplete `<task id>` - Uncomplete a completed task\n\n"
-               ."*Profile*\n\n"
-               ."/stats - See your account stats\n"
-               ."/pending - See all pending tasks\n\n"
-               ."*Account*\n\n"
-               ."/auth `<API token>` - Connect Taskord account with Telegram\n"
-               ."/logout - Disconnect Taskord account from Telegram\n\n"
-               ."*Others*\n\n"
-               ."/start - See this message again anytime\n";
-
-        return $this->send($chat_id, $res);
     }
 
     public function authCheck($chat_id)
