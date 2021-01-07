@@ -13,7 +13,7 @@ class Delete extends Component
             auth()->user()->notifications()->delete();
             $this->emit('deleteAll');
             auth()->user()->touch();
-            loggy('Notification', auth()->user(), 'Deleted all notifications');
+            loggy(request()->ip(), 'Notification', auth()->user(), 'Deleted all notifications');
 
             return $this->alert('success', 'All notifications has been deleted!');
         } else {

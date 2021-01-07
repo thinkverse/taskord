@@ -34,7 +34,7 @@ class SingleTask extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            loggy('Throttle', auth()->user(), 'Rate limited while checking a task');
+            loggy(request()->ip(), 'Throttle', auth()->user(), 'Rate limited while checking a task');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -44,7 +44,7 @@ class SingleTask extends Component
                 if ($this->task->done) {
                     $this->task->done_at = carbon();
                     auth()->user()->touch();
-                    loggy('Task', auth()->user(), 'Updated a task as pending | Task ID: '.$this->task->id);
+                    loggy(request()->ip(), 'Task', auth()->user(), 'Updated a task as pending | Task ID: '.$this->task->id);
                 } else {
                     $this->task->done_at = carbon();
                     auth()->user()->touch();
@@ -54,7 +54,7 @@ class SingleTask extends Component
                         CheckGoal::dispatch(auth()->user(), $this->task);
                     }
                     givePoint(new TaskCompleted($this->task));
-                    loggy('Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
+                    loggy(request()->ip(), 'Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
                 }
                 $this->task->done = ! $this->task->done;
                 $this->task->save();
@@ -77,7 +77,7 @@ class SingleTask extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            loggy('Throttle', auth()->user(), 'Rate limited while praising a task');
+            loggy(request()->ip(), 'Throttle', auth()->user(), 'Rate limited while praising a task');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -94,7 +94,7 @@ class SingleTask extends Component
                 return $this->alert('warning', 'You can\'t praise your own task!');
             }
             Helper::togglePraise($this->task, 'TASK');
-            loggy('Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
+            loggy(request()->ip(), 'Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -105,7 +105,7 @@ class SingleTask extends Component
         if (Auth::check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->task);
-                loggy('Admin', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
 
                 return $this->alert('success', 'Task is hidden from public!');
             } else {
@@ -129,7 +129,7 @@ class SingleTask extends Component
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->task->user->id) {
-                loggy('Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
+                loggy(request()->ip(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
                 foreach ($this->task->images ?? [] as $image) {
                     Storage::delete($image);
                 }

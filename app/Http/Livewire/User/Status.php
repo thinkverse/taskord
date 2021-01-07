@@ -26,7 +26,7 @@ class Status extends Component
             auth()->user()->status_emoji = null;
             auth()->user()->save();
             $this->emit('statusUpdated');
-            loggy('User', auth()->user(), 'Cleared the account status');
+            loggy(request()->ip(), 'User', auth()->user(), 'Cleared the account status');
 
             return $this->alert('success', 'Status cleared successfully!');
         } else {
@@ -46,7 +46,7 @@ class Status extends Component
                 auth()->user()->status_emoji = $event['status_emoji'];
                 auth()->user()->save();
                 $this->emit('statusUpdated');
-                loggy('User', auth()->user(), 'Updated the account status');
+                loggy(request()->ip(), 'User', auth()->user(), 'Updated the account status');
 
                 return $this->alert('success', 'Status set successfully!');
             } else {
@@ -54,7 +54,7 @@ class Status extends Component
                 auth()->user()->status_emoji = null;
                 auth()->user()->save();
                 $this->emit('statusUpdated');
-                loggy('User', auth()->user(), 'Deleted the account status');
+                loggy(request()->ip(), 'User', auth()->user(), 'Deleted the account status');
 
                 return $this->alert('success', 'Status cleared successfully!');
             }

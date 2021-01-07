@@ -71,7 +71,7 @@ class CreateAnswer extends Component
                 $this->question->user->notify(new Answered($answer));
                 givePoint(new CommentCreated($answer));
             }
-            loggy('Answer', auth()->user(), 'Created a new answer | Answer ID: '.$answer->id);
+            loggy(request()->ip(), 'Answer', auth()->user(), 'Created a new answer | Answer ID: '.$answer->id);
 
             return $this->alert('success', 'Answer has been added!');
         } else {

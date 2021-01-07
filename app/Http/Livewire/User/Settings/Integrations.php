@@ -34,7 +34,7 @@ class Integrations extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            loggy('Throttle', auth()->user(), 'Rate limited while creating an API integration');
+            loggy(request()->ip(), 'Throttle', auth()->user(), 'Rate limited while creating an API integration');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -61,7 +61,7 @@ class Integrations extends Component
                     $this->name = '';
                     $this->product = '';
                     session()->flash('created', $webhook);
-                    loggy('User', auth()->user(), 'Created a new webhook | Webhook ID: '.$webhook->id);
+                    loggy(request()->ip(), 'User', auth()->user(), 'Created a new webhook | Webhook ID: '.$webhook->id);
 
                     return $this->alert('success', 'New webhook has been created!');
                 } else {
@@ -79,7 +79,7 @@ class Integrations extends Component
     {
         if (Auth::check()) {
             if (auth()->user()->id === $this->user->id) {
-                loggy('User', auth()->user(), 'Deleted a webhook | Webhook ID: '.$id);
+                loggy(request()->ip(), 'User', auth()->user(), 'Deleted a webhook | Webhook ID: '.$id);
                 $webhook = Webhook::find($id);
                 $webhook->delete();
                 $this->emit('webhookDeleted');

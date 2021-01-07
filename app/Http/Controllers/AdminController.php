@@ -9,7 +9,7 @@ class AdminController extends Controller
         if (auth()->user()->staffShip) {
             auth()->user()->staffShip = false;
             auth()->user()->save();
-            loggy('Admin', auth()->user(), 'Disabled Staff Ship');
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Disabled Staff Ship');
 
             return response()->json([
                 'status' => 'disabled',
@@ -17,7 +17,7 @@ class AdminController extends Controller
         } else {
             auth()->user()->staffShip = true;
             auth()->user()->save();
-            loggy('Admin', auth()->user(), 'Enabled Staff Ship');
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Enabled Staff Ship');
 
             return response()->json([
                 'status' => 'enabled',

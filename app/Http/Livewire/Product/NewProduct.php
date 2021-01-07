@@ -110,7 +110,7 @@ class NewProduct extends Component
             }
 
             auth()->user()->touch();
-            loggy('Product', auth()->user(), 'Created a new product | Product Slug: #'.$product->slug);
+            loggy(request()->ip(), 'Product', auth()->user(), 'Created a new product | Product Slug: #'.$product->slug);
             $this->flash('success', 'Product has been created!');
 
             return redirect()->route('product.done', ['slug' => $product->slug]);
