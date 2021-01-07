@@ -26,7 +26,7 @@
                     </td>
                     <td>
                         @if ($activity->getExtraProperty('ip'))
-                        <a href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
+                        <a class="font-monospace" href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
                             {{ $activity->getExtraProperty('ip') }}
                         </a>
                         @else
