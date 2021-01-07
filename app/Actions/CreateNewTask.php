@@ -34,7 +34,7 @@ class CreateNewTask
         $users = Helper::getUsernamesFromMentions($task->task);
         Helper::mentionUsers($users, $task, $this->user, 'task');
         $message = "Created a new task via {$task->source}";
-        loggy('Task', $this->user, \sprintf('%s | Task ID: %d', $message, $task->id));
+        loggy(request()->ip(), 'Task', $this->user, \sprintf('%s | Task ID: %d', $message, $task->id));
     }
 
     public function createTaskModel(): Task

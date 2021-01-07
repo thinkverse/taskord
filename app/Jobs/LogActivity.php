@@ -15,17 +15,19 @@ class LogActivity implements ShouldQueue
     protected $type;
     protected $user;
     protected $message;
+    protected $ip;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($type, $user, $message)
+    public function __construct($ip, $type, $user, $message)
     {
         $this->type = $type;
         $this->user = $user;
         $this->message = $message;
+        $this->ip = $ip;
     }
 
     /**
@@ -37,7 +39,10 @@ class LogActivity implements ShouldQueue
     {
         activity()
             ->causedBy($this->user)
-            ->withProperties(['type' => $this->type])
+            ->withProperties([
+                'type' => $this->type,
+                'ip' => $this->ip
+            ])
             ->log($this->message);
     }
 }

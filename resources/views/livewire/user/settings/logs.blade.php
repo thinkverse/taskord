@@ -16,6 +16,7 @@
             @foreach ($activities as $activity)
                 <div class="d-flex w-100 justify-content-between">
                     <h6 class="mb-1">
+                        {{$activity->getExtraProperty('ip')}}
                         {{ '@'.$user->username }} –
                         @if ($activity->getExtraProperty('type') === 'Admin')
                             Admin 🛡

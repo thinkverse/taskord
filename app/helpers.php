@@ -119,8 +119,8 @@ if (! function_exists('carbon')) {
 }
 
 if (! function_exists('loggy')) {
-    function loggy($type, $user, $message)
+    function loggy($ip = null, $type, $user, $message)
     {
-        return LogActivity::dispatch($type, $user, $message);
+        return LogActivity::dispatch($ip, $type, $user, $message);
     }
 }
