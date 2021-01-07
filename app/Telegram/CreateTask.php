@@ -73,20 +73,9 @@ class CreateTask
             'source' => 'Telegram',
         ]))();
 
-        $this->updateActivity($task);
-
         return $this->status ?
             $this->send($this->user->telegram_chat_id, '✅ *A new completed task has been created* [#'.$task->id.'](https://taskord.com/task/'.$task->id.')') :
             $this->send($this->user->telegram_chat_id, '⏳ *A new pending task has been created* [#'.$task->id.'](https://taskord.com/task/'.$task->id.')');
-    }
-
-    public function updateActivity(Task $task)
-    {
-        givePoint(new TaskCreated($task));
-        $users = Helper::getUsernamesFromMentions($task->task);
-        Helper::mentionUsers($users, $task, $this->user, 'task');
-        $message = "Created a new task via {$task->source}";
-        loggy('Task', $this->user, \sprintf('%s | Task ID: %d', $message, $task->id));
     }
 
     public function send($chat_id, $message)
