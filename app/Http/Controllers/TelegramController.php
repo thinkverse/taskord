@@ -29,7 +29,7 @@ class TelegramController extends Controller
                 isset($response['forward_from']) // Avoid forwards
             ) {
                 $chat_id = $response['from']['id'];
-                return $this->send($chat_id, 'Not allowed!');
+                return $this->send($chat_id, '⚠ *Oops! Not allowed!*');
             } elseif (isset($response['photo'])) {
                 $message = isset($response['caption']) ? $response['caption'] : '/start';
                 $file_id = $response['photo'][1]['file_id'];
