@@ -18,17 +18,18 @@ class TelegramController extends Controller
     public function getUpdates()
     {
         $updates = Telegram::getWebhookUpdates();
-        error_log($updates);
         $response = $updates->message;
         if (isset($response['message_id'])) {
             if (
                 isset($response['document']) or // Avoid Document
                 isset($response['sticker']) or // Avoid Sticker
                 isset($response['poll']) or // Avoid Polls
+                isset($response['location']) or // Avoid location
+                isset($response['contact']) or // Avoid contact
                 isset($response['forward_from']) // Avoid forwards
             ) {
-                $message = '/start';
                 $chat_id = $response['from']['id'];
+                return $this->send($chat_id, 'Not allowed!');
             } elseif (isset($response['photo'])) {
                 $message = isset($response['caption']) ? $response['caption'] : '/start';
                 $file_id = $response['photo'][1]['file_id'];
