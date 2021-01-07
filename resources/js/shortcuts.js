@@ -23,7 +23,7 @@ hotkeys("g+h", () => {
 
 // Go to user profile
 hotkeys("g+u", () => {
-  const username = document.getElementById("taskord-username").innerHTML.trim()
+  const username = document.getElementById("taskord-username").innerHTML.trim();
   window.location.href = "/@" + username;
 });
 
@@ -127,6 +127,6 @@ Cookie Enabled: ${window.navigator.cookieEnabled}
 Online: ${window.navigator.onLine}
 ${"```"}
 
-<sub>**Created via Taskord.com**</sub>`
+<sub>**Created via Taskord.com**</sub>`;
   window.open("https://gitlab.com/taskord/taskord/-/issues/new?issue[description]=" + encodeURI(description));
 });
