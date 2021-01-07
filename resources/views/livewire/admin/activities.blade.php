@@ -10,7 +10,8 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col" class="w-25">TimeStamp</th>
+                    <th scope="col">TimeStamp</th>
+                    <th scope="col">IP Address</th>
                     <th scope="col">Caused by</th>
                     <th scope="col">Type</th>
                     <th scope="col">Description</th>
@@ -20,8 +21,17 @@
                 @foreach ($activities as $activity)
                 <tr>
                     <td>{{ $activity->id }}</td>
-                    <td class="w-25 text-secondary">
+                    <td class="text-secondary">
                         {{ $activity->created_at->format('l, d M Y H:i:s') }} UTC
+                    </td>
+                    <td>
+                        @if ($activity->getExtraProperty('ip'))
+                        <a href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
+                            {{ $activity->getExtraProperty('ip') }}
+                        </a>
+                        @else
+                        <span class="small fw-bold text-secondary">Not logged</span>
+                        @endif
                     </td>
                     <td>
                         @if($activity->causer_id)
