@@ -44,11 +44,15 @@ class TelegramController extends Controller
             $token = substr($message, strpos($message, '/auth') + 6);
             $this->authUser($token, $chat_id);
         } elseif (Str::of($message)->startsWith('/todo')) {
-            $task = substr($message, strpos($message, '/todo') + 6);
-            return (new CreateTask($user, $task, $file_id, false))();
+            if ($this->authCheck($chat_id)) {
+                $task = substr($message, strpos($message, '/todo') + 6);
+                return (new CreateTask($user, $task, $file_id, false))();   
+            }
         } elseif (Str::of($message)->startsWith('/done')) {
-            $task = substr($message, strpos($message, '/done') + 6);
-            return (new CreateTask($user, $task, $file_id, true))();
+            if ($this->authCheck($chat_id)) {
+                $task = substr($message, strpos($message, '/done') + 6);
+                return (new CreateTask($user, $task, $file_id, true))();
+            }
         } elseif (Str::of($message)->startsWith('/complete')) {
             $id = substr($message, strpos($message, '/complete') + 10);
             $this->toggleStatus($id, $chat_id, true);
@@ -224,7 +228,7 @@ class TelegramController extends Controller
             }
         }
     }
-
+    
     public function authCheck($chat_id)
     {
         $user = User::where('telegram_chat_id', $chat_id)->first();
