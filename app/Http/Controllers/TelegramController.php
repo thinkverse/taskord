@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\CreateNewTask;
 use App\Telegram\CreateTask;
+use App\Telegram\ToggleTaskStatus;
 use App\Telegram\AuthUser;
 use App\Models\Task;
 use App\Models\User;
@@ -55,8 +56,10 @@ class TelegramController extends Controller
                 return (new CreateTask($user, $task, $file_id, true))();
             }
         } elseif (Str::of($message)->startsWith('/complete')) {
-            $id = substr($message, strpos($message, '/complete') + 10);
-            $this->toggleStatus($id, $chat_id, true);
+            if ($this->authCheck($chat_id)) {
+                $id = substr($message, strpos($message, '/complete') + 10);
+                return (new ToggleTaskStatus($user, $id, true))();
+            }
         } elseif (Str::of($message)->startsWith('/uncomplete')) {
             $id = substr($message, strpos($message, '/complete') + 12);
             $this->toggleStatus($id, $chat_id, false);
