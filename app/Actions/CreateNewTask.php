@@ -11,26 +11,18 @@ class CreateNewTask
 {
     private const DEFAULT_SOURCE = 'Taskord for Web';
 
-    protected bool $silent;
     protected array $data;
     protected User $user;
 
-    public function __construct(
-        User $user,
-        array $data,
-        bool $silent = false
-    ) {
+    public function __construct(User $user, array $data) {
         $this->user = $user;
         $this->data = $data;
-        $this->silent = $silent;
     }
 
     public function __invoke(): Task
     {
         $task = $this->createTaskModel();
-
-        ($this->silent)
-            ?: $this->updateActivity($task);
+        $this->updateActivity($task);
 
         return $task;
     }
