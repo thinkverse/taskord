@@ -42,6 +42,33 @@ class ToggleTaskStatus
         if ($this->user->isFlagged) {
             return $this->send($this->user->telegram_chat_id, '🚩 Your account is flagged!');
         }
+        
+        $task = Task::find($this->id);
+        if ($task) {
+            if ($this->status) {
+                if ($task->done) {
+                    return $this->send($this->user->telegram_chat_id, 'Task [#'.$task->id.'](https://taskord.com/task/'.$task->id.') is *already done* ✅');
+                } else {
+                    $task->done = true;
+                    $task->done_at = carbon();
+                    $task->save();
+
+                    return $this->send($this->user->telegram_chat_id, 'Task [#'.$task->id.'](https://taskord.com/task/'.$task->id.') has been *marked as done* ✅');
+                }
+            } else {
+                if (! $task->done) {
+                    return $this->send($this->user->telegram_chat_id, 'Task [#'.$task->id.'](https://taskord.com/task/'.$task->id.') is *already pending* ⏳');
+                } else {
+                    $task->done = false;
+                    $task->done_at = null;
+                    $task->save();
+
+                    return $this->send($this->user->telegram_chat_id, 'Task [#'.$task->id.'](https://taskord.com/task/'.$task->id.') has been *marked as pending* ⏳');
+                }
+            }
+        } else {
+            return $this->send($this->user->telegram_chat_id, 'Oops! Task not exist 🙅');
+        }
     }
 
     public function send($chat_id, $message)

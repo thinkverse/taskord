@@ -61,8 +61,10 @@ class TelegramController extends Controller
                 return (new ToggleTaskStatus($user, $id, true))();
             }
         } elseif (Str::of($message)->startsWith('/uncomplete')) {
-            $id = substr($message, strpos($message, '/complete') + 12);
-            $this->toggleStatus($id, $chat_id, false);
+            if ($this->authCheck($chat_id)) {
+                $id = substr($message, strpos($message, '/complete') + 12);
+                return (new ToggleTaskStatus($user, $id, false))();
+            }
         } elseif (Str::of($message)->startsWith('/pending')) {
             $this->getPending($chat_id);
         } elseif (Str::of($message)->startsWith('/logout')) {
@@ -104,55 +106,6 @@ class TelegramController extends Controller
                 return $this->send($chat_id, implode("\n\n", $res));
             } else {
                 return $this->send($chat_id, '*All done!* No pending tasks 👏');
-            }
-        }
-    }
-
-    public function toggleStatus($id, $chat_id, $status)
-    {
-        if (! $id) {
-            return $this->send($chat_id, '⚠ You should give *Task ID* `Eg: /done 28`');
-        }
-
-        if ($this->authCheck($chat_id)) {
-            $user = User::where('telegram_chat_id', $chat_id)->first();
-            $task = Task::find($id);
-            if ($task) {
-                if ($task->user_id !== $user->id) {
-                    return $this->send($chat_id, '⚠ Forbidden!');
-                }
-
-                if (! $user->hasVerifiedEmail()) {
-                    return $this->send($chat_id, '💌 Your email is not *verified*!');
-                }
-
-                if ($user->isFlagged) {
-                    return $this->send($chat_id, '🚩 Your account is *flagged*!');
-                }
-
-                if ($status) {
-                    if ($task->done) {
-                        return $this->send($chat_id, 'Task [#'.$task->id.'](https://taskord.com/task/'.$task->id.') is *already done* ✅');
-                    } else {
-                        $task->done = true;
-                        $task->done_at = carbon();
-                        $task->save();
-
-                        return $this->send($chat_id, 'Task [#'.$task->id.'](https://taskord.com/task/'.$task->id.') has been *marked as done* ✅');
-                    }
-                } else {
-                    if (! $task->done) {
-                        return $this->send($chat_id, 'Task [#'.$task->id.'](https://taskord.com/task/'.$task->id.') is *already pending* ⏳');
-                    } else {
-                        $task->done = false;
-                        $task->done_at = null;
-                        $task->save();
-
-                        return $this->send($chat_id, 'Task [#'.$task->id.'](https://taskord.com/task/'.$task->id.') has been *marked as pending* ⏳');
-                    }
-                }
-            } else {
-                return $this->send($chat_id, 'Oops! Task not exist 🙅');
             }
         }
     }
