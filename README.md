@@ -15,7 +15,7 @@
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
     </a>
     <a href="LICENSE">
-        <img src="https://img.shields.io/badge/license-GNU%20AGPLv3-green?longCache=true" alt="MIT License">
+        <img src="https://img.shields.io/badge/license-MIT-green?longCache=true" alt="MIT License">
     </a>
     <a href="https://discord.gg/9M4Q65b">
         <img src="https://img.shields.io/discord/742712073670230026.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2" alt="Discord">
