@@ -16,7 +16,12 @@
             @foreach ($activities as $activity)
                 <div class="d-flex w-100 justify-content-between">
                     <h6 class="mb-1">
-                        {{$activity->getExtraProperty('ip')}}
+                        @if ($activity->getExtraProperty('ip'))
+                        <a href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
+                            {{ $activity->getExtraProperty('ip') }}
+                        </a>
+                        <span class="px-1">•</span>
+                        @endif
                         {{ '@'.$user->username }} –
                         @if ($activity->getExtraProperty('type') === 'Admin')
                             Admin 🛡
