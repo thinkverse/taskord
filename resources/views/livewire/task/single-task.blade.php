@@ -58,12 +58,9 @@
                 "enabled" : "disabled"
             }}
         />
-        @if ($launched) <span class="ms-1">🚀</span>
-        @elseif ($bug) <span class="ms-1">🐛</span>
-        @elseif ($learn) <span class="ms-1">📗</span>
+        @if ($launched)<span class="ms-1">🚀</span>@endif
         @endif
-        @endif
-        <label for="task-{{ $task->id }}" class="ms-1 task-font d-inline @if ($launched or $bug or $learn) fw-bold @endif @if ($launched) text-success @endif">
+        <label for="task-{{ $task->id }}" class="ms-1 task-font d-inline @if ($launched) fw-bold text-success @endif">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-secondary">

@@ -18,8 +18,6 @@ class SingleTask extends Component
     public Task $task;
     public $confirming;
     public $launched;
-    public $bug;
-    public $learn;
 
     public function mount($task)
     {
@@ -149,8 +147,6 @@ class SingleTask extends Component
     public function render()
     {
         $this->launched = false;
-        $this->bug = false;
-        $this->learn = false;
         $launchList = [
             'launched',
             'launch',
@@ -162,31 +158,6 @@ class SingleTask extends Component
             ! ($this->task->source === 'GitHub' or $this->task->source === 'GitLab' or $this->task->source === 'Webhook')
         ) {
             $this->launched = true;
-        }
-
-        $bugList = [
-            'bug',
-            'fix',
-            'fixed',
-            'fixes',
-        ];
-        if (
-            (Str::contains(strtolower($this->task->task), $bugList) and (bool) $this->task->done) and
-            ! ($this->task->source === 'GitHub' or $this->task->source === 'GitLab' or $this->task->source === 'Webhook')
-        ) {
-            $this->bug = true;
-        }
-
-        $learnList = [
-            'learned',
-            'learning',
-            'learn',
-        ];
-        if (
-            (Str::contains(strtolower($this->task->task), $learnList) and (bool) $this->task->done) and
-            ! ($this->task->source === 'GitHub' or $this->task->source === 'GitLab' or $this->task->source === 'Webhook')
-        ) {
-            $this->learn = true;
         }
 
         return view('livewire.task.single-task');
