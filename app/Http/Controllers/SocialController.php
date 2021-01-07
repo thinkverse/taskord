@@ -38,7 +38,7 @@ class SocialController extends Controller
                     "🔒 User logged in to Taskord\n\n`".$request->ip().'`'
                 )
             );
-            loggy('Auth', $user, 'Logged in via Social auth from '.$request->ip());
+            loggy(request()->ip(), 'Auth', $user, 'Logged in via Social auth from '.$request->ip());
 
             return redirect()->route('home');
         } else {
@@ -92,7 +92,7 @@ class SocialController extends Controller
                 )
             );
             $user->notify(new Welcome(true));
-            loggy('Auth', $user, 'Created account with '.$provider.' '.$user->email.' from '.request()->ip());
+            loggy(request()->ip(), 'Auth', $user, 'Created account with '.$provider.' '.$user->email.' from '.request()->ip());
 
             return redirect()->route('home');
         }

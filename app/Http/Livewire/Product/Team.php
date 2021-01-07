@@ -24,7 +24,7 @@ class Team extends Component
         if (Auth::check()) {
             $this->user->products()->detach($this->product);
             $this->user->notify(new MemberRemoved($this->product, auth()->user()->id));
-            loggy('Product', auth()->user(), 'Removed @'.$this->user->username.' from #'.$this->product->slug);
+            loggy(request()->ip(), 'Product', auth()->user(), 'Removed @'.$this->user->username.' from #'.$this->product->slug);
             $this->flash('success', 'User has been removed from the team!');
 
             return redirect()->route('product.done', ['slug' => $this->product->slug]);

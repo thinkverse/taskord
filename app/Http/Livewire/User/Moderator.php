@@ -36,7 +36,7 @@ class Moderator extends Component
                         'Enrolled Beta'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Enrolled to Beta | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled to Beta | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -46,7 +46,7 @@ class Moderator extends Component
                         'Un-enrolled Beta'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Un-enrolled from Beta | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from Beta | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -71,7 +71,7 @@ class Moderator extends Component
                         'Enrolled Staff'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Enrolled as Staff | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled as Staff | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -81,7 +81,7 @@ class Moderator extends Component
                         'Un-enrolled Staff'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Un-enrolled from Staff | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from Staff | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -104,7 +104,7 @@ class Moderator extends Component
                         'Enrolled Contributor'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Enrolled as Contributor | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled as Contributor | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -114,7 +114,7 @@ class Moderator extends Component
                         'Un-enrolled Contributor'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Un-enrolled from Contributor | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from Contributor | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -139,7 +139,7 @@ class Moderator extends Component
                         'Enrolled Private account'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Enrolled as private user | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled as private user | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -149,7 +149,7 @@ class Moderator extends Component
                         'Un-enrolled Private account'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Un-enrolled from private user | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from private user | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -174,7 +174,7 @@ class Moderator extends Component
                         'Flagged'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Flagged the user | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Flagged the user | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -184,7 +184,7 @@ class Moderator extends Component
                         'Un-flagged'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Un-flagged the user | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Un-flagged the user | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -214,7 +214,7 @@ class Moderator extends Component
                         'Suspended'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Suspended the user | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Suspended the user | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -224,7 +224,7 @@ class Moderator extends Component
                         'Un-suspended'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Un-suspended the user | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Un-suspended the user | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -247,7 +247,7 @@ class Moderator extends Component
                         'Enrolled Patron'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Enrolled as Patron | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled as Patron | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -257,7 +257,7 @@ class Moderator extends Component
                         'Un-enrolled Patron'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Un-enrolled from Patron | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from Patron | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -280,7 +280,7 @@ class Moderator extends Component
                         'Verified'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Verified the user | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Verified the user | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -290,7 +290,7 @@ class Moderator extends Component
                         'Un-verified'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Un-verified the user | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Un-verified the user | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -312,7 +312,7 @@ class Moderator extends Component
                         'Enabled Darkmode'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Enrolled to Dark mode | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled to Dark mode | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -322,7 +322,7 @@ class Moderator extends Component
                         'Disabled Darkmode'
                     )
                 );
-                loggy('Admin', auth()->user(), 'Un-enrolled from Dark mode | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from Dark mode | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -343,7 +343,7 @@ class Moderator extends Component
                     'Masqueraded'
                 )
             );
-            loggy('Admin', auth()->user(), 'Masqueraded | Username: @'.$this->user->username);
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Masqueraded | Username: @'.$this->user->username);
             Auth::loginUsingId($this->user->id);
 
             return redirect()->route('home');
@@ -355,7 +355,7 @@ class Moderator extends Component
     public function resetAvatar()
     {
         if (Auth::check() && auth()->user()->isStaff) {
-            loggy('Admin', auth()->user(), 'Resetted avatar | Username: @'.$this->user->username);
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Resetted avatar | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->avatar = 'https://avatar.tobi.sh/'.md5($user->email).'.svg?text='.strtoupper(substr($user->username, 0, 2));
@@ -382,7 +382,7 @@ class Moderator extends Component
             $user->timestamps = false;
             $user->username = strtolower(Str::random(6));
             $user->save();
-            loggy('Admin', auth()->user(), 'Released the username | Username: @'.$user->username);
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Released the username | Username: @'.$user->username);
             $this->user->notify(
                 new Logger(
                     'MOD',
@@ -401,7 +401,7 @@ class Moderator extends Component
     public function deleteTasks()
     {
         if (Auth::check() && auth()->user()->isStaff) {
-            loggy('Admin', auth()->user(), 'Deleted all tasks | Username: @'.$this->user->username);
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Deleted all tasks | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             foreach ($user->tasks as $task) {
@@ -428,7 +428,7 @@ class Moderator extends Component
     public function deleteComments()
     {
         if (Auth::check() && auth()->user()->isStaff) {
-            loggy('Admin', auth()->user(), 'Deleted all comments | Username: @'.$this->user->username);
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Deleted all comments | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->comments()->delete();
@@ -450,7 +450,7 @@ class Moderator extends Component
     public function deleteQuestions()
     {
         if (Auth::check() && auth()->user()->isStaff) {
-            loggy('Admin', auth()->user(), 'Deleted all questions | Username: @'.$this->user->username);
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Deleted all questions | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->questions()->delete();
@@ -472,7 +472,7 @@ class Moderator extends Component
     public function deleteAnswers()
     {
         if (Auth::check() && auth()->user()->isStaff) {
-            loggy('Admin', auth()->user(), 'Deleted all answers | Username: @'.$this->user->username);
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Deleted all answers | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->answers()->delete();
@@ -494,7 +494,7 @@ class Moderator extends Component
     public function deleteProducts()
     {
         if (Auth::check() && auth()->user()->isStaff) {
-            loggy('Admin', auth()->user(), 'Deleted all products | Username: @'.$this->user->username);
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Deleted all products | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             foreach ($user->ownedProducts as $product) {
@@ -524,7 +524,7 @@ class Moderator extends Component
     public function deleteUser()
     {
         if (Auth::check() && auth()->user()->isStaff) {
-            loggy('Admin', auth()->user(), 'Deleted the user | Username: @'.$this->user->username);
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Deleted the user | Username: @'.$this->user->username);
             if ($this->user->id === 1) {
                 return false;
             }

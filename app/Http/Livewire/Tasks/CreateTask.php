@@ -44,7 +44,7 @@ class CreateTask extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            loggy('Throttle', auth()->user(), 'Rate limited while creating a task');
+            loggy(request()->ip(), 'Throttle', auth()->user(), 'Rate limited while creating a task');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }

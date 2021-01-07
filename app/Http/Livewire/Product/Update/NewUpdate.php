@@ -46,7 +46,7 @@ class NewUpdate extends Component
             foreach ($users as $user) {
                 $user->notify(new NewProductUpdate($update));
             }
-            loggy('Product', auth()->user(), 'Created a new product update on #'.$this->product->slug.' | Update ID: '.$update->id);
+            loggy(request()->ip(), 'Product', auth()->user(), 'Created a new product update on #'.$this->product->slug.' | Update ID: '.$update->id);
 
             $this->flash('success', 'New Update has been created!');
 

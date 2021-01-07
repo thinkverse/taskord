@@ -27,7 +27,7 @@ class Subscribe extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            loggy('Throttle', auth()->user(), 'Rate limited while subscribing to a product');
+            loggy(request()->ip(), 'Throttle', auth()->user(), 'Rate limited while subscribing to a product');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -48,7 +48,7 @@ class Subscribe extends Component
                 if (auth()->user()->hasSubscribed($this->product)) {
                     $this->product->owner->notify(new Subscribed($this->product, auth()->user()->id));
                 }
-                loggy('Product', auth()->user(), 'Toggled product subscribe | Product ID: #'.$this->product->slug);
+                loggy(request()->ip(), 'Product', auth()->user(), 'Toggled product subscribe | Product ID: #'.$this->product->slug);
             }
         } else {
             return $this->alert('error', 'Forbidden!');

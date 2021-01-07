@@ -29,7 +29,7 @@ class SingleQuestion extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            loggy('Throttle', auth()->user(), 'Rate limited while praising the question');
+            loggy(request()->ip(), 'Throttle', auth()->user(), 'Rate limited while praising the question');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -46,7 +46,7 @@ class SingleQuestion extends Component
                 return $this->alert('warning', 'You can\'t praise your own question!');
             }
             Helper::togglePraise($this->question, 'QUESTION');
-            loggy('Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
+            loggy(request()->ip(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -57,7 +57,7 @@ class SingleQuestion extends Component
         if (Auth::check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->question);
-                loggy('Admin', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
+                loggy(request()->ip(), 'Admin', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
 
                 return $this->alert('success', 'Question is hidden from public!');
             } else {
@@ -81,7 +81,7 @@ class SingleQuestion extends Component
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {
-                loggy('Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
+                loggy(request()->ip(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
                 $this->question->delete();
                 auth()->user()->touch();
                 $this->flash('success', 'Question has been deleted successfully!');

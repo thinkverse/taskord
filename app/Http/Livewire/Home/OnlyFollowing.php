@@ -13,7 +13,7 @@ class OnlyFollowing extends Component
             auth()->user()->onlyFollowingsTasks = ! auth()->user()->onlyFollowingsTasks;
             auth()->user()->save();
             $this->emit('onlyFollowings');
-            loggy('User', auth()->user(), 'Toggled only followings tasks');
+            loggy(request()->ip(), 'User', auth()->user(), 'Toggled only followings tasks');
 
             if (auth()->user()->onlyFollowingsTasks) {
                 return $this->alert('success', 'Only following users tasks will be visible!');

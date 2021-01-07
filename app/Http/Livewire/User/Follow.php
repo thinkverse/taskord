@@ -27,7 +27,7 @@ class Follow extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            loggy('Throttle', auth()->user(), 'Rate limited while following the user');
+            loggy(request()->ip(), 'Throttle', auth()->user(), 'Rate limited while following the user');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -45,7 +45,7 @@ class Follow extends Component
                 if (auth()->user()->isFollowing($this->user)) {
                     $this->user->notify(new Followed(auth()->user()));
                 }
-                loggy('User', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
+                loggy(request()->ip(), 'User', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
             }
         } else {
             return $this->alert('error', 'Forbidden!');
