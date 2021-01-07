@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\CreateNewTask;
 use App\Telegram\CreateTask;
+use App\Telegram\AuthUser;
 use App\Models\Task;
 use App\Models\User;
 use GuzzleHttp\Client;
@@ -42,11 +43,11 @@ class TelegramController extends Controller
 
         if (Str::of($message)->startsWith('/auth')) {
             $token = substr($message, strpos($message, '/auth') + 6);
-            $this->authUser($token, $chat_id);
+            return (new AuthUser($token, $chat_id))();
         } elseif (Str::of($message)->startsWith('/todo')) {
             if ($this->authCheck($chat_id)) {
                 $task = substr($message, strpos($message, '/todo') + 6);
-                return (new CreateTask($user, $task, $file_id, false))();   
+                return (new CreateTask($user, $task, $file_id, false))();
             }
         } elseif (Str::of($message)->startsWith('/done')) {
             if ($this->authCheck($chat_id)) {
@@ -69,26 +70,6 @@ class TelegramController extends Controller
             $this->stats($chat_id);
         } else {
             return $this->send($chat_id, 'Please enter the valid command!');
-        }
-    }
-
-    public function authUser($token, $chat_id)
-    {
-        $user = User::where('api_token', $token)->first();
-        if (! $user or strlen($token) !== 60) {
-            $helper = "Go to https://taskord.com/settings/api and copy your *API Token 🔑*\n\n"
-                .'And paste it here `/auth <API token>`';
-
-            return $this->send($chat_id, $helper);
-        }
-
-        if ($user->telegram_chat_id) {
-            return $this->send($chat_id, 'You are already authenticated ✅');
-        } else {
-            $user->telegram_chat_id = $chat_id;
-            $user->save();
-
-            return $this->send($chat_id, '*Authentication successful* ✅');
         }
     }
 
