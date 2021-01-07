@@ -18,21 +18,25 @@ class TelegramController extends Controller
     public function getUpdates()
     {
         $updates = Telegram::getWebhookUpdates();
-        if (isset($updates->message['message_id'])) {
-            if (isset($updates->message['photo'])) {
-                $message = isset($updates->message['caption']) ? $updates->message['caption'] : '/start';
-                $file_id = $updates->message['photo'][1]['file_id'];
-                $chat_id = $updates->message['from']['id'];
-            } elseif (
-                isset($updates->message['document']) or // Avoid Document
-                isset($updates->message['sticker']) // Avoid Sticker
+        error_log($updates);
+        $response = $updates->message;
+        if (isset($response['message_id'])) {
+            if (
+                isset($response['document']) or // Avoid Document
+                isset($response['sticker']) or // Avoid Sticker
+                isset($response['poll']) or // Avoid Polls
+                isset($response['forward_from']) // Avoid forwards
             ) {
                 $message = '/start';
-                $chat_id = $updates->message['from']['id'];
+                $chat_id = $response['from']['id'];
+            } elseif (isset($response['photo'])) {
+                $message = isset($response['caption']) ? $response['caption'] : '/start';
+                $file_id = $response['photo'][1]['file_id'];
+                $chat_id = $response['from']['id'];
             } else {
-                $message = $updates->message['text'];
+                $message = $response['text'];
                 $file_id = null;
-                $chat_id = $updates->message['from']['id'];
+                $chat_id = $response['from']['id'];
             }
         } else {
             return false;
