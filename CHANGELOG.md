@@ -8,6 +8,7 @@
 - [**Open page**](https://taskord.com/open) is now public as a part of open startup 📈
 - Users can now see their **account stats** 📊
 - **Telegram bot** beta is out now 🤖
+- **GitHub and GitLab** commits are now more cleaner ✨
 
 ## Released
 
