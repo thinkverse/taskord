@@ -47,15 +47,15 @@
                 }}
             />
             @if ($task->source === 'GitLab')
-            <span class="ms-2">
+            <span class="d-flex ms-2">
                 <img class="task-icon" src="{{ asset('images/brand/gitlab.svg') }}" alt="GitHub Icon" />
             </span>
             @elseif ($task->source === 'GitHub')
-            <span class="ms-2">
+            <span class="d-flex ms-2">
                 <img class="task-icon github-logo" src="{{ asset('images/brand/github.svg') }}" alt="GitLab Icon" />
             </span>
             @elseif ($task->source === 'Webhook')
-            <span class="ms-2">
+            <span class="d-flex ms-2">
                 <x-heroicon-o-globe-alt class="heroicon text-info" />
             </span>
             @endif
