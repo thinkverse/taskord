@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use Faker\Factory;
 
 /**
  * This file contains helper functions for Taskord.
@@ -122,5 +123,14 @@ if (! function_exists('loggy')) {
     function loggy($ip, $type, $user, $message)
     {
         return LogActivity::dispatch($ip, $type, $user, $message);
+    }
+}
+
+if (! function_exists('faker')) {
+    function faker($property = null)
+    {
+        $faker = Factory::create();
+    
+        return $property ? $faker->{$property} : $faker;
     }
 }
