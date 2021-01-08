@@ -85,7 +85,8 @@ class WebhookController extends Controller
         }
 
         if ($request_body['head_commit']) {
-            $task = Str::limit($request_body['head_commit']['message'], 100);
+            $commit = explode("\n\n", $request_body['head_commit']['message'])[0];
+            $task = Str::limit($commit, 100);
         } else {
             return response('No head_commit found', 200);
         }
