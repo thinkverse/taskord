@@ -9,6 +9,12 @@
                 <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
             </div>
             @endif
+            @if ($readyToLoad and count($users) === 0)
+            <div class="card-body text-center fw-bold text-secondary">
+                <x-heroicon-o-user class="heroicon-2x text-primary" />
+                Nothing to suggest!
+            </div>
+            @endif
             <ul class="list-group list-group-flush">
                 @foreach ($users as $user)
                 <li class="list-group-item d-flex align-items-center justify-content-between" wire:key="{{ $user->id }}">
