@@ -38,7 +38,7 @@ class SocialController extends Controller
                     "🔒 User logged in to Taskord\n\n`".$request->ip().'`'
                 )
             );
-            loggy(request()->ip(), 'Auth', $user, 'Logged in via Social auth from '.$request->ip());
+            loggy(request()->ip(), 'Auth', $user, 'Logged in via Social auth');
 
             return redirect()->route('home');
         } else {
