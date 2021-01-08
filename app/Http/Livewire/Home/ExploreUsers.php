@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Home;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class ExploreUsers extends Component
 {
     public function render()
     {
-        return view('livewire.explore-users');
+        return view('livewire.home.explore-users');
     }
 }
