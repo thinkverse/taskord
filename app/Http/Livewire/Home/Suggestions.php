@@ -23,11 +23,13 @@ class Suggestions extends Component
     public function render()
     {
         $users = User::cacheFor(60 * 60)
-            ->select('id', 'username', 'firstname', 'lastname', 'avatar', 'isVerified', 'updated_at')
+            ->select('id', 'username', 'firstname', 'lastname', 'reputation', 'avatar', 'isVerified', 'last_active')
+            ->whereNotIn('id', $this->user->followings->pluck('id'))
             ->where([
                 ['isFlagged', false],
                 ['id', '!=', $this->user->id],
             ])
+            ->latest('last_active')
             ->orderBy('reputation', 'DESC')
             ->take(5)
             ->get();
