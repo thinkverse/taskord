@@ -67,12 +67,16 @@ class WebhookController extends Controller
 
     public function githubWebhook($request, $webhook)
     {
+        if ($request->header('content-type') !== 'application/json') {
+            return response('Only application/json content type is allowed', 422);
+        }
+        
         if ($request->header('X-GitHub-Event') === 'ping') {
             return response('success', 200);
         }
         $request_body = $request->json()->all();
 
-        if (! $request->header('X-GitHub-Event') === 'push') {
+        if ($request->header('X-GitHub-Event') !== 'push') {
             return response('Only push event is allowed', 200);
         }
 
