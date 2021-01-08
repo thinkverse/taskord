@@ -37,10 +37,6 @@
             <img class="task-icon" src="{{ asset('images/brand/gitlab.svg') }}" alt="GitHub Icon" />
         @elseif ($task->source === 'GitHub')
             <img class="task-icon github-logo" src="{{ asset('images/brand/github.svg') }}" alt="GitLab Icon" />
-        @elseif ($task->source === 'Webhook')
-        <span>
-            <x-heroicon-o-globe-alt class="heroicon text-info" />
-        </span>
         @else
         <input
             class="form-check-input task-checkbox"
