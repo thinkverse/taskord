@@ -14,7 +14,6 @@
             No tasks made!
         </div>
     </div>
-    @livewire('home.explore-users')
     @endif
     @if ($page === 1)
     <ul class="list-group">
