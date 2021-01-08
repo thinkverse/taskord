@@ -51,6 +51,7 @@
         "nunomaduro/collision": "^5.0",
         "pestphp/pest": "^1.0",
         "pestphp/pest-plugin-laravel": "^1.0",
+        "pestphp/pest-plugin-livewire": "^1.0",
         "phpunit/phpunit": "^9.3",
         "wnx/laravel-stats": "^2.4"
     },
