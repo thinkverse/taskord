@@ -85,7 +85,7 @@ class EditProduct extends Component
                 }
                 $img = Image::make($this->avatar)
                         ->fit(400)
-                        ->encode('webp', 80);
+                        ->encode('webp', 100);
                 $imageName = Str::random(32).'.png';
                 Storage::disk('public')->put('logos/'.$imageName, (string) $img);
                 $avatar = config('app.url').'/storage/logos/'.$imageName;

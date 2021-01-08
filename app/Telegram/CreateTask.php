@@ -50,7 +50,7 @@ class CreateTask
             $res = $client->request('GET', 'https://api.telegram.org/bot'.config('telegram.bots.taskordbot.token').'/getFile?file_id='.$this->file_id);
             $res_file_path = json_decode($res->getBody(), true)['result']['file_path'];
             $img = Image::make('https://api.telegram.org/file/bot'.config('telegram.bots.taskordbot.token').'/'.$res_file_path)
-                ->encode('jpg', 80);
+                ->encode('webp', 100);
             $imageName = Str::random(32).'.png';
             Storage::disk('public')->put('photos/'.$imageName, (string) $img);
             $uri = 'photos/'.$imageName;

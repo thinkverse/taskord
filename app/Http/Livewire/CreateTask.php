@@ -94,7 +94,7 @@ class CreateTask extends Component
                 $images = [];
                 foreach ($this->images as $image) {
                     $img = Image::make($image)
-                        ->encode('jpg', 80);
+                        ->encode('webp', 100);
                     $imageName = Str::random(32).'.png';
                     Storage::disk('public')->put('photos/'.$imageName, (string) $img);
                     $image = 'photos/'.$imageName;
