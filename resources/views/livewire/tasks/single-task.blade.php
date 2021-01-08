@@ -1,4 +1,4 @@
-<li class="list-group-item pt-2 pb-2 d-flex align-items-center">
+<li class="list-group-item pt-2 pb-2">
     <input
         class="form-check-input task-checkbox"
         id="task-{{ $task->id }}"
@@ -6,7 +6,7 @@
         wire:click="checkTask"
         unchecked
     />
-    <label for="task-{{ $task->id }}" class="ms-2 task-font d-inline">
+    <label for="task-{{ $task->id }}" class="ms-1 task-font d-inline">
         {!! Purify::clean(Helper::renderTask($task->task)) !!}
         @if ($task->type === 'product')
         <span class="small text-secondary">
