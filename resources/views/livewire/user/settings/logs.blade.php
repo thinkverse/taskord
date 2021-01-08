@@ -63,7 +63,8 @@
                     </a>
                     @endif
                     @if ($activity->getExtraProperty('location'))
-                    | <span>{{ $activity->getExtraProperty('location') }}</span>
+                    <span class="vertical-separator"></span>
+                    <span>{{ $activity->getExtraProperty('location') }}</span>
                     @endif
                 </div>
                 @if (! $loop->last)

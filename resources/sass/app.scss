@@ -513,3 +513,9 @@ input[type="date"]:valid:before {
     font-size: 11px;
     padding: 2px;
 }
+
+.vertical-separator {
+    margin-right: 8px;
+    margin-left: 3px;
+    border-left: 1px solid grey;
+}
