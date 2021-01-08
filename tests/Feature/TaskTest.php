@@ -20,7 +20,7 @@ it('can create task as un-authed user', function ($task) {
     livewire(CreateTask::class)
         ->set('task', $task)
         ->call('submit')
-        ->assertNotEmitted('taskAdded');
+        ->assertSee('Forbidden');
 })->with([
     ['Hello world from test!'],
     ['😊🤗💜✨👍'],
