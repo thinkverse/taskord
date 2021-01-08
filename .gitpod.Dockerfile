@@ -1,11 +1,10 @@
-FROM gitpod/workspace-full
+FROM gitpod/workspace-mysql
 
 # Instal Requirements
 RUN sudo add-apt-repository ppa:ondrej/php -y \
     && sudo apt update -y \
     && sudo apt install -y \
     redis-server \
-    mysql-server \
     php8.0 \
     php8.0-curl \
     php8.0-common \
