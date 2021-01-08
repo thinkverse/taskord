@@ -17,7 +17,7 @@
                 <div class="d-flex w-100 justify-content-between">
                     <h6 class="mb-1">
                         @if ($activity->getExtraProperty('ip'))
-                        <a href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
+                        <a class="font-monospace fw-bold" href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
                             {{ Str::limit($activity->getExtraProperty('ip'), 15, '..') }}
                         </a>
                         <span class="px-1">•</span>
