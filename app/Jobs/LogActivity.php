@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\App;
 
 class LogActivity implements ShouldQueue
 {
@@ -50,9 +51,13 @@ class LogActivity implements ShouldQueue
     public function getLocation()
     {
         try {
-            $ipInfo = json_decode(file_get_contents('http://ip-api.com/json/'.$this->ip));
-
-            return $ipInfo->city.', '.$ipInfo->regionName.', '.$ipInfo->country;
+            if (App::environment() === 'production') {
+                $ipInfo = json_decode(file_get_contents('http://ip-api.com/json/'.$this->ip));
+    
+                return $ipInfo->city.', '.$ipInfo->regionName.', '.$ipInfo->country;
+            } else {
+                return 'Test Location';
+            }
         } catch (Exception $e) {
             return null;
         }
