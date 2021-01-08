@@ -1,6 +1,10 @@
 <div wire:init="loadSuggestions">
-    <div class="text-uppercase fw-bold text-secondary pb-2">
-        Who to follow
+    <div class="text-uppercase fw-bold text-secondary pb-2 d-flex justify-content-between">
+        <span>Who to follow</span>
+        <span class="text-capitalize">
+            <x-heroicon-o-refresh class="heroicon" />
+            Refresh
+        </span>
     </div>
     <div class="card mb-4">
         <div class="pt-2 pb-2">
