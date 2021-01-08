@@ -13,7 +13,7 @@ function assertExample(): void
     test()->assertTrue(true);
 }
 
-function actingAs($user = 1, string $driver = null)
+function actingAs($user = 2, string $driver = null)
 {
     return test()->actingAs(User::find($user)->first(), $driver);
 }
