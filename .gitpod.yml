@@ -15,3 +15,8 @@ tasks:
 
 ports:
   - port: 8000
+
+vscode:
+  extensions:
+    - onecentlin.laravel-blade@1.25.0:v9Oz26jwvUo5eyq8znO+Zw==
+    - github.github-vscode-theme@1.1.5:MRkK1YZPdt2oWsYIDmJi2w==
