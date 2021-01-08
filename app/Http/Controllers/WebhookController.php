@@ -74,11 +74,12 @@ class WebhookController extends Controller
         if ($request->header('X-GitHub-Event') === 'ping') {
             return response('success', 200);
         }
-        $request_body = $request->json()->all();
 
         if ($request->header('X-GitHub-Event') !== 'push') {
             return response('Only push event is allowed', 200);
         }
+        
+        $request_body = $request->json()->all();
 
         if (mb_strtolower($request_body['sender']['type'], 'UTF-8') == 'bot') {
             return response('Bot cannot log tasks', 200);
