@@ -27,7 +27,7 @@
                     <td>
                         @if ($activity->getExtraProperty('ip'))
                         <a class="font-monospace" href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
-                            {{ $activity->getExtraProperty('ip') }}
+                            {{ Str::limit($activity->getExtraProperty('ip'), 15, '..') }}
                         </a>
                         @else
                         <span class="small fw-bold text-secondary">Not logged</span>
