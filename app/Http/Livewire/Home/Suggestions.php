@@ -26,10 +26,10 @@ class Suggestions extends Component
             ->select('id', 'username', 'firstname', 'lastname', 'avatar', 'isVerified', 'updated_at')
             ->where([
                 ['isFlagged', false],
-                ['id', '!=', 1],
+                ['id', '!=', $this->user->id],
             ])
             ->orderBy('reputation', 'DESC')
-            ->take(3)
+            ->take(5)
             ->get();
 
         return view('livewire.home.suggestions', [
