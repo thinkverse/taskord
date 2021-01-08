@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        // 1
         User::factory()->create([
             'firstname' => 'Taskord',
             'lastname' => 'Admin',
@@ -25,12 +26,14 @@ class UserSeeder extends Seeder
             'isStaff' => true,
         ]);
 
+        // 2
         User::factory()->create([
             'firstname' => 'Taskord',
             'lastname' => 'Test',
             'username' => 'test',
         ]);
         
+        // 3
         User::factory()->create([
             'firstname' => 'Taskord',
             'lastname' => 'Suspended',
@@ -41,6 +44,7 @@ class UserSeeder extends Seeder
             'avatar' => 'https://i.imgur.com/QpfHEy6.png',
         ]);
         
+        // 4
         User::factory()->create([
             'firstname' => 'Taskord',
             'lastname' => 'Unverified',

@@ -16,23 +16,15 @@ it('has task page', function ($url, $expected, $auth) {
     ['/task/1', 200, true],
 ]);
 
-it('can create task as un-authed user', function () {
+it('cannot create task as un-authed user', function () {
     livewire(CreateTask::class)
         ->set('task', 'Hello world from test!')
         ->call('submit')
         ->assertNotEmitted('taskAdded');
 });
 
-it('can create task as suspended/flagged user', function () {
-    actingAs(3)
-        ->livewire(CreateTask::class)
-        ->set('task', 'Hello world from test!')
-        ->call('submit')
-        ->assertNotEmitted('taskAdded');
-});
-
 it('can create task as authed user', function ($task) {
-    actingAs()
+    actingAs(2)
         ->livewire(CreateTask::class)
         ->set('task', $task)
         ->call('submit')
@@ -40,4 +32,15 @@ it('can create task as authed user', function ($task) {
 })->with([
     ['Hello world from test!'],
     ['😊🤗💜✨👍'],
+]);
+
+it('cannot create task', function ($task) {
+    actingAs(2)
+        ->livewire(CreateTask::class)
+        ->set('task', $task)
+        ->call('submit')
+        ->assertHasErrors('task');
+})->with([
+    [''],
+    [faker()->randomNumber(4, true)],
 ]);
