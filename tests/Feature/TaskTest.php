@@ -24,8 +24,8 @@ it('cannot create task as un-authed user', function () {
 });
 
 it('can create task as authed user', function ($task) {
-    livewire(CreateTask::class)
-        ->actingAs(2)
+    actingAs(2)
+        ->livewire(CreateTask::class)
         ->set('task', $task)
         ->call('submit')
         ->assertEmitted('taskAdded');
