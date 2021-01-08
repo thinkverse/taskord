@@ -6,7 +6,7 @@
 @section('pageTitle', $task->task.' ·')
 @section('title', 'Task by @'.$task->user->username.' ·')
 @section('description', $task->task)
-@section('image', $task->user->avatar)
+@section('image', $task->images > 0 ? Helper::getCDNImage($task->images[0]) : Helper::getCDNImage($task->user->avatar))
 @section('url', url()->current())
 @endif
 
