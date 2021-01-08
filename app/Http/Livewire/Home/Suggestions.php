@@ -29,7 +29,7 @@ class Suggestions extends Component
                 ['id', '!=', 1],
             ])
             ->orderBy('reputation', 'DESC')
-            ->take(10)
+            ->take(3)
             ->get();
             
         return view('livewire.home.suggestions', [

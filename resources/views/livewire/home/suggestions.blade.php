@@ -9,48 +9,50 @@
                 <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
             </div>
             @endif
-            @foreach ($users as $user)
-            <div class="py-2 px-3">
-                <span class="h6 text-secondary" style="vertical-align:sub">
-                    @if ($loop->index === 0)
-                    <span class="fw-bold" style="color:#38c172">
-                    @elseif ($loop->index === 1)
-                    <span class="fw-bold" style="color:#6a63ec">
-                    @elseif ($loop->index === 2)
-                    <span class="fw-bold" style="color:#fd5f60">
-                    @else
+            <ul class="list-group list-group-flush">
+                @foreach ($users as $user)
+                <li class="list-group-item d-flex align-items-center">
                     <span>
-                    @endif
-                        #{{ $loop->index + 1 }}
+                        <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                            <img
+                                loading=lazy
+                                class="rounded-circle avatar-40 mt-1 user-popover"
+                                src="{{ Helper::getCDNImage($user->avatar, 160) }}"
+                                data-id="{{ $user->id }}"
+                                height="40" width="40"
+                                alt="{{ $user->username }}'s avatar"
+                            />
+                        </a>
+                        <span class="ms-3">
+                            <a
+                                href="{{ route('user.done', ['username' => $user->username]) }}"
+                                class="align-text-top text-dark user-popover"
+                                data-id="{{ $user->id }}"
+                            >
+                                <span class="fw-bold">
+                                    @if ($user->firstname or $user->lastname)
+                                        {{ $user->firstname }}{{ ' '.$user->lastname }}
+                                    @else
+                                        {{ $user->username }}
+                                    @endif
+                                    @if ($user->isVerified)
+                                        <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
+                                    @endif
+                                </span>
+                                <div>
+                                    {{ '@'.$user->username }}
+                                </div>
+                            </a>
+                        </span>
                     </span>
-                </span>
-                <a
-                    href="{{ route('user.done', ['username' => $user->username]) }}"
-                    class="user-popover"
-                    data-id="{{ $user->id }}"
-                >
-                    <img loading=lazy class="rounded-circle avatar-30 mt-1 ms-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="30" width="30" alt="{{ $user->username }}'s avatar" />
-                </a>
-                <a
-                    href="{{ route('user.done', ['username' => $user->username]) }}"
-                    class="ms-2 me-2 align-text-top fw-bold text-dark user-popover"
-                    data-id="{{ $user->id }}"
-                >
-                    @if ($user->firstname or $user->lastname)
-                        {{ $user->firstname }}{{ ' '.$user->lastname }}
-                    @else
-                        {{ $user->username }}
-                    @endif
-                    @if ($user->isVerified)
-                        <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
-                    @endif
-                </a>
-                <span class="badge rounded-pill score bg-warning text-reputation align-middle" title="🔥 {{ number_format($user->getPoints()) }}">
-                    <x-heroicon-o-fire class="heroicon-small text-danger" />
-                    {{ $user->getPoints(true) }}
-                </span>
-            </div>
-            @endforeach
+                    <span>
+                        @livewire('home.follow', [
+                            'user' => $user
+                        ])
+                    </span>
+                </li>
+                @endforeach
+            </ul>
         </div>
     </div>
 </div>
