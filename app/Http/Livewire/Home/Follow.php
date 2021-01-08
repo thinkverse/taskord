@@ -46,6 +46,7 @@ class Follow extends Component
                 }
                 loggy(request()->ip(), 'Notification', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
             }
+            $this->emitUp('userFollowed');
         } else {
             return $this->alert('error', 'Forbidden!');
         }

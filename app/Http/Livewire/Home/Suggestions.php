@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Suggestions extends Component
 {
+    protected $listeners = ['userFollowed' => 'render'];
     public $readyToLoad = false;
     public User $user;
 
@@ -19,7 +20,7 @@ class Suggestions extends Component
     {
         $this->readyToLoad = true;
     }
-
+    
     public function render()
     {
         $users = User::cacheFor(60 * 60)
