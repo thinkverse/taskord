@@ -56,7 +56,7 @@
                 <p class="mb-1">
                     {{ $activity->description }}
                 </p>
-                <div class="small">
+                <div class="mt-2">
                     @if ($activity->getExtraProperty('ip'))
                     <a class="font-monospace fw-bold" href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
                         {{ Str::limit($activity->getExtraProperty('ip'), 15, '..') }}
