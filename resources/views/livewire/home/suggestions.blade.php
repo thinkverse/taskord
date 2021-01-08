@@ -11,8 +11,8 @@
             @endif
             <ul class="list-group list-group-flush">
                 @foreach ($users as $user)
-                <li class="list-group-item d-flex align-items-center">
-                    <span>
+                <li class="list-group-item d-flex align-items-center justify-content-between">
+                    <span class="d-flex align-items-center">
                         <a href="{{ route('user.done', ['username' => $user->username]) }}">
                             <img
                                 loading=lazy
