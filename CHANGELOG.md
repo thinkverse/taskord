@@ -9,6 +9,7 @@
 - Users can now see their **account stats** 📊
 - **Telegram bot** beta is out now 🤖
 - **GitHub and GitLab** commits are now more cleaner ✨
+- Added **Who to follow** section to explore active users 👥
 
 ## Released
 
