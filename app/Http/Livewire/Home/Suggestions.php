@@ -23,7 +23,7 @@ class Suggestions extends Component
     public function render()
     {
         $users  = User::cacheFor(60 * 60)
-            ->select('id', 'username', 'firstname', 'lastname', 'avatar', 'isVerified')
+            ->select('id', 'username', 'firstname', 'lastname', 'avatar', 'isVerified', 'updated_at')
             ->where([
                 ['isFlagged', false],
                 ['id', '!=', 1],
