@@ -33,7 +33,7 @@ it('can create task as authed user', function ($task) {
     ['😊🤗💜✨👍'],
 ]);
 
-it('cannot create task', function ($task) {
+it('cannot create task - task validation', function ($task) {
     actingAs(2)
         ->livewire(CreateTask::class)
         ->set('task', $task)
