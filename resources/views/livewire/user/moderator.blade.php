@@ -39,7 +39,7 @@
                 </span>
                 @if ($user->lastIP)
                 <a class="fw-bold" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank" rel="noreferrer">
-                    {{ $user->lastIP }}
+                    {{ Str::limit($user->lastIP, 15, '..') }}
                 </a>
                 @else
                 <span class="fw-bold text-secondary">
