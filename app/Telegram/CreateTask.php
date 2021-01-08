@@ -51,7 +51,7 @@ class CreateTask
             $res_file_path = json_decode($res->getBody(), true)['result']['file_path'];
             $img = Image::make('https://api.telegram.org/file/bot'.config('telegram.bots.taskordbot.token').'/'.$res_file_path)
                 ->encode('webp', 100);
-            $imageName = Str::random(32).'.png';
+            $imageName = Str::random(32).'.webp';
             Storage::disk('public')->put('photos/'.$imageName, (string) $img);
             $uri = 'photos/'.$imageName;
             array_push($image, $uri);

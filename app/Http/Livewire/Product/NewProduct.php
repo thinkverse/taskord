@@ -76,7 +76,7 @@ class NewProduct extends Component
                 $img = Image::make($this->avatar)
                         ->fit(400)
                         ->encode('webp', 100);
-                $imageName = Str::random(32).'.png';
+                $imageName = Str::random(32).'.webp';
                 Storage::disk('public')->put('logos/'.$imageName, (string) $img);
                 $url = config('app.url').'/storage/logos/'.$imageName;
             } else {

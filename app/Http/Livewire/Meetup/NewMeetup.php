@@ -59,7 +59,7 @@ class NewMeetup extends Component
                         ->fit(1500)
                         ->crop(1500, 500)
                         ->encode('webp', 100);
-                $imageName = Str::random(32).'.png';
+                $imageName = Str::random(32).'.webp';
                 Storage::disk('public')->put('meetup-cover/'.$imageName, (string) $img);
                 $url = config('app.url').'/storage/meetup-cover/'.$imageName;
             } else {
