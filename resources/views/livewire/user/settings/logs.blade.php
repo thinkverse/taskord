@@ -16,6 +16,7 @@
             @foreach ($activities as $activity)
                 <div class="d-flex w-100 justify-content-between">
                     <h6 class="mb-1">
+                        {{ $activity->getExtraProperty('location') }}
                         @if ($activity->getExtraProperty('ip'))
                         <a class="font-monospace fw-bold" href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
                             {{ Str::limit($activity->getExtraProperty('ip'), 15, '..') }}

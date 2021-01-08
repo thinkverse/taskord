@@ -42,7 +42,18 @@ class LogActivity implements ShouldQueue
             ->withProperties([
                 'type' => $this->type,
                 'ip' => $this->ip,
+                'location' => $this->getLocation(),
             ])
             ->log($this->message);
+    }
+    
+    public function getLocation()
+    {
+        try {
+            $ipInfo = json_decode(file_get_contents('http://ip-api.com/json/'.$this->ip));
+            return $ipInfo->city.', '.$ipInfo->regionName.', '.$ipInfo->country;
+        } catch (Exception $e) {
+            return null;
+        }
     }
 }
