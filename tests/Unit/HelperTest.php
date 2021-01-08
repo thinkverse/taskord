@@ -12,16 +12,16 @@ it('can convert to CDN url in production enviroment with arguments', function ($
 
     expect(Helper::getCDNImage($url, $resolution))->toEqual($expected);
 })->with([
-    ['https://taskord.com/storage/test.png', 500, 'https://ik.imagekit.io/taskordimg/tr:w-500/test.png'],
-    ['https://taskord.com/storage/test.png', 501, 'https://ik.imagekit.io/taskordimg/tr:w-501/test.png'],
+    ['https://taskord.com/storage/test.webp', 500, 'https://ik.imagekit.io/taskordimg/tr:w-500/test.webp'],
+    ['https://taskord.com/storage/test.webp', 501, 'https://ik.imagekit.io/taskordimg/tr:w-501/test.webp'],
 ]);
 
 it('can convert to CDN url in production enviroment without arguments', function () {
     App::shouldReceive('environment')->once()->withNoArgs()->andReturn('production');
 
-    $urlFromHelper = Helper::getCDNImage('https://taskord.com/storage/test.png');
+    $urlFromHelper = Helper::getCDNImage('https://taskord.com/storage/test.webp');
 
-    expect($urlFromHelper)->toEqual('https://ik.imagekit.io/taskordimg/tr:w-500/test.png');
+    expect($urlFromHelper)->toEqual('https://ik.imagekit.io/taskordimg/tr:w-500/test.webp');
 });
 
 it('can get correct usernames from mentions', function ($text, $expected) {
