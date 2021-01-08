@@ -3,7 +3,6 @@
 use App\Http\Livewire\CreateTask;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
-use function Tests\faker;
 
 it('has task page', function ($url, $expected, $auth) {
     if ($auth) {
@@ -42,5 +41,5 @@ it('cannot create task', function ($task) {
         ->assertHasErrors('task');
 })->with([
     [''],
-    [faker()->randomNumber(4, true)],
+    ['1234'],
 ]);
