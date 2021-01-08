@@ -95,7 +95,7 @@ class CreateTask extends Component
                 foreach ($this->images as $image) {
                     $img = Image::make($image)
                         ->encode('webp', 100);
-                    $imageName = Str::random(32).'.png';
+                    $imageName = Str::random(32).'.webp';
                     Storage::disk('public')->put('photos/'.$imageName, (string) $img);
                     $image = 'photos/'.$imageName;
                     array_push($images, $image);
