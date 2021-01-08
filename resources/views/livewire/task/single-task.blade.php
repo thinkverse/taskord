@@ -30,37 +30,33 @@
         </span>
     </div>
     <div class="pt-3">
-        <div class="d-flex align-items-center">
-            @if ($task->hidden)
-            <span class="task-font fst-italic text-secondary">Task was hidden by moderator</span>
-            @else
-            <input
-                class="form-check-input task-checkbox"
-                id="task-{{ $task->id }}"
-                type="checkbox"
-                wire:click="checkTask"
-                {{ $task->done ? "checked" : "unchecked" }}
-                {{
-                    Auth::check() &&
-                    auth()->user()->id === $task->user_id ?
-                    "enabled" : "disabled"
-                }}
-            />
-            @if ($task->source === 'GitLab')
-            <span class="d-flex ms-2">
-                <img class="task-icon" src="{{ asset('images/brand/gitlab.svg') }}" alt="GitHub Icon" />
-            </span>
-            @elseif ($task->source === 'GitHub')
-            <span class="d-flex ms-2">
-                <img class="task-icon github-logo" src="{{ asset('images/brand/github.svg') }}" alt="GitLab Icon" />
-            </span>
-            @elseif ($task->source === 'Webhook')
-            <span class="d-flex ms-2">
-                <x-heroicon-o-globe-alt class="heroicon text-info" />
-            </span>
-            @endif
-            @if ($launched)<span class="ms-2">🚀</span>@endif
-            <label for="task-{{ $task->id }}" class="ms-2 task-font d-inline @if ($launched) fw-bold text-success @endif">
+        @if ($task->hidden)
+        <span class="task-font fst-italic text-secondary">Task was hidden by moderator</span>
+        @else
+        @if ($task->source === 'GitLab')
+            <img class="task-icon" src="{{ asset('images/brand/gitlab.svg') }}" alt="GitHub Icon" />
+        @elseif ($task->source === 'GitHub')
+            <img class="task-icon github-logo" src="{{ asset('images/brand/github.svg') }}" alt="GitLab Icon" />
+        @elseif ($task->source === 'Webhook')
+        <span>
+            <x-heroicon-o-globe-alt class="heroicon text-info" />
+        </span>
+        @else
+        <input
+            class="form-check-input task-checkbox"
+            id="task-{{ $task->id }}"
+            type="checkbox"
+            wire:click="checkTask"
+            {{ $task->done ? "checked" : "unchecked" }}
+            {{
+                Auth::check() &&
+                auth()->user()->id === $task->user_id ?
+                "enabled" : "disabled"
+            }}
+        />
+        @if ($launched)<span class="ms-1">🚀</span>@endif
+        @endif
+        <label for="task-{{ $task->id }}" class="ms-1 task-font d-inline @if ($launched) fw-bold text-success @endif">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-secondary">
@@ -75,8 +71,7 @@
                 </a>
             </span>
             @endif
-            </label>
-        </div>
+        </label>
         @if ($task->images)
         <div class="gallery">
         @foreach ($task->images ?? [] as $image)
