@@ -16,13 +16,6 @@
             @foreach ($activities as $activity)
                 <div class="d-flex w-100 justify-content-between">
                     <h6 class="mb-1">
-                        {{ $activity->getExtraProperty('location') }}
-                        @if ($activity->getExtraProperty('ip'))
-                        <a class="font-monospace fw-bold" href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
-                            {{ Str::limit($activity->getExtraProperty('ip'), 15, '..') }}
-                        </a>
-                        <span class="px-1">•</span>
-                        @endif
                         {{ '@'.$user->username }} –
                         @if ($activity->getExtraProperty('type') === 'Admin')
                             Admin 🛡
@@ -63,6 +56,16 @@
                 <p class="mb-1">
                     {{ $activity->description }}
                 </p>
+                <div class="small">
+                    @if ($activity->getExtraProperty('ip'))
+                    <a class="font-monospace fw-bold" href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
+                        {{ Str::limit($activity->getExtraProperty('ip'), 15, '..') }}
+                    </a>
+                    @endif
+                    @if ($activity->getExtraProperty('location'))
+                    | <span>{{ $activity->getExtraProperty('location') }}</span>
+                    @endif
+                </div>
                 @if (! $loop->last)
                 <hr/>
                 @endif
