@@ -49,9 +49,4 @@ class Task extends Model
     {
         return $this->belongsTo(\App\Models\Product::class);
     }
-
-    public function scopeFetch(Builder $query): Builder
-    {
-        return $query->orderBy('done_at', 'desc');
-    }
 }

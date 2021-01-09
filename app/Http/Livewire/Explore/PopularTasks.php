@@ -28,8 +28,17 @@ class PopularTasks extends Component
 
     public function render()
     {
-        $tasks = InteractionRelation::popular(Task::class)
-            ->paginate(10, null, null, $this->page);
+        $tasks = Task::cacheFor(60 * 60)
+                ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['isFlagged', false],
+                        ['isPrivate', false],
+                    ]);
+                })
+                ->has('comments')
+                ->latest('done_at')
+                ->paginate(10, null, null, $this->page);
 
         return view('livewire.explore.popular-tasks', [
             'tasks' => $this->readyToLoad ? $tasks : [],
