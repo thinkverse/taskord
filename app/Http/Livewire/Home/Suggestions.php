@@ -33,7 +33,8 @@ class Suggestions extends Component
             ->latest('last_active')
             ->orderBy('reputation', 'DESC')
             ->take(5)
-            ->get();
+            ->get()
+            ->shuffle();
 
         return view('livewire.home.suggestions', [
             'users' => $this->readyToLoad ? $users : [],
