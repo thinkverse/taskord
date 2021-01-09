@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Cache;
+
 class AdminController extends Controller
 {
     public static function toggle()
@@ -23,5 +25,14 @@ class AdminController extends Controller
                 'status' => 'enabled',
             ]);
         }
+    }
+    
+    public static function cacheHits()
+    {
+        $cache = Cache::getStore()->getMemcached()->getAllKeys();
+        
+        return view('site.cache', [
+            'cache' => $cache,
+        ]);
     }
 }

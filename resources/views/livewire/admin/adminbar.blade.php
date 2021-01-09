@@ -92,13 +92,13 @@
                     {{ str_plural('job', $jobs) }}
                 </span>
             </a>
-            <span class="fw-bold me-3">
+            <a class="fw-bold me-3 text-white cursor-pointer" data-bs-toggle="modal" data-bs-target="#cacheModal" title="Cache Hits">
                 <x-heroicon-o-folder-open class="heroicon" />
-                {{ $cache }}
+                {{ number_format(count($cache)) }}
                 <span class="fw-normal">
                     cached
                 </span>
-            </span>
+            </a>
             <span class="fw-bold me-3">
                 <x-heroicon-o-cog class="heroicon" />
                 {{ memory_usage() }}
@@ -147,6 +147,22 @@
                     <button class="btn btn-primary" wire:loading.attr="disabled" wire:click="clean" data-bs-dismiss="modal">
                         Clean Cache
                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="cacheModal" tabindex="-1" aria-labelledby="cacheModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="cacheModalLabel">Memcached Cache Hits</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="cacheModalBody">
+                    <div class="spinner-border taskord-spinner text-secondary" role="status"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

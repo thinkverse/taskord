@@ -73,7 +73,7 @@ class Adminbar extends Component
             'logs' => number_format($logs),
             'praises' => number_format($praises),
             'jobs' => number_format($jobs),
-            'cache' => number_format(count($cache)),
+            'cache' => $cache,
             'webhooks' => number_format($webhooks),
         ]);
     }
