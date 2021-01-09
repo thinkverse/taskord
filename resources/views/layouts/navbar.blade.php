@@ -36,7 +36,7 @@
                 </li>
                 @if (auth()->user()->staffShip)
                 <li class="nav-item">
-                    <a class="nav-link text-white fw-bold" href="{{ route('tasks') }}">
+                    <a class="nav-link text-white fw-bold" href="{{ route('explore') }}">
                         Explore
                         <x-staffship background="dark" />
                     </a>
