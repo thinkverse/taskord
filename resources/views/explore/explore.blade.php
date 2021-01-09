@@ -24,11 +24,11 @@
 <div class="container-md">
     <div class="row justify-content-center">
         <div class="col-sm explore-user-card">
-            <div class="card">
-                <div class="card-body">
-                    
-                </div>
-            </div>
+            @auth
+                @livewire('explore.user')
+            @else
+            Hi
+            @endauth
         </div>
         <div class="col-lg-6 mt-4">
             <div class="card">
