@@ -35,11 +35,12 @@ class PopularTasks extends Component
                         ['isPrivate', false],
                     ]);
                 })
-                ->take(100)
+                ->orderBy('created_at', 'asc')
+                ->take(5)
                 ->orderBy('likers_count', 'desc')
                 ->orderBy('comments_count', 'desc')
                 ->has('comments')
-                ->paginate(10, null, null, $this->page);
+                ->get();
 
         return view('livewire.explore.popular-tasks', [
             'tasks' => $this->readyToLoad ? $tasks : [],

@@ -27,9 +27,4 @@
         </span>
     </div>
     @endforeach
-    @if ($readyToLoad and $tasks->hasMorePages())
-        @livewire('explore.load-more-tasks', [
-            'page' => $page
-        ])
-    @endif
 </div>
