@@ -92,10 +92,17 @@
                     {{ str_plural('job', $jobs) }}
                 </span>
             </a>
-            <a class="fw-bold me-3 text-white" href="/admin/horizon" target="_blank" rel="noreferrer">
+            <span class="fw-bold me-3">
+                <x-heroicon-o-folder-open class="heroicon" />
+                {{ $cache }}
+                <span class="fw-normal">
+                    cached
+                </span>
+            </span>
+            <span class="fw-bold me-3">
                 <x-heroicon-o-cog class="heroicon" />
                 {{ memory_usage() }}
-            </a>
+            </span>
             <span class="fw-bold me-3">
                 <x-heroicon-o-clock class="heroicon" />
                 {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms

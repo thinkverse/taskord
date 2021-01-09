@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
 use Spatie\Activitylog\Models\Activity;
+use Illuminate\Support\Facades\Cache;
 
 class Adminbar extends Component
 {
@@ -55,6 +56,7 @@ class Adminbar extends Component
         $interactions = DB::table('interactions')->count();
         $praises = DB::table('interactions')->whereRelation('like')->count();
         $jobs = Queue::size();
+        $cache = Cache::getStore()->getMemcached()->getAllKeys();
 
         return view('livewire.admin.adminbar', [
             'branchname' => $branch,
@@ -71,6 +73,7 @@ class Adminbar extends Component
             'logs' => number_format($logs),
             'praises' => number_format($praises),
             'jobs' => number_format($jobs),
+            'cache' => number_format(count($cache)),
             'webhooks' => number_format($webhooks),
         ]);
     }
