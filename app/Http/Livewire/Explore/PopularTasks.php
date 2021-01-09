@@ -35,7 +35,7 @@ class PopularTasks extends Component
                         ['isPrivate', false],
                     ]);
                 })
-                ->latest()
+                ->latest('created_at')
                 ->take(20)
                 ->has('comments')
                 ->get()
