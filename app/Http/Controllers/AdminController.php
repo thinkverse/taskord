@@ -32,7 +32,7 @@ class AdminController extends Controller
         $cache = Cache::getStore()->getMemcached()->getAllKeys();
 
         return view('site.cache', [
-            'cache' => $cache,
+            'cache' => array_reverse($cache),
         ]);
     }
 }
