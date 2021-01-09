@@ -8,10 +8,6 @@ use Livewire\Component;
 
 class LoadMoreTasks extends Component
 {
-    public $listeners = [
-        'taskAdded' => 'render',
-    ];
-
     public $page;
     public $loadMore;
     public $readyToLoad = true;
