@@ -21,4 +21,13 @@
         </div>
     </div>
     @endif
+    @foreach ($tasks as $task)
+    <div class="card mb-3">
+        <span class="p-3">
+            @livewire('task.single-task', [
+                'task' => $task,
+            ], key($task->id))
+        </span>
+    </div>
+    @endforeach
 </div>
