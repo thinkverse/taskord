@@ -7,7 +7,7 @@
 @section('url', url()->current())
 
 @section('content')
-<ul class="nav nav-pills justify-content-center">
+<ul class="nav nav-pills justify-content-center explore-nav bg-white py-3">
     <li class="nav-item">
         <a class="nav-link active" href="{{ route('explore') }}">Explore</a>
     </li>
@@ -23,9 +23,28 @@
 </ul>
 <div class="container-md">
     <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <x-bottom-footer />
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    
+                </div>
+            </div>
         </div>
+        <div class="col-lg-6 mt-4">
+            <div class="card">
+                <div class="card-body">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-sm mt-4">
+            <div class="card">
+                <div class="card-body">
+                    
+                </div>
+            </div>
+        </div>
+        <x-bottom-footer />
     </div>
 </div>
 @endsection
