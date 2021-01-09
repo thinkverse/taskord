@@ -23,7 +23,7 @@
 </ul>
 <div class="container-md">
     <div class="row justify-content-center">
-        <div class="col-sm">
+        <div class="col-sm explore-user-card">
             <div class="card">
                 <div class="card-body">
                     
