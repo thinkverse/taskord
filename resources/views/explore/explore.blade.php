@@ -39,6 +39,11 @@
             </div>
         </div>
         <div class="col-sm mt-4">
+            @auth
+            @livewire('home.suggestions', [
+                'user' => auth()->user()
+            ])
+            @endauth
             <div class="card">
                 <div class="card-body">
                     
