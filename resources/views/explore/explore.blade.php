@@ -42,7 +42,8 @@
         <div class="col-sm mt-4">
             @auth
             @livewire('home.suggestions', [
-                'user' => auth()->user()
+                'user' => auth()->user(),
+                'showText' => false
             ])
             @endauth
             <div class="card">

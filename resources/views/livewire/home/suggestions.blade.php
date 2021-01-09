@@ -53,7 +53,8 @@
                     </span>
                     <span>
                         @livewire('home.follow', [
-                            'user' => $user
+                            'user' => $user,
+                            'showText' => $showText
                         ], key($user->id))
                     </span>
                 </li>

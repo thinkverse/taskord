@@ -13,9 +13,11 @@ use Livewire\Component;
 class Follow extends Component
 {
     public User $user;
+    public $showText;
 
-    public function mount($user)
+    public function mount($user, $showText)
     {
+        $this->showText = $showText;
         $this->user = $user;
     }
 

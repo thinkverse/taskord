@@ -9,11 +9,13 @@ class Suggestions extends Component
 {
     protected $listeners = ['userFollowed' => 'render'];
     public $readyToLoad = false;
+    public $showText;
     public User $user;
 
-    public function mount($user)
+    public function mount($user, $showText = true)
     {
         $this->user = $user;
+        $this->showText = $showText;
     }
 
     public function loadSuggestions()
