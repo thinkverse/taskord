@@ -10,6 +10,8 @@ class LoadMore extends Component
 {
     public $listeners = [
         'taskAdded' => 'render',
+        'taskDeleted' => 'render',
+        'taskChecked' => 'render',
     ];
 
     public User $user;
