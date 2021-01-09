@@ -58,16 +58,15 @@ class Questions extends Component
                 ->get();
         } elseif ($this->type === 'questions.popular') {
             $questions = Question::cacheFor(60 * 60)
+                ->withCount('answer')
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
                     ]);
                 })
                 ->has('answer')
-                ->get()
-                ->sortByDesc(function ($question) {
-                    return $question->answer->count('id');
-                });
+                ->orderBy('answer_count', 'desc')
+                ->get();
         }
 
         return view('livewire.question.questions', [
