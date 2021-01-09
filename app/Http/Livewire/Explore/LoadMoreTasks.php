@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Explore;
 
 use App\Models\Task;
 use Livewire\Component;
+use Multicaret\Acquaintances\Models\InteractionRelation;
 
 class LoadMoreTasks extends Component
 {
@@ -30,16 +31,7 @@ class LoadMoreTasks extends Component
     public function render()
     {
         if ($this->loadMore) {
-            $tasks = Task::cacheFor(60 * 60)
-                ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images')
-                ->whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                        ['isPrivate', false],
-                    ]);
-                })
-                ->where('done', true)
-                ->orderBy('done_at', 'desc')
+            $tasks = InteractionRelation::popular(Task::class)
                 ->paginate(10, null, null, $this->page);
 
             return view('livewire.explore.popular-tasks', [

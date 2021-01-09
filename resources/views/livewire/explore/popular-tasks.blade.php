@@ -22,8 +22,8 @@
     <div class="card mb-3">
         <span class="p-3">
             @livewire('task.single-task', [
-                'task' => $task,
-            ], key($task->id))
+                'task' => $task->subject,
+            ], key($task->subject->id))
         </span>
     </div>
     @endforeach
