@@ -32,11 +32,7 @@
             @endauth
         </div>
         <div class="col-lg-6 mt-4">
-            <div class="card">
-                <div class="card-body">
-                    
-                </div>
-            </div>
+            @livewire('explore.popular-tasks')
         </div>
         <div class="col-sm mt-4">
             @auth
