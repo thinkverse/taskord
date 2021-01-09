@@ -94,7 +94,7 @@
             </a>
             <a class="fw-bold me-3 text-white cursor-pointer" data-bs-toggle="modal" data-bs-target="#cacheModal" title="Cache Hits">
                 <x-heroicon-o-folder-open class="heroicon" />
-                {{ number_format(count($cache)) }}
+                {{ $cache }}
                 <span class="fw-normal">
                     cached
                 </span>
