@@ -44,7 +44,7 @@
                             {{ $deal->name }}
                         </span>
                         <span class="h5">
-                            <span class="align-text-top badge bg-success fw-normal p-1 ms-1">{{ $deal->offer }}% OFF</span>
+                            <span class="align-text-top badge bg-success ms-1">{{ $deal->offer }}% OFF</span>
                         </span>
                         <div class="h6 mt-3">{{ $deal->description }}</div>
                         <div class="mt-2">
