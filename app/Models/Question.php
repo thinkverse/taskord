@@ -18,6 +18,8 @@ class Question extends Model implements Viewable
     use HasFactory;
 
     public $cacheFor = 3600;
+    public $cacheTags = ['questions'];
+    public $cachePrefix = 'questions_';
     protected static $flushCacheOnUpdate = true;
     protected $fillable = [
         'user_id',

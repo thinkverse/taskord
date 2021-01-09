@@ -14,6 +14,8 @@ class Meetup extends Model
     use HasFactory;
 
     public $cacheFor = 3600;
+    public $cacheTags = ['meetups'];
+    public $cachePrefix = 'meetups_';
     protected static $flushCacheOnUpdate = true;
     protected $fillable = [
         'user_id',

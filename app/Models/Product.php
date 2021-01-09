@@ -14,6 +14,8 @@ class Product extends Model
     use HasFactory;
 
     public $cacheFor = 3600;
+    public $cacheTags = ['products'];
+    public $cachePrefix = 'products_';
     protected static $flushCacheOnUpdate = true;
     protected $fillable = [
         'user_id',

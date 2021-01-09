@@ -24,6 +24,8 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasFactory;
 
     public $cacheFor = 3600;
+    public $cacheTags = ['users'];
+    public $cachePrefix = 'users_';
     protected static $flushCacheOnUpdate = true;
     protected $fillable = [
         'username',

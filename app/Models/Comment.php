@@ -14,6 +14,8 @@ class Comment extends Model
     use HasFactory;
 
     public $cacheFor = 3600;
+    public $cacheTags = ['comments'];
+    public $cachePrefix = 'comments_';
     protected static $flushCacheOnUpdate = true;
     protected $fillable = [
         'user_id',

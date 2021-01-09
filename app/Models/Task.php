@@ -15,6 +15,8 @@ class Task extends Model
     use HasFactory;
 
     public $cacheFor = 3600;
+    public $cacheTags = ['tasks'];
+    public $cachePrefix = 'tasks_';
     protected static $flushCacheOnUpdate = true;
     protected $fillable = [
         'user_id',

@@ -14,6 +14,8 @@ class Answer extends Model
     use QueryCacheable;
 
     public $cacheFor = 3600;
+    public $cacheTags = ['answers'];
+    public $cachePrefix = 'answers_';
     protected static $flushCacheOnUpdate = true;
     protected $fillable = [
         'user_id',

@@ -14,6 +14,8 @@ class ProductUpdate extends Model
     use HasFactory;
 
     public $cacheFor = 3600;
+    public $cacheTags = ['product_updates'];
+    public $cachePrefix = 'product_updates_';
     protected static $flushCacheOnUpdate = true;
     protected $fillable = [
         'user_id',
