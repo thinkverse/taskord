@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class PopularTasks extends Component
 {
+    public $listeners = [
+        'taskDeleted' => 'render',
+        'taskChecked' => 'render',
+    ];
+    
     public $page;
     public $readyToLoad = false;
     
