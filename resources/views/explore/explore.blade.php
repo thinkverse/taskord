@@ -10,7 +10,7 @@
 @include('explore.nav')
 <div class="container-md">
     <div class="row justify-content-center">
-        <div class="col-sm explore-user-card">
+        <div class="col-sm explore-user-card d-none d-lg-block">
             @auth
                 @livewire('explore.user')
             @else
