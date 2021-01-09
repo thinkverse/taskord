@@ -36,8 +36,9 @@ class PopularTasks extends Component
                     ]);
                 })
                 ->latest('created_at')
-                ->take(20)
+                ->take(50)
                 ->has('comments')
+                ->limit(10)
                 ->get()
                 ->sortByDesc('likers_count')
                 ->sortByDesc('comments_count')
