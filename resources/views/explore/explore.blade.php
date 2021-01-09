@@ -27,7 +27,21 @@
             @auth
                 @livewire('explore.user')
             @else
-            Hi
+            <div class="card">
+                <div class="card-body d-grid text-center">
+                    <div class="h5 text-secondary">
+                        Join Takord today!
+                    </div>
+                    <a class="btn btn-success text-white mt-2" href="{{ route('login') }}">
+                        <x-heroicon-o-logout class="heroicon" />
+                        Login
+                    </a>
+                    <a class="btn btn-primary text-white mt-2" href="{{ route('register') }}">
+                        <x-heroicon-o-user-add class="heroicon" />
+                        Signup
+                    </a>
+                </div>
+            </div>
             @endauth
         </div>
         <div class="col-lg-6 mt-4">

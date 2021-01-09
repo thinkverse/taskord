@@ -47,7 +47,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     Route::view('/', 'home.home')->name('home');
 
     // Explore
-    Route::view('/explore', 'explore.explore')->name('explore')->middleware('staff');
+    Route::view('/explore', 'explore.explore')->name('explore');
 
     // User
     Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
