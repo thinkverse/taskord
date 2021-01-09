@@ -32,6 +32,9 @@
             @endauth
         </div>
         <div class="col-lg-6 mt-4">
+            <div class="pb-2 h5 text-secondary">
+                Recent popular tasks
+            </div>
             @livewire('explore.popular-tasks', [
                 'page' => 1,
             ])
