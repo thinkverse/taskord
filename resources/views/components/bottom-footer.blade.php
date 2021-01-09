@@ -1,4 +1,4 @@
-<div class="d-flex lh-lg mt-5 text-secondary justify-content-center align-items-center">
+<div class="d-flex lh-lg my-5 text-secondary justify-content-center align-items-center">
     <div class="d-flex justify-content-evenly flex-grow-1">
         <span class="fw-bold">
             © {{ now()->year }} Taskord
