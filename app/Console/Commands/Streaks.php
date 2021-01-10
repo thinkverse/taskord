@@ -41,18 +41,19 @@ class Streaks extends Command
     public function handle()
     {
         $timezones = timezone_identifiers_list();
+        $tz_list = [];
         
         foreach ($timezones as $timezone) {
             $time = carbon()->tz($timezone)->format('H');
             if ($time === '23') {
-                //dump($timezone);
+                array_push($tz_list, $timezone);
             }
         }
-
-        $users = User::all();
+        
+        $users = User::whereIn('timezone', $tz_list)
+            ->get();
 
         foreach ($users as $user) {
-            dump($user->timezone);
             $created_at = $user->created_at->format('Y-m-d');
             $current_date = carbon()->format('Y-m-d');
             $period = CarbonPeriod::create($created_at, $current_date);
@@ -71,7 +72,7 @@ class Streaks extends Command
             }
 
             $user->streaks = $streaks;
-            //$this->info('Calculation Successful for @'.$user->username.'! - '.$streaks.' Total Streaks');
+            $this->info('Calculation Successful for @'.$user->username.'! - '.$streaks.' Total Streaks');
             $user->save();
         }
         $this->info('Streaks Calculation Completed!');
