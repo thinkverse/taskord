@@ -81,7 +81,7 @@
                             {{ $user->company }}
                         </span>
                         @if ($user->isStaff)
-                        <span class="badge rounded-pill bg-primary ms-1">Staff</span>
+                        <span class="border border-1 border-primary fw-bold ms-1 px-2 rounded-pill small">Staff</span>
                         @endif
                         @endif
                     </div>
