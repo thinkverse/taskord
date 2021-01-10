@@ -44,6 +44,7 @@ class ResetGoal extends Command
             $this->info('Reset Successful for @'.$user->username.'!');
             $user->save();
         }
+        loggy(request()->ip(), 'Auth', auth()->user(), 'Daily goals has been resetted');
         $this->info('Reset Completed!');
 
         return 0;
