@@ -44,7 +44,7 @@
                         </span>
                         @else
                         <span class="small text-secondary">
-                            Joined {{ carbon($user->created_at)->diffForHumans() }}
+                            {{ '@'.$user->username }}
                         </span>
                         @endif
                     </div>

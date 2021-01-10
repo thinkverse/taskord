@@ -16,14 +16,15 @@ class TrendingMakers extends Component
     
     public function render()
     {
-        $users = User::select('id', 'username', 'firstname', 'lastname', 'avatar', 'bio', 'isVerified', 'created_at')
-            ->where([
+        $users = User::where([
                 ['isFlagged', false],
                 ['isStaff', false],
             ])
-            ->orderBy('created_at', 'DESC')
+            ->latest('last_active')
             ->take(5)
-            ->get();
+            ->get()
+            ->sortByDesc('reputations')
+            ->sortByDesc('streaks');
             
         return view('livewire.explore.trending-makers', [
             'users' => $this->readyToLoad ? $users : []
