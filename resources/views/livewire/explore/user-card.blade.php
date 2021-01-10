@@ -24,6 +24,14 @@
             <div class="h5 text-secondary">
                 {{ $user->username }}
             </div>
+            <div>
+                @if ($user->status)
+                <div class="d-inline-block border border-1 mt-2 px-2 py-1 rounded-pill">
+                    <span>{{ $user->status_emoji }}</span>
+                    <span title="{{ $user->status }}">{{ Str::limit($user->status, '50') }}</span>
+                </div>
+                @endif
+            </div>
         </li>
         <li class="list-group-item py-3 fw-bold text-primary">
             {{ $user->followings()->count('id') }} following
