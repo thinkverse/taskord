@@ -2,18 +2,24 @@
 
 ## Unreleased
 
-### **v1.0.5** (WIP)
+### **v1.0.6** (WIP)
+
+- 
+
+## Released
+
+### **v1.0.5** (Jan 10, 2021)
 
 - Now users and products have **Activity Graph** 📊
+- Brand new [**Explore**](https://taskord.com/explore) page is beta now 🌎
+- **User profile status** is visible everywhere 💭
 - [**Open page**](https://taskord.com/open) is now public as a part of open startup 📈
 - Users can now see their **account stats** 📊
 - **Telegram bot** beta is out now 🤖
 - **GitHub and GitLab** commits are now more cleaner ✨
 - Added **Who to follow** section to explore active users 👥
 
-## Released
-
-### **v1.0.4** (Jan 06, 2020)
+### **v1.0.4** (Jan 06, 2021)
 
 - Taskord will load much faster, thanks to **Livewire defer loading** 💨
 - Taskord is now a **Progressive web app (PWA)** 🚅
