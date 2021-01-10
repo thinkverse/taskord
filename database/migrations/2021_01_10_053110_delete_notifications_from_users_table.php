@@ -34,6 +34,8 @@ class DeleteNotificationsFromUsersTable extends Migration
             $table->dropColumn('productSubscribedEmail');
             $table->dropColumn('productUpdatesWeb');
             $table->dropColumn('productUpdatesEmail');
+            $table->boolean('notifications_email')->default(true);
+            $table->boolean('notifications_web')->default(true);
         });
     }
 
