@@ -16,11 +16,14 @@ class TrendingMakers extends Component
 
     public function render()
     {
-        $users = User::where([
-            ['isFlagged', false],
-            ['isStaff', false],
-        ])
+        $users = User::withCount('tasks')
+            ->where([
+                ['isFlagged', false],
+                ['isStaff', false],
+            ])
             ->latest('last_active')
+            ->take(50)
+            ->orderByDesc('tasks_count')
             ->take(5)
             ->get()
             ->sortByDesc('reputations')
