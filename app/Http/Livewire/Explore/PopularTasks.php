@@ -12,13 +12,7 @@ class PopularTasks extends Component
         'taskChecked' => 'render',
     ];
 
-    public $page;
     public $readyToLoad = false;
-
-    public function mount($page)
-    {
-        $this->page = $page ? $page : 1;
-    }
 
     public function loadPopularTasks()
     {
@@ -45,7 +39,6 @@ class PopularTasks extends Component
 
         return view('livewire.explore.popular-tasks', [
             'tasks' => $this->readyToLoad ? $tasks : [],
-            'page' => $this->page,
         ]);
     }
 }

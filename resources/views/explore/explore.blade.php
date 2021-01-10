@@ -35,9 +35,7 @@
             <div class="pb-2 h5 text-secondary">
                 Recent popular tasks
             </div>
-            @livewire('explore.popular-tasks', [
-                'page' => 1,
-            ])
+            @livewire('explore.popular-tasks')
         </div>
         <div class="col-sm mt-4">
             @auth
