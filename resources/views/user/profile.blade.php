@@ -48,17 +48,17 @@
                     <div class="text-secondary mb-3">
                         {{ "@" . $user->username }}
                     </div>
+                    @livewire('user.follow', [
+                        'user' => $user
+                    ])
                     @if ($user->status)
-                    <div class="d-inline-block border border-1 mb-3 px-2 py-1 rounded-pill">
+                    <div class="d-inline-block border border-1 mt-3 px-2 py-1 rounded">
                         <span>{{ $user->status_emoji }}</span>
                         <span title="{{ $user->status }}">{{ Str::limit($user->status, '50') }}</span>
                     </div>
                     @endif
-                    @livewire('user.follow', [
-                        'user' => $user
-                    ])
                     @if ($user->bio)
-                    <div class="mt-3">
+                    <div class="mt-2">
                         {{ $user->bio }}
                     </div>
                     @endif
