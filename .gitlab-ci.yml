@@ -26,7 +26,7 @@ Test:
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
-    - sudo composer install --ignore-platform-reqs
+    - sudo composer install
     - cp .env.ci .env
     - php artisan key:generate
     - sudo npm i -g yarn
@@ -36,6 +36,17 @@ Test:
     - php artisan horizon:publish
     - php artisan migrate:fresh --seed
     - php artisan test
+
+Commands:
+  image: edbizarro/gitlab-ci-pipeline-php:latest
+  stage: test
+  script:
+    - sudo composer install
+    - cp .env.ci .env
+    - php artisan key:generate
+    - php artisan migrate:fresh --seed
+    - php artisan user:streaks
+    - php artisan user:reset-goal
 
 Lighthouse:
   image: cypress/browsers:node14.15.0-chrome86-ff82
