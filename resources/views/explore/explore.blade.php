@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-sm explore-user-card d-none d-lg-block">
             @auth
-                @livewire('explore.user')
+                @livewire('explore.user-card')
             @else
             <div class="card">
                 <div class="card-body d-grid text-center">

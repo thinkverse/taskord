@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Explore;
 
 use Livewire\Component;
 
-class User extends Component
+class UserCard extends Component
 {
     public $readyToLoad = false;
 
@@ -17,7 +17,7 @@ class User extends Component
     {
         $user = auth()->user();
 
-        return view('livewire.explore.user', [
+        return view('livewire.explore.user-card', [
             'user' => $this->readyToLoad ? $user : [],
         ]);
     }
