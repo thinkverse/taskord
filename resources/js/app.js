@@ -40,17 +40,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 document.getElementById("admin-bar-click").addEventListener("click", async () => {
   const res = await window.fetch(`/admin/adminbar`);
   if (res.status === 200) {
-    location.reload();
+    window.location.reload();
   }
 });
 
 // Dark mode toggle in dropdown
-document.getElementById("dark-mode").addEventListener("click", async () => {
-  const res = await window.fetch(`/darkmode`);
-  if (res.status === 200) {
-    location.reload();
-  }
-});
+var darkMode = document.getElementById("dark-mode");
+if (darkMode) {
+  darkMode.addEventListener("click", async () => {
+    const res = await window.fetch(`/darkmode`);
+    if (res.status === 200) {
+      window.location.reload();
+    }
+  });
+}
 
 // Load shortcuts
 var shortcutsModal = document.getElementById("shortcutsModal");
