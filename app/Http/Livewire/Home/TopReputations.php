@@ -16,7 +16,7 @@ class TopReputations extends Component
 
     public function render()
     {
-        $reputations = User::select('id', 'username', 'firstname', 'lastname', 'avatar', 'reputation', 'isVerified')
+        $reputations = User::select('id', 'username', 'firstname', 'lastname', 'avatar', 'reputation', 'status', 'status_emoji', 'isVerified')
             ->where([
                 ['isFlagged', false],
                 ['id', '!=', 1],
