@@ -26,8 +26,7 @@ class TrendingMakers extends Component
             ->orderByDesc('tasks_count')
             ->take(5)
             ->get()
-            ->sortByDesc('reputations')
-            ->sortByDesc('streaks');
+            ->sortByDesc('reputations');
 
         return view('livewire.explore.trending-makers', [
             'users' => $this->readyToLoad ? $users : [],
