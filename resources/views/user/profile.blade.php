@@ -51,7 +51,7 @@
                     @if ($user->status)
                     <div class="d-inline-block border border-1 mb-3 px-2 py-1 rounded-pill">
                         <span>{{ $user->status_emoji }}</span>
-                        <span>{{ $user->status }}</span>
+                        <span title="{{ $user->status }}">{{ Str::limit($user->status, '50') }}</span>
                     </div>
                     @endif
                     @livewire('user.follow', [

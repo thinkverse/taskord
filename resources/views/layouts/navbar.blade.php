@@ -126,7 +126,7 @@
                                 </a>
                                 @else
                                 <a href="{{ route('user.done', ['username' => auth()->user()->username]) }}" class="border border-2 d-flex px-2 py-1 rounded text-dark text-start">
-                                    ✅ Set Staus
+                                    💭 Set Staus
                                 </a>
                                 @endif
                             </div>
