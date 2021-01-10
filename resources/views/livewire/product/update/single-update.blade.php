@@ -10,6 +10,9 @@
                 @else
                     {{ $update->user->username }}
                 @endif
+                @if ($update->user->status)
+                <span class="ms-1 small" title="{{ $update->user->status }}">{{ $update->user->status_emoji }}</span>
+                @endif
                 @if ($update->user->isVerified)
                     <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                 @endif
