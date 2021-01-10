@@ -70,7 +70,7 @@ class Streaks extends Command
                 $count = Task::cacheFor(60 * 60)
                     ->select('id')
                     ->where('user_id', $user->id)
-                    ->whereDate('created_at', carbon($date))
+                    ->whereDate('done_at', carbon($date))
                     ->count();
                 if ($count > 0) {
                     $streaks += 1;
