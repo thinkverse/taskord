@@ -25,8 +25,7 @@ class Pending
             return $this->send($this->user->telegram_chat_id, '🚩 Your account is flagged!');
         }
 
-        $tasks = Task::cacheFor(60 * 60)
-            ->where([
+        $tasks = Task::where([
                 ['user_id', $this->user->id],
                 ['done', false],
             ])

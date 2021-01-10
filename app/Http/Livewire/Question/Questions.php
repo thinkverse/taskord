@@ -38,8 +38,7 @@ class Questions extends Component
     public function render()
     {
         if ($this->type === 'questions.newest') {
-            $questions = Question::cacheFor(60 * 60)
-                ->whereHas('user', function ($q) {
+            $questions = Question::whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
                     ]);
@@ -47,8 +46,7 @@ class Questions extends Component
                 ->latest()
                 ->get();
         } elseif ($this->type === 'questions.unanswered') {
-            $questions = Question::cacheFor(60 * 60)
-                ->whereHas('user', function ($q) {
+            $questions = Question::whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
                     ]);
@@ -57,8 +55,7 @@ class Questions extends Component
                 ->latest()
                 ->get();
         } elseif ($this->type === 'questions.popular') {
-            $questions = Question::cacheFor(60 * 60)
-                ->withCount('answer')
+            $questions = Question::withCount('answer')
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
