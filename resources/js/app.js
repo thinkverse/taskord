@@ -68,8 +68,10 @@ shortcutsModal.addEventListener("shown.bs.modal", async () => {
 
 // Load Cache
 var cacheModal = document.getElementById("cacheModal");
-cacheModal.addEventListener("shown.bs.modal", async () => {
-  var cacheModalBody = document.getElementById("cacheModalBody");
-  const res = await window.fetch(`/site/cache-hits`);
-  cacheModalBody.innerHTML = await res.text();
-});
+if (cacheModal) {
+  cacheModal.addEventListener("shown.bs.modal", async () => {
+    var cacheModalBody = document.getElementById("cacheModalBody");
+    const res = await window.fetch(`/site/cache-hits`);
+    cacheModalBody.innerHTML = await res.text();
+  });
+}
