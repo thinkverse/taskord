@@ -14,6 +14,9 @@
                 @else
                     {{ $comment->user->username }}
                 @endif
+                @if ($comment->user->status)
+                <span class="ms-1 small" title="{{ $comment->user->status }}">{{ $comment->user->status_emoji }}</span>
+                @endif
                 @if ($comment->user->isVerified)
                     <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                 @endif

@@ -15,7 +15,7 @@
                     {{ $task->user->username }}
                 @endif
                 @if ($task->user->status)
-                <span  class="ms-1 small" title="{{ $task->user->status }}">{{ $task->user->status_emoji }}</span>
+                <span class="ms-1 small" title="{{ $task->user->status }}">{{ $task->user->status_emoji }}</span>
                 @endif
                 @if ($task->user->isVerified)
                     <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
