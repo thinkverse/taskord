@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Models\User;
+use Carbon\CarbonPeriod;
+use App\Models\Task;
 
 class Streaks extends Command
 {
@@ -39,27 +41,25 @@ class Streaks extends Command
     public function handle()
     {
         $users = User::all();
+        
         foreach ($users as $user) {
-            $created_at = $this->user->created_at->format('Y-m-d');
+            $created_at = $user->created_at->format('Y-m-d');
             $current_date = carbon()->format('Y-m-d');
-            $period = CarbonPeriod::create($created_at, '5 days', $current_date);
-            $all_tasks_count = Task::cacheFor(60 * 60)
-                ->select('id')
-                ->where('user_id', $this->user->id)
-                ->count();
-    
-            $week_dates = [];
-            $all_tasks = [];
-            $tasks = [];
+            $period = CarbonPeriod::create($created_at, $current_date);
+            $streaks = 0;
             foreach ($period->toArray() as $date) {
-                array_push($week_dates, carbon($date)->format('d M Y'));
                 $count = Task::cacheFor(60 * 60)
                     ->select('id')
-                    ->where('user_id', $this->user->id)
-                    ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(5)])
+                    ->where('user_id', $user->id)
+                    ->whereDate('created_at', carbon($date))
                     ->count();
-                array_push($all_tasks, $count);
+                if ($count > 0) {
+                    $streaks += 1;
+                } else {
+                    $streaks = 0;
+                }
             }
+            dump($streaks);
             
             $user->daily_goal_reached = 0;
             $this->info('Calculation Successful for @'.$user->username.'!');
