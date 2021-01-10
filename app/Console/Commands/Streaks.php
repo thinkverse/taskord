@@ -84,6 +84,7 @@ class Streaks extends Command
             $this->info('Calculation Successful for @'.$user->username.'! - '.$streaks.' Total Streaks');
             $user->save();
         }
+        loggy(request()->ip(), 'Admin', auth()->user(), 'Resetted streaks for '.number_format(count($users)).' users in '.number_format(count($tz_list)).' timezones');
         $this->info('Streaks Calculation Completed!');
 
         return 0;
