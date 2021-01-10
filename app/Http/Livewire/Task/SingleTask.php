@@ -153,8 +153,17 @@ class SingleTask extends Component
             'shipped',
             'ship',
         ];
+
+        $launchFound = false;
+        foreach ($launchList as $keyword) {
+          if (preg_match("/\b$keyword\b/", strtolower($this->task->task))) {
+            $launchFound = true;
+            break;
+          }
+        }
+        
         if (
-            (Str::contains(strtolower($this->task->task), $launchList) and (bool) $this->task->done) and
+            ($launchFound and (bool) $this->task->done) and
             ! ($this->task->source === 'GitHub' or $this->task->source === 'GitLab' or $this->task->source === 'Webhook')
         ) {
             $this->launched = true;
