@@ -192,3 +192,12 @@ hr {
 .explore-nav {
     background-color: $border-bg !important;
 }
+
+.avatar-stack {
+    .avatar {
+        border: 2px solid $border-bg;
+    }
+    .replies-avatar {
+        border: 1px solid $border-bg;
+    }
+}
