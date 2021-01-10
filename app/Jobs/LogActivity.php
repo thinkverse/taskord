@@ -43,7 +43,7 @@ class LogActivity implements ShouldQueue
             ->withProperties([
                 'type' => $this->type,
                 'ip' => $this->ip,
-                'location' => $this->getLocation(),
+                'location' => $this->ip === '127.0.0.1' ? null : $this->getLocation(),
             ])
             ->log($this->message);
     }
