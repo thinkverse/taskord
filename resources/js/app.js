@@ -37,12 +37,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 // Admin Bar toggle in dropdown
-document.getElementById("admin-bar-click").addEventListener("click", async () => {
-  const res = await window.fetch(`/admin/adminbar`);
-  if (res.status === 200) {
-    window.location.reload();
-  }
-});
+var adminBar = document.getElementById("admin-bar-click");
+if (adminBar) {
+  adminBar.addEventListener("click", async () => {
+    const res = await window.fetch(`/admin/adminbar`);
+    if (res.status === 200) {
+      window.location.reload();
+    }
+  });
+}
 
 // Dark mode toggle in dropdown
 var darkMode = document.getElementById("dark-mode");
