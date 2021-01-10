@@ -46,8 +46,8 @@ class Streaks extends Command
             $created_at = $user->created_at->format('Y-m-d');
             $current_date = carbon()->format('Y-m-d');
             $period = CarbonPeriod::create($created_at, $current_date);
-            $streaks = 0;
             foreach ($period->toArray() as $date) {
+                $streaks = 0;
                 $count = Task::cacheFor(60 * 60)
                     ->select('id')
                     ->where('user_id', $user->id)
