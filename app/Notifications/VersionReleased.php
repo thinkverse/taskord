@@ -5,6 +5,7 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
+use Illuminate\Notifications\Messages\MailMessage;
 
 class VersionReleased extends Notification implements ShouldQueue
 {
@@ -19,7 +20,17 @@ class VersionReleased extends Notification implements ShouldQueue
 
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', 'mail'];
+    }
+    
+    public function toMail($notifiable)
+    {
+        return (new MailMessage)
+                    ->subject('Taskord '.$this->message['tagName'].' has been released!')
+                    ->greeting('Hello @'.$notifiable->username.' 👋')
+                    ->line('New version of Taskord has been released 🎉')
+                    ->line('**Checkout the Changelog [here](https://gitlab.com/taskord/taskord/-/releases/'.$this->message['tagName'].')**')
+                    ->line('Thank you for using Taskord!');
     }
 
     public function toArray($notifiable)
