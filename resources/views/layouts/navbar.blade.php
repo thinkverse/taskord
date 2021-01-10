@@ -45,7 +45,7 @@
                     <a class="nav-link text-white fw-bold" href="#" data-bs-toggle="dropdown">
                         More
                     </a>
-                    <ul class="dropdown-menu shadow-sm border">
+                    <ul class="dropdown-menu shadow-sm border border-dark">
                         <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">🎁 Deals</a></li>
                         @auth
                         @if (auth()->user()->staffShip)
@@ -111,7 +111,7 @@
                             <img loading=lazy class="rounded-circle avatar-30 mt-1" src="{{ Helper::getCDNImage(auth()->user()->avatar, 80) }}" height="30" width="30" alt="{{ auth()->user()->username }}'s avatar" />
                         </a>
 
-                        <div class="dropdown-menu shadow-sm border dropdown-menu-end mt-2">
+                        <div class="dropdown-menu shadow-sm border dropdown-menu-end mt-2 border-dark">
                             <a href="{{ route('user.done', ['username' => auth()->user()->username]) }}" class="dropdown-item">
                                 Signed in as
                                 <div class="fw-bold" id="taskord-username">
