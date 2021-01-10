@@ -14,7 +14,7 @@ class Streaks extends Command
      *
      * @var string
      */
-    protected $signature = 'user:streaks';
+    protected $signature = 'user:streaks {type=timezone}';
 
     /**
      * The console command description.
@@ -49,9 +49,17 @@ class Streaks extends Command
                 array_push($tz_list, $timezone);
             }
         }
-
-        $users = User::whereIn('timezone', $tz_list)
-            ->get();
+        
+        $type = $this->arguments()['type'];
+        
+        if ($type === 'timezone') {
+            $this->info('Calculating timezone based users streaks!');
+            $users = User::whereIn('timezone', $tz_list)
+                ->get();
+        } else {
+            $this->info('Calculating all users streaks!');
+            $users = User::all();
+        }
 
         foreach ($users as $user) {
             $created_at = $user->created_at->format('Y-m-d');
