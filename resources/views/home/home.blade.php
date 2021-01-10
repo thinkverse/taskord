@@ -90,10 +90,10 @@
                             {{ number_format(auth()->user()->followers()->count()) }}
                             {{ str_plural('Follower', auth()->user()->followers()->count()) }}
                         </a>
-                        <span title="{{ number_format(auth()->user()->getPoints()) }} Reputations">
+                        <span title="{{ number_format(auth()->user()->streaks) }} day streak">
                             <x-heroicon-o-fire class="heroicon text-secondary" />
-                            {{ number_format(auth()->user()->getPoints()) }}
-                            {{ str_plural('Rep', auth()->user()->getPoints()) }}
+                            {{ number_format(auth()->user()->streaks) }}
+                            {{ str_plural('Streak', auth()->user()->streaks) }}
                         </span>
                     </div>
                 </div>
