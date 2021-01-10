@@ -41,6 +41,9 @@
                                     @else
                                         {{ $user->username }}
                                     @endif
+                                    @if ($user->status)
+                                    <span class="ms-1 small" title="{{ $user->status }}">{{ $user->status_emoji }}</span>
+                                    @endif
                                     @if ($user->isVerified)
                                         <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                                     @endif
