@@ -54,11 +54,13 @@ class Streaks extends Command
 
         if ($type === 'timezone') {
             $this->info('Calculating timezone based users streaks!');
-            $users = User::whereIn('timezone', $tz_list)
+            $users = User::select('id', 'username', 'timezone', 'streaks', 'created_at')
+                ->whereIn('timezone', $tz_list)
                 ->get();
         } else {
             $this->info('Calculating all users streaks!');
-            $users = User::all();
+            $users = User::select('id', 'username', 'timezone', 'streaks', 'created_at')
+                ->get();
         }
 
         foreach ($users as $user) {
