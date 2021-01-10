@@ -7,12 +7,12 @@
         <div class="card-body">
             <div>
                 <div class="mb-2">Get all notifications via email</div>
-                <input wire:click="notificationsEmail" id="notificationsEmail" class="form-check-input" type="checkbox" {{ $user->taskMentionedEmail ? 'checked' : '' }}>
+                <input wire:click="notificationsEmail" id="notificationsEmail" class="form-check-input" type="checkbox" {{ $user->notifications_email ? 'checked' : '' }}>
                 <label for="notificationsEmail" class="ms-1">Email</label>
             </div>
             <div>
                 <div class="mb-2 mt-3">Get all notifications via web</div>
-                <input wire:click="notificationsWeb" id="notificationsWeb" class="form-check-input" type="checkbox" {{ $user->taskMentionedWeb ? 'checked' : '' }}>
+                <input wire:click="notificationsWeb" id="notificationsWeb" class="form-check-input" type="checkbox" {{ $user->notifications_web ? 'checked' : '' }}>
                 <label for="notificationsWeb" class="ms-1">Web</label>
             </div>
         </div>
