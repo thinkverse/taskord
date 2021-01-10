@@ -42,6 +42,9 @@
                         <a href="{{ route('user.done', ['username' => $user->username]) }}" target="_blank">
                             {{ '@'.$user->username }}
                         </a>
+                        <span class="badge bg-success ms-2">
+                            {{ $user->streaks }} {{ str_plural('Streak', $user->streaks) }}
+                        </span>
                         @if ($user->isSuspended)
                         <span title="Suspended">
                             🤢
