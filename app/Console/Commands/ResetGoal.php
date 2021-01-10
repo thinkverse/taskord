@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use App\Models\User;
+use Carbon\CarbonPeriod;
+use App\Models\Task;
 use Illuminate\Console\Command;
 
 class ResetGoal extends Command
