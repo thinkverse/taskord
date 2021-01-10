@@ -46,8 +46,8 @@ class Streaks extends Command
             $created_at = $user->created_at->format('Y-m-d');
             $current_date = carbon()->format('Y-m-d');
             $period = CarbonPeriod::create($created_at, $current_date);
+            $streaks = 0;
             foreach ($period->toArray() as $date) {
-                $streaks = 0;
                 $count = Task::cacheFor(60 * 60)
                     ->select('id')
                     ->where('user_id', $user->id)
@@ -59,10 +59,9 @@ class Streaks extends Command
                     $streaks = 0;
                 }
             }
-            dump($streaks);
-            
-            $user->daily_goal_reached = 0;
-            $this->info('Calculation Successful for @'.$user->username.'!');
+
+            $user->streaks = $streaks;
+            $this->info('Calculation Successful for @'.$user->username.'! - '.$streaks.' Total Streaks');
             $user->save();
         }
         $this->info('Streaks Calculation Completed!');
