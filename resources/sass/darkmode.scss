@@ -66,6 +66,7 @@ body {
 
 .dropdown-menu {
     background-color: $card-bg;
+    border: 1px solid #30363d !important;
 
     .dropdown-item {
         color: white;
@@ -109,10 +110,6 @@ body {
 .border-bottom,
 hr {
     border-bottom: 1px solid $border-bg !important;
-}
-
-.border-dark {
-    border: 1px solid #30363d !important;
 }
 
 .bg-patron {
