@@ -25,7 +25,7 @@ class Suggestions extends Component
 
     public function render()
     {
-        $users = User::select('id', 'username', 'firstname', 'lastname', 'reputation', 'avatar', 'isVerified', 'last_active')
+        $users = User::select('id', 'username', 'firstname', 'lastname', 'reputation', 'avatar', 'isVerified', 'status', 'status_emoji', 'last_active')
             ->whereNotIn('id', $this->user->followings->pluck('id'))
             ->where([
                 ['isFlagged', false],
