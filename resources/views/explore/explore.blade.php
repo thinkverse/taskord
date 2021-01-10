@@ -44,11 +44,7 @@
                 'showText' => false
             ])
             @endauth
-            <div class="card">
-                <div class="card-body">
-                    🚧
-                </div>
-            </div>
+            @livewire('explore.trending-makers')
         </div>
         <x-bottom-footer />
     </div>
