@@ -48,6 +48,12 @@
                     <div class="text-secondary mb-2">
                         {{ "@" . $user->username }}
                     </div>
+                    @if ($user->status)
+                    <div class="d-inline-block border border-1 mb-3 px-2 py-1 rounded-pill">
+                        <span>{{ $user->status_emoji }}</span>
+                        <span>{{ $user->status }}</span>
+                    </div>
+                    @endif
                     @livewire('user.follow', [
                         'user' => $user
                     ])
