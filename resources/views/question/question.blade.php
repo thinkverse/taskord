@@ -63,6 +63,9 @@
                                 @else
                                     {{ $question->user->username }}
                                 @endif
+                                @if ($question->user->status)
+                                <span class="ms-1 small" title="{{ $question->user->status }}">{{ $question->user->status_emoji }}</span>
+                                @endif
                             </span>
                             <div>{{ $question->user->bio }}</div>
                         </a>
