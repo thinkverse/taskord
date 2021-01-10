@@ -65,9 +65,9 @@
                                 <div class="h5">
                                     {{ auth()->user()->firstname }}{{ ' '.auth()->user()->lastname }}
                                     @if (auth()->user()->status)
-                                    <span  class="ms-1 small" title="{{ auth()->user()->status }}">{{ auth()->user()->status_emoji }}</span>
+                                    <span class="ms-1 small" title="{{ auth()->user()->status }}">{{ auth()->user()->status_emoji }}</span>
                                     @else
-                                    <span  class="ms-1 small" title="Set Status">💭</span>
+                                    <span class="ms-1 small" title="Set Status">💭</span>
                                     @endif
                                     @if (auth()->user()->isVerified)
                                         <x-heroicon-s-badge-check class="heroicon-2x ms-1 text-primary verified" />
