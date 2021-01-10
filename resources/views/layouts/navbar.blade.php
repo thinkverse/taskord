@@ -34,14 +34,12 @@
                         Tasks
                     </a>
                 </li>
-                @if (auth()->user()->staffShip)
                 <li class="nav-item">
                     <a class="nav-link text-white fw-bold" href="{{ route('explore') }}">
                         Explore
                         <x-beta background="dark" />
                     </a>
                 </li>
-                @endif
                 @endauth
                 <li class="nav-item dropdown">
                     <a class="nav-link text-white fw-bold" href="#" data-bs-toggle="dropdown">
