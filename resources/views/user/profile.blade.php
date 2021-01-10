@@ -45,7 +45,7 @@
                         @endif
                         @endauth
                     </div>
-                    <div class="text-secondary mb-2">
+                    <div class="text-secondary mb-3">
                         {{ "@" . $user->username }}
                     </div>
                     @if ($user->status)
