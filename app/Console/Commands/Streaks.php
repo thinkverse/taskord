@@ -71,7 +71,7 @@ class Streaks extends Command
             foreach ($period->toArray() as $date) {
                 $count = Task::select('id')
                     ->where('user_id', $user->id)
-                    ->whereDate('done_at', carbon($date))
+                    ->whereDate('created_at', carbon($date))
                     ->count();
                 if ($count > 0) {
                     $streaks += 1;
