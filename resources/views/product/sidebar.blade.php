@@ -111,6 +111,9 @@
                     @else
                         {{ $product->owner->username }}
                     @endif
+                    @if ($product->owner->status)
+                    <span class="ms-1 small" title="{{ $product->owner->status }}">{{ $product->owner->status_emoji }}</span>
+                    @endif
                 </a>
             </div>
             @foreach ($product->members()->get() as $user)

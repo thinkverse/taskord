@@ -16,6 +16,9 @@
         @else
             {{ $user->username }}
         @endif
+        @if ($user->status)
+        <span class="ms-1 small" title="{{ $user->status }}">{{ $user->status_emoji }}</span>
+        @endif
     </a>
     @auth
     @if ($product->owner->id === auth()->user()->id)
