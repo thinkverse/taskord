@@ -572,6 +572,6 @@ class Moderator extends Component
 
         loggy(request()->ip(), 'Admin', auth()->user(), 'Updated the staff notes for user: @'.$this->user->username);
 
-        $this->alert('success', 'Note added!');
+        $this->alert('success', 'Note updated!');
     }
 }
