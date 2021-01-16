@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('twitter')->nullable();
             $table->string('twitch')->nullable();
             $table->string('github')->nullable();
+            $table->string('github_id')->nullable();
             $table->string('telegram')->nullable();
             $table->string('youtube')->nullable();
             $table->boolean('onlyFollowingsTasks')->default(true);
