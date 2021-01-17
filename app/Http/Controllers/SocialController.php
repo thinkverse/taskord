@@ -24,7 +24,7 @@ class SocialController extends Controller
             $userSocial = Socialite::driver($provider)->user();
         }
         $userSocial = Socialite::driver($provider)->stateless()->user();
-        
+
         if ($provider === 'github') {
             $user = User::where(['github_id' => $userSocial->id])->first();
         }
@@ -53,8 +53,9 @@ class SocialController extends Controller
             } else {
                 $username = $userSocial->getNickname().'_'.strtolower(Str::random(5));
             }
-        } 
-        $username = strtolower(Str::random(6));
+        } else {
+            $username = strtolower(Str::random(6));
+        }
 
         if ($provider === 'gitlab' or $provider === 'github') {
             $avatar = $userSocial->avatar;
