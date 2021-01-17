@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class AddGithubIdToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->id();
             $table->string('username')->unique();
             $table->string('firstname')->nullable();
@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('twitter')->nullable();
             $table->string('twitch')->nullable();
             $table->string('github')->nullable();
+            $table->string('github_id')->nullable();
             $table->string('telegram')->nullable();
             $table->string('youtube')->nullable();
             $table->boolean('onlyFollowingsTasks')->default(true);
@@ -57,6 +58,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('github_id');
+        });
     }
 }
