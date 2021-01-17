@@ -32,6 +32,10 @@ class Product extends Model
         'launched_at',
     ];
 
+    protected $dates = [
+        'launched_at',
+    ];
+
     public function owner()
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id');
