@@ -53,7 +53,7 @@ class Product extends Model
 
     public function product_update()
     {
-        return $this->belongsTo(\App\Models\ProductUpdate::class);
+        return $this->hasMany(\App\Models\ProductUpdate::class);
     }
 
     public function webhooks()
