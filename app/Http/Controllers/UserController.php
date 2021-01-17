@@ -65,7 +65,9 @@ class UserController extends Controller
 
     public function productsSettings()
     {
-        return 'New user setting.';
+        return view('user.settings.products', [
+            'user' => auth()->user(),
+        ]);
     }
 
     public function patronSettings()
