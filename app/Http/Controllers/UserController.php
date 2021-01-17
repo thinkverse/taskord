@@ -63,6 +63,11 @@ class UserController extends Controller
         ]);
     }
 
+    public function productsSettings()
+    {
+        return 'New user setting.';
+    }
+
     public function patronSettings()
     {
         return view('user.settings.patron', [
