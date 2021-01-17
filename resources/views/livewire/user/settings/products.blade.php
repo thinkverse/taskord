@@ -4,8 +4,23 @@
             <span class="h5">Products</span>
             <div>Update your associated products.</div>
         </div>
-        <div class="card-body">
-            Find out more about your associated products.
+        <div class="card-body-flush">
+            @if ($products)
+                <ul class="list-group list-group-flush">
+                @foreach ($products as $product)
+                    <li class="list-group-item d-flex align-items-center">
+                        <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="link-dark">
+                            {{ $product->name }}
+                        </a>
+                        @if ($product->owner->username == $user->username)
+                            <span class="badge bg-success ms-2">Owns</span>
+                        @else
+                            <span class="badge bg-secondary ms-2">Member</span>
+                        @endif
+                    </li>
+                @endforeach
+                </ul>
+            @endif
         </div>
     </div>
 </div>
