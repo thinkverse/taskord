@@ -16,6 +16,9 @@
                             <span class="badge bg-success ms-2">Owns</span>
                         @else
                             <span class="badge bg-secondary ms-2">Member</span>
+                            <a href="#" class="badge bg-danger link-light ms-2" wire:click.prevent="leaveProduct({{ $product->id }})" wire:loading.attr="disabled">
+                                Leave
+                            </a>
                         @endif
                     </li>
                 @endforeach
