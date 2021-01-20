@@ -29,7 +29,7 @@ class VersionReleased extends Notification implements ShouldQueue
                     ->subject('Taskord '.$this->message['tagName'].' has been released!')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('New version of Taskord has been released 🎉')
-                    ->line('**Checkout the Changelog [here](https://gitlab.com/taskord/taskord/-/releases/'.$this->message['tagName'].')**')
+                    ->line('**Checkout the Changelog [here](https://gitlab.com/yo/taskord/-/releases/'.$this->message['tagName'].')**')
                     ->line('Thank you for using Taskord!');
     }
 
