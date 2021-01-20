@@ -5,13 +5,13 @@
 </div>
 <br>
 <div align="center">
-    <a href="https://gitlab.com/taskord/taskord/-/commits/main">
-        <img src="https://gitlab.com/taskord/taskord/badges/main/pipeline.svg" alt="CI">
+    <a href="https://gitlab.com/yo/taskord/-/commits/main">
+        <img src="https://gitlab.com/yo/taskord/badges/main/pipeline.svg" alt="CI">
     </a>
-    <a href="https://www.codacy.com/gl/taskord/taskord/dashboard">
+    <a href="https://www.codacy.com/gl/yo/taskord/dashboard">
         <img src="https://app.codacy.com/project/badge/Grade/346b75b6fa564e16958cc7b6c1b5ce2a"/>
     </a>
-    <a href="https://gitpod.io/#https://gitlab.com/taskord/taskord" alt="Codacy">
+    <a href="https://gitpod.io/#https://gitlab.com/yo/taskord" alt="Codacy">
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
     </a>
     <a href="LICENSE">
@@ -28,9 +28,9 @@
     <br>
     <a href="https://taskord.com"><b>taskord.com »</b></a>
     <br><br>
-    <a href="https://gitlab.com/taskord/taskord/-/issues/new"><b>Report Bug</b></a>
+    <a href="https://gitlab.com/yo/taskord/-/issues/new"><b>Report Bug</b></a>
     •
-    <a href="https://gitlab.com/taskord/taskord/-/issues/new"><b>Request Feature</b></a>
+    <a href="https://gitlab.com/yo/taskord/-/issues/new"><b>Request Feature</b></a>
 </div>
 
 ## About Taskord
@@ -55,7 +55,7 @@
 
 Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. Fork the project, ie. https://gitlab.com/taskord/taskord/-/forks/new
+1. Fork the project, ie. https://gitlab.com/yo/taskord/-/forks/new
 2. Clone your forked repository, ie. `git clone https://gitlab.com/<your-username>/taskord.git`
 3. Create your Feature Branch (`git checkout -b AmazingFeature`)
 4. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
@@ -64,7 +64,7 @@ Contributions are what makes the open-source community such an amazing place to 
 
 Start coding in a [ready-to-code development environment](https://www.gitpod.io):
 
-<a href="https://gitpod.io/#https://gitlab.com/taskord/taskord" style="padding: 10px;">
+<a href="https://gitpod.io/#https://gitlab.com/yo/taskord" style="padding: 10px;">
     <img src="https://gitpod.io/button/open-in-gitpod.svg" width="150" alt="Push" align="center">
 </a>
 
