@@ -68,7 +68,7 @@ sudo apt install supervisor
 
 ### Fork the Repo
 
-Fork Taskord's repository, https://gitlab.com/taskord/taskord/-/forks/new
+Fork Taskord's repository, https://gitlab.com/yo/taskord/-/forks/new
 
 ### Clone the Repo
 
