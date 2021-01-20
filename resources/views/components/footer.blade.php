@@ -11,7 +11,7 @@
     <a class="pe-2" href="https://dev.to/taskord" target="_blank" rel="noreferrer">
         Blog
     </a>
-    <a class="pe-2" href="https://gitlab.com/taskord/taskord" target="_blank" rel="noreferrer">
+    <a class="pe-2" href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
         GitLab
     </a>
     <a class="pe-2" href="{{ route('terms') }}">
