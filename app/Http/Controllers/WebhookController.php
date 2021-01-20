@@ -190,7 +190,7 @@ class WebhookController extends Controller
                 'form_params' => [
                     'query' => '
                     query {
-                      project(fullPath: "taskord/taskord") {
+                      project(fullPath: "yo/taskord") {
                         releases(first: 1) {
                           nodes {
                             tagName
