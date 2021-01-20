@@ -55,7 +55,7 @@
                         <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">⚓ Integration</a></li>
                         @endauth
                         <li><a class="dropdown-item text-dark" href="{{ route('open') }}">📊 Open</a></li>
-                        <li><a class="dropdown-item text-dark" href="https://gitlab.com/taskord/taskord/-/milestones" target="_blank" rel="noreferrer">🚧 Roadmap</a></li>
+                        <li><a class="dropdown-item text-dark" href="https://gitlab.com/yo/taskord/-/milestones" target="_blank" rel="noreferrer">🚧 Roadmap</a></li>
                     </ul>
                 </li>
                 @if (Auth::check() and auth()->user()->isStaff and !auth()->user()->staffShip)
@@ -172,7 +172,7 @@
                             </a>
                             @endif
                             @if (auth()->user()->isDeveloper)
-                            <a class="dropdown-item text-dark" href="https://gitlab.com/taskord/taskord" target="_blank" rel="noreferrer">
+                            <a class="dropdown-item text-dark" href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
                                 <x-heroicon-o-code class="heroicon-1x text-secondary" />
                                 GitLab
                             </a>
@@ -193,7 +193,7 @@
                             </form>
                             <div class="dropdown-divider"></div>
                             <div class="dropdown-header text-dark-50 fw-bold">
-                                <span id="taskord-version">v{{ config('app.version') }}</span> • <a href="https://gitlab.com/taskord/taskord/-/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Changelog</a>
+                                <span id="taskord-version">v{{ config('app.version') }}</span> • <a href="https://gitlab.com/yo/taskord/-/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Changelog</a>
                             </div>
                         </div>
                     </li>
