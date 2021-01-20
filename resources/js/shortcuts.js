@@ -128,5 +128,5 @@ Online: ${window.navigator.onLine}
 ${"```"}
 
 <sub>**Created via Taskord.com**</sub>`;
-  window.open("https://gitlab.com/taskord/taskord/-/issues/new?issue[description]=" + encodeURI(description));
+  window.open("https://gitlab.com/yo/taskord/-/issues/new?issue[description]=" + encodeURI(description));
 });
