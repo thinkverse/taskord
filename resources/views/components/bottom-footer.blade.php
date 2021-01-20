@@ -38,7 +38,7 @@
         <a href="/graphiql" target="_blank" rel="noreferrer">
             API
         </a>
-        <a href="https://gitlab.com/taskord/taskord" target="_blank" rel="noreferrer">
+        <a href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
             GitLab
         </a>
         @auth
