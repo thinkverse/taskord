@@ -20,7 +20,7 @@ class Tasks extends Component
     public function render()
     {
         $tasks = Task::latest()->paginate(50);
-        $count = Task::all()->count('id');
+        $count = Task::count('id');
 
         return view('livewire.admin.tasks', [
             'tasks' => $this->readyToLoad ? $tasks : [],
