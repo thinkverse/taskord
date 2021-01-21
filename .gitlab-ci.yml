@@ -37,6 +37,15 @@ Test:
     - php artisan migrate:fresh --seed
     - php artisan test
 
+Enlightn:
+  image: edbizarro/gitlab-ci-pipeline-php:latest
+  stage: test
+  script:
+    - sudo composer install --no-progress --ignore-platform-reqs
+    - cp .env.ci .env
+    - php artisan key:generate
+    - php artisan enlightn
+
 Commands:
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
