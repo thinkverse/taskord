@@ -20,7 +20,7 @@ class Users extends Component
     public function render()
     {
         $users = User::latest('last_active')->paginate(50);
-        $count = User::all()->count('id');
+        $count = User::count('id');
 
         return view('livewire.admin.users', [
             'users' => $this->readyToLoad ? $users : [],
