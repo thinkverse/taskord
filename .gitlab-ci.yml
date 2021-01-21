@@ -45,6 +45,7 @@ Enlightn:
     - cp .env.ci .env
     - php artisan key:generate
     - php artisan enlightn
+  allow_failure: true
 
 Commands:
   image: edbizarro/gitlab-ci-pipeline-php:latest
