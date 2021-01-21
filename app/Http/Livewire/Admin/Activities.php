@@ -20,7 +20,7 @@ class Activities extends Component
     public function render()
     {
         $activities = Activity::latest()->paginate('50');
-        $count = Activity::all()->count('id');
+        $count = Activity::count('id');
 
         return view('livewire.admin.activities', [
             'activities' => $this->readyToLoad ? $activities : [],
