@@ -3,7 +3,7 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/shift-away-subtle.css";
 import "tippy.js/themes/light-border.css";
 
-document.addEventListener('DOMContentLoaded', (event) => {
+const initHover = () => {
   const config = {
     allowHTML: true,
     maxWidth: 350,
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
       instance._error = null;
     },
   });
-
+  
   // Product Popover
   tippy(".product-popover", {
     ...config,
@@ -55,22 +55,37 @@ document.addEventListener('DOMContentLoaded', (event) => {
       instance._error = null;
     },
   });
-
+  
   tippy(".patron", {
     allowHTML: true,
     placement: "right",
     content: "Patron",
   });
-
+  
   tippy(".verified", {
     allowHTML: true,
     placement: "right",
     content: "Verified",
   });
-
+  
   tippy(".private", {
     allowHTML: true,
     placement: "right",
     content: "Private Profile",
   });
-});
+}
+
+const init = () => {
+  if (
+    document.getElementsByClassName('user-popover').length > 0 &&
+    document.getElementsByClassName('product-popover').length > 0
+  ) {
+    initHover()
+  } else {
+    setTimeout(() => {
+      init()
+    }, 300)
+  }
+}
+
+init();
