@@ -14,6 +14,7 @@ const initHover = () => {
     classList: "popover",
     content: `<div class="p-3"><div class="spinner-border spinner-border-sm taskord-spinner text-dark"></div></div>`,
   };
+
   // User Popover
   tippy(".user-popover", {
     ...config,
@@ -34,7 +35,7 @@ const initHover = () => {
       instance._error = null;
     },
   });
-  
+
   // Product Popover
   tippy(".product-popover", {
     ...config,
@@ -55,7 +56,7 @@ const initHover = () => {
       instance._error = null;
     },
   });
-  
+
   tippy(".patron", {
     allowHTML: true,
     placement: "right",
