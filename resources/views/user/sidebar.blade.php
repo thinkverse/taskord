@@ -1,4 +1,4 @@
-<div class="col-sm d-inline-bock text-truncate">
+<div class="col-sm d-inline-bock">
     <div class="d-block">
         @auth
         @if (auth()->user()->staffShip)
