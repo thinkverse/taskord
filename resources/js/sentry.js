@@ -6,7 +6,7 @@ Sentry.init({
 
   // Alternatively, use `process.env.npm_package_version` for a dynamic release version
   // if your build tool supports it.
-  release: "taskord@prod",
+  release: `Taskord ${document.getElementById("taskord-version").innerHTML.trim()}`,
   integrations: [new Integrations.BrowserTracing()],
 
   // Set tracesSampleRate to 1.0 to capture 100%
