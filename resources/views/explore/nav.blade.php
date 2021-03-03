@@ -5,13 +5,13 @@
     @auth
     @if (auth()->user()->staffShip)
     <li class="nav-item">
-        <a class="nav-link" href="#">Makers</a>
+        <a class="nav-link" href="#">Makers <x-staffship background="light" /></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Products</a>
+        <a class="nav-link" href="#">Products <x-staffship background="light" /></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Tasks</a>
+        <a class="nav-link" href="#">Tasks <x-staffship background="light" /></a>
     </li>
     @endif
     @endauth
