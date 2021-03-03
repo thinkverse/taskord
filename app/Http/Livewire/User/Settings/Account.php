@@ -89,17 +89,14 @@ class Account extends Component
                     'email' => 'required|email|max:255|indisposable|unique:users,email,'.$this->user->id,
                 ]);
 
-                if ($this->email !== $this->user->email) {
-                    $this->user->email_verified_at = null;
-                }
-
                 if (auth()->user()->id === $this->user->id) {
                     $this->user->username = $this->username;
                     $this->user->email = $this->email;
-                    $this->user->save();
                     if ($this->email !== $this->user->email) {
+                        $this->user->email_verified_at = null;
                         $this->user->sendEmailVerificationNotification();
                     }
+                    $this->user->save();
                     loggy(request()->ip(), 'User', auth()->user(), 'Updated account settings');
 
                     return $this->alert('success', 'Your account has been updated!');
