@@ -93,11 +93,13 @@ class Account extends Component
                     $this->user->email_verified_at = null;
                 }
 
-                if (Auth::check() && auth()->user()->id === $this->user->id) {
+                if (auth()->user()->id === $this->user->id) {
                     $this->user->username = $this->username;
                     $this->user->email = $this->email;
                     $this->user->save();
-                    $this->user->sendEmailVerificationNotification();
+                    if ($this->email !== $this->user->email) {
+                        $this->user->sendEmailVerificationNotification();
+                    }
                     loggy(request()->ip(), 'User', auth()->user(), 'Updated account settings');
 
                     return $this->alert('success', 'Your account has been updated!');
