@@ -37,13 +37,17 @@ class Followed extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         $user = User::find($this->user->id);
-
-        return (new MailMessage)
-                    ->subject('@'.$user->username.' followed you')
-                    ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('@'.$user->username.' followed you on Taskord.')
-                    ->action('Go to user profile @'.$user->username, url('/@'.$user->username))
-                    ->line('Thank you for using Taskord!');
+        
+        if (!$user->isFlagged) {
+            return (new MailMessage)
+                        ->subject('@'.$user->username.' followed you')
+                        ->greeting('Hello @'.$notifiable->username.' 👋')
+                        ->line('@'.$user->username.' followed you on Taskord.')
+                        ->action('Go to user profile @'.$user->username, url('/@'.$user->username))
+                        ->line('Thank you for using Taskord!');
+        } else {
+            return null;
+        }
     }
 
     public function toDatabase($notifiable)

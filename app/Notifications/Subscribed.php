@@ -39,13 +39,17 @@ class Subscribed extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         $user = User::find($this->user_id);
-
-        return (new MailMessage)
-                    ->subject('@'.$user->username.' subscribed to "'.$this->product->name.'"')
-                    ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('🎉 @'.$user->username.' subscribed to your product "'.$this->product->name.'"')
-                    ->action('Go to user profile @'.$user->username, url('/@'.$user->username))
-                    ->line('Thank you for using Taskord!');
+        
+        if (!$user->isFlagged) {
+            return (new MailMessage)
+                        ->subject('@'.$user->username.' subscribed to "'.$this->product->name.'"')
+                        ->greeting('Hello @'.$notifiable->username.' 👋')
+                        ->line('🎉 @'.$user->username.' subscribed to your product "'.$this->product->name.'"')
+                        ->action('Go to user profile @'.$user->username, url('/@'.$user->username))
+                        ->line('Thank you for using Taskord!');
+        } else {
+            return null;
+        }
     }
 
     public function toDatabase($notifiable)

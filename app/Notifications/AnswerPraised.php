@@ -40,12 +40,16 @@ class AnswerPraised extends Notification implements ShouldQueue
     {
         $user = User::find($this->user_id);
 
-        return (new MailMessage)
-                    ->subject('@'.$user->username.' praised your answer')
-                    ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('👏 Your answer was praised by @'.$user->username)
-                    ->line($this->answer->answer)
-                    ->line('Thank you for using Taskord!');
+        if (!$user->isFlagged) {
+            return (new MailMessage)
+                        ->subject('@'.$user->username.' praised your answer')
+                        ->greeting('Hello @'.$notifiable->username.' 👋')
+                        ->line('👏 Your answer was praised by @'.$user->username)
+                        ->line($this->answer->answer)
+                        ->line('Thank you for using Taskord!');
+        } else {
+            return null;
+        }
     }
 
     public function toDatabase($notifiable)

@@ -39,15 +39,19 @@ class Answered extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         $user = User::find($this->user_id);
-
-        return (new MailMessage)
-                    ->subject('@'.$user->username.' answered your question')
-                    ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('💬 Your question has new answer by @'.$user->username)
-                    ->line('Question: '.$this->answer->question->title)
-                    ->line('Answer: '.$this->answer->answer)
-                    ->action('Go to Question', url('/question/'.$this->answer->question->id))
-                    ->line('Thank you for using Taskord!');
+        
+        if (!$user->isFlagged) {
+            return (new MailMessage)
+                        ->subject('@'.$user->username.' answered your question')
+                        ->greeting('Hello @'.$notifiable->username.' 👋')
+                        ->line('💬 Your question has new answer by @'.$user->username)
+                        ->line('Question: '.$this->answer->question->title)
+                        ->line('Answer: '.$this->answer->answer)
+                        ->action('Go to Question', url('/question/'.$this->answer->question->id))
+                        ->line('Thank you for using Taskord!');
+        } else {
+            return null;
+        }
     }
 
     public function toDatabase($notifiable)
