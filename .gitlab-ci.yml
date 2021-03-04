@@ -26,11 +26,11 @@ Test:
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
-    - sudo composer install --no-progress --ignore-platform-reqs
+    - composer install --no-progress --ignore-platform-reqs
     - cp .env.ci .env
     - php artisan key:generate
-    - sudo npm i -g yarn
-    - sudo yarn install
+    - npm i -g yarn
+    - yarn install
     - yarn production
     - php artisan horizon:install
     - php artisan horizon:publish
