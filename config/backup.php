@@ -40,6 +40,13 @@ return [
                  * Determines if it should avoid unreadable folders.
                  */
                 'ignore_unreadable_directories' => false,
+
+                /*
+                 * This path is used to make directories in resulting zip-file relative
+                 * Set to `null` to include complete absolute path
+                 * Example: base_path()
+                 */
+                'relative_path' => null,
             ],
 
             /*
@@ -90,6 +97,14 @@ return [
          */
         'database_dump_compressor' => null,
 
+        /*
+         * The file extension used for the database dump files.
+         *
+         * If not specified, the file extension will be .archive for MongoDB and .sql for all other databases
+         * The file extension should be specified without a leading .
+         */
+        'database_dump_file_extension' => '',        
+        
         'destination' => [
 
             /*
@@ -113,7 +128,7 @@ return [
 
     /*
      * You can get notified when specific events occur. Out of the box you can use 'mail' and 'slack'.
-     * For Slack you need to install guzzlehttp/guzzle and laravel/slack-notification-channel.
+     * For Slack you need to install laravel/slack-notification-channel.
      *
      * You can also use your own notification classes, just make sure the class is named after one of
      * the `Spatie\Backup\Events` classes.
@@ -121,12 +136,12 @@ return [
     'notifications' => [
 
         'notifications' => [
-            \Spatie\Backup\Notifications\Notifications\BackupHasFailed::class => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\UnhealthyBackupWasFound::class => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\CleanupHasFailed::class => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\BackupWasSuccessful::class => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\HealthyBackupWasFound::class => ['mail'],
-            \Spatie\Backup\Notifications\Notifications\CleanupWasSuccessful::class => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\BackupHasFailedNotification::class => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\UnhealthyBackupWasFoundNotification::class => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\CleanupHasFailedNotification::class => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\BackupWasSuccessfulNotification::class => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\HealthyBackupWasFoundNotification::class => ['mail'],
+            \Spatie\Backup\Notifications\Notifications\CleanupWasSuccessfulNotification::class => ['mail'],
         ],
 
         /*
@@ -139,8 +154,8 @@ return [
             'to' => 'taskord@icloud.com',
 
             'from' => [
-                'address' => env('MAIL_FROM_ADDRESS'),
-                'name' => env('MAIL_FROM_NAME'),
+                'address' => env('MAIL_FROM_ADDRESS', 'no-reply@taskord.com'),
+                'name' => env('MAIL_FROM_NAME', 'Taskord Backup'),
             ],
         ],
 
@@ -203,22 +218,22 @@ return [
             /*
              * The number of days for which backups must be kept.
              */
-            'keep_all_backups_for_days' => 1,
+            'keep_all_backups_for_days' => 7,
 
             /*
              * The number of days for which daily backups must be kept.
              */
-            'keep_daily_backups_for_days' => 1,
+            'keep_daily_backups_for_days' => 16,
 
             /*
              * The number of weeks for which one weekly backup must be kept.
              */
-            'keep_weekly_backups_for_weeks' => 2,
+            'keep_weekly_backups_for_weeks' => 8,
 
             /*
              * The number of months for which one monthly backup must be kept.
              */
-            'keep_monthly_backups_for_months' => 2,
+            'keep_monthly_backups_for_months' => 4,
 
             /*
              * The number of years for which one yearly backup must be kept.
