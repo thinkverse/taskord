@@ -1,7 +1,8 @@
 module.exports = {
   ci: {
     collect: {
-      url: ['https://taskord.com'],
+      startServerCommand: 'php artisan serve',
+      url: ['http://localhost:8000'],
       settings: {chromeFlags: '--no-sandbox'},
     },
     upload: {
