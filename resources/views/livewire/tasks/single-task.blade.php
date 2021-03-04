@@ -42,7 +42,7 @@
             </button>
             @else
             <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" aria-label="Delete">
-                <x-heroicon-o-trash class="heroicon-small me-0" />
+                <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
             </button>
             @endif
         @endif

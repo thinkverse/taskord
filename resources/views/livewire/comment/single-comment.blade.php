@@ -45,7 +45,7 @@
         @auth
         @if (auth()->user()->hasLiked($comment))
             <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
-                <x-heroicon-s-thumb-up class="heroicon-small me-0" />
+                <x-heroicon-s-thumb-up class="heroicon-small me-0 text-secondary" />
                 <span class="small text-white fw-bold">
                     {{ number_format($comment->likerscount()) }}
                 </span>
@@ -57,7 +57,7 @@
             </button>
         @else
             <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                <x-heroicon-o-thumb-up class="heroicon-small me-0" />
+                <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
                 @if ($comment->likerscount() !== 0)
                 <span class="small text-dark fw-bold">
                     {{ number_format($comment->likerscount()) }}
@@ -77,19 +77,19 @@
             </button>
             @else
             <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Delete">
-                <x-heroicon-o-trash class="heroicon-small me-0" />
+                <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
             </button>
             @endif
         @endif
         @if (auth()->user()->staffShip)
         <button type="button" class="btn btn-task {{ $comment->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $comment->id }}" title="Flag to admins" aria-label="Hide">
-            <x-heroicon-o-eye-off class="heroicon-small me-0" />
+            <x-heroicon-o-eye-off class="heroicon-small me-0 text-secondary" />
         </button>
         @endif
         @endauth
         @guest
             <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
-                <x-heroicon-o-thumb-up class="heroicon-small me-0" />
+                <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
                 @if ($comment->likerscount() !== 0)
                 <span class="small text-dark fw-bold">
                     {{ number_format($comment->likerscount()) }}
