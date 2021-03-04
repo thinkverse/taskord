@@ -88,7 +88,7 @@
             @if (!$task->user->isPrivate and !$task->hidden)
             @if (auth()->user()->hasLiked($task))
             <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
-                <x-heroicon-s-thumb-up class="heroicon-small me-0" />
+                <x-heroicon-s-thumb-up class="heroicon-small me-0 text-secondary" />
                 <span class="small text-white fw-bold">
                     {{ number_format($task->likerscount()) }}
                 </span>
@@ -100,7 +100,7 @@
             </button>
             @else
             <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
-                <x-heroicon-o-thumb-up class="heroicon-small me-0" />
+                <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
                 @if ($task->likerscount() !== 0)
                 <span class="small text-dark fw-bold">
                     {{ number_format($task->likerscount()) }}
@@ -131,7 +131,7 @@
                 </a>
             @endguest
             <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1" aria-label="Comments">
-                <x-heroicon-o-chat-alt class="heroicon-small me-0" />
+                <x-heroicon-o-chat-alt class="heroicon-small me-0 text-secondary" />
                 @if ($task->comments->count('id') !== 0)
                 <span class="small text-dark fw-bold">
                     {{ number_format($task->comments->count('id')) }}
@@ -146,13 +146,13 @@
                 </button>
                 @else
                 <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Delete">
-                    <x-heroicon-o-trash class="heroicon-small me-0" />
+                    <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
                 </button>
                 @endif
             @endif
             @if (auth()->user()->staffShip)
             <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins" aria-label="Hide">
-                <x-heroicon-o-eye-off class="heroicon-small me-0" /> Hide
+                <x-heroicon-o-eye-off class="heroicon-small me-0 text-secondary" /> Hide
             </button>
             @endif
             @endauth
