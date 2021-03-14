@@ -4,7 +4,7 @@ return [
     /*
      * Models Related.
      */
-    'model_namespace' => 'App',
+    'model_namespace' => 'App\Models',
     'user_model_class_name' => 'User',
 
     'tables' => [
