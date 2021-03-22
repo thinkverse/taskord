@@ -1,4 +1,3 @@
-Contact: yo@taskord.com
-Contact: taskord@icloud.com
+Contact: yoginth@hey.com
 Preferred-Languages: en
 Policy: https://taskord.com/privacy
