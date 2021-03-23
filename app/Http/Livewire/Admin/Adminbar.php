@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Jobs\Clean;
+use App\Jobs\Deploy;
 use App\Models\Answer;
 use App\Models\Comment;
 use App\Models\Product;
@@ -39,6 +40,7 @@ class Adminbar extends Component
     
     public function deploy()
     {
+        Deploy::dispatch();
         loggy(request()->ip(), 'Admin', auth()->user(), 'Deployed the Application');
 
         return $this->alert('success', 'Deployment process has been initiated successfully 🚀');
