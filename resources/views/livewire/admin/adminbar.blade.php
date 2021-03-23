@@ -181,13 +181,13 @@
                     <h5 class="modal-title text-dark" id="deployModalLabel">Are you sure?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    WIP
+                <div class="modal-body row">
+                    <img src="https://media.giphy.com/media/1UYw95vafYW4QCQwOK/giphy.gif" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button class="btn btn-primary" wire:loading.attr="disabled" wire:click="deploy" data-bs-dismiss="modal">
-                        Deploy now
+                        🚀 Deploy now
                     </button>
                 </div>
             </div>
