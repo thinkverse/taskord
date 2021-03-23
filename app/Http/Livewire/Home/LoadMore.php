@@ -33,7 +33,7 @@ class LoadMore extends Component
     {
         if ($this->loadMore) {
             if (Auth::check() && auth()->user()->onlyFollowingsTasks) {
-                $userIds = auth()->user()->followings->pluck('id');
+                $userIds = auth()->user()->followings()->pluck('id');
                 $userIds->push(auth()->user()->id);
                 $tasks = Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images')
                     ->whereIn('user_id', $userIds)
