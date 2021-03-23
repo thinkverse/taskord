@@ -15,7 +15,7 @@ class UpdateTimestampsInInteractions extends Migration
     {
         Schema::table('interactions', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('updated_at');
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
