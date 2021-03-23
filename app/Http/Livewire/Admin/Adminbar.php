@@ -40,10 +40,14 @@ class Adminbar extends Component
     
     public function deploy()
     {
-        Deploy::dispatch();
-        loggy(request()->ip(), 'Admin', auth()->user(), 'Deployed the Application');
-
-        return $this->alert('success', 'Deployment process has been initiated successfully 🚀');
+        if (auth()->id() === 1) {
+            Deploy::dispatch();
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Deployed the Application');
+    
+            return $this->alert('success', 'Deployment process has been initiated successfully 🚀');
+        } else {
+            return $this->alert('success', 'Shut the front door 🤣');
+        }
     }
 
     public function render()
