@@ -25,7 +25,6 @@ class Following extends Component
 
     public function render()
     {
-        dd($this->user->followers()->paginate(10));
         $followings = $this->user->followings()->paginate(10);
 
         return view('livewire.user.following', [

@@ -34,8 +34,8 @@
             </div>
         </li>
         <li class="list-group-item py-3 fw-bold text-primary">
-            {{ $user->followings()->count('id') }} following
-            {{ str_plural('user', $user->followings()->count('id')) }}
+            {{ $user->followings->count('id') }} following
+            {{ str_plural('user', $user->followings->count('id')) }}
         </li>
         <li class="list-group-item py-3 fw-bold text-primary">
             {{ $user->tasks()->count('id') }}

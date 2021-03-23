@@ -18,26 +18,12 @@
     @endauth
     <div class="small">
         <a class="text-dark" href="{{ route('user.following', ['username' => $user->username]) }}">
-            <span class="fw-bold">{{ $user->followings()->count('id') }}</span>
-            {{ str_plural('Following', $user->followings()->count('id')) }}
+            <span class="fw-bold">{{ $user->followings->count('id') }}</span>
+            {{ str_plural('Following', $user->followings->count('id')) }}
         </a>
         <a class="text-dark" href="{{ route('user.followers', ['username' => $user->username]) }}">
-            <span class="fw-bold ms-2">{{ number_format($user->followers()->count()) }}</span>
-            {{ str_plural('Follower', $user->followers()->count('id')) }}
+            <span class="fw-bold ms-2">{{ number_format($user->followers->count()) }}</span>
+            {{ str_plural('Follower', $user->followers->count('id')) }}
         </a>
-        @php
-            $likes = $user->likes(App\Models\Task::class)->count('id') +
-                $user->likes(App\Models\Comment::class)->count('id') +
-                $user->likes(App\Models\Question::class)->count('id') +
-                $user->likes(App\Models\Answer::class)->count('id')
-        @endphp
-        <span class="fw-bold ms-2">
-            {{
-                number_format(
-                    $likes
-                )
-            }}
-        </span>
-        {{ str_plural('Praise', $likes) }}
     </div>
 </div>

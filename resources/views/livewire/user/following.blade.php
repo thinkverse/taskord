@@ -41,5 +41,5 @@
         </div>
     </div>
     @endforeach
-    {{ $readyToLoad ? $followings()->links() : '' }}
+    {{ $readyToLoad ? $followings->links() : '' }}
 </div>
