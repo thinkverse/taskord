@@ -186,7 +186,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button class="btn btn-primary" wire:loading.attr="disabled" wire:click="clean" data-bs-dismiss="modal">
+                    <button class="btn btn-primary" wire:loading.attr="disabled" wire:click="deploy" data-bs-dismiss="modal">
                         Deploy now
                     </button>
                 </div>

@@ -36,6 +36,13 @@ class Adminbar extends Component
 
         return $this->alert('success', 'Cleaning process has been initiated successfully 🧼');
     }
+    
+    public function deploy()
+    {
+        loggy(request()->ip(), 'Admin', auth()->user(), 'Deployed the Application');
+
+        return $this->alert('success', 'Deployment process has been initiated successfully 🚀');
+    }
 
     public function render()
     {
