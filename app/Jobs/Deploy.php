@@ -32,12 +32,11 @@ class Deploy implements ShouldQueue
      */
     public function handle()
     {
-        if (App::environment() === 'production') {
+        if (App::environment() === 'local') {
             $client = new Client();
-            $res = $client->request('POST', 'https://gitlab.com/api/v4/projects/20359920/trigger/pipeline', [
-                'query' => [
+            $res = $client->request('POST', 'https://gitlab.com/api/v4/projects/20359920/ref/main/trigger/pipeline', [
+                'form_params' => [
                     'token' => config('services.gitlab.trigger_token'),
-                    'ref' => 'main',
                 ],
             ]);
         }
