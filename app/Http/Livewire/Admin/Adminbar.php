@@ -46,7 +46,7 @@ class Adminbar extends Component
     
             return $this->alert('success', 'Deployment process has been initiated successfully 🚀');
         } else {
-            return $this->alert('success', 'Shut the front door 🤣');
+            return $this->alert('error', 'Permission denied!');
         }
     }
 
