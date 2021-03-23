@@ -34,14 +34,10 @@ class Deploy implements ShouldQueue
     {
         if (App::environment() === 'production') {
             $client = new Client();
-            $res = $client->request('POST', 'https://api.cloudflare.com/client/v4/zones/06be44cac798e7deeb4abda1378c4339/purge_cache', [
-                'headers' => [
-                    'X-Auth-Email' => config('services.cloudflare.email'),
-                    'X-Auth-Key'   => config('services.cloudflare.api_key'),
-                    'Content-Type' => 'application/json',
-                ],
-                'json' => [
-                    'purge_everything' => true,
+            $res = $client->request('POST', 'https://gitlab.com/api/v4/projects/20359920/trigger/pipeline', [
+                'query' => [
+                    'token' => config('services.gitlab.trigger_token'),
+                    'ref' => 'main',
                 ],
             ]);
         }

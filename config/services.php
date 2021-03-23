@@ -52,6 +52,7 @@ return [
         'client_id'     => env('GITLAB_CLIENT_ID'),
         'client_secret' => env('GITLAB_CLIENT_SECRET'),
         'redirect'      => env('GITLAB_URL'),
+        'access_token'      => env('GITLAB_ACCESS_TOKEN'),
     ],
 
     'cloudflare' => [
