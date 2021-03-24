@@ -14,15 +14,18 @@ class RecentQuestions extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getRecentQuestions()
     {
-        $recent_questions = Question::select('id', 'title', 'body', 'patronOnly', 'created_at', 'user_id')
+        return Question::select('id', 'title', 'body', 'patronOnly', 'created_at', 'user_id')
             ->orderBy('created_at', 'DESC')
             ->take(5)
             ->get();
+    }
 
+    public function render()
+    {
         return view('livewire.home.recent-questions', [
-            'recent_questions' => $this->readyToLoad ? $recent_questions : [],
+            'recent_questions' => $this->readyToLoad ? $this->getRecentQuestions() : [],
         ]);
     }
 }
