@@ -14,17 +14,20 @@ class LaunchedToday extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getLaunchedToday()
     {
-        $launched_today = Product::select('id', 'slug', 'name', 'launched', 'description', 'avatar', 'user_id')
+        return Product::select('id', 'slug', 'name', 'launched', 'description', 'avatar', 'user_id')
             ->where('launched', true)
             ->whereDate('launched_at', carbon('today'))
             ->orderBy('launched_at', 'DESC')
             ->take(6)
             ->get();
+    }
 
+    public function render()
+    {
         return view('livewire.home.launched-today', [
-            'launched_today' => $this->readyToLoad ? $launched_today : [],
+            'launched_today' => $this->readyToLoad ? $this->getLaunchedToday() : [],
         ]);
     }
 }
