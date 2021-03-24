@@ -1,6 +1,6 @@
 <ul class="nav nav-pills justify-content-center explore-nav bg-white py-3">
     <li class="nav-item">
-        <a class="nav-link @if (Route::currentRouteName() === 'explore') active @endif" href="{{ route('explore') }}">Popular Tasks</a>
+        <a class="nav-link @if (Route::currentRouteName() === 'explore.explore') active @endif" href="{{ route('explore.explore') }}">Popular Tasks</a>
     </li>
     @auth
     @if (auth()->user()->staffShip)
