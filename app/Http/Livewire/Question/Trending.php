@@ -14,18 +14,21 @@ class Trending extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getTrending()
     {
-        $trending = Question::orderByViews()
+        return Question::orderByViews()
             ->has('answer')
             ->take(5)
             ->get()
             ->sortByDesc(function ($question) {
                 return $question->answer->count('id');
             });
+    }
 
+    public function render()
+    {
         return view('livewire.question.trending', [
-            'trending' => $this->readyToLoad ? $trending : [],
+            'trending' => $this->readyToLoad ? $this->getTrending() : [],
         ]);
     }
 }
