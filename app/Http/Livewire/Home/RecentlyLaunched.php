@@ -14,16 +14,19 @@ class RecentlyLaunched extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getRecentlyLaunched()
     {
-        $products = Product::select('id', 'slug', 'name', 'launched', 'avatar', 'user_id')
+        return Product::select('id', 'slug', 'name', 'launched', 'avatar', 'user_id')
             ->where('launched', true)
             ->orderBy('created_at', 'DESC')
             ->take(5)
             ->get();
+    }
 
+    public function render()
+    {
         return view('livewire.home.recently-launched', [
-            'products' => $this->readyToLoad ? $products : [],
+            'products' => $this->readyToLoad ? $this->getRecentlyLaunched() : [],
         ]);
     }
 }
