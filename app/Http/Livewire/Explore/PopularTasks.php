@@ -19,9 +19,9 @@ class PopularTasks extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getPopularTasks()
     {
-        $tasks = Task::withCount(['comments', 'likers'])
+        return Task::withCount(['comments', 'likers'])
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
@@ -36,9 +36,12 @@ class PopularTasks extends Component
                 ->sortByDesc('likers_count')
                 ->sortByDesc('comments_count')
                 ->shuffle();
+    }
 
+    public function render()
+    {
         return view('livewire.explore.popular-tasks', [
-            'tasks' => $this->readyToLoad ? $tasks : [],
+            'tasks' => $this->readyToLoad ? $this->getPopularTasks() : [],
         ]);
     }
 }
