@@ -41,7 +41,7 @@ class Adminbar extends Component
     public function deploy()
     {
         if (auth()->id() === 1) {
-            Deploy::dispatch(auth()->user());
+            Deploy::dispatch(auth()->user(), request()->ip());
             loggy(request()->ip(), 'Admin', auth()->user(), 'Deployed the Application');
 
             return $this->alert('success', 'Deployment process has been initiated successfully 🚀');

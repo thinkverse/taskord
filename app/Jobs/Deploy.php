@@ -15,10 +15,12 @@ class Deploy implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected $user;
+    protected $ip;
 
-    public function __construct($user)
+    public function __construct($user, $ip)
     {
         $this->user = $user;
+        $this->ip = $ip;
     }
 
     /**
@@ -35,6 +37,7 @@ class Deploy implements ShouldQueue
                     'token' => config('services.gitlab.trigger_token'),
                     'variables[TRIGGERED_BY]' => $this->user->username,
                     'variables[TRIGGERED_EMAIL]' => $this->user->email,
+                    'variables[TRIGGERED_IP]' => $this->ip,
                 ],
             ]);
         }
