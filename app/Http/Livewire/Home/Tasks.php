@@ -33,6 +33,7 @@ class Tasks extends Component
         if (Auth::check() && auth()->user()->onlyFollowingsTasks) {
             $userIds = auth()->user()->followings->pluck('id');
             $userIds->push(auth()->user()->id);
+
             return Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
                 ->whereIn('user_id', $userIds)
                 ->whereHas('user', function ($q) {
