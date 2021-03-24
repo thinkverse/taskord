@@ -51,7 +51,7 @@ class AdminController extends Controller
                 'commit' => json_decode($commit->getBody()->getContents())[0],
             ]);
         } else {
-            return "Something went wrong!";
+            return 'Something went wrong!';
         }
     }
 
@@ -69,7 +69,7 @@ class AdminController extends Controller
                 'ci' => json_decode($ci->getBody()->getContents())[0],
             ]);
         } else {
-            return "Something went wrong!";
+            return 'Something went wrong!';
         }
     }
 }
