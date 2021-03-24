@@ -24,14 +24,17 @@ class Answers extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getAnswers()
     {
-        $answers = Answer::where('user_id', $this->user->id)
+        return Answer::where('user_id', $this->user->id)
             ->latest()
             ->paginate(10);
+    }
 
+    public function render()
+    {
         return view('livewire.user.answers', [
-            'answers' => $this->readyToLoad ? $answers : [],
+            'answers' => $this->readyToLoad ? $this->getAnswers() : [],
         ]);
     }
 }
