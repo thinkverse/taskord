@@ -17,14 +17,16 @@ class Tasks extends Component
         $this->readyToLoad = true;
     }
 
+    public function getTasks()
+    {
+        return Task::latest()->paginate(50);
+    }
+
     public function render()
     {
-        $tasks = Task::latest()->paginate(50);
-        $count = Task::count('id');
-
         return view('livewire.admin.tasks', [
-            'tasks' => $this->readyToLoad ? $tasks : [],
-            'count' => $this->readyToLoad ? $count : [],
+            'tasks' => $this->readyToLoad ? $this->getTasks() : [],
+            'count' => $this->readyToLoad ? Task::count('id') : [],
         ]);
     }
 }
