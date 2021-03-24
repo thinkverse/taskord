@@ -24,14 +24,17 @@ class Questions extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getQuestions()
     {
-        $questions = Question::where('user_id', $this->user->id)
+        return Question::where('user_id', $this->user->id)
             ->latest()
             ->paginate(10);
+    }
 
+    public function render()
+    {
         return view('livewire.user.questions', [
-            'questions' => $this->readyToLoad ? $questions : [],
+            'questions' => $this->readyToLoad ? $this->getQuestions() : [],
         ]);
     }
 }
