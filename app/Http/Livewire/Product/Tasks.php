@@ -31,11 +31,11 @@ class Tasks extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getTasks()
     {
         $members = $this->product->members->pluck('id');
         $members->push($this->product->owner->id);
-        $tasks = Task::select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id', 'source', 'images', 'type', 'hidden')
+        return Task::select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id', 'source', 'images', 'type', 'hidden')
             ->where([
                 ['product_id', $this->product->id],
                 ['done', $this->type === 'product.done' ? true : false],
@@ -44,9 +44,12 @@ class Tasks extends Component
             ->orderBy('created_at', 'desc')
             ->orderBy('done_at', 'desc')
             ->paginate(10, null, null, $this->page);
+    }
 
+    public function render()
+    {
         return view('livewire.product.tasks', [
-            'tasks' => $this->readyToLoad ? $tasks : [],
+            'tasks' => $this->readyToLoad ? $this->getTasks() : [],
             'page' => $this->page,
         ]);
     }
