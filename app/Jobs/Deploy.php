@@ -14,14 +14,11 @@ class Deploy implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    protected $user;
+
+    public function __construct($user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
@@ -36,7 +33,7 @@ class Deploy implements ShouldQueue
             $res = $client->request('POST', 'https://gitlab.com/api/v4/projects/25370928/ref/master/trigger/pipeline', [
                 'form_params' => [
                     'token' => config('services.gitlab.trigger_token'),
-                    'variables[TRIGGERED_BY]' => auth()->user()->username,
+                    'variables[TRIGGERED_BY]' => $this->user->username,
                 ],
             ]);
         }
