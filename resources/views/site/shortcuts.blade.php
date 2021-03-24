@@ -60,4 +60,10 @@
         <kbd>`</kbd>
     </span>
 </div>
+<div class="d-flex justify-content-between mt-2">
+    <span>Bring up deploy dialog</span>
+    <span>
+        <kbd class="me-1">shift</kbd><kbd>d</kbd>
+    </span>
+</div>
 @endif

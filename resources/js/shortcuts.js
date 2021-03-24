@@ -52,6 +52,11 @@ hotkeys("shift+/", async () => {
   (new bootstrap.Modal(document.getElementById("shortcutsModal"))).show();
 });
 
+// Deploy Modal
+hotkeys("shift+d", async () => {
+  (new bootstrap.Modal(document.getElementById("deployModal"))).show();
+});
+
 // Create new issue in GitLab
 hotkeys("n+i", () => {
   var nAgt = navigator.userAgent;
