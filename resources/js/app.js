@@ -22,20 +22,25 @@ document.addEventListener("DOMContentLoaded", async () => {
   Livewire.hook("component.initialized", () => {
     window.addEventListener("scroll", () => {
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      var loadMore = document.getElementById("load-more");
       if (scrollTop + window.innerHeight > document.documentElement.scrollHeight - 100) {
-        document.getElementById("load-more").click();
-        document.getElementById("load-more").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
-        document.getElementById("load-more").disabled = true;
+        if (loadMore != null) {
+          loadMore.click();
+          loadMore.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
+          loadMore.disabled = true;
+        }
       }
     });
   });
 
   // Initial Pagination
-  const target = document.querySelector("#load-more");
-  if (target && await isInViewport(target)) {
-    document.getElementById("load-more").click();
-    document.getElementById("load-more").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
-    document.getElementById("load-more").disabled = true;
+  var loadMore = document.getElementById("load-more");
+  if (loadMore && await isInViewport(loadMore)) {
+    if (loadMore != null) {
+      loadMore.click();
+      loadMore.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
+      loadMore.disabled = true;
+    }
   }
 });
 
