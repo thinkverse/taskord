@@ -19,17 +19,18 @@ class Products extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getProducts()
     {
-        $products = Product::with('owner')
+        return Product::with('owner')
             ->withCount(['members', 'tasks', 'product_update'])
             ->latest()->paginate(50);
+    }
 
-        $count = Product::count('id');
-
+    public function render()
+    {
         return view('livewire.admin.products', [
-            'products' => $this->readyToLoad ? $products : [],
-            'count'    => $this->readyToLoad ? $count : [],
+            'products' => $this->readyToLoad ? $this->getProducts() : [],
+            'count'    => $this->readyToLoad ? Product::count('id') : [],
         ]);
     }
 }

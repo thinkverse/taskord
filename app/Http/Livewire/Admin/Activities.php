@@ -24,11 +24,9 @@ class Activities extends Component
 
     public function render()
     {
-        $count = Activity::count('id');
-
         return view('livewire.admin.activities', [
             'activities' => $this->readyToLoad ? $this->getActivities() : [],
-            'count' => number_format($count),
+            'count' => number_format(Activity::count('id')),
         ]);
     }
 }
