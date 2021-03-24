@@ -33,6 +33,18 @@ class Comments extends Component
         $this->readyToLoad = true;
     }
 
+    public function getComments()
+    {
+        return Comment::where('task_id', $this->task->id)
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
+            ->oldest()
+            ->get();
+    }
+
     public function paginate($items, $options = [])
     {
         $page = $this->page ?: (Paginator::resolveCurrentPage() ?: 1);
@@ -43,17 +55,8 @@ class Comments extends Component
 
     public function render()
     {
-        $comments = Comment::where('task_id', $this->task->id)
-            ->whereHas('user', function ($q) {
-                $q->where([
-                    ['isFlagged', false],
-                ]);
-            })
-            ->oldest()
-            ->get();
-
         return view('livewire.comment.comments', [
-            'comments' => $this->readyToLoad ? $this->paginate($comments) : [],
+            'comments' => $this->readyToLoad ? $this->paginate($this->getComments()) : [],
             'page' => $this->page,
         ]);
     }
