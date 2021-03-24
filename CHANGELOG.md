@@ -2,11 +2,16 @@
 
 ## Unreleased
 
-### **v1.0.6** (WIP)
+### **v1.0.7** (WIP)
 
 - 
 
 ## Released
+
+### **v1.0.6** (Mar 3, 2021)
+
+- User and product popover is back 💬
+- Squashed various bugs 🐛
 
 ### **v1.0.5** (Jan 10, 2021)
 
