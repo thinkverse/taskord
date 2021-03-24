@@ -31,18 +31,21 @@ class Tasks extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getTasks()
     {
-        $tasks = Task::select('id', 'task', 'done', 'type', 'created_at', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
+        return Task::select('id', 'task', 'done', 'type', 'created_at', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
             ->where([
                 ['user_id', $this->user->id],
                 ['done', $this->type === 'user.done' ? true : false],
             ])
             ->orderBy('done_at', 'desc')
             ->paginate(10, null, null, $this->page);
+    }
 
+    public function render()
+    {
         return view('livewire.user.tasks', [
-            'tasks' => $this->readyToLoad ? $tasks : [],
+            'tasks' => $this->readyToLoad ? $this->getTasks() : [],
             'page' => $this->page,
         ]);
     }
