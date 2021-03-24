@@ -61,6 +61,7 @@ class AdminController extends Controller
         $ci = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/pipelines', [
             'query' => [
                 'per_page' => 1,
+                'ref' => 'main',
             ],
         ]);
 

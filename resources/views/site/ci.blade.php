@@ -1,48 +1,44 @@
 <div>
-    <div class="d-flex align-items-center">
+    <div>
+        <span class="fw-bold">Status: </span>
         @if ($ci->status === 'success')
-        <div title="Success">
-            <span class="badge bg-success">
-                <x-heroicon-o-check class="heroicon-2x me-0" />
-            </span>
-        </div>
+        <span class="badge bg-success">
+            Success
+        </span>
         @elseif ($ci->status === 'failed')
-        <div title="Failed">
-            <span class="badge bg-danger">
-                <x-heroicon-o-x class="heroicon-2x me-0" />
-            </span>
-        </div>
+        <span class="badge bg-danger">
+            Failed
+        </span>
         @elseif ($ci->status === 'pending')
-        <div title="Pending">
-            <span class="badge bg-info">
-                <x-heroicon-o-pause class="heroicon-2x me-0" />
-            </span>
-        </div>
+        <span class="badge bg-info">
+            Pending
+        </span>
         @elseif ($ci->status === 'running')
-        <div title="Running">
-            <span class="badge bg-info">
-                <x-heroicon-o-play class="heroicon-2x me-0" />
-            </span>
-        </div>
+        <span class="badge bg-info">
+            Running
+        </span>
         @elseif ($ci->status === 'preparing')
-        <div title="Preparing">
-            <span class="badge bg-info">
-                <x-heroicon-o-fire class="heroicon-2x me-0" />
-            </span>
-        </div>
+        <span class="badge bg-info">
+            Preparing
+        </span>
         @elseif ($ci->status === 'canceled')
-        <div title="Canceled">
-            <span class="badge bg-info">
-                <x-heroicon-o-exclamation-circle class="heroicon-2x me-0" />
-            </span>
-        </div>
+        <span class="badge bg-info">
+            Canceled
+        </span>
         @endif
-        <a href="{{ $ci->web_url }}" class="fw-bold ms-2" target="_blank">
+    </div>
+    <div>
+        <span class="fw-bold">Started: </span>
+        {{ carbon($ci->created_at)->diffForHumans() }}
+    </div>
+    <div>
+        <span class="fw-bold">Updated: </span>
+        {{ carbon($ci->updated_at)->diffForHumans() }}
+    </div>
+    <div class="mt-2">
+        <a href="{{ $ci->web_url }}" class="fw-bold" target="_blank">
             Got to pipeline
             <x-heroicon-o-external-link class="heroicon" />
         </a>
     </div>
-    @if ($ci->status === 'failed')
-    <h5 class="mt-2 fw-bold text-danger">Please don't Deploy</h5>
-    @endif
 </div>
