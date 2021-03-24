@@ -39,29 +39,37 @@ class AdminController extends Controller
 
     public static function commitData()
     {
-        $client = new Client();
+        $client = new Client(['http_errors' => false]);
         $commit = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/repository/commits', [
             'query' => [
                 'per_page' => 1,
             ],
         ]);
 
-        return view('site.commit', [
-            'commit' => json_decode($commit->getBody()->getContents())[0],
-        ]);
+        if ($commit->getStatusCode() === 200) {
+            return view('site.commit', [
+                'commit' => json_decode($commit->getBody()->getContents())[0],
+            ]);
+        } else {
+            return "Something went wrong!";
+        }
     }
 
     public static function ciData()
     {
-        $client = new Client();
+        $client = new Client(['http_errors' => false]);
         $ci = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/pipelines', [
             'query' => [
                 'per_page' => 1,
             ],
         ]);
 
-        return view('site.ci', [
-            'ci' => json_decode($ci->getBody()->getContents())[0],
-        ]);
+        if ($ci->getStatusCode() === 200) {
+            return view('site.ci', [
+                'ci' => json_decode($ci->getBody()->getContents())[0],
+            ]);
+        } else {
+            return "Something went wrong!";
+        }
     }
 }
