@@ -17,14 +17,16 @@ class Users extends Component
         $this->readyToLoad = true;
     }
 
+    public function getUsers()
+    {
+        return User::latest('last_active')->paginate(50);
+    }
+
     public function render()
     {
-        $users = User::latest('last_active')->paginate(50);
-        $count = User::count('id');
-
         return view('livewire.admin.users', [
-            'users' => $this->readyToLoad ? $users : [],
-            'count' => $this->readyToLoad ? $count : [],
+            'users' => $this->readyToLoad ? $this->getUsers() : [],
+            'count' => $this->readyToLoad ? User::count('id') : [],
         ]);
     }
 }
