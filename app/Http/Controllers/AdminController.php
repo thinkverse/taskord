@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Cache;
+use GuzzleHttp\Client;
 
 class AdminController extends Controller
 {
@@ -33,6 +34,20 @@ class AdminController extends Controller
 
         return view('site.cache', [
             'cache' => array_reverse($cache),
+        ]);
+    }
+
+    public static function commitData()
+    {
+        $client = new Client();
+        $commit = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/repository/commits', [
+            'query' => [
+                'per_page' => 1,
+            ],
+        ]);
+
+        return view('site.commit', [
+            'commit' => json_decode($commit->getBody()->getContents())[0],
         ]);
     }
 }

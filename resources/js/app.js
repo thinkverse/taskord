@@ -77,3 +77,14 @@ if (cacheModal) {
     cacheModalBody.innerHTML = await res.text();
   });
 }
+
+
+// Load Commit Data
+var deployModal = document.getElementById("deployModal");
+if (deployModal) {
+  deployModal.addEventListener("shown.bs.modal", async () => {
+    var deployModalCommitBody = document.getElementById("deployModalCommitBody");
+    const res = await window.fetch(`/site/commit-data`);
+    deployModalCommitBody.innerHTML = await res.text();
+  });
+}

@@ -1,6 +1,5 @@
-<div wire:init="loadCommitData" class="text-dark">
+<div class="text-dark">
     <h4 class="mt-3">Latest Commit Details</h4>
-    @if ($readyToLoad)
     @php
         $deployed = git('rev-parse HEAD') ?: 'Something went wrong!';
         $remote = $commit->id;
@@ -44,7 +43,4 @@
         <span class="fw-bold">Author: </span>
         {{ $commit->committer_name }} - {{ $commit->committer_email }}
     </div>
-    @else
-    <div>Loading...</div>
-    @endif
 </div>
