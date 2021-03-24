@@ -42,4 +42,10 @@
         <span class="fw-bold">Author: </span>
         {{ $commit->committer_name }} - {{ $commit->committer_email }}
     </div>
+    <div class="mt-2">
+        <a href="{{ $commit->web_url }}" class="fw-bold" target="_blank">
+            Got to commit
+            <x-heroicon-o-external-link class="heroicon" />
+        </a>
+    </div>
 </div>

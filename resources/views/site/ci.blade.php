@@ -39,6 +39,7 @@
         @endif
         <a href="{{ $ci->web_url }}" class="fw-bold ms-2" target="_blank">
             Got to pipeline
+            <x-heroicon-o-external-link class="heroicon" />
         </a>
     </div>
     @if ($ci->status === 'failed')
