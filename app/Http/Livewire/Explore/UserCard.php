@@ -15,10 +15,8 @@ class UserCard extends Component
 
     public function render()
     {
-        $user = auth()->user();
-
         return view('livewire.explore.user-card', [
-            'user' => $this->readyToLoad ? $user : [],
+            'user' => $this->readyToLoad ? auth()->user() : [],
         ]);
     }
 }
