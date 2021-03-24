@@ -14,9 +14,9 @@ class TopReputations extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getTopReputations()
     {
-        $reputations = User::select('id', 'username', 'firstname', 'lastname', 'avatar', 'reputation', 'status', 'status_emoji', 'isVerified')
+        return User::select('id', 'username', 'firstname', 'lastname', 'avatar', 'reputation', 'status', 'status_emoji', 'isVerified')
             ->where([
                 ['isFlagged', false],
                 ['id', '!=', 1],
@@ -24,9 +24,12 @@ class TopReputations extends Component
             ->orderBy('reputation', 'DESC')
             ->take(10)
             ->get();
+    }
 
+    public function render()
+    {
         return view('livewire.home.top-reputations', [
-            'reputations' => $this->readyToLoad ? $reputations : [],
+            'reputations' => $this->readyToLoad ? $this->getTopReputations() : [],
         ]);
     }
 }
