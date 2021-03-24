@@ -1,7 +1,7 @@
 #!/bin/bash
 
 git pull origin main
-composer install
+composer install --no-progress
 composer dump-autoload
 yarn install
 yarn prod
