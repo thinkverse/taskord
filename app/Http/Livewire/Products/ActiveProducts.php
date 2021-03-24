@@ -14,17 +14,20 @@ class ActiveProducts extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getActiveProducts()
     {
-        $products = Product::where('launched', true)
+        return Product::where('launched', true)
             ->take(10)
             ->get()
             ->sortByDesc(function ($product) {
                 return $product->tasks->count('id');
             });
+    }
 
+    public function render()
+    {
         return view('livewire.products.active-products', [
-            'products' => $this->readyToLoad ? $products : [],
+            'products' => $this->readyToLoad ? $this->getActiveProducts() : [],
         ]);
     }
 }
