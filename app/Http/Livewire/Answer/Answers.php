@@ -33,6 +33,18 @@ class Answers extends Component
         $this->readyToLoad = true;
     }
 
+    public function getAnswers()
+    {
+        return Answer::where('question_id', $this->question->id)
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
+            ->orderBy('created_at', 'DESC')
+            ->get();
+    }
+
     public function paginate($items, $options = [])
     {
         $page = $this->page ?: (Paginator::resolveCurrentPage() ?: 1);
@@ -43,17 +55,8 @@ class Answers extends Component
 
     public function render()
     {
-        $answers = Answer::where('question_id', $this->question->id)
-            ->whereHas('user', function ($q) {
-                $q->where([
-                    ['isFlagged', false],
-                ]);
-            })
-            ->orderBy('created_at', 'DESC')
-            ->get();
-
         return view('livewire.answer.answers', [
-            'answers' => $this->readyToLoad ? $this->paginate($answers) : [],
+            'answers' => $this->readyToLoad ? $this->paginate($this->getAnswers()) : [],
             'page' => $this->page,
         ]);
     }
