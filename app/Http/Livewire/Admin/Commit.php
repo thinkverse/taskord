@@ -14,7 +14,7 @@ class Commit extends Component
         $this->readyToLoad = true;
     }
     
-    public function render()
+    public function getCommitData()
     {
         $client = new Client();
         $commit = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/repository/commits', [
@@ -23,10 +23,13 @@ class Commit extends Component
             ],
         ]);
 
-        $res = json_decode($commit->getBody()->getContents())[0];
-
+        return json_decode($commit->getBody()->getContents())[0];
+    }
+    
+    public function render()
+    {
         return view('livewire.admin.commit', [
-            'commit' => $this->readyToLoad ? $res : [],
+            'commit' => $this->readyToLoad ? $this->getCommitData() : [],
         ]);
     }
 }
