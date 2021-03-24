@@ -28,7 +28,8 @@ class Tasks extends Component
         $this->readyToLoad = true;
     }
 
-    public function getTasks(){
+    public function getTasks()
+    {
         if (Auth::check() && auth()->user()->onlyFollowingsTasks) {
             $userIds = auth()->user()->followings->pluck('id');
             $userIds->push(auth()->user()->id);
