@@ -1,5 +1,4 @@
-<div class="text-dark">
-    <h4 class="mt-3">Latest Commit Details</h4>
+<div>
     @php
         $deployed = git('rev-parse HEAD') ?: 'Something went wrong!';
         $remote = $commit->id;

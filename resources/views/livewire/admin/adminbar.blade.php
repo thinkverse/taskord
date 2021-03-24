@@ -183,7 +183,10 @@
                 </div>
                 <div class="modal-body row">
                     <img src="https://media.giphy.com/media/1UYw95vafYW4QCQwOK/giphy.gif" />
-                    <div id="deployModalCommitBody"></div>
+                    <h4 class="mt-3 text-dark">Latest Commit Details</h4>
+                    <div id="deployModalCommitBody" class="text-dark">
+                        <div class="mt-2 spinner-border taskord-spinner text-secondary" role="status"></div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
