@@ -53,9 +53,12 @@ hotkeys("shift+/", async () => {
 });
 
 // Deploy Modal
-hotkeys("shift+d", async () => {
-  (new bootstrap.Modal(document.getElementById("deployModal"))).show();
-});
+var deployModal = document.getElementById("deployModal");
+if (deployModal != null) {
+  hotkeys("shift+d", async () => {
+    (new bootstrap.Modal(deployModal)).show();
+  });
+}
 
 // Create new issue in GitLab
 hotkeys("n+i", () => {
