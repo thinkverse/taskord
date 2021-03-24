@@ -37,13 +37,13 @@ class Adminbar extends Component
 
         return $this->alert('success', 'Cleaning process has been initiated successfully 🧼');
     }
-    
+
     public function deploy()
     {
         if (auth()->id() === 1) {
             Deploy::dispatch();
             loggy(request()->ip(), 'Admin', auth()->user(), 'Deployed the Application');
-    
+
             return $this->alert('success', 'Deployment process has been initiated successfully 🚀');
         } else {
             return $this->alert('error', 'Permission denied!');
