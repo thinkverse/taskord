@@ -36,6 +36,7 @@ class Deploy implements ShouldQueue
             $res = $client->request('POST', 'https://gitlab.com/api/v4/projects/25370928/ref/master/trigger/pipeline', [
                 'form_params' => [
                     'token' => config('services.gitlab.trigger_token'),
+                    'variables[TRIGGERED_BY]' => auth()->user()->username,
                 ],
             ]);
         }
