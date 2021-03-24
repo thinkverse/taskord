@@ -14,9 +14,9 @@ class TrendingMakers extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getTrendingMakers()
     {
-        $users = User::withCount('tasks')
+        return User::withCount('tasks')
             ->where([
                 ['isFlagged', false],
                 ['isStaff', false],
@@ -27,9 +27,12 @@ class TrendingMakers extends Component
             ->take(5)
             ->get()
             ->sortByDesc('reputations');
+    }
 
+    public function render()
+    {
         return view('livewire.explore.trending-makers', [
-            'users' => $this->readyToLoad ? $users : [],
+            'users' => $this->readyToLoad ? $this->getTrendingMakers() : [],
         ]);
     }
 }
