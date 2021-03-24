@@ -50,4 +50,18 @@ class AdminController extends Controller
             'commit' => json_decode($commit->getBody()->getContents())[0],
         ]);
     }
+    
+    public static function ciData()
+    {
+        $client = new Client();
+        $ci = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/pipelines', [
+            'query' => [
+                'per_page' => 1,
+            ],
+        ]);
+
+        return view('site.ci', [
+            'ci' => json_decode($ci->getBody()->getContents())[0],
+        ]);
+    }
 }

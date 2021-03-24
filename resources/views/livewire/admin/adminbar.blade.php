@@ -181,10 +181,13 @@
                     <h5 class="modal-title text-dark" id="deployModalLabel">Are you sure?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body row">
-                    <img src="https://media.giphy.com/media/1UYw95vafYW4QCQwOK/giphy.gif" />
-                    <h4 class="mt-3 text-dark">Latest Commit Details</h4>
+                <div class="modal-body">
+                    <h4 class="text-dark">Latest Commit Details</h4>
                     <div id="deployModalCommitBody" class="text-dark">
+                        <div class="mt-2 spinner-border taskord-spinner text-secondary" role="status"></div>
+                    </div>
+                    <h4 class="mt-3 text-dark">Last CI Details</h4>
+                    <div id="deployModalCIBody" class="text-dark">
                         <div class="mt-2 spinner-border taskord-spinner text-secondary" role="status"></div>
                     </div>
                 </div>

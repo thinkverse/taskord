@@ -226,6 +226,7 @@ Route::group(['prefix' => 'popover'], function () {
 Route::group(['prefix' => 'site'], function () {
     Route::view('shortcuts', 'site.shortcuts')->name('shortcuts')->middleware('auth');
     Route::get('commit-data', [AdminController::class, 'commitData'])->name('commit-data')->middleware('staffship');
+    Route::get('ci-data', [AdminController::class, 'ciData'])->name('ci-data')->middleware('staffship');
     Route::get('cache-hits', [AdminController::class, 'cacheHits'])->name('cache-hits')->middleware('staffship');
 });
 
