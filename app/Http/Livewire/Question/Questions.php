@@ -27,6 +27,38 @@ class Questions extends Component
         $this->readyToLoad = true;
     }
 
+    public function getQuestions()
+    {
+        if ($this->type === 'questions.newest') {
+            return Question::whereHas('user', function ($q) {
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
+                ->latest()
+                ->get();
+        } elseif ($this->type === 'questions.unanswered') {
+            return Question::whereHas('user', function ($q) {
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
+                ->doesntHave('answer')
+                ->latest()
+                ->get();
+        } elseif ($this->type === 'questions.popular') {
+            return Question::withCount('answer')
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['isFlagged', false],
+                    ]);
+                })
+                ->has('answer')
+                ->orderBy('answer_count', 'desc')
+                ->get();
+        }
+    }
+
     public function paginate($items, $options = [])
     {
         $page = $this->page ?: (Paginator::resolveCurrentPage() ?: 1);
@@ -37,37 +69,8 @@ class Questions extends Component
 
     public function render()
     {
-        if ($this->type === 'questions.newest') {
-            $questions = Question::whereHas('user', function ($q) {
-                $q->where([
-                    ['isFlagged', false],
-                ]);
-            })
-                ->latest()
-                ->get();
-        } elseif ($this->type === 'questions.unanswered') {
-            $questions = Question::whereHas('user', function ($q) {
-                $q->where([
-                    ['isFlagged', false],
-                ]);
-            })
-                ->doesntHave('answer')
-                ->latest()
-                ->get();
-        } elseif ($this->type === 'questions.popular') {
-            $questions = Question::withCount('answer')
-                ->whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                    ]);
-                })
-                ->has('answer')
-                ->orderBy('answer_count', 'desc')
-                ->get();
-        }
-
         return view('livewire.question.questions', [
-            'questions' => $this->readyToLoad ? $this->paginate($questions) : [],
+            'questions' => $this->readyToLoad ? $this->paginate($this->getQuestions()) : [],
             'page' => $this->page,
         ]);
     }
