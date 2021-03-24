@@ -27,6 +27,24 @@ class Products extends Component
         $this->readyToLoad = true;
     }
 
+    public function getProducts()
+    {
+        if ($this->type === 'products.newest') {
+            return Product::orderBy('created_at', 'desc')
+                ->get()
+                ->groupBy(function ($date) {
+                    return $date->created_at->format('Y,W');
+                });
+        } elseif ($this->type === 'products.launched') {
+            return Product::where('launched', true)
+                ->orderBy('created_at', 'desc')
+                ->get()
+                ->groupBy(function ($date) {
+                    return $date->created_at->format('Y,W');
+                });
+        }
+    }
+
     public function paginate($items, $options = [])
     {
         $page = $this->page ?: (Paginator::resolveCurrentPage() ?: 1);
@@ -37,23 +55,8 @@ class Products extends Component
 
     public function render()
     {
-        if ($this->type === 'products.newest') {
-            $products = Product::orderBy('created_at', 'desc')
-                ->get()
-                ->groupBy(function ($date) {
-                    return $date->created_at->format('Y,W');
-                });
-        } elseif ($this->type === 'products.launched') {
-            $products = Product::where('launched', true)
-                ->orderBy('created_at', 'desc')
-                ->get()
-                ->groupBy(function ($date) {
-                    return $date->created_at->format('Y,W');
-                });
-        }
-
         return view('livewire.products.products', [
-            'products' => $this->readyToLoad ? $this->paginate($products) : [],
+            'products' => $this->readyToLoad ? $this->paginate($this->getProducts()) : [],
             'page' => $this->page,
         ]);
     }
