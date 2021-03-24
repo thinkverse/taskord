@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Cache;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Cache;
 
 class AdminController extends Controller
 {
@@ -50,7 +50,7 @@ class AdminController extends Controller
             'commit' => json_decode($commit->getBody()->getContents())[0],
         ]);
     }
-    
+
     public static function ciData()
     {
         $client = new Client();
