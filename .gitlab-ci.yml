@@ -15,7 +15,7 @@ variables:
 
 stages:
   - test
-  - deploy
+  - clean
 
 cache:
   paths:
@@ -67,28 +67,15 @@ Lighthouse:
     - lhci autorun
 
 Housekeeping:
-  stage: deploy
+  stage: clean
   script:
     - curl --request POST --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/housekeeping
   only:
     - main
 
 Merged Branches:
-  stage: deploy
+  stage: clean
   script:
     - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches
-  only:
-    - main
-
-Deploy Production:
-  stage: deploy
-  when: manual
-  environment:
-    name: Production
-    url: https://taskord.com
-  script:
-    - cat $PRIVATE_KEY > taskord.pem
-    - chmod 400 taskord.pem
-    - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@deploy.taskord.com 'cd /var/www/taskord; ./scripts/deploy.sh'
   only:
     - main
