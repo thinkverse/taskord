@@ -14,18 +14,21 @@ class RecentlyJoined extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getRecentlyJoined()
     {
-        $recently_joined = User::select('id', 'username', 'firstname', 'lastname', 'avatar', 'bio', 'isVerified', 'status', 'status_emoji', 'created_at')
+        return User::select('id', 'username', 'firstname', 'lastname', 'avatar', 'bio', 'isVerified', 'status', 'status_emoji', 'created_at')
             ->where([
                 ['isFlagged', false],
             ])
             ->orderBy('created_at', 'DESC')
             ->take(5)
             ->get();
+    }
 
+    public function render()
+    {
         return view('livewire.home.recently-joined', [
-            'recently_joined' => $this->readyToLoad ? $recently_joined : [],
+            'recently_joined' => $this->readyToLoad ? $this->getRecentlyJoined() : [],
         ]);
     }
 }
