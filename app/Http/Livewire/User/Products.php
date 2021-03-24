@@ -24,13 +24,16 @@ class Products extends Component
         $this->readyToLoad = true;
     }
 
+    public function getProducts()
+    {
+        return Product::where('user_id', $this->user->id)
+            ->paginate(10);
+    }
+
     public function render()
     {
-        $products = Product::where('user_id', $this->user->id)
-            ->paginate(10);
-
         return view('livewire.user.products', [
-            'products' => $this->readyToLoad ? $products : [],
+            'products' => $this->readyToLoad ? $this->getProducts() : [],
         ]);
     }
 }
