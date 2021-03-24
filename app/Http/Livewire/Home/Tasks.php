@@ -28,12 +28,11 @@ class Tasks extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
-    {
+    public function getTasks(){
         if (Auth::check() && auth()->user()->onlyFollowingsTasks) {
             $userIds = auth()->user()->followings->pluck('id');
             $userIds->push(auth()->user()->id);
-            $tasks = Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
+            return Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
                 ->whereIn('user_id', $userIds)
                 ->whereHas('user', function ($q) {
                     $q->where([
@@ -45,7 +44,7 @@ class Tasks extends Component
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, null, null, $this->page);
         } else {
-            $tasks = Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
+            return Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
@@ -56,9 +55,12 @@ class Tasks extends Component
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, null, null, $this->page);
         }
+    }
 
+    public function render()
+    {
         return view('livewire.home.tasks', [
-            'tasks' => $this->readyToLoad ? $tasks : [],
+            'tasks' => $this->readyToLoad ? $this->getTasks() : [],
             'page' => $this->page,
         ]);
     }
