@@ -17,13 +17,17 @@ class Activities extends Component
         $this->readyToLoad = true;
     }
 
+    public function getActivities()
+    {
+        return Activity::latest()->paginate('50');
+    }
+
     public function render()
     {
-        $activities = Activity::latest()->paginate('50');
         $count = Activity::count('id');
 
         return view('livewire.admin.activities', [
-            'activities' => $this->readyToLoad ? $activities : [],
+            'activities' => $this->readyToLoad ? $this->getActivities() : [],
             'count' => number_format($count),
         ]);
     }
