@@ -23,9 +23,9 @@ class Suggestions extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getSuggestions()
     {
-        $users = User::select('id', 'username', 'firstname', 'lastname', 'reputation', 'avatar', 'isVerified', 'status', 'status_emoji', 'last_active')
+        return User::select('id', 'username', 'firstname', 'lastname', 'reputation', 'avatar', 'isVerified', 'status', 'status_emoji', 'last_active')
             ->whereNotIn('id', $this->user->followings->pluck('id'))
             ->where([
                 ['isFlagged', false],
@@ -36,9 +36,12 @@ class Suggestions extends Component
             ->take(5)
             ->get()
             ->shuffle();
+    }
 
+    public function render()
+    {
         return view('livewire.home.suggestions', [
-            'users' => $this->readyToLoad ? $users : [],
+            'users' => $this->readyToLoad ? $this->getSuggestions() : [],
         ]);
     }
 }
