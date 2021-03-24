@@ -5,7 +5,7 @@
     @auth
     @if (auth()->user()->staffShip)
     <li class="nav-item">
-        <a class="nav-link" href="#">Makers <x-staffship background="light" /></a>
+        <a class="nav-link @if (Route::currentRouteName() === 'explore.makers') active @endif" href="{{ route('explore.makers') }}">Makers <x-staffship background="light" /></a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">Products <x-staffship background="light" /></a>
