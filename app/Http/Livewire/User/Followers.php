@@ -18,6 +18,11 @@ class Followers extends Component
         $this->readyToLoad = true;
     }
 
+    public function getFollowers()
+    {
+        return $this->user->followers()->paginate(10);
+    }
+
     public function mount($user)
     {
         $this->user = $user;
@@ -25,10 +30,8 @@ class Followers extends Component
 
     public function render()
     {
-        $followers = $this->user->followers()->paginate(10);
-
         return view('livewire.user.followers', [
-            'followers' => $this->readyToLoad ? $followers : [],
+            'followers' => $this->readyToLoad ? $this->getFollowers() : [],
         ]);
     }
 }
