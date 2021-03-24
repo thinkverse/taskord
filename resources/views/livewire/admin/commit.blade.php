@@ -1,16 +1,35 @@
 <div wire:init="loadCommitData" class="text-dark">
     <h4 class="mt-3">Latest Commit Details</h4>
     @if ($readyToLoad)
+    @php
+        $deployed = git('rev-parse HEAD') ?: 'Something went wrong!';
+        $remote = $commit->id;
+    @endphp
+    @if ($deployed === $remote)
+    <div>
+        <span class="fw-bold">Status: </span>
+        <span class="badge bg-success">
+            Latest
+        </span>
+    </div>
+    @else
+    <div>
+        <span class="fw-bold">Status: </span>
+        <span class="badge bg-danger">
+            Update available
+        </span>
+    </div>
+    @endif
     <div>
         <span class="fw-bold">Remote: </span>
         <code class="fw-bold">
-            {{ $commit->id }}
+            {{ $remote }}
         </code>
     </div>
     <div>
         <span class="fw-bold">Deployed: </span>
         <code class="fw-bold">
-            {{ git('rev-parse HEAD') ?: 'Something went wrong!' }}
+            {{ $deployed }}
         </code>
     </div>
     <div>

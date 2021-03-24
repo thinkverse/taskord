@@ -13,7 +13,7 @@ class Commit extends Component
     {
         $this->readyToLoad = true;
     }
-    
+
     public function getCommitData()
     {
         $client = new Client();
