@@ -10,41 +10,12 @@
 @include('explore.nav')
 <div class="container-md">
     <div class="row justify-content-center">
-        <div class="col-sm explore-user-card d-none d-lg-block">
-            @auth
-                @livewire('explore.user-card')
-            @else
+        <div class="col-lg-8 pt-4">
             <div class="card">
-                <div class="card-body d-grid text-center">
-                    <div class="h5 text-secondary">
-                        Join Takord today!
-                    </div>
-                    <a class="btn btn-success text-white mt-2" href="{{ route('login') }}">
-                        <x-heroicon-o-logout class="heroicon" />
-                        Login
-                    </a>
-                    <a class="btn btn-primary text-white mt-2" href="{{ route('register') }}">
-                        <x-heroicon-o-user-add class="heroicon" />
-                        Signup
-                    </a>
+                <div class="card-body">
+                    WIP
                 </div>
             </div>
-            @endauth
-        </div>
-        <div class="col-lg-6 mt-4">
-            <div class="pb-2 h5 text-secondary">
-                Recent popular tasks
-            </div>
-            @livewire('explore.popular-tasks')
-        </div>
-        <div class="col-sm mt-4">
-            @auth
-            @livewire('home.suggestions', [
-                'user' => auth()->user(),
-                'showText' => false
-            ])
-            @endauth
-            @livewire('explore.trending-makers')
         </div>
         <x-bottom-footer />
     </div>
