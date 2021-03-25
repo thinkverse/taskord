@@ -12,8 +12,8 @@ use Multicaret\Acquaintances\Traits\CanBeFollowed;
 use Multicaret\Acquaintances\Traits\CanFollow;
 use Multicaret\Acquaintances\Traits\CanLike;
 use Multicaret\Acquaintances\Traits\CanSubscribe;
-use QCod\Gamify\Gamify;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use QCod\Gamify\Gamify;
 use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class User extends Authenticatable implements MustVerifyEmail
