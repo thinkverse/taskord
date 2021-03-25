@@ -2,11 +2,18 @@
 
 ## Unreleased
 
-### **v1.0.7** (WIP)
+### **v1.0.8** (WIP)
 
-- 
+- Fix modal transition animation issue 🍃
 
 ## Released
+
+### **v1.0.7** (Mar 25, 2021)
+
+- Improve Taskord **Deployment** flow 🚀
+- **Search results** are now faster 🚅
+- Fixed some colors in **dark mode** 🌑
+- Improve performance by adding **defer loading** 😎
 
 ### **v1.0.6** (Mar 3, 2021)
 
