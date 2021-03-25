@@ -26,8 +26,8 @@ Test:
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
+    - sudo composer self-update --2
     - sudo composer install --no-progress --ignore-platform-reqs
-    - sudo composer self-update
     - cp .env.ci .env
     - php artisan key:generate
     - sudo npm i -g yarn
@@ -42,8 +42,8 @@ Enlightn:
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
+    - sudo composer self-update --2
     - sudo composer install --no-progress --ignore-platform-reqs
-    - sudo composer self-update
     - cp .env.ci .env
     - php artisan key:generate
     - php artisan enlightn
@@ -53,8 +53,8 @@ Commands:
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
+    - sudo composer self-update --2
     - sudo composer install --no-progress --ignore-platform-reqs
-    - sudo composer self-update
     - cp .env.ci .env
     - php artisan key:generate
     - php artisan migrate:fresh --seed
