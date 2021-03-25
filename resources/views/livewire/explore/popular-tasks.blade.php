@@ -16,4 +16,15 @@
         </span>
     </div>
     @endforeach
+    @if ($readyToLoad)
+    <div class="text-center">
+        <img class="avatar-100 my-3" src="/images/tada.png" />
+        <h4>
+            That's everything we found for you, for now.
+        </h4>
+        <p>
+            Come back soon to see what we find next.
+        </p>
+    </div>
+    @endif
 </div>
