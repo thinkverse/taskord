@@ -38,7 +38,7 @@ class SearchController extends Controller
                 ]);
             })
                 ->where('hidden', false)
-                ->where('task', 'LIKE', '%'.$searchTerm.'%')
+                ->search($searchTerm)
                 ->paginate(10)
                 ->onEachSide(1);
 
@@ -67,7 +67,7 @@ class SearchController extends Controller
                 ]);
             })
                 ->where('hidden', false)
-                ->where('comment', 'LIKE', '%'.$searchTerm.'%')
+                ->search($searchTerm)
                 ->paginate(10)
                 ->onEachSide(1);
 
@@ -95,7 +95,7 @@ class SearchController extends Controller
                 ]);
             })
                 ->where('hidden', false)
-                ->where('title', 'LIKE', '%'.$searchTerm.'%')
+                ->search($searchTerm)
                 ->paginate(10)
                 ->onEachSide(1);
 
@@ -123,7 +123,7 @@ class SearchController extends Controller
                 ]);
             })
                 ->where('hidden', false)
-                ->where('answer', 'LIKE', '%'.$searchTerm.'%')
+                ->search($searchTerm)
                 ->paginate(10)
                 ->onEachSide(1);
 
@@ -150,8 +150,7 @@ class SearchController extends Controller
                     ['isFlagged', false],
                 ]);
             })
-                ->where('slug', 'LIKE', '%'.$searchTerm.'%')
-                ->orWhere('name', 'LIKE', '%'.$searchTerm.'%')
+                ->search($searchTerm)
                 ->paginate(10)
                 ->onEachSide(1);
 
@@ -173,9 +172,7 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $users = User::where('username', 'LIKE', '%'.$searchTerm.'%')
-                ->orWhere('firstname', 'LIKE', '%'.$searchTerm.'%')
-                ->orWhere('lastname', 'LIKE', '%'.$searchTerm.'%')
+            $users = User::search($searchTerm)
                 ->paginate(10)
                 ->onEachSide(1);
 
