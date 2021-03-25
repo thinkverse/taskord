@@ -13,7 +13,7 @@
             Deployment Failed
         </span>
         @elseif ($deployment->status === 'pending')
-        <span class="badge bg-info">
+        <span class="badge bg-secondary">
             Deployment Pending
         </span>
         @elseif ($deployment->status === 'running')

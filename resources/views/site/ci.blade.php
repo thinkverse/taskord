@@ -10,7 +10,7 @@
             Failed
         </span>
         @elseif ($ci->status === 'pending')
-        <span class="badge bg-info">
+        <span class="badge bg-secondary">
             Pending
         </span>
         @elseif ($ci->status === 'running')
