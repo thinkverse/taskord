@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
-use Rennokki\QueryCache\Traits\QueryCacheable;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Question extends Model implements Viewable
 {
