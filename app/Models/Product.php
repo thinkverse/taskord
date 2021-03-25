@@ -38,6 +38,13 @@ class Product extends Model
         'launched_at',
     ];
 
+    protected $searchable = [
+        'columns' => [
+            'products.slug' => 10,
+            'products.name' => 9,
+        ],
+    ];
+
     public function owner()
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id');

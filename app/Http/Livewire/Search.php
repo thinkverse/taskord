@@ -43,8 +43,7 @@ class Search extends Component
             ->take(3)
             ->get();
         $this->products = Product::select('slug', 'name', 'avatar', 'user_id')
-            ->where('slug', 'LIKE', '%'.$this->query.'%')
-            ->orWhere('name', 'LIKE', '%'.$this->query.'%')
+            ->search($this->query)
             ->take(3)
             ->get();
         $this->questions = Question::select('id', 'title', 'user_id')

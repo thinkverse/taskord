@@ -42,9 +42,6 @@ class Task extends Model
         'columns' => [
             'tasks.task' => 10,
         ],
-        'joins' => [
-            'users' => ['tasks.user_id','users.id'],
-        ],
     ];
 
     public function user()
