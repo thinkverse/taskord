@@ -21,7 +21,7 @@ class Graph extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function getGraph($type)
     {
         $start_date = carbon('60 days ago')->format('Y-m-d');
         $current_date = carbon()->format('Y-m-d');
@@ -39,11 +39,20 @@ class Graph extends Component
 
             array_push($tasks, $count);
         }
+        
+        if ($type === 'tasks') {
+            return $tasks;
+        } else {
+            return $week_dates;
+        }
+    }
 
+    public function render()
+    {
         return view('livewire.user.graph', [
-            'week_dates' => $this->readyToLoad ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
-            'tasks' => $this->readyToLoad ? json_encode($tasks, JSON_NUMERIC_CHECK) : [],
-            'count' => $this->readyToLoad ? array_sum($tasks) : 0,
+            'week_dates' => $this->readyToLoad ? json_encode($this->getGraph('week_dates'), JSON_NUMERIC_CHECK) : [],
+            'tasks' => $this->readyToLoad ? json_encode($this->getGraph('tasks'), JSON_NUMERIC_CHECK) : [],
+            'count' => $this->readyToLoad ? array_sum($this->getGraph('tasks')) : 0,
         ]);
     }
 }
