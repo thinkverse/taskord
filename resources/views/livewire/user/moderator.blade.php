@@ -1,10 +1,15 @@
-<span>
+<span wire:init="loadModerator">
     <div class="text-uppercase fw-bold text-secondary pb-2">
         <x-heroicon-o-shield-check class="heroicon text-danger" />
         <span class="text-danger">Moderator</span>
     </div>
     <div class="card border-danger mb-4">
         <div class="card-body">
+            @if (!$readyToLoad)
+            <div class="card-body text-center">
+                <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
+            </div>
+            @else
             <div class="mb-1">
                 <x-heroicon-o-clock class="heroicon text-secondary" />
                 <span class="h6">Last Active:</span>
@@ -217,6 +222,7 @@
                     Delete this user
                 </button>
             </div>
+            @endif
             @endif
         </div>
     </div>

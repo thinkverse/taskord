@@ -16,11 +16,17 @@ class Moderator extends Component
 {
     public User $user;
     public $staff_notes;
+    public $readyToLoad = false;
 
     public function mount($user)
     {
         $this->user = $user;
         $this->staff_notes = $user->staff_notes;
+    }
+    
+    public function loadModerator()
+    {
+        $this->readyToLoad = true;
     }
 
     public function enrollBeta()
@@ -573,5 +579,12 @@ class Moderator extends Component
         loggy(request()->ip(), 'Admin', auth()->user(), 'Updated the staff notes for user: @'.$this->user->username);
 
         $this->alert('success', 'Note updated!');
+    }
+    
+    public function render()
+    {
+        return view('livewire.user.moderator', [
+            'user' => $this->readyToLoad ? $this->user : [],
+        ]);
     }
 }
