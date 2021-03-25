@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
+use Nicolaslopezj\Searchable\SearchableTrait;
 use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Comment extends Model
@@ -12,6 +13,7 @@ class Comment extends Model
     use CanBeLiked;
     use QueryCacheable;
     use HasFactory;
+    use SearchableTrait;
 
     public $cacheFor = 3600;
     public $cacheTags = ['comments'];
@@ -22,6 +24,12 @@ class Comment extends Model
         'task_id',
         'comment',
         'hidden',
+    ];
+
+    protected $searchable = [
+        'columns' => [
+            'comments.comment' => 10,
+        ],
     ];
 
     public function user()
