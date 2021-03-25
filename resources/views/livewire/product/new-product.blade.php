@@ -1,4 +1,4 @@
-<div wire:ignore.self class="modal" id="newProductModal" tabindex="-1" role="dialog" aria-labelledby="newProductModalTitle" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="newProductModal" tabindex="-1" role="dialog" aria-labelledby="newProductModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">

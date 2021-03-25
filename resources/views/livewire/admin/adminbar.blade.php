@@ -130,7 +130,7 @@
             </span>
         </span>
     </div>
-    <div wire:ignore.self class="modal" data-bs-backdrop="static" id="cleanModal" tabindex="-1" aria-labelledby="cleanModalLabel" aria-hidden="true">
+    <div wire:ignore.self class="modal fade" data-bs-backdrop="static" id="cleanModal" tabindex="-1" aria-labelledby="cleanModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -156,7 +156,7 @@
             </div>
         </div>
     </div>
-    <div class="modal" id="cacheModal" tabindex="-1" aria-labelledby="cacheModalLabel" aria-hidden="true">
+    <div class="modal fade" id="cacheModal" tabindex="-1" aria-labelledby="cacheModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -174,7 +174,7 @@
             </div>
         </div>
     </div>
-    <div wire:ignore.self class="modal" data-bs-backdrop="static" id="deployModal" tabindex="-1" aria-labelledby="deployModalLabel" aria-hidden="true">
+    <div wire:ignore.self class="modal fade" data-bs-backdrop="static" id="deployModal" tabindex="-1" aria-labelledby="deployModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -204,7 +204,7 @@
             </div>
         </div>
     </div>
-    <div class="modal" id="cacheModal" tabindex="-1" aria-labelledby="cacheModalLabel" aria-hidden="true">
+    <div wire:ignore.self class="modal fade" id="cacheModal" tabindex="-1" aria-labelledby="cacheModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
