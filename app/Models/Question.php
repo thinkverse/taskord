@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Question extends Model implements Viewable
 {
@@ -16,6 +17,7 @@ class Question extends Model implements Viewable
     use CanBeLiked, CanBeSubscribed;
     use QueryCacheable;
     use HasFactory;
+    use SearchableTrait;
 
     public $cacheFor = 3600;
     public $cacheTags = ['questions'];
@@ -27,6 +29,12 @@ class Question extends Model implements Viewable
         'body',
         'patronOnly',
         'hidden',
+    ];
+
+    protected $searchable = [
+        'columns' => [
+            'questions.title' => 10,
+        ],
     ];
 
     public function user()

@@ -53,7 +53,7 @@ class Search extends Component
                 ]);
             })
             ->where('hidden', false)
-            ->where('title', 'LIKE', '%'.$this->query.'%')
+            ->search($this->query)
             ->take(3)
             ->get();
     }
