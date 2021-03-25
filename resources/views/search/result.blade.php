@@ -173,8 +173,8 @@
                                 <div class="text-secondary mb-2">
                                     {{ "#" . $product->slug }}
                                 </div>
-                                <div class="pe-5">{{ $product->description }}</div>
-                                <div class="small mt-2">
+                                <div class="pe-5 text-dark">{{ $product->description }}</div>
+                                <div class="small mt-2 text-dark">
                                     <x-heroicon-o-calendar class="heroicon text-secondary" />
                                     @if ($product->launched)
                                     <span>Launched at {{ carbon($product->launched_at)->format("F Y") }}</span>
