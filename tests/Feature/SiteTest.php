@@ -10,7 +10,7 @@ it('has keyboard shortcuts skeleton', function ($url, $expected, $auth) {
     }
 })->with([
     ['/site/shortcuts', 302, false],
-    ['/site/shortcuts', 302, true],
+    ['/site/shortcuts', 200, true],
 ]);
 
 it('has ci data details skeleton', function ($url, $expected, $auth) {
