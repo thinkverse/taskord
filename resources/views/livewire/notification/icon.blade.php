@@ -3,7 +3,7 @@
         <x-heroicon-o-bell class="heroicon-notification me-0" />
         @auth
         @if (auth()->user()->unreadNotifications->count('id') !== 0)
-        <span class="notification-count bg-danger fw-bold rounded">
+        <span class="badge badge-pill bg-danger fw-bold small ms-1 p-1">
             {{ auth()->user()->unreadNotifications->count('id') }}
         </span>
         @endif
