@@ -202,3 +202,7 @@ hr {
         border: 1px solid $border-bg;
     }
 }
+
+.bg-light {
+    background-color: $border-bg !important;
+}
