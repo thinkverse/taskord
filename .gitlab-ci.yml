@@ -27,6 +27,7 @@ Test:
   stage: test
   script:
     - sudo composer install --no-progress --ignore-platform-reqs
+    - sudo composer self-update
     - cp .env.ci .env
     - php artisan key:generate
     - sudo npm i -g yarn
@@ -42,6 +43,7 @@ Enlightn:
   stage: test
   script:
     - sudo composer install --no-progress --ignore-platform-reqs
+    - sudo composer self-update
     - cp .env.ci .env
     - php artisan key:generate
     - php artisan enlightn
@@ -52,6 +54,7 @@ Commands:
   stage: test
   script:
     - sudo composer install --no-progress --ignore-platform-reqs
+    - sudo composer self-update
     - cp .env.ci .env
     - php artisan key:generate
     - php artisan migrate:fresh --seed
