@@ -206,3 +206,12 @@ hr {
 .bg-light {
     background-color: $border-bg !important;
 }
+
+::-webkit-scrollbar {
+    background-color: $border-bg;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $border-bg;
+    border: 2px solid $border-bg;
+}
