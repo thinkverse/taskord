@@ -16,7 +16,7 @@
                     alt="{{ $user->username }}'s avatar"
                 />
             </a>
-            <div class="h4 mt-3">
+            <div class="h4 mt-3 text-dark">
                 @if ($user->firstname or $user->lastname)
                     {{ $user->firstname }}{{ ' '.$user->lastname }}
                 @endif
@@ -26,7 +26,7 @@
             </div>
             <div>
                 @if ($user->status)
-                <div class="d-inline-block border border-1 mt-2 px-2 py-1 rounded-pill">
+                <div class="d-inline-block border border-dark border-1 mt-2 px-2 py-1 rounded text-dark">
                     <span>{{ $user->status_emoji }}</span>
                     <span title="{{ $user->status }}">{{ Str::limit($user->status, '50') }}</span>
                 </div>
