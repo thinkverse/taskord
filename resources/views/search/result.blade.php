@@ -254,8 +254,8 @@
                                 <div class="text-secondary mb-2">
                                     {{ "@" . $user->username }}
                                 </div>
-                                <div>{{ $user->bio }}</div>
-                                <div class="small mt-2">
+                                <div class="text-dark">{{ $user->bio }}</div>
+                                <div class="small mt-2 text-dark">
                                     <span>
                                         <x-heroicon-o-calendar class="heroicon text-secondary" />
                                         Joined {{ $user->created_at->format("F Y") }}
