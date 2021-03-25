@@ -42,10 +42,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at',
         'api_token',
     ];
-    
+
     protected $searchable = [
         'columns' => [
             'users.username' => 10,
+            'users.firstname' => 9,
         ],
     ];
 

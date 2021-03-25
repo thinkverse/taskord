@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Product extends Model
 {
     use CanBeSubscribed;
     use QueryCacheable;
     use HasFactory;
+    use SearchableTrait;
 
     public $cacheFor = 3600;
     public $cacheTags = ['products'];

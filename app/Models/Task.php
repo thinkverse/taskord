@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class Task extends Model
 {
     use CanBeLiked, CanBeSubscribed;
     use QueryCacheable;
     use HasFactory;
+    use SearchableTrait;
 
     public $cacheFor = 3600;
     public $cacheTags = ['tasks'];
@@ -34,6 +36,15 @@ class Task extends Model
     protected $casts = [
         'images' => 'array',
         'due_at' => 'datetime',
+    ];
+
+    protected $searchable = [
+        'columns' => [
+            'tasks.task' => 10,
+        ],
+        'joins' => [
+            'users' => ['tasks.user_id','users.id'],
+        ],
     ];
 
     public function user()

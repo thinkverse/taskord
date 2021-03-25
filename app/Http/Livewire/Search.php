@@ -35,7 +35,7 @@ class Search extends Component
                 ]);
             })
             ->where('hidden', false)
-            ->where('task', 'LIKE', '%'.$this->query.'%')
+            ->search($this->query)
             ->take(3)
             ->get();
         $this->users = User::where('isFlagged', 'false')
