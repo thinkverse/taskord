@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Milestone;
 
 use Livewire\Component;
 
-class CreateMilestones extends Component
+class EditMilestone extends Component
 {
     public function render()
     {
-        return view('livewire.milestone.create-milestones');
+        return view('livewire.milestone.edit-milestone');
     }
 }
