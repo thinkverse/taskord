@@ -12,6 +12,7 @@ class MilestoneController extends Controller
         $milestone = Milestone::where('id', $id)
             ->firstOrFail();
         $response = [
+            'type' => 'milestone.milestone',
             'milestone' => $milestone,
         ];
         if (
