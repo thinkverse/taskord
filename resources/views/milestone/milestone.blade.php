@@ -14,10 +14,11 @@
 <div class="container-md">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="card">
-                <span class="p-3">
-                    Hi
-                </span>
+            <div class="mb-4">
+                @livewire('milestone.single-milestone', [
+                    'type' => $type,
+                    'milestone' => $milestone,
+                ])
             </div>
         </div>
         <div class="col-sm">

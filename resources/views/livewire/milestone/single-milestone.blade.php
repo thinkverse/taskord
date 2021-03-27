@@ -80,14 +80,6 @@
                     @endif
                 </button>
             @endif
-            <a href="{{ route('milestone.milestone', ['id' => $milestone->id]) }}" class="btn btn-task btn-outline-primary me-1" aria-label="Milestones">
-                <x-heroicon-o-chat-alt class="heroicon-small me-0 text-secondary" />
-                @if ($milestone->answer->count('id') !== 0)
-                <span class="small text-dark fw-bold">
-                    {{ number_format($milestone->answer->count('id')) }}
-                </span>
-                @endif
-            </a>
             @if (auth()->user()->staffShip or auth()->user()->id === $milestone->user->id)
             @if ($type === "milestone.milestone")
             <button role="button" class="btn btn-task btn-outline-info me-1" data-bs-toggle="modal" data-bs-target="#editMilestoneModal">
