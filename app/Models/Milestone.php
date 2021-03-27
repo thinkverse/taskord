@@ -16,6 +16,11 @@ class Milestone extends Model
     public $cachePrefix = 'products_';
     protected static $flushCacheOnUpdate = true;
 
+    protected $dates = [
+        'start_date',
+        'end_date',
+    ];
+
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id');
