@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\MeetupController;
+use App\Http\Controllers\MilestoneController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PatronController;
 use App\Http\Controllers\ProductController;
@@ -15,7 +16,6 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TelegramController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebhookController;
-use App\Http\Controllers\MilestoneController;
 use Illuminate\Support\Facades\Route;
 
 /*
