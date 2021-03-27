@@ -15,4 +15,14 @@ class Milestone extends Model
     public $cacheTags = ['products'];
     public $cachePrefix = 'products_';
     protected static $flushCacheOnUpdate = true;
+
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'user_id');
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(\App\Models\Task::class);
+    }
 }
