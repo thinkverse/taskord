@@ -15,6 +15,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TelegramController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebhookController;
+use App\Http\Controllers\MilestoneController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -123,6 +124,11 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::get('', [QuestionController::class, 'newest'])->name('newest');
         Route::get('unanswered', [QuestionController::class, 'unanswered'])->name('unanswered');
         Route::get('popular', [QuestionController::class, 'popular'])->name('popular');
+    });
+
+    // Milestone
+    Route::group(['prefix' => 'milestone/{id}', 'as' => 'milestone.'], function () {
+        Route::get('', [MilestoneController::class, 'milestone'])->name('milestone');
     });
 
     // Search
