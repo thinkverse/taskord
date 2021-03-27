@@ -14,8 +14,8 @@ class Milestone extends Model
     use QueryCacheable;
 
     public $cacheFor = 3600;
-    public $cacheTags = ['products'];
-    public $cachePrefix = 'products_';
+    public $cacheTags = ['milestones'];
+    public $cachePrefix = 'milestones_';
     protected static $flushCacheOnUpdate = true;
 
     protected $fillable = [
