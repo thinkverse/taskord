@@ -17,7 +17,6 @@ class CreateMilestonesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->string('slug');
             $table->text('description');
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
