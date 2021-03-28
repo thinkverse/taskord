@@ -30,7 +30,7 @@
                 <div class="small">{{ "@" . $milestone->user->username }}</div>
             </span>
             <span class="align-text-top small float-end ms-auto">
-                <a class="text-secondary" href="{{ route('milestone.milestone', ['id' => $milestone->id]) }}">
+                <a class="text-secondary" href="{{ route('milestones.milestone', ['id' => $milestone->id]) }}">
                     {{ $milestone->created_at->diffForHumans() }}
                 </a>
             </span>
@@ -56,8 +56,8 @@
             @endif
         </div>
         @endif
-        <a href="{{ route('milestone.milestone', ['id' => $milestone->id]) }}" class="h5 align-text-top fw-bold text-dark">
-            @if ($type !== "milestone.milestone")
+        <a href="{{ route('milestones.milestone', ['id' => $milestone->id]) }}" class="h5 align-text-top fw-bold text-dark">
+            @if ($type !== "milestones.milestone")
                 {{ Str::words($milestone->name, '10') }}
             @else
                 {{ $milestone->name }}
@@ -97,7 +97,7 @@
                 </button>
             @endif
             @if (auth()->user()->staffShip or auth()->user()->id === $milestone->user->id)
-            @if ($type === "milestone.milestone")
+            @if ($type === "milestones.milestone")
             <button role="button" class="btn btn-task btn-outline-info me-1" data-bs-toggle="modal" data-bs-target="#editMilestoneModal">
                 <x-heroicon-o-pencil-alt class="heroicon-small me-0 text-secondary" />
                 <span class="small text-dark fw-bold">

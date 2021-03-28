@@ -127,7 +127,8 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     });
 
     // Milestone
-    Route::group(['prefix' => 'milestone', 'as' => 'milestone.'], function () {
+    Route::group(['prefix' => 'milestones', 'as' => 'milestones.'], function () {
+        Route::get('', [MilestoneController::class, 'home'])->name('home');
         Route::get('{id}', [MilestoneController::class, 'milestone'])->name('milestone');
     });
 

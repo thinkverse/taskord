@@ -49,7 +49,7 @@
                         @auth
                         @if (auth()->user()->staffShip)
                         <li>
-                            <a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">
+                            <a class="dropdown-item text-dark" href="{{ route('milestones.home') }}">
                                 <x-heroicon-o-truck class="heroicon-1x text-secondary" />
                                 Milestones
                             </a>
