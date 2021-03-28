@@ -28,7 +28,7 @@
                             Share your achievements
                         </div>
                         @auth
-                        <button type="button" class="btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newProductModal">
+                        <button type="button" class="btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newMilestoneModal">
                             <x-heroicon-o-truck class="heroicon" />
                             Create a milestone
                         </button>
