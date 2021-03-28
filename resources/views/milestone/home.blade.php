@@ -22,6 +22,20 @@
                 ])
             </div>
             <div class="col-sm">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="h5 mb-3">
+                            Share your achievements
+                        </div>
+                        @auth
+                        <button type="button" class="btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newProductModal">
+                            <x-heroicon-o-truck class="heroicon" />
+                            Create a milestone
+                        </button>
+                        @livewire('milestone.create-milestone')
+                        @endauth
+                    </div>
+                </div>
                 <x-footer />
             </div>
         </div>
