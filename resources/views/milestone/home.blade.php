@@ -10,6 +10,10 @@
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col-lg-8">
+                <div class="pb-2 h5">
+                    <x-heroicon-o-truck class="heroicon-2x ms-1 text-secondary" />
+                    Milestones
+                </div>
                 @livewire('milestone.milestones', [
                     'type' => $type,
                     'page' => 1,
