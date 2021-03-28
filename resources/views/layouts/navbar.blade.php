@@ -46,12 +46,28 @@
                         More
                     </a>
                     <ul class="dropdown-menu shadow-sm border">
-                        <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">🎁 Deals</a></li>
                         @auth
                         @if (auth()->user()->staffShip)
-                        <li><a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">👥 Meetups</a></li>
-                        <li><a class="dropdown-item text-dark" href="#">🤔 Help</a></li>
+                        <li>
+                            <a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">
+                                <x-heroicon-o-flag class="heroicon-1x text-secondary" />
+                                Milestones
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">
+                                <x-heroicon-o-user-group class="heroicon-1x text-secondary" />
+                                Meetups
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-dark" href="#">
+                                <x-heroicon-o-support class="heroicon-1x text-secondary" />
+                                Help
+                            </a>
+                        </li>
                         @endif
+                        <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">🎁 Deals</a></li>
                         <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">⚓ Integration</a></li>
                         @endauth
                         <li><a class="dropdown-item text-dark" href="{{ route('open') }}">📊 Open</a></li>
