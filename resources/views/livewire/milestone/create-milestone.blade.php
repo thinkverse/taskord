@@ -24,10 +24,18 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        <div class="small fw-bold text-secondary mt-3">
+                        <div class="small fw-bold text-secondary mt-3 mb-3">
                             <x-heroicon-o-pencil-alt class="heroicon" />
                             Markdown is supported
                             <x-beta background="light" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Start Date</label>
+                            <input class="form-control" wire:model.defer="start_date" type="date" value="{{ carbon()->toDateTimeString() }}" min="{{ carbon()->toDateTimeString() }}" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">End Date</label>
+                            <input class="form-control" wire:model.defer="end_date" type="date" value="{{ carbon()->toDateTimeString() }}" min="{{ carbon()->toDateTimeString() }}" />
                         </div>
                     </div>
                 </div>
