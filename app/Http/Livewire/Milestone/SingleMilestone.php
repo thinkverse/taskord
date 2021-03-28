@@ -86,7 +86,7 @@ class SingleMilestone extends Component
                 auth()->user()->touch();
                 $this->flash('success', 'Milestone has been deleted successfully!');
 
-                return redirect()->route('milestones.newest');
+                return redirect()->route('milestones.home');
             } else {
                 $this->alert('error', 'Forbidden!');
             }
