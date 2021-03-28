@@ -13,6 +13,7 @@
                 <div class="pb-2 h5">
                     <x-heroicon-o-truck class="heroicon-2x ms-1 text-secondary" />
                     Milestones
+                    <x-beta background="light" />
                 </div>
                 @livewire('milestone.milestones', [
                     'type' => $type,
