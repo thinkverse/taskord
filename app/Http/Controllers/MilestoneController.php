@@ -7,12 +7,19 @@ use Illuminate\Support\Facades\Auth;
 
 class MilestoneController extends Controller
 {
+    public function home()
+    {
+        return view('milestone.home', [
+            'type' => 'milestones.home',
+        ]);
+    }
+
     public function milestone($id)
     {
         $milestone = Milestone::where('id', $id)
             ->firstOrFail();
         $response = [
-            'type' => 'milestone.milestone',
+            'type' => 'milestones.milestone',
             'milestone' => $milestone,
         ];
         if (
