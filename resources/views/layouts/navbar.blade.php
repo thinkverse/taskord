@@ -50,7 +50,7 @@
                         @if (auth()->user()->staffShip)
                         <li>
                             <a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">
-                                <x-heroicon-o-flag class="heroicon-1x text-secondary" />
+                                <x-heroicon-o-truck class="heroicon-1x text-secondary" />
                                 Milestones
                             </a>
                         </li>
@@ -67,11 +67,31 @@
                             </a>
                         </li>
                         @endif
-                        <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">🎁 Deals</a></li>
-                        <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">⚓ Integration</a></li>
+                        <li>
+                            <a class="dropdown-item text-dark" href="{{ route('deals') }}">
+                                <x-heroicon-o-gift class="heroicon-1x text-secondary" />
+                                Deals
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">
+                                <x-heroicon-o-link class="heroicon-1x text-secondary" />
+                                Integration
+                            </a>
+                        </li>
                         @endauth
-                        <li><a class="dropdown-item text-dark" href="{{ route('open') }}">📊 Open</a></li>
-                        <li><a class="dropdown-item text-dark" href="https://gitlab.com/yo/taskord/-/milestones" target="_blank" rel="noreferrer">🚧 Roadmap</a></li>
+                        <li>
+                            <a class="dropdown-item text-dark" href="{{ route('open') }}">
+                                <x-heroicon-o-chart-bar class="heroicon-1x text-secondary" />
+                                Open
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item text-dark" href="https://gitlab.com/yo/taskord/-/milestones" target="_blank" rel="noreferrer">
+                                <x-heroicon-o-map class="heroicon-1x text-secondary" />
+                                Roadmap
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 @if (Auth::check() and auth()->user()->isStaff and !auth()->user()->staffShip)
