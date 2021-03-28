@@ -10,6 +10,8 @@ class CreateMilestone extends Component
 {
     public $name;
     public $description;
+    public $start_date;
+    public $end_date;
 
     public function submit()
     {
@@ -31,6 +33,8 @@ class CreateMilestone extends Component
                 'user_id' =>  auth()->user()->id,
                 'name' => $this->name,
                 'description' => $this->description,
+                'start_date' => $this->start_date,
+                'end_date' => $this->end_date,
             ]);
             auth()->user()->touch();
 
