@@ -40,6 +40,22 @@
         @if ($milestone->hidden)
         <span class="task-font fst-italic text-secondary">Milestone was hidden by moderator</span>
         @else
+        @if ($milestone->start_date or $milestone->end_date)
+        <div class="mb-3">
+            @if ($milestone->start_date)
+            <div class="mb-1">
+                <x-heroicon-o-calendar class="heroicon-1x" />
+                Started at <b>{{ carbon($milestone->start_date)->format('M d, Y') }}</b>
+            </div>
+            @endif
+            @if ($milestone->end_date)
+            <div>
+                <x-heroicon-o-calendar class="heroicon-1x" />
+                Due by <b>{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
+            </div>
+            @endif
+        </div>
+        @endif
         <a href="{{ route('milestone.milestone', ['id' => $milestone->id]) }}" class="h5 align-text-top fw-bold text-dark">
             @if ($type !== "milestone.milestone")
                 {{ Str::words($milestone->name, '10') }}
