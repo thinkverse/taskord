@@ -69,18 +69,18 @@
                         </li>
                         @endif
                         <li>
-                            <a class="dropdown-item text-dark" href="{{ route('deals') }}">
-                                <x-heroicon-o-gift class="heroicon-1x text-secondary" />
-                                Deals
-                            </a>
-                        </li>
-                        <li>
                             <a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">
                                 <x-heroicon-o-link class="heroicon-1x text-secondary" />
                                 Integration
                             </a>
                         </li>
                         @endauth
+                        <li>
+                            <a class="dropdown-item text-dark" href="{{ route('deals') }}">
+                                <x-heroicon-o-gift class="heroicon-1x text-secondary" />
+                                Deals
+                            </a>
+                        </li>
                         <li>
                             <a class="dropdown-item text-dark" href="{{ route('open') }}">
                                 <x-heroicon-o-chart-bar class="heroicon-1x text-secondary" />
