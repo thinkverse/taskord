@@ -19,6 +19,7 @@ class Milestone extends Model
     protected static $flushCacheOnUpdate = true;
 
     protected $fillable = [
+        'user_id',
         'name',
         'description',
         'start_date',
