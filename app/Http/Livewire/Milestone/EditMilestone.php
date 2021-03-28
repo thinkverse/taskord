@@ -50,7 +50,7 @@ class EditMilestone extends Component
             $milestone = Milestone::where('id', $this->milestone->id)->firstOrFail();
 
             if (auth()->user()->staffShip or auth()->user()->id === $milestone->user_id) {
-                $milestone->name = $this->milestone;
+                $milestone->name = $this->name;
                 $milestone->description = $this->description;
                 $milestone->save();
                 auth()->user()->touch();
