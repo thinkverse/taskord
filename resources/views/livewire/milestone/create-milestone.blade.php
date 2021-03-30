@@ -31,12 +31,14 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label fw-bold">Start Date</label>
-                            <input class="form-control" wire:model.defer="start_date" type="date" value="{{ carbon()->toDateTimeString() }}" min="{{ carbon()->toDateTimeString() }}" />
+                            <input class="form-control" wire:model="start_date" type="date" />
                         </div>
+                        @if ($start_date)
                         <div class="mb-3">
                             <label class="form-label fw-bold">End Date</label>
-                            <input class="form-control" wire:model.defer="end_date" type="date" value="{{ carbon()->toDateTimeString() }}" min="{{ carbon()->toDateTimeString() }}" />
+                            <input class="form-control" wire:model="end_date" type="date" min="{{ carbon()->format('Y-m-d') }}" />
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="modal-footer">
