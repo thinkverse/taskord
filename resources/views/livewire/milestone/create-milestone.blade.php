@@ -36,7 +36,7 @@
                         @if ($start_date)
                         <div class="mb-3">
                             <label class="form-label fw-bold">End Date</label>
-                            <input class="form-control" wire:model="end_date" type="date" min="{{ carbon()->format('Y-m-d') }}" />
+                            <input class="form-control" wire:model="end_date" type="date" min="{{ carbon($start_date)->format('Y-m-d') }}" />
                         </div>
                         @endif
                     </div>
