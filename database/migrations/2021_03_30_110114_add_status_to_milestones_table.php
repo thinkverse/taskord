@@ -14,7 +14,7 @@ class AddStatusToMilestonesTable extends Migration
     public function up()
     {
         Schema::table('milestones', function (Blueprint $table) {
-            //
+            $table->boolean('status')->default(false);
         });
     }
 
@@ -26,7 +26,7 @@ class AddStatusToMilestonesTable extends Migration
     public function down()
     {
         Schema::table('milestones', function (Blueprint $table) {
-            //
+            $table->dropColumn('status');
         });
     }
 }
