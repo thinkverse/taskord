@@ -38,6 +38,8 @@
                             <label class="form-label fw-bold">End Date</label>
                             <input class="form-control" wire:model="end_date" type="date" min="{{ carbon($start_date)->format('Y-m-d') }}" />
                         </div>
+                        @else
+                            <div class="fw-bold">Select from date to pick due date</div>
                         @endif
                     </div>
                 </div>
