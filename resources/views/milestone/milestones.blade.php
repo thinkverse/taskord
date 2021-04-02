@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Milestones ·')
+@if ($type === 'milestones.opened')
+@section('pageTitle', 'Milestones / Opened ·')
+@else
+@section('pageTitle', 'Milestones / Closed ·')
+@endif
 @section('title', 'Milestones ·')
 @section('description', 'Browse milestones.')
 @section('image', '')
