@@ -7,10 +7,17 @@ use Illuminate\Support\Facades\Auth;
 
 class MilestoneController extends Controller
 {
-    public function home()
+    public function opened()
     {
-        return view('milestone.home', [
-            'type' => 'milestones.home',
+        return view('milestone.opened', [
+            'type' => 'milestones.opened',
+        ]);
+    }
+
+    public function closed()
+    {
+        return view('milestone.closed', [
+            'type' => 'milestones.closed',
         ]);
     }
 

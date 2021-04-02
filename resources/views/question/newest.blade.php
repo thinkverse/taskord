@@ -11,7 +11,11 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 @include('question.nav')
-                @livewire('question.questions', ['type' => $type, 'page' => 1, 'perPage' => 10])
+                @livewire('question.questions', [
+                    'type' => $type,
+                    'page' => 1,
+                    'perPage' => 10
+                ])
             </div>
             <div class="col-sm">
                 @livewire('question.trending')
