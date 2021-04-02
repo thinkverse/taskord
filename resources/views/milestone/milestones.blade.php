@@ -2,10 +2,11 @@
 
 @if ($type === 'milestones.opened')
 @section('pageTitle', 'Milestones / Opened ·')
+@section('title', 'Milestones / Opened ·')
 @else
 @section('pageTitle', 'Milestones / Closed ·')
+@section('title', 'Milestones / Closed ·')
 @endif
-@section('title', 'Milestones ·')
 @section('description', 'Browse milestones.')
 @section('image', '')
 @section('url', url()->current())

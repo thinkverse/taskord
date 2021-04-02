@@ -2,12 +2,14 @@
 
 @if ($type === 'questions.newest')
 @section('pageTitle', 'Questions / Newest ·')
+@section('title', 'Questions / Newest ·')
 @elseif ($type === 'questions.unanswered')
 @section('pageTitle', 'Questions / Unanswered ·')
+@section('title', 'Questions / Unanswered ·')
 @else
 @section('pageTitle', 'Questions / Popular ·')
+@section('title', 'Questions / Popular ·')
 @endif
-@section('title', 'Questions / Newest ·')
 @section('description', 'Browse questions and discuss, answer, give feedbacks, etc.')
 @section('image', '')
 @section('url', url()->current())
