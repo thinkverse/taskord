@@ -19,10 +19,6 @@ class Search extends Component
     public function mount()
     {
         $this->query = '';
-        $this->tasks;
-        $this->users;
-        $this->products;
-        $this->questions;
     }
 
     public function updatedQuery()
