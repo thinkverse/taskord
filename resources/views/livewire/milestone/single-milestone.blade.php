@@ -139,6 +139,16 @@
                 Open Milestone
             </button>
             @endif
+            @else
+            @if ($milestone->status)
+            <div class="float-end text-success fw-bold">
+                OPENED
+            </div>
+            @else
+            <div class="float-end text-danger fw-bold">
+                CLOSED
+            </div>
+            @endif
             @endif
             @endif
             @endauth
