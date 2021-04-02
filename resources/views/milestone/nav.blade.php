@@ -1,8 +1,8 @@
 <div class="mb-3">
-    <a class="mb-2 btn btn-{{ Route::currentRouteName() === 'milestone.opened' ? '' : 'outline-' }}primary me-2" href="{{ route('questions.newest') }}">
+    <a class="mb-2 btn btn-{{ Route::currentRouteName() === 'milestones.opened' ? '' : 'outline-' }}primary me-2" href="{{ route('milestones.opened') }}">
         Opened
     </a>
-    <a class="mb-2 btn btn-{{ Route::currentRouteName() === 'milestone.closed' ? '' : 'outline-' }}primary me-2" href="{{ route('questions.unanswered') }}">
+    <a class="mb-2 btn btn-{{ Route::currentRouteName() === 'milestones.closed' ? '' : 'outline-' }}primary me-2" href="{{ route('milestones.closed') }}">
         Closed
     </a>
     @auth
