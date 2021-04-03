@@ -11,12 +11,16 @@ class EditMilestone extends Component
     public Milestone $milestone;
     public $name;
     public $description;
+    public $start_date;
+    public $end_date;
 
     public function mount($milestone)
     {
         $this->milestone = $milestone;
         $this->name = $milestone->name;
         $this->description = $milestone->description;
+        $this->start_date = carbon($milestone->start_date)->format('Y-m-d');
+        $this->end_date = carbon($milestone->end_date)->format('Y-m-d');
     }
 
     public function updated($field)
@@ -52,13 +56,15 @@ class EditMilestone extends Component
             if (auth()->user()->staffShip or auth()->user()->id === $milestone->user_id) {
                 $milestone->name = $this->name;
                 $milestone->description = $this->description;
+                $milestone->start_date = $this->start_date;
+                $milestone->end_date = $this->end_date;
                 $milestone->save();
                 auth()->user()->touch();
 
                 loggy(request()->ip(), 'Milestone', auth()->user(), 'Updated a milestone | Milestone ID: '.$milestone->id);
                 $this->flash('success', 'Milestone has been edited!');
 
-                return redirect()->route('milestone.milestone', ['id' => $milestone->id]);
+                return redirect()->route('milestones.milestone', ['id' => $milestone->id]);
             } else {
                 $this->alert('error', 'Forbidden!');
             }

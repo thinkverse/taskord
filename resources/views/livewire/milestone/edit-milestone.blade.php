@@ -24,6 +24,23 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
+                        <div class="small fw-bold text-secondary mt-3 mb-3">
+                            <x-heroicon-o-pencil-alt class="heroicon" />
+                            Markdown is supported
+                            <x-beta background="light" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Start Date</label>
+                            <input class="form-control" wire:model="start_date" type="date" />
+                        </div>
+                        @if ($start_date)
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">End Date</label>
+                            <input class="form-control" wire:model="end_date" type="date" min="{{ carbon($start_date)->format('Y-m-d') }}" />
+                        </div>
+                        @else
+                            <div class="fw-bold">Select from date to pick due date</div>
+                        @endif
                     </div>
                 </div>
                 <div class="modal-footer">
