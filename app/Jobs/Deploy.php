@@ -35,9 +35,11 @@ class Deploy implements ShouldQueue
             $res = $client->request('POST', 'https://gitlab.com/api/v4/projects/25370928/ref/master/trigger/pipeline', [
                 'form_params' => [
                     'token' => config('services.gitlab.trigger_token'),
-                    'variables[TRIGGERED_BY]' => $this->user->username,
-                    'variables[TRIGGERED_EMAIL]' => $this->user->email,
-                    'variables[TRIGGERED_IP]' => $this->ip,
+                    'variables[DEPLOY_USER]' => '@'.$this->user->username,
+                    'variables[DEPLOY_EMAIL]' => $this->user->email,
+                    'variables[DEPLOY_IP]' => $this->ip,
+                    'variables[DEPLOY_ENVIRONMENT]' => App::environment(),
+                    'variables[DEPLOY_VERSION]' => 'v'.config('app.version'),
                 ],
             ]);
         }
