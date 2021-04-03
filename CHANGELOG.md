@@ -6,6 +6,7 @@
 
 - Fix modal transition animation issue 🍃
 - Add milestone feature ⛳
+- Update Welcome notification message 🔔
 
 ## Released
 
