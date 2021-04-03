@@ -39,7 +39,6 @@ class Deploy implements ShouldQueue
                     'variables[DEPLOY_EMAIL]' => $this->user->email,
                     'variables[DEPLOY_IP]' => $this->ip,
                     'variables[DEPLOY_ENVIRONMENT]' => App::environment(),
-                    'variables[DEPLOY_VERSION]' => 'v'.config('app.version'),
                 ],
             ]);
         }
