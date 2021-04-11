@@ -151,7 +151,7 @@ return [
         'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => 'yoginth@hey.com',
+            'to' => '',
 
             'from' => [
                 'address' => env('MAIL_FROM_ADDRESS', 'no-reply@taskord.com'),
