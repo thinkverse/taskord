@@ -92,6 +92,6 @@ Staging:
     - apt-get update -qy
     - apt-get install -y ruby-dev rubygems-integration
     - gem install dpl
-    - dpl --provider=heroku --app=gitlab-heroku-demo-staging --api-key=$HEROKU_API_KEY --skip-cleanup
+    - dpl --provider=heroku --app=taskordapp --api-key=$HEROKU_API_KEY --skip-cleanup
   only:
     - main
