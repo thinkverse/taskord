@@ -23,7 +23,7 @@ class Comments extends Component
 
     public function render()
     {
-        $comments = $this->task->comments->take(5);
+        $comments = $this->task->comments->take(3);
 
         return view('livewire.task.comments', [
             'comments' => $comments,

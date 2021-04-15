@@ -7,7 +7,7 @@
                     <a href="{{ route('user.done', ['username' => $comment->user->username]) }}">
                         <img loading=lazy class="avatar-25 rounded-circle" src="{{ Helper::getCDNImage($comment->user->avatar, 80) }}" height="40" width="40" alt="{{ $comment->user->username }}'s avatar" />
                     </a>
-                    <span class="ms-2">
+                    <div class="ms-2">
                         <a
                             href="{{ route('user.done', ['username' => $comment->user->username]) }}"
                             class="fw-bold text-dark user-popover"
@@ -31,7 +31,10 @@
                             @endif
                             <span class="small text-secondary fw-normal">{{ "@" . $comment->user->username }}</span>
                         </a>
-                    </span>
+                    </div>
+                </div>
+                <div class="mt-1 {{ $loop->last ? '' : 'mb-3' }}">
+                    {{ $comment->comment }}
                 </div>
                 @endforeach
             @else
