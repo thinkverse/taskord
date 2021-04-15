@@ -82,9 +82,11 @@
         @endforeach
         </div>
         @endif
+        @if ($task->comments->count('id') !== 0)
         @livewire('task.comments', [
             'task' => $task
         ])
+        @endif
         @endif
         <div class="pt-3">
             @auth
