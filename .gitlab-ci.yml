@@ -16,6 +16,7 @@ variables:
   DB_HOST: mysql
 
 stages:
+  - deploy
   - test
   - clean
 
@@ -82,5 +83,15 @@ Merged Branches:
   stage: clean
   script:
     - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches
+  only:
+    - main
+
+Staging:
+  stage: deploy
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev rubygems-integration
+    - gem install dpl
+    - dpl --provider=heroku --app=gitlab-heroku-demo-staging --api-key=$HEROKU_API_KEY --skip-cleanup
   only:
     - main
