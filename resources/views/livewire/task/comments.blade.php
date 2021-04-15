@@ -37,8 +37,10 @@
                         </a>
                     </div>
                 </div>
-                <div class="mt-1 {{ $loop->last ? '' : 'mb-3' }}">
-                    {{ $comment->comment }}
+                <div class="mt-2 card d-inline-block bg-light {{ $loop->last ? '' : 'mb-3' }}">
+                    <div class="card-body px-2 py-1">
+                        {{ $comment->comment }}
+                    </div>
                 </div>
                 @endforeach
             @endif
