@@ -16,9 +16,9 @@ variables:
   DB_HOST: mysql
 
 stages:
-  - deploy
   - test
   - clean
+  - deploy
 
 cache:
   paths:
@@ -91,5 +91,8 @@ Staging:
   script:
     - gem install dpl
     - dpl --provider=heroku --app=taskordapp --api-key=$HEROKU_API_KEY --run='composer install; php artisan migrate --force'
+  environment:
+    name: staging
+    url: https://staging.taskord.com
   only:
     - main
