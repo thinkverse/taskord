@@ -1,7 +1,11 @@
 <div wire:init="loadComments" class="pt-3">
     <div class="card">
         <div class="card-body">
-            @if ($readyToLoad)
+            @if (!$readyToLoad)
+                <div class="text-center">
+                    <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
+                </div>
+            @else
                 @foreach ($comments as $comment)
                 <div class="align-items-center d-flex">
                     <a href="{{ route('user.done', ['username' => $comment->user->username]) }}">
@@ -37,8 +41,6 @@
                     {{ $comment->comment }}
                 </div>
                 @endforeach
-            @else
-                Loading
             @endif
         </div>
     </div>
