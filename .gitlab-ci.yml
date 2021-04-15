@@ -89,9 +89,7 @@ Merged Branches:
 Staging:
   stage: deploy
   script:
-    - apt-get update -qy
-    - apt-get install -y ruby-dev rubygems-integration
     - gem install dpl
-    - dpl --provider=heroku --app=taskordapp --api-key=$HEROKU_API_KEY --run='yarn install; yarn prod; php artisan migrate --force'
+    - dpl --provider=heroku --app=taskordapp --api-key=$HEROKU_API_KEY --run='yarn install && yarn prod && php artisan migrate --force'
   only:
     - main
