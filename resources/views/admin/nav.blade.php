@@ -11,4 +11,7 @@
     <li class="nav-item">
         <a class="nav-link @if (Route::currentRouteName() === 'admin.products') active @endif" href="{{ route('admin.products') }}">Products</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.products') }}">System</a>
+    </li>
 </ul>
