@@ -82,11 +82,6 @@
         @endforeach
         </div>
         @endif
-        @if ($task->comments->count('id') !== 0)
-        @livewire('task.comments', [
-            'task' => $task
-        ])
-        @endif
         @endif
         <div class="pt-3">
             @auth
@@ -162,6 +157,11 @@
             @endif
             @endauth
         </div>
+        @if ($task->comments->count('id') !== 0 and $showComments)
+        @livewire('task.comments', [
+            'task' => $task
+        ])
+        @endif
     </div>
     <div class="collapse mt-3 text-secondary" id="taskExpand-{{$task->id}}">
         <a class="text-secondary" href="{{ route('task', ['id' => $task->id]) }}">
