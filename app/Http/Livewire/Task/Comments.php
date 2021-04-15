@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Task;
 
 use Livewire\Component;
+use App\Models\Task;
+use App\Models\Comment;
 
 class Comments extends Component
 {
