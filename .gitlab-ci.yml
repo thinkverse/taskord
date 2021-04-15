@@ -90,6 +90,6 @@ Staging:
   stage: deploy
   script:
     - gem install dpl
-    - dpl --provider=heroku --app=taskordapp --api-key=$HEROKU_API_KEY --run='yarn install && yarn prod && php artisan migrate --force'
+    - dpl --provider=heroku --app=taskordapp --api-key=$HEROKU_API_KEY --run='php artisan migrate --force'
   only:
     - main
