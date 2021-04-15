@@ -82,6 +82,9 @@
         @endforeach
         </div>
         @endif
+        @livewire('task.comments', [
+            'task' => $task
+        ])
         @endif
         <div class="pt-3">
             @auth
