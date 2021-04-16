@@ -103,14 +103,12 @@ class AdminController extends Controller
 
     public static function system()
     {
-        $df = disk_free_space("/");
-        $ds = disk_total_space("/");
-        $du = $ds - $df;
+        $contents = file_get_contents('/proc/meminfo');
+        preg_match_all('/(\w+):\s+(\d+)\s/', $contents, $matches);
+        $meminfo = array_combine($matches[1], $matches[2]);
 
         return view('admin.system', [
-            'df' => formatBytes($df),
-            'ds' => formatBytes($ds),
-            'du' => formatBytes($du),
+            'meminfo' => $meminfo,
         ]);
     }
 }
