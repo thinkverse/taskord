@@ -1,25 +1,25 @@
 <?php
 
-it('has admin/users page', function ($url, $expected) {
+it('has stafftools/users page', function ($url, $expected) {
     $this->get($url)->assertStatus($expected);
 })->with([
-    ['/admin/users', 302, false],
+    ['/stafftools/users', 302, false],
 ]);
 
-it('has admin/tasks page', function ($url, $expected) {
+it('has stafftools/tasks page', function ($url, $expected) {
     $this->get($url)->assertStatus($expected);
 })->with([
-    ['/admin/tasks', 302, false],
+    ['/stafftools/tasks', 302, false],
 ]);
 
-it('has admin/activities page', function ($url, $expected) {
+it('has stafftools/activities page', function ($url, $expected) {
     $this->get($url)->assertStatus($expected);
 })->with([
-    ['/admin/activities', 302, false],
+    ['/stafftools/activities', 302, false],
 ]);
 
-it('has admin/products page', function ($url, $expected) {
+it('has stafftools/products page', function ($url, $expected) {
     $this->get($url)->assertStatus($expected);
 })->with([
-    ['/admin/products', 302, false],
+    ['/stafftools/products', 302, false],
 ]);
