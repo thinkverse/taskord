@@ -34,19 +34,6 @@
                         <div class="col-md-3 mb-4">
                             <div class="card">
                                 <div class="card-header fw-bold d-flex align-items-center">
-                                    <x-heroicon-o-clock class="heroicon me-1" />
-                                    <span>Uptime</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="h5 mb-0">
-                                        {{ $uptime }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-4">
-                            <div class="card">
-                                <div class="card-header fw-bold d-flex align-items-center">
                                     <x-heroicon-o-cog class="heroicon me-1" />
                                     <span>Memory usage</span>
                                 </div>
@@ -73,12 +60,25 @@
                         <div class="col-md-3 mb-4">
                             <div class="card">
                                 <div class="card-header fw-bold d-flex align-items-center">
-                                    <x-heroicon-o-database class="heroicon me-1" />
-                                    <span>Cached memory</span>
+                                    <x-heroicon-o-chip class="heroicon me-1" />
+                                    <span>CPUs</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="h5 mb-0">
-                                        {{ formatBytes(floatval($meminfo['Cached']) * 1024) }}
+                                        {{ $ncpu }} vCPUs
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card">
+                                <div class="card-header fw-bold d-flex align-items-center">
+                                    <x-heroicon-o-clock class="heroicon me-1" />
+                                    <span>Uptime</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h5 mb-0">
+                                        {{ $uptime }}
                                     </div>
                                 </div>
                             </div>

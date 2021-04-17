@@ -103,9 +103,15 @@ class AdminController extends Controller
         // Uptime
         $uptime = explode(',', explode(' up ', shell_exec('uptime'))[1])[0];
         
+        // CPU
+        $cpuinfo_file = file_get_contents('/proc/cpuinfo');
+        preg_match_all('/^processor/m', $cpuinfo_file, $matches);
+        $ncpu = count($matches[0]);
+
         return view('admin.system', [
             'meminfo' => $meminfo,
             'uptime' => $uptime,
+            'ncpu' => $ncpu,
         ]);
     }
 }
