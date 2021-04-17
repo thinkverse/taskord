@@ -59,6 +59,11 @@
                         <div class="h5 mb-0">
                             {{ $stats['products'] }}
                         </div>
+                        <hr />
+                        <div>
+                            <span>Launched: <b>{{ $stats['products_launched'] }}</b></span>
+                            <span class="ms-1">Unlaunched: <b>{{ $stats['products_unlaunched'] }}</b></span>
+                        </div>
                     </div>
                 </div>
             </div>

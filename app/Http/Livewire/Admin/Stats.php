@@ -31,10 +31,10 @@ class Stats extends Component
     {
         $tasks = Task::count('id');
         $tasks_done = Task::where('done', true)->count('id');
-        $tasks_pending = Task::where('done', false)->count('id');
         $users = User::count('id');
         $users_active = User::whereDate('last_active', '>', carbon()->subDays(30))->count('id');
         $products = Product::count('id');
+        $products_launched = Product::where('launched', true)->count('id');
         $reputations = User::sum('reputation');
         $questions = Question::count('id');
         $answers = Answer::count('id');
@@ -49,10 +49,12 @@ class Stats extends Component
         return [
             'tasks' => number_format($tasks),
             'tasks_done' => number_format($tasks_done),
-            'tasks_pending' => number_format($tasks_pending),
+            'tasks_pending' => number_format($tasks - $tasks_done),
             'users' => number_format($users),
             'users_active' => number_format($users_active),
             'products' => number_format($products),
+            'products_launched' => number_format($products_launched),
+            'products_unlaunched' => number_format($products - $products_launched),
             'reputations' => number_format($reputations),
             'questions' => number_format($questions),
             'answers' => number_format($answers),
