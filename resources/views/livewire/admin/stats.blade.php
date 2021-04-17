@@ -12,6 +12,7 @@
             </div>
         </div>
         @else
+        <h5 class="mb-3">Models</h5>
         <div class="row">
             <div class="col-md-3 mb-4">
                 <div class="card">
@@ -91,6 +92,22 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <div class="card-header fw-bold d-flex align-items-center">
+                        <x-heroicon-o-truck class="heroicon me-1" />
+                        <span>Milestones</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="h5 mb-0">
+                            {{ $stats['milestones'] }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h5 class="mb-3 mt-4">Transactions</h5>
+        <div class="row">
             <div class="col-md-3 mb-4">
                 <div class="card">
                     <div class="card-header fw-bold d-flex align-items-center">

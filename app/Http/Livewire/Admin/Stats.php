@@ -9,6 +9,7 @@ use App\Models\Answer;
 use App\Models\Comment;
 use App\Models\Product;
 use App\Models\Question;
+use App\Models\Milestone;
 use App\Models\Task;
 use App\Models\User;
 use App\Models\Webhook;
@@ -35,6 +36,7 @@ class Stats extends Component
         $questions = Question::count('id');
         $answers = Answer::count('id');
         $comments = Comment::count('id');
+        $milestones = Milestone::count('id');
         $webhooks = Webhook::count('id');
         $notifications = DB::table('notifications')->count('id');
         $logs = Activity::count('id');
@@ -49,6 +51,7 @@ class Stats extends Component
             'questions' => number_format($questions),
             'answers' => number_format($answers),
             'comments' => number_format($comments),
+            'milestones' => number_format($milestones),
             'notifications' => number_format($notifications),
             'interactions' => number_format($interactions),
             'logs' => number_format($logs),
