@@ -22,7 +22,12 @@
                     </div>
                     <div class="card-body">
                         <div class="h5 mb-0">
-                            {{ $stats['tasks'] }}
+                            {{ $stats['tasks'] }} Tasks
+                        </div>
+                        <hr />
+                        <div>
+                            <span>Done: <b>{{ $stats['tasks_done'] }}</b></span>
+                            <span class="ms-1">Pending: <b>{{ $stats['tasks_pending'] }}</b></span>
                         </div>
                     </div>
                 </div>
@@ -35,7 +40,11 @@
                     </div>
                     <div class="card-body">
                         <div class="h5 mb-0">
-                            {{ $stats['users'] }}
+                            {{ $stats['users'] }} Users
+                        </div>
+                        <hr />
+                        <div>
+                            <span>Active last 30 days: <b>{{ $stats['users_active'] }}</b></span>
                         </div>
                     </div>
                 </div>
