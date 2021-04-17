@@ -23,13 +23,6 @@ class Adminbar extends Component
         'refreshStats' => 'render',
     ];
 
-    public function refreshStats()
-    {
-        loggy(request()->ip(), 'Admin', auth()->user(), 'Refreshed Adminbar Status');
-
-        $this->emitSelf('refreshStats');
-    }
-
     public function clean()
     {
         Clean::dispatch();
