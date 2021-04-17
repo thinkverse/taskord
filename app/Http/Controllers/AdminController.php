@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Cache;
+use DB;
 
 class AdminController extends Controller
 {

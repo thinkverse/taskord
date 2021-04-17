@@ -17,6 +17,7 @@
                     Taskord's system info
                 </div>
                 <div class="card-body">
+                    <h5 class="mb-2">System</h4>
                     <div class="row">
                         <div class="col-md-3 mb-4">
                             <div class="card">
@@ -79,6 +80,36 @@
                                 <div class="card-body">
                                     <div class="h5 mb-0">
                                         {{ $uptime }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <h5 class="mb-2 mt-4">Database</h4>
+                    <div class="row">
+                        <div class="col-md-3 mb-4">
+                            <div class="card">
+                                <div class="card-header fw-bold d-flex align-items-center">
+                                    <x-heroicon-o-database class="heroicon me-1" />
+                                    <span>Database size</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h5 mb-0">
+                                        WIP 🚧
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card">
+                                <div class="card-header fw-bold d-flex align-items-center">
+                                    <x-heroicon-o-table class="heroicon me-1" />
+                                    <span>Total rows</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h5 mb-0">
+                                        WIP 🚧
                                     </div>
                                 </div>
                             </div>
