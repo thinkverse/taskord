@@ -55,40 +55,14 @@ class Adminbar extends Component
     {
         $branch = git('rev-parse --abbrev-ref HEAD') ?: 'main';
         $commit = git('rev-parse --short HEAD') ?: '0000000';
-
-        // DB Details
-        $tasks = Task::count('id');
-        $users = User::count('id');
-        $products = Product::count('id');
-        $reputations = User::sum('reputation');
-        $questions = Question::count('id');
-        $answers = Answer::count('id');
-        $comments = Comment::count('id');
-        $webhooks = Webhook::count('id');
-        $notifications = DB::table('notifications')->count('id');
-        $logs = Activity::count('id');
-        $interactions = DB::table('interactions')->count();
-        $praises = DB::table('interactions')->whereRelation('like')->count();
         $jobs = Queue::size();
         $cache = Cache::getStore()->getMemcached()->getAllKeys() ?: [];
 
         return view('livewire.admin.adminbar', [
             'branchname' => $branch,
             'headHASH' => $commit,
-            'tasks' => number_format($tasks),
-            'users' => number_format($users),
-            'products' => number_format($products),
-            'reputations' => number_format($reputations),
-            'questions' => number_format($questions),
-            'answers' => number_format($answers),
-            'comments' => number_format($comments),
-            'notifications' => number_format($notifications),
-            'interactions' => number_format($interactions),
-            'logs' => number_format($logs),
-            'praises' => number_format($praises),
             'jobs' => number_format($jobs),
             'cache' => number_format(count($cache)),
-            'webhooks' => number_format($webhooks),
         ]);
     }
 }
