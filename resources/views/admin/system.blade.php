@@ -16,9 +16,9 @@
                     <div class="h5">System Info</div>
                     Taskord's system info
                 </div>
-                <div class="card-body row-col-4">
+                <div class="card-body">
                     <div class="row">
-                        <div class="col-md mb-3">
+                        <div class="col-md-3 mb-4">
                             <div class="card">
                                 <div class="card-header fw-bold d-flex align-items-center">
                                     <x-heroicon-o-database class="heroicon me-1" />
@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md mb-3">
+                        <div class="col-md-3 mb-4">
                             <div class="card">
                                 <div class="card-header fw-bold d-flex align-items-center">
                                     <x-heroicon-o-clock class="heroicon me-1" />
@@ -44,40 +44,67 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md mb-3">
+                        <div class="col-md-3 mb-4">
                             <div class="card">
                                 <div class="card-header fw-bold d-flex align-items-center">
-                                    <x-heroicon-o-database class="heroicon me-1" />
-                                    <span>Disk usage</span>
+                                    <x-heroicon-o-cog class="heroicon me-1" />
+                                    <span>Memory usage</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="h5 mb-0">
-                                        {{ formatBytes(disk_total_space('/') - disk_free_space('/')) }} / {{ formatBytes(disk_total_space('/')) }}
+                                        {{ formatBytes(floatval($meminfo['Active']) * 1024) }} / {{ formatBytes(floatval($meminfo['MemTotal']) * 1024) }}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md mb-3">
+                        <div class="col-md-3 mb-4">
                             <div class="card">
-                                <div class="card-header fw-bold">
-                                    Memory Info
+                                <div class="card-header fw-bold d-flex align-items-center">
+                                    <x-heroicon-o-lightning-bolt class="heroicon me-1" />
+                                    <span>Cached memory</span>
                                 </div>
                                 <div class="card-body">
-                                    <div>
-                                        <span class="fw-bold">Total: </span>
-                                        <span>{{ formatBytes(floatval($meminfo['MemTotal']) * 1024) }}</span>
+                                    <div class="h5 mb-0">
+                                        {{ formatBytes(floatval($meminfo['Cached']) * 1024) }}
                                     </div>
-                                    <div>
-                                        <span class="fw-bold">Free: </span>
-                                        <span>{{ formatBytes(floatval($meminfo['MemFree']) * 1024) }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card">
+                                <div class="card-header fw-bold d-flex align-items-center">
+                                    <x-heroicon-o-database class="heroicon me-1" />
+                                    <span>Cached memory</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h5 mb-0">
+                                        {{ formatBytes(floatval($meminfo['Cached']) * 1024) }}
                                     </div>
-                                    <div>
-                                        <span class="fw-bold">Available: </span>
-                                        <span>{{ formatBytes(floatval($meminfo['MemAvailable']) * 1024) }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card">
+                                <div class="card-header fw-bold d-flex align-items-center">
+                                    <x-heroicon-o-database class="heroicon me-1" />
+                                    <span>Cached memory</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h5 mb-0">
+                                        {{ formatBytes(floatval($meminfo['Cached']) * 1024) }}
                                     </div>
-                                    <div>
-                                        <span class="fw-bold">Cached: </span>
-                                        <span>{{ formatBytes(floatval($meminfo['Cached']) * 1024) }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card">
+                                <div class="card-header fw-bold d-flex align-items-center">
+                                    <x-heroicon-o-database class="heroicon me-1" />
+                                    <span>Cached memory</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h5 mb-0">
+                                        {{ formatBytes(floatval($meminfo['Cached']) * 1024) }}
                                     </div>
                                 </div>
                             </div>

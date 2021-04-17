@@ -93,21 +93,13 @@ class AdminController extends Controller
         }
     }
 
-    public function formatBytes($size, $precision = 2)
-    {
-        $base = log($size, 1024);
-        $suffixes = ['', 'K', 'M', 'G', 'T'];
-
-        return round(pow(1024, $base - floor($base)), $precision).' '.$suffixes[floor($base)];
-    }
-
     public static function system()
     {
         // Memory Info
         $mem_file = file_get_contents('/proc/meminfo');
         preg_match_all('/(\w+):\s+(\d+)\s/', $mem_file, $matches);
         $meminfo = array_combine($matches[1], $matches[2]);
-        
+
         // Uptime
         $uptime = explode(',', explode(' up ', shell_exec('uptime'))[1])[0];
         
