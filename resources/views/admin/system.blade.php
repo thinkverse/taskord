@@ -83,32 +83,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 mb-4">
-                            <div class="card">
-                                <div class="card-header fw-bold d-flex align-items-center">
-                                    <x-heroicon-o-database class="heroicon me-1" />
-                                    <span>Cached memory</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="h5 mb-0">
-                                        {{ formatBytes(floatval($meminfo['Cached']) * 1024) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-4">
-                            <div class="card">
-                                <div class="card-header fw-bold d-flex align-items-center">
-                                    <x-heroicon-o-database class="heroicon me-1" />
-                                    <span>Cached memory</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="h5 mb-0">
-                                        {{ formatBytes(floatval($meminfo['Cached']) * 1024) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
