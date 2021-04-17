@@ -58,7 +58,7 @@
                 </a>
             </span>
             <span class="fw-bold me-3">
-                <a href="{{ route('admin.users') }}" title="Admin">
+                <a href="{{ route('admin.stats') }}" title="Admin">
                     <x-heroicon-o-shield-check class="heroicon text-white" />
                 </a>
             </span>
