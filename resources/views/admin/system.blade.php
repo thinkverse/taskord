@@ -16,25 +16,43 @@
                     <div class="h5">System Info</div>
                     Taskord's system info
                 </div>
-                <div class="card-body row-col-2">
+                <div class="card-body row-col-4">
                     <div class="row">
                         <div class="col-md mb-3">
                             <div class="card">
-                                <div class="card-header fw-bold">
-                                    Disk Info
+                                <div class="card-header fw-bold d-flex align-items-center">
+                                    <x-heroicon-o-database class="heroicon me-1" />
+                                    <span>Disk usage</span>
                                 </div>
                                 <div class="card-body">
-                                    <div>
-                                        <span class="fw-bold">Total: </span>
-                                        <span>{{ formatBytes(disk_total_space('/')) }}</span>
+                                    <div class="h5 mb-0">
+                                        {{ formatBytes(disk_total_space('/') - disk_free_space('/')) }} / {{ formatBytes(disk_total_space('/')) }}
                                     </div>
-                                    <div>
-                                        <span class="fw-bold">Used: </span>
-                                        <span>{{ formatBytes(disk_total_space('/') - disk_free_space('/')) }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md mb-3">
+                            <div class="card">
+                                <div class="card-header fw-bold d-flex align-items-center">
+                                    <x-heroicon-o-clock class="heroicon me-1" />
+                                    <span>Uptime</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h5 mb-0">
+                                        {{ $uptime }}
                                     </div>
-                                    <div>
-                                        <span class="fw-bold">Available: </span>
-                                        <span>{{ formatBytes(disk_free_space('/')) }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md mb-3">
+                            <div class="card">
+                                <div class="card-header fw-bold d-flex align-items-center">
+                                    <x-heroicon-o-database class="heroicon me-1" />
+                                    <span>Disk usage</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="h5 mb-0">
+                                        {{ formatBytes(disk_total_space('/') - disk_free_space('/')) }} / {{ formatBytes(disk_total_space('/')) }}
                                     </div>
                                 </div>
                             </div>

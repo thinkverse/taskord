@@ -103,12 +103,17 @@ class AdminController extends Controller
 
     public static function system()
     {
-        $contents = file_get_contents('/proc/meminfo');
-        preg_match_all('/(\w+):\s+(\d+)\s/', $contents, $matches);
+        // Memory Info
+        $mem_file = file_get_contents('/proc/meminfo');
+        preg_match_all('/(\w+):\s+(\d+)\s/', $mem_file, $matches);
         $meminfo = array_combine($matches[1], $matches[2]);
-
+        
+        // Uptime
+        $uptime = explode(',', explode(' up ', shell_exec('uptime'))[1])[0];
+        
         return view('admin.system', [
             'meminfo' => $meminfo,
+            'uptime' => $uptime,
         ]);
     }
 }
