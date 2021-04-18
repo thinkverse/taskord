@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 var adminBar = document.getElementById("admin-bar-click");
 if (adminBar) {
   adminBar.addEventListener("click", async () => {
-    const res = await window.fetch(`/admin/adminbar`);
+    const res = await window.fetch(`/stafftools/adminbar`);
     if (res.status === 200) {
       window.location.reload();
     }
