@@ -216,6 +216,12 @@
                                 GitLab
                             </a>
                             @endif
+                            @if (auth()->user()->isBeta)
+                            <a class="dropdown-item text-dark cursor-pointer" data-bs-toggle="modal" data-bs-target="#reportModal">
+                                <x-heroicon-o-support class="heroicon-1x text-secondary" />
+                                Report bug
+                            </a>
+                            @endif
                             <a class="dropdown-item text-dark cursor-pointer d-sm-none d-md-block" data-bs-toggle="modal" data-bs-target="#shortcutsModal">
                                 <x-heroicon-o-view-grid class="heroicon-1x text-secondary" />
                                 Shortcuts
@@ -241,4 +247,10 @@
         </div>
     </div>
 </nav>
+
 @include('layouts.modals.shortcuts')
+@auth
+@if (auth()->user()->isBeta)
+@include('layouts.modals.report')
+@endif
+@endauth
