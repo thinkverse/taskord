@@ -251,6 +251,6 @@
 @include('layouts.modals.shortcuts')
 @auth
 @if (auth()->user()->isBeta)
-@include('layouts.modals.report')
+@livewire('misc.report')
 @endif
 @endauth
