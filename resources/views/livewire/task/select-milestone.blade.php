@@ -4,8 +4,8 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         @foreach ($milestones as $milestone)
-            <li>
-                <a class="dropdown-item" href="#" wire:click="selectMilestone">
+            <li wire:key="{{ $task->id }}_{{ $milestone->id }}">
+                <a class="dropdown-item" href="#" wire:click="selectMilestone({{ $milestone->id }})">
                     <span class="text-secondary me-2 fw-bold">#{{ $milestone->id }}</span>
                     <span>{{ $milestone->name }}</span>
                 </a>

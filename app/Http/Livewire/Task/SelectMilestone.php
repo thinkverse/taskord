@@ -15,14 +15,18 @@ class SelectMilestone extends Component
         $this->task = $task;
     }
     
-    public function selectMilestone()
+    public function selectMilestone($id)
     {
-        dd($this->task);
+        $milestone = Milestone::find($id);
+
+        dd($milestone);
     }
 
     public function render()
     {
-        $milestones = Milestone::where('user_id', $this->task->user->id)->get();
+        $milestones = Milestone::where('user_id', $this->task->user->id)
+            ->latest()
+            ->get();
         return view('livewire.task.select-milestone', [
             'milestones' => $milestones
         ]);
