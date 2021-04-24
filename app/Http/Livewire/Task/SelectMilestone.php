@@ -20,11 +20,16 @@ class SelectMilestone extends Component
         $milestone = Milestone::find($milestone->id);
         $this->task->milestone()->associate($milestone);
         $this->task->save();
+        $this->emitUp('addedToMilestone');
+        return $this->alert('success', 'Task has been added to the milestone #' . $milestone->id);
     }
 
     public function render()
     {
-        $milestones = Milestone::where('user_id', $this->task->user->id)
+        $milestones = Milestone::where([
+                ['user_id', $this->task->user->id],
+                ['status', true],
+            ])
             ->latest()
             ->get();
         return view('livewire.task.select-milestone', [
