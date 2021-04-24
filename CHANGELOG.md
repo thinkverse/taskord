@@ -2,13 +2,17 @@
 
 ## Unreleased
 
-### **v1.0.8** (WIP)
+### **v1.0.9** (WIP)
+
+- 
+
+## Released
+
+### **v1.0.8** (Apr 24, 2021)
 
 - Fix modal transition animation issue 🍃
 - Add milestone feature ⛳
 - Update Welcome notification message 🔔
-
-## Released
 
 ### **v1.0.7** (Mar 25, 2021)
 
