@@ -24,7 +24,7 @@
             </a>
         </span>
         <span class="float-end">
-            <a class="fw-bold me-3 text-white" href="/admin/horizon" target="_blank" rel="noreferrer">
+            <a class="fw-bold me-3 text-white" href="/stafftools/horizon" target="_blank" rel="noreferrer">
                 <x-heroicon-o-collection class="heroicon" />
                 {{ $jobs }}
                 <span class="fw-normal">
