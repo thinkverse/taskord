@@ -17,5 +17,18 @@
                 </a>
             </li>
         @endforeach
+        @if ($milestones->count() === 0)
+        <li>
+            <a class="dropdown-item cursor-pointer">
+                Create a milestone
+            </a>
+        </li>
+        @endif
+        <div class="dropdown-divider"></div>
+        <li>
+            <span class="p-2">
+                <x-beta background="light" />
+            </span>
+        </li>
     </ul>
 </span>
