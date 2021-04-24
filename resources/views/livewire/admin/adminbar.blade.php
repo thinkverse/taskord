@@ -1,4 +1,4 @@
-<div class="card p-1 rounded-0 d-flex border-bottom border-0 border-staffbar bg-staffbar text-white">
+<div class="card p-1 rounded-0 d-flex border-bottom border-staffbar bg-staffbar text-white">
     <div class="ps-2 pe-2">
         <span class="float-start">
             <span class="fw-bold">
