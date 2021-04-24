@@ -9,7 +9,7 @@ These prerequisites assume you're working on a Linux-based operating system.
 ```sh
 sudo add-apt-repository ppa:ondrej/php -y
 sudo apt update -y
-sudo apt install php8.0 php8.0-curl php8.0-common php8.0-cli php8.0-mysql php8.0-mbstring php8.0-fpm php8.0-xml php8.0-zip php8.0-memcached php8.0-redis php8.0-gd php8.0-bcmath php8.0-sqlite -y
+sudo apt install php8.0 php8.0-curl php8.0-common php8.0-cli php8.0-mysql php8.0-mbstring php8.0-fpm php8.0-xml php8.0-zip php8.0-memcached php8.0-redis php8.0-gd php8.0-bcmath -y
 ```
 
 ### Nginx
@@ -35,7 +35,7 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 ### Node.js and Yarn
 
 ```sh
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt install -y nodejs
 npm install -g yarn
 ```
@@ -61,7 +61,7 @@ sudo apt install redis-server -y
 ### Supervisor
 
 ```sh
-sudo apt install supervisor
+sudo apt install supervisor -y
 ```
 
 ## Installing Taskord
