@@ -19,7 +19,7 @@
         @endforeach
         @if ($milestones->count() === 0)
         <li>
-            <a class="dropdown-item cursor-pointer">
+            <a class="dropdown-item cursor-pointer" href="{{ route('milestones.opened') }}">
                 Create a milestone
             </a>
         </li>
