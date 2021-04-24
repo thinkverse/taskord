@@ -83,6 +83,12 @@
         </div>
         @endif
         @endif
+        {{ $task->milestone }}
+        @if ($task->milestone)
+        <div>
+            {{ $task->milestone->name }}
+        </div>
+        @endif
         <div class="pt-3">
             @auth
             @if (!$task->user->isPrivate and !$task->hidden)
