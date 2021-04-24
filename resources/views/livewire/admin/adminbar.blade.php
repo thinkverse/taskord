@@ -2,7 +2,7 @@
     <div class="ps-2 pe-2">
         <span class="float-start">
             <span class="fw-bold">
-                <x-heroicon-o-terminal class="heroicon" />
+                <x-heroicon-o-duplicate class="heroicon me-1" />
                 <a class="text-white" href="https://gitlab.com/yo/taskord/-/tree/{{ $branchname }}" target="_blank" rel="noreferrer">{{ $branchname }}</a>
                 <span class="px-1">➜</span>
                 <a class="text-white" href="https://gitlab.com/yo/taskord/-/commit/{{ $headHASH }}" target="_blank" rel="noreferrer">{{ Str::limit($headHASH, 8, '') }}</a>
@@ -12,13 +12,13 @@
                 <x-heroicon-o-archive class="heroicon" />
                 v{{ config('app.version') }}
             </a>
-            <a class="text-secondary fw-bold ms-3"
+            <a class="text-secondary ms-3"
                 href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank" rel="noreferrer">
                 <x-heroicon-o-chip class="heroicon" />
                 Laravel v{{ laravel_version() }}
             </a>
             <span class="border border-secondary border-end-0 mx-2"></span>
-            <a class="text-secondary fw-bold"
+            <a class="text-secondary"
                 href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" target="_blank" rel="noreferrer">
                 v{{ phpversion() }}
             </a>
