@@ -24,10 +24,15 @@
         Contact
     </a>
     @auth
-    @if (auth()->user()->staffShip)
+    @if (auth()->user()->isStaff and auth()->user()->staffShip)
     <span class="pe-2 text-danger">
         <x-heroicon-o-shield-check class="heroicon me-0" />
         Staff mode on
+    </span>
+    @else
+    <span class="pe-2 text-success">
+        <x-heroicon-o-shield-exclamation class="heroicon me-0" />
+        Staff mode off
     </span>
     @endif
     @endauth
