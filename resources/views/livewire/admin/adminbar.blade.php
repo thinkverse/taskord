@@ -17,10 +17,10 @@
                 <x-heroicon-o-chip class="heroicon" />
                 Laravel v{{ laravel_version() }}
             </a>
-            <a class="text-white fw-bold ms-3"
+            <span class="border border-end-0 mx-2"></span>
+            <a class="text-white fw-bold"
                 href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" target="_blank" rel="noreferrer">
-                <x-heroicon-o-code class="heroicon" />
-                PHP v{{ phpversion() }}
+                v{{ phpversion() }}
             </a>
         </span>
         <span class="float-end">
