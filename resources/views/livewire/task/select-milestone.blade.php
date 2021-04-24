@@ -3,6 +3,11 @@
         <x-heroicon-o-truck class="heroicon-small text-secondary" />
     </a>
     <ul class="dropdown-menu" aria-labelledby="milestoneMenuItem">
+        <li>
+            <a class="dropdown-item cursor-pointer">
+                None
+            </a>
+        </li>
         @foreach ($milestones as $milestone)
             <li wire:key="{{ $task->id }}_{{ $milestone->id }}">
                 <a class="dropdown-item cursor-pointer" wire:click="selectMilestone({{ $milestone }})">
