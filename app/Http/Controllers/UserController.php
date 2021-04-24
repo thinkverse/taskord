@@ -8,6 +8,7 @@ use App\Models\Patron;
 use App\Models\Product;
 use App\Models\ProductUpdate;
 use App\Models\Question;
+use App\Models\Milestone;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -103,6 +104,7 @@ class UserController extends Controller
             $product_updates = ProductUpdate::where('user_id', auth()->user()->id)->get();
             $questions = Question::where('user_id', auth()->user()->id)->get();
             $answers = Answer::where('user_id', auth()->user()->id)->get();
+            $milestone = Milestone::where('user_id', auth()->user()->id)->get();
             $patron = Patron::where('user_id', auth()->user()->id)->get();
             $data = collect([
                 'account' => $account,
@@ -114,6 +116,7 @@ class UserController extends Controller
                 'product_updates' => $product_updates,
                 'questions' => $questions,
                 'answers' => $answers,
+                'milestone' => $milestone,
                 'patron' => $patron,
             ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
