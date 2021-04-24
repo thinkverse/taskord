@@ -1,4 +1,3 @@
-
 // Load shortcuts
 var shortcutsModal = document.getElementById("shortcutsModal");
 shortcutsModal.addEventListener("shown.bs.modal", async () => {
@@ -6,16 +5,6 @@ shortcutsModal.addEventListener("shown.bs.modal", async () => {
   const res = await window.fetch(`/site/shortcuts`);
   shortcutsModalBody.innerHTML = await res.text();
 });
-
-// Load Cache
-var cacheModal = document.getElementById("cacheModal");
-if (cacheModal) {
-  cacheModal.addEventListener("shown.bs.modal", async () => {
-    var cacheModalBody = document.getElementById("cacheModalBody");
-    const res = await window.fetch(`/site/cache-hits`);
-    cacheModalBody.innerHTML = await res.text();
-  });
-}
 
 // Load Data from GitLab
 var deployModal = document.getElementById("deployModal");

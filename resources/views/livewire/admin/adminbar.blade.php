@@ -31,13 +31,13 @@
                     {{ str_plural('job', $jobs) }}
                 </span>
             </a>
-            <a class="fw-bold me-3 text-white cursor-pointer" data-bs-toggle="modal" data-bs-target="#cacheModal" title="Cache Hits">
+            <span class="fw-bold me-3">
                 <x-heroicon-o-folder-open class="heroicon" />
                 {{ $cache }}
                 <span class="fw-normal">
                     cached
                 </span>
-            </a>
+            </span>
             <span class="fw-bold me-3">
                 <x-heroicon-o-cog class="heroicon" />
                 {{ memory_usage() }}
@@ -70,6 +70,5 @@
         </span>
     </div>
     @include('livewire.admin.modals.clean')
-    @include('livewire.admin.modals.cache')
     @include('livewire.admin.modals.deploy')
 </div>

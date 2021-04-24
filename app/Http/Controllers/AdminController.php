@@ -28,15 +28,6 @@ class AdminController extends Controller
         }
     }
 
-    public static function cacheHits()
-    {
-        $cache = Cache::getStore()->getMemcached()->getAllKeys();
-
-        return view('site.cache', [
-            'cache' => array_reverse($cache),
-        ]);
-    }
-
     public static function commitData()
     {
         $client = new Client(['http_errors' => false]);
