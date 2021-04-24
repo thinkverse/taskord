@@ -149,7 +149,9 @@
                     <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
                 </button>
                 @endif
-                @livewire('task.milestone')
+                @livewire('task.select-milestone', [
+                    'task' => $task
+                ])
             @endif
             @if (auth()->user()->staffShip)
             <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins" aria-label="Hide">
