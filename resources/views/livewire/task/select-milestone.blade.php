@@ -5,9 +5,10 @@
     <ul class="dropdown-menu" aria-labelledby="milestoneMenuItem">
         <li>
             <a class="dropdown-item cursor-pointer">
-                None
+                No milestone
             </a>
         </li>
+        <div class="dropdown-divider"></div>
         @foreach ($milestones as $milestone)
             <li wire:key="{{ $task->id }}_{{ $milestone->id }}">
                 <a class="dropdown-item cursor-pointer" wire:click="selectMilestone({{ $milestone }})">
