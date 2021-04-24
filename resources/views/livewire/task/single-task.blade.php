@@ -83,10 +83,10 @@
         </div>
         @endif
         @endif
-        {{ $task->milestone }}
         @if ($task->milestone)
-        <div>
-            {{ $task->milestone->name }}
+        <div class="mt-2 text-secondary" title="Milestone">
+            <x-heroicon-o-truck class="heroicon me-1" />
+            <span>{{ $task->milestone->name }}</span>
         </div>
         @endif
         <div class="pt-3">
