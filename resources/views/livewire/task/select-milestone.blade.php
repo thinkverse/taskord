@@ -4,7 +4,7 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="milestoneMenuItem">
         <li>
-            <a class="dropdown-item cursor-pointer">
+            <a class="dropdown-item cursor-pointer" wire:click="noMilestone">
                 No milestone
             </a>
         </li>

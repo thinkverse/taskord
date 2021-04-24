@@ -14,6 +14,15 @@ class SelectMilestone extends Component
     {
         $this->task = $task;
     }
+    
+    public function noMilestone()
+    {
+        $this->task->milestone()->disassociate();
+        $this->task->save();
+        $this->emitUp('addedToMilestone');
+
+        return $this->alert('success', 'Milestone has been removed from the task!');
+    }
 
     public function selectMilestone(Milestone $milestone)
     {
