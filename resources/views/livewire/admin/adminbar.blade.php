@@ -1,4 +1,4 @@
-<div class="card p-1 rounded-0 d-flex border-bottom border-primary bg-primary text-white">
+<div class="card p-1 rounded-0 d-flex border-bottom border-0 border-staffbar bg-staffbar text-white">
     <div class="ps-2 pe-2">
         <span class="float-start">
             <span class="fw-bold">
@@ -12,13 +12,13 @@
                 <x-heroicon-o-archive class="heroicon" />
                 v{{ config('app.version') }}
             </a>
-            <a class="text-white fw-bold ms-3"
+            <a class="text-secondary fw-bold ms-3"
                 href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank" rel="noreferrer">
                 <x-heroicon-o-chip class="heroicon" />
                 Laravel v{{ laravel_version() }}
             </a>
-            <span class="border border-end-0 mx-2"></span>
-            <a class="text-white fw-bold"
+            <span class="border border-secondary border-end-0 mx-2"></span>
+            <a class="text-secondary fw-bold"
                 href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" target="_blank" rel="noreferrer">
                 v{{ phpversion() }}
             </a>
@@ -27,14 +27,14 @@
             <a class="fw-bold me-3 text-white" href="/stafftools/horizon" target="_blank" rel="noreferrer">
                 <x-heroicon-o-collection class="heroicon" />
                 {{ $jobs }}
-                <span class="fw-normal">
+                <span class="fw-normal text-secondary">
                     {{ str_plural('job', $jobs) }}
                 </span>
             </a>
             <span class="fw-bold me-3">
                 <x-heroicon-o-folder-open class="heroicon" />
                 {{ $cache }}
-                <span class="fw-normal">
+                <span class="fw-normal text-secondary">
                     cached
                 </span>
             </span>
@@ -45,7 +45,7 @@
             <span class="fw-bold me-3">
                 <x-heroicon-o-clock class="heroicon" />
                 {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms
-                <span class="fw-normal">response total</span>
+                <span class="fw-normal text-secondary">response total</span>
             </span>
             <span class="fw-bold me-3">
                 <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#cleanModal" title="Clear Cache">
