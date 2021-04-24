@@ -15,11 +15,12 @@ class SelectMilestone extends Component
         $this->task = $task;
     }
     
-    public function selectMilestone($id)
+    public function selectMilestone(Milestone $milestone)
     {
-        $milestone = Milestone::find($id);
+        $milestone = Milestone::find($milestone->id);
+        $this->task->milestone()->associate($milestone);
 
-        dd($milestone);
+        dd($this->task->milestone);
     }
 
     public function render()
