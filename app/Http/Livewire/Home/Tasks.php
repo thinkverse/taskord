@@ -46,8 +46,7 @@ class Tasks extends Component
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, null, null, $this->page);
         } else {
-            return Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'milestone_id', 'source', 'images', 'hidden')
-                ->whereHas('user', function ($q) {
+            return Task::whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
                         ['isPrivate', false],
@@ -55,7 +54,7 @@ class Tasks extends Component
                 })
                 ->where('done', true)
                 ->orderBy('done_at', 'desc')
-                ->paginate(10, null, null, $this->page);
+                ->paginate(10, '*', null, $this->page);
         }
     }
 

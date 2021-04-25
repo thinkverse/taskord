@@ -35,8 +35,7 @@ class LoadMore extends Component
             if (Auth::check() && auth()->user()->onlyFollowingsTasks) {
                 $userIds = auth()->user()->followings->pluck('id');
                 $userIds->push(auth()->user()->id);
-                $tasks = Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images')
-                    ->whereIn('user_id', $userIds)
+                $tasks = Task::whereIn('user_id', $userIds)
                     ->whereHas('user', function ($q) {
                         $q->where([
                             ['isFlagged', false],
@@ -45,10 +44,9 @@ class LoadMore extends Component
                     })
                     ->where('done', true)
                     ->orderBy('done_at', 'desc')
-                    ->paginate(10, null, null, $this->page);
+                    ->paginate(10, '*', null, $this->page);
             } else {
-                $tasks = Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images')
-                    ->whereHas('user', function ($q) {
+                $tasks = Task::whereHas('user', function ($q) {
                         $q->where([
                             ['isFlagged', false],
                             ['isPrivate', false],
@@ -56,7 +54,7 @@ class LoadMore extends Component
                     })
                     ->where('done', true)
                     ->orderBy('done_at', 'desc')
-                    ->paginate(10, null, null, $this->page);
+                    ->paginate(10, '*', null, $this->page);
             }
 
             return view('livewire.home.tasks', [
