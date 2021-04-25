@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4ef29e6bfe911e7a47bfce58a14b810",
+    "content-hash": "0fda7d19e78bf631f5f9b691588ad735",
     "packages": [
         {
             "name": "alfredo-ramos/parsedown-extra-laravel",
@@ -149,16 +149,16 @@
         },
         {
             "name": "blade-ui-kit/blade-heroicons",
-            "version": "1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-heroicons.git",
-                "reference": "2e47c31b6553e158ff93f14a961cc588d3302b0d"
+                "reference": "fcb102a569f085cb369d6a725f04f4b539fefd11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-heroicons/zipball/2e47c31b6553e158ff93f14a961cc588d3302b0d",
-                "reference": "2e47c31b6553e158ff93f14a961cc588d3302b0d",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-heroicons/zipball/fcb102a569f085cb369d6a725f04f4b539fefd11",
+                "reference": "fcb102a569f085cb369d6a725f04f4b539fefd11",
                 "shasum": ""
             },
             "require": {
@@ -202,7 +202,7 @@
             ],
             "support": {
                 "issues": "https://github.com/blade-ui-kit/blade-heroicons/issues",
-                "source": "https://github.com/blade-ui-kit/blade-heroicons/tree/1.0.1"
+                "source": "https://github.com/blade-ui-kit/blade-heroicons/tree/v1.1.0"
             },
             "funding": [
                 {
@@ -214,7 +214,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-31T15:01:44+00:00"
+            "time": "2021-04-25T13:40:51+00:00"
         },
         {
             "name": "blade-ui-kit/blade-icons",
@@ -963,40 +963,39 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "1.10.2",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "13e3381b25847283a91948d04640543941309727"
+                "reference": "a9c1b59eba5a08ca2770a76eddb88922f504e8e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/13e3381b25847283a91948d04640543941309727",
-                "reference": "13e3381b25847283a91948d04640543941309727",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/a9c1b59eba5a08ca2770a76eddb88922f504e8e0",
+                "reference": "a9c1b59eba5a08ca2770a76eddb88922f504e8e0",
                 "shasum": ""
             },
             "require": {
                 "php": "~7.1 || ^8.0"
             },
             "conflict": {
-                "doctrine/common": ">2.2,<2.4"
+                "doctrine/common": ">2.2,<2.4",
+                "psr/cache": ">=3"
             },
             "require-dev": {
                 "alcaeus/mongo-php-adapter": "^1.1",
-                "doctrine/coding-standard": "^6.0",
+                "cache/integration-tests": "dev-master",
+                "doctrine/coding-standard": "^8.0",
                 "mongodb/mongodb": "^1.1",
-                "phpunit/phpunit": "^7.0",
-                "predis/predis": "~1.0"
+                "phpunit/phpunit": "^7.0 || ^8.0 || ^9.0",
+                "predis/predis": "~1.0",
+                "psr/cache": "^1.0 || ^2.0",
+                "symfony/cache": "^4.4 || ^5.2"
             },
             "suggest": {
                 "alcaeus/mongo-php-adapter": "Required to use legacy MongoDB driver"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.9.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
@@ -1043,7 +1042,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/cache/issues",
-                "source": "https://github.com/doctrine/cache/tree/1.10.x"
+                "source": "https://github.com/doctrine/cache/tree/1.11.0"
             },
             "funding": [
                 {
@@ -1059,7 +1058,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-07T18:54:01+00:00"
+            "time": "2021-04-13T14:46:17+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -1695,28 +1694,29 @@
         },
         {
             "name": "enlightn/security-checker",
-            "version": "v1.7.0",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/enlightn/security-checker.git",
-                "reference": "1ac108ba278ba0c2e71d2ce2ac4fac07ed6e8a29"
+                "reference": "2054fbce2f8df681c8f71b36656222bcd241b77f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/enlightn/security-checker/zipball/1ac108ba278ba0c2e71d2ce2ac4fac07ed6e8a29",
-                "reference": "1ac108ba278ba0c2e71d2ce2ac4fac07ed6e8a29",
+                "url": "https://api.github.com/repos/enlightn/security-checker/zipball/2054fbce2f8df681c8f71b36656222bcd241b77f",
+                "reference": "2054fbce2f8df681c8f71b36656222bcd241b77f",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "ext-zip": "*",
                 "guzzlehttp/guzzle": "^6.3|^7.0",
                 "php": ">=5.6",
                 "symfony/console": "^3.4|^4|^5",
                 "symfony/finder": "^3|^4|^5",
+                "symfony/process": "^3.4|^4|^5",
                 "symfony/yaml": "^3.4|^4|^5"
             },
             "require-dev": {
+                "ext-zip": "*",
                 "friendsofphp/php-cs-fixer": "^2.18",
                 "phpunit/phpunit": "^5.5|^6|^7|^8|^9"
             },
@@ -1754,9 +1754,9 @@
             ],
             "support": {
                 "issues": "https://github.com/enlightn/security-checker/issues",
-                "source": "https://github.com/enlightn/security-checker/tree/v1.7.0"
+                "source": "https://github.com/enlightn/security-checker/tree/v1.8.0"
             },
-            "time": "2021-03-03T11:56:26+00:00"
+            "time": "2021-04-19T07:13:16+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -5294,16 +5294,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.83",
+            "version": "0.12.84",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "4a967cec6efb46b500dd6d768657336a3ffe699f"
+                "reference": "9c43f15da8798c8f30a4b099e6a94530a558cfd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/4a967cec6efb46b500dd6d768657336a3ffe699f",
-                "reference": "4a967cec6efb46b500dd6d768657336a3ffe699f",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9c43f15da8798c8f30a4b099e6a94530a558cfd5",
+                "reference": "9c43f15da8798c8f30a4b099e6a94530a558cfd5",
                 "shasum": ""
             },
             "require": {
@@ -5334,7 +5334,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.83"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.84"
             },
             "funding": [
                 {
@@ -5350,7 +5350,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-03T15:35:45+00:00"
+            "time": "2021-04-19T17:10:54+00:00"
         },
         {
             "name": "propaganistas/laravel-disposable-email",
@@ -10840,16 +10840,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.12.0",
+            "version": "2.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "d501fd2658d55491a2295ff600ae5978eaad7403"
+                "reference": "c13c0be93cff50f88bbd70827d993026821914dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/d501fd2658d55491a2295ff600ae5978eaad7403",
-                "reference": "d501fd2658d55491a2295ff600ae5978eaad7403",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/c13c0be93cff50f88bbd70827d993026821914dd",
+                "reference": "c13c0be93cff50f88bbd70827d993026821914dd",
                 "shasum": ""
             },
             "require": {
@@ -10899,7 +10899,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.12.0"
+                "source": "https://github.com/filp/whoops/tree/2.12.1"
             },
             "funding": [
                 {
@@ -10907,7 +10907,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-30T12:00:00+00:00"
+            "time": "2021-04-25T12:00:00+00:00"
         },
         {
             "name": "myclabs/deep-copy",

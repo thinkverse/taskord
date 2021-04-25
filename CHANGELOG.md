@@ -2,9 +2,11 @@
 
 ## Unreleased
 
-### **v1.0.9** (WIP)
+### **v1.0.9** (May 31, 2021)
 
-- 
+- Ability to **add tasks** to milestones ⛳
+- Enable more security using **Cloudflare Access** for admins 🔑
+- New feature **announcement** on homepage sidebar 🔊
 
 ## Released
 
