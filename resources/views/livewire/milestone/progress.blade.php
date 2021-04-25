@@ -4,10 +4,10 @@
     </div>
     <div class="mt-1">
         <span class="me-2">
-            <span class="fw-bold">0</span> completed
+            <span class="fw-bold">{{ $completed }}</span> completed
         </span>
         <span class="me-2">
-            <span class="fw-bold">0</span> pending
+            <span class="fw-bold">{{ $pending }}</span> pending
         </span>
     </div>
 </div>

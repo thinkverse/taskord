@@ -70,7 +70,9 @@
             @endif
         </div>
         @endif
-        @livewire('milestone.progress')
+        @livewire('milestone.progress', [
+            'milestone' => $milestone
+        ])
         <div class="mt-3">
             @auth
             @if (auth()->user()->hasLiked($milestone))
