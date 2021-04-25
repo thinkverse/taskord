@@ -102,6 +102,7 @@
                         </span>
                     </div>
                 </div>
+                @include('home.ad')
                 @livewire('home.suggestions', [
                     'user' => auth()->user()
                 ])

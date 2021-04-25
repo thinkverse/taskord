@@ -44,11 +44,9 @@
             @endif
         </div>
         @if (auth()->user()->id === $task->user->id)
-            @if (auth()->user()->isBeta)
             @livewire('task.select-milestone', [
                 'task' => $task
             ])
-            @endif
             @if ($confirming === $task->id)
             <button type="button" class="btn btn-task btn-danger my-1" wire:click="deleteTask" wire:loading.attr="disabled" aria-label="Confirm Delete">
                 Are you sure?
