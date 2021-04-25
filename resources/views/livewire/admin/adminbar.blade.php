@@ -19,7 +19,7 @@
             </a>
             <span class="border border-secondary border-end-0 mx-2"></span>
             <a class="text-secondary"
-                href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" target="_blank" rel="noreferrer">
+                href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" title="PHP Version" target="_blank" rel="noreferrer">
                 v{{ phpversion() }}
             </a>
         </span>
