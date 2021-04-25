@@ -61,8 +61,7 @@ class SocialController extends Controller
             'provider'          => $provider,
             'api_token'         => Str::random(60),
             'email_verified_at' => date('Y-m-d H:i:s'),
-        ]
-        );
+        ]);
         AuthGetIP::dispatch($user, $request->ip());
 
         if ($provider === 'twitter') {
