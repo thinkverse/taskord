@@ -52,6 +52,7 @@
         </div>
         @endif
         @if ($milestone->start_date or $milestone->end_date)
+        <div class="mb-3">
             @if ($milestone->start_date)
             <div class="mb-1">
                 <x-heroicon-o-calendar class="heroicon-1x" />
@@ -67,7 +68,9 @@
                 Due by <b class="{{ $past_due ? 'text-danger' : 'text-dark' }}">{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
             </div>
             @endif
+        </div>
         @endif
+        @livewire('milestone.progress')
         <div class="mt-3">
             @auth
             @if (auth()->user()->hasLiked($milestone))
