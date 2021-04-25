@@ -20,6 +20,11 @@
                     'milestone' => $milestone,
                 ])
             </div>
+            @livewire('milestone.tasks', [
+                'milestone' => $milestone,
+                'page' => 1,
+                'perPage' => 3
+            ])
         </div>
         <div class="col-sm">
             <div class="fw-bold text-secondary pb-2">
