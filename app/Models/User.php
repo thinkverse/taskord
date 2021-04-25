@@ -132,9 +132,4 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         VerifyEmailQueue::dispatch($this);
     }
-
-    public function routeNotificationForDiscord()
-    {
-        return config('taskord.discord.webhook');
-    }
 }

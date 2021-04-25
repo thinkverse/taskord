@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Jobs\AuthGetIP;
 use App\Models\User;
-use App\Notifications\Logger;
 use App\Notifications\MagicLink;
 use App\Providers\RouteServiceProvider;
 use Grosv\LaravelPasswordlessLogin\LoginUrl;
@@ -84,14 +83,6 @@ class LoginController extends Controller
         if (auth()->attempt([$fieldType => $input['username'], 'password' => $input['password']])) {
             $request->session()->flash('global', 'Welcome back!');
             AuthGetIP::dispatch(auth()->user(), $request->ip());
-            auth()->user()->notify(
-                new Logger(
-                    'AUTH',
-                    null,
-                    auth()->user(),
-                    "🔒 User logged in to Taskord\n\n`".$request->ip().'`'
-                )
-            );
             loggy(request()->ip(), 'Auth', auth()->user(), 'Logged in via Taskord auth with '.auth()->user()->email);
 
             return redirect()->route('home');

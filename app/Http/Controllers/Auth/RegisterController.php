@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Jobs\AuthGetIP;
 use App\Models\User;
-use App\Notifications\Logger;
 use App\Notifications\Welcome;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -80,14 +79,6 @@ class RegisterController extends Controller
             'api_token' => Str::random(60),
         ]);
         AuthGetIP::dispatch($user, request()->ip());
-        $user->notify(
-            new Logger(
-                'AUTH',
-                null,
-                $user,
-                '🎉 New user signed up to Taskord'
-            )
-        );
         loggy(request()->ip(), 'Auth', $user, 'Created account with the email '.$user->email.' from '.request()->ip());
         $user->notify(new Welcome(true));
 
