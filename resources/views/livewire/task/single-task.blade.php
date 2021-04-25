@@ -84,9 +84,11 @@
         @endif
         @endif
         @if ($task->milestone)
-        <div class="mt-2 text-secondary" title="Milestone">
-            <x-heroicon-o-truck class="heroicon me-1" />
-            <span>{{ $task->milestone->name }}</span>
+        <div class="mt-2">
+            <a class="text-secondary" href="{{ route('milestones.milestone', ['id' => $task->milestone->id]) }}" title="Milestone">
+                <x-heroicon-o-truck class="heroicon me-1" />
+                <span>{{ $task->milestone->name }}</span>
+            </a>
         </div>
         @endif
         <div class="pt-3">
