@@ -47,7 +47,7 @@
                 {{ $milestone->name }}
             @endif
         </a>
-        <div class="mt-2 body-font">
+        <div class="mt-2 body-font text-secondary">
             {!! Markdown::parse($milestone->description) !!}
         </div>
         @endif
