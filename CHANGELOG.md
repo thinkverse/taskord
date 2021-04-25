@@ -4,7 +4,7 @@
 
 ### **v1.0.9** (WIP)
 
-- 
+- Ability to **add tasks** to milestones ⛳
 
 ## Released
 
