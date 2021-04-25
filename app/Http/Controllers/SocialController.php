@@ -25,11 +25,8 @@ class SocialController extends Controller
             $userSocial = Socialite::driver($provider)->stateless()->user();
         }
 
-        if ($provider === 'github') {
-            $user = User::where(['github_id' => $userSocial->id])->first();
-        } else {
-            $user = User::where(['email' => $userSocial->getEmail()])->first();
-        }
+        $user = User::where(['email' => $userSocial->getEmail()])->first();
+
         if ($user) {
             Auth::login($user);
             AuthGetIP::dispatch($user, $request->ip());
