@@ -60,7 +60,7 @@
                 @endphp
                 @if ($usersCount > 1)
                 <div class="small mt-1">
-                    <x-heroicon-o-exclamation class="heroicon text-danger" />
+                    <x-heroicon-o-exclamation class="heroicon me-1 text-danger" />
                     <span class="fw-bold">{{ $usersCount }}</span>  {{ $usersCount < 1 ? 'user' : 'users' }} associated with the same IP
                 </div>
                 @endif

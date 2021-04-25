@@ -52,8 +52,7 @@ class SocialController extends Controller
             $avatar = str_replace('http://', 'https://', $userSocial->avatar_original);
         }
 
-        $user = User::create(
-            [
+        $user = User::create([
                 'username'          => $username,
                 'firstname'         => $userSocial->getName(),
                 'email'             => $userSocial->getEmail(),
