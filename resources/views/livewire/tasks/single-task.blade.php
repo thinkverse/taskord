@@ -30,9 +30,11 @@
     </div>
     @endif
     @if ($task->milestone)
-    <div class="my-1 text-secondary" title="Milestone">
-        <x-heroicon-o-truck class="heroicon me-1" />
-        <span>{{ $task->milestone->name }}</span>
+    <div class="my-1" title="Milestone">
+        <a class="text-secondary" href="{{ route('milestones.milestone', ['id' => $task->milestone->id]) }}">
+            <x-heroicon-o-truck class="heroicon me-1" />
+            <span>{{ $task->milestone->name }}</span>
+        </a>
     </div>
     @endif
     <div class="mt-1">
