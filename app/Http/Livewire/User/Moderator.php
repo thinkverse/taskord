@@ -36,24 +36,8 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isBeta) {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Enrolled Beta'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled to Beta | Username: @'.$this->user->username);
             } else {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Un-enrolled Beta'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from Beta | Username: @'.$this->user->username);
             }
         } else {
@@ -71,14 +55,6 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isStaff) {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Enrolled Staff'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled as Staff | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(

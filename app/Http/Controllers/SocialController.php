@@ -34,15 +34,6 @@ class SocialController extends Controller
         if ($user) {
             Auth::login($user);
             AuthGetIP::dispatch($user, $request->ip());
-
-            $user->notify(
-                new Logger(
-                    'AUTH',
-                    null,
-                    $user,
-                    "🔒 User logged in to Taskord\n\n`".$request->ip().'`'
-                )
-            );
             loggy(request()->ip(), 'Auth', $user, 'Logged in via Social auth');
 
             return redirect()->route('home');
@@ -90,15 +81,6 @@ class SocialController extends Controller
         }
 
         Auth::login($user);
-
-        $user->notify(
-            new Logger(
-                'AUTH',
-                null,
-                $user,
-                '🎉 New user signed up to Taskord'
-            )
-        );
         $user->notify(new Welcome(true));
         loggy(
             request()->ip(),
