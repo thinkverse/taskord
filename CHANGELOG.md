@@ -6,6 +6,7 @@
 
 - Ability to **add tasks** to milestones ⛳
 - Enable more security using **Cloudflare Access** for admins 🔑
+- New feature **announcement** on homepage sidebar 🔊
 
 ## Released
 
