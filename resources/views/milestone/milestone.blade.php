@@ -23,7 +23,7 @@
             @livewire('milestone.tasks', [
                 'milestone' => $milestone,
                 'page' => 1,
-                'perPage' => 3
+                'perPage' => 1
             ])
         </div>
         <div class="col-sm">

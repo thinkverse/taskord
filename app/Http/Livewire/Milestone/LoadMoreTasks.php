@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Product;
+namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
 use App\Models\Task;
@@ -19,7 +19,7 @@ class LoadMoreTasks extends Component
     public $loadMore;
     public $readyToLoad = true;
 
-    public function mount($product, $page = 1)
+    public function mount($milestone, $page = 1)
     {
         $this->milestone = $milestone;
         $this->page = $page + 1;
@@ -34,7 +34,7 @@ class LoadMoreTasks extends Component
     public function render()
     {
         if ($this->loadMore) {
-            $tasks = Task::select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id', 'source', 'images', 'type', 'hidden')
+            $tasks = Task::select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id', 'milestone_id', 'source', 'images', 'type', 'hidden')
                 ->where('milestone_id', $this->milestone->id)
                 ->orderBy('created_at', 'desc')
                 ->paginate(10, null, null, $this->page);
