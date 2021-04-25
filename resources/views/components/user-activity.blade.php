@@ -44,6 +44,9 @@
                     @if ($activity->getExtraProperty('type') === 'Product')
                         📦 Product
                     @endif
+                    @if ($activity->getExtraProperty('type') === 'Milestone')
+                        ⛳ Milestone
+                    @endif
                     @if ($activity->getExtraProperty('type') === 'Notification')
                         🔔 Notification
                     @endif
