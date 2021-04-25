@@ -20,6 +20,7 @@ class SelectMilestone extends Component
         $this->task->milestone()->disassociate();
         $this->task->save();
         $this->emitUp('addedToMilestone');
+        loggy(request()->ip(), 'Milestone', auth()->user(), 'Removed milestone from the task | Task ID: '.$this->task->id);
 
         return $this->alert('success', 'Milestone has been removed from the task!');
     }
@@ -30,6 +31,7 @@ class SelectMilestone extends Component
         $this->task->milestone()->associate($milestone);
         $this->task->save();
         $this->emitUp('addedToMilestone');
+        loggy(request()->ip(), 'Milestone', auth()->user(), 'Added milestone to the task | Task ID: '.$this->task->id);
 
         return $this->alert('success', 'Task has been added to the milestone #'.$milestone->id);
     }
