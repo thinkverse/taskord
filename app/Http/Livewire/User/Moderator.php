@@ -91,14 +91,6 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isPrivate) {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Enrolled Private account'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled as private user | Username: @'.$this->user->username);
             } else {
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from private user | Username: @'.$this->user->username);
@@ -120,14 +112,6 @@ class Moderator extends Component
             if ($this->user->isFlagged) {
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Flagged the user | Username: @'.$this->user->username);
             } else {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Un-flagged'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Un-flagged the user | Username: @'.$this->user->username);
             }
         } else {
@@ -167,14 +151,6 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->isPatron) {
                 $this->user->notify(new PatronGifted(true));
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Enrolled Patron'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled as Patron | Username: @'.$this->user->username);
             } else {
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from Patron | Username: @'.$this->user->username);
@@ -192,14 +168,6 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->isVerified) {
                 $this->user->notify(new UserVerified(true));
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Verified'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Verified the user | Username: @'.$this->user->username);
             } else {
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Un-verified the user | Username: @'.$this->user->username);
@@ -218,14 +186,6 @@ class Moderator extends Component
             if ($this->user->darkMode) {
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled to Dark mode | Username: @'.$this->user->username);
             } else {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Disabled Darkmode'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from Dark mode | Username: @'.$this->user->username);
             }
         } else {
@@ -239,14 +199,6 @@ class Moderator extends Component
             if ($this->user->id === 1) {
                 return false;
             }
-            $this->user->notify(
-                new Logger(
-                    'MOD',
-                    auth()->user(),
-                    $this->user,
-                    'Masqueraded'
-                )
-            );
             loggy(request()->ip(), 'Admin', auth()->user(), 'Masqueraded | Username: @'.$this->user->username);
             Auth::loginUsingId($this->user->id);
 
@@ -264,14 +216,6 @@ class Moderator extends Component
             $user->timestamps = false;
             $user->avatar = 'https://avatar.tobi.sh/'.md5($user->email).'.svg?text='.strtoupper(substr($user->username, 0, 2));
             $user->save();
-            $this->user->notify(
-                new Logger(
-                    'MOD',
-                    auth()->user(),
-                    $this->user,
-                    'Resetted avatar'
-                )
-            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -287,14 +231,6 @@ class Moderator extends Component
             $user->username = strtolower(Str::random(6));
             $user->save();
             loggy(request()->ip(), 'Admin', auth()->user(), 'Released the username | Username: @'.$user->username);
-            $this->user->notify(
-                new Logger(
-                    'MOD',
-                    auth()->user(),
-                    $this->user,
-                    'Released the username'
-                )
-            );
 
             return redirect()->route('user.done', ['username' => $user->username]);
         } else {
@@ -314,14 +250,6 @@ class Moderator extends Component
                 }
             }
             $user->tasks()->delete();
-            $this->user->notify(
-                new Logger(
-                    'MOD',
-                    auth()->user(),
-                    $this->user,
-                    'Deleted all tasks'
-                )
-            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -336,14 +264,6 @@ class Moderator extends Component
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->comments()->delete();
-            $this->user->notify(
-                new Logger(
-                    'MOD',
-                    auth()->user(),
-                    $this->user,
-                    'Deleted all comments'
-                )
-            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -358,14 +278,6 @@ class Moderator extends Component
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->questions()->delete();
-            $this->user->notify(
-                new Logger(
-                    'MOD',
-                    auth()->user(),
-                    $this->user,
-                    'Deleted all questions'
-                )
-            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -380,14 +292,6 @@ class Moderator extends Component
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->answers()->delete();
-            $this->user->notify(
-                new Logger(
-                    'MOD',
-                    auth()->user(),
-                    $this->user,
-                    'Deleted all answers'
-                )
-            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -410,14 +314,6 @@ class Moderator extends Component
                 }
             }
             $user->ownedProducts()->delete();
-            $this->user->notify(
-                new Logger(
-                    'MOD',
-                    auth()->user(),
-                    $this->user,
-                    'Deleted all products'
-                )
-            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
