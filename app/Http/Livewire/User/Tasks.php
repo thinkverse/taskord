@@ -33,13 +33,12 @@ class Tasks extends Component
 
     public function getTasks()
     {
-        return Task::select('id', 'task', 'done', 'type', 'created_at', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
-            ->where([
+        return Task::where([
                 ['user_id', $this->user->id],
                 ['done', $this->type === 'user.done' ? true : false],
             ])
             ->orderBy('done_at', 'desc')
-            ->paginate(10, null, null, $this->page);
+            ->paginate(10, '*', null, $this->page);
     }
 
     public function render()
