@@ -14,6 +14,10 @@ use Livewire\Component;
 
 class SingleTask extends Component
 {
+    public $listeners = [
+        'addedToMilestone' => 'render',
+    ];
+
     public Task $task;
     public $confirming;
 
@@ -81,5 +85,10 @@ class SingleTask extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
+    }
+
+    public function render()
+    {
+        return view('livewire.tasks.single-task');
     }
 }

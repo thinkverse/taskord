@@ -29,6 +29,12 @@
     @endforeach
     </div>
     @endif
+    @if ($task->milestone)
+    <div class="mt-2 text-secondary" title="Milestone">
+        <x-heroicon-o-truck class="heroicon me-1" />
+        <span>{{ $task->milestone->name }}</span>
+    </div>
+    @endif
     <span class="d-flex small float-end ms-auto">
         <span class="fw-bold me-2">
             @if ($task->due_at)
@@ -36,12 +42,17 @@
             @endif
         </span>
         @if (auth()->user()->id === $task->user->id)
+            @if (auth()->user()->isBeta)
+            @livewire('task.select-milestone', [
+                'task' => $task
+            ])
+            @endif
             @if ($confirming === $task->id)
-            <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled" aria-label="Confirm Delete">
+            <button type="button" class="btn btn-task btn-danger ms-2" wire:click="deleteTask" wire:loading.attr="disabled" aria-label="Confirm Delete">
                 Are you sure?
             </button>
             @else
-            <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" aria-label="Delete">
+            <button type="button" class="btn btn-task btn-outline-danger ms-2" wire:click="confirmDelete" wire:loading.attr="disabled" aria-label="Delete">
                 <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
             </button>
             @endif
