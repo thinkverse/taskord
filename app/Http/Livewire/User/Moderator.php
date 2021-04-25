@@ -57,14 +57,6 @@ class Moderator extends Component
             if ($this->user->isStaff) {
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled as Staff | Username: @'.$this->user->username);
             } else {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Un-enrolled Staff'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from Staff | Username: @'.$this->user->username);
             }
         } else {
@@ -80,24 +72,8 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->isDeveloper) {
                 $this->user->notify(new ContributorEnabled(true));
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Enrolled Contributor'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled as Contributor | Username: @'.$this->user->username);
             } else {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Un-enrolled Contributor'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from Contributor | Username: @'.$this->user->username);
             }
         } else {
@@ -125,14 +101,6 @@ class Moderator extends Component
                 );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled as private user | Username: @'.$this->user->username);
             } else {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Un-enrolled Private account'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from private user | Username: @'.$this->user->username);
             }
         } else {
@@ -150,14 +118,6 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isFlagged) {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Flagged'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Flagged the user | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
@@ -190,24 +150,8 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isSuspended) {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Suspended'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Suspended the user | Username: @'.$this->user->username);
             } else {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Un-suspended'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Un-suspended the user | Username: @'.$this->user->username);
             }
         } else {
@@ -233,14 +177,6 @@ class Moderator extends Component
                 );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled as Patron | Username: @'.$this->user->username);
             } else {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Un-enrolled Patron'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Un-enrolled from Patron | Username: @'.$this->user->username);
             }
         } else {
@@ -266,14 +202,6 @@ class Moderator extends Component
                 );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Verified the user | Username: @'.$this->user->username);
             } else {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Un-verified'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Un-verified the user | Username: @'.$this->user->username);
             }
         } else {
@@ -288,14 +216,6 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->darkMode) {
-                $this->user->notify(
-                    new Logger(
-                        'MOD',
-                        auth()->user(),
-                        $this->user,
-                        'Enabled Darkmode'
-                    )
-                );
                 loggy(request()->ip(), 'Admin', auth()->user(), 'Enrolled to Dark mode | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
