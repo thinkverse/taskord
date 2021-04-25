@@ -19,10 +19,17 @@ class Progress extends Component
     {
         $completed = $this->milestone->tasks()->where('done', true)->count();
         $pending = $this->milestone->tasks()->where('done', false)->count();
+        $total = $this->milestone->tasks()->count();
+        if ($total != 0) {
+            $percent = number_format($completed/$total * 100, 0);
+        } else {
+            $percent = 0;
+        }
 
         return view('livewire.milestone.progress', [
             'completed' => $completed,
             'pending' => $pending,
+            'percent' => $percent,
         ]);
     }
 }
