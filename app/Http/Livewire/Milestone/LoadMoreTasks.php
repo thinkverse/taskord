@@ -34,10 +34,9 @@ class LoadMoreTasks extends Component
     public function render()
     {
         if ($this->loadMore) {
-            $tasks = Task::select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id', 'milestone_id', 'source', 'images', 'type', 'hidden')
-                ->where('milestone_id', $this->milestone->id)
+            $tasks = Task::where('milestone_id', $this->milestone->id)
                 ->orderBy('created_at', 'desc')
-                ->paginate(10, null, null, $this->page);
+                ->paginate(10, '*', null, $this->page);
 
             return view('livewire.milestone.tasks', [
                 'tasks' => $tasks,
