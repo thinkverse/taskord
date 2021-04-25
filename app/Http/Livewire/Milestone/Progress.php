@@ -9,10 +9,16 @@ use App\Models\Task;
 class Progress extends Component
 {
     public Milestone $milestone;
+    public $readyToLoad = false;
 
     public function mount($milestone)
     {
         $this->milestone = $milestone;
+    }
+    
+    public function loadProgress()
+    {
+        $this->readyToLoad = true;
     }
 
     public function render()
@@ -27,9 +33,9 @@ class Progress extends Component
         }
 
         return view('livewire.milestone.progress', [
-            'completed' => $completed,
-            'pending' => $pending,
-            'percent' => $percent,
+            'completed' => $this->readyToLoad ? $completed : 0,
+            'pending' => $this->readyToLoad ? $pending : 0,
+            'percent' => $this->readyToLoad ? $percent : 0,
         ]);
     }
 }

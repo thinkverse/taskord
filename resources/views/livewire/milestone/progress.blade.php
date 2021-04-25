@@ -1,4 +1,7 @@
-<div>
+<div wire:init="loadProgress">
+    @if (!$readyToLoad)
+    <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
+    @else
     <div class="progress w-50" style="height:6px" title="{{ $percent }}% completed">
         <div class="progress-bar bg-success" role="progressbar" style="width: {{ $percent }}%;" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
@@ -10,4 +13,5 @@
             <span class="fw-bold">{{ $pending }}</span> pending
         </span>
     </div>
+    @endif
 </div>
