@@ -40,8 +40,18 @@
         @if ($milestone->hidden)
         <span class="task-font fst-italic text-secondary">Milestone was hidden by moderator</span>
         @else
+        <a href="{{ route('milestones.milestone', ['id' => $milestone->id]) }}" class="h5 align-text-top fw-bold text-dark">
+            @if ($type !== "milestones.milestone")
+                {{ Str::words($milestone->name, '10') }}
+            @else
+                {{ $milestone->name }}
+            @endif
+        </a>
+        <div class="mt-2 body-font">
+            {!! Markdown::parse($milestone->description) !!}
+        </div>
+        @endif
         @if ($milestone->start_date or $milestone->end_date)
-        <div class="mb-3">
             @if ($milestone->start_date)
             <div class="mb-1">
                 <x-heroicon-o-calendar class="heroicon-1x" />
@@ -57,18 +67,6 @@
                 Due by <b class="{{ $past_due ? 'text-danger' : 'text-dark' }}">{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
             </div>
             @endif
-        </div>
-        @endif
-        <a href="{{ route('milestones.milestone', ['id' => $milestone->id]) }}" class="h5 align-text-top fw-bold text-dark">
-            @if ($type !== "milestones.milestone")
-                {{ Str::words($milestone->name, '10') }}
-            @else
-                {{ $milestone->name }}
-            @endif
-        </a>
-        <div class="mt-2 body-font">
-            {!! Markdown::parse($milestone->description) !!}
-        </div>
         @endif
         <div class="mt-3">
             @auth
