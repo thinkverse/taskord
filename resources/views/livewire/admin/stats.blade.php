@@ -22,7 +22,8 @@
                     </div>
                     <div class="card-body">
                         <div class="h5 mb-0">
-                            {{ $stats['tasks'] }} Tasks
+                            {{ $stats['tasks'] }}
+                            <span class="fw-light">Tasks</span>
                         </div>
                         <hr />
                         <div>
@@ -40,7 +41,8 @@
                     </div>
                     <div class="card-body">
                         <div class="h5 mb-0">
-                            {{ $stats['users'] }} Users
+                            {{ $stats['users'] }}
+                            <span class="fw-light">Users</span>
                         </div>
                         <hr />
                         <div>
@@ -58,6 +60,7 @@
                     <div class="card-body">
                         <div class="h5 mb-0">
                             {{ $stats['products'] }}
+                            <span class="fw-light">Products</span>
                         </div>
                         <hr />
                         <div>
@@ -76,6 +79,12 @@
                     <div class="card-body">
                         <div class="h5 mb-0">
                             {{ $stats['questions'] }}
+                            <span class="fw-light">Questions</span>
+                        </div>
+                        <hr />
+                        <div>
+                            <span>Answered: <b>{{ $stats['questions_answered'] }}</b></span>
+                            <span class="ms-1">Unanswered: <b>{{ $stats['questions_unanswered'] }}</b></span>
                         </div>
                     </div>
                 </div>
@@ -89,6 +98,7 @@
                     <div class="card-body">
                         <div class="h5 mb-0">
                             {{ $stats['answers'] }}
+                            <span class="fw-light">Answers</span>
                         </div>
                     </div>
                 </div>
@@ -102,6 +112,7 @@
                     <div class="card-body">
                         <div class="h5 mb-0">
                             {{ $stats['comments'] }}
+                            <span class="fw-light">Comments</span>
                         </div>
                     </div>
                 </div>
@@ -115,6 +126,7 @@
                     <div class="card-body">
                         <div class="h5 mb-0">
                             {{ $stats['milestones'] }}
+                            <span class="fw-light">Milestones</span>
                         </div>
                     </div>
                 </div>
@@ -131,6 +143,7 @@
                     <div class="card-body">
                         <div class="h5 mb-0">
                             {{ $stats['reputations'] }}
+                            <span class="fw-light">Reputations</span>
                         </div>
                     </div>
                 </div>
@@ -144,6 +157,7 @@
                     <div class="card-body">
                         <div class="h5 mb-0">
                             {{ $stats['praises'] }}
+                            <span class="fw-light">Praises</span>
                         </div>
                     </div>
                 </div>
@@ -157,6 +171,7 @@
                     <div class="card-body">
                         <div class="h5 mb-0">
                             {{ $stats['notifications'] }}
+                            <span class="fw-light">Notifications</span>
                         </div>
                     </div>
                 </div>
@@ -170,6 +185,7 @@
                     <div class="card-body">
                         <div class="h5 mb-0">
                             {{ $stats['webhooks'] }}
+                            <span class="fw-light">Webhooks</span>
                         </div>
                     </div>
                 </div>
@@ -183,6 +199,7 @@
                     <div class="card-body">
                         <div class="h5 mb-0">
                             {{ $stats['interactions'] }}
+                            <span class="fw-light">Interactions</span>
                         </div>
                     </div>
                 </div>
@@ -196,6 +213,7 @@
                     <div class="card-body">
                         <div class="h5 mb-0">
                             {{ $stats['logs'] }}
+                            <span class="fw-light">Logs</span>
                         </div>
                     </div>
                 </div>
