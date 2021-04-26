@@ -24,7 +24,7 @@ class Today extends Component
         return Task::where('user_id', auth()->user()->id)
             ->whereDate('created_at', carbon('today'))
             ->where('done', false)
-            ->latest('due_at')
+            ->latest()
             ->get();
     }
 
