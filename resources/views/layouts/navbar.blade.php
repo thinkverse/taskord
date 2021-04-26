@@ -3,7 +3,7 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             @auth
             @if (auth()->user()->isBeta)
-            <img loading=lazy src="/images/beta.svg" height="35" alt="Taskord Beta">
+            <img loading=lazy src="/images/beta.svg" height="35" alt="Taskord Beta" title="Taskord Beta">
             @else
             <img loading=lazy src="/images/logo.svg" height="35" alt="Taskord">
             @endif
