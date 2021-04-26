@@ -1,11 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\File;
+
 return [
 
     'dsn' => env('SENTRY_LARAVEL_DSN', env('SENTRY_DSN')),
 
     // capture release as git sha
-    'release' => 'Taskord v'.$version,
+    'release' => 'Taskord v'.File::get('../VERSION'),
 
     'breadcrumbs' => [
         // Capture Laravel logs in breadcrumbs
