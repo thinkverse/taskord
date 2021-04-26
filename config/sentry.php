@@ -5,7 +5,7 @@ return [
     'dsn' => env('SENTRY_LARAVEL_DSN', env('SENTRY_DSN')),
 
     // capture release as git sha
-    'release' => 'Taskord v'.config('app.version'),
+    'release' => 'Taskord v'.$version,
 
     'breadcrumbs' => [
         // Capture Laravel logs in breadcrumbs
