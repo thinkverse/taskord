@@ -7,6 +7,10 @@ use Livewire\Component;
 
 class Progress extends Component
 {
+    public $listeners = [
+        'taskChecked' => 'render',
+    ];
+
     public Milestone $milestone;
     public $readyToLoad = false;
 

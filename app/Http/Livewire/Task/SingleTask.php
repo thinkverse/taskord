@@ -61,7 +61,7 @@ class SingleTask extends Component
                 }
                 $this->task->done = ! $this->task->done;
                 $this->task->save();
-                $this->emitUp('taskChecked');
+                $this->emit('taskChecked');
 
                 return true;
             } else {
