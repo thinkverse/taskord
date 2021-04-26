@@ -13,9 +13,9 @@
     </form>
     <ul class="position-absolute mt-2 w-50 list-group shadow-sm search-dropdown" style="z-index:3">
         @if (!empty($query))
-        <li class="list-group-item text-dark">
-            <x-heroicon-o-check class="heroicon" />
-            <span class="h5">Tasks</span>
+        <li class="align-items-center d-flex list-group-item">
+            <x-heroicon-o-check class="heroicon me-1" />
+            <span class="h5 mb-0">Tasks</span>
         </li>
         @if (count($tasks) > 0)
             @foreach ($tasks as $task)
@@ -40,9 +40,9 @@
         @else
             <li class="list-group-item">We couldn’t find any tasks matching <span class="fw-bold">{{ $query }}</span>!</li>
         @endif
-        <li class="list-group-item text-dark">
-            <x-heroicon-o-users class="heroicon" />
-            <span class="h5">Users</span>
+        <li class="align-items-center d-flex list-group-item">
+            <x-heroicon-o-users class="heroicon me-1" />
+            <span class="h5 mb-0">Users</span>
         </li>
         @if (count($users) > 0)
             @foreach ($users as $user)
@@ -68,9 +68,9 @@
         @else
             <li class="list-group-item">We couldn’t find any users matching <span class="fw-bold">{{ $query }}</span>!</li>
         @endif
-        <li class="list-group-item text-dark">
-            <x-heroicon-o-cube class="heroicon" />
-            <span class="h5">Products</span>
+        <li class="align-items-center d-flex list-group-item">
+            <x-heroicon-o-cube class="heroicon me-1" />
+            <span class="h5 mb-0">Products</span>
         </li>
         @if (count($products) > 0)
             @foreach ($products as $product)
@@ -89,9 +89,9 @@
         @else
             <li class="list-group-item">We couldn’t find any products matching <span class="fw-bold">{{ $query }}</span>!</li>
         @endif
-        <li class="list-group-item text-dark">
-            <x-heroicon-o-question-mark-circle class="heroicon" />
-            <span class="h5">Questions</span>
+        <li class="align-items-center d-flex list-group-item">
+            <x-heroicon-o-question-mark-circle class="heroicon me-1" />
+            <span class="h5 mb-0">Questions</span>
         </li>
         @if (count($questions) > 0)
             @foreach ($questions as $question)
