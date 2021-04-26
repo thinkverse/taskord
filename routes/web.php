@@ -204,6 +204,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     Route::get('sitemap_questions.txt', [SitemapController::class, 'questions']);
     Route::get('sitemap_tasks.txt', [SitemapController::class, 'tasks']);
     Route::get('sitemap_comments.txt', [SitemapController::class, 'comments']);
+    Route::get('sitemap_milestones.txt', [SitemapController::class, 'milestones']);
     Route::view('sitemap_urls.txt', 'seo.sitemap_urls');
 
     // Status

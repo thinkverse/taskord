@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Product;
 use App\Models\Question;
+use App\Models\Milestone;
 use App\Models\Task;
 use App\Models\User;
 
@@ -61,6 +62,17 @@ class SitemapController extends Controller
 
         return view('seo.sitemap_comments', [
             'comments' => $comments,
+        ]);
+    }
+
+    public function milestones()
+    {
+        $milestones = Milestone::select('id', 'hidden')
+            ->where('hidden', false)
+            ->get();
+
+        return view('seo.sitemap_milestones', [
+            'milestones' => $milestones,
         ]);
     }
 }
