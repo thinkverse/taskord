@@ -40,13 +40,25 @@ class LoadMore extends Component
     public function render()
     {
         if ($this->loadMore) {
-            $milestones = Milestone::whereHas('user', function ($q) {
-                $q->where([
-                    ['isFlagged', false],
-                ]);
-            })
-                ->latest()
-                ->get();
+            if ($this->type === 'milestones.opened') {
+                $milestones = Milestone::where('status', true)
+                    ->whereHas('user', function ($q) {
+                        $q->where([
+                            ['isFlagged', false],
+                        ]);
+                    })
+                    ->latest()
+                    ->get();
+            } elseif ($this->type === 'milestones.closed') {
+                $milestones = Milestone::where('status', false)
+                    ->whereHas('user', function ($q) {
+                        $q->where([
+                            ['isFlagged', false],
+                        ]);
+                    })
+                    ->latest()
+                    ->get();
+            }
 
             return view('livewire.milestone.milestones', [
                 'milestones' => $this->paginate($milestones),
