@@ -143,7 +143,7 @@ if (! function_exists('markdown')) {
             'html_input' => 'strip',
             'allow_unsafe_links' => false,
         ]);
-        
+
         return $converter->convertToHtml($content);
     }
 }
