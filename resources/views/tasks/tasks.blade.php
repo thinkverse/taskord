@@ -11,7 +11,6 @@
                 @livewire('tasks.create-task')
                 @endif
             @endauth
-            @livewire('tasks.today')
             @livewire('tasks.all-time')
         </div>
     </div>
