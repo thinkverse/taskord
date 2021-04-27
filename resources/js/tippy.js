@@ -81,10 +81,10 @@ const init = () => {
     document.getElementsByClassName('user-popover').length > 0 &&
     document.getElementsByClassName('product-popover').length > 0
   ) {
-    initHover()
+    initHover();
   } else {
     setTimeout(() => {
-      init()
+      init();
     }, 300)
   }
 }
