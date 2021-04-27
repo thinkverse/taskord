@@ -1,8 +1,8 @@
-<div wire:init="loadAllTimeTasks">
+<div wire:init="loadAllTasks">
     <div class="card mb-4">
         <div class="card-header h6 pt-3 pb-3">
             <div class="h5">
-                All Time
+                All Tasks
             </div>
             <span class="fw-bold">{{ $readyToLoad ? $tasks->count('id') : '···' }}</span>
             Pending Tasks

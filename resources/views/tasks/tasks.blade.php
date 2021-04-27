@@ -11,7 +11,7 @@
                 @livewire('tasks.create-task')
                 @endif
             @endauth
-            @livewire('tasks.all-time')
+            @livewire('tasks.all-tasks')
         </div>
     </div>
 </div>

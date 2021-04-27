@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Tasks;
 use App\Models\Task;
 use Livewire\Component;
 
-class AllTime extends Component
+class AllTasks extends Component
 {
     public $listeners = [
         'taskChecked' => 'render',
@@ -14,12 +14,12 @@ class AllTime extends Component
     ];
     public $readyToLoad = false;
 
-    public function loadAllTimeTasks()
+    public function loadAllTasks()
     {
         $this->readyToLoad = true;
     }
 
-    public function getAllTimeTasks()
+    public function getAllTasks()
     {
         return Task::where('user_id', auth()->user()->id)
             ->where('done', false)
@@ -29,8 +29,8 @@ class AllTime extends Component
 
     public function render()
     {
-        return view('livewire.tasks.all-time', [
-            'tasks' => $this->readyToLoad ? $this->getAllTimeTasks() : [],
+        return view('livewire.tasks.all-tasks', [
+            'tasks' => $this->readyToLoad ? $this->getAllTasks() : [],
         ]);
     }
 }
