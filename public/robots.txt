@@ -20,3 +20,4 @@ Sitemap: https://taskord.com/sitemap_products.txt
 Sitemap: https://taskord.com/sitemap_questions.txt
 Sitemap: https://taskord.com/sitemap_tasks.txt
 Sitemap: https://taskord.com/sitemap_comments.txt
+Sitemap: https://taskord.com/sitemap_milestones.txt
