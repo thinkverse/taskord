@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
+use Illuminate\Validation\Rules\Password as PasswordRule;
 
 class Password extends Component
 {
@@ -23,12 +24,9 @@ class Password extends Component
     {
         if (Auth::check()) {
             $this->validateOnly($field, [
-                'currentPassword' => 'required',
-                'newPassword' => 'required|min:8|pwned',
-                'confirmPassword' => 'required|same:newPassword',
-            ],
-            [
-                'newPassword.pwned' => 'This password has been pwned before',
+                'currentPassword' => ['required'],
+                'newPassword' => ['required', 'string', PasswordRule::min(8)->uncompromised()],
+                'confirmPassword' => ['required', 'same:newPassword'],
             ]);
         }
     }
@@ -38,12 +36,9 @@ class Password extends Component
         if (Auth::check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
-                    'currentPassword' => 'required',
-                    'newPassword' => 'required|min:8|pwned',
-                    'confirmPassword' => 'required|same:newPassword',
-                ],
-                [
-                    'newPassword.pwned' => 'This password has been pwned before',
+                    'currentPassword' => ['required'],
+                    'newPassword' => ['required', 'string', PasswordRule::min(8)->uncompromised()],
+                    'confirmPassword' => ['required', 'same:newPassword'],
                 ]);
 
                 if (! Hash::check($this->currentPassword, auth()->user()->password)) {
