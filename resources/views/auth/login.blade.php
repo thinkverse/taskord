@@ -16,7 +16,7 @@
                     <img
                         class="mb-4"
                         src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg"
-                        alt=""
+                        alt="Taskord Logo"
                         height="60"
                     >
                     <h1 class="h3 mb-2 fw-bold">
