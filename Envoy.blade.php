@@ -8,3 +8,9 @@
     yarn production
     php artisan app:clean
 @endtask
+@success
+    Taskord has been successfully deployed!
+@endsuccess
+@error
+    Something went wrong while deploying Taskord!
+@enderror
