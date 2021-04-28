@@ -7,6 +7,7 @@ use App\Jobs\Deploy;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
+use Illuminate\Foundation\Application;
 
 class Adminbar extends Component
 {
@@ -36,11 +37,15 @@ class Adminbar extends Component
     }
 
     public function render()
-    {
+    {        
         $branch = git('rev-parse --abbrev-ref HEAD') ?: 'main';
         $commit = git('rev-parse --short HEAD') ?: '0000000';
         $jobs = Queue::size();
-        $cache = Cache::getStore()->getMemcached()->getAllKeys() ?: [];
+        if (env('CACHE_DRIVER') === 'memcached') {
+            $cache = Cache::getStore()->getMemcached()->getAllKeys() ?: [];
+        } else {
+            $cache = [];
+        }
 
         return view('livewire.admin.adminbar', [
             'branchname' => $branch,
