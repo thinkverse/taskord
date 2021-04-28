@@ -21,6 +21,7 @@
         "intervention/image": "2.5.1",
         "irazasyed/telegram-bot-sdk": "3.4.1",
         "jantinnerezo/livewire-alert": "2.1.5",
+        "laravel/envoy": "^2.7",
         "laravel/framework": "8.39.0",
         "laravel/horizon": "5.7.6",
         "laravel/socialite": "5.2.3",
@@ -47,7 +48,6 @@
     "require-dev": {
         "facade/ignition": "2.8.3",
         "fakerphp/faker": "1.14.1",
-        "laravel/envoy": "2.7.0",
         "mockery/mockery": "1.4.3",
         "nunomaduro/collision": "5.4.0",
         "pestphp/pest": "1.0.5",
