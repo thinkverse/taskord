@@ -18,7 +18,7 @@
     @endforeach
     @if ($readyToLoad)
     <div class="text-center">
-        <img class="avatar-100 my-3" src="/images/tada.png" />
+        <img class="avatar-100 my-3" src="https://ik.imagekit.io/taskordimg/tada_UEF5fl7T3.png" />
         <h4>
             That's everything we found for you, for now.
         </h4>
