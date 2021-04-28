@@ -13,7 +13,7 @@ var filesToCache = [
     '/images/icons/icon-384x384.png',
     '/images/icons/icon-512x512.png',
     '/images/logo.svg',
-    '/images/beta.svg',
+    'https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg',
 ];
 
 // Imagekit network based optimization
