@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
 {
@@ -55,10 +56,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'username' => ['required', 'alpha_dash', 'string', 'min:2', 'max:20', 'unique:users'],
             'email' => ['required', 'string', 'email', 'indisposable', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'pwned'],
-        ],
-        [
-            'password.pwned' => 'This password has been pwned before',
+            'password' => ['required', 'string', Password::min(8)->uncompromised()],
         ]);
     }
 
