@@ -30,9 +30,9 @@
 @endtask
 
 @success
-    echo "Taskord has been successfully deployed!";
+    echo "Taskord has been successfully deployed!\n";
 @endsuccess
 
 @error
-    echo "Something went wrong while deploying Taskord!";
+    echo "Something went wrong while deploying Taskord!\n";
 @enderror
