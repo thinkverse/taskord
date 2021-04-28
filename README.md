@@ -6,7 +6,10 @@
 <br>
 <div align="center">
     <a href="https://gitlab.com/yo/taskord/-/commits/main">
-        <img src="https://gitlab.com/yo/taskord/badges/main/pipeline.svg" alt="CI">
+        <img src="https://img.shields.io/gitlab/pipeline/yo/taskord/main?label=build" alt="Build CI">
+    </a>
+    <a href="https://gitlab.com/yo/taskord-deploy/-/commits/main">
+        <img src="https://img.shields.io/gitlab/pipeline/yo/taskord-deploy/master?color=%236a63ec&label=deploy" alt="Deploy">
     </a>
     <a href="https://gitpod.io/#https://gitlab.com/yo/taskord" alt="Codacy">
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
