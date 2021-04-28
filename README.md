@@ -11,6 +11,12 @@
     <a href="https://gitpod.io/#https://gitlab.com/yo/taskord" alt="Codacy">
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
     </a>
+    <a href="https://www.php.net">
+        <img src="https://img.shields.io/badge/PHP-v8.0-green.svg" alt="PHP version">
+    </a>
+    <a href="https://laravel.com">
+        <img src="https://img.shields.io/badge/Laravel-v8.x-brightgreen.svg" alt="Laravel version">
+    </a>
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green?longCache=true" alt="MIT License">
     </a>
