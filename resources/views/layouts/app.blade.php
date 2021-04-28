@@ -17,7 +17,16 @@
     <meta property="og:type" content="article">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>@yield('pageTitle') Taskord</title>
+    @auth
+    @if (auth()->user()->isBeta)
+    <link rel="icon" href="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" sizes="any" type="image/svg+xml">
+    @else
     <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" sizes="any" type="image/svg+xml">
+    @endif
+    @endauth
+    @guest
+    <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" sizes="any" type="image/svg+xml">
+    @endguest
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @laravelPWA
