@@ -11,7 +11,10 @@
     <a href="https://gitlab.com/yo/taskord-deploy/-/pipelines">
         <img src="https://img.shields.io/gitlab/pipeline/yo/taskord-deploy/master?color=%236a63ec&label=deploy" alt="Deploy">
     </a>
-    <a href="https://gitpod.io/#https://gitlab.com/yo/taskord" alt="Codacy">
+    <a href="https://gitlab.com/yo/taskord/-/releases" alt="Taskord version">
+        <img src="https://badgen.net/gitlab/release/yo/taskord" alt="Taskord version">
+    </a>
+    <a href="https://gitpod.io/#https://gitlab.com/yo/taskord" alt="Gitpod">
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
     </a>
     <a href="https://www.php.net">
