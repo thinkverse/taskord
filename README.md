@@ -8,9 +8,6 @@
     <a href="https://gitlab.com/yo/taskord/-/commits/main">
         <img src="https://gitlab.com/yo/taskord/badges/main/pipeline.svg" alt="CI">
     </a>
-    <a href="https://www.codacy.com/gl/yo/taskord/dashboard">
-        <img src="https://app.codacy.com/project/badge/Grade/346b75b6fa564e16958cc7b6c1b5ce2a"/>
-    </a>
     <a href="https://gitpod.io/#https://gitlab.com/yo/taskord" alt="Codacy">
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
     </a>
