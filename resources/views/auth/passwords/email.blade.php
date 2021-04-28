@@ -11,8 +11,8 @@
                 <div class="text-center mb-4">
                     <img
                         class="mb-4"
-                        src="/images/logo.svg"
-                        alt=""
+                        src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg"
+                        alt="Taskord Logo"
                         height="60"
                     >
                     <h1 class="h3 mb-3 fw-bold">

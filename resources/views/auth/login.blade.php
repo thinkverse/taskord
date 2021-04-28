@@ -15,7 +15,7 @@
                 <div class="text-center mb-3">
                     <img
                         class="mb-4"
-                        src="/images/logo.svg"
+                        src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg"
                         alt=""
                         height="60"
                     >

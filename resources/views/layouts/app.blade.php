@@ -8,7 +8,7 @@
     <meta name="description" content="@yield('description')">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@taskord">
-    <meta property="og:logo" content="/images/logo.svg">
+    <meta property="og:logo" content="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg">
     <meta property="og:site_name" content="Taskord">
     <meta property="og:title" content="@yield('title') Taskord">
     <meta property="og:description" content="@yield('description')">
@@ -17,7 +17,7 @@
     <meta property="og:type" content="article">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>@yield('pageTitle') Taskord</title>
-    <link rel="icon" href="/images/logo.svg" sizes="any" type="image/svg+xml">
+    <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" sizes="any" type="image/svg+xml">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @laravelPWA

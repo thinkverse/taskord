@@ -5,11 +5,11 @@
             @if (auth()->user()->isBeta)
             <img loading=lazy src="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" height="35" alt="Taskord Beta" title="Taskord Beta">
             @else
-            <img loading=lazy src="/images/logo.svg" height="35" alt="Taskord">
+            <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
             @endif
             @endauth
             @guest
-            <img loading=lazy src="/images/logo.svg" height="35" alt="Taskord">
+            <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
             @endguest
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

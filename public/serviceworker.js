@@ -12,7 +12,7 @@ var filesToCache = [
     '/images/icons/icon-192x192.png',
     '/images/icons/icon-384x384.png',
     '/images/icons/icon-512x512.png',
-    '/images/logo.svg',
+    'https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg',
     'https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg',
 ];
 
