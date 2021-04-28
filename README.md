@@ -11,10 +11,10 @@
     <a href="https://gitlab.com/yo/taskord-deploy/-/pipelines">
         <img src="https://img.shields.io/gitlab/pipeline/yo/taskord-deploy/master?color=%236a63ec&label=deploy" alt="Deploy">
     </a>
-    <a href="https://gitpod.io/#https://gitlab.com/yo/taskord" alt="Gitpod">
+    <a href="https://gitpod.io/#https://gitlab.com/yo/taskord">
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
     </a>
-    <a href="https://gitlab.com/yo/taskord/-/releases" alt="Taskord version">
+    <a href="https://gitlab.com/yo/taskord/-/releases">
         <img src="https://badgen.net/gitlab/release/yo/taskord" alt="Taskord version">
     </a>
     <a href="https://www.php.net">
@@ -25,6 +25,9 @@
     </a>
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green?longCache=true" alt="MIT License">
+    </a>
+    <a href="https://gitlab.com/yo/taskord/-/commits/main">
+        <img src="https://badgen.net/gitlab/last-commit/yo/taskord" alt="Last commit">
     </a>
     <a href="https://discord.gg/9M4Q65b">
         <img src="https://img.shields.io/discord/742712073670230026.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2" alt="Discord">
