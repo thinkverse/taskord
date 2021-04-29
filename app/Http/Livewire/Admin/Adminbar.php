@@ -36,7 +36,7 @@ class Adminbar extends Component
     }
 
     public function render()
-    {        
+    {
         $branch = git('rev-parse --abbrev-ref HEAD') ?: 'main';
         $commit = git('rev-parse --short HEAD') ?: '0000000';
         $jobs = Queue::size();
