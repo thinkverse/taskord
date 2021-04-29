@@ -18,7 +18,7 @@ class CreateFeaturesTable extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('description');
-            $table->boolean('enabled')->default(false);
+            $table->boolean('staff')->default(false);
             $table->boolean('beta')->default(false);
             $table->timestamps();
         });

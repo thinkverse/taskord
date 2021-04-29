@@ -23,17 +23,11 @@ class Feature extends Model
         if (Auth::check()) {
             $feature = self::where('slug', $slug)->first();
             if (Auth::user()->staffShip) {
-                return true;
+                return $feature->staff ? true : false;
+            } else if (Auth::user()->isBeta) {
+                return $feature->beta ? true : false;
             } else {
-                if ($feature->enabled) {
-                    if (Auth::user()->isBeta) {
-                        return $feature->beta ? true : false;
-                    } else {
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
+                return false;
             }
         } else {
             return false;

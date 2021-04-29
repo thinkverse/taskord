@@ -8,28 +8,25 @@ use Livewire\Component;
 class SingleFeature extends Component
 {
     public Feature $feature;
-    public $status;
+    public $staffStatus;
     public $betaStatus;
 
     public function mount($feature)
     {
         $this->feature = $feature;
-        $this->status = $feature->enabled;
+        $this->staffStatus = $feature->staff;
         $this->betaStatus = $feature->beta;
     }
 
     public function betaToggle()
     {
         $this->feature->beta = $this->betaStatus;
-        if ($this->feature->beta) {
-            $this->feature->enabled = $this->betaStatus;
-        }
         $this->feature->save();
     }
 
-    public function toggleFeature()
+    public function staffToggle()
     {
-        $this->feature->enabled = $this->status;
+        $this->feature->staff = $this->staffStatus;
         $this->feature->save();
     }
 
