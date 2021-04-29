@@ -154,7 +154,7 @@ if (! function_exists('feature')) {
     {
         try {
             return Feature::enabled($slug);
-        } catch(Throwable $e) {
+        } catch (Throwable $e) {
             return false;
         }
     }
