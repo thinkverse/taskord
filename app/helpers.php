@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Jobs\LogActivity;
 use App\Models\User;
+use App\Models\Feature;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
@@ -145,5 +146,12 @@ if (! function_exists('markdown')) {
         ]);
 
         return $converter->convertToHtml($content);
+    }
+}
+
+if (! function_exists('feature')) {
+    function feature($slug)
+    {
+        return Feature::enabled($slug);
     }
 }

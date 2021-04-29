@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container-md">
-    {{ App\Models\Feature::enabled('yoginth') }}
         <a class="navbar-brand" href="{{ url('/') }}">
             @auth
             @if (auth()->user()->isBeta)
