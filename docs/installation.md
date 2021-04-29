@@ -171,6 +171,7 @@ server {
         fastcgi_pass unix:/run/php/php8.0-fpm.sock;
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        add_header Permissions-Policy interest-cohort=();
         include fastcgi_params;
     }
 }
