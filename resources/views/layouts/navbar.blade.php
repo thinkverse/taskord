@@ -32,6 +32,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-white fw-bold" href="{{ route('tasks') }}">
                         Tasks
+                        {{ feature('filip') ? 'enabled' : 'disabled' }}
                     </a>
                 </li>
                 @endauth

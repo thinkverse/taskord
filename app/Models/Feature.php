@@ -25,7 +25,11 @@ class Feature extends Model
             if (Auth::user()->staffShip) {
                 return true;
             } else {
-                return $feature->enabled ? true : false;
+                if ($feature->enabled) {
+                    return $feature->beta ? true : false;
+                } else {
+                    return true;
+                }
             }
         } else {
             return false;
