@@ -11,6 +11,10 @@
                 <label class="form-check-label" for="staffCheckBox">Promote to <b>staff</b></label>
             </div>
             <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="contributorCheckBox" wire:click="contributorToggle" wire:model="contributorStatus">
+                <label class="form-check-label" for="contributorCheckBox">Promote to <b>contributors</b></label>
+            </div>
+            <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="betaCheckBox" wire:click="betaToggle" wire:model="betaStatus">
                 <label class="form-check-label" for="betaCheckBox">Promote to <b>beta</b></label>
             </div>

@@ -26,6 +26,8 @@ class Feature extends Model
                 return $feature->staff ? true : false;
             } elseif (Auth::user()->isBeta) {
                 return $feature->beta ? true : false;
+            }  elseif (Auth::user()->isDeveloper) {
+                return $feature->contributor ? true : false;
             } else {
                 return false;
             }

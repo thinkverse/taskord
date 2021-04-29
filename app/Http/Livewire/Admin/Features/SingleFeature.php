@@ -9,13 +9,24 @@ class SingleFeature extends Component
 {
     public Feature $feature;
     public $staffStatus;
+    public $contributorStatus;
     public $betaStatus;
 
     public function mount($feature)
     {
         $this->feature = $feature;
         $this->staffStatus = $feature->staff;
+        $this->contributorStatus = $feature->contributor;
         $this->betaStatus = $feature->beta;
+    }
+
+    public function contributorToggle()
+    {
+        $this->feature->contributor = $this->contributorStatus;
+        if ($this->contributorStatus) {
+            $this->feature->staff = true;
+        }
+        $this->feature->save();
     }
 
     public function betaToggle()
@@ -23,6 +34,7 @@ class SingleFeature extends Component
         $this->feature->beta = $this->betaStatus;
         if ($this->betaStatus) {
             $this->feature->staff = true;
+            $this->feature->contributor = true;
         }
         $this->feature->save();
     }
