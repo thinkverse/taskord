@@ -152,6 +152,10 @@ if (! function_exists('markdown')) {
 if (! function_exists('feature')) {
     function feature($slug)
     {
-        return Feature::enabled($slug);
+        try {
+            return Faeture::enabled($slug);
+        } catch(Throwable $e) {
+            return false;
+        }
     }
 }
