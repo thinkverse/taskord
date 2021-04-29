@@ -95,14 +95,7 @@
 <script src="{{ mix('js/bootstrap.js') }}" defer></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
 @if (App::environment() === 'production')
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-98MP737L0B"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    
-    gtag('config', 'G-98MP737L0B');
-</script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0ebade4d5737444ea409cab9471ddb4d"}'></script>
 @endif
 @yield('scripts')
 </html>
