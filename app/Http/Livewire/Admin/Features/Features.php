@@ -9,7 +9,7 @@ class Features extends Component
 {
     public function render()
     {
-        $features = Feature::all();
+        $features = Feature::latest()->get();
 
         return view('livewire.admin.features.features', [
             'features' => $features
