@@ -9,23 +9,28 @@
 @endstory
 
 @task('pull-from-gitlab')
+    echo "Pulling latest changes from GitLab";
     git pull origin main
 @endtask
 
 @task('install-laravel-dependencies')
+    echo "Installing PHP dependencies";
     composer install --no-progress
     composer dump-autoload
 @endtask
 
 @task('install-yarn-dependencies')
+    echo "Install Yarn dependencies";
     yarn install
 @endtask
 
 @task('build-assets')
+    echo "Building CSS and JS assets";
     yarn production
 @endtask
 
 @task('clean-application')
+    echo "Cleaning the Taskord application";
     php artisan app:clean
 @endtask
 
