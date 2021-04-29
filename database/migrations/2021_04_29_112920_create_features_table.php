@@ -20,6 +20,7 @@ class CreateFeaturesTable extends Migration
             $table->text('description');
             $table->boolean('staff')->default(false);
             $table->boolean('beta')->default(false);
+            $table->boolean('contributor')->default(false);
             $table->timestamps();
         });
     }
