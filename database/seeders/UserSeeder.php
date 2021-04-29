@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'lastname' => 'Admin',
             'username' => 'admin',
             'email' => 'admin@taskord.com',
-            'avatar' => 'https://i.imgur.com/QpfHEy6.png',
+            'avatar' => 'https://taskord.com/storage/logos/jKG9nPJJmzZvtKjxSwUxMuXM6AfLyBtw.png',
             'password' => Hash::make('admin'),
             'isPatron' => true,
             'isStaff' => true,
@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
             'isSuspended' => true,
             'isFlagged' => true,
             'email' => 'suspended@taskord.com',
-            'avatar' => 'https://i.imgur.com/QpfHEy6.png',
+            'avatar' => 'https://taskord.com/storage/logos/jKG9nPJJmzZvtKjxSwUxMuXM6AfLyBtw.png',
         ]);
 
         // 4
@@ -51,7 +51,7 @@ class UserSeeder extends Seeder
             'lastname' => 'Unverified',
             'username' => 'unverified',
             'email' => 'unverified@taskord.com',
-            'avatar' => 'https://i.imgur.com/QpfHEy6.png',
+            'avatar' => 'https://taskord.com/storage/logos/jKG9nPJJmzZvtKjxSwUxMuXM6AfLyBtw.png',
             'email_verified_at' => null,
         ]);
 
