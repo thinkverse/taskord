@@ -7,7 +7,7 @@
         </div>
         <div>
         <div class="form-check form-switch">
-            <input class="form-check-input h3" type="checkbox" wire:click="toggleFeature" wire:model="enabled">
+            <input class="form-check-input h3" type="checkbox" wire:click="toggleFeature" wire:model="status">
         </div>
         </div>
     </div>
