@@ -3,7 +3,6 @@
         <div>
             <h3>{{ $feature->name }}</h3>
             <code>{{ $feature->slug }}</code>
-            {{ feature('yoginth') ? 'en' : 'dis' }}
             <div class="mt-2">{{ $feature->description }}</div>
         </div>
         <div>
