@@ -19,5 +19,11 @@ class FeatureSeeder extends Seeder
             'slug' => 'meetups',
             'description' => 'User can host meetups in Taskord',
         ]);
+
+        Feature::factory()->create([
+            'name' => 'Help menu',
+            'slug' => 'help_menu',
+            'description' => 'Help menu in navbar dropdown',
+        ]);
     }
 }

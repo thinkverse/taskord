@@ -62,6 +62,8 @@
                                 <x-staffship background="light" />
                             </a>
                         </li>
+                        @endif
+                        @if (feature('help_menu'))
                         <li>
                             <a class="dropdown-item text-dark" href="#">
                                 <x-heroicon-o-support class="heroicon-1x text-secondary" />
