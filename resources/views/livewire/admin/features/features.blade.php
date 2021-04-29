@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" wire:init="loadFeatures">
     <div class="card-header h6 pt-3 pb-3 d-flex align-items-center justify-content-between">
         <div>
             <div class="h5">Features</div>
@@ -11,11 +11,20 @@
         </div>
     </div>
     <div class="card-body">
+        @if (!$readyToLoad)
+        <div class="card-body text-center mt-3">
+            <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+            <div class="h6">
+                Loading features...
+            </div>
+        </div>
+        @else
         @foreach ($features as $feature)
             @livewire('admin.features.single-feature', [
                 'feature' => $feature
             ], key($feature->id))
         @endforeach
+        @endif
     </div>
     @livewire('admin.features.create-feature')
 </div>
