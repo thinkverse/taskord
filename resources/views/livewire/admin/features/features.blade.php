@@ -3,7 +3,7 @@
         <div class="h5">Features</div>
         Taskord Feature flags
     </div>
-    <div class="table-responsive">
-        WIP
+    <div class="card-body">
+        @livewire('admin.features.feature')
     </div>
 </div>
