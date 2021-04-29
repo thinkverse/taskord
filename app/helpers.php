@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use App\Jobs\LogActivity;
-use App\Models\User;
 use App\Models\Feature;
+use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
@@ -154,7 +154,7 @@ if (! function_exists('feature')) {
     {
         try {
             return Faeture::enabled($slug);
-        } catch(Throwable $e) {
+        } catch (Throwable $e) {
             return false;
         }
     }

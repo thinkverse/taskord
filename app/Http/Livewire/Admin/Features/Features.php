@@ -12,7 +12,7 @@ class Features extends Component
         $features = Feature::latest()->get();
 
         return view('livewire.admin.features.features', [
-            'features' => $features
+            'features' => $features,
         ]);
     }
 }

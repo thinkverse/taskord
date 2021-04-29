@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Rennokki\QueryCache\Traits\QueryCacheable;
 use Illuminate\Support\Facades\Auth;
+use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Feature extends Model
 {
@@ -24,7 +24,7 @@ class Feature extends Model
             $feature = self::where('slug', $slug)->first();
             if (Auth::user()->staffShip) {
                 return $feature->staff ? true : false;
-            } else if (Auth::user()->isBeta) {
+            } elseif (Auth::user()->isBeta) {
                 return $feature->beta ? true : false;
             } else {
                 return false;
