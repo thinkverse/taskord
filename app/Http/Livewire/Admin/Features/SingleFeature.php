@@ -21,6 +21,9 @@ class SingleFeature extends Component
     public function betaToggle()
     {
         $this->feature->beta = $this->betaStatus;
+        if ($this->betaStatus) {
+            $this->feature->staff = true;
+        }
         $this->feature->save();
     }
 
