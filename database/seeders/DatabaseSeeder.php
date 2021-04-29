@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AnswerSeeder::class);
         $this->call(MilestoneSeeder::class);
         $this->call(MeetupSeeder::class);
+        $this->call(FeatureSeeder::class);
     }
 }
