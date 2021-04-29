@@ -7,7 +7,6 @@ use App\Jobs\Deploy;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
-use Illuminate\Foundation\Application;
 
 class Adminbar extends Component
 {
