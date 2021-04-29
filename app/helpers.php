@@ -153,8 +153,8 @@ if (! function_exists('feature')) {
     function feature($slug)
     {
         try {
-            return Faeture::enabled($slug);
-        } catch (Throwable $e) {
+            return Feature::enabled($slug);
+        } catch(Throwable $e) {
             return false;
         }
     }

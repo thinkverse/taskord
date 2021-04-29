@@ -54,7 +54,7 @@
                             </a>
                         </li>
                         @auth
-                        @if (auth()->user()->staffShip)
+                        @if (feature('meetups'))
                         <li>
                             <a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">
                                 <x-heroicon-o-user-group class="heroicon-1x text-secondary" />
