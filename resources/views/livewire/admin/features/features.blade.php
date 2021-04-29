@@ -5,10 +5,13 @@
             Taskord Feature flags
         </div>
         <div>
-            <button class="btn btn-primary">Create Feature flag</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newFeatureModal">
+                Create Feature flag
+            </button>
         </div>
     </div>
     <div class="card-body">
         @livewire('admin.features.feature')
     </div>
+    @livewire('admin.features.create-feature')
 </div>

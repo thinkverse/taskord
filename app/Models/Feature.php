@@ -10,4 +10,10 @@ class Feature extends Model
 {
     use HasFactory;
     use QueryCacheable;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'slug',
+    ];
 }
