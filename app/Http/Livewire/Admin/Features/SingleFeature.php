@@ -9,11 +9,19 @@ class SingleFeature extends Component
 {
     public Feature $feature;
     public $status;
+    public $betaStatus;
 
     public function mount($feature)
     {
         $this->feature = $feature;
         $this->status = $feature->enabled;
+        $this->betaStatus = $feature->beta;
+    }
+
+    public function betaToggle()
+    {
+        $this->feature->beta = $this->betaStatus;
+        $this->feature->save();
     }
 
     public function toggleFeature()
