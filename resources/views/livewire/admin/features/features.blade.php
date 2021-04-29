@@ -11,7 +11,11 @@
         </div>
     </div>
     <div class="card-body">
-        @livewire('admin.features.feature')
+        @foreach ($features as $feature)
+            @livewire('admin.features.single-feature', [
+                'feature' => $feature
+            ], key($feature->id))
+        @endforeach
     </div>
     @livewire('admin.features.create-feature')
 </div>
