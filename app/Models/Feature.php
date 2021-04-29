@@ -26,9 +26,13 @@ class Feature extends Model
                 return true;
             } else {
                 if ($feature->enabled) {
-                    return $feature->beta ? true : false;
+                    if (Auth::user()->isBeta) {
+                        return $feature->beta ? true : false;
+                    } else {
+                        return false;
+                    }
                 } else {
-                    return true;
+                    return false;
                 }
             }
         } else {
