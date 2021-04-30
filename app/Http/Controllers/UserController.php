@@ -92,28 +92,18 @@ class UserController extends Controller
     {
         if (Auth::check()) {
             $account = User::find(auth()->user()->id);
-            $followings = $account->followings;
-            $followers = $account->followers;
-            $tasks = Task::where('user_id', auth()->user()->id)->get();
-            $comment = Comment::where('user_id', auth()->user()->id)->get();
-            $products = Product::where('user_id', auth()->user()->id)->get();
-            $product_updates = ProductUpdate::where('user_id', auth()->user()->id)->get();
-            $questions = Question::where('user_id', auth()->user()->id)->get();
-            $answers = Answer::where('user_id', auth()->user()->id)->get();
-            $milestones = Milestone::where('user_id', auth()->user()->id)->get();
-            $patron = Patron::where('user_id', auth()->user()->id)->get();
             $data = collect([
                 'account' => $account,
-                'followings' => $followings,
-                'followers' => $followers,
-                'tasks' => $tasks,
-                'comments' => $comment,
-                'products' => $products,
-                'product_updates' => $product_updates,
-                'questions' => $questions,
-                'answers' => $answers,
-                'milestones' => $milestones,
-                'patron' => $patron,
+                'followings' => $account->followings()->get(),
+                'followers' => $account->followers()->get(),
+                'tasks' => $account->tasks()->get(),
+                'comments' => $account->comments()->get(),
+                'products' => $account->ownedProducts()->get(),
+                'product_updates' => $account->product_update()->get(),
+                'questions' => $account->questions()->get(),
+                'answers' => $account->answers()->get(),
+                'milestones' => $account->milestones()->get(),
+                'patron' => $account->patron()->get(),
             ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
             $file_name = carbon()->format('d_m_Y_h_i_s').'_'.$account->username.'_data.json';
