@@ -163,6 +163,13 @@
             <span class="@if (Route::currentRouteName() === 'user.answers') text-primary @endif me-1">Answers</span>
             <span class="small fw-normal text-secondary">{{ number_format($answer_count) }}</span>
         </a>
+        @if (feature('milestone_tab'))
+        <a class="text-dark fw-bold me-4" href="{{ route('user.answers', ['username' => $user->username]) }}">
+            <span class="@if (Route::currentRouteName() === 'user.answers') text-primary @endif me-1">Milestones</span>
+            <span class="small fw-normal text-secondary">{{ number_format($milestone_count) }}</span>
+            <x-staffship background="light" />
+        </a>
+        @endif
         <a class="text-dark fw-bold me-4" href="{{ route('user.stats', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.stats') text-primary @endif me-1">Stats</span>
             <x-new background="light" />

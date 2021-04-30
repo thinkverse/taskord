@@ -39,6 +39,7 @@ class UserController extends Controller
                 ->count('id'),
             'answer_count' => Answer::where('user_id', $user->id)
                 ->count('id'),
+            'milestone_count' => $user->milestones()->count('id'),
         ];
 
         if (Auth::check() && auth()->user()->id === $user->id or Auth::check() && auth()->user()->staffShip) {
