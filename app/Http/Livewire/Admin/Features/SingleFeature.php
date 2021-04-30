@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Features;
 
 use App\Models\Feature;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class SingleFeature extends Component
