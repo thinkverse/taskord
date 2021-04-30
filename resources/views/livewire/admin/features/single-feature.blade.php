@@ -14,6 +14,11 @@
                 Delete feature
             </button>
             @endif
+            @if ($confirming === $feature->id)
+            <div class="mt-2">
+                Make sure you have deleted <code>feature('{{ $feature->slug }}')</code> in the codebase
+            </div>
+            @endif
         </div>
         <div>
             <div class="form-check form-switch">
