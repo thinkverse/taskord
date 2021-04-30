@@ -29,16 +29,11 @@ class UserController extends Controller
             'level' => $user->badges->sortBy(function ($post) {
                 return $post->pivot->created_at;
             }),
-            'done_count' => Task::where([['user_id', $user->id], ['done', true]])
-                ->count('id'),
-            'pending_count' => Task::where([['user_id', $user->id], ['done', false]])
-                ->count('id'),
-            'product_count' => Product::where('user_id', $user->id)
-                ->count('id'),
-            'question_count' => Question::where('user_id', $user->id)
-                ->count('id'),
-            'answer_count' => Answer::where('user_id', $user->id)
-                ->count('id'),
+            'done_count' => $user->tasks()->where('done', true)->count('id'),
+            'pending_count' => $user->tasks()->where('done', false)->count('id'),
+            'product_count' => $user->ownedProducts()->count('id'),
+            'question_count' => $user->questions()->count('id'),
+            'answer_count' => $user->answers()->count('id'),
             'milestone_count' => $user->milestones()->count('id'),
         ];
 
@@ -105,7 +100,7 @@ class UserController extends Controller
             $product_updates = ProductUpdate::where('user_id', auth()->user()->id)->get();
             $questions = Question::where('user_id', auth()->user()->id)->get();
             $answers = Answer::where('user_id', auth()->user()->id)->get();
-            $milestone = Milestone::where('user_id', auth()->user()->id)->get();
+            $milestones = Milestone::where('user_id', auth()->user()->id)->get();
             $patron = Patron::where('user_id', auth()->user()->id)->get();
             $data = collect([
                 'account' => $account,
@@ -117,7 +112,7 @@ class UserController extends Controller
                 'product_updates' => $product_updates,
                 'questions' => $questions,
                 'answers' => $answers,
-                'milestone' => $milestone,
+                'milestones' => $milestones,
                 'patron' => $patron,
             ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
