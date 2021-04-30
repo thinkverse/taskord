@@ -94,6 +94,13 @@
                 <div class="mt-3">
                     <div>
                         <span class="fw-bold">
+                            <x-heroicon-o-lightning-bolt class="heroicon-1x text-success" />
+                            {{ number_format($user->streaks) }}
+                        </span>
+                        {{ str_plural('day streak', $user->streaks) }}
+                    </div>
+                    <div class="mt-2">
+                        <span class="fw-bold">
                             <x-heroicon-o-fire class="heroicon-1x text-danger" />
                             {{ number_format($user->getPoints()) }}
                         </span>
