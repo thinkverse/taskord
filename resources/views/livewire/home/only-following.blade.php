@@ -4,5 +4,4 @@
         Only following
     </label>
     <div wire:loading class="spinner-border taskord-spinner spinner-border-sm ms-1"></div>
-    <x-beta />
 </span>
