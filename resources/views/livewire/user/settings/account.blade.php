@@ -38,7 +38,7 @@
             <span class="h5">Beta</span>
             <div>
                 Get release earlier.
-                <x-beta background="light" />
+                <x-beta />
             </div>
         </div>
         <div class="card-body">
@@ -51,7 +51,7 @@
             <span class="h5">Private Tasks</span>
             <div>
                 All your tasks will hidden from public.
-                <x-beta background="light" />
+                <x-beta />
             </div>
         </div>
         <div class="card-body">

@@ -38,7 +38,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-white fw-bold" href="{{ route('explore.explore') }}">
                         Explore
-                        <x-beta background="dark" />
+                        <x-beta />
                     </a>
                 </li>
                 <li class="nav-item dropdown">

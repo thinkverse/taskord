@@ -27,7 +27,7 @@
                         <div class="small fw-bold text-secondary mt-3">
                             <x-heroicon-o-pencil-alt class="heroicon" />
                             Markdown is supported
-                            <x-beta background="light" />
+                            <x-beta />
                         </div>
                     </div>
                     @auth

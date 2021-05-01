@@ -1,6 +1,6 @@
 <div wire:init="loadTrendingMakers">
     <div class="text-uppercase fw-bold text-secondary pb-2">
-        Trending Makers <x-beta background="light" />
+        Trending Makers <x-beta />
     </div>
     <div class="card mb-4">
         <div class="pt-2 pb-2">
