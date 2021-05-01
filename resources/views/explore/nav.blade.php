@@ -8,10 +8,10 @@
     @auth
     @if (auth()->user()->staffShip)
     <li class="nav-item px-1">
-        <a class="nav-link" href="#">Products <x-staffship background="light" /></a>
+        <a class="nav-link" href="#">Products <x-staffship /></a>
     </li>
     <li class="nav-item px-1">
-        <a class="nav-link" href="#">Tasks <x-staffship background="light" /></a>
+        <a class="nav-link" href="#">Tasks <x-staffship /></a>
     </li>
     @endif
     @endauth
