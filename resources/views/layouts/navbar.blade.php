@@ -50,7 +50,7 @@
                             <a class="dropdown-item text-dark" href="{{ route('milestones.opened') }}">
                                 <x-heroicon-o-truck class="heroicon-1x text-secondary" />
                                 Milestones
-                                <x-beta background="light" />
+                                <x-beta />
                             </a>
                         </li>
                         @auth

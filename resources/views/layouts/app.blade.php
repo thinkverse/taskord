@@ -74,7 +74,7 @@
         <div class="alert alert-warning rounded-0" role="alert">
             <div class="fw-bold">
                 <x-heroicon-o-mail class="heroicon" />
-                Verify Your Email Address <x-beta background="light" />
+                Verify Your Email Address <x-beta />
             </div>
             <form class="mt-1" method="POST" action="{{ route('verification.resend') }}">
                 @csrf

@@ -3,7 +3,7 @@
         <a class="nav-link @if (Route::currentRouteName() === 'explore.explore') active @endif" href="{{ route('explore.explore') }}">Popular Tasks</a>
     </li>
     <li class="nav-item px-1">
-        <a class="nav-link @if (Route::currentRouteName() === 'explore.makers') active @endif" href="{{ route('explore.makers') }}">Makers <x-beta background="light" /></a>
+        <a class="nav-link @if (Route::currentRouteName() === 'explore.makers') active @endif" href="{{ route('explore.makers') }}">Makers <x-beta /></a>
     </li>
     @auth
     @if (auth()->user()->staffShip)
