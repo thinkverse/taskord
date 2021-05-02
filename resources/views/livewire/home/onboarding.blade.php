@@ -30,7 +30,7 @@
                 Join Taskord's Discord
             </a>
             <a class="btn btn-telegram fw-bold mb-3" href="https://t.me/taskordbot" target="_blank" rel="noreferrer">
-                <img class="brand-icon" src="{{ asset('images/brand/telegram-white.svg') }}" />
+                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/telegram-white_aoBbjHlRg.svg" />
                 Add Taskord bot
             </a>
             @if (preg_match('/^[a-f0-9]{32}$/', auth()->user()->username))
