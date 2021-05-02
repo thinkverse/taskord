@@ -125,19 +125,19 @@
             @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
-                    <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
-                    @if ($task->likerscount() !== 0)
-                    <span class="small text-dark fw-bold">
-                        {{ number_format($task->likerscount()) }}
-                    </span>
-                    <span class="avatar-stack ms-1">
-                    @foreach($task->likers->take(5) as $user)
-                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                    @endforeach
-                    </span>
-                    @endif
-                </a>
+            <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
+                <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
+                @if ($task->likerscount() !== 0)
+                <span class="small text-dark fw-bold">
+                    {{ number_format($task->likerscount()) }}
+                </span>
+                <span class="avatar-stack ms-1">
+                @foreach($task->likers->take(5) as $user)
+                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
+                @endforeach
+                </span>
+                @endif
+            </a>
             @endguest
             <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1" aria-label="Comments">
                 <x-heroicon-o-chat-alt class="heroicon-small me-0 text-secondary" />
