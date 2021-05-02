@@ -87,7 +87,7 @@
             </form>
         </div>
     </div>
-    <div class="card mb-4">
+    <div class="card mb-4" id="goal">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Goal</span>
             <div>Complete your goal and earn additional reputations</div>
@@ -117,7 +117,7 @@
             </form>
         </div>
     </div>
-    <div class="card mb-4">
+    <div class="card mb-4" id="vacation">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Vacation mode</span>
             <div>
