@@ -179,9 +179,7 @@ class UserController extends Controller
     {
         if ($request['query']) {
             $users = User::select('username', 'firstname', 'lastname', 'avatar', 'isVerified')
-                ->where('username', 'LIKE', '%'.$request['query'].'%')
-                ->orWhere('firstname', 'LIKE', '%'.$request['query'].'%')
-                ->orWhere('lastname', 'LIKE', '%'.$request['query'].'%')
+                ->search($request['query'])
                 ->take(10)
                 ->get();
         } else {
