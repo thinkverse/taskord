@@ -34,43 +34,44 @@
     </div>
     <div class="pt-3">
         @if ($task->hidden)
-        <span class="task-font fst-italic text-secondary">Task was hidden by moderator</span>
+        <span class="fst-italic text-secondary">Task was hidden by moderator</span>
         @else
         @if ($task->source === 'GitLab')
             <img class="task-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" alt="GitHub Icon" />
         @elseif ($task->source === 'GitHub')
             <img class="task-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" alt="GitLab Icon" />
         @else
-        <input
-            class="form-check-input task-checkbox"
-            id="task-{{ $task->id }}"
-            type="checkbox"
-            wire:click="checkTask"
-            {{ $task->done ? "checked" : "unchecked" }}
-            {{
-                Auth::check() &&
-                auth()->user()->id === $task->user_id ?
-                "enabled" : "disabled"
-            }}
-        />
-        @if ($launched)<span class="ms-1">🚀</span>@endif
-        @endif
-        <label for="task-{{ $task->id }}" class="ms-1 task-font d-inline @if ($launched) fw-bold text-success @endif">
-            {!! Purify::clean(Helper::renderTask($task->task)) !!}
-            @if ($task->type === 'product')
-            <span class="small text-secondary">
-                on
-                <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar, 80) }}" height="15" width="15" alt="{{ $task->product->slug }}'s avatar" />
-                <a
-                    class="text-secondary product-popover"
-                    href="{{ route('product.done', ['slug' => $task->product->slug]) }}"
-                    data-id="{{ $task->product->id }}"
-                >
-                    {{ $task->product->name }}
-                </a>
-            </span>
+        <div class="form-check">
+            <input
+                class="form-check-input"
+                id="task-{{ $task->id }}"
+                type="checkbox"
+                wire:click="checkTask"
+                {{ $task->done ? "checked" : "unchecked" }}
+                {{
+                    Auth::check() &&
+                    auth()->user()->id === $task->user_id ?
+                    "enabled" : "disabled"
+                }}
+            />
+            @if ($launched)<span class="me-1">🚀</span>@endif
             @endif
-        </label>
+            <label for="task-{{ $task->id }}" class="@if ($launched) fw-bold text-success @endif">
+                {!! Purify::clean(Helper::renderTask($task->task)) !!}
+                @if ($task->type === 'product')
+                <span class="small text-secondary ms-1">
+                    <img loading=lazy class="rounded mb-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar, 80) }}" height="15" width="15" alt="{{ $task->product->slug }}'s avatar" />
+                    <a
+                        class="text-secondary product-popover fw-bold"
+                        href="{{ route('product.done', ['slug' => $task->product->slug]) }}"
+                        data-id="{{ $task->product->id }}"
+                    >
+                        {{ $task->product->name }}
+                    </a>
+                </span>
+                @endif
+            </label>
+        </div>
         @if ($task->images)
         <div class="gallery">
         @foreach ($task->images ?? [] as $image)
@@ -91,7 +92,7 @@
             </a>
         </div>
         @endif
-        <div class="pt-3">
+        <div class="pt-2">
             @auth
             @if (!$task->user->isPrivate and !$task->hidden)
             @if (auth()->user()->hasLiked($task))

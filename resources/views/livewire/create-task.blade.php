@@ -12,7 +12,7 @@
                 <div class="input-group mb-3">
                     <div class="input-group-text">
                         <input
-                            class="form-check-input task-checkbox"
+                            class="form-check-input mt-0"
                             type="checkbox"
                             aria-label="Checkbox"
                             wire:click="checkState"

@@ -22,12 +22,12 @@
             <li class="list-group-item">
                 <span>
                     <input
-                        class="form-check-input task-checkbox mt-1"
+                        class="form-check-input mt-1"
                         type="checkbox"
                         {{ $task->done ? "checked" : "unchecked" }}
                         disabled
                     />
-                    <a class="ms-1 task-font text-dark" href="{{ route('task', ['id' => $task->id]) }}">{{ $task->task }}</a>
+                    <a class="ms-1 text-dark" href="{{ route('task', ['id' => $task->id]) }}">{{ $task->task }}</a>
                     <span class="small ms-2">👍
                         <span class="text-secondary">{{ $task->likerscount() }}</span>
                     </span>
