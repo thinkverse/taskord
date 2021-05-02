@@ -51,7 +51,7 @@
             @endif
             @if ($product->producthunt)
             <a class="list-group-item link-dark" href="https://www.producthunt.com/posts/{{ $product->producthunt }}" target="_blank" rel="noreferrer">
-                <img class="brand-icon" src="{{ asset('images/brand/producthunt.svg') }}" />
+                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/producthunt_tzL4ouGeqn.svg" />
                 {{ Helper::removeProtocol($product->producthunt) }}
             </a>
             @endif

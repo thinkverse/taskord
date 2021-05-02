@@ -76,7 +76,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <img class="brand-icon" src="{{ asset('images/brand/producthunt.svg') }}" />
+                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/producthunt_tzL4ouGeqn.svg" />
                         </span>
                         <input type="text" class="form-control @error('producthunt') is-invalid @enderror" placeholder="Product Hunt" wire:model.defer="producthunt">
                         @error('producthunt')
