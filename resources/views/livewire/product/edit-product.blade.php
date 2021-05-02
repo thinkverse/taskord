@@ -71,7 +71,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
+                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" />
                         </span>
                         <input type="text" value="{{ $twitter }}" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" wire:model.defer="twitter">
                         @error('twitter')

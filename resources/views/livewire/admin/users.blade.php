@@ -104,7 +104,7 @@
                         @if ($user->provider === 'google')
                             <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg" />
                         @elseif ($user->provider === 'twitter')
-                            <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
+                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" />
                         @elseif ($user->provider === 'github')
                             <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" />
                         @elseif ($user->provider === 'gitlab')

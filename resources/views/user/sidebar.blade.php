@@ -54,7 +54,7 @@
                 @endif
                 @if ($user->twitter)
                 <a class="list-group-item link-dark" href="https://twitter.com/{{ $user->twitter }}" target="_blank" rel="noreferrer">
-                    <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
+                    <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" />
                     {{ $user->twitter }}
                 </a>
                 @endif

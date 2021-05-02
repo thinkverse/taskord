@@ -100,7 +100,7 @@
                     <div class="col-6">
                         <a href="/login/twitter" class="btn btn-social btn-twitter w-100">
                             <span class="small">
-                                <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
+                                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" />
                                 Twitter
                             </span>
                         </a>
