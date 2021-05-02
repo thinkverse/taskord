@@ -66,7 +66,7 @@
                 @endif
                 @if ($user->telegram)
                 <a class="list-group-item link-dark" href="https://t.me/{{ $user->telegram }}" target="_blank" rel="noreferrer">
-                    <img class="brand-icon" src="{{ asset('images/brand/telegram.svg') }}" />
+                    <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/telegram_4ea__J3dwB.svg" />
                     {{ $user->telegram }}
                 </a>
                 @endif

@@ -195,7 +195,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img src="{{ asset('images/brand/telegram.svg') }}" height="15" width="15" />
+                        <img src="https://ik.imagekit.io/taskordimg/icons/telegram_4ea__J3dwB.svg" height="15" width="15" />
                     </span>
                     <input type="text" class="form-control @error('telegram') is-invalid @enderror" placeholder="Telegram" value="{{ $user->telegram }}" wire:model.defer="telegram">
                     @error('telegram')
