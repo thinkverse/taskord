@@ -68,7 +68,7 @@
                 @elseif (parse_url($product->repo)['host'] === 'gitlab.com')
                 <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
                 @elseif (parse_url($product->repo)['host'] === 'bitbucket.org')
-                <img class="brand-icon" src="{{ asset('images/brand/bitbucket.svg') }}" />
+                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/bitbucket_f5ZE6ZhmF.svg" />
                 @endif
                 {{ trim(parse_url($product->repo)['path'], '/') }}
             </a>
