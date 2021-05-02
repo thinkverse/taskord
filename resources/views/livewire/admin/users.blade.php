@@ -102,7 +102,7 @@
                     </td>
                     <td>
                         @if ($user->provider === 'google')
-                            <img class="brand-icon" src="{{ asset('images/brand/google.svg') }}" />
+                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg" />
                         @elseif ($user->provider === 'twitter')
                             <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
                         @elseif ($user->provider === 'github')

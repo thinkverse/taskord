@@ -89,7 +89,7 @@
                     <div class="col-6">
                         <a href="/login/google" class="btn btn-social btn-google w-100">
                             <span class="small">
-                                <img class="brand-icon" src="{{ asset('images/brand/google.svg') }}" />
+                                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg" />
                                 Google
                             </span>
                         </a>
