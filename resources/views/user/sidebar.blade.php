@@ -78,7 +78,7 @@
                 @endif
                 @if ($user->youtube)
                 <a class="list-group-item link-dark" href="https://youtube.com/{{ $user->youtube }}" target="_blank" rel="noreferrer">
-                    <img class="brand-icon" src="{{ asset('images/brand/youtube.svg') }}" />
+                    <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/youtube_qUsz_87ogn.svg" />
                     {{ $user->youtube }}
                 </a>
                 @endif

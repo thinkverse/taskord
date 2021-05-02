@@ -217,7 +217,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img src="{{ asset('images/brand/youtube.svg') }}" height="15" width="15" />
+                        <img src="https://ik.imagekit.io/taskordimg/icons/youtube_qUsz_87ogn.svg" height="15" width="15" />
                     </span>
                     <input type="text" class="form-control @error('youtube') is-invalid @enderror" placeholder="YouTube" value="{{ $user->youtube }}" wire:model.defer="youtube">
                     @error('youtube')
