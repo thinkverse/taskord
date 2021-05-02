@@ -6,7 +6,7 @@
         wire:click="checkTask"
         unchecked
     />
-    <label for="task-{{ $task->id }}" class="ms-1 task-font d-inline">
+    <label for="task-{{ $task->id }}" class="ms-1 d-inline">
         {!! Purify::clean(Helper::renderTask($task->task)) !!}
         @if ($task->type === 'product')
         <span class="small text-secondary">

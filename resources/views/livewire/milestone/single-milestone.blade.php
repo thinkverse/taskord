@@ -38,7 +38,7 @@
     </div>
     <div class="card-body pt-1">
         @if ($milestone->hidden)
-        <span class="task-font fst-italic text-secondary">Milestone was hidden by moderator</span>
+        <span class="fst-italic text-secondary">Milestone was hidden by moderator</span>
         @else
         <a href="{{ route('milestones.milestone', ['id' => $milestone->id]) }}" class="h5 align-text-top fw-bold text-dark">
             @if ($type !== "milestones.milestone")
