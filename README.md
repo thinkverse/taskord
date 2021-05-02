@@ -112,7 +112,7 @@ Start coding in a [ready-to-code development environment](https://www.gitpod.io)
 6. That's it! Run `php artisan serve` to start the application and head to `http://localhost:8000`
 7. Login with the default credentials, username as `admin` and password as `admin`.
 
-### Production Installation
+## Production Installation
 
 [View Full Production Installation Documentation.](/docs/installation.md)
 
