@@ -93,15 +93,15 @@ class ProductController extends Controller
     public function mention(Request $request)
     {
         if ($request['query']) {
-            $users = Product::select('slug', 'name', 'avatar')
+            $products = Product::select('slug', 'name', 'avatar')
                 ->search($request['query'])
                 ->take(10)
                 ->get();
         } else {
-            $users = '';
+            $products = '';
         }
 
-        return $users;
+        return $products;
     }
 
     public function popover($id)
