@@ -9,7 +9,7 @@
             <img loading=lazy class="avatar-50 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="50" width="50" alt="{{ $user->username }}'s avatar" />
         </a>
         @if ($user->isPatron)
-            <div class="border border-success mt-2 ps-1 pe-1 rounded-pill small text-center text-dark">Patron</div>
+            <div class="border border-primary mt-2 ps-1 pe-1 rounded-pill small text-center text-primary">Patron</div>
         @endif
     </div>
     <div class="ms-3">
