@@ -60,7 +60,7 @@
                 @endif
                 @if ($user->twitch)
                 <a class="list-group-item link-dark" href="https://twitch.tv/{{ $user->twitch }}" target="_blank" rel="noreferrer">
-                    <img class="brand-icon" src="{{ asset('images/brand/twitch.svg') }}" />
+                    <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitch_ZzpKWQt7T.svg" />
                     {{ $user->twitch }}
                 </a>
                 @endif

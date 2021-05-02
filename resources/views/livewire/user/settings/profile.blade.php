@@ -184,7 +184,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img src="{{ asset('images/brand/twitch.svg') }}" height="15" width="15" />
+                        <img src="https://ik.imagekit.io/taskordimg/icons/twitch_ZzpKWQt7T.svg" height="15" width="15" />
                     </span>
                     <input type="text" class="form-control @error('twitch') is-invalid @enderror" placeholder="Twitch" value="{{ $user->twitch }}" wire:model.defer="twitch">
                     @error('twitch')
