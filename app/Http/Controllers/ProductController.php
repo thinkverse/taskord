@@ -8,6 +8,7 @@ use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Database\Eloquent\Builder;
 
 class ProductController extends Controller
 {
@@ -94,6 +95,10 @@ class ProductController extends Controller
     {
         if ($request['query']) {
             $products = Product::select('slug', 'name', 'avatar')
+                ->where('user_id', auth()->id())
+                ->orWhereHas('members', function (Builder $query) {
+                    $query->where('user_id', auth()->id());
+                })
                 ->search($request['query'])
                 ->take(10)
                 ->get();

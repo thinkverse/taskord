@@ -16,7 +16,7 @@ class Leave extends Component
         $this->product = $product;
     }
 
-    public function leaveTeam()
+    public function leaveProduct()
     {
         if (Auth::check()) {
             auth()->user()->products()->detach($this->product);
