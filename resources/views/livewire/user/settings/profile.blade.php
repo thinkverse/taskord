@@ -87,7 +87,6 @@
             </form>
         </div>
     </div>
-
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Goal</span>
@@ -116,7 +115,21 @@
             </form>
         </div>
     </div>
-
+    <div class="card mb-4">
+        <div class="card-header pt-3 pb-3">
+            <span class="h5">Vacation mode</span>
+            <div>
+                When turned on, your streaks will remain intact even if you don't create a task.
+                <x-beta />
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="form-check">
+                <input wire:click="toggleVacationMode" id="toggleVacationMode" class="form-check-input" type="checkbox" {{ $user->vacation_mode ? 'checked' : '' }}>
+                <label for="toggleVacationMode" class="form-check-label">Enable vacation mode</label>
+            </div>
+        </div>
+    </div>
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Homepage</span>
@@ -127,7 +140,6 @@
             <label for="onlyFollowingsTasks" class="ms-1">Show only following user's tasks on homepage</label>
         </div>
     </div>
-
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Sponsor</span>
@@ -152,7 +164,6 @@
             </form>
         </div>
     </div>
-
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Social</span>

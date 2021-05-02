@@ -19,29 +19,6 @@ class Account extends Component
         $this->email = $user->email;
     }
 
-    public function toggleVacationMode()
-    {
-        if (Auth::check()) {
-            if (auth()->user()->id === $this->user->id) {
-                $this->user->vacation_mode = ! $this->user->vacation_mode;
-                $this->user->save();
-                if ($this->user->vacation_mode) {
-                    loggy(request()->ip(), 'User', auth()->user(), 'Enabled vacation mode');
-
-                    return $this->alert('success', 'Vacation mode has been enabled!');
-                } else {
-                    loggy(request()->ip(), 'User', auth()->user(), 'Disabled vacation mode');
-
-                    return $this->alert('success', 'Vacation mode has been disabled!');
-                }
-            } else {
-                return $this->alert('error', 'Forbidden!');
-            }
-        } else {
-            return $this->alert('error', 'Forbidden!');
-        }
-    }
-
     public function enrollBeta()
     {
         if (Auth::check()) {
