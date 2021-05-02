@@ -41,7 +41,7 @@
         @elseif ($task->source === 'GitHub')
             <img class="task-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" alt="GitLab Icon" />
         @else
-        <div class="form-check align-items-center d-flex">
+        <div class="form-check">
             <input
                 class="form-check-input task-check"
                 id="task-{{ $task->id }}"

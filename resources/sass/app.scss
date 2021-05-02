@@ -194,8 +194,9 @@ input[type="color"]:focus,
 .task-check {
     height: 1.3rem;
     width: 1.3rem;
-    margin-top: 0;
+    margin-top: 2px;
     border-radius: 100% !important;
+    border: 3px solid;
 }
 
 .body-font {

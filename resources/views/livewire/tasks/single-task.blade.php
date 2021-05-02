@@ -1,5 +1,5 @@
 <li class="list-group-item pt-2 pb-2">
-    <div class="form-check align-items-center d-flex">
+    <div class="form-check">
         <input
             class="form-check-input task-check"
             id="task-{{ $task->id }}"
