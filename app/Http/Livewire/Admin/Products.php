@@ -23,7 +23,8 @@ class Products extends Component
     {
         return Product::with('owner')
             ->withCount(['members', 'tasks', 'product_update'])
-            ->latest()->paginate(50);
+            ->latest()
+            ->paginate(50);
     }
 
     public function render()

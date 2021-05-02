@@ -94,8 +94,7 @@ class ProductController extends Controller
     {
         if ($request['query']) {
             $users = Product::select('slug', 'name', 'avatar')
-                ->where('slug', 'LIKE', '%'.$request['query'].'%')
-                ->orWhere('name', 'LIKE', '%'.$request['query'].'%')
+                ->search($request['query'])
                 ->take(10)
                 ->get();
         } else {
