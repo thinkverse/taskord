@@ -72,7 +72,7 @@
                 @endif
                 @if ($user->github)
                 <a class="list-group-item link-dark" href="https://github.com/{{ $user->github }}" target="_blank" rel="noreferrer">
-                    <img class="brand-icon github-logo" src="{{ asset('images/brand/github.svg') }}" />
+                    <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" />
                     {{ $user->github }}
                 </a>
                 @endif

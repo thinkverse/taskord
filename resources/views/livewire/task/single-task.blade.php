@@ -39,7 +39,7 @@
         @if ($task->source === 'GitLab')
             <img class="task-icon" src="{{ asset('images/brand/gitlab.svg') }}" alt="GitHub Icon" />
         @elseif ($task->source === 'GitHub')
-            <img class="task-icon github-logo" src="{{ asset('images/brand/github.svg') }}" alt="GitLab Icon" />
+            <img class="task-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" alt="GitLab Icon" />
         @else
         <input
             class="form-check-input task-checkbox"
