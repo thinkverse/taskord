@@ -95,8 +95,10 @@
         <div class="card-body">
             <form wire:submit.prevent="setGoal">
                 <div>
-                    <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox" {{ $user->hasGoal ? 'checked' : '' }}>
-                    <label for="enableGoal" class="ms-1">Enable Goal</label>
+                    <div class="form-check">
+                        <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox" {{ $user->hasGoal ? 'checked' : '' }}>
+                        <label for="enableGoal" class="form-check-label">Enable Goal</label>
+                    </div>
                 </div>
                 @if ($user->hasGoal)
                 <div class="mt-2 mb-3">
@@ -136,8 +138,10 @@
             <div>Update your homepage preference.</div>
         </div>
         <div class="card-body">
-            <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input" type="checkbox" {{ $user->onlyFollowingsTasks ? 'checked' : '' }}>
-            <label for="onlyFollowingsTasks" class="ms-1">Show only following user's tasks on homepage</label>
+            <div class="form-check">
+                <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input" type="checkbox" {{ $user->onlyFollowingsTasks ? 'checked' : '' }}>
+                <label for="onlyFollowingsTasks" class="form-check-label">Show only following user's tasks on homepage</label>
+            </div>
         </div>
     </div>
     <div class="card mb-4">
