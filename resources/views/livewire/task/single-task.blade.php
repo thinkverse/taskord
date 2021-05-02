@@ -37,7 +37,7 @@
         <span class="task-font fst-italic text-secondary">Task was hidden by moderator</span>
         @else
         @if ($task->source === 'GitLab')
-            <img class="task-icon" src="{{ asset('images/brand/gitlab.svg') }}" alt="GitHub Icon" />
+            <img class="task-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" alt="GitHub Icon" />
         @elseif ($task->source === 'GitHub')
             <img class="task-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" alt="GitLab Icon" />
         @else

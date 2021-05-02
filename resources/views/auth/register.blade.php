@@ -116,7 +116,7 @@
                     <div class="col-6 mt-2">
                         <a href="/login/gitlab" class="btn btn-social btn-gitlab w-100">
                             <span class="small">
-                                <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
+                                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" />
                                 GitLab
                             </span>
                         </a>

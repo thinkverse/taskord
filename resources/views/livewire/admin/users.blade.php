@@ -108,7 +108,7 @@
                         @elseif ($user->provider === 'github')
                             <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" />
                         @elseif ($user->provider === 'gitlab')
-                            <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
+                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" />
                         @else
                             <x-heroicon-o-globe-alt class="heroicon text-success" />
                         @endif

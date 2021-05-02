@@ -66,7 +66,7 @@
                 @if (parse_url($product->repo)['host'] === 'github.com')
                 <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" />
                 @elseif (parse_url($product->repo)['host'] === 'gitlab.com')
-                <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
+                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" />
                 @elseif (parse_url($product->repo)['host'] === 'bitbucket.org')
                 <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/bitbucket_f5ZE6ZhmF.svg" />
                 @endif
