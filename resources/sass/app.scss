@@ -191,6 +191,13 @@ input[type="color"]:focus,
     font-size: medium;
 }
 
+.task-check {
+    height: 1.3rem;
+    width: 1.3rem;
+    margin-top: 0;
+    border-radius: 100% !important;
+}
+
 .body-font {
     color: $gray-700;
     img {

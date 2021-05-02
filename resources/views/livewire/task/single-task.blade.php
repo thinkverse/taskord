@@ -41,9 +41,9 @@
         @elseif ($task->source === 'GitHub')
             <img class="task-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" alt="GitLab Icon" />
         @else
-        <div class="form-check">
+        <div class="form-check align-items-center d-flex">
             <input
-                class="form-check-input"
+                class="form-check-input task-check"
                 id="task-{{ $task->id }}"
                 type="checkbox"
                 wire:click="checkTask"
@@ -54,9 +54,9 @@
                     "enabled" : "disabled"
                 }}
             />
-            @if ($launched)<span class="me-1">🚀</span>@endif
+            @if ($launched)<span class="ms-2">🚀</span>@endif
             @endif
-            <label for="task-{{ $task->id }}" class="task-font @if ($launched) fw-bold text-success @endif">
+            <label for="task-{{ $task->id }}" class="task-font ms-2 @if ($launched) fw-bold text-success @endif">
                 {!! Purify::clean(Helper::renderTask($task->task)) !!}
                 @if ($task->type === 'product')
                 <span class="small text-secondary ms-1">
