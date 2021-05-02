@@ -49,7 +49,7 @@
             <li class="list-group-item">
                 <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="30" width="30" alt="{{ $user->username }}'s avatar" />
                 <span>
-                    <a class="ms-2 task-font text-dark align-middle" href="{{ route('user.done', ['username' => $user->username]) }}">
+                    <a class="ms-2 text-dark align-middle" href="{{ route('user.done', ['username' => $user->username]) }}">
                         <span class="fw-bold">
                             @if ($user->firstname or $user->lastname)
                                 {{ $user->firstname }}{{ ' '.$user->lastname }}
@@ -77,7 +77,7 @@
             <li class="list-group-item">
                 <img loading=lazy class="rounded avatar-30" src="{{ Helper::getCDNImage($product->avatar, 80) }}" height="30" width="30" alt="{{ $product->slug }}'s avatar" />
                 <span>
-                    <a class="ms-2 task-font text-dark align-middle" href="{{ route('product.done', ['slug' => $product->slug]) }}">
+                    <a class="ms-2 text-dark align-middle" href="{{ route('product.done', ['slug' => $product->slug]) }}">
                         <span class="fw-bold">{{ $product->name }}</span>
                     </a>
                 </span>
@@ -97,7 +97,7 @@
             @foreach ($questions as $question)
             <li class="list-group-item">
                 <span>
-                    <a class="ms-2 task-font text-dark" href="{{ route('question.question', ['id' => $question->id]) }}">
+                    <a class="ms-2 text-dark" href="{{ route('question.question', ['id' => $question->id]) }}">
                         <span class="fw-bold">{{ Str::words($question->title, '8') }}</span>
                     </a>
                 </span>
