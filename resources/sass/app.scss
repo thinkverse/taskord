@@ -181,22 +181,6 @@ input[type="color"]:focus,
     }
 }
 
-.task-checkbox {
-    width: 1.1rem;
-    height: 1.1rem;
-    background-position: inherit;
-}
-
-.task-font {
-    font-size: 1rem;
-    font-weight: 500;
-    color: $gray-800;
-    img {
-        width: 100%;
-        border-radius: 5px;
-    }
-}
-
 .task-icon {
     height: 18px;
     width: 18px;

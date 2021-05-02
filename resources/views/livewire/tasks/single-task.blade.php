@@ -1,23 +1,24 @@
 <li class="list-group-item pt-2 pb-2">
-    <input
-        class="form-check-input task-checkbox"
-        id="task-{{ $task->id }}"
-        type="checkbox"
-        wire:click="checkTask"
-        unchecked
-    />
-    <label for="task-{{ $task->id }}" class="ms-1 d-inline">
-        {!! Purify::clean(Helper::renderTask($task->task)) !!}
-        @if ($task->type === 'product')
-        <span class="small text-secondary">
-            on
-            <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar, 80) }}" height="15" width="15" alt="{{ $task->product->slug }}'s avatar" />
-            <a class="text-secondary" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
-                {{ $task->product->name }}
-            </a>
-        </span>
-        @endif
-    </label>
+    <div class="form-check">
+        <input
+            class="form-check-input"
+            id="task-{{ $task->id }}"
+            type="checkbox"
+            wire:click="checkTask"
+            unchecked
+        />
+        <label for="task-{{ $task->id }}">
+            {!! Purify::clean(Helper::renderTask($task->task)) !!}
+            @if ($task->type === 'product')
+            <span class="small text-secondary">
+                <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar, 80) }}" height="15" width="15" alt="{{ $task->product->slug }}'s avatar" />
+                <a class="text-secondary" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
+                    {{ $task->product->name }}
+                </a>
+            </span>
+            @endif
+        </label>
+    </div>
     @if ($task->images)
     <div class="gallery mb-3">
     @foreach ($task->images ?? [] as $image)
