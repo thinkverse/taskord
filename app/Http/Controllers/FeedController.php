@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\Task;
 use App\Models\User;
 
 class FeedController extends Controller
@@ -12,7 +11,7 @@ class FeedController extends Controller
     {
         $user = User::where('username', $username)
             ->firstOrFail();
-        $tasks = Task::where('user_id', $user->id)
+        $tasks = $user->tasks()
             ->latest()
             ->offset($page - 1)
             ->limit(50)
@@ -31,7 +30,7 @@ class FeedController extends Controller
     {
         $product = Product::where('slug', $slug)
             ->firstOrFail();
-        $tasks = Task::where('product_id', $product->id)
+        $tasks = $product->tasks()
             ->latest()
             ->offset($page - 1)
             ->limit(50)
