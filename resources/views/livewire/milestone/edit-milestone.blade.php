@@ -29,6 +29,7 @@
                             Markdown is supported
                             <x-beta />
                         </div>
+                        {{ $start_date }}
                         <div class="mb-3">
                             <label class="form-label fw-bold">Start Date</label>
                             <input class="form-control" wire:model="start_date" type="date" />

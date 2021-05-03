@@ -19,8 +19,8 @@ class EditMilestone extends Component
         $this->milestone = $milestone;
         $this->name = $milestone->name;
         $this->description = $milestone->description;
-        $this->start_date = carbon($milestone->start_date)->format('Y-m-d');
-        $this->end_date = carbon($milestone->end_date)->format('Y-m-d');
+        $this->start_date = $milestone->start_date ? carbon($milestone->start_date)->format('Y-m-d') : '';
+        $this->end_date = $milestone->end_date ? carbon($milestone->end_date)->format('Y-m-d') : '';
     }
 
     public function updated($field)
@@ -56,8 +56,8 @@ class EditMilestone extends Component
             if (auth()->user()->staffShip or auth()->user()->id === $milestone->user_id) {
                 $milestone->name = $this->name;
                 $milestone->description = $this->description;
-                $milestone->start_date = $this->start_date;
-                $milestone->end_date = $this->end_date;
+                $milestone->start_date = $this->start_date ? $this->start_date : null;
+                $milestone->end_date = $this->start_date ? $this->end_date : null;
                 $milestone->save();
                 auth()->user()->touch();
 
