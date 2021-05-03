@@ -2,18 +2,18 @@
 
 namespace App\Http\Livewire\Product;
 
-use App\Models\Task;
+use App\Models\Product;
 use Carbon\CarbonPeriod;
 use Livewire\Component;
 
 class Graph extends Component
 {
     public $readyToLoad = false;
-    public $product_id;
+    public Product $product;
 
-    public function mount($product_id)
+    public function mount($product)
     {
-        $this->product_id = $product_id;
+        $this->product = $product;
     }
 
     public function loadGraph()
@@ -31,9 +31,8 @@ class Graph extends Component
         $tasks = [];
         foreach ($period->toArray() as $date) {
             array_push($week_dates, carbon($date)->format('d M Y'));
-            $count = Task::cacheFor(86400)
+            $count = $this->product->tasks()
                 ->select('id', 'created_at')
-                ->where('product_id', $this->product_id)
                 ->whereDate('created_at', carbon($date))
                 ->count();
 

@@ -34,7 +34,7 @@
     </div>
     <div class="card mb-4">
         @livewire('product.graph', [
-            'product_id' => $product->id
+            'product' => $product
         ])
     </div>
     @if ($product->website or $product->twitter or $product->producthunt or $product->repo)
