@@ -11,6 +11,9 @@
     <a href="https://gitlab.com/yo/taskord-deploy/-/pipelines">
         <img src="https://img.shields.io/gitlab/pipeline/yo/taskord-deploy/master?color=%236a63ec&label=deploy" alt="Deploy">
     </a>
+    <a href="https://codeclimate.com/github/taskordhq/taskord/maintainability">
+        <img src="https://api.codeclimate.com/v1/badges/75e96c16840ed823cd66/maintainability" alt="CodeClimate"/>
+    </a>
     <a href="https://gitpod.io/#https://gitlab.com/yo/taskord">
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
     </a>
