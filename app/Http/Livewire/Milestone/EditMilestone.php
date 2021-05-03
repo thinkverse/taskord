@@ -19,8 +19,8 @@ class EditMilestone extends Component
         $this->milestone = $milestone;
         $this->name = $milestone->name;
         $this->description = $milestone->description;
-        $this->start_date = $milestone->start_date ? carbon($milestone->start_date)->format('Y-m-d') : '';
-        $this->end_date = $milestone->end_date ? carbon($milestone->end_date)->format('Y-m-d') : '';
+        $this->start_date = $milestone->start_date ? carbon($milestone->start_date)->format('Y-m-d') : null;
+        $this->end_date = $milestone->end_date ? carbon($milestone->end_date)->format('Y-m-d') : null;
     }
 
     public function updated($field)
