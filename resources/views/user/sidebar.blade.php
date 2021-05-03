@@ -25,7 +25,7 @@
         </div>
         <div class="card mb-4">
             @livewire('user.graph', [
-                'user_id' => $user->id
+                'user' => $user
             ])
         </div>
         @if ($user->sponsor)

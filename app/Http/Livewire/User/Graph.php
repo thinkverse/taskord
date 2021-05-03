@@ -2,18 +2,18 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Task;
+use App\Models\User;
 use Carbon\CarbonPeriod;
 use Livewire\Component;
 
 class Graph extends Component
 {
     public $readyToLoad = false;
-    public $user_id;
+    public User $user;
 
-    public function mount($user_id)
+    public function mount($user)
     {
-        $this->user_id = $user_id;
+        $this->user = $user;
     }
 
     public function loadGraph()
@@ -31,9 +31,8 @@ class Graph extends Component
         $tasks = [];
         foreach ($period->toArray() as $date) {
             array_push($week_dates, carbon($date)->format('d M Y'));
-            $count = Task::cacheFor(86400)
+            $count = $this->user->answers()
                 ->select('id', 'created_at')
-                ->where('user_id', $this->user_id)
                 ->whereDate('created_at', carbon($date))
                 ->count();
 
