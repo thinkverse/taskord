@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Milestone;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -26,7 +25,7 @@ class Milestones extends Component
 
     public function getMilestones()
     {
-        return Milestone::where('user_id', $this->user->id)
+        return $this->user->milestones()
             ->latest()
             ->paginate(10);
     }
