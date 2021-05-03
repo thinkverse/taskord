@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
-use App\Models\Task;
 use Livewire\Component;
 
 class LoadMoreTasks extends Component
@@ -34,7 +33,7 @@ class LoadMoreTasks extends Component
     public function render()
     {
         if ($this->loadMore) {
-            $tasks = Task::where('milestone_id', $this->milestone->id)
+            $tasks = $this->milestone->tasks()
                 ->orderBy('created_at', 'desc')
                 ->paginate(10, '*', null, $this->page);
 
