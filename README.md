@@ -61,7 +61,6 @@
 - [Node](https://nodejs.org): we recommend using [nvm](https://github.com/nvm-sh/nvm) to install the Node version listed on the badge.
 - [MySQL](http://www.mysql.com) 8.0 or higher.
 - [Redis](https://redis.io) (optional) 4.0 or higher.
-- [Memcached](https://memcached.org) (optional) 1.6 or higher.
 
 ## Contributing
 

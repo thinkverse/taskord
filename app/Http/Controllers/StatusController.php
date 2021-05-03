@@ -23,7 +23,7 @@ class StatusController extends Controller
         }
     }
 
-    public function memcached()
+    public function redisCache()
     {
         return Cache::remember('status', 60 * 60, function () {
             return 'ok';

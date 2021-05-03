@@ -213,7 +213,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     Route::group(['prefix' => 'status'], function () {
         Route::get('ping', [StatusController::class, 'ping']);
         Route::get('redis', [StatusController::class, 'redis']);
-        Route::get('memcached', [StatusController::class, 'memcached']);
+        Route::get('cache', [StatusController::class, 'redisCache']);
     });
 
     // Feed

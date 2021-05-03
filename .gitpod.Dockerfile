@@ -13,7 +13,6 @@ RUN sudo add-apt-repository ppa:ondrej/php -y \
     php8.0-mbstring \
     php8.0-xml \
     php8.0-zip \
-    php8.0-memcached \
     php8.0-redis \
     php8.0-gd \
     php8.0-bcmath \
