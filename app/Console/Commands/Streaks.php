@@ -2,7 +2,6 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Task;
 use App\Models\User;
 use Carbon\CarbonPeriod;
 use Illuminate\Console\Command;
@@ -69,7 +68,8 @@ class Streaks extends Command
             $period = CarbonPeriod::create($created_at, $current_date);
             $streaks = 0;
             foreach ($period->toArray() as $date) {
-                $count = Task::select('id')
+                $count = $user->tasks()
+                    ->select('id')
                     ->where('user_id', $user->id)
                     ->whereDate('created_at', carbon($date))
                     ->count();
