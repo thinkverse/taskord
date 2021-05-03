@@ -38,10 +38,8 @@ class SelectMilestone extends Component
 
     public function render()
     {
-        $milestones = Milestone::where([
-            ['user_id', $this->task->user->id],
-            ['status', true],
-        ])
+        $milestones = $this->task->user->milestones()
+            ->where('user_id', $this->task->user->id)
             ->latest()
             ->get();
 
