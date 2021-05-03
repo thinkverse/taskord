@@ -29,6 +29,11 @@
             </a>
         </span>
         <span class="align-text-top small float-end ms-auto text-secondary cursor-pointer" data-bs-toggle="collapse" data-bs-target="#taskExpand-{{$task->id}}" aria-expanded="false">
+            @if ($task->source === 'GitLab')
+                <img class="task-icon me-2" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" alt="GitHub Icon" />
+            @elseif ($task->source === 'GitHub')
+                <img class="task-icon github-logo me-2" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" alt="GitLab Icon" />
+            @endif
             {{ !$task->done_at ? $task->created_at->diffForHumans() : carbon($task->done_at)->diffForHumans() }}
         </span>
     </div>
