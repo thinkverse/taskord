@@ -32,13 +32,6 @@
                 </span>
             </a>
             <span class="fw-bold me-3">
-                <x-heroicon-o-folder-open class="heroicon" />
-                {{ $cache }}
-                <span class="fw-normal text-white-50">
-                    cached
-                </span>
-            </span>
-            <span class="fw-bold me-3">
                 <x-heroicon-o-cog class="heroicon" />
                 {{ memory_usage() }}
             </span>
