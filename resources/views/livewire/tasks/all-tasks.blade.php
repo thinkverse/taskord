@@ -4,7 +4,7 @@
             <div class="h5">
                 All Tasks
             </div>
-            <span class="fw-bold">{{ $readyToLoad ? $tasks->count('id') : '···' }}</span>
+            <span class="fw-bold">{{ $readyToLoad ? auth()->user()->tasks()->count('id') : '···' }}</span>
             Pending Tasks
         </div>
         <ul class="list-group list-group-flush">
@@ -26,6 +26,7 @@
                     'task' => $task
                 ], key($task->id))
             @endforeach
+            {{ $readyToLoad ? $tasks->links() : '' }}
         </ul>
     </div>
 </div>

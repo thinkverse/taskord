@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Tasks;
 
-use App\Models\Task;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class AllTasks extends Component
 {
@@ -12,6 +12,8 @@ class AllTasks extends Component
         'taskAdded' => 'render',
         'taskDeleted' => 'render',
     ];
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $readyToLoad = false;
 
     public function loadAllTasks()
@@ -21,10 +23,10 @@ class AllTasks extends Component
 
     public function getAllTasks()
     {
-        return Task::where('user_id', auth()->user()->id)
+        return auth()->user()->tasks()
             ->where('done', false)
             ->latest()
-            ->get();
+            ->paginate(10);
     }
 
     public function render()
