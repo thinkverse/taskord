@@ -55,7 +55,7 @@
                 }}
             />
             @if ($launched)<span class="ms-2">🚀</span>@endif
-            <label for="task-{{ $task->id }}" class="task-font ms-2 @if ($launched) fw-bold text-success @endif">
+            <label for="task-{{ $task->id }}" class="task-font text-dark ms-2 @if ($launched) fw-bold text-success @endif">
                 {!! Purify::clean(Helper::renderTask($task->task)) !!}
                 @if ($task->type === 'product')
                 <span class="small text-secondary ms-1">
