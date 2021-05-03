@@ -26,7 +26,7 @@ class AllTasks extends Component
         return auth()->user()->tasks()
             ->where('done', false)
             ->latest()
-            ->paginate(10);
+            ->paginate(30);
     }
 
     public function render()
