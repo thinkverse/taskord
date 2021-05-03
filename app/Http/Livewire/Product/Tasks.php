@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
-use App\Models\Task;
 use Livewire\Component;
 
 class Tasks extends Component
@@ -36,10 +35,8 @@ class Tasks extends Component
         $members = $this->product->members->pluck('id');
         $members->push($this->product->owner->id);
 
-        return Task::where([
-            ['product_id', $this->product->id],
-            ['done', $this->type === 'product.done' ? true : false],
-        ])
+        return $this->product->tasks()
+            ->where('done', $this->type === 'product.done' ? true : false)
             ->whereIn('user_id', $members)
             ->orderBy('created_at', 'desc')
             ->orderBy('done_at', 'desc')
