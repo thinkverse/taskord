@@ -36,10 +36,8 @@ class LoadMore extends Component
     public function render()
     {
         if ($this->loadMore) {
-            $tasks = Task::where([
-                ['user_id', $this->user->id],
-                ['done', $this->type === 'user.done' ? true : false],
-            ])
+            $tasks = $this->user->tasks()
+                ->where('done', $this->type === 'user.done' ? true : false)
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, '*', null, $this->page);
 
