@@ -167,10 +167,7 @@ class SingleTask extends Component
             }
         }
 
-        if (
-            ($launchFound and (bool) $this->task->done) and
-            ! ($this->task->source === 'GitHub' or $this->task->source === 'GitLab' or $this->task->source === 'Webhook')
-        ) {
+        if (($launchFound and (bool) $this->task->done)) {
             $this->launched = true;
         }
 
