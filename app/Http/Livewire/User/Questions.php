@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Question;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -26,7 +25,7 @@ class Questions extends Component
 
     public function getQuestions()
     {
-        return Question::where('user_id', $this->user->id)
+        return $this->user->questions()
             ->latest()
             ->paginate(10);
     }
