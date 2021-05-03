@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Comment;
 
-use App\Models\Comment;
 use App\Models\Task;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
