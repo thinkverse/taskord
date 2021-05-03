@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\User\Stats;
 
-use App\Models\Answer;
 use Carbon\CarbonPeriod;
 use Livewire\Component;
 
@@ -26,8 +25,8 @@ class Answers extends Component
         $created_at = $this->user->created_at->format('Y-m-d');
         $current_date = carbon()->format('Y-m-d');
         $period = CarbonPeriod::create($created_at, '7 days', $current_date);
-        $answers_count = Answer::select('id')
-            ->where('user_id', $this->user->id)
+        $answers_count = $this->user->answers()
+            ->select('id')
             ->count();
 
         $week_dates = [];
@@ -35,8 +34,8 @@ class Answers extends Component
         $tasks = [];
         foreach ($period->toArray() as $date) {
             array_push($week_dates, carbon($date)->format('d M Y'));
-            $count = Answer::select('id')
-                ->where('user_id', $this->user->id)
+            $count = $this->user->answers()
+                ->select('id')
                 ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(7)])
                 ->count();
             array_push($answers, $count);
