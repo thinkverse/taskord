@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Task;
 use App\Models\User;
 use Livewire\Component;
 
