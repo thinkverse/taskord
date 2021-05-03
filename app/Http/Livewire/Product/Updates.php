@@ -21,7 +21,7 @@ class Updates extends Component
 
     public function render()
     {
-        $updates = ProductUpdate::where('product_id', $this->product->id)
+        $updates = $this->product->product_updates()
             ->latest()
             ->paginate(10);
 

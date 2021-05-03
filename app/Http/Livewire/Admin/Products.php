@@ -22,7 +22,7 @@ class Products extends Component
     public function getProducts()
     {
         return Product::with('owner')
-            ->withCount(['members', 'tasks', 'product_update'])
+            ->withCount(['members', 'tasks', 'product_updates'])
             ->latest()
             ->paginate(50);
     }
