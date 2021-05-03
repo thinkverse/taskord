@@ -7,6 +7,12 @@
 - Ability to **add tasks** to milestones ⛳
 - Enable more security using **Cloudflare Access** for admins 🔑
 - New feature **announcement** on homepage sidebar 🔊
+- Updated checkbox style for tasks
+- Added vacation mode to user profile
+- Added header `Permissions-Policy interest-cohort=();` to block Google’s new FLoC user tracking
+- Removed today's task in /tasks page
+- Switched to GitHub Flavored Markdown
+- Image quality in tasks has been improved
 
 ## Released
 
