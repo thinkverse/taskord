@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\User\Stats;
 
-use App\Models\Task;
 use Carbon\CarbonPeriod;
 use Livewire\Component;
 
@@ -26,8 +25,8 @@ class AllTasks extends Component
         $created_at = $this->user->created_at->format('Y-m-d');
         $current_date = carbon()->format('Y-m-d');
         $period = CarbonPeriod::create($created_at, '5 days', $current_date);
-        $all_tasks_count = Task::select('id')
-            ->where('user_id', $this->user->id)
+        $all_tasks_count = $this->user->tasks()
+            ->select('id')
             ->count();
 
         $week_dates = [];
@@ -35,8 +34,8 @@ class AllTasks extends Component
         $tasks = [];
         foreach ($period->toArray() as $date) {
             array_push($week_dates, carbon($date)->format('d M Y'));
-            $count = Task::select('id')
-                ->where('user_id', $this->user->id)
+            $count = $this->user->tasks()
+                ->select('id')
                 ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(5)])
                 ->count();
             array_push($all_tasks, $count);
