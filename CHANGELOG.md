@@ -2,7 +2,13 @@
 
 ## Unreleased
 
-### **v1.0.9** (May 31, 2021)
+### **v1.1.0**
+
+- 
+
+## Released
+
+### **v1.0.9** (May 3, 2021)
 
 - Ability to **add tasks** to milestones ⛳
 - Enable more security using **Cloudflare Access** for admins 🔑
@@ -13,8 +19,6 @@
 - Removed today's task in /tasks page ➖
 - Switched to GitHub Flavored Markdown 🎑
 - Image quality in tasks has been improved 🖼
-
-## Released
 
 ### **v1.0.8** (Apr 24, 2021)
 
