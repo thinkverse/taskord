@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Comment;
 
-use App\Models\Comment;
 use App\Models\Task;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
@@ -35,7 +34,7 @@ class Comments extends Component
 
     public function getComments()
     {
-        return Comment::where('task_id', $this->task->id)
+        return $this->task->comments()
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['isFlagged', false],
