@@ -41,7 +41,7 @@ class LoadMore extends Component
     public function render()
     {
         if ($this->loadMore) {
-            $comments = Comment::where('task_id', $this->task->id)
+            $comments = $this->task->comments()
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
