@@ -60,6 +60,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::get('products', [UserController::class, 'profile'])->name('products');
         Route::get('questions', [UserController::class, 'profile'])->name('questions');
         Route::get('answers', [UserController::class, 'profile'])->name('answers');
+        Route::get('milestones', [UserController::class, 'profile'])->name('milestones');
         Route::get('following', [UserController::class, 'profile'])->name('following');
         Route::get('followers', [UserController::class, 'profile'])->name('followers');
         Route::get('stats', [UserController::class, 'profile'])->name('stats');
