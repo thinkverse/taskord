@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Task;
 use App\Models\User;
 use Livewire\Component;
 
@@ -33,10 +32,8 @@ class Tasks extends Component
 
     public function getTasks()
     {
-        return Task::where([
-            ['user_id', $this->user->id],
-            ['done', $this->type === 'user.done' ? true : false],
-        ])
+        return $this->user->tasks()
+            ->where('done', $this->type === 'user.done' ? true : false)
             ->orderBy('done_at', 'desc')
             ->paginate(10, '*', null, $this->page);
     }
