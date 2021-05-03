@@ -46,7 +46,7 @@ var productsMention = new Tribute({
     return product.slug + product.name;
   },
   fillAttr: "slug",
-  menuShowMinLength: 1,
+  menuShowMinLength: 0,
   menuItemTemplate: (item) => {
     const { avatar, slug, name } = item.original;
     return `

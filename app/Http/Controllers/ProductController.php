@@ -93,7 +93,7 @@ class ProductController extends Controller
 
     public function mention(Request $request)
     {
-        if ($request['query']) {
+        if ($request['query'] >= 0) {
             $products = Product::select('slug', 'name', 'avatar')
                 ->where('user_id', auth()->id())
                 ->orWhereHas('members', function (Builder $query) {
