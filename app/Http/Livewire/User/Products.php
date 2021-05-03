@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Models\Product;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -26,7 +25,7 @@ class Products extends Component
 
     public function getProducts()
     {
-        return Product::where('user_id', $this->user->id)
+        return $this->user->ownedProducts()
             ->paginate(10);
     }
 
