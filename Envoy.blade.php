@@ -4,8 +4,8 @@
     pull-from-gitlab
     install-laravel-dependencies
     install-yarn-dependencies
-    build-assets
     clean-application
+    build-assets
 @endstory
 
 @task('pull-from-gitlab')
@@ -26,14 +26,14 @@
     yarn install
 @endtask
 
-@task('build-assets')
-    echo "Building CSS and JS assets";
-    yarn production
-@endtask
-
 @task('clean-application')
     echo "Cleaning the Taskord application";
     php artisan app:clean
+@endtask
+
+@task('build-assets')
+    echo "Building CSS and JS assets";
+    yarn production
 @endtask
 
 @success
