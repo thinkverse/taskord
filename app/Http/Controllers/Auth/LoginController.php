@@ -58,7 +58,7 @@ class LoginController extends Controller
 
             return redirect()->back();
         } else {
-            if (!$user->isFlagged) {
+            if (! $user->isFlagged) {
                 $generator = new LoginUrl($user);
                 $generator->setRedirectUrl('/');
                 $url = $generator->generate();
