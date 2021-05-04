@@ -10,7 +10,9 @@
 
 @task('pull-from-gitlab')
     echo "Pulling latest changes from GitLab";
+    php artisan down
     git pull origin main
+    php artisan up
 @endtask
 
 @task('install-laravel-dependencies')
