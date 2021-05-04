@@ -4,7 +4,7 @@
             <div class="h5">
                 All Tasks
             </div>
-            <span class="fw-bold">{{ $readyToLoad ? auth()->user()->tasks()->count('id') : '···' }}</span>
+            <span class="fw-bold">{{ $readyToLoad ? auth()->user()->tasks()->where('done', false)->count('id') : '···' }}</span>
             Pending Tasks
         </div>
         <ul class="list-group list-group-flush">
