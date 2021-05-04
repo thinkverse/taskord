@@ -7,8 +7,10 @@ before_script:
   - cp .env.ci .env
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
+  - yarn install
   - php artisan key:generate
   - php artisan migrate
+  - yarn production
 
 before_install:
   - mysql -e 'CREATE DATABASE taskord;'
@@ -18,3 +20,5 @@ script:
 
 services:
   - mysql
+  - memcached
+  - redis-server
