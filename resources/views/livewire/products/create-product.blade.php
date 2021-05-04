@@ -1,10 +1,9 @@
 <div>
-    <div class="card mb-4">
-        <div class="card-header h6 py-3">
-            <div class="h5 mb-0">
-                Create new product
-            </div>
-        </div>
+    <div class="h5 mb-3 text-secondary d-flex align-content-center">
+        <x-heroicon-o-cube class="heroicon-2x" />
+        <span class="ms-1">Create new product</span>
+    </div>
+    <div class="card">
         <form wire:target="submit" wire:submit.prevent="submit">
             <div class="card-body">
                 <div class="mb-3">
