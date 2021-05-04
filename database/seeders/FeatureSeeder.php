@@ -25,11 +25,5 @@ class FeatureSeeder extends Seeder
             'slug' => 'help_menu',
             'description' => 'Help menu in navbar dropdown',
         ]);
-
-        Feature::factory()->create([
-            'name' => 'Milestone tab',
-            'slug' => 'milestone_tab',
-            'description' => 'Milestone tab on user profile',
-        ]);
     }
 }
