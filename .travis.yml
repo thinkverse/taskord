@@ -1,0 +1,20 @@
+language: php
+
+php:
+  - 8.0
+
+before_script:
+  - cp .env.ci .env
+  - composer self-update
+  - composer install --prefer-source --no-interaction --dev
+  - php artisan key:generate
+  - php artisan migrate
+
+before_install:
+  - mysql -e 'CREATE DATABASE taskord;'
+
+script:
+  - php artisan test
+
+services:
+  - mysql
