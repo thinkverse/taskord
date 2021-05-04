@@ -5,7 +5,7 @@
 @section('content')
 <div class="container-md">
     <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-7">
             @auth
                 @if (!auth()->user()->isFlagged)
                 @livewire('products.create-product')
