@@ -58,12 +58,14 @@ class LoginController extends Controller
 
             return redirect()->back();
         } else {
-            $generator = new LoginUrl($user);
-            $generator->setRedirectUrl('/');
-            $url = $generator->generate();
-            $user->notify(new MagicLink($url));
-            $request->session()->flash('global', 'Magic link has been sent to your email');
-            AuthGetIP::dispatch($user, $request->ip());
+            if (!$user->isFlagged) {
+                $generator = new LoginUrl($user);
+                $generator->setRedirectUrl('/');
+                $url = $generator->generate();
+                $user->notify(new MagicLink($url));
+                $request->session()->flash('global', 'Magic link has been sent to your email');
+                AuthGetIP::dispatch($user, $request->ip());
+            }
 
             return redirect()->route('home');
         }
