@@ -65,6 +65,8 @@ class LoginController extends Controller
                 $user->notify(new MagicLink($url));
                 $request->session()->flash('global', 'Magic link has been sent to your email');
                 AuthGetIP::dispatch($user, $request->ip());
+            } else {
+                $request->session()->flash('global', 'Your account is flagged or suspended 😢');
             }
 
             return redirect()->route('home');
