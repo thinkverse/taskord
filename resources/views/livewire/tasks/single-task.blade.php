@@ -50,6 +50,7 @@
             @livewire('task.select-milestone', [
                 'task' => $task
             ])
+            @if ($show_delete)
             @if ($confirming === $task->id)
             <button type="button" class="btn btn-task btn-danger my-1" wire:click="deleteTask" wire:loading.attr="disabled" aria-label="Confirm Delete">
                 Are you sure?
@@ -58,6 +59,7 @@
             <button type="button" class="btn btn-task btn-outline-danger my-1" wire:click="confirmDelete" wire:loading.attr="disabled" aria-label="Delete">
                 <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
             </button>
+            @endif
             @endif
         @endif
     </div>

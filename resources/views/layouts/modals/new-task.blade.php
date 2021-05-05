@@ -4,7 +4,7 @@
             <div class="modal-body">
                 @if (!auth()->user()->isFlagged)
                     @livewire('create-task', [
-                        'show_new_tasks' => true
+                        'show_latest_task' => true
                     ])
                 @endif
             </div>

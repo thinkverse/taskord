@@ -22,7 +22,7 @@ class CreateTask extends Component
     public $images = [];
     public $due_at;
     public $product;
-    public $show_new_tasks = false;
+    public $show_latest_task = false;
     public $latest_task;
 
     public function mount($product = null)
