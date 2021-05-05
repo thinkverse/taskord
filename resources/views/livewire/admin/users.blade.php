@@ -102,13 +102,13 @@
                     </td>
                     <td>
                         @if ($user->provider === 'google')
-                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg" />
+                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg" loading=lazy />
                         @elseif ($user->provider === 'twitter')
-                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" />
+                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" loading=lazy />
                         @elseif ($user->provider === 'github')
-                            <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" />
+                            <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" loading=lazy />
                         @elseif ($user->provider === 'gitlab')
-                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" />
+                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" loading=lazy />
                         @else
                             <x-heroicon-o-globe-alt class="heroicon text-success" />
                         @endif
