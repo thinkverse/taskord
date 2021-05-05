@@ -39,7 +39,7 @@
                 </div>
                 <div class="text-center mb-5 pt-2">
                     <div>
-                        <img loading=lazy height="50" src="https://ik.imagekit.io/taskordimg/ossplanet__cpcTWLJt.jpeg" />
+                        <img loading=lazy height="100" src="https://ik.imagekit.io/taskordimg/ossplanet__cpcTWLJt.jpeg" />
                     </div>
                     <div class="h6 mt-4 lh-base">
                         OSSPlanet is a Non-Profit project. They provide Free VM / Hosting / Mirror for Open Source/Audio/Culture Projects with Unlimited outbound Internet traffic.
