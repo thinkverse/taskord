@@ -104,10 +104,8 @@ class ProductController extends Controller
         return $products;
     }
 
-    public function popover($id)
+    public function popover(Product $product)
     {
-        $product = Product::find($id);
-
         return view('product.popover', [
             'product' => $product,
         ]);
