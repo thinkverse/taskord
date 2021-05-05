@@ -1,7 +1,7 @@
 <div class="modal fade" id="newTaskModal" tabindex="-1" aria-labelledby="newTaskModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-body">
+            <div class="modal-body p-4">
                 @if (!auth()->user()->isFlagged)
                     @livewire('create-task', [
                         'show_latest_task' => true
