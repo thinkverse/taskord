@@ -27,7 +27,7 @@
                     </div>
                     <div>
                         <label class="form-label fw-bold">Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror mentionInput" rows="6" placeholder="What does this feature do?" wire:model.lazy="description"></textarea>
+                        <textarea class="form-control @error('description') is-invalid @enderror mentionInput" rows="6" placeholder="What does this feature do?" wire:model.defer="description"></textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

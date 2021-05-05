@@ -18,7 +18,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Body</label>
-                        <textarea class="form-control @error('body') is-invalid @enderror" rows="6" placeholder="What's on your mind?" wire:model.lazy="body">{{ $body }}</textarea>
+                        <textarea class="form-control @error('body') is-invalid @enderror" rows="6" placeholder="What's on your mind?" wire:model.defer="body">{{ $body }}</textarea>
                         @error('body')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
