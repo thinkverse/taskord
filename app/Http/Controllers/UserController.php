@@ -189,10 +189,8 @@ class UserController extends Controller
         return $users;
     }
 
-    public function popover($id)
+    public function popover(User $user)
     {
-        $user = User::find($id);
-
         return view('user.popover', [
             'user' => $user,
         ]);

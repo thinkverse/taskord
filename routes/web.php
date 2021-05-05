@@ -232,7 +232,7 @@ Route::group(['prefix' => 'mention', 'middleware' => ['auth']], function () {
 
 // Popover
 Route::group(['prefix' => 'popover'], function () {
-    Route::get('user/{id}', [UserController::class, 'popover']);
+    Route::get('user/{user}', [UserController::class, 'popover']);
     Route::get('product/{product}', [ProductController::class, 'popover']);
 });
 
