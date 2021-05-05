@@ -6,6 +6,12 @@
                     @livewire('create-task', [
                         'show_latest_task' => true
                     ])
+                @else
+                <div class="text-center">
+                    <div class="alert alert-danger mb-0" role="alert">
+                        You can't create new task, because your account has been flagged 😢
+                    </div>
+                </div>
                 @endif
             </div>
         </div>
