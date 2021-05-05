@@ -251,4 +251,6 @@
 </nav>
 
 @include('layouts.modals.shortcuts')
+@auth
 @include('layouts.modals.new-task')
+@endauth
