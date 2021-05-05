@@ -16,9 +16,6 @@ var filesToCache = [
     'https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg',
 ];
 
-// Imagekit network based optimization
-importScripts("https://runtime.imagekit.io/taskordimg/v1/js/network-based-adaption.js?v=" + new Date().getTime());
-
 // Cache on install
 self.addEventListener("install", event => {
     this.skipWaiting();
