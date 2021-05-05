@@ -19,7 +19,7 @@
                     {{ Auth::check() && auth()->user()->checkState ? 'checked' : 'unchecked' }}
                 >
             </div>
-            <input type="text" class="form-control mentionInput" placeholder="Add a Task" wire:model.defer="task" autocomplete="off" aria-label="Task Input" />
+            <input type="text" class="form-control mentionInput" placeholder="Add a Task" wire:model.lazy="task" autocomplete="off" aria-label="Task Input" />
         </div>
         <div class="d-flex justify-content-between">
         <div class="form-file form-file-sm col-6 col-lg-3">
