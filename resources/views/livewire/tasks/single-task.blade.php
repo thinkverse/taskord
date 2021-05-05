@@ -5,7 +5,7 @@
             id="task-{{ $task->id }}"
             type="checkbox"
             wire:click="checkTask"
-            unchecked
+            {{ $task->done ? "checked" : "unchecked" }}
         />
         <label class="task-font text-dark ms-2">
             <a class="text-dark" href="{{ route('task', ['id' => $task->id]) }}">
@@ -60,6 +60,11 @@
                 <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
             </button>
             @endif
+            @else
+            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-success me-1" target="_blank" aria-label="Open task">
+                <x-heroicon-o-external-link class="heroicon-small me-0" />
+                Open task
+            </a>
             @endif
         @endif
     </div>
