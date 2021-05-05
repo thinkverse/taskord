@@ -47,6 +47,11 @@ hotkeys("g+s", () => {
   window.location.href = "/settings";
 });
 
+// New Task Modal
+hotkeys("n", async () => {
+  (new bootstrap.Modal(document.getElementById("newTaskModal"))).show();
+});
+
 // Shortcut Modal
 hotkeys("shift+/", async () => {
   (new bootstrap.Modal(document.getElementById("shortcutsModal"))).show();

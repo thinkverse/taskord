@@ -251,3 +251,4 @@
 </nav>
 
 @include('layouts.modals.shortcuts')
+@include('layouts.modals.new-task')
