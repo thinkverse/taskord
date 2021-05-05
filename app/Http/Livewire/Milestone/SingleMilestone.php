@@ -76,13 +76,13 @@ class SingleMilestone extends Component
                 $this->milestone->save();
                 loggy(request()->ip(), 'Milestone', auth()->user(), 'Closed the milestone | Milestone ID: '.$this->milestone->id);
 
-                return redirect()->route('milestones.milestone', ['id' => $this->milestone->id]);
+                return redirect()->route('milestones.milestone', ['milestone' => $this->milestone]);
             } else {
                 $this->milestone->status = true;
                 $this->milestone->save();
                 loggy(request()->ip(), 'Milestone', auth()->user(), 'Opened the milestone | Milestone ID: '.$this->milestone->id);
 
-                return redirect()->route('milestones.milestone', ['id' => $this->milestone->id]);
+                return redirect()->route('milestones.milestone', ['milestone' => $this->milestone]);
             }
         } else {
             return $this->alert('error', 'Forbidden!');

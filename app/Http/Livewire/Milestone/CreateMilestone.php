@@ -41,7 +41,7 @@ class CreateMilestone extends Component
             loggy(request()->ip(), 'Milestone', auth()->user(), 'Created a new milestone | Milestone ID: '.$milestone->id);
             $this->flash('success', 'Milestone has been created!');
 
-            return redirect()->route('milestones.milestone', ['id' => $milestone->id]);
+            return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
         } else {
             $this->alert('error', 'Forbidden!');
         }

@@ -21,10 +21,8 @@ class MilestoneController extends Controller
         ]);
     }
 
-    public function milestone($id)
+    public function milestone(Milestone $milestone)
     {
-        $milestone = Milestone::where('id', $id)
-            ->firstOrFail();
         $response = [
             'type' => 'milestones.milestone',
             'milestone' => $milestone,

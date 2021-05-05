@@ -30,7 +30,7 @@
                 <div class="small">{{ "@" . $milestone->user->username }}</div>
             </span>
             <span class="align-text-top small float-end ms-auto">
-                <a class="text-secondary" href="{{ route('milestones.milestone', ['id' => $milestone->id]) }}">
+                <a class="text-secondary" href="{{ route('milestones.milestone', ['milestone' => $milestone]) }}">
                     {{ $milestone->created_at->diffForHumans() }}
                 </a>
             </span>
@@ -40,7 +40,7 @@
         @if ($milestone->hidden)
         <span class="fst-italic text-secondary">Milestone was hidden by moderator</span>
         @else
-        <a href="{{ route('milestones.milestone', ['id' => $milestone->id]) }}" class="h5 align-text-top fw-bold text-dark">
+        <a href="{{ route('milestones.milestone', ['milestone' => $milestone]) }}" class="h5 align-text-top fw-bold text-dark">
             @if ($type !== "milestones.milestone")
                 {{ Str::words($milestone->name, '10') }}
             @else
