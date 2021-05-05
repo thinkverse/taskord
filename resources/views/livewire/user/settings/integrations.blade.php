@@ -109,7 +109,7 @@
                     <h2 class="accordion-header" id="github-webhook">
                         <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapse-github-webhook" aria-expanded="false" aria-controls="collapse-github-webhook">
-                            <img class="me-2 github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15" width="15" />
+                            <img class="me-2 github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15" width="15" loading=lazy />
                             GitHub
                         </button>
                     </h2>
@@ -133,7 +133,7 @@
                         <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapse-gitlab-webhook" aria-expanded="false"
                             aria-controls="collapse-gitlab-webhook">
-                            <img class="me-2" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" height="15" width="15" />
+                            <img class="me-2" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" height="15" width="15" loading=lazy />
                             GitLab
                         </button>
                     </h2>
@@ -186,9 +186,9 @@
                                 <x-heroicon-o-globe-alt class="heroicon text-info" />
                             </span>
                             @elseif ($webhook->type === 'github')
-                            <img class="github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15" width="15" />
+                            <img class="github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15" width="15" loading=lazy />
                             @elseif ($webhook->type === 'gitlab')
-                            <img src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" height="15" width="15" />
+                            <img src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" height="15" width="15" loading=lazy />
                             @endif
                         </td>
                         <td class="fw-bold">

@@ -188,7 +188,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" height="15" width="15" />
+                        <img src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" height="15" width="15" loading=lazy />
                     </span>
                     <input type="text" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" value="{{ $user->twitter }}" wire:model.defer="twitter">
                     @error('twitter')
@@ -199,7 +199,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img src="https://ik.imagekit.io/taskordimg/icons/twitch_ZzpKWQt7T.svg" height="15" width="15" />
+                        <img src="https://ik.imagekit.io/taskordimg/icons/twitch_ZzpKWQt7T.svg" height="15" width="15" loading=lazy />
                     </span>
                     <input type="text" class="form-control @error('twitch') is-invalid @enderror" placeholder="Twitch" value="{{ $user->twitch }}" wire:model.defer="twitch">
                     @error('twitch')
@@ -210,7 +210,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img src="https://ik.imagekit.io/taskordimg/icons/telegram_4ea__J3dwB.svg" height="15" width="15" />
+                        <img src="https://ik.imagekit.io/taskordimg/icons/telegram_4ea__J3dwB.svg" height="15" width="15" loading=lazy />
                     </span>
                     <input type="text" class="form-control @error('telegram') is-invalid @enderror" placeholder="Telegram" value="{{ $user->telegram }}" wire:model.defer="telegram">
                     @error('telegram')
@@ -221,7 +221,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img class="github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15" width="15" />
+                        <img class="github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15" width="15" loading=lazy />
                     </span>
                     <input type="text" class="form-control @error('github') is-invalid @enderror" placeholder="GitHub" value="{{ $user->github }}" wire:model.defer="github">
                     @error('github')
@@ -232,7 +232,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img src="https://ik.imagekit.io/taskordimg/icons/youtube_qUsz_87ogn.svg" height="15" width="15" />
+                        <img src="https://ik.imagekit.io/taskordimg/icons/youtube_qUsz_87ogn.svg" height="15" width="15" loading=lazy />
                     </span>
                     <input type="text" class="form-control @error('youtube') is-invalid @enderror" placeholder="YouTube" value="{{ $user->youtube }}" wire:model.defer="youtube">
                     @error('youtube')
