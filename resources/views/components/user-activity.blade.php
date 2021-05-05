@@ -77,6 +77,17 @@
             <span>{{ $activity->getExtraProperty('location') }}</span>
             <span class="vertical-separator"></span>
             @endif
+            @if ($activity->getExtraProperty('user_agent'))
+            <a
+                class="cursor-pointer text-dark"
+                href="https://userstack.com/ua_api.php?ua={{ $activity->getExtraProperty('user_agent') }}"
+                title="{{ $activity->getExtraProperty('user_agent') }}"
+                target="_blank"
+            >
+                <x-heroicon-o-globe-alt class="heroicon" />
+            </a>
+            <span class="vertical-separator"></span>
+            @endif
             {{ carbon($activity->created_at)->diffForHumans() }}
         </div>
     </div>
