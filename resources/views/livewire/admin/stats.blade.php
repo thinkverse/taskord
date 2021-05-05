@@ -1,4 +1,4 @@
-<div class="card" wire:init="loadStats">
+<div class="card" wire:init="loadStats" wire:poll>
     <div class="card-header h6 py-3">
         <div class="h5">Stats</div>
         Taskord Stats
