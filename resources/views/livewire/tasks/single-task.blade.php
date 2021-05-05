@@ -41,11 +41,11 @@
     </div>
     @endif
     <div class="mt-2">
-        <div class="fw-bold me-2 mb-1 small">
-            @if ($task->due_at)
-                {!! Helper::renderDueDate($task->due_at) !!}
-            @endif
+        @if ($task->due_at)
+        <div class="fw-bold me-2 mb-2 small">
+            {!! Helper::renderDueDate($task->due_at) !!}
         </div>
+        @endif
         @if (auth()->user()->id === $task->user->id)
             @livewire('task.select-milestone', [
                 'task' => $task

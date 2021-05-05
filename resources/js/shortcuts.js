@@ -48,9 +48,12 @@ hotkeys("g+s", () => {
 });
 
 // New Task Modal
-hotkeys("n", async () => {
-  (new bootstrap.Modal(document.getElementById("newTaskModal"))).show();
-});
+var newTaskModal = document.getElementById("newTaskModal");
+if (newTaskModal != null) {
+  hotkeys("n", async () => {
+    (new bootstrap.Modal(newTaskModal)).show();
+  });
+}
 
 // Shortcut Modal
 hotkeys("shift+/", async () => {
