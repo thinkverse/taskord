@@ -38,9 +38,6 @@ class Clean extends Command
      */
     public function handle()
     {
-        $this->info('Database Migration Started ✅');
-        Artisan::call('migrate --force');
-        $this->info('Database Migration Ended ✅');
         $this->info('Cleaning Started ✅');
         Artisan::call('config:clear');
         $this->info('Config Cleared ✅');

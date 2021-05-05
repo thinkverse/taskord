@@ -2,6 +2,7 @@
 
 @story('deploy', ['on' => 'web'])
     pull-from-gitlab
+    database-migration
     install-laravel-dependencies
     install-yarn-dependencies
     clean-application
@@ -13,6 +14,14 @@
     php artisan down
     git pull origin main
     php artisan up
+@endtask
+
+@task('database-migration')
+    echo "Database Migration Started ✅";
+    php artisan down
+    php artisan migrate --force
+    php artisan up
+    echo "Database Migration Ended ✅";
 @endtask
 
 @task('install-laravel-dependencies')
