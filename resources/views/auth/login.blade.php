@@ -18,6 +18,7 @@
                         src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg"
                         alt="Taskord Logo"
                         height="60"
+                        loading=lazy
                     >
                     <h1 class="h3 mb-2 fw-bold">
                         Sign in to your account
