@@ -64,7 +64,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" />
+                        <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" loading=lazy />
                     </span>
                     <input type="text" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" wire:model.defer="twitter">
                     @error('twitter')
@@ -75,7 +75,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/producthunt_tzL4ouGeqn.svg" />
+                        <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/producthunt_tzL4ouGeqn.svg" loading=lazy />
                     </span>
                     <input type="text" class="form-control @error('producthunt') is-invalid @enderror" placeholder="Product Hunt" wire:model.defer="producthunt">
                     @error('producthunt')
