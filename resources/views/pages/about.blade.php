@@ -10,8 +10,8 @@
 <div class="container-md">
     <div class="card">
         <div class="card-header py-3">
-            <span class="h5">Heading</span>
-            <div>Sub-heading</div>
+            <span class="h5">About</span>
+            <div>About Taskord</div>
         </div>
         <div class="card-body">
             Soon

@@ -2,9 +2,11 @@
     <span class="pe-2 fw-bold">
         © Taskord
     </span>
+    @if (feature('about_page'))
     <a class="pe-2" href="{{ route('about') }}">
         About
     </a>
+    @endif
     <a class="pe-2" href="https://status.taskord.com" target="_blank" rel="noreferrer">
         Status
     </a>
