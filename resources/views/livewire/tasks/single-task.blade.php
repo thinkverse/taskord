@@ -7,8 +7,10 @@
             wire:click="checkTask"
             unchecked
         />
-        <label for="task-{{ $task->id }}" class="task-font text-dark ms-2">
-            {!! Purify::clean(Helper::renderTask($task->task)) !!}
+        <label class="task-font text-dark ms-2">
+            <a class="text-dark" href="{{ route('task', ['id' => $task->id]) }}">
+                {!! Purify::clean(Helper::renderTask($task->task)) !!}
+            </a>
             @if ($task->type === 'product')
             <span class="small text-secondary">
                 <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar, 80) }}" height="15" width="15" alt="{{ $task->product->slug }}'s avatar" />
