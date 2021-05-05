@@ -168,10 +168,12 @@
             @endif
             @endauth
         </div>
+        @if (!$task->hidden)
         @if ($task->comments->count('id') !== 0 and $showComments)
         @livewire('task.comments', [
             'task' => $task
         ])
+        @endif
         @endif
     </div>
     <div class="collapse mt-3 text-secondary" id="taskExpand-{{$task->id}}">
