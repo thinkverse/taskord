@@ -54,31 +54,31 @@
                 @endif
                 @if ($user->twitter)
                 <a class="list-group-item link-dark" href="https://twitter.com/{{ $user->twitter }}" target="_blank" rel="noreferrer">
-                    <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" />
+                    <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" loading=lazy />
                     {{ $user->twitter }}
                 </a>
                 @endif
                 @if ($user->twitch)
                 <a class="list-group-item link-dark" href="https://twitch.tv/{{ $user->twitch }}" target="_blank" rel="noreferrer">
-                    <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitch_ZzpKWQt7T.svg" />
+                    <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitch_ZzpKWQt7T.svg" loading=lazy />
                     {{ $user->twitch }}
                 </a>
                 @endif
                 @if ($user->telegram)
                 <a class="list-group-item link-dark" href="https://t.me/{{ $user->telegram }}" target="_blank" rel="noreferrer">
-                    <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/telegram_4ea__J3dwB.svg" />
+                    <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/telegram_4ea__J3dwB.svg" loading=lazy />
                     {{ $user->telegram }}
                 </a>
                 @endif
                 @if ($user->github)
                 <a class="list-group-item link-dark" href="https://github.com/{{ $user->github }}" target="_blank" rel="noreferrer">
-                    <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" />
+                    <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" loading=lazy />
                     {{ $user->github }}
                 </a>
                 @endif
                 @if ($user->youtube)
                 <a class="list-group-item link-dark" href="https://youtube.com/{{ $user->youtube }}" target="_blank" rel="noreferrer">
-                    <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/youtube_qUsz_87ogn.svg" />
+                    <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/youtube_qUsz_87ogn.svg" loading=lazy />
                     {{ $user->youtube }}
                 </a>
                 @endif

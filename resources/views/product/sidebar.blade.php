@@ -51,24 +51,24 @@
             @endif
             @if ($product->producthunt)
             <a class="list-group-item link-dark" href="https://www.producthunt.com/posts/{{ $product->producthunt }}" target="_blank" rel="noreferrer">
-                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/producthunt_tzL4ouGeqn.svg" />
+                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/producthunt_tzL4ouGeqn.svg" loading=lazy />
                 {{ Helper::removeProtocol($product->producthunt) }}
             </a>
             @endif
             @if ($product->twitter)
             <a class="list-group-item link-dark" href="https://twitter.com/{{ $product->twitter }}" target="_blank" rel="noreferrer">
-                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" />
+                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" loading=lazy />
                 {{ $product->twitter }}
             </a>
             @endif
             @if ($product->repo and strlen(trim(parse_url($product->repo)['path'], '/')) !== 0)
             <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank" rel="noreferrer">
                 @if (parse_url($product->repo)['host'] === 'github.com')
-                <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" />
+                <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" loading=lazy />
                 @elseif (parse_url($product->repo)['host'] === 'gitlab.com')
-                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" />
+                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" loading=lazy />
                 @elseif (parse_url($product->repo)['host'] === 'bitbucket.org')
-                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/bitbucket_f5ZE6ZhmF.svg" />
+                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/bitbucket_f5ZE6ZhmF.svg" loading=lazy />
                 @endif
                 {{ trim(parse_url($product->repo)['path'], '/') }}
             </a>
