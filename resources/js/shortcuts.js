@@ -55,11 +55,6 @@ if (newTaskModal != null) {
   });
 }
 
-// Shortcut Modal
-hotkeys("shift+/", async () => {
-  (new bootstrap.Modal(document.getElementById("shortcutsModal"))).show();
-});
-
 // Deploy Modal
 var deployModal = document.getElementById("deployModal");
 if (deployModal != null) {
