@@ -52,7 +52,7 @@
     <body>
         <div class="container">
             <img loading=lazy src="https://ik.imagekit.io/taskordimg/pride_vocaCTHn-.svg" />
-            <h1>We're having a really bad day!</h1>
+            <h1>Taskord is down!</h1>
             <p>We're doing our best to get Taskord back to normal.</p>
             <p class="info">
                 <a href="{{ route('contact') }}">Taskord Support</a> —
