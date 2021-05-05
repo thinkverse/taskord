@@ -89,7 +89,7 @@ class LoginController extends Controller
             $request->session()->flash('global', 'Welcome back!');
             AuthGetIP::dispatch(auth()->user(), $request->ip());
             auth()->user()->notify(new Login($request->ip()));
-            loggy(request()->ip(), 'Auth', auth()->user(), 'Logged in via Taskord auth with '.auth()->user()->email);
+            loggy(request(), 'Auth', auth()->user(), 'Logged in via Taskord auth with '.auth()->user()->email);
 
             return redirect()->route('home');
         } else {

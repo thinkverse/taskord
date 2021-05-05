@@ -29,7 +29,7 @@ class SingleFeature extends Component
             $this->feature->staff = true;
         }
         $this->feature->save();
-        loggy(request()->ip(), 'Admin', auth()->user(), 'Toggled contributor feature flag | Feature ID: '.$this->feature->id);
+        loggy(request(), 'Admin', auth()->user(), 'Toggled contributor feature flag | Feature ID: '.$this->feature->id);
     }
 
     public function betaToggle()
@@ -40,14 +40,14 @@ class SingleFeature extends Component
             $this->feature->contributor = true;
         }
         $this->feature->save();
-        loggy(request()->ip(), 'Admin', auth()->user(), 'Toggled beta feature flag | Feature ID: '.$this->feature->id);
+        loggy(request(), 'Admin', auth()->user(), 'Toggled beta feature flag | Feature ID: '.$this->feature->id);
     }
 
     public function staffToggle()
     {
         $this->feature->staff = $this->staffStatus;
         $this->feature->save();
-        loggy(request()->ip(), 'Admin', auth()->user(), 'Toggled staff feature flag | Feature ID: '.$this->feature->id);
+        loggy(request(), 'Admin', auth()->user(), 'Toggled staff feature flag | Feature ID: '.$this->feature->id);
     }
 
     public function confirmDelete()
@@ -58,7 +58,7 @@ class SingleFeature extends Component
     public function deleteFeature()
     {
         if (Auth::check()) {
-            loggy(request()->ip(), 'Admin', auth()->user(), 'Deleted a feature flag | Feature ID: '.$this->feature->id);
+            loggy(request(), 'Admin', auth()->user(), 'Deleted a feature flag | Feature ID: '.$this->feature->id);
             $this->feature->delete();
             auth()->user()->touch();
             $this->flash('success', 'Feature flag has been deleted successfully!');

@@ -37,7 +37,7 @@ class Products extends Component
 
         $this->user->touch();
 
-        loggy(request()->ip(), 'Product', $this->user, 'Left the team #'.$product->slug);
+        loggy(request(), 'Product', $this->user, 'Left the team #'.$product->slug);
 
         return $this->alert('success', 'You are no longer member of the team!');
     }

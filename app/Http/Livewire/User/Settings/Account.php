@@ -26,11 +26,11 @@ class Account extends Component
                 $this->user->isBeta = ! $this->user->isBeta;
                 $this->user->save();
                 if ($this->user->isBeta) {
-                    loggy(request()->ip(), 'User', auth()->user(), 'Enrolled to beta');
+                    loggy(request(), 'User', auth()->user(), 'Enrolled to beta');
 
                     return $this->alert('success', 'Your are now beta member!');
                 } else {
-                    loggy(request()->ip(), 'User', auth()->user(), 'Opted out from beta');
+                    loggy(request(), 'User', auth()->user(), 'Opted out from beta');
 
                     return $this->alert('success', 'Your are no longer a beta member!');
                 }
@@ -52,11 +52,11 @@ class Account extends Component
                 $this->user->isPrivate = ! $this->user->isPrivate;
                 $this->user->save();
                 if ($this->user->isPrivate) {
-                    loggy(request()->ip(), 'User', auth()->user(), 'Enrolled as a private user');
+                    loggy(request(), 'User', auth()->user(), 'Enrolled as a private user');
 
                     return $this->alert('success', 'All your tasks are now private');
                 } else {
-                    loggy(request()->ip(), 'User', auth()->user(), 'Enrolled as a public user');
+                    loggy(request(), 'User', auth()->user(), 'Enrolled as a public user');
 
                     return $this->alert('success', 'All your tasks are now public');
                 }
@@ -97,7 +97,7 @@ class Account extends Component
                         $this->user->sendEmailVerificationNotification();
                     }
                     $this->user->save();
-                    loggy(request()->ip(), 'User', auth()->user(), 'Updated account settings');
+                    loggy(request(), 'User', auth()->user(), 'Updated account settings');
 
                     return $this->alert('success', 'Your account has been updated!');
                 }

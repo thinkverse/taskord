@@ -38,7 +38,7 @@ class CreateMilestone extends Component
             ]);
             auth()->user()->touch();
 
-            loggy(request()->ip(), 'Milestone', auth()->user(), 'Created a new milestone | Milestone ID: '.$milestone->id);
+            loggy(request(), 'Milestone', auth()->user(), 'Created a new milestone | Milestone ID: '.$milestone->id);
             $this->flash('success', 'Milestone has been created!');
 
             return redirect()->route('milestones.milestone', ['milestone' => $milestone]);

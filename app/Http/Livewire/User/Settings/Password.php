@@ -47,7 +47,7 @@ class Password extends Component
 
                 auth()->user()->password = Hash::make($this->newPassword);
                 auth()->user()->save();
-                loggy(request()->ip(), 'User', auth()->user(), 'Changed account password');
+                loggy(request(), 'User', auth()->user(), 'Changed account password');
 
                 return $this->alert('success', 'Your password has been changed!');
             } else {

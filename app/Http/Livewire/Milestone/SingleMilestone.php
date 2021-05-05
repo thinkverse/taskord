@@ -29,7 +29,7 @@ class SingleMilestone extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            loggy(request()->ip(), 'Throttle', auth()->user(), 'Rate limited while praising the milestone');
+            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the milestone');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -46,7 +46,7 @@ class SingleMilestone extends Component
                 return $this->alert('warning', 'You can\'t praise your own milestone!');
             }
             Helper::togglePraise($this->milestone, 'MILESTONE');
-            loggy(request()->ip(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);
+            loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -57,7 +57,7 @@ class SingleMilestone extends Component
         if (Auth::check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->milestone);
-                loggy(request()->ip(), 'Admin', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
+                loggy(request(), 'Admin', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
 
                 return $this->alert('success', 'Milestone is hidden from public!');
             } else {
@@ -74,13 +74,13 @@ class SingleMilestone extends Component
             if ($this->milestone->status) {
                 $this->milestone->status = false;
                 $this->milestone->save();
-                loggy(request()->ip(), 'Milestone', auth()->user(), 'Closed the milestone | Milestone ID: '.$this->milestone->id);
+                loggy(request(), 'Milestone', auth()->user(), 'Closed the milestone | Milestone ID: '.$this->milestone->id);
 
                 return redirect()->route('milestones.milestone', ['milestone' => $this->milestone]);
             } else {
                 $this->milestone->status = true;
                 $this->milestone->save();
-                loggy(request()->ip(), 'Milestone', auth()->user(), 'Opened the milestone | Milestone ID: '.$this->milestone->id);
+                loggy(request(), 'Milestone', auth()->user(), 'Opened the milestone | Milestone ID: '.$this->milestone->id);
 
                 return redirect()->route('milestones.milestone', ['milestone' => $this->milestone]);
             }
@@ -102,7 +102,7 @@ class SingleMilestone extends Component
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->milestone->user_id) {
-                loggy(request()->ip(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
+                loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
                 $this->milestone->delete();
                 auth()->user()->touch();
                 $this->flash('success', 'Milestone has been deleted successfully!');

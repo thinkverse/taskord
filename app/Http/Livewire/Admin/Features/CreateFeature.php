@@ -27,7 +27,7 @@ class CreateFeature extends Component
                 'slug' => $this->slug,
             ]);
 
-            loggy(request()->ip(), 'Admin', auth()->user(), 'Created a new feature flag | Feature ID: '.$feature->id);
+            loggy(request(), 'Admin', auth()->user(), 'Created a new feature flag | Feature ID: '.$feature->id);
             $this->flash('success', 'Feature flag has been created!');
 
             return redirect()->route('admin.features');

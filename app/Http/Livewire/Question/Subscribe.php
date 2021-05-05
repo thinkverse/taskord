@@ -30,7 +30,7 @@ class Subscribe extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            loggy(request()->ip(), 'Throttle', auth()->user(), 'Rate limited while subscribing a question');
+            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while subscribing a question');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -48,7 +48,7 @@ class Subscribe extends Component
                 auth()->user()->toggleSubscribe($this->question);
                 $this->question->refresh();
                 auth()->user()->touch();
-                loggy(request()->ip(), 'Question', auth()->user(), 'Toggled question subscribe | Question ID: '.$this->question->id);
+                loggy(request(), 'Question', auth()->user(), 'Toggled question subscribe | Question ID: '.$this->question->id);
             }
         } else {
             return $this->alert('error', 'Forbidden!');

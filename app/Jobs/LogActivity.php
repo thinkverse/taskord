@@ -17,18 +17,20 @@ class LogActivity implements ShouldQueue
     protected $user;
     protected $message;
     protected $ip;
+    protected $user_agent;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($ip, $type, $user, $message)
+    public function __construct($ip, $user_agent, $type, $user, $message)
     {
         $this->type = $type;
         $this->user = $user;
         $this->message = $message;
         $this->ip = $ip;
+        $this->user_agent = $user_agent;
     }
 
     /**
@@ -43,6 +45,7 @@ class LogActivity implements ShouldQueue
             ->withProperties([
                 'type' => $this->type,
                 'ip' => $this->ip,
+                'user_agent' => $this->user_agent,
                 'location' => $this->ip === '127.0.0.1' ? null : $this->getLocation(),
             ])
             ->log($this->message);

@@ -21,7 +21,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->notifications_email = ! $this->user->notifications_email;
                 $this->user->save();
-                loggy(request()->ip(), 'User', auth()->user(), 'Toggled the email notification settings');
+                loggy(request(), 'User', auth()->user(), 'Toggled the email notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -38,7 +38,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->notifications_web = ! $this->user->notifications_web;
                 $this->user->save();
-                loggy(request()->ip(), 'User', auth()->user(), 'Toggled the web notification settings');
+                loggy(request(), 'User', auth()->user(), 'Toggled the web notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {

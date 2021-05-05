@@ -16,7 +16,7 @@ class Adminbar extends Component
     public function clean()
     {
         Clean::dispatch();
-        loggy(request()->ip(), 'Admin', auth()->user(), 'Cleaned the Application');
+        loggy(request(), 'Admin', auth()->user(), 'Cleaned the Application');
 
         return $this->alert('success', 'Cleaning process has been initiated successfully 🧼');
     }
@@ -26,7 +26,7 @@ class Adminbar extends Component
         if (auth()->id() === 1) {
             Deploy::dispatch(auth()->user(), request()->ip());
             Clean::dispatch();
-            loggy(request()->ip(), 'Admin', auth()->user(), 'Deployed the Application');
+            loggy(request(), 'Admin', auth()->user(), 'Deployed the Application');
 
             return $this->alert('success', 'Deployment process has been initiated successfully 🚀');
         } else {

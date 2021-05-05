@@ -30,7 +30,7 @@ class SocialController extends Controller
         if ($user) {
             Auth::login($user);
             AuthGetIP::dispatch($user, $request->ip());
-            loggy(request()->ip(), 'Auth', $user, 'Logged in via Social auth');
+            loggy(request(), 'Auth', $user, 'Logged in via Social auth');
 
             return redirect()->route('home');
         }
