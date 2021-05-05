@@ -8,7 +8,7 @@
             </div>
         @enderror
         <div class="mb-2">
-            <textarea placeholder="Add a comment" class="form-control mentionInput" rows="3" wire:model.defer="comment" wire:keydown.enter="submit"></textarea>
+            <textarea placeholder="Add a comment" class="form-control mentionInput" rows="3" wire:model.defer="comment"></textarea>
         </div>
         <div class="d-flex justify-content-between align-items-center">
             <div class="small fw-bold text-secondary">
