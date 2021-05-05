@@ -53,4 +53,13 @@
         <div class="text-danger fw-bold mt-3">{{ $message }}</div>
         @enderror
     </form>
+    @if ($showNewTasks)
+    <div class="mt-3">
+        @foreach(auth()->user()->tasks as $task)
+            @livewire('tasks.single-task', [
+                'task' => $task
+            ], key($task->id))
+        @endforeach
+    </div>
+    @endif
 </div>

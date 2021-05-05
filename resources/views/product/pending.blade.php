@@ -19,7 +19,9 @@
             )
                 <div class="card mb-3">
                     <div class="card-body">
-                    @livewire('create-task', ['product' => $product])
+                    @livewire('create-task', [
+                        'product' => $product
+                    ])
                     </div>
                 </div>
             @endif
