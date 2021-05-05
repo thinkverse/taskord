@@ -35,6 +35,12 @@
     </span>
 </div>
 <div class="d-flex justify-content-between mt-2">
+    <span>Compose new task</span>
+    <span>
+        <kbd>n</kbd>
+    </span>
+</div>
+<div class="d-flex justify-content-between mt-2">
     <span>Enable dark mode</span>
     <span>
         <kbd class="me-1">d</kbd><kbd>m</kbd>
