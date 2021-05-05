@@ -89,7 +89,7 @@
                     <div class="col-6">
                         <a href="/login/google" class="btn btn-social btn-google w-100">
                             <span class="small">
-                                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg" />
+                                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg" loading=lazy />
                                 Google
                             </span>
                         </a>
@@ -97,7 +97,7 @@
                     <div class="col-6">
                         <a href="/login/twitter" class="btn btn-social btn-twitter w-100">
                             <span class="small">
-                                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" />
+                                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" loading=lazy />
                                 Twitter
                             </span>
                         </a>
@@ -105,7 +105,7 @@
                     <div class="col-6 mt-2">
                         <a href="/login/github" class="btn btn-social btn-github w-100">
                             <span class="small">
-                                <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" />
+                                <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" loading=lazy />
                                 GitHub
                             </span>
                         </a>
@@ -113,7 +113,7 @@
                     <div class="col-6 mt-2">
                         <a href="/login/gitlab" class="btn btn-social btn-gitlab w-100">
                             <span class="small">
-                                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" />
+                                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" loading=lazy />
                                 GitLab
                             </span>
                         </a>
