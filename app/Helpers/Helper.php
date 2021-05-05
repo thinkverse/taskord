@@ -25,7 +25,7 @@ class Helper
         if (App::environment() === 'production') {
             $cleaned_url = str_replace('https://taskord.com/storage/', '', $url);
 
-            return "https://ik.imagekit.io/taskordimg/tr:w-{$resolution}/{$cleaned_url}";
+            return "https://ik.imagekit.io/taskordimg/tr:h-{$resolution}/{$cleaned_url}";
         }
 
         return $url;

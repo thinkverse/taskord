@@ -8,8 +8,8 @@ use Livewire\Component;
 
 class Graph extends Component
 {
-    public $readyToLoad = false;
     public Product $product;
+    public $readyToLoad = false;
 
     public function mount($product)
     {
