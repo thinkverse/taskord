@@ -40,7 +40,7 @@
         </a>
     </div>
     @endif
-    <div class="mt-1">
+    <div class="mt-2">
         <div class="fw-bold me-2 mb-1 small">
             @if ($task->due_at)
                 {!! Helper::renderDueDate($task->due_at) !!}
