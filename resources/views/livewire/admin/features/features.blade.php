@@ -26,5 +26,5 @@
         @endforeach
         @endif
     </div>
-    @livewire('admin.features.create-feature')
+    <livewire:admin.features.create-feature />
 </div>
