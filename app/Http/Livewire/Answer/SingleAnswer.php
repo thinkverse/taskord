@@ -12,7 +12,6 @@ use Livewire\Component;
 class SingleAnswer extends Component
 {
     public Answer $answer;
-    public $confirming;
 
     public function mount($answer)
     {
@@ -63,11 +62,6 @@ class SingleAnswer extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function confirmDelete()
-    {
-        $this->confirming = $this->answer->id;
     }
 
     public function deleteAnswer()
