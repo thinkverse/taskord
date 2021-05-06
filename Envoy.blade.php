@@ -1,6 +1,6 @@
-@servers(['web' => '127.0.0.1'])
+@servers(['prod' => '127.0.0.1'])
 
-@story('deploy', ['on' => 'web'])
+@story('deploy', ['on' => 'prod'])
     pull-from-gitlab-and-migrate
     install-laravel-dependencies
     install-yarn-dependencies
