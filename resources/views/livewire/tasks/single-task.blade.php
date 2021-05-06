@@ -51,15 +51,9 @@
                 'task' => $task
             ])
             @if ($show_delete)
-            @if ($confirming === $task->id)
-            <button type="button" class="btn btn-task btn-danger my-1" wire:click="deleteTask" wire:loading.attr="disabled" aria-label="Confirm Delete">
-                Are you sure?
-            </button>
-            @else
-            <button type="button" class="btn btn-task btn-outline-danger my-1" wire:click="confirmDelete" aria-label="Delete">
+            <button type="button" class="btn btn-task btn-outline-danger my-1" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteTask" aria-label="Delete">
                 <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
             </button>
-            @endif
             @else
             <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-success me-1" target="_blank" aria-label="Open task">
                 <x-heroicon-o-external-link class="heroicon-small me-0" />

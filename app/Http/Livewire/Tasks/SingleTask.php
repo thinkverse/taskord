@@ -19,7 +19,6 @@ class SingleTask extends Component
     ];
 
     public Task $task;
-    public $confirming;
     public $show_delete = true;
 
     public function mount($task)
@@ -58,11 +57,6 @@ class SingleTask extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function confirmDelete()
-    {
-        $this->confirming = $this->task->id;
     }
 
     public function deleteTask()
