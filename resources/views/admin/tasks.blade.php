@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="container-md">
             @include('admin.nav')
-            @livewire('admin.tasks')
+            <livewire:admin.tasks />
         </div>
     </div>
 </div>
