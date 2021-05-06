@@ -26,7 +26,7 @@ if ($user->lastname and $user->lastname) {
             @if (auth()->user()->id === $user->id && !$user->isFlagged)
             <div class="card mb-3">
                 <div class="card-body">
-                    <livewire:create-task >
+                    <livewire:create-task />
                 </div>
             </div>
             @endif
