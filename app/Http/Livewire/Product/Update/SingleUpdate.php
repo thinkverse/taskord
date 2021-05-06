@@ -12,7 +12,6 @@ use Livewire\Component;
 class SingleUpdate extends Component
 {
     public ProductUpdate $update;
-    public $confirming;
 
     public function mount($update)
     {
@@ -57,11 +56,6 @@ class SingleUpdate extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function confirmDelete()
-    {
-        $this->confirming = $this->update->id;
     }
 
     public function deleteUpdate()
