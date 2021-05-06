@@ -8,7 +8,7 @@
         <div class="col-lg-8">
             @auth
                 @if (!auth()->user()->isFlagged)
-                @livewire('tasks.create-task')
+                <livewire:tasks.create-task >
                 @endif
             @endauth
             @livewire('tasks.all-tasks')
