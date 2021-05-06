@@ -51,7 +51,15 @@
                 'task' => $task
             ])
             @if ($show_delete)
-            <button type="button" class="btn btn-task btn-outline-danger my-1" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteTask" aria-label="Delete">
+            <button
+                type="button"
+                class="btn btn-task btn-outline-danger my-1"
+                onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
+                wire:click="deleteTask"
+                wire:loading.attr="disabled"
+                wire:offline.attr="disabled"
+                aria-label="Delete"
+            >
                 <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
             </button>
             @else

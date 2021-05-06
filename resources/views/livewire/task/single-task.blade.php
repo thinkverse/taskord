@@ -148,15 +148,17 @@
             </a>
             @auth
             @if (auth()->user()->staffShip or auth()->user()->id === $task->user->id)
-                @if ($confirming === $task->id)
-                <button type="button" class="btn btn-task btn-danger me-1" wire:click="deleteTask" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
-                    Are you sure?
-                </button>
-                @else
-                <button type="button" class="btn btn-task btn-outline-danger me-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Delete">
+                <button
+                    type="button"
+                    class="btn btn-task btn-outline-danger me-1"
+                    onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
+                    wire:click="deleteTask"
+                    wire:loading.attr="disabled"
+                    wire:offline.attr="disabled"
+                    aria-label="Delete"
+                >
                     <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
                 </button>
-                @endif
                 @livewire('task.select-milestone', [
                     'task' => $task
                 ])
