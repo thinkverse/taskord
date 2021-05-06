@@ -13,7 +13,6 @@ class SingleQuestion extends Component
 {
     public Question $question;
     public $type;
-    public $confirming;
 
     public function mount($question, $type)
     {
@@ -66,11 +65,6 @@ class SingleQuestion extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function confirmDelete()
-    {
-        $this->confirming = $this->question->id;
     }
 
     public function deleteQuestion()
