@@ -21,7 +21,7 @@
                 <x-heroicon-o-plus class="heroicon" />
                 Add a Deal
             </button>
-            @livewire('pages.create-deal')
+            <livewire:pages.create-deal />
             @endif
             @endauth
         </div>
