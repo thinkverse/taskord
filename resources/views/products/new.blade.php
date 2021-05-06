@@ -8,7 +8,7 @@
         <div class="col-lg-7">
             @auth
                 @if (!auth()->user()->isFlagged)
-                @livewire('products.create-product')
+                <livewire:products.create-product />
                 @else
                 <div class="text-center">
                     <div class="alert alert-danger" role="alert">
