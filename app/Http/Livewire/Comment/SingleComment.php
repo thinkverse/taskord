@@ -12,7 +12,6 @@ use Livewire\Component;
 class SingleComment extends Component
 {
     public Comment $comment;
-    public $confirming;
 
     public function mount($comment)
     {
@@ -64,11 +63,6 @@ class SingleComment extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function confirmDelete()
-    {
-        $this->confirming = $this->comment->id;
     }
 
     public function deleteComment()

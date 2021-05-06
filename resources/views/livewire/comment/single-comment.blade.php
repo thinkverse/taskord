@@ -71,15 +71,17 @@
             </button>
         @endif
         @if (auth()->user()->staffShip or auth()->user()->id === $comment->user->id)
-            @if ($confirming === $comment->id)
-            <button type="button" class="btn btn-task btn-danger" wire:click="deleteComment" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
-                Are you sure?
-            </button>
-            @else
-            <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Delete">
-                <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
-            </button>
-            @endif
+        <button
+            type="button"
+            class="btn btn-task btn-outline-danger"
+            onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
+            wire:click="deleteComment"
+            wire:loading.attr="disabled"
+            wire:offline.attr="disabled"
+            aria-label="Delete"
+        >
+            <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
+        </button>
         @endif
         @if (auth()->user()->staffShip)
         <button type="button" class="btn btn-task {{ $comment->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $comment->id }}" title="Flag to admins" aria-label="Hide">
