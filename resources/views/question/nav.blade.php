@@ -13,6 +13,6 @@
         <x-heroicon-o-plus class="heroicon" />
         Ask a Question
     </button>
-    @livewire('question.create-question')
+    <livewire:question.create-question />
     @endauth
 </div>
