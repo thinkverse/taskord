@@ -13,7 +13,6 @@ class SingleMilestone extends Component
 {
     public Milestone $milestone;
     public $type;
-    public $confirming;
 
     public function mount($milestone, $type)
     {
@@ -87,11 +86,6 @@ class SingleMilestone extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function confirmDelete()
-    {
-        $this->confirming = $this->milestone->id;
     }
 
     public function deleteMilestone()

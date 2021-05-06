@@ -123,15 +123,17 @@
                 'milestone' => $milestone
             ])
             @endif
-            @if ($confirming === $milestone->id)
-            <button role="button" class="btn btn-task btn-danger me-1" wire:click="deleteMilestone" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
-                Are you sure?
-            </button>
-            @else
-            <button role="button" class="btn btn-task btn-outline-danger me-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Delete">
+            <button
+                role="button"
+                class="btn btn-task btn-outline-danger me-1"
+                onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
+                wire:click="deleteMilestone"
+                wire:loading.attr="disabled"
+                wire:offline.attr="disabled"
+                aria-label="Delete"
+            >
                 <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
             </button>
-            @endif
             @endif
             @if (auth()->user()->staffShip)
             <button type="button" class="btn btn-task {{ $milestone->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $milestone->id }}" title="Flag to admins" aria-label="Hide">
