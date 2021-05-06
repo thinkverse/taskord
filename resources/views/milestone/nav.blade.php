@@ -10,6 +10,6 @@
         <x-heroicon-o-plus class="heroicon" />
         Create a milestone
     </button>
-    @livewire('milestone.create-milestone')
+    <livewire:milestone.create-milestone />
     @endauth
 </div>
