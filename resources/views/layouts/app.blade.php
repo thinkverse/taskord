@@ -44,7 +44,7 @@
         @if (auth()->user()->isStaff)
             @if (auth()->user()->staffShip)
             <div class="admin-bar">
-                @livewire('admin.adminbar')
+                <livewire:admin.adminbar />
             </div>
             @endif
         @endif
