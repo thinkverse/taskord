@@ -19,8 +19,8 @@
                 </a>
             </div>
             @endguest
-            @livewire('home.recent-questions')
-            @livewire('home.launched-today')
+            <livewire:home.recent-questions />
+            <livewire:home.launched-today />
             @auth
                 @if (!auth()->user()->isFlagged)
                 <div class="card mb-3">
@@ -36,7 +36,7 @@
                     Tasks
                 </span>
                 @auth
-                @livewire('home.only-following')
+                <livewire:home.only-following />
                 @endauth
             </div>
             @livewire('home.tasks', [
@@ -45,7 +45,7 @@
         </div>
         <div class="col-sm">
             @auth
-                @livewire('home.onboarding')
+                <livewire:home.onboarding />
                 <div class="h5 text-secondary pb-2">
                     @php
                         $hour = carbon()->setTimezone(auth()->user()->timezone)->format('H');
@@ -111,9 +111,9 @@
                     'user' => auth()->user()
                 ])
             @endauth
-            @livewire('home.recently-joined')
-            @livewire('home.recently-launched')
-            @livewire('home.top-reputations')
+            <livewire:home.recently-joined />
+            <livewire:home.recently-launched />
+            <livewire:home.top-reputations />
             <x-footer />
         </div>
     </div>
