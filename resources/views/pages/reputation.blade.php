@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="col-lg-8">
-            @livewire('user.reputations')
+            <livewire:user.reputations />
         </div>
     </div>
 </div>
