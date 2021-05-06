@@ -16,7 +16,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            @livewire('search')
+            <livewire:search />
             <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link text-white fw-bold" href="{{ route('products.newest') }}">
