@@ -23,7 +23,7 @@
             ])
         </div>
         <div class="col-sm">
-            @livewire('products.active-products')
+            <livewire:products.active-products />
             <x-footer />
         </div>
     </div>
