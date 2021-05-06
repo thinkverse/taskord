@@ -29,7 +29,6 @@
     @endguest
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    @laravelPWA
     @auth
     @if (auth()->user()->isPatron or auth()->user()->isStaff)
     @if (auth()->user()->darkMode)
