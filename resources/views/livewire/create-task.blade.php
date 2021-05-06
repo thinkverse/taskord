@@ -14,7 +14,6 @@
                     type="checkbox"
                     aria-label="Checkbox"
                     wire:click="checkState"
-                    wire:loading.attr="disabled"
                     wire:offline.attr="disabled"
                     {{ Auth::check() && auth()->user()->checkState ? 'checked' : 'unchecked' }}
                 >
@@ -32,7 +31,7 @@
         </div>
         @endif
         @endauth
-        <button wire:loading.attr="disabled" wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
+        <button wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
             <x-heroicon-o-plus class="heroicon" />
             Add Task
         </button>

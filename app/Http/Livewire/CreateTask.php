@@ -30,12 +30,6 @@ class CreateTask extends Component
         $this->product = $product;
     }
 
-    private function resetInputFields()
-    {
-        $this->task = '';
-        $this->images = '';
-    }
-
     public function checkState()
     {
         if (Auth::check()) {
@@ -131,7 +125,7 @@ class CreateTask extends Component
             ]))();
 
             $this->emit('taskAdded');
-            $this->resetInputFields();
+            $this->reset(['task', 'images', 'due_at']);
             if (auth()->user()->hasGoal and $task->done) {
                 auth()->user()->daily_goal_reached++;
                 auth()->user()->save();

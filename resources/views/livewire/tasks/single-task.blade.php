@@ -56,7 +56,7 @@
                 Are you sure?
             </button>
             @else
-            <button type="button" class="btn btn-task btn-outline-danger my-1" wire:click="confirmDelete" wire:loading.attr="disabled" aria-label="Delete">
+            <button type="button" class="btn btn-task btn-outline-danger my-1" wire:click="confirmDelete" aria-label="Delete">
                 <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
             </button>
             @endif
