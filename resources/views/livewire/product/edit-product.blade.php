@@ -115,25 +115,31 @@
                     </div>
                     <div class="mb-3">
                         <div class="fw-bold mb-2">Status</div>
-                        <input id="launched" class="form-check-input" type="checkbox" wire:model.defer="launched">
-                        <label for="launched" class="ms-1">This product is launched</label>
+                        <div class="form-check">
+                            <input id="launched" class="form-check-input" type="checkbox" wire:model.defer="launched">
+                            <label for="launched" class="form-check-label">This product is launched</label>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <div class="fw-bold mb-2">Deprecated</div>
-                        <input id="deprecated" class="form-check-input" type="checkbox" wire:model.defer="deprecated">
-                        <label for="deprecated" class="ms-1">This product is no longer available</label>
+                        <div class="form-check">
+                            <input id="deprecated" class="form-check-input" type="checkbox" wire:model.defer="deprecated">
+                            <label for="deprecated" class="form-check-label">This product is no longer available</label>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    @if ($confirming === $product->id)
-                    <button type="button" wire:loading.attr="disabled" wire:click="deleteProduct" class="btn btn-danger">
-                        <span class="fw-bold">Are you sure?</span>
-                    </button>
-                    @else
-                    <button type="button" wire:loading.attr="disabled" wire:click="confirmDelete" class="btn btn-danger">
+                    <button
+                        type="button"
+                        onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
+                        wire:click="deleteProduct"
+                        wire:loading.attr="disabled"
+                        wire:offline.attr="disabled"
+                        aria-label="Delete"
+                        class="btn btn-danger"
+                    >
                         <span class="fw-bold">Delete</span> {{ $slug }}
                     </button>
-                    @endif
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">
                         Update

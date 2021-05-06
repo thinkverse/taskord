@@ -29,7 +29,6 @@ class EditProduct extends Component
     public $sponsor;
     public $launched;
     public $deprecated;
-    public $confirming;
 
     public function mount($product)
     {
@@ -135,11 +134,6 @@ class EditProduct extends Component
         } else {
             $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function confirmDelete()
-    {
-        $this->confirming = $this->product->id;
     }
 
     public function deleteProduct()
