@@ -122,7 +122,7 @@
                         <x-heroicon-o-plus-circle class="heroicon-notification me-0" />
                     </a>
                     @include('layouts.modals.new-task')
-                    @livewire('notification.icon')
+                    <livewire:notification.icon />
                     @if (auth()->user()->hasGoal)
                     <li class="nav-item me-2">
                         <div class="nav-link">
