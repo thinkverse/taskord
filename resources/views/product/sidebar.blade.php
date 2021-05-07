@@ -45,7 +45,7 @@
         <ul class="list-group list-group-flush">
             @if ($product->website)
             <a class="list-group-item link-dark" href="{{ $product->website }}" target="_blank" rel="noreferrer">
-                <img loading=lazy class="rounded favicon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->website)['host'] }}.ico" />
+                <img loading=lazy class="rounded favicon me-1" rel="preload" src="https://favicon.splitbee.io/?url={{ parse_url($product->website)['host'] }}.ico" />
                 {{ Helper::removeProtocol($product->website) }}
             </a>
             @endif
@@ -83,7 +83,7 @@
     </div>
     <div class="mb-4">
         <a class="btn w-100 btn-outline-primary" href="{{ $product->sponsor }}" target="_blank" rel="noreferrer">
-            <img loading=lazy class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->sponsor)['host'] }}.ico" />
+            <img loading=lazy class="rounded sponsor-icon me-1" rel="preload" src="https://favicon.splitbee.io/?url={{ parse_url($product->sponsor)['host'] }}.ico" />
             <span class="fw-bold">Sponsor {{ $product->name }}</span>
         </a>
     </div>

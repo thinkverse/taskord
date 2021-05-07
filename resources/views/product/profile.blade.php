@@ -45,7 +45,7 @@
                 @if ($product->website)
                 <span class="ms-3">
                     <a class="text-dark" target="_blank" href="{{ $product->website }}" rel="noreferrer">
-                        <img loading=lazy class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->website)['host'] }}.ico" />
+                        <img loading=lazy class="rounded sponsor-icon me-1" rel="preload" src="https://favicon.splitbee.io/?url={{ parse_url($product->website)['host'] }}.ico" />
                         {{ $product->website }}
                     </a>
                 </span>
