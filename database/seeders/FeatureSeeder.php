@@ -35,13 +35,13 @@ class FeatureSeeder extends Seeder
         Feature::factory()->create([
             'name' => 'Explore - Makers',
             'slug' => 'explore_makers',
-            'description' => "Makers explore page that show famous makers",
+            'description' => 'Makers explore page that show famous makers',
         ]);
 
         Feature::factory()->create([
             'name' => 'Explore - Products',
             'slug' => 'explore_products',
-            'description' => "Products explore page that show famous products",
+            'description' => 'Products explore page that show famous products',
         ]);
     }
 }
