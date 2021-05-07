@@ -34,6 +34,21 @@
         <div class="small">Tasks</div>
     </div>
 </div>
+<div class="container col-3 my-5">
+    <div class="card">
+        <div class="card-body d-flex justify-content-between align-items-center">
+            <div>Follow us on</div>
+            <div>
+                <a class="me-3" href="https://twitter.com/taskord" target="_blank">
+                    <img class="avatar-20" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" loading=lazy />
+                </a>
+                <a href="https://gitlab.com/yo" target="_blank">
+                    <img class="avatar-20" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" loading=lazy />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container p-0">
     <div class="row">
         <div class="col-lg-6 order-lg-2 text-white"></div>
