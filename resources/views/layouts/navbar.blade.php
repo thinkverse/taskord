@@ -118,9 +118,25 @@
                         </li>
                     @endif
                 @else
-                    <a class="nav-link text-white" href="{{ route('notifications.unread') }}" data-bs-toggle="modal" data-bs-target="#newTaskModal">
-                        <x-heroicon-o-plus-circle class="heroicon-notification me-0" />
-                    </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-white" href="#" id="navbarNewDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <x-heroicon-o-plus-circle class="heroicon-notification me-0" />
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarNewDropdown">
+                            <li>
+                                <a class="dropdown-item text-dark" href="#" data-bs-toggle="modal" data-bs-target="#newTaskModal">
+                                    <x-heroicon-o-check-circle class="heroicon-1x text-secondary" />
+                                    New Task
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-dark" href="{{ route('products.new') }}">
+                                    <x-heroicon-o-cube class="heroicon-1x text-secondary" />
+                                    New Products
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     @include('layouts.modals.new-task')
                     <livewire:notification.icon />
                     @if (auth()->user()->hasGoal)
