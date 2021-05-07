@@ -15,4 +15,14 @@ class PagesController extends Controller
             'deals' => $deals,
         ]);
     }
+
+    public function about()
+    {
+        $deals = Deal::latest()
+            ->get();
+
+        return view('pages.about', [
+            'deals' => $deals,
+        ]);
+    }
 }
