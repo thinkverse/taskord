@@ -90,41 +90,9 @@ Start coding in a [ready-to-code development environment](https://www.gitpod.io)
     <img src="https://gitpod.io/button/open-in-gitpod.svg" width="150" alt="Push" align="center">
 </a>
 
-## Standard Installation
+## Installation
 
-1. Make sure all the prerequisites are installed.
-2. Set up your environment variables/secrets in the `.env` file
-    ```sh
-    cp .env.example .env
-    ```
-3. Create a free [Mailtrap](https://mailtrap.io) account, get your email credentials and fill it in the `.env` file
-4. Run the commands below to install Taskord
-    ```sh
-    # Install Composer Dependencies
-    composer install
-
-    # For Windows
-    composer install --ignore-platform-reqs
-
-    # Install NPM Dependencies
-    yarn install
-
-    # Build and watch assets for development
-    yarn watch
-
-    # Generate Application Key
-    php artisan key:generate
-
-    # Migrate and seed the database with fake data
-    php artisan migrate:fresh --seed
-    ```
-5. Run the Laravel Queue with `php artisan queue:work --tries=3` to receive notifications via web and email
-6. That's it! Run `php artisan serve` to start the application and head to `http://localhost:8000`
-7. Login with the default credentials, username as `admin` and password as `admin`.
-
-## Production Installation
-
-[View Full Production Installation Documentation.](/docs/installation.md)
+[View full installation documentation.](/docs/installation.md)
 
 -----
 
