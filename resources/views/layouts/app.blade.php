@@ -40,7 +40,7 @@
     <script async src="https://analytics.taskord.com/sb.js"></script>
     @auth
     <script>
-        if (window.splitbee)
+        if (window.splitbee) {
             window.splitbee.user.set({ userId: "{{ auth()->user()->id }}" });
             window.splitbee.user.set({ displayName: "{{ auth()->user()->username }}" });
             window.splitbee.user.set({ email: "{{ auth()->user()->email }}" });
