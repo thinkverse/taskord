@@ -36,7 +36,7 @@
     @endif
     @endif
     @endauth
-    @if (App::environment() === 'local')
+    @if (App::environment() === 'production')
     <script async src="https://analytics.taskord.com/sb.js" onload="{{ auth()->check() ? 'setUserData()' : '' }}"></script>
     @auth
     <script>
