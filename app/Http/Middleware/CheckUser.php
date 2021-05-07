@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Carbon\CarbonImmutable;
 use Closure;
 use Illuminate\Contracts\Auth\Factory as Auth;
+use Illuminate\Http\Request;
 
 class CheckUser
 {
@@ -42,7 +43,7 @@ class CheckUser
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
         if ($this->auth->check()) {
             $request->user()->last_active = $this->carbon->now();

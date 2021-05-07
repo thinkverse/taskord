@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class IsBeta
+class Feature
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,6 @@ class IsBeta
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user() && $request->user()->isBeta) {
-            return $next($request);
-        }
-
-        return redirect('/');
+        return $next($request);
     }
 }

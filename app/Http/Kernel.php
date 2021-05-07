@@ -73,5 +73,6 @@ class Kernel extends HttpKernel
         'staffship' => \App\Http\Middleware\IsStaffShip::class,
         'beta' => \App\Http\Middleware\IsBeta::class,
         'patron' => \App\Http\Middleware\IsPatron::class,
+        'feature' => \App\Http\Middleware\Feature::class,
     ];
 }
