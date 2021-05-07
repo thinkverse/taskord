@@ -37,7 +37,7 @@
     @endif
     @endauth
     @if (App::environment() === 'production')
-    <script async src="https://cdn.splitbee.io/sb.js"></script>
+    <script async src="https://analytics.taskord.com/sb.js"></script>
     @endif
     <livewire:styles />
 </head>
