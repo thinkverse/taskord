@@ -7,10 +7,32 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="text-center my-5">
-    <img class="mb-3" src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="70" alt="Taskord Logo">
-    <div class="h2">Get things done in public</div>
-    <div>in Taskord</div>
+<div class="container col-lg-6">
+    <div class="text-center my-5">
+        <img class="mb-3" src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="70" alt="Taskord Logo">
+        <div class="h1">Get things done in public</div>
+        <div class="mt-3 h4 lh-sm text-secondary fw-normal">
+            Taskord is a community of makers in tech shipping and working together. Makers post their daily tasks and grow a network of supportive, like-minded people.
+        </div>
+    </div>
+</div>
+<div class="container font-monospace d-flex justify-content-evenly">
+    <div class="text-center">
+        <div class="h4">1000</div>
+        <div class="small">Tasks</div>
+    </div>
+    <div class="text-center">
+        <div class="h4">1000</div>
+        <div class="small">Tasks</div>
+    </div>
+    <div class="text-center">
+        <div class="h4">1000</div>
+        <div class="small">Tasks</div>
+    </div>
+    <div class="text-center">
+        <div class="h4">1000</div>
+        <div class="small">Tasks</div>
+    </div>
 </div>
 <div class="container p-0">
     <div class="row">
