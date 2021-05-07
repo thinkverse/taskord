@@ -35,7 +35,7 @@
         </div>
         <div class="mb-4">
             <a class="btn w-100 btn-outline-primary" href="{{ $user->sponsor }}" target="_blank" rel="noreferrer">
-                <img loading=lazy class="rounded sponsor-icon me-1" rel="preload" src="https://favicon.splitbee.io/?url={{ parse_url($user->sponsor)['host'] }}.ico" />
+                <img loading=lazy class="rounded sponsor-icon me-1" rel="preload" src="https://favicon.splitbee.io/?url={{ parse_url($user->sponsor)['host'] }}" />
                 <span class="fw-bold">Sponsor {{ '@'.$user->username }}</span>
             </a>
         </div>
@@ -48,7 +48,7 @@
             <ul class="list-group list-group-flush">
                 @if ($user->website)
                 <a class="list-group-item link-dark" href="{{ $user->website }}" target="_blank" rel="noreferrer">
-                    <img loading=lazy class="rounded favicon me-1" rel="preload" src="https://favicon.splitbee.io/?url={{ parse_url($user->website)['host'] }}.ico" />
+                    <img loading=lazy class="rounded favicon me-1" rel="preload" src="https://favicon.splitbee.io/?url={{ parse_url($user->website)['host'] }}" />
                     {{ Helper::removeProtocol($user->website) }}
                 </a>
                 @endif
