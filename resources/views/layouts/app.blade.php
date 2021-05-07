@@ -37,16 +37,7 @@
     @endif
     @endauth
     @if (App::environment() === 'production')
-    <script async src="https://analytics.taskord.com/sb.js" onload="{{ auth()->check() ? 'setUserData()' : '' }}"></script>
-    @auth
-    <script>
-    function setUserData() {
-        if (window.splitbee) {
-            window.splitbee.user.set({ displayName: "{{ '@'.auth()->user()->username }}" });
-        }
-    }
-    </script>
-    @endauth
+    <script async src="https://analytics.taskord.com/sb.js"></script>
     @endif
     <livewire:styles />
 </head>
