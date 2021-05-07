@@ -11,7 +11,7 @@
     <div class="text-center my-5">
         <img class="mb-3" src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="70" alt="Taskord Logo">
         <div class="h1">Get things done in public</div>
-        <div class="mt-3 h4 lh-sm text-secondary fw-normal">
+        <div class="mt-3 h4 lh-sm text-secondary fw-normal" style="letter-spacing:1px">
             Taskord is a community of makers in tech shipping and working together. Makers post their daily tasks and grow a network of supportive, like-minded people.
         </div>
     </div>
