@@ -36,8 +36,8 @@
     @endif
     @endif
     @endauth
-    @if (App::environment() === 'production')
-    <script async src="https://analytics.taskord.com/sb.js" onload="{{ auth()->check() ? 'setUserData()' : '' }}">
+    @if (App::environment() === 'local')
+    <script async src="https://analytics.taskord.com/sb.js" onload="{{ auth()->check() ? 'setUserData()' : '' }}"></script>
     @auth
     <script>
     function setUserData() {
@@ -49,7 +49,6 @@
     }
     </script>
     @endauth
-    </script>
     @endif
     <livewire:styles />
 </head>
