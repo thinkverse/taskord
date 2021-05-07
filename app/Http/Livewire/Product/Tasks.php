@@ -38,8 +38,7 @@ class Tasks extends Component
         return $this->product->tasks()
             ->where('done', $this->type === 'product.done' ? true : false)
             ->whereIn('user_id', $members)
-            ->orderBy('created_at', 'desc')
-            ->orderBy('done_at', 'desc')
+            ->latest('updated_at')
             ->paginate(10, '*', null, $this->page);
     }
 

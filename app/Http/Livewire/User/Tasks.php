@@ -34,7 +34,7 @@ class Tasks extends Component
     {
         return $this->user->tasks()
             ->where('done', $this->type === 'user.done' ? true : false)
-            ->orderBy('done_at', 'desc')
+            ->latest('updated_at')
             ->paginate(10, '*', null, $this->page);
     }
 
