@@ -38,6 +38,16 @@
     @endauth
     @if (App::environment() === 'production')
     <script async src="https://analytics.taskord.com/sb.js"></script>
+    @auth
+    <script>
+        if (window.splitbee)
+            window.splitbee.user.set({
+                username: "{{ auth()->user()->username }}",
+                email: "{{ auth()->user()->email }}"
+            })
+        }
+    </script>
+    @endauth
     @endif
     <livewire:styles />
 </head>
