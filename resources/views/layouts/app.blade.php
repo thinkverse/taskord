@@ -41,9 +41,9 @@
     @auth
     <script>
         if (window.splitbee)
-            window.splitbee.user.set({ userId: "{{ auth()->user()->id }}" })
-            window.splitbee.user.set({ displayName: "{{ auth()->user()->username }}" })
-            window.splitbee.user.set({ email: "{{ auth()->user()->email }}" })
+            window.splitbee.user.set({ userId: "{{ auth()->user()->id }}" });
+            window.splitbee.user.set({ displayName: "{{ auth()->user()->username }}" });
+            window.splitbee.user.set({ email: "{{ auth()->user()->email }}" });
         }
     </script>
     @endauth
