@@ -14,8 +14,12 @@ class Feature
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $feature)
     {
-        return $next($request);
+        if (feature($feature)) {
+            return $next($request);
+        }
+
+        return redirect('login');
     }
 }
