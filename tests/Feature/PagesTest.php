@@ -24,17 +24,6 @@ it('has sponsors page', function ($url, $expected, $auth) {
     ['/sponsors', 200, true],
 ]);
 
-it('has about page', function ($url, $expected, $auth) {
-    if ($auth) {
-        actingAs(1)->get($url)->assertStatus($expected);
-    } else {
-        $this->get($url)->assertStatus($expected);
-    }
-})->with([
-    ['/about', 200, false],
-    ['/about', 200, true],
-]);
-
 it('has contact page', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);
