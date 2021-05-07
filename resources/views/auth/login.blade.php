@@ -57,15 +57,11 @@
                         </span>
                     @endif
                 </div>
-                <div class="checkbox mb-3">
-                    <label>
-                        <input
-                            type="checkbox"
-                            name="remember"
-                            id="remember" {{ old('remember') ? 'checked' : '' }}
-                        >
-                        Remember me
-                    </label>
+                <div class="mb-3 d-flex justify-content-between">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <label class="form-check-label" for="remember">Remember me</label>
+                    </div>
                     @if (Route::has('password.request'))
                         <a class="float-end fw-bold" href="{{ route('password.request') }}">
                             Forgot Password?
