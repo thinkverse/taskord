@@ -38,13 +38,6 @@
     @endauth
     @if (App::environment() === 'production')
     <script async src="https://analytics.taskord.com/sb.js"></script>
-    @auth
-    <script>
-        window.splitbee.user.set({ userId: "{{ auth()->user()->id }}" });
-        window.splitbee.user.set({ displayName: "{{ auth()->user()->username }}" });
-        window.splitbee.user.set({ email: "{{ auth()->user()->email }}" });
-    </script>
-    @endauth
     @endif
     <livewire:styles />
 </head>
@@ -104,4 +97,11 @@
 <script src="{{ mix('js/bootstrap.js') }}" defer></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
 @yield('scripts')
+@auth
+<script>
+    window.splitbee.user.set({ userId: "{{ auth()->user()->id }}" });
+    window.splitbee.user.set({ displayName: "{{ auth()->user()->username }}" });
+    window.splitbee.user.set({ email: "{{ auth()->user()->email }}" });
+</script>
+@endauth
 </html>
