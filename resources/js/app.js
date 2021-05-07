@@ -1,4 +1,3 @@
-require('./sentry');
 require("./shortcuts");
 require("./tribute");
 require("./tippy");
