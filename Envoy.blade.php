@@ -8,6 +8,16 @@
     build-assets
 @endstory
 
+@setup
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    try {
+        $dotenv->load();
+        $dotenv->required(['DISCORD_WEBHOOK_URL'])->notEmpty();
+    } catch (Exception $e)  {
+        echo $e->getMessage();
+    }
+@endsetup
+
 @task('pull-from-gitlab-and-migrate')
     echo "Pulling latest changes from GitLab";
     php artisan down
@@ -41,8 +51,10 @@
 
 @success
     echo "Taskord has been successfully deployed!\n";
+    @discord(env('DISCORD_WEBHOOK_URL'), '✅ Taskord has been successfully deployed!')
 @endsuccess
 
 @error
     echo "Something went wrong while deploying Taskord!\n";
+    @discord(env('DISCORD_WEBHOOK_URL'), '❌ Something went wrong while deploying Taskord!')
 @enderror
