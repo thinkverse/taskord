@@ -18,20 +18,20 @@
 </div>
 <div class="container font-monospace d-flex justify-content-evenly">
     <div class="text-center">
-        <div class="h4">1000</div>
+        <div class="h4">{{ $tasks }}</div>
         <div class="small">Tasks</div>
     </div>
     <div class="text-center">
-        <div class="h4">1000</div>
-        <div class="small">Tasks</div>
+        <div class="h4">{{ $users }}</div>
+        <div class="small">Users</div>
     </div>
     <div class="text-center">
-        <div class="h4">1000</div>
-        <div class="small">Tasks</div>
+        <div class="h4">{{ $questions }}</div>
+        <div class="small">Questions</div>
     </div>
     <div class="text-center">
-        <div class="h4">1000</div>
-        <div class="small">Tasks</div>
+        <div class="h4">{{ $milestones }}</div>
+        <div class="small">Milestones</div>
     </div>
 </div>
 <div class="container col-3 my-5">
