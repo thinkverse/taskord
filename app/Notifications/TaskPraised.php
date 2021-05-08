@@ -56,7 +56,6 @@ class TaskPraised extends Notification implements ShouldQueue
     public function toDatabase($notifiable)
     {
         return [
-            'task' => $this->task->task,
             'task_id' => $this->task->id,
             'user_id' => $this->user_id,
         ];

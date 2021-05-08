@@ -56,15 +56,7 @@
                     @endif
                 </span>
                 @if ($type === "App\Notifications\TaskPraised")
-                    <span class="align-middle">
-                        praised your
-                        <a class="fw-bold" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                            task
-                        </a>
-                    </span>
-                    <div class="mt-2 body-font">
-                        {!! Purify::clean(Helper::renderTask($data['task'])) !!}
-                    </div>
+                    <livewire:notification.type.task-praised :data="$data" />
                 @elseif ($type === "App\Notifications\Mentioned")
                     @if ($data['body_type'] === 'task')
                     <span class="align-middle">
