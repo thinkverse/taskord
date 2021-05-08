@@ -84,7 +84,7 @@ class ProductController extends Controller
             return view('product.edit', [
                 'product' => $product,
             ]);
-        } elseif ($product->owner->isFlagged) {
+        } else {
             abort(404);
         }
     }
