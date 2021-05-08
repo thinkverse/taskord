@@ -18,6 +18,10 @@ class FeatureSeeder extends Seeder
             'name' => 'Year in review',
             'slug' => 'year_in_review',
             'description' => 'Year in review page for all Taskord users',
+            'staff' => false,
+            'beta' => false,
+            'contributor' => false,
+            'public' => false,
         ]);
 
         Feature::factory()->create([
