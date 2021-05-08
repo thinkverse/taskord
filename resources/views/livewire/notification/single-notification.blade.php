@@ -83,13 +83,7 @@
                 @elseif ($type === "App\Notifications\Product\MemberRemoved")
                     <livewire:notification.type.product.member-removed :data="$data" />
                 @elseif ($type === "App\Notifications\Product\MemberLeft")
-                    <span class="align-middle">
-                        left from the product
-                        <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
-                            <img loading=lazy class="rounded avatar-20 ms-1 me-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($data['product_id'])->avatar, 80) }}" height="20" width="20" />
-                            {{ \App\Models\Product::find($data['product_id'])->name }}
-                        </a>
-                    </span>
+                    <livewire:notification.type.product.member-left :data="$data" />
                 @elseif ($type === "App\Notifications\Welcome")
                     <span class="ms-1 fw-bold">
                         <span>Welcome to Taskord! 👋</span>
