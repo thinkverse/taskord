@@ -69,13 +69,6 @@
                     <livewire:notification.type.commented :data="$data" />
                 @elseif ($type === "App\Notifications\Answered")
                     <livewire:notification.type.answered :data="$data" />
-                @elseif ($type === "App\Notifications\Followed")
-                    <span class="align-middle">followed you</span>
-                    <div class="mt-2">
-                        @livewire('notification.follow', [
-                            'user' => $user
-                        ])
-                    </div>
                 @elseif ($type === "App\Notifications\Subscribed")
                     <livewire:notification.type.product.subscribed :data="$data" />
                 @elseif ($type === "App\Notifications\Product\MemberAdded")
@@ -84,6 +77,17 @@
                     <livewire:notification.type.product.member-removed :data="$data" />
                 @elseif ($type === "App\Notifications\Product\MemberLeft")
                     <livewire:notification.type.product.member-left :data="$data" />
+                @elseif ($type === "App\Notifications\Task\NotifySubscribers")
+                    <livewire:notification.type.task.notify-subscribers :data="$data" />
+                @elseif ($type === "App\Notifications\Question\NotifySubscribers")
+                    <livewire:notification.type.question.notify-subscribers :data="$data" />
+                @elseif ($type === "App\Notifications\Followed")
+                    <span class="align-middle">followed you</span>
+                    <div class="mt-2">
+                        @livewire('notification.follow', [
+                            'user' => $user
+                        ])
+                    </div>
                 @elseif ($type === "App\Notifications\Welcome")
                     <span class="ms-1 fw-bold">
                         <span>Welcome to Taskord! 👋</span>
@@ -104,10 +108,6 @@
                             {!! markdown($data['description']) !!}
                         </div>
                     </div>
-                @elseif ($type === "App\Notifications\Task\NotifySubscribers")
-                    <livewire:notification.type.task.notify-subscribers :data="$data" />
-                @elseif ($type === "App\Notifications\Question\NotifySubscribers")
-                    <livewire:notification.type.question.notify-subscribers :data="$data" />
                 @endif
                 <div class="small mt-2 text-secondary">
                     {{ carbon($created_at)->diffForHumans() }}
