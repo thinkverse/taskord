@@ -6,13 +6,11 @@
             task
         </a>
     </div>
-    <div class="mt-2 body-font">
-        @if ($comment->hidden)
-            <span class="body-font fst-italic text-secondary">Comment was hidden by moderator</span>
-        @else
-            {!! markdown($comment->comment) !!}
-        @endif
-    </div>
+    @if ($comment->hidden)
+        <div class="body-font fst-italic text-secondary mt-2">Comment was hidden by moderator</div>
+    @else
+        <div class="mt-2 body-font">{!! markdown($comment->comment) !!}</div>
+    @endif
     @else
     <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>
     @endif

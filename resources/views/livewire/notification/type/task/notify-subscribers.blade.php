@@ -6,9 +6,11 @@
             task
         </a>
         you subscribed
-        <div class="mt-2 body-font">
-            {!! markdown($comment->comment) !!}
-        </div>
+        @if ($comment->hidden)
+        <div class="body-font fst-italic text-secondary mt-2">Comment was hidden by moderator</div>
+        @else
+            <div class="mt-2 body-font">{!! markdown($comment->comment) !!}</div>
+        @endif
     </div>
     @else
     <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>
