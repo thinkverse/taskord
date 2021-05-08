@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Notification\Type;
+namespace App\Http\Livewire\Notification\Type\Comment;
 
 use App\Models\Comment;
 use Livewire\Component;
@@ -18,7 +18,7 @@ class CommentPraised extends Component
     {
         $comment = Comment::find($this->data['comment_id']);
 
-        return view('livewire.notification.type.comment-praised', [
+        return view('livewire.notification.type.comment.comment-praised', [
             'comment' => $comment,
         ]);
     }
