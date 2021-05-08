@@ -68,15 +68,7 @@
                 @elseif ($type === "App\Notifications\Commented")
                     <livewire:notification.type.commented :data="$data" />
                 @elseif ($type === "App\Notifications\Answered")
-                    <span class="align-middle">
-                        answered to your
-                        <a class="fw-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                            question
-                        </a>
-                    </span>
-                    <div class="mt-2 body-font">
-                        {!! markdown($data['answer']) !!}
-                    </div>
+                    <livewire:notification.type.answered :data="$data" />
                 @elseif ($type === "App\Notifications\Followed")
                     <span class="align-middle">followed you</span>
                     <div class="mt-2">
