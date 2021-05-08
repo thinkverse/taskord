@@ -1,4 +1,5 @@
 <div>
+    @if ($comment)
     <span class="align-middle">
         commented on your
         <a class="fw-bold" href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}">
@@ -12,4 +13,7 @@
             {!! markdown($comment->comment) !!}
         @endif
     </div>
+    @else
+    <span class="body-font fst-italic text-secondary">Notification source was deleted</span>
+    @endif
 </div>
