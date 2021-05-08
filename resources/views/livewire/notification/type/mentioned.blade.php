@@ -2,7 +2,7 @@
     @if ($data['body_type'] === 'task')
     <span class="align-middle">
         mentioned you in a
-        <a class="fw-bold" href="{{ route('task', ['id' => $data['body_id']]) }}">
+        <a class="fw-bold" href="{{ route('task', ['id' => $body->id]) }}">
             task
         </a>
     </span>
@@ -12,7 +12,7 @@
     @elseif ($data['body_type'] === 'comment')
     <span class="align-middle">
         mentioned you in a
-        <a class="fw-bold" href="{{ route('comment', ['id' => $data['body_id'], 'comment_id' => $data['entity_id']]) }}">
+        <a class="fw-bold" href="{{ route('comment', ['id' => $body->task->id, 'comment_id' => $body->id]) }}">
             comment
         </a>
     </span>
@@ -22,7 +22,7 @@
     @elseif ($data['body_type'] === 'answer')
     <span class="align-middle">
         mentioned you in an
-        <a class="fw-bold" href="{{ route('question.question', ['id' => $data['body_id']]) }}">
+        <a class="fw-bold" href="{{ route('question.question', ['id' => $body->question->id]) }}">
             answer
         </a>
     </span>
