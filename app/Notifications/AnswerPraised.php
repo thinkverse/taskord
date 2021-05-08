@@ -55,9 +55,7 @@ class AnswerPraised extends Notification implements ShouldQueue
     public function toDatabase($notifiable)
     {
         return [
-            'answer' => $this->answer->answer,
             'answer_id' => $this->answer->id,
-            'question_id' => $this->answer->question->id,
             'user_id' => $this->user_id,
         ];
     }

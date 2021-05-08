@@ -64,15 +64,7 @@
                 @elseif ($type === "App\Notifications\QuestionPraised")
                     <livewire:notification.type.question-praised :data="$data" />
                 @elseif ($type === "App\Notifications\AnswerPraised")
-                    <span class="align-middle">
-                        praised your
-                        <a class="fw-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                            answer
-                        </a>
-                    </span>
-                    <div class="mt-2 body-font">
-                        {!! markdown($data['answer']) !!}
-                    </div>
+                    <livewire:notification.type.answer-praised :data="$data" />
                 @elseif ($type === "App\Notifications\Commented")
                     <span class="align-middle">
                         commented on your
