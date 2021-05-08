@@ -217,9 +217,13 @@ class UserController extends Controller
         }
     }
 
-    public function review($username)
+    public function review($username, $year)
     {
         $user = User::where('username', $username)->firstOrFail();
+
+        if ($year < carbon($user->created_at)->subYears(1)->format('Y')) {
+            return abort(404);
+        }
 
         return view('user.review');
     }
