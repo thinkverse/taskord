@@ -43,5 +43,11 @@ class FeatureSeeder extends Seeder
             'slug' => 'explore_products',
             'description' => 'Products explore page that show famous products',
         ]);
+
+        Feature::factory()->create([
+            'name' => 'Year in review',
+            'slug' => 'year_in_review',
+            'description' => 'Year in review page for all Taskord users',
+        ]);
     }
 }
