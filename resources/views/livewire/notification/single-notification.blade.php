@@ -56,13 +56,13 @@
                     @endif
                 </span>
                 @if ($type === "App\Notifications\TaskPraised")
-                    <livewire:notification.type.task-praised :data="$data" />
+                    <livewire:notification.type.task.task-praised :data="$data" />
                 @elseif ($type === "App\Notifications\Mentioned")
                     <livewire:notification.type.mentioned :data="$data" />
                 @elseif ($type === "App\Notifications\CommentPraised")
                     <livewire:notification.type.comment.comment-praised :data="$data" />
                 @elseif ($type === "App\Notifications\QuestionPraised")
-                    <livewire:notification.type.question-praised :data="$data" />
+                    <livewire:notification.type.question.question-praised :data="$data" />
                 @elseif ($type === "App\Notifications\AnswerPraised")
                     <livewire:notification.type.answer.answer-praised :data="$data" />
                 @elseif ($type === "App\Notifications\Commented")

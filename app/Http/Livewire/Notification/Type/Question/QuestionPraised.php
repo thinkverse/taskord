@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Notification\Type;
+namespace App\Http\Livewire\Notification\Type\Question;
 
 use App\Models\Question;
 use Livewire\Component;
@@ -18,7 +18,7 @@ class QuestionPraised extends Component
     {
         $question = Question::find($this->data['question_id']);
 
-        return view('livewire.notification.type.question-praised', [
+        return view('livewire.notification.type.question.question-praised', [
             'question' => $question,
         ]);
     }
