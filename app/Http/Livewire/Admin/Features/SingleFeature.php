@@ -12,6 +12,7 @@ class SingleFeature extends Component
     public $staffStatus;
     public $contributorStatus;
     public $betaStatus;
+    public $publicStatus;
     public $confirming;
 
     public function mount($feature)
@@ -20,6 +21,17 @@ class SingleFeature extends Component
         $this->staffStatus = $feature->staff;
         $this->contributorStatus = $feature->contributor;
         $this->betaStatus = $feature->beta;
+    }
+
+    public function staffToggle()
+    {
+        $this->feature->staff = $this->staffStatus;
+        if (! $this->staffStatus) {
+            $this->feature->beta = false;
+            $this->feature->contributor = false;
+        }
+        $this->feature->save();
+        loggy(request(), 'Admin', auth()->user(), 'Toggled staff feature flag | Feature ID: '.$this->feature->id);
     }
 
     public function contributorToggle()
@@ -43,15 +55,16 @@ class SingleFeature extends Component
         loggy(request(), 'Admin', auth()->user(), 'Toggled beta feature flag | Feature ID: '.$this->feature->id);
     }
 
-    public function staffToggle()
+    public function publicToggle()
     {
-        $this->feature->staff = $this->staffStatus;
-        if (! $this->staffStatus) {
-            $this->feature->beta = false;
-            $this->feature->contributor = false;
+        $this->feature->public = $this->publicStatus;
+        if ($this->publicStatus) {
+            $this->feature->staff = true;
+            $this->feature->contributor = true;
+            $this->feature->beta = true;
         }
         $this->feature->save();
-        loggy(request(), 'Admin', auth()->user(), 'Toggled staff feature flag | Feature ID: '.$this->feature->id);
+        loggy(request(), 'Admin', auth()->user(), 'Toggled public feature flag | Feature ID: '.$this->feature->id);
     }
 
     public function confirmDelete()
