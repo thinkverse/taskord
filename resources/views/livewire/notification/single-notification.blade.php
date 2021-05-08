@@ -60,15 +60,7 @@
                 @elseif ($type === "App\Notifications\Mentioned")
                     <livewire:notification.type.mentioned :data="$data" />
                 @elseif ($type === "App\Notifications\CommentPraised")
-                    <span class="align-middle">
-                        praised your
-                        <a class="fw-bold" href="{{ route('comment', ['id' => $data['task_id'], 'comment_id' => $data['comment_id']]) }}">
-                            comment
-                        </a>
-                    </span>
-                    <div class="mt-2 body-font">
-                        {!! markdown($data['comment']) !!}
-                    </div>
+                    <livewire:notification.type.comment-praised :data="$data" />
                 @elseif ($type === "App\Notifications\QuestionPraised")
                     <span class="align-middle">
                         praised your

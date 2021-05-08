@@ -55,7 +55,6 @@ class CommentPraised extends Notification implements ShouldQueue
     public function toDatabase($notifiable)
     {
         return [
-            'comment' => $this->comment->comment,
             'comment_id' => $this->comment->id,
             'task_id' => $this->comment->task->id,
             'user_id' => $this->user_id,
