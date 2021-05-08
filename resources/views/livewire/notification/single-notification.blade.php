@@ -131,16 +131,7 @@
                 @elseif ($type === "App\Notifications\Task\NotifySubscribers")
                     <livewire:notification.type.task.notify-subscribers :data="$data" />
                 @elseif ($type === "App\Notifications\Question\NotifySubscribers")
-                    <span class="align-middle">
-                        answered to the
-                        <a class="fw-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                            question
-                        </a>
-                        you subscribed
-                        <div class="mt-2 body-font">
-                            {!! markdown($data['answer']) !!}
-                        </div>
-                    </span>
+                    <livewire:notification.type.question.notify-subscribers :data="$data" />
                 @endif
                 <div class="small mt-2 text-secondary">
                     {{ carbon($created_at)->diffForHumans() }}

@@ -47,8 +47,7 @@ class NotifySubscribers extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'answer' => $this->answer->answer,
-            'question_id' => $this->answer->question->id,
+            'answer_id' => $this->answer->id,
             'user_id' => $this->user_id,
         ];
     }
