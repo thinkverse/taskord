@@ -1,4 +1,5 @@
 <div>
+    @if ($product)
     <div class="mt-2">
         left from the product
         <a class="fw-bold" href="{{ route('product.done', ['slug' => $product->slug]) }}">
@@ -6,4 +7,7 @@
             {{ $product->name }}
         </a>
     </div>
+    @else
+    <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>
+    @endif
 </div>
