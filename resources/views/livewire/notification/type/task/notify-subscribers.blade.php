@@ -1,5 +1,5 @@
 <div>
-    <div>
+    <div class="mt-2">
         commented on a
         <a class="fw-bold" href="{{ route('task', ['id' => $comment->task->id]) }}">
             task

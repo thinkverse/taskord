@@ -1,6 +1,6 @@
 <div>
     @if ($comment)
-    <div>
+    <div class="mt-2">
         commented on your
         <a class="fw-bold" href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}">
             task
@@ -14,6 +14,6 @@
         @endif
     </div>
     @else
-    <div class="body-font fst-italic text-secondary">Notification source was deleted</div>
+    <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>
     @endif
 </div>

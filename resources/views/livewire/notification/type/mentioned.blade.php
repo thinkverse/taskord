@@ -1,6 +1,6 @@
 <div>
     @if ($data['body_type'] === 'task')
-    <div>
+    <div class="mt-2">
         mentioned you in a
         <a class="fw-bold" href="{{ route('task', ['id' => $body->id]) }}">
             task
@@ -10,7 +10,7 @@
         {!! Purify::clean(Helper::renderTask($body->task)) !!}
     </div>
     @elseif ($data['body_type'] === 'comment')
-    <div>
+    <div class="mt-2">
         mentioned you in a
         <a class="fw-bold" href="{{ route('comment', ['id' => $body->task->id, 'comment_id' => $body->id]) }}">
             comment
@@ -20,7 +20,7 @@
         {!! markdown($body->comment) !!}
     </div>
     @elseif ($data['body_type'] === 'answer')
-    <div>
+    <div class="mt-2">
         mentioned you in an
         <a class="fw-bold" href="{{ route('question.question', ['id' => $body->question->id]) }}">
             answer

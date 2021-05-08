@@ -1,5 +1,5 @@
 <div>
-    <div>
+    <div class="mt-2">
         praised your
         <a class="fw-bold" href="{{ route('task', ['id' => $task->id]) }}">
             task
