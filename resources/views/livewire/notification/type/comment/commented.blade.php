@@ -1,6 +1,6 @@
 <div>
     @if ($comment)
-    <span class="align-middle">
+    <span>
         commented on your
         <a class="fw-bold" href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}">
             task

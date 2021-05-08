@@ -1,5 +1,5 @@
 <div>
-    <span class="align-middle">
+    <span>
         praised your
         <a class="fw-bold" href="{{ route('task', ['id' => $task->id]) }}">
             task

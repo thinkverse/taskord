@@ -1,5 +1,5 @@
 <div>
-    <span class="align-middle">
+    <span>
         answered to the
         <a class="fw-bold" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
             question

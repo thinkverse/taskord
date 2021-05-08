@@ -1,5 +1,5 @@
 <div>
-    <span class="align-middle">
+    <span>
         commented on a
         <a class="fw-bold" href="{{ route('task', ['id' => $comment->task->id]) }}">
             task

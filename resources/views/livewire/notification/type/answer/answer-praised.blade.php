@@ -1,6 +1,6 @@
 <div>
-    <span class="align-middle">
-                        praised your
+    <span>
+        praised your
         <a class="fw-bold" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
             answer
         </a>
