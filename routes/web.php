@@ -126,6 +126,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::get('', [QuestionController::class, 'newest'])->name('newest');
         Route::get('unanswered', [QuestionController::class, 'unanswered'])->name('unanswered');
         Route::get('popular', [QuestionController::class, 'popular'])->name('popular');
+        Route::view('new', 'questions.new')->name('new');
     });
 
     // Milestone
