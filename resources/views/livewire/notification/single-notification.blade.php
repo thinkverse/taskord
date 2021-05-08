@@ -129,16 +129,7 @@
                         </div>
                     </div>
                 @elseif ($type === "App\Notifications\Task\NotifySubscribers")
-                    <span class="align-middle">
-                        commented on a
-                        <a class="fw-bold" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                            task
-                        </a>
-                        you subscribed
-                        <div class="mt-2 body-font">
-                            {!! markdown($data['comment']) !!}
-                        </div>
-                    </span>
+                    <livewire:notification.type.task.notify-subscribers :data="$data" />
                 @elseif ($type === "App\Notifications\Question\NotifySubscribers")
                     <span class="align-middle">
                         answered to the
