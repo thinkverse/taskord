@@ -64,15 +64,13 @@ class QuestionController extends Controller
 
     public function edit(Question $question)
     {
-        $response = [
-            'question' => $question,
-        ];
-
         if (
             Auth::check() && auth()->user()->id === $question->user->id or
             Auth::check() && auth()->user()->staffShip
         ) {
-            return view('question.edit', $response);
+            return view('question.edit', [
+                'question' => $question,
+            ]);
         } else {
             abort(404);
         }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Products · New')
+@section('pageTitle', 'Question · Edit')
 
 @section('content')
 <div class="container-md">
@@ -8,7 +8,7 @@
         <div class="col-lg-7">
             @auth
                 @if (!auth()->user()->isFlagged)
-                <livewire:question.create-question />
+                <livewire:question.edit-question :question="$question" />
                 @else
                 <div class="text-center">
                     <div class="alert alert-danger" role="alert">

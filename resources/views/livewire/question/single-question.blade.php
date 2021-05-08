@@ -96,15 +96,12 @@
             </a>
             @if (auth()->user()->staffShip or auth()->user()->id === $question->user->id)
             @if ($type === "question.question")
-            <button role="button" class="btn btn-task btn-outline-info me-1" data-bs-toggle="modal" data-bs-target="#editQuestionModal">
+            <a href="{{ route('question.edit', ['question' => $question]) }}" class="btn btn-task btn-outline-info me-1">
                 <x-heroicon-o-pencil-alt class="heroicon-small me-0 text-secondary" />
                 <span class="small text-dark fw-bold">
                     Edit
                 </span>
-            </button>
-            @livewire('question.edit-question', [
-                'question' => $question
-            ])
+            </a>
             @endif
             <button
                 role="button"
