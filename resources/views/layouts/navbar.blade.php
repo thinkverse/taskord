@@ -132,7 +132,13 @@
                             <li>
                                 <a class="dropdown-item text-dark" href="{{ route('products.new') }}">
                                     <x-heroicon-o-cube class="heroicon-1x text-secondary" />
-                                    New Products
+                                    New Product
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-dark" href="{{ route('questions.new') }}">
+                                    <x-heroicon-o-question-mark-circle class="heroicon-1x text-secondary" />
+                                    New Question
                                 </a>
                             </li>
                         </ul>
