@@ -1,5 +1,5 @@
 <div>
-    <span>
+    <div>
         answered to the
         <a class="fw-bold" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
             question
@@ -8,5 +8,5 @@
         <div class="mt-2 body-font">
             {!! markdown($answer->answer) !!}
         </div>
-    </span>
+    </div>
 </div>
