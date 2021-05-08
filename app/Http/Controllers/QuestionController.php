@@ -52,7 +52,7 @@ class QuestionController extends Controller
                 return view('question.question', $response);
             }
         } elseif ($question->user->isFlagged) {
-            return view('errors.404');
+            abort(404);
         }
 
         if ($question->patronOnly) {

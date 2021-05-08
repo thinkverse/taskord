@@ -33,7 +33,7 @@ class MilestoneController extends Controller
         ) {
             return view('milestone/milestone', $response);
         } elseif ($milestone->user->isFlagged or $milestone->user->isPrivate) {
-            return view('errors.404');
+            abort(404);
         }
 
         return view('milestone/milestone', $response);

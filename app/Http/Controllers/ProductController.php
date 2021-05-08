@@ -66,10 +66,27 @@ class ProductController extends Controller
         if (Auth::check() && auth()->user()->id === $product->owner->id or Auth::check() && auth()->user()->staffShip) {
             return view($type, $response);
         } elseif ($product->owner->isFlagged) {
-            return view('errors.404');
+            abort(404);
         }
 
         return view($type, $response);
+    }
+
+    public function edit($slug)
+    {
+        $product = Product::where('slug', $slug)
+            ->firstOrFail();
+
+        if (
+            Auth::check() && auth()->user()->id === $product->owner->id or
+            Auth::check() && auth()->user()->staffShip
+        ) {
+            return view('product.edit', [
+                'product' => $product,
+            ]);
+        } elseif ($product->owner->isFlagged) {
+            abort(404);
+        }
     }
 
     public function newest()

@@ -108,8 +108,10 @@
                 </div>
                 <div class="mb-3">
                     <div class="fw-bold mb-2">Status</div>
-                    <input id="launched" class="form-check-input" type="checkbox" wire:model.defer="launched">
-                    <label for="launched" class="ms-1">This product is launched</label>
+                    <div class="form-check">
+                        <input id="launched" class="form-check-input" type="checkbox" wire:model.defer="launched">
+                        <label for="launched" class="form-check-label">This product is launched</label>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Create Product

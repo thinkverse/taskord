@@ -7,10 +7,10 @@
                 <x-heroicon-o-bell class="heroicon" />
                 Write a product update
             </button>
-            <button type="button" class="btn mt-2 btn-success text-white fw-bold" data-bs-toggle="modal" data-bs-target="#editProductModal">
+            <a href="{{ route('product.edit', ['slug' => $product->slug]) }}" class="btn mt-2 btn-success text-white fw-bold">
                 <x-heroicon-o-pencil class="heroicon" />
                 Edit Product
-            </button>
+            </a>
             <button type="button" class="btn mt-2 btn-success text-white fw-bold" data-bs-toggle="modal" data-bs-target="#addMemberModal">
                 <x-heroicon-o-plus class="heroicon" />
                 Add Member
@@ -18,9 +18,6 @@
         </div>
     </div>
     @livewire('product.update.new-update', [
-        'product' => $product
-    ])
-    @livewire('product.edit-product', [
         'product' => $product
     ])
     @endif

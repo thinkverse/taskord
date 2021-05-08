@@ -107,6 +107,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::get('pending', [ProductController::class, 'profile'])->name('pending');
         Route::get('updates', [ProductController::class, 'profile'])->name('updates');
         Route::get('subscribers', [ProductController::class, 'profile'])->name('subscribers');
+        Route::get('edit', [ProductController::class, 'edit'])->name('edit');
     });
 
     // Products

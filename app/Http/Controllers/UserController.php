@@ -32,7 +32,7 @@ class UserController extends Controller
         if (Auth::check() && auth()->user()->id === $user->id or Auth::check() && auth()->user()->staffShip) {
             return view($type, $response);
         } elseif ($user->isFlagged) {
-            return view('errors.404');
+            abort(404);
         }
 
         return view($type, $response);

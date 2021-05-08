@@ -21,7 +21,7 @@ class TaskController extends Controller
         ) {
             return view('task/task', $response);
         } elseif ($task->user->isFlagged or $task->user->isPrivate) {
-            return view('errors.404');
+            abort(404);
         }
 
         return view('task/task', $response);
@@ -33,7 +33,7 @@ class TaskController extends Controller
             ->firstOrFail();
         $comment = $task->comments->where('id', $comment_id)->first();
         if (! $comment) {
-            return view('errors.404');
+            abort(404);
         }
         $response = [
             'task' => $task,
@@ -45,7 +45,7 @@ class TaskController extends Controller
         ) {
             return view('comment/comment', $response);
         } elseif ($task->user->isFlagged or $task->user->isPrivate) {
-            return view('errors.404');
+            abort(404);
         }
 
         return view('comment/comment', $response);
