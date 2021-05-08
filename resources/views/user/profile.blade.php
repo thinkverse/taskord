@@ -1,3 +1,14 @@
+@if (feature('year_in_review'))
+<div class="alert alert-success" role="alert">
+    <h5 class="alert-heading">
+        <b>{{ carbon()->subYears(1)->format('Y') }}</b> Year in Review 🎉
+    </h5>
+    <p>
+        Take a look at your productivity trends and everything you accomplished over the last 12 months in Taskord.
+    </p>
+    <a href="#" class="btn btn-success btn-sm text-white" target="_blank">Take a look now</a>
+</div>
+@endif
 <div class="card">
     @auth
     @if (auth()->user()->isStaff && $user->isFlagged)
