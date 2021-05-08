@@ -111,7 +111,7 @@
                     <input id="launched" class="form-check-input" type="checkbox" wire:model.defer="launched">
                     <label for="launched" class="ms-1">This product is launched</label>
                 </div>
-                <button type="submit" class="btn btn-primary mt-2">
+                <button type="submit" class="btn btn-primary">
                     Create Product
                 </button>
             </div>

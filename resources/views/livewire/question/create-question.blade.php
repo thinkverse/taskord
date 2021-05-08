@@ -1,6 +1,6 @@
 <div>
     <div class="h5 mb-3 text-secondary d-flex align-content-center">
-        <x-heroicon-o-cube class="heroicon-2x" />
+        <x-heroicon-o-question-mark-circle class="heroicon-2x" />
         <span class="ms-1">Create new question</span>
     </div>
     <div class="card">
@@ -44,7 +44,7 @@
                 </div>
                 @endif
                 @endauth
-                <button type="submit" class="btn btn-primary mt-2">
+                <button type="submit" class="btn btn-primary">
                     Post
                 </button>
             </div>

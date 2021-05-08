@@ -9,10 +9,9 @@
         Popular
     </a>
     @auth
-    <button type="button" class="mb-2 btn btn-success float-md-end text-white" data-bs-toggle="modal" data-bs-target="#newQuestionModal">
+    <a href="{{ route('questions.new') }}" class="mb-2 btn btn-success float-md-end text-white">
         <x-heroicon-o-plus class="heroicon" />
         Ask a Question
-    </button>
-    <livewire:question.create-question />
+    </a>
     @endauth
 </div>
