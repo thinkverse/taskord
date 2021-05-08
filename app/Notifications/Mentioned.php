@@ -67,21 +67,17 @@ class Mentioned extends Notification implements ShouldQueue
     public function toDatabase($notifiable)
     {
         if ($this->type === 'task') {
-            $body = $this->body->task;
             $id = $this->body->id;
             $entity_id = null;
         } elseif ($this->type === 'comment') {
-            $body = $this->body->comment;
             $id = $this->body->task->id;
             $entity_id = $this->body->id;
         } elseif ($this->type === 'answer') {
-            $body = $this->body->answer;
             $id = $this->body->question->id;
             $entity_id = $this->body->id;
         }
 
         return [
-            'body' => $body,
             'body_id' => $id,
             'entity_id' => $entity_id,
             'body_type' => $this->type,
