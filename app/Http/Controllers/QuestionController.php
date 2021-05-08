@@ -61,4 +61,20 @@ class QuestionController extends Controller
             return view('question.question', $response);
         }
     }
+
+    public function edit(Question $question)
+    {
+        $response = [
+            'question' => $question,
+        ];
+
+        if (
+            Auth::check() && auth()->user()->id === $question->user->id or
+            Auth::check() && auth()->user()->staffShip
+        ) {
+            return view('question.edit', $response);
+        } else {
+            abort(404);
+        }
+    }
 }

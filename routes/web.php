@@ -119,6 +119,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     // Question
     Route::group(['prefix' => 'question', 'as' => 'question.'], function () {
         Route::get('{id}', [QuestionController::class, 'question'])->name('question');
+        Route::get('{question}/edit', [QuestionController::class, 'edit'])->name('edit');
     });
 
     // Questions
