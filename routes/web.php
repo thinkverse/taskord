@@ -64,6 +64,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::get('following', [UserController::class, 'profile'])->name('following');
         Route::get('followers', [UserController::class, 'profile'])->name('followers');
         Route::get('stats', [UserController::class, 'profile'])->name('stats');
+        Route::get('review/{year}', [UserController::class, 'review'])->middleware('feature:year_in_review')->name('review');
     });
 
     // Settings

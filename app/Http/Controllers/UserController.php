@@ -216,4 +216,11 @@ class UserController extends Controller
             ]);
         }
     }
+
+    public function review($username)
+    {
+        $user = User::where('username', $username)->firstOrFail();
+
+        return view('user.review');
+    }
 }
