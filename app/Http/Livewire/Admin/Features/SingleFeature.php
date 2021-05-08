@@ -21,6 +21,7 @@ class SingleFeature extends Component
         $this->staffStatus = $feature->staff;
         $this->contributorStatus = $feature->contributor;
         $this->betaStatus = $feature->beta;
+        $this->publicStatus = $feature->public;
     }
 
     public function staffToggle()
