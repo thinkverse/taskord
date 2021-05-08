@@ -20,8 +20,12 @@ class Feature extends Model
 
     public static function enabled($slug)
     {
+        $feature = self::where('slug', $slug)->first();
         if (Auth::check()) {
-            $feature = self::where('slug', $slug)->first();
+            if ($feature->public) {
+                return true;
+            }
+
             if (Auth::user()->staffShip) {
                 return $feature->staff ? true : false;
             } elseif (Auth::user()->isBeta) {
@@ -32,7 +36,7 @@ class Feature extends Model
                 return false;
             }
         } else {
-            return false;
+            return $feature->public ? true : false;
         }
     }
 }
