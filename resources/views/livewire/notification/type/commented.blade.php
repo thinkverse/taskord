@@ -6,6 +6,10 @@
         </a>
     </span>
     <div class="mt-2 body-font">
-        {!! markdown($comment->comment) !!}
+        @if ($comment->hidden)
+            <span class="body-font fst-italic text-secondary">Comment was hidden by moderator</span>
+        @else
+            {!! markdown($comment->comment) !!}
+        @endif
     </div>
 </div>
