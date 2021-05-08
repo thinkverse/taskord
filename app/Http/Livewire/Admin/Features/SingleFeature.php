@@ -46,6 +46,10 @@ class SingleFeature extends Component
     public function staffToggle()
     {
         $this->feature->staff = $this->staffStatus;
+        if (! $this->staffStatus) {
+            $this->feature->beta = false;
+            $this->feature->contributor = false;
+        }
         $this->feature->save();
         loggy(request(), 'Admin', auth()->user(), 'Toggled staff feature flag | Feature ID: '.$this->feature->id);
     }
