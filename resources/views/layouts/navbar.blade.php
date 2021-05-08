@@ -53,7 +53,6 @@
                                 <x-beta />
                             </a>
                         </li>
-                        @auth
                         @if (feature('meetups'))
                         <li>
                             <a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">
@@ -72,6 +71,7 @@
                             </a>
                         </li>
                         @endif
+                        @auth
                         <li>
                             <a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">
                                 <x-heroicon-o-link class="heroicon-1x text-secondary" />
