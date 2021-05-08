@@ -25,6 +25,7 @@ class FeatureFactory extends Factory
             'staff' => true,
             'beta' => true,
             'contributor' => true,
+            'public' => true,
         ];
     }
 }
