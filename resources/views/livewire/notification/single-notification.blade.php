@@ -64,11 +64,11 @@
                 @elseif ($type === "App\Notifications\QuestionPraised")
                     <livewire:notification.type.question-praised :data="$data" />
                 @elseif ($type === "App\Notifications\AnswerPraised")
-                    <livewire:notification.type.answer-praised :data="$data" />
+                    <livewire:notification.type.answer.answer-praised :data="$data" />
                 @elseif ($type === "App\Notifications\Commented")
                     <livewire:notification.type.commented :data="$data" />
                 @elseif ($type === "App\Notifications\Answered")
-                    <livewire:notification.type.answered :data="$data" />
+                    <livewire:notification.type.answer.answered :data="$data" />
                 @elseif ($type === "App\Notifications\Subscribed")
                     <livewire:notification.type.product.subscribed :data="$data" />
                 @elseif ($type === "App\Notifications\Product\MemberAdded")

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Livewire\Notification\Type;
+namespace App\Http\Livewire\Notification\Type\Answer;
 
 use App\Models\Answer;
 use Livewire\Component;
 
-class AnswerPraised extends Component
+class Answered extends Component
 {
     public $data;
 
@@ -18,7 +18,7 @@ class AnswerPraised extends Component
     {
         $answer = Answer::find($this->data['answer_id']);
 
-        return view('livewire.notification.type.answer-praised', [
+        return view('livewire.notification.type.answer.answered', [
             'answer' => $answer,
         ]);
     }
