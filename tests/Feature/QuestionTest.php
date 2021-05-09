@@ -13,6 +13,17 @@ it('has questions page', function ($url, $expected, $auth) {
     ['/questions', 200, true],
 ]);
 
+it('has new question page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/questions/new', 302, false],
+    ['/questions/new', 200, true],
+]);
+
 it('has single question page', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);
