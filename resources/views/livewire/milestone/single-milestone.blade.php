@@ -111,13 +111,12 @@
             @endif
             @if (auth()->user()->staffShip or auth()->user()->id === $milestone->user->id)
             @if ($type === "milestones.milestone")
-            <button role="button" class="btn btn-task btn-outline-info me-1" data-bs-toggle="modal" data-bs-target="#editMilestoneModal">
+            <a href="{{ route('milestones.edit', ['milestone' => $milestone]) }}" class="btn btn-task btn-outline-info me-1">
                 <x-heroicon-o-pencil-alt class="heroicon-small me-0 text-secondary" />
                 <span class="small text-dark fw-bold">
                     Edit
                 </span>
-            </button>
-            <livewire:milestone.edit-milestone :milestone="$milestone" :wire:key="$milestone->id" />
+            </a>
             @endif
             <button
                 role="button"

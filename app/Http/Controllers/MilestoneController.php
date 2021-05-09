@@ -38,4 +38,18 @@ class MilestoneController extends Controller
 
         return view('milestone/milestone', $response);
     }
+
+    public function edit(Milestone $milestone)
+    {
+        if (
+            Auth::check() && auth()->user()->id === $milestone->user->id or
+            Auth::check() && auth()->user()->staffShip
+        ) {
+            return view('milestone.edit', [
+                'milestone' => $milestone,
+            ]);
+        } else {
+            abort(404);
+        }
+    }
 }
