@@ -31,9 +31,7 @@
                 @else
                 @foreach ($tasks as $task)
                 <li class="list-group-item p-3">
-                    @livewire('task.single-task', [
-                        'task' => $task
-                    ], key($task->id))
+                    <livewire:task.single-task :task="$task" :wire:key="$task->id" />
                 </li>
                 @endforeach
                 <div class="mt-3">
