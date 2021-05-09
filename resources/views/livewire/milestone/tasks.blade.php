@@ -24,10 +24,7 @@
     </li>
     @endforeach
     @if ($readyToLoad and $tasks->hasMorePages())
-        @livewire('milestone.load-more-tasks', [
-            'milestone' => $task->milestone,
-            'page' => $page,
-        ])
+        <livewire:milestone.load-more-tasks :milestone="$task->milestone" :page="$page" />
     @endif
     @if ($page === 1)
     </ul>
