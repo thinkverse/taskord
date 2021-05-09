@@ -16,16 +16,9 @@
     </div>
     @endif
     @foreach ($milestones as $milestone)
-        @livewire('milestone.single-milestone', [
-            'type' => $type,
-            'milestone' => $milestone,
-        ], key($milestone->id))
+        <livewire:milestone.single-milestone :type="$type" :milestone="$milestone" :wire:key="$milestone->id" />
     @endforeach
     @if ($readyToLoad and $milestones->hasMorePages())
-        @livewire('milestone.load-more', [
-            'type' => $type,
-            'page' => $page,
-            'perPage' => $perPage
-        ])
+        <livewire:milestone.load-more :type="$type" :page="$page" :perPage="$perPage" />
     @endif
 </div>
