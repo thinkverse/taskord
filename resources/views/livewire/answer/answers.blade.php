@@ -22,11 +22,7 @@
     @endforeach
     <div class="mt-3">
     @if ($readyToLoad and $answers->hasMorePages())
-        @livewire('answer.load-more', [
-            'question' => $answer->question,
-            'page' => $page,
-            'perPage' => $perPage
-        ])
+        <livewire:answer.load-more :question="$answer->question" :page="$page" :perPage="$perPage" :wire:key="$answer->id" />
     @endif
     </div>
 </div>
