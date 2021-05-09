@@ -12,7 +12,7 @@
                 @else
                 <div class="text-center">
                     <div class="alert alert-danger" role="alert">
-                        You can't edit new product, because your account has been flagged 😢
+                        You can't edit this product, because your account has been flagged 😢
                     </div>
                     <a class="btn btn-primary" href="{{ route('home') }}">Go to home</a>
                 </div>
