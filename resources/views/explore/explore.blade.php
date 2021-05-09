@@ -39,10 +39,7 @@
         </div>
         <div class="col-sm mt-4">
             @auth
-            @livewire('home.suggestions', [
-                'user' => auth()->user(),
-                'showText' => false
-            ])
+                <livewire:home.suggestions :user="auth()->user()" :showText="false" :wire:key="$auth()->id()" />
             @endauth
             <livewire:explore.trending-makers />
         </div>

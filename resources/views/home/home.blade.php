@@ -107,9 +107,7 @@
                     </div>
                 </div>
                 @include('home.ad')
-                @livewire('home.suggestions', [
-                    'user' => auth()->user()
-                ])
+                <livewire:home.suggestions :user="auth()->user()" :wire:key="$auth()->id()" />
             @endauth
             <livewire:home.recently-joined />
             <livewire:home.recently-launched />
