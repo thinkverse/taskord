@@ -79,9 +79,7 @@
             @endif
         </div>
         @endif
-        @livewire('milestone.progress', [
-            'milestone' => $milestone
-        ])
+        <livewire:milestone.progress :milestone="$milestone" :wire:key="$milestone->id" />
         <div class="mt-3">
             @auth
             @if (auth()->user()->hasLiked($milestone))
@@ -119,9 +117,7 @@
                     Edit
                 </span>
             </button>
-            @livewire('milestone.edit-milestone', [
-                'milestone' => $milestone
-            ])
+            <livewire:milestone.edit-milestone :milestone="$milestone" :wire:key="$milestone->id" />
             @endif
             <button
                 role="button"
