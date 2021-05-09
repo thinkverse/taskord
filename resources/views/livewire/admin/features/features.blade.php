@@ -20,9 +20,7 @@
         </div>
         @else
         @foreach ($features as $feature)
-            @livewire('admin.features.single-feature', [
-                'feature' => $feature
-            ], key($feature->id))
+            <livewire:admin.features.single-feature :feature="$feature" :wire:key="$feature->id" />
         @endforeach
         @endif
     </div>
