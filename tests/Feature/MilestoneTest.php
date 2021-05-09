@@ -13,6 +13,17 @@ it('has milestones page', function ($url, $expected, $auth) {
     ['/milestones', 200, true],
 ]);
 
+it('has new milestone page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/milestones/new', 302, false],
+    ['/milestones/new', 200, true],
+]);
+
 it('has single milestone page', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);
