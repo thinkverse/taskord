@@ -62,13 +62,13 @@ const initHover = () => {
     placement: "right",
     content: "Patron",
   });
-  
+
   tippy(".verified", {
     allowHTML: true,
     placement: "right",
     content: "Verified",
   });
-  
+
   tippy(".private", {
     allowHTML: true,
     placement: "right",
