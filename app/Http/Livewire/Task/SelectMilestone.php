@@ -39,7 +39,7 @@ class SelectMilestone extends Component
     public function render()
     {
         $milestones = $this->task->user->milestones()
-            ->where('user_id', $this->task->user->id)
+            ->where('status', true)
             ->latest()
             ->get();
 
