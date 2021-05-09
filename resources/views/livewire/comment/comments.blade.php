@@ -17,18 +17,12 @@
     @endif
     <ul class="list-group mt-4">
     @foreach ($comments as $comment)
-        @livewire('comment.single-comment', [
-            'comment' => $comment,
-        ], key($comment->id))
+        <livewire:comment.single-comment :comment="$comment" :wire:key="$comment->id" />
     @endforeach
     </ul>
     <div class="mt-4">
         @if ($readyToLoad and $comments->hasMorePages())
-            @livewire('comment.load-more', [
-                'task' => $task,
-                'page' => $page,
-                'perPage' => $perPage
-            ])
+            <livewire:comment.load-more :task="$task" :page="$page" :perPage="$perPage" />
         @endif
     </div>
 </div>
