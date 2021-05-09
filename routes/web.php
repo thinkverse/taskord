@@ -115,7 +115,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
         Route::get('', [ProductController::class, 'newest'])->name('newest');
         Route::get('launched', [ProductController::class, 'launched'])->name('launched');
-        Route::view('new', 'products.new')->name('new');
+        Route::view('new', 'products.new')->middleware('auth')->name('new');
     });
 
     // Question
@@ -129,7 +129,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::get('', [QuestionController::class, 'newest'])->name('newest');
         Route::get('unanswered', [QuestionController::class, 'unanswered'])->name('unanswered');
         Route::get('popular', [QuestionController::class, 'popular'])->name('popular');
-        Route::view('new', 'question.new')->name('new');
+        Route::view('new', 'question.new')->middleware('auth')->name('new');
     });
 
     // Milestone
@@ -137,7 +137,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::get('', [MilestoneController::class, 'opened'])->name('opened');
         Route::get('closed', [MilestoneController::class, 'closed'])->name('closed');
         Route::get('{milestone}', [MilestoneController::class, 'milestone'])->name('milestone');
-        Route::view('new', 'milestone.new')->name('new');
+        Route::view('new', 'milestone.new')->middleware('auth')->name('new');
     });
 
     // Search
