@@ -27,9 +27,7 @@
     </li>
     @endforeach
     @if ($readyToLoad and $tasks->hasMorePages())
-        @livewire('home.load-more', [
-            'page' => $page
-        ])
+        <livewire:home.load-more :page="$page" />
     @endif
     @if ($page === 1)
     </ul>
