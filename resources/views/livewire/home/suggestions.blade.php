@@ -55,10 +55,7 @@
                         </span>
                     </span>
                     <span>
-                        @livewire('home.follow', [
-                            'user' => $user,
-                            'showText' => $showText
-                        ], key($user->id))
+                        <livewire:home.follow :user="$user" :showText="$showText" :wire:key="$user->id" />
                     </span>
                 </li>
                 @endforeach
