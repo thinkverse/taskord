@@ -6,10 +6,9 @@
         Closed
     </a>
     @auth
-    <button type="button" class="mb-2 btn btn-success float-md-end text-white" data-bs-toggle="modal" data-bs-target="#newMilestoneModal">
+    <a href="{{ route('milestones.new') }}" class="mb-2 btn btn-success float-md-end text-white">
         <x-heroicon-o-plus class="heroicon" />
         Create a milestone
-    </button>
-    <livewire:milestone.create-milestone />
+    </a>
     @endauth
 </div>

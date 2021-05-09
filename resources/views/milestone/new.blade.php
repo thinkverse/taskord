@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'New Product ·')
+@section('pageTitle', 'New Milestone ·')
 
 @section('content')
 <div class="container-md">
@@ -8,11 +8,11 @@
         <div class="col-lg-7">
             @auth
                 @if (!auth()->user()->isFlagged)
-                <livewire:products.create-product />
+                <livewire:milestones.create-milestone />
                 @else
                 <div class="text-center">
                     <div class="alert alert-danger" role="alert">
-                        You can't create new product, because your account has been flagged 😢
+                        You can't create new milestone, because your account has been flagged 😢
                     </div>
                     <a class="btn btn-primary" href="{{ route('home') }}">Go to home</a>
                 </div>
