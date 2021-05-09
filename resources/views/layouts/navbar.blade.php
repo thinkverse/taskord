@@ -141,6 +141,12 @@
                                     New Question
                                 </a>
                             </li>
+                            <li>
+                                <a class="dropdown-item text-dark" href="{{ route('milestones.new') }}">
+                                    <x-heroicon-o-truck class="heroicon-1x text-secondary" />
+                                    New Milestone
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     @include('layouts.modals.new-task')
