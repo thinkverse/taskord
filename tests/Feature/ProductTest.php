@@ -31,7 +31,7 @@ it('has new products page', function ($url, $expected, $auth) {
         $this->get($url)->assertStatus($expected);
     }
 })->with([
-    ['/products/new', 200, false],
+    ['/products/new', 302, false],
     ['/products/new', 200, true],
 ]);
 
