@@ -16,10 +16,7 @@
         <div class="col-lg-8">
             <div class="card">
                 <span class="p-3">
-                @livewire('task.single-task', [
-                    'task' => $task,
-                    'showComments' => false
-                ], key($task->id))
+                    <livewire:task.single-task :task="$task" :showComments="false" :wire:key="$task->id" />
                 </span>
             </div>
             <div class="ms-4 vertical-line"></div>
