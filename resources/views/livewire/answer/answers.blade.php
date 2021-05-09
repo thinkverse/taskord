@@ -17,9 +17,7 @@
     @endif
     @foreach ($answers as $answer)
         <div class="card mt-3">
-            @livewire('answer.single-answer', [
-                'answer' => $answer
-            ], key($answer->id))
+            <livewire:answer.single-answer :answer="$answer" :wire:key="$answer->id" />
         </div>
     @endforeach
     <div class="mt-3">
