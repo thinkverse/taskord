@@ -51,8 +51,7 @@
         "pestphp/pest": "1.1.0",
         "pestphp/pest-plugin-laravel": "1.0.0",
         "pestphp/pest-plugin-livewire": "1.0.0",
-        "phpunit/phpunit": "9.5.4",
-        "wnx/laravel-stats": "2.5.2"
+        "phpunit/phpunit": "9.5.4"
     },
     "config": {
         "optimize-autoloader": true,
