@@ -39,9 +39,7 @@
                 <livewire:home.only-following />
                 @endauth
             </div>
-            @livewire('home.tasks', [
-                'page' => 1,
-            ])
+            <livewire:home.tasks :page="1" />
         </div>
         <div class="col-sm">
             @auth
