@@ -7,7 +7,7 @@ discussions on GitLab (issues, merge requests) and across
 
 If you feel another member of the community has violated our Code of Conduct,
 you may anonymously contact the team with our
-[abuse report form](https://taskord.freshdesk.com/support/tickets/new).
+[abuse report form](https://taskord.com/contact).
 
 Remember that communication is the lifeblood of any Open Source project. We are
 all working on this together, and we are all benefiting from this software. It's

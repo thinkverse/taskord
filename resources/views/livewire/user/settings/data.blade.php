@@ -14,9 +14,9 @@
                     As the downloadable file you will receive will contain your profile information, you should keep it secure and be careful when storing, sending, or uploading it to any other services.
                 </div>
                 <div class="mb-3">
-                    If you have any questions or concerns about the personal data contained in your downloadable file, please <a href="https://taskord.freshdesk.com/support/tickets/new" target="_blank" rel="noreferrer">contact us</a>.
+                    If you have any questions or concerns about the personal data contained in your downloadable file, please <a href="https://taskord.com/contact" target="_blank">contact us</a>.
                 </div>
-                <a class="btn btn-success text-white" href="{{ route('user.settings.export.account') }}" target="_blank" rel="noreferrer">
+                <a class="btn btn-success text-white" href="{{ route('user.settings.export.account') }}" target="_blank">
                     <x-heroicon-o-download class="heroicon" />
                     Export account now
                 </a>
@@ -27,7 +27,7 @@
                 <div class="mb-3">
                     You can download and review the security log for your user account to better understand actions you've performed and actions others have performed that involve you.
                 </div>
-                <a class="btn btn-success text-white" href="{{ route('user.settings.export.logs') }}" target="_blank" rel="noreferrer">
+                <a class="btn btn-success text-white" href="{{ route('user.settings.export.logs') }}" target="_blank">
                     <x-heroicon-o-download class="heroicon" />
                     Export logs now
                 </a>
