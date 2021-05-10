@@ -28,10 +28,10 @@
             </a>
         </div>
         <div class="col-sm">
+            <div class="fw-bold text-secondary pb-2">
+                Created by
+            </div>
             <div class="card mb-4">
-                <div class="fw-bold text-secondary pb-2">
-                    Created by
-                </div>
                 <div class="card-body d-flex align-items-center">
                     <a
                         href="{{ route('user.done', ['username' => $comment->user->username]) }}"
