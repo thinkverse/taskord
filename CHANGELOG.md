@@ -2,11 +2,23 @@
 
 ## Unreleased
 
-### **v1.1.0**
+### **v1.2.0**
 
 - 
 
 ## Released
+
+### **v1.1.0** (May 10, 2021)
+
+- Ability add new task from anywhere using `n` shortcut key ⌨️
+- Added pagination in /tasks page 📚
+- Added milestone tab in a user profile ⛳️
+- Move new and edit product modal to new page 📃
+- Move new and edit question modal to new page 📃
+- Move new and edit milestone modal to new page 📃
+- Fixed user activity graph in profile page 📈
+- Check user is flagged before sending magic link to reduce bounce rate 💌
+- Improved XSS prevention 🛡
 
 ### **v1.0.9** (May 3, 2021)
 
