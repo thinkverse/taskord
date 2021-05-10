@@ -21,7 +21,11 @@ class Sentry
         if (app()->bound('sentry')) {
             if (auth()->check()) {
                 configureScope(function (Scope $scope): void {
-                    $scope->setUser(['id' => auth()->user()->id]);
+                    $scope->setUser([
+                        'id' => auth()->user()->id,
+                        'username' => auth()->user()->username,
+                        'email' => auth()->user()->email,
+                    ]);
                 });
             }
         }
