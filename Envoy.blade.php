@@ -19,7 +19,6 @@
 @endsetup
 
 @task('pull-from-gitlab-and-migrate')
-    @discord(env('DISCORD_WEBHOOK_URL'), '🎉 Taskord has been successfully deployed!')
     echo "Pulling latest changes from GitLab";
     php artisan down
     git pull origin main
@@ -27,6 +26,7 @@
     php artisan migrate --force
     echo "Database Migration Ended ✅";
     php artisan up
+    @discord(env('DISCORD_WEBHOOK_URL'), '🎉 Taskord has been successfully deployed!')
 @endtask
 
 @task('install-laravel-dependencies')
