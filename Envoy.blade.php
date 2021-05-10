@@ -19,7 +19,6 @@
 @endsetup
 
 @task('pull-from-gitlab-and-migrate')
-    @discord(env('DISCORD_WEBHOOK_URL'), '🚀 Deployment process has been initiated')
     echo "Pulling latest changes from GitLab";
     php artisan down
     git pull origin main
