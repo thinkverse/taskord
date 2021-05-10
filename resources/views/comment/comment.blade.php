@@ -29,7 +29,7 @@
         </div>
         <div class="col-sm">
             <div class="card mb-4">
-                <div class="card-header">
+                <div class="fw-bold text-secondary pb-2">
                     Created by
                 </div>
                 <div class="card-body d-flex align-items-center">
