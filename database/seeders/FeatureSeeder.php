@@ -15,6 +15,12 @@ class FeatureSeeder extends Seeder
     public function run()
     {
         Feature::factory()->create([
+            'name' => 'FAQ Section',
+            'slug' => 'faq_section',
+            'description' => 'FAQ Section in about page',
+        ]);
+
+        Feature::factory()->create([
             'name' => 'Year in review',
             'slug' => 'year_in_review',
             'description' => 'Year in review page for all Taskord users',
