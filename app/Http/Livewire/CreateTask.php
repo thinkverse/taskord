@@ -45,7 +45,7 @@ class CreateTask extends Component
         if (Auth::check()) {
             $this->validate([
                 'images' => 'max:5',
-                'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+                'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:5000',
             ],
             [
                 'images.max' => 'Only 5 Images are allowed!',
@@ -72,7 +72,7 @@ class CreateTask extends Component
             $this->validate([
                 'task' => 'required|min:5|max:10000',
                 'images' => 'max:5',
-                'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+                'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:5000',
             ],
             [
                 'images.max' => 'Only 5 Images are allowed!',
