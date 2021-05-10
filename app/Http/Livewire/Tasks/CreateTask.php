@@ -51,7 +51,7 @@ class CreateTask extends Component
                 'task' => 'required|min:5|max:10000',
                 'images' => 'max:5',
                 'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:5000',
-            ];
+            ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
