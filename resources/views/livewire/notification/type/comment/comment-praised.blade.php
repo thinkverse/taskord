@@ -1,6 +1,6 @@
 <div>
     @if ($comment)
-    <div class="mt-2 text-secondary">
+    <div class="mt-2 text-black-50">
         praised your
         <a class="fw-bold" href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}">
             comment

@@ -1,7 +1,7 @@
 <div>
     @if ($data['body_type'] === 'task')
         @if ($body)
-            <div class="mt-2 text-secondary">
+            <div class="mt-2 text-black-50">
                 mentioned you in a
                 <a class="fw-bold" href="{{ route('task', ['id' => $body->id]) }}">
                     task
@@ -17,7 +17,7 @@
         @endif
     @elseif ($data['body_type'] === 'comment')
         @if ($body and $body->task)
-            <div class="mt-2 text-secondary">
+            <div class="mt-2 text-black-50">
                 mentioned you in a
                 <a class="fw-bold" href="{{ route('comment', ['id' => $body->task->id, 'comment_id' => $body->id]) }}">
                     comment
@@ -33,7 +33,7 @@
         @endif
     @elseif ($data['body_type'] === 'answer')
         @if ($body and $body->question)
-            <div class="mt-2 text-secondary">
+            <div class="mt-2 text-black-50">
                 mentioned you in an
                 <a class="fw-bold" href="{{ route('question.question', ['id' => $body->question->id]) }}">
                     answer
