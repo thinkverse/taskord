@@ -72,6 +72,17 @@
                 </div>
                 <div class="text-center mb-5 pt-2">
                     <div>
+                        <img loading=lazy height="50" src="https://ik.imagekit.io/taskordimg/bugsnag.png" />
+                    </div>
+                    <div class="h6 mt-5 lh-base">
+                        Bugsnag monitors application stability so you can make data-driven decisions on whether you should be building new features, or fixing bugs.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://bugsnag.com" target="_blank" rel="noreferrer">➜ Go to Bugsnag</a>
+                    </div>
+                </div>
+                <div class="text-center mb-5 pt-2">
+                    <div>
                         <img loading=lazy height="50" src="https://ik.imagekit.io/taskordimg/clickup_3YRDhOJZs.png" />
                     </div>
                     <div class="h6 mt-5 lh-base">
