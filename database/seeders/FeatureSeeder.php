@@ -43,12 +43,6 @@ class FeatureSeeder extends Seeder
         ]);
 
         Feature::factory()->create([
-            'name' => 'About page',
-            'slug' => 'about_page',
-            'description' => "Taskord's about page",
-        ]);
-
-        Feature::factory()->create([
             'name' => 'Help menu',
             'slug' => 'help_menu',
             'description' => 'Help menu in navbar dropdown',
