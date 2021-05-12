@@ -1,8 +1,10 @@
 <div class="bg-hero">
     <div class="container py-5">
         <div class="text-center pb-5">
-            <div class="h4">It's simple.</div>
-            <div class="text-secondary lead">Consistency & value is what makes you shine on Taskord.</div>
+            <div class="h4">Welcome to Taskord 👋</div>
+            <div class="text-secondary lead">
+                <span class="fw-bold">Don't fake just make!</span> Get things done in public with awesome community of makers.
+            </div>
         </div>
         <div class="row align-items-center">
             <div class="col">
