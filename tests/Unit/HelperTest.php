@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use App\Helpers\Helper;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
 use function PHPUnit\Framework\assertMatchesRegularExpression;
 
