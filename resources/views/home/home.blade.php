@@ -8,17 +8,6 @@
 <div class="container-md">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            @guest
-            <div class="p-5 rounded mb-4 text-white welcome-card">
-                <h1>Welcome to Taskord 👋</h1>
-                <p class="lead">
-                    <span class="fw-bold">Don't fake just make!</span> Get things done in public with awesome community of makers.
-                </p>
-                <a class="btn btn-lg btn-light" href="/register" role="button">
-                    Signup now
-                </a>
-            </div>
-            @endguest
             <livewire:home.recent-questions />
             <livewire:home.launched-today />
             @auth

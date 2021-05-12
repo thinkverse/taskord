@@ -215,7 +215,7 @@ input[type="color"]:focus,
     }
 }
 
-.welcome-card {
+.bg-hero {
     background: linear-gradient(90deg, $primary 0%, #6a63ecba 90%);
     background-size: contain;
 }
@@ -269,10 +269,6 @@ input[type="color"]:focus,
 
 .bg-patron {
     background-color: $yellow-100 !important;
-}
-
-.bg-hero {
-    background-color: $gray-200;
 }
 
 .recent-questions {
