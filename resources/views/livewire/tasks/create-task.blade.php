@@ -31,7 +31,7 @@
                     <div class="gallery">
                     @foreach ($images ?? [] as $image)
                     <div>
-                        <img loading=lazy class="{{ count($images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ $image->temporaryUrl() }}" />
+                        <img loading=lazy class="{{ count($images) === 1 ? 'w-50' : 'gallery' }} img-fluid mt-3 rounded" src="{{ $image->temporaryUrl() }}" />
                     </div>
                     @endforeach
                     </div>
