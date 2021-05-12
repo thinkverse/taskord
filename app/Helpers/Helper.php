@@ -14,8 +14,8 @@ use App\Notifications\Question\NotifySubscribers as QuestionSubscribers;
 use App\Notifications\QuestionPraised;
 use App\Notifications\Task\NotifySubscribers as TaskSubscribers;
 use App\Notifications\TaskPraised;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
 
 class Helper
