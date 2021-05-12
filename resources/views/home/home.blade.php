@@ -21,7 +21,7 @@
             @endauth
             <div class="pb-3">
                 <span class="h5">
-                    <x-heroicon-o-check-circle class="heroicon-2x ms-1 text-secondary" />
+                    <x-heroicon-o-check-circle class="heroicon-2x text-secondary" />
                     Tasks
                 </span>
                 @auth
