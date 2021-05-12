@@ -86,6 +86,9 @@
         </div>
         @endif
         @endauth
+        @guest
+            @include('home.hero')
+        @endguest
         <main class="py-4">
             @yield('content')
         </main>

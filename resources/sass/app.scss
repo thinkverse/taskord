@@ -271,6 +271,10 @@ input[type="color"]:focus,
     background-color: $yellow-100 !important;
 }
 
+.bg-hero {
+    background-color: $gray-200;
+}
+
 .recent-questions {
     border-radius: 15px !important;
 }
@@ -487,11 +491,11 @@ input[type="date"]:valid:before {
 }
 
 .bg-staffbar {
-    background-color: #121212 !important;
+    background-color: $black !important;
 }
 
 .border-staffbar {
-    border-color: #121212 !important;
+    border-color: $black !important;
 }
 
 .comment-md {
