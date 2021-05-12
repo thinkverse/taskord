@@ -117,7 +117,7 @@
                     <div class="col-6 mt-2">
                         <a href="/login/discord" class="btn btn-social btn-discord w-100">
                             <span class="small">
-                                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/discord.webp" loading=lazy />
+                                <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/discord_MCCBaztWr.webp" loading=lazy />
                                 Discord
                             </span>
                         </a>

@@ -107,8 +107,8 @@
                             <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" loading=lazy />
                         @elseif ($user->provider === 'github')
                             <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" loading=lazy />
-                        @elseif ($user->provider === 'gitlab')
-                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" loading=lazy />
+                        @elseif ($user->provider === 'discord')
+                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/discord_MCCBaztWr.webp" loading=lazy />
                         @else
                             <x-heroicon-o-globe-alt class="heroicon text-success" />
                         @endif
