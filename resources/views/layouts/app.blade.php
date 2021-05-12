@@ -87,7 +87,9 @@
         @endif
         @endauth
         @guest
-            @include('home.hero')
+            @if (Route::current()->getName() === 'home')
+                @include('home.hero')
+            @endif
         @endguest
         <main class="py-4">
             @yield('content')
