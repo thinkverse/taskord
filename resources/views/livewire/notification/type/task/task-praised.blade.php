@@ -1,6 +1,6 @@
 <div>
     @if ($task)
-    <div class="mt-2 text-black-50">
+    <div class="mt-2 text-secondary">
         praised your
         <a class="fw-bold" href="{{ route('task', ['id' => $task->id]) }}">
             task

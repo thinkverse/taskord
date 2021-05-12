@@ -1,6 +1,6 @@
 <div>
     @if ($answer and $answer->question)
-    <div class="mt-2 text-black-50">
+    <div class="mt-2 text-secondary">
         answered to the
         <a class="fw-bold" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
             question
