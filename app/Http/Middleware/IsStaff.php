@@ -18,8 +18,8 @@ class IsStaff
     {
         if ($request->user() && $request->user()->isStaff) {
             return $next($request);
+        } else {
+            return abort(404);
         }
-
-        return redirect('/');
     }
 }
