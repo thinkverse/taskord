@@ -21,7 +21,7 @@
                                 </a>
                             @endif
                         </a>
-                        <div class="pe-5">{{ $product->description }}</div>
+                        <div class="pe-5 pt-2 text-secondary">{{ $product->description }}</div>
                     </span>
                     <span class="ms-auto">
                         @if ($product->members()->count() > 1)
