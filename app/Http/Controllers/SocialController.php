@@ -51,7 +51,7 @@ class SocialController extends Controller
             $username = strtolower(Str::random(6));
         }
 
-        if ($provider === 'gitlab' or $provider === 'github') {
+        if ($provider === 'gitlab' or $provider === 'github' or $provider === 'discord') {
             $avatar = $userSocial->avatar;
         } else {
             $avatar = str_replace('http://', 'https://', $userSocial->avatar_original);
