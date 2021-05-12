@@ -20,8 +20,8 @@ it('has ci data details skeleton', function ($url, $expected, $auth) {
         $this->get($url)->assertStatus($expected);
     }
 })->with([
-    ['/site/ci-data', 302, false],
-    ['/site/ci-data', 302, true],
+    ['/site/ci-data', 404, false],
+    ['/site/ci-data', 404, true],
 ]);
 
 it('has deployment data details skeleton', function ($url, $expected, $auth) {
@@ -31,8 +31,8 @@ it('has deployment data details skeleton', function ($url, $expected, $auth) {
         $this->get($url)->assertStatus($expected);
     }
 })->with([
-    ['/site/deployment-data', 302, false],
-    ['/site/deployment-data', 302, true],
+    ['/site/deployment-data', 404, false],
+    ['/site/deployment-data', 404, true],
 ]);
 
 it('has commit data details skeleton', function ($url, $expected, $auth) {
@@ -42,17 +42,6 @@ it('has commit data details skeleton', function ($url, $expected, $auth) {
         $this->get($url)->assertStatus($expected);
     }
 })->with([
-    ['/site/commit-data', 302, false],
-    ['/site/commit-data', 302, true],
-]);
-
-it('has cache hits skeleton', function ($url, $expected, $auth) {
-    if ($auth) {
-        actingAs(1)->get($url)->assertStatus($expected);
-    } else {
-        $this->get($url)->assertStatus($expected);
-    }
-})->with([
-    ['/site/cache-hits', 302, false],
-    ['/site/cache-hits', 302, true],
+    ['/site/commit-data', 404, false],
+    ['/site/commit-data', 404, true],
 ]);
