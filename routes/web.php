@@ -153,7 +153,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     });
 
     // Admin
-    Route::group(['prefix' => 'stafftools', 'as' => 'admin.', 'middleware' => ['staff']], function () {
+    Route::group(['prefix' => 'stafftools', 'as' => 'admin.', 'middleware' => ['staffship']], function () {
         Route::view('', 'admin.stats')->middleware('password.confirm')->name('stats');
         Route::view('users', 'admin.users')->middleware('password.confirm')->name('users');
         Route::view('tasks', 'admin.tasks')->middleware('password.confirm')->name('tasks');
@@ -161,7 +161,6 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::view('products', 'admin.products')->middleware('password.confirm')->name('products');
         Route::view('features', 'admin.features')->middleware('password.confirm')->name('features');
         Route::get('system', [AdminController::class, 'system'])->middleware('password.confirm')->name('system');
-        Route::get('adminbar', [AdminController::class, 'toggle'])->name('adminbar');
     });
 
     // Patron
@@ -249,6 +248,7 @@ Route::group(['prefix' => 'site'], function () {
     Route::get('ci-data', [AdminController::class, 'ciData'])->name('ci-data')->middleware('staffship');
     Route::get('deployment-data', [AdminController::class, 'deploymentData'])->name('deployment-data')->middleware('staffship');
     Route::get('cache-hits', [AdminController::class, 'cacheHits'])->name('cache-hits')->middleware('staffship');
+    Route::get('adminbar', [AdminController::class, 'toggle'])->middleware('staff')->name('adminbar');
 });
 
 // Site
