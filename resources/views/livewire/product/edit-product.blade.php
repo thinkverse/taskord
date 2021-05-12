@@ -113,9 +113,6 @@
                         <label for="launched" class="form-check-label">This product is launched</label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">
-                    Update
-                </button>
                 <button
                     type="button"
                     onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
@@ -123,9 +120,12 @@
                     wire:loading.attr="disabled"
                     wire:offline.attr="disabled"
                     aria-label="Delete"
-                    class="btn btn-danger float-end"
+                    class="btn btn-danger"
                 >
                     <span class="fw-bold">Delete</span> {{ $slug }}
+                </button>
+                <button type="submit" class="btn btn-primary float-end">
+                    Update
                 </button>
             </div>
         </form>
