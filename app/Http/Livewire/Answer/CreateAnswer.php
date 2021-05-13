@@ -15,6 +15,10 @@ class CreateAnswer extends Component
     public $answer;
     public Question $question;
 
+    protected $rules = [
+        'answer' => ['required', 'max:20000'],
+    ];
+
     public function mount($question)
     {
         $this->question = $question;
@@ -23,9 +27,7 @@ class CreateAnswer extends Component
     public function updated($field)
     {
         if (Auth::check()) {
-            $this->validateOnly($field, [
-                'answer' => 'required',
-            ]);
+            $this->validateOnly($field);
         } else {
             $this->alert('error', 'Forbidden!');
         }
@@ -34,9 +36,7 @@ class CreateAnswer extends Component
     public function submit()
     {
         if (Auth::check()) {
-            $this->validate([
-                'answer' => 'required',
-            ]);
+            $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
