@@ -14,6 +14,11 @@ class EditMilestone extends Component
     public $start_date;
     public $end_date;
 
+    protected $rules = [
+        'name' => ['required', 'min:5', 'max:100'],
+        'description' => ['required', 'min:3', 'max:10000'],
+    ];
+
     public function mount($milestone)
     {
         $this->milestone = $milestone;
@@ -26,10 +31,7 @@ class EditMilestone extends Component
     public function updated($field)
     {
         if (Auth::check()) {
-            $this->validateOnly($field, [
-                'name' => 'required|min:5|max:100',
-                'description' => 'required|min:3|max:10000',
-            ]);
+            $this->validateOnly($field);
         } else {
             $this->alert('error', 'Forbidden!');
         }
@@ -38,10 +40,7 @@ class EditMilestone extends Component
     public function submit()
     {
         if (Auth::check()) {
-            $this->validate([
-                'name' => 'required|min:5|max:100',
-                'description' => 'required|min:3|max:10000',
-            ]);
+            $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
