@@ -1,42 +1,42 @@
 <div class="container my-5">
     <div class="row justify-content-center align-items-center">
-        <div class="col-lg d-flex justify-content-around">
-            <span class="fw-bold">
+        <div class="col-lg d-flex justify-content-evenly flex-wrap">
+            <span class="fw-bold me-2">
                 © {{ now()->year }} Taskord
             </span>
-            <a href="{{ route('about') }}">
+            <a class="me-2" href="{{ route('about') }}">
                 About
             </a>
-            <a href="https://status.taskord.com" target="_blank" rel="noreferrer">
+            <a class="me-2" href="https://status.taskord.com" target="_blank" rel="noreferrer">
                 Status
             </a>
-            <a href="https://dev.to/taskord" target="_blank" rel="noreferrer">
+            <a class="me-2" href="https://dev.to/taskord" target="_blank" rel="noreferrer">
                 Blog
             </a>
-            <a href="/graphiql" target="_blank" rel="noreferrer">
+            <a class="me-2" href="/graphiql" target="_blank" rel="noreferrer">
                 API
             </a>
             <a href="{{ route('contact') }}">
                 Contact
             </a>
         </div>
-        <div class="col-1 d-flex justify-content-around my-2">
+        <div class="col-1 d-flex justify-content-evenly my-2">
             <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="30" alt="Taskord Beta">
         </div>
-        <div class="col-lg d-flex justify-content-around">
-            <a href="{{ route('terms') }}">
+        <div class="col-lg d-flex justify-content-evenly flex-wrap">
+            <a class="me-2" href="{{ route('terms') }}">
                 Terms
             </a>
-            <a href="{{ route('privacy') }}">
+            <a class="me-2" href="{{ route('privacy') }}">
                 Privacy
             </a>
-            <a href="{{ route('open') }}">
+            <a class="me-2" href="{{ route('open') }}">
                 Open
             </a>
-            <a href="{{ route('sponsors') }}">
+            <a class="me-2" href="{{ route('sponsors') }}">
                 Sponsors
             </a>
-            <a href="/graphiql" target="_blank" rel="noreferrer">
+            <a class="me-2" href="/graphiql" target="_blank" rel="noreferrer">
                 API
             </a>
             <a href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
@@ -44,7 +44,7 @@
             </a>
             @auth
             @if (auth()->user()->staffShip)
-            <span class="text-danger">
+            <span class="text-danger ms-2">
                 Admin mode on
             </span>
             @endif
