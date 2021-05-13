@@ -91,11 +91,11 @@ class Account extends Component
 
                 if (auth()->user()->id === $this->user->id) {
                     $this->user->username = $this->username;
-                    $this->user->email = $this->email;
                     if ($this->email !== $this->user->email) {
                         $this->user->email_verified_at = null;
                         $this->user->sendEmailVerificationNotification();
                     }
+                    $this->user->email = $this->email;
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated account settings');
 
