@@ -21,4 +21,5 @@
         </div>
     </div>
 </div>
+<x-bottom-footer />
 @endsection
