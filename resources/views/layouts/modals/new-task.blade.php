@@ -4,7 +4,8 @@
             <div class="px-4 pt-4 d-flex align-items-center justify-content-between">
                 <h5 class="modal-title text-dark d-flex align-items-center" id="newTaskModalLabel">
                     <x-heroicon-o-check-circle class="heroicon-2x" />
-                    <span class="ms-1">New task</span>
+                    <span class="ms-1 me-2">New task</span>
+                    <x-beta />
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
