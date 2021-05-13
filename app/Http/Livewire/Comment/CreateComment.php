@@ -15,6 +15,10 @@ class CreateComment extends Component
     public $comment;
     public Task $task;
 
+    protected $rules = [
+        'comment' => ['required', 'max:20000'],
+    ];
+
     public function mount($task)
     {
         $this->task = $task;
@@ -23,9 +27,7 @@ class CreateComment extends Component
     public function updated($field)
     {
         if (Auth::check()) {
-            $this->validateOnly($field, [
-                'comment' => 'required',
-            ]);
+            $this->validateOnly($field);
         } else {
             $this->alert('error', 'Forbidden!');
         }
@@ -34,9 +36,7 @@ class CreateComment extends Component
     public function submit()
     {
         if (Auth::check()) {
-            $this->validate([
-                'comment' => 'required',
-            ]);
+            $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
