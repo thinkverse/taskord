@@ -28,6 +28,8 @@ class Password extends Component
                 'newPassword' => ['required', 'string', PasswordRule::min(8)->uncompromised()],
                 'confirmPassword' => ['required', 'same:newPassword'],
             ]);
+        } else {
+            $this->alert('error', 'Forbidden!');
         }
     }
 
