@@ -13,6 +13,11 @@ class EditQuestion extends Component
     public $body;
     public $patronOnly;
 
+    protected $rules = [
+        'title' => ['required', 'min:5', 'max:150'],
+        'body' => ['required', 'min:3', 'max:20000'],
+    ];
+
     public function mount($question)
     {
         $this->question = $question;
@@ -24,10 +29,7 @@ class EditQuestion extends Component
     public function updated($field)
     {
         if (Auth::check()) {
-            $this->validateOnly($field, [
-                'title' => 'required|min:5|max:100',
-                'body' => 'required|min:3|max:10000',
-            ]);
+            $this->validateOnly($field);
         } else {
             $this->alert('error', 'Forbidden!');
         }
@@ -36,10 +38,7 @@ class EditQuestion extends Component
     public function submit()
     {
         if (Auth::check()) {
-            $this->validate([
-                'title' => 'required|min:5|max:100',
-                'body' => 'required|min:3|max:10000',
-            ]);
+            $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
