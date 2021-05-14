@@ -8,25 +8,21 @@ use GuzzleHttp\Client;
 use Helper;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 use Telegram;
 
 class CreateTask
 {
     protected User $user;
     protected $task;
-    protected $file_id;
     protected $status;
 
     public function __construct(
         User $user,
         $task,
-        $file_id,
         $status
     ) {
         $this->user = $user;
         $this->task = $task;
-        $this->file_id = $file_id;
         $this->status = $status;
     }
 
@@ -44,28 +40,12 @@ class CreateTask
             return $this->send($this->user->telegram_chat_id, '🚩 Your account is flagged!');
         }
 
-        if ($this->file_id) {
-            $image = [];
-            $client = new Client();
-            $res = $client->request('GET', 'https://api.telegram.org/bot'.config('telegram.bots.taskordbot.token').'/getFile?file_id='.$this->file_id);
-            $res_file_path = json_decode($res->getBody(), true)['result']['file_path'];
-            $img = Image::make('https://api.telegram.org/file/bot'.config('telegram.bots.taskordbot.token').'/'.$res_file_path)
-                ->encode('webp', 100);
-            $imageName = Str::random(32).'.webp';
-            Storage::disk('public')->put('photos/'.$imageName, (string) $img);
-            $uri = 'photos/'.$imageName;
-            array_push($image, $uri);
-        } else {
-            $image = null;
-        }
-
         $product_id = Helper::getProductIDFromMention($this->task, $this->user);
 
         $task = (new CreateNewTask($this->user, [
             'product_id' =>  $product_id,
             'task' => $this->task,
             'done' => $this->status,
-            'images' => $image,
             'done_at' => $this->status ? carbon() : null,
             'type' => $product_id ? 'product' : 'user',
             'source' => 'Telegram',

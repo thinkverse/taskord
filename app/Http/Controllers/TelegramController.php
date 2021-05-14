@@ -63,7 +63,7 @@ class TelegramController extends Controller
                 if ($this->authCheck($chat_id)) {
                     $task = substr($message, strpos($message, '/todo') + 6);
 
-                    return (new CreateTask($user, $task, $file_id, false))();
+                    return (new CreateTask($user, $task, false))();
                 }
             break;
 
