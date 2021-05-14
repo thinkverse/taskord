@@ -33,7 +33,8 @@ class Stats
                .'👥 *'.number_format($this->user->products()->count())."* products you are member of\n"
                .'💬 *'.number_format($this->user->comments()->count())."* comments posted\n"
                .'❓ *'.number_format($this->user->questions()->count())."* questions asked\n"
-               .'💬 *'.number_format($this->user->answers()->count())."* questions answered\n";
+               .'💬 *'.number_format($this->user->answers()->count())."* questions answered\n"
+               .'⛳️ *'.number_format($this->user->milestones()->count())."* milestones created\n";
 
         return $this->send($this->user->telegram_chat_id, $res);
     }
