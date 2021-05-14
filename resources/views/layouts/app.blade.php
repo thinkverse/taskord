@@ -98,13 +98,15 @@
 <x-livewire-alert::scripts />
 <script src="{{ mix('js/bootstrap.js') }}" defer></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
-@if (App::environment() === 'production')
+@if (App::environment() === 'local')
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-98MP737L0B"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-98MP737L0B');
+    gtag('config', 'G-98MP737L0B', {
+        'user_id': "{{ auth()->check() ? auth()->user()->username.'_'.auth()->user()->id : '' }}"
+    });
 </script>
 @endif
 @yield('scripts')
