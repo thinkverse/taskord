@@ -36,9 +36,6 @@
     @endif
     @endif
     @endauth
-    @if (App::environment() === 'production')
-    <script async src="https://analytics.taskord.com/sb.js"></script>
-    @endif
     <livewire:styles />
 </head>
 <body>
@@ -101,5 +98,14 @@
 <x-livewire-alert::scripts />
 <script src="{{ mix('js/bootstrap.js') }}" defer></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
+@if (App::environment() === 'production')
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-98MP737L0B"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-98MP737L0B');
+</script>
+@endif
 @yield('scripts')
 </html>
