@@ -102,18 +102,4 @@
 <script src="{{ mix('js/bootstrap.js') }}" defer></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
 @yield('scripts')
-<script type="text/javascript">
-    window.$crisp = [];
-    window.CRISP_WEBSITE_ID = "c5eba83c-dbe6-4ecd-a233-24ed121c4c48";
-    window.$crisp.push(["set", "user:email", "{{ auth()->check() ? auth()->user()->email : '' }}"]);
-    window.$crisp.push(["set", "user:nickname", "{{ auth()->check() ? '@'.auth()->user()->username : '' }}"]);
-    window.$crisp.push(["set", "user:avatar", "{{ auth()->check() ? auth()->user()->avatar : '' }}"]);
-    (function () {
-        d = document;
-        s = d.createElement("script");
-        s.src = "https://client.crisp.chat/l.js";
-        s.async = 1;
-        d.getElementsByTagName("head")[0].appendChild(s);
-    })();
-</script>
 </html>
