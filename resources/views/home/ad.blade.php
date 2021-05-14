@@ -8,7 +8,7 @@
             </a>
         </h5>
         <p class="mb-0">
-            <a href="{{ route('milestones.opened') }}">Milestones</a> are now available public beta for testing 🎉
+            <a href="{{ route('milestones.opened') }}">Milestones</a> are now available public beta 🎉
         </p>
     </div>
 </div>
