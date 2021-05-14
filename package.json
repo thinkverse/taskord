@@ -16,12 +16,12 @@
         "postcss": "8.2.15",
         "resolve-url-loader": "4.0.0",
         "sass": "1.32.13",
-        "sass-loader": "11.1.0",
+        "sass-loader": "11.1.1",
         "vue-template-compiler": "2.6.12"
     },
     "dependencies": {
         "@joeattardi/emoji-button": "4.6.0",
-        "bootstrap": "5.0.0",
+        "bootstrap": "5.0.1",
         "hotkeys-js": "3.8.5",
         "observe-element-in-viewport": "0.0.15",
         "tippy.js": "6.3.1",
