@@ -106,7 +106,7 @@
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = "c5eba83c-dbe6-4ecd-a233-24ed121c4c48";
     window.$crisp.push(["set", "user:email", "{{ auth()->check() ? auth()->user()->email : '' }}"]);
-    window.$crisp.push(["set", "user:nickname", "{{ auth()->check() ? auth()->user()->username : '' }}"]);
+    window.$crisp.push(["set", "user:nickname", "{{ auth()->check() ? '@'.auth()->user()->username : '' }}"]);
     window.$crisp.push(["set", "user:avatar", "{{ auth()->check() ? auth()->user()->avatar : '' }}"]);
     (function () {
         d = document;
