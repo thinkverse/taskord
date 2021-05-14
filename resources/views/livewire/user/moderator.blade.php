@@ -52,16 +52,28 @@
                 </span>
                 @endif
                 @php
-                    if ($user->lastIP) {
-                        $usersCount = \App\Models\User::where('lastIP', $user->lastIP)->count('id');
-                    } else {
-                        $usersCount = 0;
-                    }
+                    $users = \App\Models\User::where('lastIP', $user->lastIP)->get();
                 @endphp
-                @if ($usersCount > 1)
+                @if ($users->count() > 1)
                 <div class="small mt-1">
                     <x-heroicon-o-exclamation class="heroicon me-1 text-danger" />
-                    <span class="fw-bold">{{ $usersCount }}</span>  {{ $usersCount < 1 ? 'user' : 'users' }} associated with the same IP
+                    <span class="fw-bold">{{ $users->count() }}</span>  {{ $users->count() < 1 ? 'user' : 'users' }} associated with the same IP
+                    <details class="mt-1">
+                        <summary>See all associated users</summary>
+                        <ul class="mb-2">
+                            @foreach ($users as $user)
+                                <li>
+                                    <a
+                                        class="user-popover"
+                                        data-id="{{ $user->id }}"
+                                        href="{{ route('user.done', ['username' => $user->username]) }}"
+                                    >
+                                        {{ '@'.$user->username }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        <ul>
+                    </details>
                 </div>
                 @endif
             </div>
