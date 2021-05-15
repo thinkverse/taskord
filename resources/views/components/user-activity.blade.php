@@ -10,7 +10,7 @@
     </a>
     <div>
         <div>
-            <div class="fw-bold">
+            <div class="fw-bold text-dark">
                 <a
                     href="{{ route('user.done', ['username' => $user->username]) }}"
                     class="fw-bold user-popover"
@@ -74,7 +74,7 @@
             <span class="vertical-separator"></span>
             @endif
             @if ($activity->getExtraProperty('location'))
-            <span>{{ $activity->getExtraProperty('location') }}</span>
+            <span class="text-dark">{{ $activity->getExtraProperty('location') }}</span>
             <span class="vertical-separator"></span>
             @endif
             @if ($activity->getExtraProperty('user_agent') and auth()->user()->staffShip)
@@ -88,7 +88,9 @@
             </a>
             <span class="vertical-separator"></span>
             @endif
-            {{ carbon($activity->created_at)->diffForHumans() }}
+            <span class="text-secondary">
+                {{ carbon($activity->created_at)->diffForHumans() }}
+            </span>
         </div>
     </div>
 </li>
