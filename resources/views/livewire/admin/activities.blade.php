@@ -6,18 +6,18 @@
     </div>
     <div class="table-responsive">
         @if (!$readyToLoad)
-        <div class="card-body text-center mt-3">
-            <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
-            <div class="h6">
-                Loading activities...
+            <div class="card-body text-center mt-3">
+                <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+                <div class="h6">
+                    Loading activities...
+                </div>
             </div>
-        </div>
         @else
-        <ul class="list-group list-group-flush">
-            @foreach ($activities as $activity)
-            <x-user-activity :activity="$activity" />
-            @endforeach
-        </ul>
+            <ul class="list-group list-group-flush">
+                @foreach ($activities as $activity)
+                <x-user-activity :activity="$activity" />
+                @endforeach
+            </ul>
         @endif
     </div>
     {{ $readyToLoad ? $activities->links() : '' }}
