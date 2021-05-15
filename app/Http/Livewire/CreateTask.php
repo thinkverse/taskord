@@ -44,8 +44,8 @@ class CreateTask extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'images' => 'max:5',
-                'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:5000',
+                'images' => ['max:5'],
+                'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
             ]);
         } else {
             return $this->alert('error', 'Forbidden!');
@@ -67,9 +67,9 @@ class CreateTask extends Component
 
         if (Auth::check()) {
             $this->validate([
-                'task' => 'required|min:5|max:10000',
-                'images' => 'max:5',
-                'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:5000',
+                'task' => ['required', 'min:5', 'max:10000'],
+                'images' => ['max:5'],
+                'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
