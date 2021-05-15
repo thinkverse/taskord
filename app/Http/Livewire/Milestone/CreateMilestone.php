@@ -17,8 +17,8 @@ class CreateMilestone extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'name' => 'required|min:5|max:100',
-                'description' => 'required|min:3|max:10000',
+                'name' => ['required', 'min:5', 'max:100'],
+                'description' => ['required', 'min:3', 'max:10000'],
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
