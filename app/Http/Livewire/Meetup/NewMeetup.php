@@ -26,7 +26,7 @@ class NewMeetup extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'cover' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
+                'cover' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
         } else {
             return $this->alert('error', 'Forbidden!');
@@ -37,13 +37,13 @@ class NewMeetup extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'name' => 'required|max:30',
-                'slug' => 'required|min:3|max:20|unique:meetups|alpha_dash',
-                'tagline' => 'required|max:160',
-                'description' => 'nullable|max:50000',
-                'location' => 'nullable|max:50',
-                'date' => 'required|date',
-                'cover' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
+                'name' => ['required', 'max:30'],
+                'slug' => ['required', 'min:3', 'max:20', 'unique:meetups', 'alpha_dash'],
+                'tagline' => ['required', 'max:160'],
+                'description' => ['nullable', 'max:50000'],
+                'location' => ['nullable', 'max:50'],
+                'date' => ['required', 'date'],
+                'cover' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
