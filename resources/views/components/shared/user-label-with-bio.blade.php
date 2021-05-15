@@ -35,7 +35,7 @@
                 </a>
             @endif
             @if ($user->bio)
-                <div class="small fw-normal">
+                <div class="fw-normal">
                     {{ $user->bio }}
                 </div>
             @else
