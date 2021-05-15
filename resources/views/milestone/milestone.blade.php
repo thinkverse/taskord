@@ -32,32 +32,7 @@
             </div>
             <div class="card mb-4">
                 <div class="card-body d-flex align-items-center">
-                    <a
-                        href="{{ route('user.done', ['username' => $milestone->user->username]) }}"
-                        class="user-popover"
-                        data-id="{{ $milestone->user->id }}"
-                    >
-                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($milestone->user->avatar, 80) }}" height="40" width="40" alt="{{ $milestone->user->username }}'s avatar" />
-                    </a>
-                    <span class="ms-3">
-                        <a
-                            href="{{ route('user.done', ['username' => $milestone->user->username]) }}"
-                            class="align-text-top text-dark user-popover"
-                            data-id="{{ $milestone->user->id }}"
-                        >
-                            <span class="fw-bold">
-                                @if ($milestone->user->firstname or $milestone->user->lastname)
-                                    {{ $milestone->user->firstname }}{{ ' '.$milestone->user->lastname }}
-                                @else
-                                    {{ $milestone->user->username }}
-                                @endif
-                                @if ($milestone->user->status)
-                                <span class="ms-1 small" title="{{ $milestone->user->status }}">{{ $milestone->user->status_emoji }}</span>
-                                @endif
-                            </span>
-                            <div>{{ $milestone->user->bio }}</div>
-                        </a>
-                    </span>
+                    <x:shared.user-label-with-bio :user="$milestone->user" />
                 </div>
             </div>
             @if ($milestone->likerscount() > 0)
