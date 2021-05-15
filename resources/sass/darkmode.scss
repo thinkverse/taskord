@@ -203,6 +203,10 @@ hr {
     background-color: $border-bg !important;
 }
 
+.btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
 ::-webkit-scrollbar {
     background-color: $border-bg;
 }
