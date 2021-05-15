@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
+use App\Rules\ReservedSlug;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -72,8 +73,8 @@ class Account extends Component
     {
         if (Auth::check()) {
             $this->validateOnly($field, [
-                'username' => 'required|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
-                'email' => 'required|email|max:255|indisposable|unique:users,email,'.$this->user->id,
+                'username' => ['required', 'min:2', 'max:20', 'alpha_dash', 'unique:users,username,'.$this->user->id, new ReservedSlug],
+                'email' => ['required', 'email', 'max:255', 'indisposable', 'unique:users,email,'.$this->user->id],
             ]);
         } else {
             return $this->alert('error', 'Forbidden!');
@@ -85,8 +86,8 @@ class Account extends Component
         if (Auth::check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
-                    'username' => 'required|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
-                    'email' => 'required|email|max:255|indisposable|unique:users,email,'.$this->user->id,
+                    'username' => ['required', 'min:2', 'max:20', 'alpha_dash', 'unique:users,username,'.$this->user->id, new ReservedSlug],
+                    'email' => ['required', 'email', 'max:255', 'indisposable', 'unique:users,email,'.$this->user->id],
                 ]);
 
                 if (auth()->user()->id === $this->user->id) {
