@@ -1,32 +1,6 @@
 <li class="list-group-item p-3">
     <div class="align-items-center d-flex mb-2">
-        <a href="{{ route('user.done', ['username' => $comment->user->username]) }}">
-            <img loading=lazy class="avatar-30 rounded-circle" src="{{ $comment->user->avatar }}" height="30" width="30" alt="{{ $comment->user->username }}'s avatar" />
-        </a>
-        <span class="ms-2">
-            <a
-                href="{{ route('user.done', ['username' => $comment->user->username]) }}"
-                class="fw-bold text-dark user-popover"
-                data-id="{{ $comment->user->id }}"
-            >
-                @if ($comment->user->firstname or $comment->user->lastname)
-                    {{ $comment->user->firstname }}{{ ' '.$comment->user->lastname }}
-                @else
-                    {{ $comment->user->username }}
-                @endif
-                @if ($comment->user->status)
-                <span class="ms-1 small" title="{{ $comment->user->status }}">{{ $comment->user->status_emoji }}</span>
-                @endif
-                @if ($comment->user->isVerified)
-                    <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
-                @endif
-                @if ($comment->user->isPatron)
-                    <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                        <x-heroicon-s-star class="heroicon text-gold" />
-                    </a>
-                @endif
-            </a>
-        </span>
+        <x:shared.user :user="$comment->user" />
         <a
             class="align-text-top small float-end ms-auto text-secondary"
             href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}"
