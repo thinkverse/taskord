@@ -66,13 +66,13 @@
                         <div class="spinner-border spinner-border-sm mb-3" role="status"></div>
                     </div>
                     @error('cover')
-                    <div class="text-danger fw-bold mt-3">{{ $message }}</div>
+                        <div class="text-danger fw-bold mt-3">{{ $message }}</div>
                     @else
-                    @if ($cover)
-                    <div>
-                        <img loading=lazy class="avatar-100 rounded mb-3" src="{{ $cover->temporaryUrl() }}" height="100" width="100" />
-                    </div>
-                    @endif
+                        @if ($cover)
+                            <div>
+                                <img loading=lazy class="avatar-100 rounded mb-3" src="{{ $cover->temporaryUrl() }}" height="100" width="100" />
+                            </div>
+                        @endif
                     @enderror
                 </div>
                 <div class="modal-footer">
