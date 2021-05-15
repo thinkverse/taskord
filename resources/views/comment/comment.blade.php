@@ -37,22 +37,22 @@
                 </div>
             </div>
             @if ($comment->likerscount() > 0)
-            <div class="card mb-4">
-                <div class="card-header">
-                    Liked by
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Liked by
+                    </div>
+                    <div class="card-body align-items-center pb-2">
+                        @foreach ($comment->likers as $user)
+                            <a
+                                title="{{ $user->firstname ? $user->firstname . ' ' . $user->lastname : $user->username }}"
+                                href="{{ route('user.done', ['username' => $user->username]) }}"
+                                class="me-1"
+                            >
+                                <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="30" width="30" alt="{{ $user->username }}'s avatar" />
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
-                <div class="card-body align-items-center pb-2">
-                    @foreach ($comment->likers as $user)
-                        <a
-                            title="{{ $user->firstname ? $user->firstname . ' ' . $user->lastname : $user->username }}"
-                            href="{{ route('user.done', ['username' => $user->username]) }}"
-                            class="me-1"
-                        >
-                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="30" width="30" alt="{{ $user->username }}'s avatar" />
-                        </a>
-                    @endforeach
-                </div>
-            </div>
             @endif
             <x-footer />
         </div>
