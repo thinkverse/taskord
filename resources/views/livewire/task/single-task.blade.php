@@ -4,29 +4,7 @@
             <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($task->user->avatar, 80) }}" height="40" width="40" alt="{{ $task->user->username }}'s avatar" />
         </a>
         <span class="ms-2">
-            <a
-                href="{{ route('user.done', ['username' => $task->user->username]) }}"
-                class="fw-bold text-dark user-popover"
-                data-id="{{ $task->user->id }}"
-            >
-                @if ($task->user->firstname or $task->user->lastname)
-                    {{ $task->user->firstname }}{{ ' '.$task->user->lastname }}
-                @else
-                    {{ $task->user->username }}
-                @endif
-                @if ($task->user->status)
-                <span class="ms-1 small" title="{{ $task->user->status }}">{{ $task->user->status_emoji }}</span>
-                @endif
-                @if ($task->user->isVerified)
-                    <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
-                @endif
-                @if ($task->user->isPatron)
-                    <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                        <x-heroicon-s-star class="heroicon text-gold" />
-                    </a>
-                @endif
-                <div class="small text-secondary fw-normal">{{ "@" . $task->user->username }}</div>
-            </a>
+            <livewire:shared.user :user="$task->user" />
         </span>
         <span class="d-flex align-items-center small float-end ms-auto text-secondary cursor-pointer" data-bs-toggle="collapse" data-bs-target="#taskExpand-{{$task->id}}" aria-expanded="false">
             @if ($task->source === 'GitLab')
