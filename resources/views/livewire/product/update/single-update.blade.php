@@ -6,69 +6,69 @@
         <div>{!! markdown($update->body) !!}</div>
         <div class="mt-2">
             @auth
-            @if (!$update->user->isPrivate)
-            @if (auth()->user()->hasLiked($update))
-            <span>
-                <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praise">
-                    <x-heroicon-s-thumb-up class="heroicon-small me-0" />
-                    <span class="small text-white fw-bold">
-                        {{ number_format($update->likerscount()) }}
-                    </span>
-                    <span class="avatar-stack ms-1">
-                    @foreach($update->likers->take(5) as $user)
-                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                    @endforeach
-                    </span>
-                </button>
-            </span>
-            @else
-            <span>
-                <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praises">
-                    <x-heroicon-o-thumb-up class="heroicon-small me-0" />
-                    @if ($update->likerscount() !== 0)
-                    <span class="small text-dark fw-bold">
-                        {{ number_format($update->likerscount()) }}
-                    </span>
-                    <span class="avatar-stack ms-1">
-                    @foreach($update->likers->take(5) as $user)
-                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                    @endforeach
-                    </span>
+                @if (!$update->user->isPrivate)
+                    @if (auth()->user()->hasLiked($update))
+                        <span>
+                            <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praise">
+                                <x-heroicon-s-thumb-up class="heroicon-small me-0" />
+                                <span class="small text-white fw-bold">
+                                    {{ number_format($update->likerscount()) }}
+                                </span>
+                                <span class="avatar-stack ms-1">
+                                @foreach($update->likers->take(5) as $user)
+                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
+                                @endforeach
+                                </span>
+                            </button>
+                        </span>
+                    @else
+                        <span>
+                            <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praises">
+                                <x-heroicon-o-thumb-up class="heroicon-small me-0" />
+                                @if ($update->likerscount() !== 0)
+                                <span class="small text-dark fw-bold">
+                                    {{ number_format($update->likerscount()) }}
+                                </span>
+                                <span class="avatar-stack ms-1">
+                                @foreach($update->likers->take(5) as $user)
+                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
+                                @endforeach
+                                </span>
+                                @endif
+                            </button>
+                        </span>
                     @endif
-                </button>
-            </span>
-            @endif
-            @endif
+                @endif
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
                     <x-heroicon-o-thumb-up class="heroicon-small me-0" />
                     @if ($update->likerscount() !== 0)
-                    <span class="small text-dark fw-bold">
-                        {{ number_format($update->likerscount()) }}
-                    </span>
-                    <span class="avatar-stack ms-1">
-                    @foreach($update->likers->take(5) as $user)
-                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                    @endforeach
-                    </span>
+                        <span class="small text-dark fw-bold">
+                            {{ number_format($update->likerscount()) }}
+                        </span>
+                        <span class="avatar-stack ms-1">
+                            @foreach($update->likers->take(5) as $user)
+                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
+                            @endforeach
+                        </span>
                     @endif
                 </a>
             @endguest
             @auth
-            @if (auth()->user()->staffShip or auth()->user()->id === $update->user->id)
-            <button
-                type="button"
-                class="btn btn-task btn-outline-danger"
-                onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
-                wire:click="deleteUpdate"
-                wire:loading.attr="disabled"
-                wire:offline.attr="disabled"
-                aria-label="Delete"
-            >
-                <x-heroicon-o-trash class="heroicon-small me-0" />
-            </button>
-            @endif
+                @if (auth()->user()->staffShip or auth()->user()->id === $update->user->id)
+                    <button
+                        type="button"
+                        class="btn btn-task btn-outline-danger"
+                        onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
+                        wire:click="deleteUpdate"
+                        wire:loading.attr="disabled"
+                        wire:offline.attr="disabled"
+                        aria-label="Delete"
+                    >
+                        <x-heroicon-o-trash class="heroicon-small me-0" />
+                    </button>
+                @endif
             @endauth
         </div>
     </div>
