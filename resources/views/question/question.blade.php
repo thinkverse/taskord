@@ -44,32 +44,7 @@
             </div>
             <div class="card mb-4">
                 <div class="card-body d-flex align-items-center">
-                    <a
-                        href="{{ route('user.done', ['username' => $question->user->username]) }}"
-                        class="user-popover"
-                        data-id="{{ $question->user->id }}"
-                    >
-                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($question->user->avatar, 80) }}" height="40" width="40" alt="{{ $question->user->username }}'s avatar" />
-                    </a>
-                    <span class="ms-3">
-                        <a
-                            href="{{ route('user.done', ['username' => $question->user->username]) }}"
-                            class="align-text-top text-dark user-popover"
-                            data-id="{{ $question->user->id }}"
-                        >
-                            <span class="fw-bold">
-                                @if ($question->user->firstname or $question->user->lastname)
-                                    {{ $question->user->firstname }}{{ ' '.$question->user->lastname }}
-                                @else
-                                    {{ $question->user->username }}
-                                @endif
-                                @if ($question->user->status)
-                                <span class="ms-1 small" title="{{ $question->user->status }}">{{ $question->user->status_emoji }}</span>
-                                @endif
-                            </span>
-                            <div>{{ $question->user->bio }}</div>
-                        </a>
-                    </span>
+                    <x:shared.user-label-with-bio :user="$question->user" />
                 </div>
             </div>
             @auth
