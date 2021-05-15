@@ -2,14 +2,14 @@
     <div class="container-md">
         <a class="navbar-brand" href="{{ url('/') }}">
             @auth
-            @if (auth()->user()->isBeta)
-            <img loading=lazy src="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" height="35" alt="Taskord Beta" title="Taskord Beta">
-            @else
-            <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
-            @endif
+                @if (auth()->user()->isBeta)
+                    <img loading=lazy src="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" height="35" alt="Taskord Beta" title="Taskord Beta">
+                @else
+                    <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
+                @endif
             @endauth
             @guest
-            <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
+                <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
             @endguest
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,11 +29,11 @@
                     </a>
                 </li>
                 @auth
-                <li class="nav-item">
-                    <a class="nav-link text-white fw-bold" href="{{ route('tasks') }}">
-                        Tasks
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-bold" href="{{ route('tasks') }}">
+                            Tasks
+                        </a>
+                    </li>
                 @endauth
                 <li class="nav-item">
                     <a class="nav-link text-white fw-bold" href="{{ route('explore.explore') }}">
@@ -54,30 +54,30 @@
                             </a>
                         </li>
                         @if (feature('meetups'))
-                        <li>
-                            <a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">
-                                <x-heroicon-o-user-group class="heroicon-1x text-secondary" />
-                                Meetups
-                                <x-staffship />
-                            </a>
-                        </li>
+                            <li>
+                                <a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">
+                                    <x-heroicon-o-user-group class="heroicon-1x text-secondary" />
+                                    Meetups
+                                    <x-staffship />
+                                </a>
+                            </li>
                         @endif
                         @if (feature('help_menu'))
-                        <li>
-                            <a class="dropdown-item text-dark" href="#">
-                                <x-heroicon-o-support class="heroicon-1x text-secondary" />
-                                Help
-                                <x-staffship />
-                            </a>
-                        </li>
+                            <li>
+                                <a class="dropdown-item text-dark" href="#">
+                                    <x-heroicon-o-support class="heroicon-1x text-secondary" />
+                                    Help
+                                    <x-staffship />
+                                </a>
+                            </li>
                         @endif
-                        @auth
-                        <li>
-                            <a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">
-                                <x-heroicon-o-link class="heroicon-1x text-secondary" />
-                                Integration
-                            </a>
-                        </li>
+                            @auth
+                            <li>
+                                <a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">
+                                    <x-heroicon-o-link class="heroicon-1x text-secondary" />
+                                    Integration
+                                </a>
+                            </li>
                         @endauth
                         <li>
                             <a class="dropdown-item text-dark" href="{{ route('deals') }}">
@@ -100,11 +100,11 @@
                     </ul>
                 </li>
                 @if (Auth::check() and auth()->user()->isStaff and !auth()->user()->staffShip)
-                <li class="nav-item">
-                    <span class="nav-link text-secondary fw-bold">
-                        {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms
-                    </span>
-                </li>
+                    <li class="nav-item">
+                        <span class="nav-link text-secondary fw-bold">
+                            {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms
+                        </span>
+                    </li>
                 @endif
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -152,30 +152,30 @@
                     @include('layouts.modals.new-task')
                     <livewire:notification.icon />
                     @if (auth()->user()->hasGoal)
-                    <li class="nav-item me-2">
-                        <div class="nav-link">
-                            <a
-                                href="{{ route('user.settings.profile') }}{{ auth()->user()->vacation_mode ? '#vacation' : '#goal' }}"
-                            >
-                                @if (auth()->user()->vacation_mode)
-                                <span class="badge rounded-pill score text-white bg-success" title="Vacation mode on">
-                                    <x-heroicon-o-sun class="heroicon-small me-0" />
-                                </span>
-                                @else
-                                <span
-                                class="badge rounded-pill score text-white
-                                    @if(auth()->user()->daily_goal_reached >= auth()->user()->daily_goal)
-                                        bg-success
+                        <li class="nav-item me-2">
+                            <div class="nav-link">
+                                <a
+                                    href="{{ route('user.settings.profile') }}{{ auth()->user()->vacation_mode ? '#vacation' : '#goal' }}"
+                                >
+                                        @if (auth()->user()->vacation_mode)
+                                        <span class="badge rounded-pill score text-white bg-success" title="Vacation mode on">
+                                            <x-heroicon-o-sun class="heroicon-small me-0" />
+                                        </span>
                                     @else
-                                        bg-info
-                                    @endif">
-                                    <x-heroicon-s-check-circle class="heroicon-small" />
-                                    {{ auth()->user()->daily_goal_reached }}/{{ auth()->user()->daily_goal }}
-                                </span>
-                                @endif
-                            </a>
-                        </div>
-                    </li>
+                                        <span
+                                        class="badge rounded-pill score text-white
+                                            @if(auth()->user()->daily_goal_reached >= auth()->user()->daily_goal)
+                                                bg-success
+                                            @else
+                                                bg-info
+                                            @endif">
+                                            <x-heroicon-s-check-circle class="heroicon-small" />
+                                            {{ auth()->user()->daily_goal_reached }}/{{ auth()->user()->daily_goal }}
+                                        </span>
+                                    @endif
+                                </a>
+                            </div>
+                        </li>
                     @endif
                     <li class="nav-item me-2">
                         <a class="nav-link" href="{{ route('reputation') }}">
@@ -200,13 +200,13 @@
                             <div class="dropdown-divider"></div>
                             <div class="px-2 text-dark">
                                 @if (auth()->user()->status)
-                                <a href="{{ route('user.done', ['username' => auth()->user()->username]) }}" class="border border-dark border-1 d-flex px-2 py-1 rounded text-dark text-start">
-                                    {{ auth()->user()->status_emoji }} {{ Str::limit(auth()->user()->status, 10) }}
-                                </a>
-                                @else
-                                <a href="{{ route('user.done', ['username' => auth()->user()->username]) }}" class="border border-2 d-flex px-2 py-1 rounded text-dark text-start">
-                                    💭 Set Status
-                                </a>
+                                    <a href="{{ route('user.done', ['username' => auth()->user()->username]) }}" class="border border-dark border-1 d-flex px-2 py-1 rounded text-dark text-start">
+                                        {{ auth()->user()->status_emoji }} {{ Str::limit(auth()->user()->status, 10) }}
+                                    </a>
+                                    @else
+                                    <a href="{{ route('user.done', ['username' => auth()->user()->username]) }}" class="border border-2 d-flex px-2 py-1 rounded text-dark text-start">
+                                        💭 Set Status
+                                    </a>
                                 @endif
                             </div>
                             <div class="dropdown-divider"></div>
@@ -228,33 +228,33 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             @if (auth()->user()->isStaff)
-                            <a class="dropdown-item text-dark" id="admin-bar-click" role="button">
-                                @if (auth()->user()->staffShip)
-                                <x-heroicon-o-eye-off class="heroicon-1x text-secondary" />
-                                Hide Admin Bar
-                                @else
-                                <x-heroicon-o-eye class="heroicon-1x text-secondary" />
-                                Show Admin Bar
-                                @endif
-                            </a>
-                            <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-dark" id="admin-bar-click" role="button">
+                                    @if (auth()->user()->staffShip)
+                                        <x-heroicon-o-eye-off class="heroicon-1x text-secondary" />
+                                        Hide Admin Bar
+                                    @else
+                                        <x-heroicon-o-eye class="heroicon-1x text-secondary" />
+                                        Show Admin Bar
+                                    @endif
+                                </a>
+                                <div class="dropdown-divider"></div>
                             @endif
                             @if (auth()->user()->isPatron)
-                            <a class="dropdown-item text-dark" id="dark-mode" role="button">
-                                @if (auth()->user()->darkMode)
-                                <x-heroicon-o-sun class="heroicon-1x text-secondary" />
-                                Light Mode
-                                @else
-                                <x-heroicon-o-moon class="heroicon-1x text-secondary" />
-                                Dark Mode
-                                @endif
-                            </a>
+                                <a class="dropdown-item text-dark" id="dark-mode" role="button">
+                                    @if (auth()->user()->darkMode)
+                                        <x-heroicon-o-sun class="heroicon-1x text-secondary" />
+                                        Light Mode
+                                    @else
+                                        <x-heroicon-o-moon class="heroicon-1x text-secondary" />
+                                        Dark Mode
+                                    @endif
+                                </a>
                             @endif
                             @if (auth()->user()->isDeveloper)
-                            <a class="dropdown-item text-dark" href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
-                                <x-heroicon-o-code class="heroicon-1x text-secondary" />
-                                GitLab
-                            </a>
+                                <a class="dropdown-item text-dark" href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
+                                    <x-heroicon-o-code class="heroicon-1x text-secondary" />
+                                    GitLab
+                                </a>
                             @endif
                             <a class="dropdown-item text-dark cursor-pointer d-sm-none d-md-block" data-bs-toggle="modal" data-bs-target="#shortcutsModal">
                                 <x-heroicon-o-view-grid class="heroicon-1x text-secondary" />
