@@ -62,7 +62,7 @@ class Profile extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
+                'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
         } else {
             return $this->alert('error', 'Forbidden!');
@@ -74,12 +74,12 @@ class Profile extends Component
         if (Auth::check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
-                    'firstname' => 'nullable|max:30',
-                    'lastname' => 'nullable|max:30',
-                    'bio' => 'nullable|max:160',
-                    'location' => 'nullable|max:30',
-                    'company' => 'nullable|max:30',
-                    'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
+                    'firstname' => ['nullable', 'max:30'],
+                    'lastname' => ['nullable', 'max:30'],
+                    'bio' => ['nullable', 'max:160'],
+                    'location' => ['nullable', 'max:30'],
+                    'company' => ['nullable', 'max:30'],
+                    'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
                 ]);
 
                 if ($this->avatar) {
@@ -177,7 +177,7 @@ class Profile extends Component
         if (Auth::check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
-                    'daily_goal' => 'integer|max:1000|min:5',
+                    'daily_goal' => ['integer', 'max:1000', 'min:5'],
                 ]);
 
                 if (Auth::check()) {
@@ -223,7 +223,7 @@ class Profile extends Component
         if (Auth::check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
-                    'sponsor' => 'nullable|active_url',
+                    'sponsor' => ['nullable', 'active_url'],
                 ]);
 
                 if (Auth::check()) {
@@ -246,12 +246,12 @@ class Profile extends Component
         if (Auth::check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
-                    'website' => 'nullable|active_url',
-                    'twitter' => 'nullable|alpha_dash|max:30',
-                    'twitch' => 'nullable|alpha_dash|max:200',
-                    'telegram' => 'nullable|alpha_dash|max:30',
-                    'github' => 'nullable|alpha_dash|max:30',
-                    'youtube' => 'nullable|alpha_dash|max:30',
+                    'website' => ['nullable', 'active_url'],
+                    'twitter' => ['nullable', 'alpha_dash', 'max:30'],
+                    'twitch' => ['nullable', 'alpha_dash', 'max:200'],
+                    'telegram' => ['nullable', 'alpha_dash', 'max:30'],
+                    'github' => ['nullable', 'alpha_dash', 'max:30'],
+                    'youtube' => ['nullable', 'alpha_dash', 'max:30'],
                 ]);
 
                 if (Auth::check()) {
