@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @php
-if ($user->lastname and $user->lastname) {
-    $name = '('.$user->firstname.' '.$user->lastname.')';
-} else if ($user->firstname) {
-    $name = '('.$user->firstname.')';
-} else {
-    $name = '';
-}
+    if ($user->lastname and $user->lastname) {
+        $name = '('.$user->firstname.' '.$user->lastname.')';
+    } else if ($user->firstname) {
+        $name = '('.$user->firstname.')';
+    } else {
+        $name = '';
+    }
 @endphp
 
 @section('pageTitle', $user->username.' '.$name.' / Pending ·')
@@ -23,32 +23,32 @@ if ($user->lastname and $user->lastname) {
     <div class="row justify-content-center mt-4">
         <div class="col-lg-8">
             @auth
-            @if (auth()->user()->id === $user->id && !$user->isFlagged)
-            <div class="card mb-3">
-                <div class="card-body">
-                    <livewire:create-task />
-                </div>
-            </div>
-            @endif
+                @if (auth()->user()->id === $user->id && !$user->isFlagged)
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <livewire:create-task />
+                        </div>
+                    </div>
+                @endif
             @endauth
             @if (
                 !$user->isPrivate or
                 Auth::check() and auth()->user()->id === $user->id or
                 Auth::check() and auth()->user()->staffShip
             )
-            @livewire('user.tasks', [
-                'type' => 'user.pending',
-                'user' => $user,
-                'page' => 1,
-                'perPage' => 3
-            ])
+                @livewire('user.tasks', [
+                    'type' => 'user.pending',
+                    'user' => $user,
+                    'page' => 1,
+                    'perPage' => 3
+                ])
             @else
-            <div class="card-body text-center mt-3 mb-3">
-                <x-heroicon-o-lock-closed class="heroicon-4x text-primary mb-2" />
-                <div class="h4">
-                    All tasks are private
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-lock-closed class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        All tasks are private
+                    </div>
                 </div>
-            </div>
             @endif
         </div>
         @include('user.sidebar')
