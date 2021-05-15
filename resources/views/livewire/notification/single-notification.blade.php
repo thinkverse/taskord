@@ -9,15 +9,7 @@
         <div class="card-body">
             <div>
                 @if ($type !== "App\Notifications\Welcome" and $type !== "App\Notifications\VersionReleased")
-                <a class="d-inline-flex align-items-center" href="{{ route('user.done', ['username' => $user->username]) }}">
-                    <img loading=lazy class="rounded-circle avatar-20 me-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="20" width="20" alt="{{ $user->username }}'s avatar" />
-                    @if ($user->firstname or $user->lastname)
-                        <span class="text-dark fw-bold me-2">
-                            {{ $user->firstname }}{{ ' '.$user->lastname }}
-                        </span>
-                    @endif
-                    <span class="text-secondary">{{ '@'.$user->username }}</span>
-                </a>
+                    <x:shared.user-label-small :user="$user" />
                 @endif
                 @if ($page_type === 'unread')
                 <span class="float-end">
