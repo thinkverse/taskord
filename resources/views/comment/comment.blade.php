@@ -33,29 +33,7 @@
             </div>
             <div class="card mb-4">
                 <div class="card-body d-flex align-items-center">
-                    <a
-                        href="{{ route('user.done', ['username' => $comment->user->username]) }}"
-                        class="user-popover"
-                        data-id="{{ $comment->user->id }}"
-                    >
-                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($comment->user->avatar, 160) }}" height="40" width="40" alt="{{ $comment->user->username }}'s avatar" />
-                    </a>
-                    <span class="ms-3">
-                        <a
-                            href="{{ route('user.done', ['username' => $comment->user->username]) }}"
-                            class="align-text-top text-dark user-popover"
-                            data-id="{{ $comment->user->id }}"
-                        >
-                            <span class="fw-bold">
-                                @if ($comment->user->firstname or $comment->user->lastname)
-                                    {{ $comment->user->firstname }}{{ ' '.$comment->user->lastname }}
-                                @else
-                                    {{ $comment->user->username }}
-                                @endif
-                            </span>
-                            <div>{{ $comment->user->bio }}</div>
-                        </a>
-                    </span>
+                    <x:shared.user-label-with-bio :user="$comment->user" />
                 </div>
             </div>
             @if ($comment->likerscount() > 0)
