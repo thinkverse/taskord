@@ -24,6 +24,8 @@ return [
         'new',
         'unanswered',
         'popular',
+        'admin',
+        'stafftools',
     ],
 
 ];
