@@ -16,23 +16,23 @@
                 <a href="https://tally.so/r/63l4o3" target="_blank" rel="noreferrer">Add your product</a>
             </div>
             @auth
-            @if (auth()->user()->staffShip)
-            <button type="button" class="mt-2 btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newQuestionModal">
-                <x-heroicon-o-plus class="heroicon" />
-                Add a Deal
-            </button>
-            <livewire:pages.create-deal />
-            @endif
+                @if (auth()->user()->staffShip)
+                    <button type="button" class="mt-2 btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newQuestionModal">
+                        <x-heroicon-o-plus class="heroicon" />
+                        Add a Deal
+                    </button>
+                    <livewire:pages.create-deal />
+                @endif
             @endauth
         </div>
         <div class="card-body">
             @if (count($deals) === 0)
-            <div class="card-body text-center mt-3 mb-3">
-                <x-heroicon-o-gift class="heroicon-4x text-primary mb-2" />
-                <div class="h4">
-                    No deals found
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-gift class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        No deals found
+                    </div>
                 </div>
-            </div>
             @endif
             @foreach ($deals as $deal)
                 <div class="d-flex align-items-center {{ $loop->last ? '' : 'mb-5' }}">
@@ -51,34 +51,32 @@
                             <a href="{{ $deal->website }}" target="_blank">{{ $deal->website }}</a>
                         </div>
                         @auth
-                        @if (auth()->user()->isPatron)
-                        @if ($deal->coupon)
-                        <div class="mt-2">
-                            Coupon Code
-                            <code class="ms-2 fw-bold">
-                                {{ $deal->coupon }}
-                            </code>
-                        </div>
-                        @else
-                        <div class="mt-2 fw-bold">
-                            <a href="{{ $deal->referral }}" target="_blank">
-                                Click here to get your deal
-                            </a>
-                        </div>
-                        @endif
-                        @else
-                        <div class="mt-2">
-                            <a class="text-secondary" href="{{ route('patron.home') }}">You must be a patron to see coupon code.</a>
-                        </div>
-                        @endif
+                            @if (auth()->user()->isPatron)
+                                @if ($deal->coupon)
+                                    <div class="mt-2">
+                                        Coupon Code
+                                        <code class="ms-2 fw-bold">
+                                            {{ $deal->coupon }}
+                                        </code>
+                                    </div>
+                                @else
+                                    <div class="mt-2 fw-bold">
+                                        <a href="{{ $deal->referral }}" target="_blank">
+                                            Click here to get your deal
+                                        </a>
+                                    </div>
+                                @endif
+                            @else
+                                <div class="mt-2">
+                                    <a class="text-secondary" href="{{ route('patron.home') }}">You must be a patron to see coupon code.</a>
+                                </div>
+                            @endif
                         @endauth
                         @guest
-                        <div class="mt-2">
-                            <a class="text-secondary" href="{{ route('login') }}">Login to view coupon code.</a>
-                        </div>
+                            <div class="mt-2">
+                                <a class="text-secondary" href="{{ route('login') }}">Login to view coupon code.</a>
+                            </div>
                         @endguest
-                        @auth
-                        @endauth
                     </div>
                 </div>
             @endforeach

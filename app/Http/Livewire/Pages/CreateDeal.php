@@ -22,7 +22,7 @@ class CreateDeal extends Component
             $this->validate([
                 'name' => ['required', 'min:2'],
                 'description' => ['required', 'min:5'],
-                'offer' => ['required', 'integer', 'max:100',
+                'offer' => ['required', 'integer', 'max:100'],
                 'coupon' => ['nullable'],
                 'referral' => ['nullable', 'active_url'],
                 'website' => ['required', 'active_url'],
