@@ -6,11 +6,9 @@
             task
         </a>
         you subscribed
-        @if ($comment->hidden)
-        <div class="body-font fst-italic text-secondary mt-2">Comment was hidden by moderator</div>
-        @else
-            <div class="mt-2 body-font">{!! markdown($comment->comment) !!}</div>
-        @endif
+        <div class="mt-3">
+            <livewire:comment.single-comment :comment="$comment" :wire:key="$comment->id" />
+        </div>
     </div>
     @else
     <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>
