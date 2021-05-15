@@ -4,9 +4,9 @@
     </div>
     <div class="card mb-4">
         @if (!$readyToLoad)
-        <div class="card-body text-center">
-            <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
-        </div>
+            <div class="card-body text-center">
+                <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
+            </div>
         @endif
         <div class="card-body">
             @foreach ($recently_joined as $user)
