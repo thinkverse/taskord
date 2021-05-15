@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Product;
 use App\Actions\CreateNewTask;
 use App\Models\Product;
 use App\Rules\Repo;
+use App\Rules\ReservedSlug;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -61,7 +62,7 @@ class EditProduct extends Component
         if (Auth::check()) {
             $this->validate([
                 'name' => 'required|max:30',
-                'slug' => 'required|min:3|max:20|alpha_dash|unique:products,slug,'.$this->product->id,
+                'slug' => ['required', 'min:3', 'max:20', 'alpha_dash', 'unique:products,slug,'.$this->product->id, new ReservedSlug],
                 'description' => 'nullable|max:160',
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
