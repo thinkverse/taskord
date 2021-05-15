@@ -1,5 +1,9 @@
 <div class="align-items-center d-flex">
-    <a href="{{ route('user.done', ['username' => $user->username]) }}">
+    <a
+        href="{{ route('user.done', ['username' => $user->username]) }}"
+        class="user-popover"
+        data-id="{{ $user->id }}"
+    >
         <img loading=lazy class="avatar-25 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="40" width="40" alt="{{ $user->username }}'s avatar" />
     </a>
     <div class="ms-2">
