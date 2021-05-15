@@ -19,4 +19,10 @@ return [
         ],
     ],
 
+    'reserved_slugs' => [
+        'launched',
+        'unanswered',
+        'popular',
+    ],
+
 ];
