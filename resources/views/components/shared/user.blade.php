@@ -1,6 +1,16 @@
 <div class="d-flex align-items-center">
-    <a href="{{ route('user.done', ['username' => $user->username]) }}">
-        <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="40" width="40" alt="{{ $user->username }}'s avatar" />
+    <a
+        href="{{ route('user.done', ['username' => $user->username]) }}"
+        class="user-popover"
+        data-id="{{ $user->id }}"
+    >
+        <img
+            loading=lazy class="avatar-40 rounded-circle"
+            src="{{ Helper::getCDNImage($user->avatar, 80) }}"
+            height="40"
+            width="40"
+            alt="{{ $user->username }}'s avatar"
+        />
     </a>
     <span class="ms-2">
         <a
