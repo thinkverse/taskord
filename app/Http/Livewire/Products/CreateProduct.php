@@ -44,15 +44,15 @@ class CreateProduct extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'name' => 'required|max:30',
+                'name' => ['required', 'max:30'],
                 'slug' => ['required', 'min:3', 'max:20', 'unique:products', 'alpha_dash', new ReservedSlug],
-                'description' => 'nullable|max:160',
-                'website' => 'nullable|active_url',
-                'twitter' => 'nullable|alpha_dash|max:30',
+                'description' => ['nullable', 'max:160'],
+                'website' => ['nullable', 'active_url'],
+                'twitter' => ['nullable', 'alpha_dash' ,'max:30'],
                 'repo' => ['nullable', 'active_url', new Repo],
-                'producthunt' => 'nullable|alpha_dash|max:30',
-                'sponsor' => 'nullable|active_url',
-                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
+                'producthunt' => ['nullable', 'alpha_dash', 'max:30'],
+                'sponsor' => ['nullable', 'active_url'],
+                'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
