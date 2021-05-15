@@ -42,8 +42,8 @@ class Integrations extends Component
         if (Auth::check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
-                    'name' => 'required|min:2|max:20',
-                    'product' => 'nullable',
+                    'name' => ['required', 'min:2', 'max:20'],
+                    'product' => ['nullable'],
                 ]);
 
                 if (auth()->user()->isFlagged) {
