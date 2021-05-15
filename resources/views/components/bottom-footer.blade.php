@@ -45,7 +45,8 @@
             @auth
             @if (auth()->user()->staffShip)
             <span class="text-danger ms-2">
-                Admin mode on
+                <x-heroicon-o-shield-check class="heroicon me-0" />
+                Staff mode on
             </span>
             @endif
             @endauth
