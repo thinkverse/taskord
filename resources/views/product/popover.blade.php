@@ -10,7 +10,7 @@
             <a class="small text-dark" href="{{ route('product.done', ['slug' => $product->slug]) }}">{{ '#'.$product->slug }}</a>
         </div>
         @if ($product->description)
-        <div class="mt-2 text-dark">{{ $product->description }}</div>
+            <div class="mt-2 text-dark">{{ $product->description }}</div>
         @endif
     </div>
 </div>
