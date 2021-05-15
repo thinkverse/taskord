@@ -41,6 +41,24 @@
     </span>
 </div>
 <div class="d-flex justify-content-between mt-2">
+    <span>Create new product</span>
+    <span>
+        <kbd class="me-1">c</kbd><kbd>p</kbd>
+    </span>
+</div>
+<div class="d-flex justify-content-between mt-2">
+    <span>Create new question</span>
+    <span>
+        <kbd class="me-1">c</kbd><kbd>q</kbd>
+    </span>
+</div>
+<div class="d-flex justify-content-between mt-2">
+    <span>Create new milestone</span>
+    <span>
+        <kbd class="me-1">c</kbd><kbd>m</kbd>
+    </span>
+</div>
+<div class="d-flex justify-content-between mt-2">
     <span>Enable dark mode</span>
     <span>
         <kbd class="me-1">d</kbd><kbd>m</kbd>

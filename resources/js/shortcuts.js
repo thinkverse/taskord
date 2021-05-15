@@ -47,6 +47,21 @@ hotkeys("g+s", () => {
   window.location.href = "/settings";
 });
 
+// Go to new product
+hotkeys("c+p", () => {
+  window.location.href = "/products/new";
+});
+
+// Go to new questions
+hotkeys("c+q", () => {
+  window.location.href = "/questions/new";
+});
+
+// Go to new milestone
+hotkeys("c+m", () => {
+  window.location.href = "/milestones/new";
+});
+
 // New Task Modal
 var newTaskModal = document.getElementById("newTaskModal");
 if (newTaskModal != null) {
