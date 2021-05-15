@@ -21,6 +21,7 @@ return [
 
     'reserved_slugs' => [
         'launched',
+        'new',
         'unanswered',
         'popular',
     ],
