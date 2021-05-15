@@ -17,15 +17,15 @@
             {{ $user->username }}
         @endif
         @if ($user->status)
-        <span class="ms-1 small" title="{{ $user->status }}">{{ $user->status_emoji }}</span>
+            <span class="ms-1 small" title="{{ $user->status }}">{{ $user->status_emoji }}</span>
         @endif
     </a>
     @auth
-    @if ($product->owner->id === auth()->user()->id)
-        <button class="btn btn-sm btn-danger float-end" wire:click="removeMember" wire:loading.attr="disabled">
-            <x-heroicon-o-x class="heroicon" />
-            Remove
-        </button>
-    @endif
+        @if ($product->owner->id === auth()->user()->id)
+            <button class="btn btn-sm btn-danger float-end" wire:click="removeMember" wire:loading.attr="disabled">
+                <x-heroicon-o-x class="heroicon" />
+                Remove
+            </button>
+        @endif
     @endauth
 </div>
