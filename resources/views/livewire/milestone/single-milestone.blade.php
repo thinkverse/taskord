@@ -1,34 +1,7 @@
 <div class="card mb-2">
     <div class="card-body">
         <div class="d-flex align-items-center">
-            <a href="{{ route('user.done', ['username' => $milestone->user->username]) }}">
-                <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($milestone->user->avatar, 80) }}" height="40" width="40" alt="{{ $milestone->user->username }}'s avatar" />
-            </a>
-            <span class="ms-2">
-                <a
-                    href="{{ route('user.done', ['username' => $milestone->user->username]) }}"
-                    class="fw-bold text-dark user-popover"
-                    data-id="{{ $milestone->user->id }}"
-                >
-                    @if ($milestone->user->firstname or $milestone->user->lastname)
-                        {{ $milestone->user->firstname }}{{ ' '.$milestone->user->lastname }}
-                    @else
-                        {{ $milestone->user->username }}
-                    @endif
-                    @if ($milestone->user->status)
-                    <span class="ms-1 small" title="{{ $milestone->user->status }}">{{ $milestone->user->status_emoji }}</span>
-                    @endif
-                    @if ($milestone->user->isVerified)
-                        <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
-                    @endif
-                    @if ($milestone->user->isPatron)
-                        <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                            <x-heroicon-s-star class="heroicon text-gold" />
-                        </a>
-                    @endif
-                </a>
-                <div class="small">{{ "@" . $milestone->user->username }}</div>
-            </span>
+            <x:shared.user :user="$milestone->user" />
             <span class="align-text-top small float-end ms-auto">
                 <a class="text-secondary" href="{{ route('milestones.milestone', ['milestone' => $milestone]) }}">
                     {{ $milestone->created_at->diffForHumans() }}
