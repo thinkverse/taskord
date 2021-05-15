@@ -43,12 +43,12 @@
                 GitLab
             </a>
             @auth
-            @if (auth()->user()->staffShip)
-            <span class="text-danger ms-2">
-                <x-heroicon-o-shield-check class="heroicon me-0" />
-                Staff mode on
-            </span>
-            @endif
+                @if (auth()->user()->staffShip)
+                    <span class="text-danger ms-2">
+                        <x-heroicon-o-shield-check class="heroicon me-0" />
+                        Staff mode on
+                    </span>
+                @endif
             @endauth
         </div>
     </div>
