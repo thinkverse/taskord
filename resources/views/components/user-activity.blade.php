@@ -1,9 +1,9 @@
 <li class="list-group-item py-3 d-flex align-items-center">
     @php
-    $user = App\Models\User::find($activity->causer_id);
-    if (!$user) {
-        $user = \App\Models\User::where('username', 'ghost')->first();
-    }
+        $user = App\Models\User::find($activity->causer_id);
+        if (!$user) {
+            $user = \App\Models\User::where('username', 'ghost')->first();
+        }
     @endphp
     <a href="{{ route('user.done', ['username' => $user->username]) }}">
         <img loading=lazy class="avatar-30 rounded-circle me-3" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="40" width="40" alt="{{ $user->username }}'s avatar" />
@@ -64,29 +64,29 @@
         </div>
         <div class="mt-2">
             @if (auth()->user()->staffShip)
-            <span class="font-monospace text-secondary" title="Log ID">Log ID: {{ $activity->id }}</span>
-            <span class="vertical-separator"></span>
+                <span class="font-monospace text-secondary" title="Log ID">Log ID: {{ $activity->id }}</span>
+                <span class="vertical-separator"></span>
             @endif
             @if ($activity->getExtraProperty('ip'))
-            <a class="font-monospace fw-bold" href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
-                {{ Str::limit($activity->getExtraProperty('ip'), 15, '..') }}
-            </a>
-            <span class="vertical-separator"></span>
+                <a class="font-monospace fw-bold" href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
+                    {{ Str::limit($activity->getExtraProperty('ip'), 15, '..') }}
+                </a>
+                <span class="vertical-separator"></span>
             @endif
             @if ($activity->getExtraProperty('location'))
-            <span class="text-dark">{{ $activity->getExtraProperty('location') }}</span>
-            <span class="vertical-separator"></span>
+                <span class="text-dark">{{ $activity->getExtraProperty('location') }}</span>
+                <span class="vertical-separator"></span>
             @endif
             @if ($activity->getExtraProperty('user_agent') and auth()->user()->staffShip)
-            <a
-                class="cursor-pointer text-dark"
-                href="https://userstack.com/ua_api.php?ua={{ $activity->getExtraProperty('user_agent') }}"
-                title="{{ $activity->getExtraProperty('user_agent') }}"
-                target="_blank"
-            >
-                <x-heroicon-o-globe-alt class="heroicon" />
-            </a>
-            <span class="vertical-separator"></span>
+                <a
+                    class="cursor-pointer text-dark"
+                    href="https://userstack.com/ua_api.php?ua={{ $activity->getExtraProperty('user_agent') }}"
+                    title="{{ $activity->getExtraProperty('user_agent') }}"
+                    target="_blank"
+                >
+                    <x-heroicon-o-globe-alt class="heroicon" />
+                </a>
+                <span class="vertical-separator"></span>
             @endif
             <span class="text-secondary">
                 {{ carbon($activity->created_at)->diffForHumans() }}
