@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Products;
 use App\Actions\CreateNewTask;
 use App\Models\Product;
 use App\Rules\Repo;
+use App\Rules\ReservedSlug;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -44,7 +45,7 @@ class CreateProduct extends Component
         if (Auth::check()) {
             $this->validate([
                 'name' => 'required|max:30',
-                'slug' => 'required|min:3|max:20|unique:products|alpha_dash',
+                'slug' => ['required', 'min:3', 'max:20', 'unique:products', 'alpha_dash', new ReservedSlug],
                 'description' => 'nullable|max:160',
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
@@ -60,10 +61,6 @@ class CreateProduct extends Component
 
             if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
-            }
-
-            if (in_array($this->slug, config('taskord.reserved_slugs'))) {
-                return $this->addError('slug', 'This slug is reserved internally!');
             }
 
             $launched = ! $this->launched ? false : true;
