@@ -29,9 +29,9 @@
                 'product' => $product
             ])
             @if ($product->description)
-            <div class="mt-3">
-                {{ $product->description }}
-            </div>
+                <div class="mt-3">
+                    {{ $product->description }}
+                </div>
             @endif
             <div class="small mt-3">
                 <span>
@@ -43,12 +43,12 @@
                     @endif
                 </span>
                 @if ($product->website)
-                <span class="ms-3">
-                    <a class="text-dark" target="_blank" href="{{ $product->website }}" rel="noreferrer">
-                        <img loading=lazy class="rounded sponsor-icon me-1" rel="preload" src="https://favicon.splitbee.io/?url={{ parse_url($product->website)['host'] }}" />
-                        {{ $product->website }}
-                    </a>
-                </span>
+                    <span class="ms-3">
+                        <a class="text-dark" target="_blank" href="{{ $product->website }}" rel="noreferrer">
+                            <img loading=lazy class="rounded sponsor-icon me-1" rel="preload" src="https://favicon.splitbee.io/?url={{ parse_url($product->website)['host'] }}" />
+                            {{ $product->website }}
+                        </a>
+                    </span>
                 @endif
             </div>
         </div>
