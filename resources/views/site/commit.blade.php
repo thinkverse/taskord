@@ -6,13 +6,13 @@
     <div>
         <span class="fw-bold">Status: </span>
         @if ($deployed === $remote)
-        <span class="badge bg-success">
-            Latest
-        </span>
+            <span class="badge bg-success">
+                Latest
+            </span>
         @else
-        <span class="badge bg-danger">
-            Update available
-        </span>
+            <span class="badge bg-danger">
+                Update available
+            </span>
         @endif
     </div>
     <div>
