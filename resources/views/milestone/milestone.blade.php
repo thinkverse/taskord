@@ -36,22 +36,22 @@
                 </div>
             </div>
             @if ($milestone->likerscount() > 0)
-            <div class="fw-bold text-secondary pb-2">
-                Liked by
-            </div>
-            <div class="card mb-4">
-                <div class="card-body align-items-center pb-2">
-                    @foreach ($milestone->likers as $user)
-                        <a
-                            title="{{ $user->firstname ? $user->firstname . ' ' . $user->lastname : $user->username }}"
-                            href="{{ route('user.done', ['username' => $user->username]) }}"
-                            class="me-1"
-                        >
-                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="30" width="30" alt="{{ $user->username }}'s avatar" />
-                        </a>
-                    @endforeach
+                <div class="fw-bold text-secondary pb-2">
+                    Liked by
                 </div>
-            </div>
+                <div class="card mb-4">
+                    <div class="card-body align-items-center pb-2">
+                        @foreach ($milestone->likers as $user)
+                            <a
+                                title="{{ $user->firstname ? $user->firstname . ' ' . $user->lastname : $user->username }}"
+                                href="{{ route('user.done', ['username' => $user->username]) }}"
+                                class="me-1"
+                            >
+                                <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="30" width="30" alt="{{ $user->username }}'s avatar" />
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
             @endif
             <x-footer />
         </div>
