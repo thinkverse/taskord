@@ -18,42 +18,7 @@
             <ul class="list-group list-group-flush">
                 @foreach ($users as $user)
                 <li class="list-group-item d-flex align-items-center justify-content-between" wire:key="{{ $user->id }}">
-                    <span class="d-flex align-items-center">
-                        <a href="{{ route('user.done', ['username' => $user->username]) }}">
-                            <img
-                                loading=lazy
-                                class="rounded-circle avatar-40 mt-1 user-popover"
-                                src="{{ Helper::getCDNImage($user->avatar, 160) }}"
-                                data-id="{{ $user->id }}"
-                                height="40" width="40"
-                                alt="{{ $user->username }}'s avatar"
-                            />
-                        </a>
-                        <span class="ms-3">
-                            <a
-                                href="{{ route('user.done', ['username' => $user->username]) }}"
-                                class="align-text-top text-dark user-popover"
-                                data-id="{{ $user->id }}"
-                            >
-                                <span class="fw-bold">
-                                    @if ($user->firstname or $user->lastname)
-                                        {{ $user->firstname }}{{ ' '.$user->lastname }}
-                                    @else
-                                        {{ $user->username }}
-                                    @endif
-                                    @if ($user->status)
-                                    <span class="ms-1 small" title="{{ $user->status }}">{{ $user->status_emoji }}</span>
-                                    @endif
-                                    @if ($user->isVerified)
-                                    <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
-                                    @endif
-                                </span>
-                                <div>
-                                    {{ '@'.$user->username }}
-                                </div>
-                            </a>
-                        </span>
-                    </span>
+                    <x:shared.user :user="$user" />
                     <span>
                         <livewire:home.follow :user="$user" :showText="$showText" :wire:key="$user->id" />
                     </span>
