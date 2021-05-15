@@ -20,13 +20,13 @@ class CreateDeal extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'name' => 'required|min:2',
-                'description' => 'required|min:5',
-                'offer' => 'required|integer|max:100',
-                'coupon' => 'nullable',
-                'referral' => 'nullable|active_url',
-                'website' => 'required|active_url',
-                'logo' => 'required|active_url',
+                'name' => ['required', 'min:2'],
+                'description' => ['required', 'min:5'],
+                'offer' => ['required', 'integer', 'max:100',
+                'coupon' => ['nullable'],
+                'referral' => ['nullable', 'active_url'],
+                'website' => ['required', 'active_url'],
+                'logo' => ['required', 'active_url'],
             ]);
             if (auth()->user()->isStaff) {
                 $deal = Deal::create([
