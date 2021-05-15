@@ -16,9 +16,9 @@ class CreateFeature extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'name' => 'required|min:5|max:100',
-                'description' => 'required|min:3|max:10000',
-                'slug' => 'required|unique:features|min:5|max:100',
+                'name' => ['required', 'min:5', 'max:100'],
+                'description' => ['required', 'min:3', 'max:10000'],
+                'slug' => ['required', 'unique:features', 'min:5', 'max:100'],
             ]);
 
             $feature = Feature::create([
