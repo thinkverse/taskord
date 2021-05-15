@@ -9,7 +9,7 @@ it('has keyboard shortcuts skeleton', function ($url, $expected, $auth) {
         $this->get($url)->assertStatus($expected);
     }
 })->with([
-    ['/site/shortcuts', 302, false],
+    ['/site/shortcuts', 200, false],
     ['/site/shortcuts', 200, true],
 ]);
 
