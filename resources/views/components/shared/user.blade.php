@@ -1,5 +1,5 @@
 <div>
-<a
+    <a
         href="{{ route('user.done', ['username' => $user->username]) }}"
         class="fw-bold text-dark user-popover"
         data-id="{{ $user->id }}"
