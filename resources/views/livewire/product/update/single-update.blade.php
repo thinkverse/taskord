@@ -1,28 +1,6 @@
 <div class="card mb-4">
     <div class="card-header d-flex align-items-center h6 py-3">
-        <a href="{{ route('user.done', ['username' => $update->user->username]) }}">
-            <img loading=lazy class="avatar-30 rounded-circle" src="{{ Helper::getCDNImage($update->user->avatar, 80) }}" height="30" width="30" alt="{{ $update->user->username }}'s avatar" />
-        </a>
-        <span class="ms-2">
-            <a href="{{ route('user.done', ['username' => $update->user->username]) }}" class="fw-bold text-dark">
-                @if ($update->user->firstname or $update->user->lastname)
-                    {{ $update->user->firstname }}{{ ' '.$update->user->lastname }}
-                @else
-                    {{ $update->user->username }}
-                @endif
-                @if ($update->user->status)
-                <span class="ms-1 small" title="{{ $update->user->status }}">{{ $update->user->status_emoji }}</span>
-                @endif
-                @if ($update->user->isVerified)
-                    <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
-                @endif
-                @if ($update->user->isPatron)
-                    <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                        <x-heroicon-s-star class="heroicon text-gold" />
-                    </a>
-                @endif
-            </a>
-        </span>
+        <x:shared.user :user="$update->user" />
     </div>
     <div class="card-body">
         <div>{!! markdown($update->body) !!}</div>
