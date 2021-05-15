@@ -31,67 +31,67 @@
                 </div>
                 <div class="col-sm d-grid">
                     @auth
-                    @if (auth()->user()->isPatron and auth()->user()->patron()->count('id') === 1)
-                    <div class="text-center">
-                        <div class="h5">
-                            ❤ You are already a patron!
-                        </div>
-                        <a class="text-primary" href="{{ route('user.settings.patron') }}">
-                            Go to settings
-                        </a>
-                    </div>
-                    @else
-                    <a
-                        class="paddle_button btn btn-primary"
-                        data-theme="none"
-                        data-product="619848"
-                        data-message="Support $5/month for Taskord!"
-                        data-email="{{ auth()->user()->email }}"
-                    >
-                        Support $5/month
-                    </a>
-                    <a
-                        class="paddle_button btn mt-2 btn-primary"
-                        data-theme="none"
-                        data-product="621377"
-                        data-message="Support $10/month for Taskord!"
-                        data-email="{{ auth()->user()->email }}"
-                    >
-                        Support $10/month
-                    </a>
-                    <a
-                        class="paddle_button btn mt-2 btn-primary"
-                        data-theme="none"
-                        data-product="621379"
-                        data-message="Support $20/month for Taskord!"
-                        data-email="{{ auth()->user()->email }}"
-                    >
-                        Support $20/month
-                    </a>
-                    <a
-                        class="paddle_button btn mt-2 btn-primary"
-                        data-theme="none"
-                        data-product="621380"
-                        data-message="Support $50/month for Taskord!"
-                        data-email="{{ auth()->user()->email }}"
-                    >
-                        Support $50/month
-                    </a>
-                    <a
-                        class="paddle_button btn mt-2 btn-primary"
-                        data-theme="none"
-                        data-product="629491"
-                        data-message="Support $100 onetime for lifetime pro in Taskord!"
-                        data-email="{{ auth()->user()->email }}"
-                    >
-                        Support $100 onetime
-                    </a>
-                    @endif
+                        @if (auth()->user()->isPatron and auth()->user()->patron()->count('id') === 1)
+                            <div class="text-center">
+                                <div class="h5">
+                                    ❤ You are already a patron!
+                                </div>
+                                <a class="text-primary" href="{{ route('user.settings.patron') }}">
+                                    Go to settings
+                                </a>
+                            </div>
+                        @else
+                            <a
+                                class="paddle_button btn btn-primary"
+                                data-theme="none"
+                                data-product="619848"
+                                data-message="Support $5/month for Taskord!"
+                                data-email="{{ auth()->user()->email }}"
+                            >
+                                Support $5/month
+                            </a>
+                            <a
+                                class="paddle_button btn mt-2 btn-primary"
+                                data-theme="none"
+                                data-product="621377"
+                                data-message="Support $10/month for Taskord!"
+                                data-email="{{ auth()->user()->email }}"
+                            >
+                                Support $10/month
+                            </a>
+                            <a
+                                class="paddle_button btn mt-2 btn-primary"
+                                data-theme="none"
+                                data-product="621379"
+                                data-message="Support $20/month for Taskord!"
+                                data-email="{{ auth()->user()->email }}"
+                            >
+                                Support $20/month
+                            </a>
+                            <a
+                                class="paddle_button btn mt-2 btn-primary"
+                                data-theme="none"
+                                data-product="621380"
+                                data-message="Support $50/month for Taskord!"
+                                data-email="{{ auth()->user()->email }}"
+                            >
+                                Support $50/month
+                            </a>
+                            <a
+                                class="paddle_button btn mt-2 btn-primary"
+                                data-theme="none"
+                                data-product="629491"
+                                data-message="Support $100 onetime for lifetime pro in Taskord!"
+                                data-email="{{ auth()->user()->email }}"
+                            >
+                                Support $100 onetime
+                            </a>
+                        @endif
                     @endauth
                     @guest
-                    <a class="btn mt-2 btn-success text-white" href="{{ route('login') }}">
-                        Login to support!
-                    </a>
+                        <a class="btn mt-2 btn-success text-white" href="{{ route('login') }}">
+                            Login to support!
+                        </a>
                     @endguest
                 </div>
             </div>
