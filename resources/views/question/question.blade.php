@@ -21,11 +21,11 @@
                 ])
             </div>
             @auth
-            @if (!auth()->user()->isFlagged)
-                @livewire('answer.create-answer', [
-                    'question' => $question
-                ])
-            @endif
+                @if (!auth()->user()->isFlagged)
+                    @livewire('answer.create-answer', [
+                        'question' => $question
+                    ])
+                @endif
             @endauth
             @guest
                 <a href="/login" class="btn w-100 btn-success mt-4 text-white fw-bold">
@@ -48,32 +48,32 @@
                 </div>
             </div>
             @auth
-            <div class="fw-bold text-secondary pb-2">
-                Subscribe to this question
-            </div>
-            <div class="card mb-4">
-                <div class="card-body d-flex align-items-center">
-                    @livewire('question.subscribe', ['question' => $question])
+                <div class="fw-bold text-secondary pb-2">
+                    Subscribe to this question
                 </div>
-            </div>
+                <div class="card mb-4">
+                    <div class="card-body d-flex align-items-center">
+                        @livewire('question.subscribe', ['question' => $question])
+                    </div>
+                </div>
             @endauth
             @if ($question->answer->count('id') > 0)
-            <div class="fw-bold text-secondary pb-2">
-                Users Involved
-            </div>
-            <div class="card mb-4">
-                <div class="card-body align-items-center pb-2">
-                    @foreach ($question->answer->groupBy('user_id') as $answer)
-                        <a
-                            href="{{ route('user.done', ['username' => $answer[0]->user->username]) }}"
-                            class="me-1 user-popover"
-                            data-id="{{ $answer[0]->user->id }}"
-                        >
-                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($answer[0]->user->avatar, 80) }}" height="30" width="30" alt="{{ $answer[0]->user->username }}'s avatar" />
-                        </a>
-                    @endforeach
+                <div class="fw-bold text-secondary pb-2">
+                    Users Involved
                 </div>
-            </div>
+                <div class="card mb-4">
+                    <div class="card-body align-items-center pb-2">
+                        @foreach ($question->answer->groupBy('user_id') as $answer)
+                            <a
+                                href="{{ route('user.done', ['username' => $answer[0]->user->username]) }}"
+                                class="me-1 user-popover"
+                                data-id="{{ $answer[0]->user->id }}"
+                            >
+                                <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($answer[0]->user->avatar, 80) }}" height="30" width="30" alt="{{ $answer[0]->user->username }}'s avatar" />
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
             @endif
             <x-footer />
         </div>
