@@ -1,12 +1,7 @@
 <div class="card mb-2 {{ $question->patronOnly ? 'bg-patron' : '' }}">
     <div class="card-body">
         <div class="d-flex align-items-center">
-            <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
-                <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($question->user->avatar, 80) }}" height="40" width="40" alt="{{ $question->user->username }}'s avatar" />
-            </a>
-            <span class="ms-2">
-                <x:shared.user :user="$question->user" />
-            </span>
+            <x:shared.user :user="$question->user" />
             <span class="align-text-top small float-end ms-auto">
                 <a class="text-secondary" href="{{ route('question.question', ['id' => $question->id]) }}">
                     {{ $question->created_at->diffForHumans() }}

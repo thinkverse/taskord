@@ -1,34 +1,7 @@
 <div>
     <div class="card-body">
         <div class="d-flex align-items-center">
-            <a href="{{ route('user.done', ['username' => $answer->user->username]) }}">
-                <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($answer->user->avatar, 80) }}" height="40" width="40" alt="{{ $answer->user->username }}'s avatar" />
-            </a>
-            <span class="ms-2">
-                <a
-                    href="{{ route('user.done', ['username' => $answer->user->username]) }}"
-                    class="fw-bold text-dark user-popover"
-                    data-id="{{ $answer->user->id }}"
-                >
-                    @if ($answer->user->firstname or $answer->user->lastname)
-                        {{ $answer->user->firstname }}{{ ' '.$answer->user->lastname }}
-                    @else
-                        {{ $answer->user->username }}
-                    @endif
-                    @if ($answer->user->status)
-                    <span class="ms-1 small" title="{{ $answer->user->status }}">{{ $answer->user->status_emoji }}</span>
-                    @endif
-                    @if ($answer->user->isVerified)
-                    <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
-                    @endif
-                    @if ($answer->user->isPatron)
-                        <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                            <x-heroicon-s-star class="heroicon text-gold" />
-                        </a>
-                    @endif
-                </a>
-                <div class="small">{{ "@" . $answer->user->username }}</div>
-            </span>
+            <x:shared.user :user="$answer->user" />
             <span class="align-text-top small float-end ms-auto">
                 <a class="text-secondary" href="">
                     {{ carbon($answer->created_at)->diffForHumans() }}

@@ -1,11 +1,6 @@
 <span>
     <div class="align-items-center d-flex">
-        <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
-            <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($task->user->avatar, 80) }}" height="40" width="40" alt="{{ $task->user->username }}'s avatar" />
-        </a>
-        <span class="ms-2">
-            <x:shared.user :user="$task->user" />
-        </span>
+        <x:shared.user :user="$task->user" />
         <span class="d-flex align-items-center small float-end ms-auto text-secondary cursor-pointer" data-bs-toggle="collapse" data-bs-target="#taskExpand-{{$task->id}}" aria-expanded="false">
             @if ($task->source === 'GitLab')
                 <img class="task-icon me-2" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" alt="GitHub Icon" />
