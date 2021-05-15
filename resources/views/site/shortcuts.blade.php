@@ -22,6 +22,7 @@
         <kbd class="me-1">g</kbd><kbd>q</kbd>
     </span>
 </div>
+@auth
 <div class="d-flex justify-content-between mt-2">
     <span>Go to notifications</span>
     <span>
@@ -64,6 +65,7 @@
         <kbd class="me-1">d</kbd><kbd>m</kbd>
     </span>
 </div>
+@endauth
 <div class="d-flex justify-content-between mt-2">
     <span>Bring up this help dialog</span>
     <span>
