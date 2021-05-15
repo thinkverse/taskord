@@ -30,19 +30,19 @@
                     </div>
                 </div>
                 @auth
-                @if (auth()->user()->isPatron)
-                <div class="mb-3">
-                    <div class="fw-bold mb-2">Patron only</div>
-                    <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patronOnly">
-                    <label for="patronOnly" class="ms-1">This question will visible only for patrons</label>
-                </div>
-                @else
-                <div class="mb-2">
-                    <a class="text-primary" href="{{ route('patron.home') }}">
-                        ❤ Support Taskord to post patron only questions!
-                    </a>
-                </div>
-                @endif
+                    @if (auth()->user()->isPatron)
+                        <div class="mb-3">
+                            <div class="fw-bold mb-2">Patron only</div>
+                            <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patronOnly">
+                            <label for="patronOnly" class="ms-1">This question will visible only for patrons</label>
+                        </div>
+                    @else
+                        <div class="mb-2">
+                            <a class="text-primary" href="{{ route('patron.home') }}">
+                                ❤ Support Taskord to post patron only questions!
+                            </a>
+                        </div>
+                    @endif
                 @endauth
                 <button type="submit" class="btn btn-primary">
                     Update
