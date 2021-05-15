@@ -2,18 +2,16 @@
 
 namespace App\View\Components\Shared;
 
+use App\Models\User;
 use Illuminate\View\Component;
 
 class UserLabelSmall extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public User $user;
+
+    public function __construct($user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
