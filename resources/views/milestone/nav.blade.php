@@ -6,9 +6,9 @@
         Closed
     </a>
     @auth
-    <a href="{{ route('milestones.new') }}" class="mb-2 btn btn-success float-md-end text-white">
-        <x-heroicon-o-plus class="heroicon" />
-        Create a milestone
-    </a>
+        <a href="{{ route('milestones.new') }}" class="mb-2 btn btn-success float-md-end text-white">
+            <x-heroicon-o-plus class="heroicon" />
+            Create a milestone
+        </a>
     @endauth
 </div>
