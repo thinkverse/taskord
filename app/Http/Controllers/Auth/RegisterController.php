@@ -7,6 +7,7 @@ use App\Jobs\AuthGetIP;
 use App\Models\User;
 use App\Notifications\Welcome;
 use App\Providers\RouteServiceProvider;
+use App\Rules\ReservedSlug;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -54,7 +55,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required', 'alpha_dash', 'string', 'min:2', 'max:20', 'unique:users'],
+            'username' => ['required', 'alpha_dash', 'string', 'min:2', 'max:20', 'unique:users', new ReservedSlug],
             'email' => ['required', 'string', 'email', 'indisposable', 'max:255', 'unique:users'],
             'password' => ['required', 'string', Password::min(8)->uncompromised()],
         ]);
