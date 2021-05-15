@@ -8,7 +8,7 @@
                 </a>
             </div>
             @if ($body->hidden)
-            <div class="body-font fst-italic text-secondary mt-2">Task was hidden by moderator</div>
+                <div class="body-font fst-italic text-secondary mt-2">Task was hidden by moderator</div>
             @else
                 <div class="mt-2 body-font">{!! clean(Helper::renderTask($body->task)) !!}</div>
             @endif
@@ -24,7 +24,7 @@
                 </a>
             </div>
             @if ($body->hidden)
-            <div class="body-font fst-italic text-secondary mt-2">Comment was hidden by moderator</div>
+                <div class="body-font fst-italic text-secondary mt-2">Comment was hidden by moderator</div>
             @else
                 <div class="mt-2 body-font">{!! markdown($body->comment) !!}</div>
             @endif
@@ -40,7 +40,7 @@
                 </a>
             </div>
             @if ($body->hidden)
-            <div class="body-font fst-italic text-secondary mt-2">Answer was hidden by moderator</div>
+                <div class="body-font fst-italic text-secondary mt-2">Answer was hidden by moderator</div>
             @else
                 <div class="mt-2 body-font">{!! markdown($body->answer) !!}</div>
             @endif
