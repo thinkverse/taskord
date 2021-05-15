@@ -11,141 +11,141 @@
     </div>
     <div class="card-body pt-1">
         @if ($milestone->hidden)
-        <span class="fst-italic text-secondary">Milestone was hidden by moderator</span>
+            <span class="fst-italic text-secondary">Milestone was hidden by moderator</span>
         @else
-        <a href="{{ route('milestones.milestone', ['milestone' => $milestone]) }}" class="h5 align-text-top fw-bold text-dark">
-            @if ($type !== "milestones.milestone")
-                {{ Str::words($milestone->name, '10') }}
-            @else
-                {{ $milestone->name }}
-            @endif
-        </a>
-        <div class="mt-2 body-font text-secondary">
-            {!! markdown($milestone->description) !!}
-        </div>
+            <a href="{{ route('milestones.milestone', ['milestone' => $milestone]) }}" class="h5 align-text-top fw-bold text-dark">
+                @if ($type !== "milestones.milestone")
+                    {{ Str::words($milestone->name, '10') }}
+                @else
+                    {{ $milestone->name }}
+                @endif
+            </a>
+            <div class="mt-2 body-font text-secondary">
+                {!! markdown($milestone->description) !!}
+            </div>
         @endif
         @if ($milestone->start_date or $milestone->end_date)
-        <div class="mb-3">
-            @if ($milestone->start_date)
-            <div class="mb-1">
-                <x-heroicon-o-calendar class="heroicon-1x" />
-                Started at <b class="text-dark">{{ carbon($milestone->start_date)->format('M d, Y') }}</b>
-            </div>
-            @endif
-            @if ($milestone->end_date)
-            <div>
-                @php
-                    $past_due = $milestone->end_date < carbon();
-                @endphp
-                @if ($past_due)
-                <div class="text-danger">
-                    <x-heroicon-o-exclamation class="heroicon-1x" />
-                    Past due by <b>{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
-                </div>
-                @else
-                <div class="text-dark">
-                    <x-heroicon-o-calendar class="heroicon-1x" />
-                    Due by <b>{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
-                </div>
+            <div class="mb-3">
+                @if ($milestone->start_date)
+                    <div class="mb-1">
+                        <x-heroicon-o-calendar class="heroicon-1x" />
+                        Started at <b class="text-dark">{{ carbon($milestone->start_date)->format('M d, Y') }}</b>
+                    </div>
+                @endif
+                @if ($milestone->end_date)
+                    <div>
+                        @php
+                            $past_due = $milestone->end_date < carbon();
+                        @endphp
+                        @if ($past_due)
+                            <div class="text-danger">
+                                <x-heroicon-o-exclamation class="heroicon-1x" />
+                                Past due by <b>{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
+                            </div>
+                        @else
+                            <div class="text-dark">
+                                <x-heroicon-o-calendar class="heroicon-1x" />
+                                Due by <b>{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
+                            </div>
+                        @endif
+                    </div>
                 @endif
             </div>
-            @endif
-        </div>
         @endif
         <livewire:milestone.progress :milestone="$milestone" :wire:key="$milestone->id" />
         <div class="mt-3">
             @auth
-            @if (auth()->user()->hasLiked($milestone))
-                <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                    <x-heroicon-s-thumb-up class="heroicon-small me-0" />
-                    <span class="small text-white fw-bold">
-                        {{ number_format($milestone->likerscount()) }}
-                    </span>
-                    <span class="avatar-stack ms-1">
-                    @foreach($milestone->likers->take(5) as $user)
-                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                    @endforeach
-                    </span>
-                </button>
-            @else
-                <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                    <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
-                    @if ($milestone->likerscount() !== 0)
-                    <span class="small text-dark fw-bold">
-                        {{ number_format($milestone->likerscount()) }}
-                    </span>
-                    <span class="avatar-stack ms-1">
-                    @foreach($milestone->likers->take(5) as $user)
-                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                    @endforeach
-                    </span>
+                @if (auth()->user()->hasLiked($milestone))
+                    <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                        <x-heroicon-s-thumb-up class="heroicon-small me-0" />
+                        <span class="small text-white fw-bold">
+                            {{ number_format($milestone->likerscount()) }}
+                        </span>
+                        <span class="avatar-stack ms-1">
+                        @foreach($milestone->likers->take(5) as $user)
+                            <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
+                        @endforeach
+                        </span>
+                    </button>
+                @else
+                    <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                        <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
+                        @if ($milestone->likerscount() !== 0)
+                            <span class="small text-dark fw-bold">
+                                {{ number_format($milestone->likerscount()) }}
+                            </span>
+                            <span class="avatar-stack ms-1">
+                                @foreach($milestone->likers->take(5) as $user)
+                                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
+                                @endforeach
+                            </span>
+                        @endif
+                    </button>
+                @endif
+                @if (auth()->user()->staffShip or auth()->user()->id === $milestone->user->id)
+                    @if ($type === "milestones.milestone")
+                        <a href="{{ route('milestones.edit', ['milestone' => $milestone]) }}" class="btn btn-task btn-outline-info me-1">
+                            <x-heroicon-o-pencil-alt class="heroicon-small me-0 text-secondary" />
+                            <span class="small text-dark fw-bold">
+                                Edit
+                            </span>
+                        </a>
                     @endif
-                </button>
-            @endif
-            @if (auth()->user()->staffShip or auth()->user()->id === $milestone->user->id)
-            @if ($type === "milestones.milestone")
-            <a href="{{ route('milestones.edit', ['milestone' => $milestone]) }}" class="btn btn-task btn-outline-info me-1">
-                <x-heroicon-o-pencil-alt class="heroicon-small me-0 text-secondary" />
-                <span class="small text-dark fw-bold">
-                    Edit
-                </span>
-            </a>
-            @endif
-            <button
-                role="button"
-                class="btn btn-task btn-outline-danger me-1"
-                onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
-                wire:click="deleteMilestone"
-                wire:loading.attr="disabled"
-                wire:offline.attr="disabled"
-                aria-label="Delete"
-            >
-                <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
-            </button>
-            @endif
-            @if (auth()->user()->staffShip)
-            <button type="button" class="btn btn-task {{ $milestone->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $milestone->id }}" title="Flag to admins" aria-label="Hide">
-                <x-heroicon-o-eye-off class="heroicon-small me-0" />
-            </button>
-            @endif
-            @if (auth()->user()->staffShip or auth()->user()->id === $milestone->user->id)
-            @if ($type === "milestones.milestone")
-            @if ($milestone->status)
-            <button type="button" class="btn btn-danger btn-task float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
-                <x-heroicon-o-x class="heroicon-small" />
-                Close Milestone
-            </button>
-            @else
-            <button type="button" class="btn btn-success btn-task text-white float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
-                <x-heroicon-o-check class="heroicon-small" />
-                Open Milestone
-            </button>
-            @endif
-            @else
-            @if ($milestone->status)
-            <div class="float-end text-success fw-bold">
-                OPENED
-            </div>
-            @else
-            <div class="float-end text-danger fw-bold">
-                CLOSED
-            </div>
-            @endif
-            @endif
-            @endif
+                    <button
+                        role="button"
+                        class="btn btn-task btn-outline-danger me-1"
+                        onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
+                        wire:click="deleteMilestone"
+                        wire:loading.attr="disabled"
+                        wire:offline.attr="disabled"
+                        aria-label="Delete"
+                    >
+                        <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
+                    </button>
+                @endif
+                @if (auth()->user()->staffShip)
+                    <button type="button" class="btn btn-task {{ $milestone->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $milestone->id }}" title="Flag to admins" aria-label="Hide">
+                        <x-heroicon-o-eye-off class="heroicon-small me-0" />
+                    </button>
+                @endif
+                @if (auth()->user()->staffShip or auth()->user()->id === $milestone->user->id)
+                    @if ($type === "milestones.milestone")
+                        @if ($milestone->status)
+                            <button type="button" class="btn btn-danger btn-task float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
+                                <x-heroicon-o-x class="heroicon-small" />
+                                Close Milestone
+                            </button>
+                        @else
+                            <button type="button" class="btn btn-success btn-task text-white float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
+                                <x-heroicon-o-check class="heroicon-small" />
+                                Open Milestone
+                            </button>
+                        @endif
+                    @else
+                        @if ($milestone->status)
+                            <div class="float-end text-success fw-bold">
+                                OPENED
+                            </div>
+                        @else
+                            <div class="float-end text-danger fw-bold">
+                                CLOSED
+                            </div>
+                        @endif
+                    @endif
+                @endif
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
                     <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
                     @if ($milestone->likerscount() !== 0)
-                    <span class="small text-dark fw-bold">
-                        {{ number_format($milestone->likerscount()) }}
-                    </span>
-                    <span class="avatar-stack ms-1">
-                    @foreach($milestone->likers->take(5) as $user)
-                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                    @endforeach
-                    </span>
+                        <span class="small text-dark fw-bold">
+                            {{ number_format($milestone->likerscount()) }}
+                        </span>
+                        <span class="avatar-stack ms-1">
+                            @foreach($milestone->likers->take(5) as $user)
+                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
+                            @endforeach
+                        </span>
                     @endif
                 </a>
             @endguest
