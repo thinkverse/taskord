@@ -5,29 +5,7 @@
                 <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($question->user->avatar, 80) }}" height="40" width="40" alt="{{ $question->user->username }}'s avatar" />
             </a>
             <span class="ms-2">
-                <a
-                    href="{{ route('user.done', ['username' => $question->user->username]) }}"
-                    class="fw-bold text-dark user-popover"
-                    data-id="{{ $question->user->id }}"
-                >
-                    @if ($question->user->firstname or $question->user->lastname)
-                        {{ $question->user->firstname }}{{ ' '.$question->user->lastname }}
-                    @else
-                        {{ $question->user->username }}
-                    @endif
-                    @if ($question->user->status)
-                    <span class="ms-1 small" title="{{ $question->user->status }}">{{ $question->user->status_emoji }}</span>
-                    @endif
-                    @if ($question->user->isVerified)
-                        <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
-                    @endif
-                    @if ($question->user->isPatron)
-                        <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                            <x-heroicon-s-star class="heroicon text-gold" />
-                        </a>
-                    @endif
-                </a>
-                <div class="small">{{ "@" . $question->user->username }}</div>
+                <x:shared.user :user="$question->user" />
             </span>
             <span class="align-text-top small float-end ms-auto">
                 <a class="text-secondary" href="{{ route('question.question', ['id' => $question->id]) }}">
