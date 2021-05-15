@@ -1,19 +1,19 @@
 <div wire:init="loadAllNotifications">
     @if (!$readyToLoad)
-    <div class="card-body text-center mt-3">
-        <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
-        <div class="h6">
-            Loading notifications...
+        <div class="card-body text-center mt-3">
+            <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+            <div class="h6">
+                Loading notifications...
+            </div>
         </div>
-    </div>
     @endif
     @if ($readyToLoad and count($notifications) === 0)
-    <div class="card-body text-center mt-5">
-        <x-heroicon-o-bell class="heroicon-4x text-primary mb-2" />
-        <div class="h4">
-            No notifications
+        <div class="card-body text-center mt-5">
+            <x-heroicon-o-bell class="heroicon-4x text-primary mb-2" />
+            <div class="h4">
+                No notifications
+            </div>
         </div>
-    </div>
     @endif
     @foreach ($notifications as $notification)
         <div>
