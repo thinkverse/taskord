@@ -1,7 +1,7 @@
 <div>
     <div class="card-body">
         <div class="d-flex align-items-center">
-            <x:shared.user :user="$answer->user" />
+            <x:shared.user-label-big :user="$answer->user" />
             <span class="align-text-top small float-end ms-auto">
                 <a class="text-secondary" href="">
                     {{ carbon($answer->created_at)->diffForHumans() }}

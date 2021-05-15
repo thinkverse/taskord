@@ -1,7 +1,7 @@
 <div class="card mb-2">
     <div class="card-body">
         <div class="d-flex align-items-center">
-            <x:shared.user :user="$milestone->user" />
+            <x:shared.user-label-big :user="$milestone->user" />
             <span class="align-text-top small float-end ms-auto">
                 <a class="text-secondary" href="{{ route('milestones.milestone', ['milestone' => $milestone]) }}">
                     {{ $milestone->created_at->diffForHumans() }}

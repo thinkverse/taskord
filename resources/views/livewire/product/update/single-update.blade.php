@@ -1,6 +1,6 @@
 <div class="card mb-4">
     <div class="card-header d-flex align-items-center h6 py-3">
-        <x:shared.user :user="$update->user" />
+        <x:shared.user-label-big :user="$update->user" />
     </div>
     <div class="card-body">
         <div>{!! markdown($update->body) !!}</div>

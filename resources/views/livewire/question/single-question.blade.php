@@ -1,7 +1,7 @@
 <div class="card mb-2 {{ $question->patronOnly ? 'bg-patron' : '' }}">
     <div class="card-body">
         <div class="d-flex align-items-center">
-            <x:shared.user :user="$question->user" />
+            <x:shared.user-label-big :user="$question->user" />
             <span class="align-text-top small float-end ms-auto">
                 <a class="text-secondary" href="{{ route('question.question', ['id' => $question->id]) }}">
                     {{ $question->created_at->diffForHumans() }}
