@@ -22,21 +22,21 @@
                     </div>
                 </form>
                 @if (!$tasks)
-                <div class="card-body text-center mt-3 mb-3">
-                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
-                    <div class="h4">
-                        We couldn’t find any tasks matching '{{ $searchTerm }}'
+                    <div class="card-body text-center mt-3 mb-3">
+                        <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                        <div class="h4">
+                            We couldn’t find any tasks matching '{{ $searchTerm }}'
+                        </div>
                     </div>
-                </div>
                 @else
                 @foreach ($tasks as $task)
-                <li class="list-group-item p-3">
-                    <livewire:task.single-task :task="$task" :wire:key="$task->id" />
-                </li>
+                    <li class="list-group-item p-3">
+                        <livewire:task.single-task :task="$task" :wire:key="$task->id" />
+                    </li>
                 @endforeach
-                <div class="mt-3">
-                    {{ $tasks->appends(request()->input())->links() }}
-                </div>
+                    <div class="mt-3">
+                        {{ $tasks->appends(request()->input())->links() }}
+                    </div>
                 @endif
             @endif
 
@@ -49,21 +49,21 @@
                     </div>
                 </form>
                 @if (!$comments)
-                <div class="card-body text-center mt-3 mb-3">
-                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
-                    <div class="h4">
-                        We couldn’t find any comments matching '{{ $searchTerm }}'
+                    <div class="card-body text-center mt-3 mb-3">
+                        <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                        <div class="h4">
+                            We couldn’t find any comments matching '{{ $searchTerm }}'
+                        </div>
                     </div>
-                </div>
                 @else
-                @foreach ($comments as $comment)
-                @livewire('comment.single-comment', [
-                    'comment' => $comment,
-                ], key($comment->id))
-                @endforeach
-                <div class="mt-3">
-                    {{ $comments->appends(request()->input())->links() }}
-                </div>
+                    @foreach ($comments as $comment)
+                        @livewire('comment.single-comment', [
+                            'comment' => $comment,
+                        ], key($comment->id))
+                    @endforeach
+                    <div class="mt-3">
+                        {{ $comments->appends(request()->input())->links() }}
+                    </div>
                 @endif
             @endif
 
@@ -76,22 +76,22 @@
                     </div>
                 </form>
                 @if (!$questions)
-                <div class="card-body text-center mt-3 mb-3">
-                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
-                    <div class="h4">
-                        We couldn’t find any questions matching '{{ $searchTerm }}'
+                    <div class="card-body text-center mt-3 mb-3">
+                        <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                        <div class="h4">
+                            We couldn’t find any questions matching '{{ $searchTerm }}'
+                        </div>
                     </div>
-                </div>
                 @else
-                @foreach ($questions as $question)
-                @livewire('question.single-question', [
-                    'type' => 'questions.newest',
-                    'question' => $question,
-                ], key($question->id))
-                @endforeach
-                <div class="mt-3">
-                    {{ $questions->appends(request()->input())->links() }}
-                </div>
+                    @foreach ($questions as $question)
+                        @livewire('question.single-question', [
+                            'type' => 'questions.newest',
+                            'question' => $question,
+                        ], key($question->id))
+                    @endforeach
+                    <div class="mt-3">
+                        {{ $questions->appends(request()->input())->links() }}
+                    </div>
                 @endif
             @endif
 
@@ -104,31 +104,31 @@
                     </div>
                 </form>
                 @if (!$answers)
-                <div class="card-body text-center mt-3 mb-3">
-                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
-                    <div class="h4">
-                        We couldn’t find any answers matching '{{ $searchTerm }}'
-                    </div>
-                </div>
-                @else
-                @foreach ($answers as $answer)
-                    <div class="card mb-2">
-                        <div class="card-header h6 py-3">
-                            <a href="{{ route('user.done', ['username' => $answer->question->user->username]) }}">
-                                <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($answer->question->user->avatar, 80) }}" height="30" width="30" alt="{{ $answer->question->user->username }}'s avatar" />
-                            </a>
-                            <a class="align-middle text-dark ms-2" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
-                                {{ $answer->question->title }}
-                            </a>
+                    <div class="card-body text-center mt-3 mb-3">
+                        <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                        <div class="h4">
+                            We couldn’t find any answers matching '{{ $searchTerm }}'
                         </div>
-                        @livewire('answer.single-answer', [
-                            'answer' => $answer
-                        ], key($answer->id))
                     </div>
-                @endforeach
-                <div class="mt-3">
-                    {{ $answers->appends(request()->input())->links() }}
-                </div>
+                @else
+                    @foreach ($answers as $answer)
+                        <div class="card mb-2">
+                            <div class="card-header h6 py-3">
+                                <a href="{{ route('user.done', ['username' => $answer->question->user->username]) }}">
+                                    <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($answer->question->user->avatar, 80) }}" height="30" width="30" alt="{{ $answer->question->user->username }}'s avatar" />
+                                </a>
+                                <a class="align-middle text-dark ms-2" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
+                                    {{ $answer->question->title }}
+                                </a>
+                            </div>
+                            @livewire('answer.single-answer', [
+                                'answer' => $answer
+                            ], key($answer->id))
+                        </div>
+                    @endforeach
+                    <div class="mt-3">
+                        {{ $answers->appends(request()->input())->links() }}
+                    </div>
                 @endif
             @endif
 
@@ -141,60 +141,60 @@
                     </div>
                 </form>
                 @if (!$products)
-                <div class="card-body text-center mt-3 mb-3">
-                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
-                    <div class="h4">
-                        We couldn’t find any products matching '{{ $searchTerm }}'
-                    </div>
-                </div>
-                @else
-                @foreach ($products as $product)
-                    <li class="list-group-item py-3">
-                        <div class="d-flex align-items-center">
-                            <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                                <img loading=lazy class="rounded avatar-50" src="{{ Helper::getCDNImage($product->avatar, 80) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
-                            </a>
-                            <span class="ms-3">
-                                <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
-                                    {{ $product->name }}
-                                    @if ($product->launched)
-                                        <a href="{{ route('products.launched') }}" class="small" data-bs-toggle="tooltip" data-placement="right" title="Launched">
-                                            🚀
-                                        </a>
-                                    @endif
-                                    @if ($product->deprecated)
-                                        <span class="ms-1 small" title="Deprecated">
-                                            <x-heroicon-o-shield-exclamation class="heroicon text-danger" />
-                                        </span>
-                                    @endif
-                                </a>
-                                <div class="text-secondary mb-2">
-                                    {{ "#" . $product->slug }}
-                                </div>
-                                <div class="pe-5 text-secondary">{{ $product->description }}</div>
-                                <div class="small mt-2 text-dark">
-                                    <x-heroicon-o-calendar class="heroicon text-secondary" />
-                                    @if ($product->launched)
-                                    <span>Launched at {{ carbon($product->launched_at)->format("F Y") }}</span>
-                                    @else
-                                    <span>Created at {{ $product->created_at->format("F Y") }}</span>
-                                    @endif
-                                </div>
-                                <div class="mt-3">
-                                    @livewire('product.subscribe', [
-                                        'product' => $product
-                                    ], key($product->id))
-                                </div>
-                            </span>
-                            <a class="d-flex ms-auto" href="{{ route('user.done', ['username' => $product->owner->username]) }}">
-                                <img loading=lazy class="rounded-circle float-end avatar-30 mt-1 ms-2" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" height="30" width="30" alt="{{ $product->owner->username }}'s avatar" />
-                            </a>
+                    <div class="card-body text-center mt-3 mb-3">
+                        <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                        <div class="h4">
+                            We couldn’t find any products matching '{{ $searchTerm }}'
                         </div>
-                    </li>
-                @endforeach
-                <div class="mt-3">
-                    {{ $products->appends(request()->input())->links() }}
-                </div>
+                    </div>
+                @else
+                    @foreach ($products as $product)
+                        <li class="list-group-item py-3">
+                            <div class="d-flex align-items-center">
+                                <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
+                                    <img loading=lazy class="rounded avatar-50" src="{{ Helper::getCDNImage($product->avatar, 80) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
+                                </a>
+                                <span class="ms-3">
+                                    <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
+                                        {{ $product->name }}
+                                        @if ($product->launched)
+                                            <a href="{{ route('products.launched') }}" class="small" data-bs-toggle="tooltip" data-placement="right" title="Launched">
+                                                🚀
+                                            </a>
+                                        @endif
+                                        @if ($product->deprecated)
+                                            <span class="ms-1 small" title="Deprecated">
+                                                <x-heroicon-o-shield-exclamation class="heroicon text-danger" />
+                                            </span>
+                                        @endif
+                                    </a>
+                                    <div class="text-secondary mb-2">
+                                        {{ "#" . $product->slug }}
+                                    </div>
+                                    <div class="pe-5 text-secondary">{{ $product->description }}</div>
+                                    <div class="small mt-2 text-dark">
+                                        <x-heroicon-o-calendar class="heroicon text-secondary" />
+                                        @if ($product->launched)
+                                            <span>Launched at {{ carbon($product->launched_at)->format("F Y") }}</span>
+                                        @else
+                                            <span>Created at {{ $product->created_at->format("F Y") }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="mt-3">
+                                        @livewire('product.subscribe', [
+                                            'product' => $product
+                                        ], key($product->id))
+                                    </div>
+                                </span>
+                                <a class="d-flex ms-auto" href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+                                    <img loading=lazy class="rounded-circle float-end avatar-30 mt-1 ms-2" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" height="30" width="30" alt="{{ $product->owner->username }}'s avatar" />
+                                </a>
+                            </div>
+                        </li>
+                    @endforeach
+                    <div class="mt-3">
+                        {{ $products->appends(request()->input())->links() }}
+                    </div>
                 @endif
             @endif
 
@@ -207,12 +207,12 @@
                     </div>
                 </form>
                 @if (!$users)
-                <div class="card-body text-center mt-3 mb-3">
-                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
-                    <div class="h4">
-                        We couldn’t find any users matching '{{ $searchTerm }}'
+                    <div class="card-body text-center mt-3 mb-3">
+                        <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                        <div class="h4">
+                            We couldn’t find any users matching '{{ $searchTerm }}'
+                        </div>
                     </div>
-                </div>
                 @else
                 @foreach ($users as $user)
                     <li class="list-group-item py-3">
@@ -228,9 +228,9 @@
                                         {{ $user->username }}
                                     @endif
                                     @auth
-                                    @if (auth()->user()->staffShip)
-                                        <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
-                                    @endif
+                                        @if (auth()->user()->staffShip)
+                                            <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
+                                        @endif
                                     @endauth
                                     @if ($user->isPrivate)
                                         <x-heroicon-o-lock-closed class="heroicon-2x text-primary ms-2 me-0 private" />
@@ -244,9 +244,9 @@
                                         </a>
                                     @endif
                                     @auth
-                                    @if ($user->isFollowing(auth()->user()))
-                                        <span class="ms-2 badge bg-light text-secondary">Follows you</span>
-                                    @endif
+                                        @if ($user->isFollowing(auth()->user()))
+                                            <span class="ms-2 badge bg-light text-secondary">Follows you</span>
+                                        @endif
                                     @endauth
                                 </a>
                                 <div class="text-secondary mb-2">
@@ -259,21 +259,21 @@
                                         Joined {{ $user->created_at->format("F Y") }}
                                     </span>
                                     @if ($user->location)
-                                    <span class="ms-3">
-                                        <a class="text-dark" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}" target="_blank" rel="noreferrer">
-                                            <x-heroicon-o-map class="heroicon text-secondary" />
-                                            {{ $user->location }}
-                                        </a>
-                                    </span>
+                                        <span class="ms-3">
+                                            <a class="text-dark" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}" target="_blank" rel="noreferrer">
+                                                <x-heroicon-o-map class="heroicon text-secondary" />
+                                                {{ $user->location }}
+                                            </a>
+                                        </span>
                                     @endif
                                     @if ($user->company)
-                                    <span class="ms-3">
-                                        <x-heroicon-o-briefcase class="heroicon text-secondary" />
-                                        {{ $user->company }}
-                                    </span>
-                                    @if ($user->isStaff)
-                                    <span class="badge rounded-pill bg-primary ms-1">Staff</span>
-                                    @endif
+                                        <span class="ms-3">
+                                            <x-heroicon-o-briefcase class="heroicon text-secondary" />
+                                            {{ $user->company }}
+                                        </span>
+                                        @if ($user->isStaff)
+                                            <span class="badge rounded-pill bg-primary ms-1">Staff</span>
+                                        @endif
                                     @endif
                                 </div>
                                 <div class="mt-3">
