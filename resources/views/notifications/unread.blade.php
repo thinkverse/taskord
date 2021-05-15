@@ -16,7 +16,7 @@
                 All
             </a>
             @if (auth()->user()->unreadNotifications->count('id') !== 0)
-            <livewire:notification.mark-as-read />
+                <livewire:notification.mark-as-read />
             @endif
             @livewire('notification.unread', [
                 'type' => 'unread',
