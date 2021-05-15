@@ -1,6 +1,6 @@
 <li class="list-group-item p-3">
     <div class="align-items-center d-flex mb-2">
-        <x:shared.user-label-big :user="$comment->user" />
+        <x:shared.user-label-small :user="$comment->user" />
         <a
             class="align-text-top small float-end ms-auto text-secondary"
             href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}"
