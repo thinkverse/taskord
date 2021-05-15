@@ -204,6 +204,9 @@ input[type="color"]:focus,
         border-radius: 5px;
         border: 1px solid $gray-300;
     }
+    p:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .admin-bar {
