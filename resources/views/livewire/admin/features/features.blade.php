@@ -12,16 +12,16 @@
     </div>
     <div class="card-body">
         @if (!$readyToLoad)
-        <div class="card-body text-center mt-3">
-            <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
-            <div class="h6">
-                Loading features...
+            <div class="card-body text-center mt-3">
+                <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+                <div class="h6">
+                    Loading features...
+                </div>
             </div>
-        </div>
         @else
-        @foreach ($features as $feature)
-            <livewire:admin.features.single-feature :feature="$feature" :wire:key="$feature->id" />
-        @endforeach
+            @foreach ($features as $feature)
+                <livewire:admin.features.single-feature :feature="$feature" :wire:key="$feature->id" />
+            @endforeach
         @endif
     </div>
     <livewire:admin.features.create-feature />
