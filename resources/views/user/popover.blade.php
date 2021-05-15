@@ -1,7 +1,7 @@
 @if ($user->status)
-<div class="px-3 py-2 border-bottom tippy-status text-dark">
-    {{ $user->status_emoji }} {{ $user->status }}
-</div>
+    <div class="px-3 py-2 border-bottom tippy-status text-dark">
+        {{ $user->status_emoji }} {{ $user->status }}
+    </div>
 @endif
 <div class="d-flex p-3">
     <div>
@@ -27,19 +27,19 @@
             <a class="small text-dark" href="{{ route('user.done', ['username' => $user->username]) }}">{{ '@'.$user->username }}</a>
         </div>
         @if ($user->bio)
-        <div class="mt-2 text-dark">{{ $user->bio }}</div>
+            <div class="mt-2 text-dark">{{ $user->bio }}</div>
         @endif
         @if ($user->location)
-        <div class="mt-2 text-dark">
-            <x-heroicon-o-map class="heroicon text-secondary" />
-            {{ $user->location }}
-        </div>
+            <div class="mt-2 text-dark">
+                <x-heroicon-o-map class="heroicon text-secondary" />
+                {{ $user->location }}
+            </div>
         @endif
         @if ($user->company)
-        <div class="mt-2 text-dark">
-            <x-heroicon-o-briefcase class="heroicon text-secondary" />
-            {{ $user->company }}
-        </div>
+            <div class="mt-2 text-dark">
+                <x-heroicon-o-briefcase class="heroicon text-secondary" />
+                {{ $user->company }}
+            </div>
         @endif
     </div>
 </div>
