@@ -33,7 +33,7 @@ class CreateProduct extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
+                'avatar' => ['nullable' ,'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
         } else {
             return $this->alert('error', 'Forbidden!');
