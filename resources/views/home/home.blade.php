@@ -12,11 +12,11 @@
             <livewire:home.launched-today />
             @auth
                 @if (!auth()->user()->isFlagged)
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <livewire:create-task />
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <livewire:create-task />
+                        </div>
                     </div>
-                </div>
                 @endif
             @endauth
             <div class="pb-3">
@@ -25,7 +25,7 @@
                     Tasks
                 </span>
                 @auth
-                <livewire:home.only-following />
+                    <livewire:home.only-following />
                 @endauth
             </div>
             <livewire:home.tasks :page="1" />
@@ -53,17 +53,17 @@
                             </a>
                             <a class="ms-3 text-dark" href="{{ route('user.done', ['username' => auth()->user()->username]) }}">
                                 @if (auth()->user()->firstname or auth()->user()->lastname)
-                                <div class="h5">
-                                    {{ auth()->user()->firstname }}{{ ' '.auth()->user()->lastname }}
-                                    @if (auth()->user()->status)
-                                    <span class="ms-1 small" title="{{ auth()->user()->status }}">{{ auth()->user()->status_emoji }}</span>
-                                    @else
-                                    <span class="ms-1 small" title="Set Status">💭</span>
-                                    @endif
-                                    @if (auth()->user()->isVerified)
-                                        <x-heroicon-s-badge-check class="heroicon-2x ms-1 text-primary verified" />
-                                    @endif
-                                </div>
+                                    <div class="h5">
+                                        {{ auth()->user()->firstname }}{{ ' '.auth()->user()->lastname }}
+                                        @if (auth()->user()->status)
+                                            <span class="ms-1 small" title="{{ auth()->user()->status }}">{{ auth()->user()->status_emoji }}</span>
+                                        @else
+                                            <span class="ms-1 small" title="Set Status">💭</span>
+                                        @endif
+                                        @if (auth()->user()->isVerified)
+                                            <x-heroicon-s-badge-check class="heroicon-2x ms-1 text-primary verified" />
+                                        @endif
+                                    </div>
                                 @endif
                                 <div class="small fw-bold">
                                     {{ '@'.Str::limit(auth()->user()->username, '20') }}
