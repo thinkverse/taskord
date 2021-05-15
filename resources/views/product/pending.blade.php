@@ -12,17 +12,17 @@
     <div class="row justify-content-center mt-4">
         <div class="col-lg-8">
             @auth
-            @if (
-                auth()->user()->id === $product->owner->id or
-                $product->members->contains(auth()->user()->id) &&
-                !$product->owner->isFlagged
-            )
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <livewire:create-task :product="$product" />
+                @if (
+                    auth()->user()->id === $product->owner->id or
+                    $product->members->contains(auth()->user()->id) &&
+                    !$product->owner->isFlagged
+                )
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <livewire:create-task :product="$product" />
+                        </div>
                     </div>
-                </div>
-            @endif
+                @endif
             @endauth
             @livewire('product.tasks', [
                 'type' => 'product.pending',
