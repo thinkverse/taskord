@@ -16,7 +16,7 @@
                 All
             </a>
             @if (auth()->user()->notifications->count('id') !== 0)
-            <livewire:notification.delete />
+                <livewire:notification.delete />
             @endif
             @livewire('notification.all', [
                 'type' => 'all',
