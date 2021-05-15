@@ -43,13 +43,13 @@
                     <div class="spinner-border spinner-border-sm mb-3" role="status"></div>
                 </div>
                 @error('avatar')
-                <div class="text-danger fw-bold mt-3">{{ $message }}</div>
+                    <div class="text-danger fw-bold mt-3">{{ $message }}</div>
                 @else
-                @if ($avatar)
-                <div>
-                    <img loading=lazy class="avatar-100 rounded mb-3" src="{{ $avatar->temporaryUrl() }}" height="100" width="100" />
-                </div>
-                @endif
+                    @if ($avatar)
+                        <div>
+                            <img loading=lazy class="avatar-100 rounded mb-3" src="{{ $avatar->temporaryUrl() }}" height="100" width="100" />
+                        </div>
+                    @endif
                 @enderror
                 <div class="input-group mb-3">
                     <span class="input-group-text">
