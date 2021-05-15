@@ -62,6 +62,10 @@ class CreateProduct extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
+            if (in_array($this->slug, config('taskord.reserved_slugs'))) {
+                return $this->addError('slug', 'This slug is reserved internally!');
+            }
+
             $launched = ! $this->launched ? false : true;
 
             if ($launched) {
