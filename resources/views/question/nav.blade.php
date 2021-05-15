@@ -9,9 +9,9 @@
         Popular
     </a>
     @auth
-    <a href="{{ route('questions.new') }}" class="mb-2 btn btn-success float-md-end text-white">
-        <x-heroicon-o-plus class="heroicon" />
-        Ask a Question
-    </a>
+        <a href="{{ route('questions.new') }}" class="mb-2 btn btn-success float-md-end text-white">
+            <x-heroicon-o-plus class="heroicon" />
+            Ask a Question
+        </a>
     @endauth
 </div>
