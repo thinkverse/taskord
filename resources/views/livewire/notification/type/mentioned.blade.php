@@ -37,11 +37,9 @@
                     answer
                 </a>
             </div>
-            @if ($body->hidden)
-                <div class="body-font fst-italic text-secondary mt-2">Answer was hidden by moderator</div>
-            @else
-                <div class="mt-2 body-font">{!! markdown($body->answer) !!}</div>
-            @endif
+            <div class="card mt-3">
+                <livewire:answer.single-answer :answer="$body" :wire:key="$body->id" />
+            </div>
         @else
             <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>
         @endif
