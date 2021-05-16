@@ -9,9 +9,9 @@
 
             <div class="d-flex justify-content-around pt-3">
                 @if ($user->status)
-                <button type="button" wire:loading.attr="disabled" wire:click="clearStatus" class="btn btn-sm btn-danger text-white float-end w-100 me-1">
-                    Clear Status
-                </button>
+                    <button type="button" wire:loading.attr="disabled" wire:click="clearStatus" class="btn btn-sm btn-danger text-white float-end w-100 me-1">
+                        Clear Status
+                    </button>
                 @endif
                 <button type="submit" class="btn btn-sm btn-success text-white float-end w-100 ms-1">
                     Set Status
