@@ -22,10 +22,6 @@
         ], key($question->id))
     @endforeach
     @if ($readyToLoad and $questions->hasMorePages())
-        @livewire('question.load-more', [
-            'type' => $type,
-            'page' => $page,
-            'perPage' => $perPage
-        ])
+        <livewire:question.load-more :type="$type" :page="$page" :perPage="$perPage" />
     @endif
 </div>

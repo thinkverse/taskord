@@ -31,11 +31,7 @@
         </li>
     @endforeach
     @if ($readyToLoad and $tasks->hasMorePages())
-        @livewire('user.load-more', [
-            'type' => $type,
-            'user' => $task->user,
-            'page' => $page,
-        ])
+        <livewire:user.load-more :type="$type" :user="$task->user" :page="$page" />
     @endif
     @if ($page === 1)
         </ul>
