@@ -31,11 +31,7 @@
         </li>
     @endforeach
     @if ($readyToLoad and $tasks->hasMorePages())
-        @livewire('product.load-more', [
-            'type' => $type,
-            'product' => $task->product,
-            'page' => $page,
-        ])
+        <livewire:product.load-more :type="$type" :product="$task->product" :page="$page" />
     @endif
     @if ($page === 1)
         </ul>
