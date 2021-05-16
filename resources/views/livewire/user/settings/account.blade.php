@@ -58,14 +58,14 @@
         </div>
         <div class="card-body">
             @if ($user->isPatron)
-            <div class="form-check">
-                <input wire:click="enrollPrivate" id="enrollPrivate" class="form-check-input" type="checkbox" {{ $user->isPrivate ? 'checked' : '' }}>
-                <label for="enrollPrivate" class="form-check-label">Hide all tasks from public</label>
-            </div>
+                <div class="form-check">
+                    <input wire:click="enrollPrivate" id="enrollPrivate" class="form-check-input" type="checkbox" {{ $user->isPrivate ? 'checked' : '' }}>
+                    <label for="enrollPrivate" class="form-check-label">Hide all tasks from public</label>
+                </div>
             @else
-            <a class="btn btn-success text-white" href={{ route('patron.home') }}>
-                Support Taskord
-            </a>
+                <a class="btn btn-success text-white" href={{ route('patron.home') }}>
+                    Support Taskord
+                </a>
             @endif
         </div>
     </div>
