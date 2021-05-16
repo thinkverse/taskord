@@ -425,21 +425,7 @@ input[type="date"]:valid:before {
     width: 15px;
 }
 
-.heroicon-notification {
-    height: 23px;
-    width: 23px;
-}
-
-.heroicon-small {
-    height: 15px;
-    width: 15px;
-    vertical-align: text-bottom;
-    margin-right: 2px;
-}
-
 .heroicon {
-    height: 17px;
-    width: 17px;
     vertical-align: sub;
     margin-right: 2px;
 }
@@ -447,8 +433,6 @@ input[type="date"]:valid:before {
 .heroicon-1x {
     height: 18px;
     width: 18px;
-    vertical-align: sub;
-    margin-right: 3px;
 }
 
 .heroicon-2x {
@@ -462,6 +446,18 @@ input[type="date"]:valid:before {
     height: 60px;
     width: 60px;
     vertical-align: sub;
+}
+
+.heroicon-notification {
+    height: 23px;
+    width: 23px;
+}
+
+.heroicon-small {
+    height: 15px;
+    width: 15px;
+    vertical-align: text-bottom;
+    margin-right: 2px;
 }
 
 .taskord-spinner {

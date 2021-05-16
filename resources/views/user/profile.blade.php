@@ -110,14 +110,14 @@
                 <div class="mt-3">
                     <div>
                         <span class="fw-bold">
-                            <x-heroicon-o-lightning-bolt class="heroicon-1x text-success" />
+                            <x-heroicon-o-lightning-bolt class="heroicon heroicon-1x text-success" />
                             {{ number_format($user->streaks) }}
                         </span>
                         {{ str_plural('day streak', $user->streaks) }}
                     </div>
                     <div class="mt-2">
                         <span class="fw-bold">
-                            <x-heroicon-o-fire class="heroicon-1x text-danger" />
+                            <x-heroicon-o-fire class="heroicon heroicon-1x text-danger" />
                             {{ number_format($user->getPoints()) }}
                         </span>
                         {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
@@ -125,7 +125,7 @@
                     @if (Auth::check() && auth()->user()->id === $user->id)
                     <div class="mt-2">
                         <span>
-                            <x-heroicon-o-sparkles class="heroicon-1x text-success" />
+                            <x-heroicon-o-sparkles class="heroicon heroicon-1x text-success" />
                             You are a
                         </span>
                         <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
@@ -133,7 +133,7 @@
                     @else
                     <div class="mt-2">
                         <span>
-                            <x-heroicon-o-sparkles class="heroicon-1x text-success" />
+                            <x-heroicon-o-sparkles class="heroicon heroicon-1x text-success" />
                             {{ $user->username }} is a
                         </span>
                         <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
@@ -142,7 +142,7 @@
                     @if ($user->isBeta)
                     <div class="mt-2">
                         <span class="fw-bold">
-                            <x-heroicon-o-beaker class="heroicon-1x text-info" />
+                            <x-heroicon-o-beaker class="heroicon heroicon-1x text-info" />
                             Beta Program Member
                         </span>
                     </div>
@@ -150,7 +150,7 @@
                     @if ($user->isDeveloper)
                     <div class="mt-2">
                         <span class="fw-bold">
-                            <x-heroicon-o-chip class="heroicon-1x text-dark" />
+                            <x-heroicon-o-chip class="heroicon heroicon-1x text-dark" />
                             Taskord Contributor
                         </span>
                     </div>

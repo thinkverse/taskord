@@ -50,8 +50,8 @@ return [
     */
 
     'attributes' => [
-        'width' => 20,
-        'height' => 20,
+        'width' => 17,
+        'height' => 17,
     ],
 
 ];

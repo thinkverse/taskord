@@ -28,7 +28,7 @@
             <div class="mb-3">
                 @if ($milestone->start_date)
                     <div class="mb-1">
-                        <x-heroicon-o-calendar class="heroicon-1x" />
+                        <x-heroicon-o-calendar class="heroicon heroicon-1x" />
                         Started at <b class="text-dark">{{ carbon($milestone->start_date)->format('M d, Y') }}</b>
                     </div>
                 @endif
@@ -39,12 +39,12 @@
                         @endphp
                         @if ($past_due)
                             <div class="text-danger">
-                                <x-heroicon-o-exclamation class="heroicon-1x" />
+                                <x-heroicon-o-exclamation class="heroicon heroicon-1x" />
                                 Past due by <b>{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
                             </div>
                         @else
                             <div class="text-dark">
-                                <x-heroicon-o-calendar class="heroicon-1x" />
+                                <x-heroicon-o-calendar class="heroicon heroicon-1x" />
                                 Due by <b>{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
                             </div>
                         @endif
