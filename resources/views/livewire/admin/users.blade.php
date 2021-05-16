@@ -38,9 +38,26 @@
                             <div class="col-lg">
                                 <div>
                                     <span>User ID:</span>
-                                    <span class="text-secondary fw-bold me-2">#{{ $user->id }}</span>
+                                    <span class="text-secondary fw-bold">#{{ $user->id }}</span>
                                 </div>
                                 <div class="mt-1">
+                                    <span>Email:</span>
+                                    <span class="text-dark fw-bold">{{ $user->email }}</span>
+                                    @if ($user->hasVerifiedEmail())
+                                        <span class="badge bg-success">Verified</span>
+                                    @else
+                                        <span class="badge bg-danger">Un-verified</span>
+                                    @endif
+                                </div>
+                                <div>
+                                    Hi
+                                </div>
+                                <div>
+                                    Hi
+                                </div>
+                            </div>
+                            <div class="col-lg">
+                                <div>
                                     <span>Status:</span>
                                     @if ($user->isSuspended)
                                         <span class="badge bg-danger">
@@ -64,42 +81,12 @@
                                         {{ $user->streaks }} {{ str_plural('Streak', $user->streaks) }}
                                     </span>
                                 </div>
-                                <div>
-                                    Hi
-                                </div>
-                                <div>
-                                    Hi
-                                </div>
-                                <div>
-                                    Hi
-                                </div>
                             </div>
-                            <div class="col-lg">
-                                Hi
-                            </div>
-                        </div>
-                        <div class="pt-3">
-                            
-                            
                         </div>
                     </div>
                 </div>
                 <tr>
-                    <td>
-                        
-                    </td>
-                    <td>
-                        {{ $user->email }}
-                        @if ($user->hasVerifiedEmail())
-                            <span title="Email Verified">
-                                <x-heroicon-o-check class="heroicon ms-1 text-success" />
-                            </span>
-                        @else
-                            <span title="Email not Verified">
-                                <x-heroicon-o-x class="heroicon ms-1 text-danger" />
-                            </span>
-                        @endif
-                    </td>
+
                     <td>
                         @if (!$user->isPatron)
                             <span>❌</span>
