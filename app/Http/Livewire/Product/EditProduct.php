@@ -50,7 +50,7 @@ class EditProduct extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'avatar' => ['nullable' ,'mimes:jpeg,jpg,png,gif', 'max:1024'],
+                'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
         } else {
             return $this->alert('error', 'Forbidden!');
@@ -65,7 +65,7 @@ class EditProduct extends Component
                 'slug' => ['required', 'min:3', 'max:20', 'alpha_dash', 'unique:products,slug,'.$this->product->id, new ReservedSlug],
                 'description' => ['nullable', 'max:160'],
                 'website' => ['nullable', 'active_url'],
-                'twitter' => ['nullable', 'alpha_dash' ,'max:30'],
+                'twitter' => ['nullable', 'alpha_dash', 'max:30'],
                 'repo' => ['nullable', 'active_url', new Repo],
                 'producthunt' => ['nullable', 'alpha_dash', 'max:30'],
                 'sponsor' => ['nullable', 'active_url'],

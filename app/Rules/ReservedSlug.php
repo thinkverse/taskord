@@ -3,7 +3,6 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
-use Illuminate\Support\Str;
 
 class ReservedSlug implements Rule
 {
@@ -26,7 +25,7 @@ class ReservedSlug implements Rule
      */
     public function passes($attribute, $value)
     {
-        return !in_array($value, config('taskord.reserved_slugs'));
+        return ! in_array($value, config('taskord.reserved_slugs'));
     }
 
     /**
