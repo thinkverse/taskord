@@ -15,12 +15,12 @@
                         </span>
                     @enderror
                     @if (auth()->user()->ownedProducts->merge(auth()->user()->products)->count('id') > 0)
-                    <select class="form-select mt-3" wire:model.defer="product">
-                        <option selected>Choose Product (optional)</option>
-                        @foreach (auth()->user()->ownedProducts->merge(auth()->user()->products) as $product)
-                        <option value="{{ $product->id }}">{{ $product->name }}</option>
-                        @endforeach
-                    </select>
+                        <select class="form-select mt-3" wire:model.defer="product">
+                            <option selected>Choose Product (optional)</option>
+                            @foreach (auth()->user()->ownedProducts->merge(auth()->user()->products) as $product)
+                                <option value="{{ $product->id }}">{{ $product->name }}</option>
+                            @endforeach
+                        </select>
                     @endif
                 </div>
                 <div class="mb-3 d-flex">
@@ -160,57 +160,57 @@
         </div>
         <div class="card-body">
             @if (count($user->webhooks) === 0)
-            <div class="card-body text-center mt-3 mb-3">
-                <x-heroicon-o-globe-alt class="heroicon-4x text-primary mb-2" />
-                <div class="h4">
-                    No webhooks found
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-globe-alt class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        No webhooks found
+                    </div>
                 </div>
-            </div>
             @else
-            <table class="table table-bordered align-middle text-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">Type</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Token</th>
-                        <th scope="col">Created</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($user->webhooks as $webhook)
-                    <tr>
-                        <td>
-                            @if ($webhook->type === 'web')
-                            <span title="Simple Webhook | ID: {{ $webhook->id }}">
-                                <x-heroicon-o-globe-alt class="heroicon text-info" />
-                            </span>
-                            @elseif ($webhook->type === 'github')
-                            <img class="github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15" width="15" loading=lazy />
-                            @elseif ($webhook->type === 'gitlab')
-                            <img src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" height="15" width="15" loading=lazy />
-                            @endif
-                        </td>
-                        <td class="fw-bold">
-                            {{ Str::limit($webhook->name, '20') }}
-                        </td>
-                        <td class="font-monospace">
-                            {{ Str::limit($webhook->token, '4', '****************') }}
-                        </td>
-                        <td>
-                            {{ $webhook->created_at->format('M d, Y') }}
-                        </td>
-                        <td>
-                            <button wire:loading.attr="disabled" wire:click="deleteWebhook({{ $webhook->id }})"
-                                class="btn btn-sm w-100 btn-danger">
-                                <x-heroicon-o-trash class="heroicon" />
-                                Delete
-                            </button>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                <table class="table table-bordered align-middle text-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Type</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Token</th>
+                            <th scope="col">Created</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($user->webhooks as $webhook)
+                            <tr>
+                                <td>
+                                    @if ($webhook->type === 'web')
+                                        <span title="Simple Webhook | ID: {{ $webhook->id }}">
+                                            <x-heroicon-o-globe-alt class="heroicon text-info" />
+                                        </span>
+                                    @elseif ($webhook->type === 'github')
+                                        <img class="github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15" width="15" loading=lazy />
+                                    @elseif ($webhook->type === 'gitlab')
+                                        <img src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" height="15" width="15" loading=lazy />
+                                    @endif
+                                </td>
+                                <td class="fw-bold">
+                                    {{ Str::limit($webhook->name, '20') }}
+                                </td>
+                                <td class="font-monospace">
+                                    {{ Str::limit($webhook->token, '4', '****************') }}
+                                </td>
+                                <td>
+                                    {{ $webhook->created_at->format('M d, Y') }}
+                                </td>
+                                <td>
+                                    <button wire:loading.attr="disabled" wire:click="deleteWebhook({{ $webhook->id }})"
+                                        class="btn btn-sm w-100 btn-danger">
+                                        <x-heroicon-o-trash class="heroicon" />
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             @endif
         </div>
     </div>
