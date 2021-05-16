@@ -26,9 +26,7 @@
             ])
             @auth
                 @if (!auth()->user()->isFlagged)
-                    @livewire('comment.create-comment', [
-                        'task' => $task
-                    ])
+                    <livewire:comment.create-comment :task="$task" />
                 @endif
             @endauth
             @guest
