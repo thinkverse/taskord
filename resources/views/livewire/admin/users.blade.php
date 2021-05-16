@@ -34,6 +34,48 @@
                             {{ $user->bio }}
                         </div>
                         <hr />
+                        <div class="row row-cols-lg-6">
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->followers()->count() }}</span> Followers
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->followings()->count() }}</span> Following
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->tasks()->whereDone(true)->count('id') }}</span> Completed tasks
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->tasks()->whereDone(false)->count('id') }}</span> Pending tasks
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->comments()->count('id') }}</span> Comments
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->questions()->count('id') }}</span> Questions
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->answers()->count('id') }}</span> Answers
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->milestones()->whereStatus(true)->count('id') }}</span> Open milestones
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->milestones()->whereStatus(false)->count('id') }}</span> Closed milestones
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->ownedProducts('id')->count('id') }}</span> Products
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->products()->count() }}</span> Membership
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->notifications()->count('id') }}</span> Notifications
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ $user->webhooks()->count('id') }}</span> Webhooks
+                            </div>     
+                        </div>
+                        <hr />
                         <div class="row">
                             <div class="col-lg">
                                 <div>
@@ -133,69 +175,6 @@
                         </div>
                     </div>
                 </div>
-                <tr>
-
-                    <td>
-                        <div class="dropdown">
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <span class="dropdown-item">
-                                        <x-heroicon-o-check class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->tasks()->count('id') }}</span> Tasks
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="dropdown-item">
-                                        <x-heroicon-o-chat-alt class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->comments()->count('id') }}</span> Comments
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="dropdown-item">
-                                        <x-heroicon-o-question-mark-circle class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->questions()->count('id') }}</span> Questions
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="dropdown-item">
-                                        <x-heroicon-o-chat-alt-2 class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->answers()->count('id') }}</span> Answers
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="dropdown-item">
-                                        <x-heroicon-o-cube class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->ownedProducts('id')->count('id') }}</span> Products
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="dropdown-item">
-                                        <x-heroicon-o-user-add class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->products()->count() }}</span> Membership
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="dropdown-item">
-                                        <x-heroicon-o-bell class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->notifications()->count('id') }}</span> Notifications
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="dropdown-item">
-                                        <x-heroicon-o-cloud-upload class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->webhooks()->count('id') }}</span> Webhooks
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="dropdown-item">
-                                        <x-heroicon-o-clock class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->timezone }}</span>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
             @endforeach
         @endif
     </div>
