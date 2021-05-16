@@ -1,7 +1,7 @@
 <div>
     @php
         $user = \App\Models\User::find($data['user_id']);
-        if (!$user) {
+        if (!$user or $user->isSuspended) {
             $user = \App\Models\User::where('username', 'ghost')->first();
         }
     @endphp
