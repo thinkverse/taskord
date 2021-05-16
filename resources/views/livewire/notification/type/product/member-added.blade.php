@@ -2,10 +2,11 @@
     @if ($product)
         <div class="mt-2 text-secondary">
             added you to the product
-            <a class="fw-bold" href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                <img loading=lazy class="rounded avatar-20 ms-1 me-1 mb-1" src="{{ Helper::getCDNImage($product->avatar, 80) }}" height="20" width="20" />
-                {{ $product->name }}
-            </a>
+            <div class="card mt-3">
+                <div class="card-body">
+                    <livewire:product.single-product :product="$product" />
+                </div>
+            </div>
         </div>
     @else
         <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>
