@@ -19,7 +19,10 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+            'SocialiteProviders\\Google\\GoogleExtendSocialite@handle',
+            'SocialiteProviders\\Twitter\\TwitterExtendSocialite@handle',
             'SocialiteProviders\\Discord\\DiscordExtendSocialite@handle',
+            'SocialiteProviders\\GitHub\\GitHubExtendSocialite@handle',
         ],
     ];
 
