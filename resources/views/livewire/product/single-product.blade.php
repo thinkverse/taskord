@@ -13,25 +13,16 @@
         </a>
         <div class="pe-5 pt-2 text-secondary">{{ $product->description }}</div>
     </span>
-    <span class="ms-auto">
+    <span class="ms-auto d-flex align-items-center">
         @if ($product->members()->count() > 1)
-            <span class="me-2 mt-1 text-secondary fw-bold">+{{ $product->members()->count() - 1 }} more</span>
+            <span class="me-2 text-secondary fw-bold">+{{ $product->members()->count() - 1 }} more</span>
         @endif
-        @foreach ($product->members()->limit(1)->get() as $user)
-            <a
-                href="{{ route('user.done', ['username' => $user->username]) }}"
-                class="user-popover"
-                data-id="{{ $user->id }}"
-            >
-                <img loading=lazy class="rounded-circle avatar-30 mt-1 me-1" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="30" width="30" alt="{{ $user->username }}'s avatar" />
-            </a>
-        @endforeach
         <a
             href="{{ route('user.done', ['username' => $product->owner->username]) }}"
             class="user-popover"
             data-id="{{ $product->owner->id }}"
         >
-            <img loading=lazy class="rounded-circle avatar-30 mt-1 me-0" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" height="30" width="30" alt="{{ $product->owner->username }}'s avatar" />
+            <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" height="30" width="30" alt="{{ $product->owner->username }}'s avatar" />
         </a>
     </span>
 </div>
