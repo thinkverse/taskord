@@ -73,10 +73,6 @@
         @endforeach
     @endforeach
     @if ($readyToLoad and $products->hasMorePages())
-        @livewire('products.load-more', [
-            'type' => $type,
-            'page' => $page,
-            'perPage' => $perPage
-        ])
+        <livewire:products.load-more :type="$type" :page="$page" :perPage="$perPage" />
     @endif
 </div>
