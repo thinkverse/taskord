@@ -11,7 +11,7 @@ use App\Notifications\Answer\AnswerPraised;
 use App\Notifications\Comment\CommentPraised;
 use App\Notifications\Mentioned;
 use App\Notifications\Question\NotifySubscribers as QuestionSubscribers;
-use App\Notifications\QuestionPraised;
+use App\Notifications\Question\QuestionPraised;
 use App\Notifications\Task\NotifySubscribers as TaskSubscribers;
 use App\Notifications\TaskPraised;
 use Illuminate\Database\Eloquent\Model;
