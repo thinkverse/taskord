@@ -20,7 +20,7 @@
                     </button>
                 @endif
             </div>
-            @if ($type === "App\Notifications\TaskPraised")
+            @if ($type === "App\Notifications\Task\TaskPraised")
                 <livewire:notification.type.task.task-praised :data="$data" />
             @elseif ($type === "App\Notifications\Mentioned")
                 <livewire:notification.type.mentioned :data="$data" />
