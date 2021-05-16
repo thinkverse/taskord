@@ -46,13 +46,13 @@
             </div>
             @if ($task->images)
                 <div class="gallery">
-                @foreach ($task->images ?? [] as $image)
-                    <div>
-                        <a href="{{ asset('storage/' . $image) }}" target="_blank">
-                            <img loading=lazy class="gallery img-fluid mt-3 rounded" src="{{ Helper::getCDNImage(asset('storage/' . $image), 500) }}" alt="{{ asset('storage/' . $image) }}" />
-                        </a>
-                    </div>
-                @endforeach
+                    @foreach ($task->images ?? [] as $image)
+                        <div>
+                            <a href="{{ asset('storage/' . $image) }}" target="_blank">
+                                <img loading=lazy class="gallery img-fluid mt-3 rounded" src="{{ Helper::getCDNImage(asset('storage/' . $image), 500) }}" alt="{{ asset('storage/' . $image) }}" />
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             @endif
         @endif
