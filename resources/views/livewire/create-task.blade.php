@@ -25,11 +25,11 @@
             <input class="form-control form-control-sm" wire:model="images" accept="image/*" type="file" aria-label="Upload Images" multiple>
         </div>
         @auth
-        @if (!auth()->user()->checkState)
-        <div class="ms-auto me-2 d-none d-sm-block">
-            <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ carbon('today')->format('Y-m-d') }}" />
-        </div>
-        @endif
+            @if (!auth()->user()->checkState)
+                <div class="ms-auto me-2 d-none d-sm-block">
+                    <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ carbon('today')->format('Y-m-d') }}" />
+                </div>
+            @endif
         @endauth
         <button wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
             <x-heroicon-o-plus class="heroicon" />
@@ -41,23 +41,23 @@
         </div>
         @if ($images)
             <div class="gallery">
-            @foreach ($images ?? [] as $image)
-            <div>
-                <img loading=lazy class="{{ count($images) === 1 ? 'w-50' : 'gallery' }} img-fluid mt-3 rounded" src="{{ $image->temporaryUrl() }}" />
-            </div>
-            @endforeach
+                @foreach ($images ?? [] as $image)
+                    <div>
+                        <img loading=lazy class="{{ count($images) === 1 ? 'w-50' : 'gallery' }} img-fluid mt-3 rounded" src="{{ $image->temporaryUrl() }}" />
+                    </div>
+                @endforeach
             </div>
         @endif
         @error('images.*')
-        <div class="text-danger fw-bold mt-3">{{ $message }}</div>
+            <div class="text-danger fw-bold mt-3">{{ $message }}</div>
         @enderror
     </form>
     @if ($show_latest_task and $latest_task)
-    <div class="mt-3">
-        @livewire('tasks.single-task', [
-            'task' => $latest_task,
-            'show_delete' => false
-        ], key($latest_task->id))
-    </div>
+        <div class="mt-3">
+            @livewire('tasks.single-task', [
+                'task' => $latest_task,
+                'show_delete' => false
+            ], key($latest_task->id))
+        </div>
     @endif
 </div>
