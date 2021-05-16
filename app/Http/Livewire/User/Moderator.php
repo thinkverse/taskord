@@ -298,6 +298,20 @@ class Moderator extends Component
         }
     }
 
+    public function deleteMilestones()
+    {
+        if (Auth::check() && auth()->user()->isStaff) {
+            loggy(request(), 'Admin', auth()->user(), 'Deleted all milestones | Username: @'.$this->user->username);
+            $user = User::find($this->user->id);
+            $user->timestamps = false;
+            $user->milestones()->delete();
+
+            return redirect()->route('user.done', ['username' => $this->user->username]);
+        } else {
+            return false;
+        }
+    }
+
     public function deleteProducts()
     {
         if (Auth::check() && auth()->user()->isStaff) {

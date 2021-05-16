@@ -221,6 +221,13 @@
                         </button>
                     </div>
                     <div class="mt-2">
+                        <button wire:loading.attr="disabled" wire:click="deleteMilestones" class="btn btn-sm btn-danger fw-bold">
+                            <x-heroicon-o-trash class="heroicon" />
+                            <x-heroicon-o-truck class="heroicon" />
+                            Delete all milestones
+                        </button>
+                    </div>
+                    <div class="mt-2">
                         <button wire:loading.attr="disabled" wire:click="deleteProducts" class="btn btn-sm btn-danger fw-bold">
                             <x-heroicon-o-trash class="heroicon" />
                             <x-heroicon-o-cube class="heroicon" />
