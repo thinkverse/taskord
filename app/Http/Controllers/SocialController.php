@@ -24,11 +24,7 @@ class SocialController extends Controller
 
     public function Callback(Request $request, $provider)
     {
-        if ($provider === 'twitter') {
-            $userSocial = Socialite::driver($provider)->user();
-        } else {
-            $userSocial = Socialite::driver($provider)->stateless()->user();
-        }
+        $userSocial = Socialite::driver($provider)->user();
 
         $user = User::where(['email' => $userSocial->getEmail()])->first();
 
