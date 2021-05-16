@@ -25,32 +25,30 @@
             </div>
         @endif
         @if ($milestone->start_date or $milestone->end_date)
-            <div class="mb-3">
-                @if ($milestone->start_date)
-                    <div class="mb-1">
-                        <x-heroicon-o-calendar class="heroicon heroicon-18px" />
-                        Started at <b class="text-dark">{{ carbon($milestone->start_date)->format('M d, Y') }}</b>
-                    </div>
-                @endif
-                @if ($milestone->end_date)
-                    <div>
-                        @php
-                            $past_due = $milestone->end_date < carbon();
-                        @endphp
-                        @if ($past_due)
-                            <div class="text-danger">
-                                <x-heroicon-o-exclamation class="heroicon heroicon-18px" />
-                                Past due by <b>{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
-                            </div>
-                        @else
-                            <div class="text-dark">
-                                <x-heroicon-o-calendar class="heroicon heroicon-18px" />
-                                Due by <b>{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
-                            </div>
-                        @endif
-                    </div>
-                @endif
-            </div>
+            @if ($milestone->start_date)
+                <div class="mb-1">
+                    <x-heroicon-o-calendar class="heroicon heroicon-18px" />
+                    Started at <b class="text-dark">{{ carbon($milestone->start_date)->format('M d, Y') }}</b>
+                </div>
+            @endif
+            @if ($milestone->end_date)
+                <div>
+                    @php
+                        $past_due = $milestone->end_date < carbon();
+                    @endphp
+                    @if ($past_due)
+                        <div class="text-danger">
+                            <x-heroicon-o-exclamation class="heroicon heroicon-18px" />
+                            Past due by <b>{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
+                        </div>
+                    @else
+                        <div class="text-dark">
+                            <x-heroicon-o-calendar class="heroicon heroicon-18px" />
+                            Due by <b>{{ carbon($milestone->end_date)->format('M d, Y') }}</b>
+                        </div>
+                    @endif
+                </div>
+            @endif
         @endif
         <livewire:milestone.progress :milestone="$milestone" :wire:key="$milestone->id" />
         <div class="mt-3">

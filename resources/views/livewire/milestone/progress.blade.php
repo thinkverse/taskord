@@ -1,4 +1,4 @@
-<div wire:init="loadProgress">
+<div wire:init="loadProgress" class="mt-3">
     @if (!$readyToLoad)
         <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
     @else
