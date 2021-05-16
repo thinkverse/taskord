@@ -3,7 +3,7 @@
         <div class="card-body">
             <h5>
                 <a class="text-dark" href="{{ route('milestones.opened') }}">
-                    <x-heroicon-o-truck class="heroicon heroicon-2x" />
+                    <x-heroicon-o-truck class="heroicon heroicon-20px" />
                     Milestone public beta
                 </a>
             </h5>

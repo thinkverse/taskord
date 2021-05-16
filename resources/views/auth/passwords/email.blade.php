@@ -41,7 +41,7 @@
                 </div>
                 <button class="btn btn-lg btn-primary w-100" type="submit">
                     <span class="small">
-                        <x-heroicon-o-mail class="heroicon heroicon-2x" />
+                        <x-heroicon-o-mail class="heroicon heroicon-20px" />
                         Send Password Reset Link
                     </span>
                 </button>

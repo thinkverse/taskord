@@ -10,7 +10,7 @@
                 </button>
             @else
                 <button role="button" class="btn btn-task btn-outline-danger mt-2" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Delete feature">
-                    <x-heroicon-o-trash class="heroicon heroicon-small" />
+                    <x-heroicon-o-trash class="heroicon heroicon-15px" />
                     Delete feature
                 </button>
             @endif

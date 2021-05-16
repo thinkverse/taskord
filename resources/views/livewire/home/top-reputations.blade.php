@@ -55,7 +55,7 @@
                         @endif
                     </a>
                     <span class="badge rounded-pill score bg-warning text-reputation align-middle" title="🔥 {{ number_format($user->getPoints()) }}">
-                        <x-heroicon-o-fire class="heroicon heroicon-small text-danger" />
+                        <x-heroicon-o-fire class="heroicon heroicon-15px text-danger" />
                         {{ $user->getPoints(true) }}
                     </span>
                 </div>

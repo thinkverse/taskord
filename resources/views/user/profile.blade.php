@@ -37,19 +37,19 @@
                         @auth
                         @endauth
                         @if ($user->isPrivate)
-                            <x-heroicon-o-lock-closed class="heroicon heroicon-2x text-primary ms-2 me-0 private" />
+                            <x-heroicon-o-lock-closed class="heroicon heroicon-20px text-primary ms-2 me-0 private" />
                         @endif
                         @if ($user->isVerified)
-                            <x-heroicon-s-badge-check class="heroicon heroicon-2x text-primary ms-2 me-0 verified" />
+                            <x-heroicon-s-badge-check class="heroicon heroicon-20px text-primary ms-2 me-0 verified" />
                         @endif
                         @if ($user->isPatron)
                             <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                                <x-heroicon-s-star class="heroicon heroicon-2x ms-2 me-0 text-gold" />
+                                <x-heroicon-s-star class="heroicon heroicon-20px ms-2 me-0 text-gold" />
                             </a>
                         @endif
                         @if ($user->vacation_mode)
                             <span title="On Vacation">
-                                <x-heroicon-o-sun class="heroicon heroicon-2x ms-2 me-0 text-success" />
+                                <x-heroicon-o-sun class="heroicon heroicon-20px ms-2 me-0 text-success" />
                             </span>
                         @endif
                         @auth
@@ -80,20 +80,20 @@
                     @endif
                     <div class="small mt-3">
                         <span>
-                            <x-heroicon-o-calendar class="heroicon heroicon-small text-secondary" />
+                            <x-heroicon-o-calendar class="heroicon heroicon-15px text-secondary" />
                             Joined {{ $user->created_at->format("F Y") }}
                         </span>
                         @if ($user->location)
                         <span class="ms-3">
                             <a class="text-dark" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}" target="_blank" rel="noreferrer">
-                                <x-heroicon-o-map class="heroicon heroicon-small text-secondary" />
+                                <x-heroicon-o-map class="heroicon heroicon-15px text-secondary" />
                                 {{ $user->location }}
                             </a>
                         </span>
                         @endif
                         @if ($user->company)
                         <span class="ms-3">
-                            <x-heroicon-o-briefcase class="heroicon heroicon-small text-secondary" />
+                            <x-heroicon-o-briefcase class="heroicon heroicon-15px text-secondary" />
                             {{ $user->company }}
                         </span>
                         @if ($user->isStaff)
@@ -110,14 +110,14 @@
                 <div class="mt-3">
                     <div>
                         <span class="fw-bold">
-                            <x-heroicon-o-lightning-bolt class="heroicon heroicon-1x text-success" />
+                            <x-heroicon-o-lightning-bolt class="heroicon heroicon-18px text-success" />
                             {{ number_format($user->streaks) }}
                         </span>
                         {{ str_plural('day streak', $user->streaks) }}
                     </div>
                     <div class="mt-2">
                         <span class="fw-bold">
-                            <x-heroicon-o-fire class="heroicon heroicon-1x text-danger" />
+                            <x-heroicon-o-fire class="heroicon heroicon-18px text-danger" />
                             {{ number_format($user->getPoints()) }}
                         </span>
                         {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
@@ -125,7 +125,7 @@
                     @if (Auth::check() && auth()->user()->id === $user->id)
                     <div class="mt-2">
                         <span>
-                            <x-heroicon-o-sparkles class="heroicon heroicon-1x text-success" />
+                            <x-heroicon-o-sparkles class="heroicon heroicon-18px text-success" />
                             You are a
                         </span>
                         <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
@@ -133,7 +133,7 @@
                     @else
                     <div class="mt-2">
                         <span>
-                            <x-heroicon-o-sparkles class="heroicon heroicon-1x text-success" />
+                            <x-heroicon-o-sparkles class="heroicon heroicon-18px text-success" />
                             {{ $user->username }} is a
                         </span>
                         <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
@@ -142,7 +142,7 @@
                     @if ($user->isBeta)
                     <div class="mt-2">
                         <span class="fw-bold">
-                            <x-heroicon-o-beaker class="heroicon heroicon-1x text-info" />
+                            <x-heroicon-o-beaker class="heroicon heroicon-18px text-info" />
                             Beta Program Member
                         </span>
                     </div>
@@ -150,7 +150,7 @@
                     @if ($user->isDeveloper)
                     <div class="mt-2">
                         <span class="fw-bold">
-                            <x-heroicon-o-chip class="heroicon heroicon-1x text-dark" />
+                            <x-heroicon-o-chip class="heroicon heroicon-18px text-dark" />
                             Taskord Contributor
                         </span>
                     </div>

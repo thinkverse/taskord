@@ -23,7 +23,7 @@
                 </form>
                 @if (!$tasks)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-search class="heroicon heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-search class="heroicon heroicon-60px text-primary mb-2" />
                         <div class="h4">
                             We couldn’t find any tasks matching '{{ $searchTerm }}'
                         </div>
@@ -50,7 +50,7 @@
                 </form>
                 @if (!$comments)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-search class="heroicon heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-search class="heroicon heroicon-60px text-primary mb-2" />
                         <div class="h4">
                             We couldn’t find any comments matching '{{ $searchTerm }}'
                         </div>
@@ -77,7 +77,7 @@
                 </form>
                 @if (!$questions)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-search class="heroicon heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-search class="heroicon heroicon-60px text-primary mb-2" />
                         <div class="h4">
                             We couldn’t find any questions matching '{{ $searchTerm }}'
                         </div>
@@ -105,7 +105,7 @@
                 </form>
                 @if (!$answers)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-search class="heroicon heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-search class="heroicon heroicon-60px text-primary mb-2" />
                         <div class="h4">
                             We couldn’t find any answers matching '{{ $searchTerm }}'
                         </div>
@@ -142,7 +142,7 @@
                 </form>
                 @if (!$products)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-search class="heroicon heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-search class="heroicon heroicon-60px text-primary mb-2" />
                         <div class="h4">
                             We couldn’t find any products matching '{{ $searchTerm }}'
                         </div>
@@ -208,7 +208,7 @@
                 </form>
                 @if (!$users)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-search class="heroicon heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-search class="heroicon heroicon-60px text-primary mb-2" />
                         <div class="h4">
                             We couldn’t find any users matching '{{ $searchTerm }}'
                         </div>
@@ -233,14 +233,14 @@
                                         @endif
                                     @endauth
                                     @if ($user->isPrivate)
-                                        <x-heroicon-o-lock-closed class="heroicon heroicon-2x text-primary ms-2 me-0 private" />
+                                        <x-heroicon-o-lock-closed class="heroicon heroicon-20px text-primary ms-2 me-0 private" />
                                     @endif
                                     @if ($user->isVerified)
-                                        <x-heroicon-s-badge-check class="heroicon heroicon-2x text-primary ms-2 me-0 verified" />
+                                        <x-heroicon-s-badge-check class="heroicon heroicon-20px text-primary ms-2 me-0 verified" />
                                     @endif
                                     @if ($user->isPatron)
                                         <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                                            <x-heroicon-s-star class="heroicon heroicon-2x ms-2 me-0 text-gold" />
+                                            <x-heroicon-s-star class="heroicon heroicon-20px ms-2 me-0 text-gold" />
                                         </a>
                                     @endif
                                     @auth

@@ -46,7 +46,7 @@
                 @endif
                 <button class="btn btn-lg btn-primary w-100 mt-3" type="submit">
                     <span class="small">
-                        <x-heroicon-o-check class="heroicon heroicon-2x" />
+                        <x-heroicon-o-check class="heroicon heroicon-20px" />
                         Confirm Password
                     </span>
                 </button>

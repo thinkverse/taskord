@@ -48,7 +48,7 @@
                     <ul class="dropdown-menu shadow-sm border">
                         <li>
                             <a class="dropdown-item text-dark" href="{{ route('milestones.opened') }}">
-                                <x-heroicon-o-truck class="heroicon heroicon-1x text-secondary" />
+                                <x-heroicon-o-truck class="heroicon heroicon-18px text-secondary" />
                                 Milestones
                                 <x-beta />
                             </a>
@@ -56,7 +56,7 @@
                         @if (feature('meetups'))
                             <li>
                                 <a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">
-                                    <x-heroicon-o-user-group class="heroicon heroicon-1x text-secondary" />
+                                    <x-heroicon-o-user-group class="heroicon heroicon-18px text-secondary" />
                                     Meetups
                                     <x-staffship />
                                 </a>
@@ -65,7 +65,7 @@
                         @if (feature('help_menu'))
                             <li>
                                 <a class="dropdown-item text-dark" href="#">
-                                    <x-heroicon-o-support class="heroicon heroicon-1x text-secondary" />
+                                    <x-heroicon-o-support class="heroicon heroicon-18px text-secondary" />
                                     Help
                                     <x-staffship />
                                 </a>
@@ -74,26 +74,26 @@
                             @auth
                             <li>
                                 <a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">
-                                    <x-heroicon-o-link class="heroicon heroicon-1x text-secondary" />
+                                    <x-heroicon-o-link class="heroicon heroicon-18px text-secondary" />
                                     Integration
                                 </a>
                             </li>
                         @endauth
                         <li>
                             <a class="dropdown-item text-dark" href="{{ route('deals') }}">
-                                <x-heroicon-o-gift class="heroicon heroicon-1x text-secondary" />
+                                <x-heroicon-o-gift class="heroicon heroicon-18px text-secondary" />
                                 Deals
                             </a>
                         </li>
                         <li>
                             <a class="dropdown-item text-dark" href="{{ route('open') }}">
-                                <x-heroicon-o-chart-bar class="heroicon heroicon-1x text-secondary" />
+                                <x-heroicon-o-chart-bar class="heroicon heroicon-18px text-secondary" />
                                 Open
                             </a>
                         </li>
                         <li>
                             <a class="dropdown-item text-dark" href="https://gitlab.com/yo/taskord/-/milestones" target="_blank" rel="noreferrer">
-                                <x-heroicon-o-map class="heroicon heroicon-1x text-secondary" />
+                                <x-heroicon-o-map class="heroicon heroicon-18px text-secondary" />
                                 Roadmap
                             </a>
                         </li>
@@ -120,30 +120,30 @@
                 @else
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white" href="#" id="navbarNewDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <x-heroicon-o-plus-circle class="heroicon-navbar me-0" />
+                            <x-heroicon-o-plus-circle class="heroicon-23px me-0" />
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarNewDropdown">
                             <li>
                                 <a class="dropdown-item text-dark" href="#" data-bs-toggle="modal" data-bs-target="#newTaskModal">
-                                    <x-heroicon-o-check-circle class="heroicon heroicon-1x text-secondary" />
+                                    <x-heroicon-o-check-circle class="heroicon heroicon-18px text-secondary" />
                                     New Task
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item text-dark" href="{{ route('products.new') }}">
-                                    <x-heroicon-o-cube class="heroicon heroicon-1x text-secondary" />
+                                    <x-heroicon-o-cube class="heroicon heroicon-18px text-secondary" />
                                     New Product
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item text-dark" href="{{ route('questions.new') }}">
-                                    <x-heroicon-o-question-mark-circle class="heroicon heroicon-1x text-secondary" />
+                                    <x-heroicon-o-question-mark-circle class="heroicon heroicon-18px text-secondary" />
                                     New Question
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item text-dark" href="{{ route('milestones.new') }}">
-                                    <x-heroicon-o-truck class="heroicon heroicon-1x text-secondary" />
+                                    <x-heroicon-o-truck class="heroicon heroicon-18px text-secondary" />
                                     New Milestone
                                 </a>
                             </li>
@@ -159,7 +159,7 @@
                                 >
                                         @if (auth()->user()->vacation_mode)
                                         <span class="badge rounded-pill score text-white bg-success" title="Vacation mode on">
-                                            <x-heroicon-o-sun class="heroicon heroicon-small me-0" />
+                                            <x-heroicon-o-sun class="heroicon heroicon-15px me-0" />
                                         </span>
                                     @else
                                         <span
@@ -169,7 +169,7 @@
                                             @else
                                                 bg-info
                                             @endif">
-                                            <x-heroicon-s-check-circle class="heroicon heroicon-small" />
+                                            <x-heroicon-s-check-circle class="heroicon heroicon-15px" />
                                             {{ auth()->user()->daily_goal_reached }}/{{ auth()->user()->daily_goal }}
                                         </span>
                                     @endif
@@ -180,7 +180,7 @@
                     <li class="nav-item me-2">
                         <a class="nav-link" href="{{ route('reputation') }}">
                             <span class="badge rounded-pill text-reputation score bg-warning">
-                                <x-heroicon-o-fire class="heroicon heroicon-small text-danger" />
+                                <x-heroicon-o-fire class="heroicon heroicon-15px text-danger" />
                                 {{ number_format(auth()->user()->getPoints()) }}
                             </span>
                         </a>
@@ -211,29 +211,29 @@
                             </div>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-dark" href="{{ route('user.done', ['username' => auth()->user()->username]) }}">
-                                <x-heroicon-o-user class="heroicon heroicon-1x text-secondary" />
+                                <x-heroicon-o-user class="heroicon heroicon-18px text-secondary" />
                                 Profile
                             </a>
                             <a class="dropdown-item text-dark" href="{{ route('user.pending', ['username' => auth()->user()->username]) }}">
-                                <x-heroicon-o-clock class="heroicon heroicon-1x text-secondary" />
+                                <x-heroicon-o-clock class="heroicon heroicon-18px text-secondary" />
                                 Pending Tasks
                             </a>
                             <a class="dropdown-item text-dark" href="{{ route('user.settings.profile') }}">
-                                <x-heroicon-o-cog class="heroicon heroicon-1x text-secondary" />
+                                <x-heroicon-o-cog class="heroicon heroicon-18px text-secondary" />
                                 Settings
                             </a>
                             <a class="dropdown-item text-dark" href="{{ route('patron.home') }}">
-                                <x-heroicon-o-star class="heroicon heroicon-1x text-secondary" />
+                                <x-heroicon-o-star class="heroicon heroicon-18px text-secondary" />
                                 Patron
                             </a>
                             <div class="dropdown-divider"></div>
                             @if (auth()->user()->isStaff)
                                 <a class="dropdown-item text-dark" id="admin-bar-click" role="button">
                                     @if (auth()->user()->staffShip)
-                                        <x-heroicon-o-eye-off class="heroicon heroicon-1x text-secondary" />
+                                        <x-heroicon-o-eye-off class="heroicon heroicon-18px text-secondary" />
                                         Hide Admin Bar
                                     @else
-                                        <x-heroicon-o-eye class="heroicon heroicon-1x text-secondary" />
+                                        <x-heroicon-o-eye class="heroicon heroicon-18px text-secondary" />
                                         Show Admin Bar
                                     @endif
                                 </a>
@@ -242,29 +242,29 @@
                             @if (auth()->user()->isPatron)
                                 <a class="dropdown-item text-dark" id="dark-mode" role="button">
                                     @if (auth()->user()->darkMode)
-                                        <x-heroicon-o-sun class="heroicon heroicon-1x text-secondary" />
+                                        <x-heroicon-o-sun class="heroicon heroicon-18px text-secondary" />
                                         Light Mode
                                     @else
-                                        <x-heroicon-o-moon class="heroicon heroicon-1x text-secondary" />
+                                        <x-heroicon-o-moon class="heroicon heroicon-18px text-secondary" />
                                         Dark Mode
                                     @endif
                                 </a>
                             @endif
                             @if (auth()->user()->isDeveloper)
                                 <a class="dropdown-item text-dark" href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
-                                    <x-heroicon-o-code class="heroicon heroicon-1x text-secondary" />
+                                    <x-heroicon-o-code class="heroicon heroicon-18px text-secondary" />
                                     GitLab
                                 </a>
                             @endif
                             <a class="dropdown-item text-dark cursor-pointer d-sm-none d-md-block" data-bs-toggle="modal" data-bs-target="#shortcutsModal">
-                                <x-heroicon-o-view-grid class="heroicon heroicon-1x text-secondary" />
+                                <x-heroicon-o-view-grid class="heroicon heroicon-18px text-secondary" />
                                 Shortcuts
                             </a>
                             <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                 data-prefetch="false"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                <x-heroicon-o-logout class="heroicon heroicon-1x text-secondary" />
+                                <x-heroicon-o-logout class="heroicon heroicon-18px text-secondary" />
                                 Logout
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

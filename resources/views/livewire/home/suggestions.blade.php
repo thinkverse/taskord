@@ -10,7 +10,7 @@
         @endif
         @if ($readyToLoad and count($users) === 0)
             <div class="card-body text-center fw-bold text-secondary">
-                <x-heroicon-o-user class="heroicon heroicon-2x text-primary" />
+                <x-heroicon-o-user class="heroicon heroicon-20px text-primary" />
                 Nothing to suggest!
             </div>
         @endif

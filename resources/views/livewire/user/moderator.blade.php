@@ -116,7 +116,7 @@
                     @endif
                 </div>
                 <div class="text-info h5 mb-3">
-                    <x-heroicon-o-flag class="heroicon heroicon-2x" />
+                    <x-heroicon-o-flag class="heroicon heroicon-20px" />
                     Flags
                 </div>
                 <div class="mb-2 mt-3">
@@ -155,7 +155,7 @@
                         </button>
                     </div>
                         <div class="text-info h5 mt-3">
-                        <x-heroicon-o-pencil-alt class="heroicon heroicon-2x" />
+                        <x-heroicon-o-pencil-alt class="heroicon heroicon-20px" />
                         {{__("Notes")}}
                             <form wire:submit.prevent="updateUserStaffNotes">
                                 <textarea name="staff_notes" id="staff_notes" class="form-control mt-3" rows="3" wire:model="staff_notes" placeholder="Important information about this user..">
@@ -169,7 +169,7 @@
                 @if (!$user->isStaff)
                     <hr>
                     <div class="text-danger h5 mb-3">
-                        <x-heroicon-o-user class="heroicon heroicon-2x" />
+                        <x-heroicon-o-user class="heroicon heroicon-20px" />
                         Danger Zone
                     </div>
                     <div class="mt-2">

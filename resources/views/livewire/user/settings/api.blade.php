@@ -12,7 +12,7 @@
                         <input type="text" id="personal-access-token" class="form-control @error('token') is-invalid @enderror" value="{{ $user->api_token }}" readonly>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary js-clipboard" type="button" title="Copy" data-bs-toggle="tooltip" data-for="#personal-access-token">
-                                <x-heroicon-o-clipboard-copy class="heroicon heroicon-1x"></x-heroicon-o-clipboard-copy>
+                                <x-heroicon-o-clipboard-copy class="heroicon heroicon-18px"></x-heroicon-o-clipboard-copy>
                             </button>
                         </div>
                     </div>

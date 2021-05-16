@@ -14,7 +14,7 @@
                 @if ($page_type === 'unread')
                     <button wire:click="markSingleNotificationAsRead" class="btn btn-sm btn-task ms-5" title="Mark as read">
                         <span wire:loading.remove>
-                            <x-heroicon-s-check class="heroicon heroicon-2x text-secondary me-0" />
+                            <x-heroicon-s-check class="heroicon heroicon-20px text-secondary me-0" />
                         </span>
                         <span wire:loading class="spinner-border spinner-border-sm"></span>
                     </button>

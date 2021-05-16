@@ -34,7 +34,7 @@
             @auth
                 @if (auth()->user()->hasLiked($question))
                     <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                        <x-heroicon-s-thumb-up class="heroicon heroicon-small me-0" />
+                        <x-heroicon-s-thumb-up class="heroicon heroicon-15px me-0" />
                         <span class="small text-white fw-bold">
                             {{ number_format($question->likerscount()) }}
                         </span>
@@ -46,7 +46,7 @@
                     </button>
                 @else
                     <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                        <x-heroicon-o-thumb-up class="heroicon heroicon-small me-0 text-secondary" />
+                        <x-heroicon-o-thumb-up class="heroicon heroicon-15px me-0 text-secondary" />
                         @if ($question->likerscount() !== 0)
                             <span class="small text-dark fw-bold">
                                 {{ number_format($question->likerscount()) }}
@@ -60,7 +60,7 @@
                     </button>
                 @endif
                 <a href="{{ route('question.question', ['id' => $question->id]) }}" class="btn btn-task btn-outline-primary me-1" aria-label="Questions">
-                    <x-heroicon-o-chat-alt class="heroicon heroicon-small me-0 text-secondary" />
+                    <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
                     @if ($question->answer->count('id') !== 0)
                         <span class="small text-dark fw-bold">
                             {{ number_format($question->answer->count('id')) }}
@@ -70,7 +70,7 @@
                 @if (auth()->user()->staffShip or auth()->user()->id === $question->user->id)
                     @if ($type === "question.question")
                         <a href="{{ route('question.edit', ['question' => $question]) }}" class="btn btn-task btn-outline-info me-1">
-                            <x-heroicon-o-pencil-alt class="heroicon heroicon-small me-0 text-secondary" />
+                            <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />
                             <span class="small text-dark fw-bold">
                                 Edit
                             </span>
@@ -85,18 +85,18 @@
                         wire:offline.attr="disabled"
                         aria-label="Delete"
                     >
-                        <x-heroicon-o-trash class="heroicon heroicon-small me-0 text-secondary" />
+                        <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
                     </button>
                 @endif
                 @if (auth()->user()->staffShip)
                     <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" title="Flag to admins" aria-label="Hide">
-                        <x-heroicon-o-eye-off class="heroicon heroicon-small me-0" />
+                        <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                     </button>
                 @endif
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
-                    <x-heroicon-o-thumb-up class="heroicon heroicon-small me-0 text-secondary" />
+                    <x-heroicon-o-thumb-up class="heroicon heroicon-15px me-0 text-secondary" />
                     @if ($question->likerscount() !== 0)
                         <span class="small text-dark fw-bold">
                             {{ number_format($question->likerscount()) }}

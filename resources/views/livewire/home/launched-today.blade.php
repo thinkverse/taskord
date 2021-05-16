@@ -1,7 +1,7 @@
 <div wire:init="loadLaunchedToday">
     @if (count($launched_today) > 0)
         <div class="pb-2 h5">
-            <x-heroicon-o-lightning-bolt class="heroicon heroicon-2x ms-1 text-secondary" />
+            <x-heroicon-o-lightning-bolt class="heroicon heroicon-20px ms-1 text-secondary" />
             Launched Today
         </div>
         <div class="card mb-4">

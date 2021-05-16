@@ -92,7 +92,7 @@
             <div class="pt-2 pb-2">
                 @if (count($user->ownedProducts->merge($user->products)) === 0)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-cube class="heroicon heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-cube class="heroicon heroicon-60px text-primary mb-2" />
                         <div class="h4">
                             No products made
                         </div>
