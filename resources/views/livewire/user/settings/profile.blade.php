@@ -67,19 +67,19 @@
                     <div class="spinner-border spinner-border-sm" role="status"></div>
                 </div>
                 @error('avatar')
-                <div class="text-danger fw-bold mt-3">{{ $message }}</div>
+                    <div class="text-danger fw-bold mt-3">{{ $message }}</div>
                 @else
-                @if ($avatar)
-                <div>
-                    <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3" src="{{ $avatar->temporaryUrl() }}" height="100" width="100" />
-                </div>
-                @else
-                @if ($user->avatar)
-                <div>
-                    <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3" src="{{ Helper::getCDNImage($user->avatar, 240) }}" height="100" width="100" alt="{{ $user->username }}'s avatar" />
-                </div>
-                @endif
-                @endif
+                    @if ($avatar)
+                        <div>
+                            <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3" src="{{ $avatar->temporaryUrl() }}" height="100" width="100" />
+                        </div>
+                    @else
+                        @if ($user->avatar)
+                            <div>
+                                <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3" src="{{ Helper::getCDNImage($user->avatar, 240) }}" height="100" width="100" alt="{{ $user->username }}'s avatar" />
+                            </div>
+                        @endif
+                    @endif
                 @enderror
                 <button type="submit" class="btn btn-primary">
                     Save
@@ -101,18 +101,18 @@
                     </div>
                 </div>
                 @if ($user->hasGoal)
-                <div class="mt-2 mb-3">
-                    <label class="form-label mt-2">Number of tasks</label>
-                    <input type="text" class="form-control @error('daily_goal') is-invalid @enderror" value="{{ $user->daily_goal }}" wire:model.defer="daily_goal">
-                    @error('daily_goal')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-                <button type="submit" class="btn btn-primary">
-                    Set Goal
-                </button>
+                    <div class="mt-2 mb-3">
+                        <label class="form-label mt-2">Number of tasks</label>
+                        <input type="text" class="form-control @error('daily_goal') is-invalid @enderror" value="{{ $user->daily_goal }}" wire:model.defer="daily_goal">
+                        @error('daily_goal')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Set Goal
+                    </button>
                 @endif
             </form>
         </div>
