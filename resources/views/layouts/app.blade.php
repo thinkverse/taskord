@@ -96,7 +96,7 @@
 <x-livewire-alert::scripts />
 <script src="{{ mix('js/bootstrap.js') }}" defer></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
-@if (App::environment() === 'local')
+@if (App::environment() === 'production')
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-98MP737L0B"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
