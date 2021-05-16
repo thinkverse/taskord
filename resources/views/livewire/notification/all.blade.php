@@ -27,6 +27,6 @@
         </div>
     @endforeach
     @if ($readyToLoad and $notifications->hasMorePages())
-        <livewire:notification.load-more :type="all" :page="$page" :perPage="$perPage" />
+        <livewire:notification.load-more type="all" :page="$page" :perPage="$perPage" />
     @endif
 </div>
