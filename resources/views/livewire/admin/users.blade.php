@@ -49,10 +49,38 @@
                                         <span class="badge bg-danger">Un-verified</span>
                                     @endif
                                 </div>
-                                <div>
+                                <div class="mt-1">
+                                    <span>IP:</span>
+                                    @if ($user->lastIP)
+                                        <a class="fw-bold" href="https://ipinfo.io/{{ $user->lastIP }}" title="{{ $user->lastIP }}" target="_blank" rel="noreferrer">
+                                            {{ Str::limit($user->lastIP, 15, '..') }}
+                                        </a>
+                                    @else
+                                        <span class="small fw-bold text-secondary">Not logged</span>
+                                    @endif
+                                </div>
+                                <div class="mt-1">
                                     Hi
                                 </div>
-                                <div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
                                     Hi
                                 </div>
                             </div>
@@ -60,19 +88,13 @@
                                 <div>
                                     <span>Status:</span>
                                     @if ($user->isSuspended)
-                                        <span class="badge bg-danger">
-                                            Suspended
-                                        </span>
+                                        <span class="badge bg-danger">Suspended</span>
                                     @endif
                                     @if ($user->isFlagged)
-                                        <span class="badge bg-info">
-                                            Flagged
-                                        </span>
+                                        <span class="badge bg-info">Flagged</span>
                                     @endif
                                     @if (!$user->isSuspended or !$user->isFlagged)
-                                        <span class="badge bg-success">
-                                            Good
-                                        </span>
+                                        <span class="badge bg-success">Good</span>
                                     @endif
                                 </div>
                                 <div class="mt-1">
@@ -81,45 +103,68 @@
                                         {{ $user->streaks }} {{ str_plural('Streak', $user->streaks) }}
                                     </span>
                                 </div>
+                                <div class="mt-1">
+                                    <span>Plan:</span>
+                                    @if (!$user->isPatron)
+                                        <span class="badge bg-danger">Free user</span>
+                                    @else
+                                        @if ($user->patron)
+                                            <span class="badge bg-success">Patron</span>
+                                        @else
+                                            <span class="badge bg-info">Gifted</span>
+                                        @endif
+                                    @endif
+                                </div>
+                                <div class="mt-1">
+                                    <span>Via:</span>
+                                    @if ($user->provider === 'google')
+                                        <span>
+                                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg" loading=lazy />
+                                            <span>Google</span>
+                                        </span>
+                                    @elseif ($user->provider === 'twitter')
+                                        <span class="badge bg-info">Twitter</span>
+                                    @elseif ($user->provider === 'github')
+                                        <span class="badge bg-dark">GitHub</span>
+                                    @elseif ($user->provider === 'discord')
+                                        <span class="badge bg-secondary">Discord</span>
+                                    @else
+                                        <span class="badge bg-primary">Web</span>
+                                    @endif
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
+                                <div class="mt-1">
+                                    Hi
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <tr>
 
-                    <td>
-                        @if (!$user->isPatron)
-                            <span>❌</span>
-                        @else
-                            <span>
-                                💰
-                                @if ($user->patron)⭐@else🎁@endif
-                            </span>
-                        @endif
-                    </td>
-                    <td>
-                        @if ($user->lastIP)
-                            <a class="font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" title="{{ $user->lastIP }}" target="_blank" rel="noreferrer">
-                                {{ Str::limit($user->lastIP, 15, '..') }}
-                            </a>
-                        @else
-                            <span class="small fw-bold text-secondary">Not logged</span>
-                        @endif
-                    </td>
-                    <td>
-                        @if ($user->provider === 'google')
-                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg" loading=lazy />
-                        @elseif ($user->provider === 'twitter')
-                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" loading=lazy />
-                        @elseif ($user->provider === 'github')
-                            <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" loading=lazy />
-                        @elseif ($user->provider === 'discord')
-                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/discord_MCCBaztWr.webp" loading=lazy />
-                        @else
-                            <x-heroicon-o-globe-alt class="heroicon text-success" />
-                        @endif
-                    </td>
-                    
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
