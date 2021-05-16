@@ -24,13 +24,13 @@
                 <livewire:notification.type.task.task-praised :data="$data" />
             @elseif ($type === "App\Notifications\Mentioned")
                 <livewire:notification.type.mentioned :data="$data" />
-            @elseif ($type === "App\Notifications\CommentPraised")
+            @elseif ($type === "App\Notifications\Comment\CommentPraised")
                 <livewire:notification.type.comment.comment-praised :data="$data" />
             @elseif ($type === "App\Notifications\QuestionPraised")
                 <livewire:notification.type.question.question-praised :data="$data" />
             @elseif ($type === "App\Notifications\Answer\AnswerPraised")
                 <livewire:notification.type.answer.answer-praised :data="$data" />
-            @elseif ($type === "App\Notifications\Commented")
+            @elseif ($type === "App\Notifications\Comment\Commented")
                 <livewire:notification.type.comment.commented :data="$data" />
             @elseif ($type === "App\Notifications\Answer\Answered")
                 <livewire:notification.type.answer.answered :data="$data" />
