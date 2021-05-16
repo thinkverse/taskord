@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Notifications;
+namespace App\Notifications\Admin;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class ContributorEnabled extends Notification implements ShouldQueue
+class PatronGifted extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -24,10 +24,10 @@ class ContributorEnabled extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('You are now a contributor to Taskord 🎉')
+                    ->subject('You\'ve been gifted with a patron account 🎉')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('You\'ve been marked as a contributor by one of the staff members 🎉')
-                    ->line('You can now see the contributor badge in your profile.')
-                    ->line('Thank you for using and helping Taskord!');
+                    ->line('Your account was gifted with a patron account by one of the staff members 🎉')
+                    ->line('You can see the patron badge everywhere next to your name.')
+                    ->line('Thank you for using Taskord!');
     }
 }

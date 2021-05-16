@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Notifications;
+namespace App\Notifications\Admin;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class PatronGifted extends Notification implements ShouldQueue
+class UserVerified extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -24,10 +24,10 @@ class PatronGifted extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('You\'ve been gifted with a patron account 🎉')
+                    ->subject('Your account has been verified ✅')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('Your account was gifted with a patron account by one of the staff members 🎉')
-                    ->line('You can see the patron badge everywhere next to your name.')
+                    ->line('Your account has been verified by one of the staff members 🎉')
+                    ->line('You can see the verified badge everywhere next to your name.')
                     ->line('Thank you for using Taskord!');
     }
 }

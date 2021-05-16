@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
-use App\Notifications\ContributorEnabled;
+use App\Notifications\Admin\ContributorEnabled;
 use App\Notifications\PatronGifted;
 use App\Notifications\UserVerified;
 use Illuminate\Support\Facades\Auth;
