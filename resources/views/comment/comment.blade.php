@@ -28,7 +28,7 @@
             </a>
         </div>
         <div class="col-sm">
-            <div class="fw-bold text-secondary pb-2">
+            <div class="text-uppercase fw-bold text-secondary pb-2">
                 Created by
             </div>
             <div class="card mb-4">
@@ -37,10 +37,10 @@
                 </div>
             </div>
             @if ($comment->likerscount() > 0)
+                <div class="text-uppercase fw-bold text-secondary pb-2">
+                    Liked by
+                </div>
                 <div class="card mb-4">
-                    <div class="card-header">
-                        Liked by
-                    </div>
                     <div class="card-body align-items-center pb-2">
                         @foreach ($comment->likers as $user)
                             <a

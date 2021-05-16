@@ -38,7 +38,7 @@
             @endguest
         </div>
         <div class="col-sm">
-            <div class="fw-bold text-secondary pb-2">
+            <div class="text-uppercase fw-bold text-secondary pb-2">
                 Created by
             </div>
             <div class="card mb-4">
@@ -47,7 +47,7 @@
                 </div>
             </div>
             @if ($task->product_id)
-                <div class="fw-bold text-secondary pb-2">
+                <div class="text-uppercase fw-bold text-secondary pb-2">
                     Product
                 </div>
                 <div class="card mb-4">
@@ -75,7 +75,7 @@
                 </div>
             @endif
             @auth
-                <div class="fw-bold text-secondary pb-2">
+                <div class="text-uppercase fw-bold text-secondary pb-2">
                     Subscribe to this task
                 </div>
                 <div class="card mb-4">
@@ -85,7 +85,7 @@
                 </div>
             @endauth
             @if ($task->comments->count('id') > 0)
-                <div class="fw-bold text-secondary pb-2">
+                <div class="text-uppercase fw-bold text-secondary pb-2">
                     Users Involved
                 </div>
                 <div class="card mb-4">
