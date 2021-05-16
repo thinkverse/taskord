@@ -60,28 +60,19 @@
                                     @endif
                                 </div>
                                 <div class="mt-1">
-                                    Hi
+                                    <span>Created at:</span>
+                                    <span class="fw-bold" title="{{ $user->created_at->format('M d, Y g:i A') }}">
+                                        {{ $user->created_at->format('M d, Y') }}
+                                    </span>
+                                    @if ($user->created_at->diffInDays(carbon('today')) < 7)
+                                        🆕
+                                    @endif
                                 </div>
                                 <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
+                                    <span>Updated at:</span>
+                                    <span class="fw-bold" title="{{ $user->updated_at->format('M d, Y g:i A') }}">
+                                        {{ $user->updated_at->format('M d, Y') }}
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-lg">
@@ -133,31 +124,10 @@
                                     @endif
                                 </div>
                                 <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
-                                </div>
-                                <div class="mt-1">
-                                    Hi
+                                    <span>Timezone:</span>
+                                    <span class="fw-bold">
+                                        {{ $user->timezone }}
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -167,9 +137,6 @@
 
                     <td>
                         <div class="dropdown">
-                            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                More
-                            </button>
                             <ul class="dropdown-menu">
                                 <li>
                                     <span class="dropdown-item">
@@ -223,21 +190,6 @@
                                     <span class="dropdown-item">
                                         <x-heroicon-o-clock class="heroicon text-secondary" />
                                         <span class="fw-bold">{{ $user->timezone }}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="dropdown-item" title="{{ $user->updated_at->format('M d, Y g:i A') }}">
-                                        <x-heroicon-o-calendar class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->updated_at->format('M d, Y') }}</span>
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="dropdown-item" title="{{ $user->created_at->format('M d, Y g:i A') }}">
-                                        <x-heroicon-o-calendar class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->created_at->format('M d, Y') }}</span>
-                                        @if ($user->created_at->diffInDays(carbon('today')) < 7)
-                                            🆕
-                                        @endif
                                     </span>
                                 </li>
                             </ul>
