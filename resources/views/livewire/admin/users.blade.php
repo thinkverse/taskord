@@ -15,8 +15,8 @@
         @else
             @foreach ($users as $user)
                 <div class="card mt-3">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-center">
                             <x:shared.user-label-big :user="$user" />
                             <div title="{{ carbon($user->last_active)->format('M d, Y g:i A') }}">
                                 @if ($user->last_active)
@@ -30,16 +30,22 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="pt-3 text-dark">
-                            {{ $user->bio }}
-                        </div>
-                        <hr />
+                        @if ($user->bio)
+                            <div class="pt-3 text-dark">
+                                {{ $user->bio }}
+                            </div>
+                        @endif
+                    </div>
+                    <div class="card-body">
                         <div class="row row-cols-lg-6">
                             <div class="col-lg">
                                 <span class="fw-bold">{{ $user->followers()->count() }}</span> Followers
                             </div>
                             <div class="col-lg">
                                 <span class="fw-bold">{{ $user->followings()->count() }}</span> Following
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ number_format($user->getPoints()) }}</span> Reputations
                             </div>
                             <div class="col-lg">
                                 <span class="fw-bold">{{ $user->tasks()->whereDone(true)->count('id') }}</span> Completed tasks
@@ -73,7 +79,10 @@
                             </div>
                             <div class="col-lg">
                                 <span class="fw-bold">{{ $user->webhooks()->count('id') }}</span> Webhooks
-                            </div>     
+                            </div>
+                            <div class="col-lg">
+                                <span class="fw-bold">{{ Spatie\Activitylog\Models\Activity::causedBy($user)->count('id') }}</span> Logs
+                            </div> 
                         </div>
                         <hr />
                         <div class="row">
