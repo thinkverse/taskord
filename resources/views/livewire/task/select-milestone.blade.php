@@ -4,12 +4,12 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="milestoneMenuItem">
         @if ($task->milestone)
-        <li>
-            <a class="dropdown-item cursor-pointer" wire:click="noMilestone">
-                No milestone
-            </a>
-        </li>
-        <div class="dropdown-divider"></div>
+            <li>
+                <a class="dropdown-item cursor-pointer" wire:click="noMilestone">
+                    No milestone
+                </a>
+            </li>
+            <div class="dropdown-divider"></div>
         @endif
         @foreach ($milestones as $milestone)
             <li wire:key="{{ $task->id }}_{{ $milestone->id }}">
@@ -20,11 +20,11 @@
             </li>
         @endforeach
         @if ($milestones->count() === 0)
-        <li>
-            <a class="dropdown-item cursor-pointer" href="{{ route('milestones.opened') }}">
-                Create a milestone
-            </a>
-        </li>
+            <li>
+                <a class="dropdown-item cursor-pointer" href="{{ route('milestones.opened') }}">
+                    Create a milestone
+                </a>
+            </li>
         @endif
         <div class="dropdown-divider"></div>
         <li>
