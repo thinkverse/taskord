@@ -7,7 +7,7 @@ namespace App\Helpers;
 use App\Gamify\Points\PraiseCreated;
 use App\Models\Product;
 use App\Models\User;
-use App\Notifications\AnswerPraised;
+use App\Notifications\Answer\AnswerPraised;
 use App\Notifications\CommentPraised;
 use App\Notifications\Mentioned;
 use App\Notifications\Question\NotifySubscribers as QuestionSubscribers;
