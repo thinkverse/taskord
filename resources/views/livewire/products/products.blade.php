@@ -33,7 +33,7 @@
         @foreach ($groupedProducts as $product)
             <div class="card mb-2">
                 <div class="card-body">
-                    <livewire:product.single-product :product="$product" />
+                    <livewire:product.single-product :product="$product" :wire-key="$product->id" />
                 </div>
             </div>
         @endforeach
