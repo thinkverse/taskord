@@ -7,11 +7,11 @@
                     task
                 </a>
             </div>
-            @if ($body->hidden)
-                <div class="body-font fst-italic text-secondary mt-2">Task was hidden by moderator</div>
-            @else
-                <div class="mt-2 body-font">{!! clean(Helper::renderTask($body->task)) !!}</div>
-            @endif
+            <div class="card mt-3">
+                <span class="p-3">
+                    <livewire:task.single-task :task="$body" :showComments="false" :wire:key="$body->id" />
+                </span>
+            </div>
         @else
             <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>
         @endif
