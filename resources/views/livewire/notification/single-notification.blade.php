@@ -28,11 +28,11 @@
                 <livewire:notification.type.comment.comment-praised :data="$data" />
             @elseif ($type === "App\Notifications\QuestionPraised")
                 <livewire:notification.type.question.question-praised :data="$data" />
-            @elseif ($type === "App\Notifications\AnswerPraised")
+            @elseif ($type === "App\Notifications\Answer\AnswerPraised")
                 <livewire:notification.type.answer.answer-praised :data="$data" />
             @elseif ($type === "App\Notifications\Commented")
                 <livewire:notification.type.comment.commented :data="$data" />
-            @elseif ($type === "App\Notifications\Answered")
+            @elseif ($type === "App\Notifications\Answer\Answered")
                 <livewire:notification.type.answer.answered :data="$data" />
             @elseif ($type === "App\Notifications\Subscribed")
                 <livewire:notification.type.product.subscribed :data="$data" />
