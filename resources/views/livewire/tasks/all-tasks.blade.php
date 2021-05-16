@@ -9,17 +9,17 @@
         </div>
         <ul class="list-group list-group-flush">
             @if (!$readyToLoad)
-            <div class="card-body text-center mt-3 mb-3">
-                <div class="spinner-border taskord-spinner text-secondary" role="status"></div>
-            </div>
+                <div class="card-body text-center mt-3 mb-3">
+                    <div class="spinner-border taskord-spinner text-secondary" role="status"></div>
+                </div>
             @endif
             @if ($readyToLoad and count($tasks) === 0)
-            <div class="card-body text-center mt-3 mb-3">
-                <x-heroicon-o-check-circle class="heroicon-4x text-primary mb-2" />
-                <div class="h4">
-                    All done!
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-check-circle class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        All done!
+                    </div>
                 </div>
-            </div>
             @endif
             @foreach($tasks as $task)
                 @livewire('tasks.single-task', [
