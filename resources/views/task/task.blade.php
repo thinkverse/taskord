@@ -19,11 +19,7 @@
                     <livewire:task.single-task :task="$task" :showComments="false" :wire:key="$task->id" />
                 </span>
             </div>
-            @livewire('comment.comments', [
-                'task' => $task,
-                'page' => 1,
-                'perPage' => 10
-            ])
+            <livewire:comment.comments :task="$task" :page="1" :perPage="10" />
             @auth
                 @if (!auth()->user()->isFlagged)
                     <livewire:comment.create-comment :task="$task" />
