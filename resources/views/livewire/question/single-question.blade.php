@@ -98,14 +98,14 @@
                 <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
                     <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
                     @if ($question->likerscount() !== 0)
-                    <span class="small text-dark fw-bold">
-                        {{ number_format($question->likerscount()) }}
-                    </span>
-                    <span class="avatar-stack ms-1">
-                        @foreach($question->likers->take(5) as $user)
-                            <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                        @endforeach
-                    </span>
+                        <span class="small text-dark fw-bold">
+                            {{ number_format($question->likerscount()) }}
+                        </span>
+                        <span class="avatar-stack ms-1">
+                            @foreach($question->likers->take(5) as $user)
+                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
+                            @endforeach
+                        </span>
                     @endif
                 </a>
             @endguest
