@@ -4,7 +4,7 @@
             <span class="fw-bold">
                 <x-heroicon-o-duplicate class="heroicon me-1" />
                 <a class="text-white" href="https://gitlab.com/yo/taskord/-/tree/{{ $branchname }}" target="_blank" rel="noreferrer">{{ $branchname }}</a>
-                <x-heroicon-s-arrow-sm-right class="heroicon mx-1" />
+                <x-heroicon-s-arrow-sm-right class="heroicon mx-0" />
                 <a class="text-white" href="https://gitlab.com/yo/taskord/-/commit/{{ $headHASH }}" target="_blank" rel="noreferrer">{{ Str::limit($headHASH, 8, '') }}</a>
             </span>
             <a class="text-white fw-bold ms-3"
