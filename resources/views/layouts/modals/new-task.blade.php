@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="px-4 pt-4 d-flex align-items-center justify-content-between">
                 <h5 class="modal-title text-dark d-flex align-items-center" id="newTaskModalLabel">
-                    <x-heroicon-o-check-circle class="heroicon-2x" />
+                    <x-heroicon-o-check-circle class="heroicon heroicon-2x" />
                     <span class="ms-1 me-2">New task</span>
                     <x-beta />
                 </h5>

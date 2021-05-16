@@ -21,7 +21,7 @@
             @endauth
             <div class="pb-3">
                 <span class="h5">
-                    <x-heroicon-o-check-circle class="heroicon-2x text-secondary" />
+                    <x-heroicon-o-check-circle class="heroicon heroicon-2x text-secondary" />
                     Tasks
                 </span>
                 @auth
@@ -61,7 +61,7 @@
                                             <span class="ms-1 small" title="Set Status">💭</span>
                                         @endif
                                         @if (auth()->user()->isVerified)
-                                            <x-heroicon-s-badge-check class="heroicon-2x ms-1 text-primary verified" />
+                                            <x-heroicon-s-badge-check class="heroicon heroicon-2x ms-1 text-primary verified" />
                                         @endif
                                     </div>
                                 @endif

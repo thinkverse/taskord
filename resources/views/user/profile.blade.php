@@ -37,19 +37,19 @@
                         @auth
                         @endauth
                         @if ($user->isPrivate)
-                            <x-heroicon-o-lock-closed class="heroicon-2x text-primary ms-2 me-0 private" />
+                            <x-heroicon-o-lock-closed class="heroicon heroicon-2x text-primary ms-2 me-0 private" />
                         @endif
                         @if ($user->isVerified)
-                            <x-heroicon-s-badge-check class="heroicon-2x text-primary ms-2 me-0 verified" />
+                            <x-heroicon-s-badge-check class="heroicon heroicon-2x text-primary ms-2 me-0 verified" />
                         @endif
                         @if ($user->isPatron)
                             <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                                <x-heroicon-s-star class="heroicon-2x ms-2 me-0 text-gold" />
+                                <x-heroicon-s-star class="heroicon heroicon-2x ms-2 me-0 text-gold" />
                             </a>
                         @endif
                         @if ($user->vacation_mode)
                             <span title="On Vacation">
-                                <x-heroicon-o-sun class="heroicon-2x ms-2 me-0 text-success" />
+                                <x-heroicon-o-sun class="heroicon heroicon-2x ms-2 me-0 text-success" />
                             </span>
                         @endif
                         @auth

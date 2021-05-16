@@ -1,6 +1,6 @@
 <div>
     <div class="h5 mb-3 text-secondary d-flex align-content-center">
-        <x-heroicon-o-cube class="heroicon-2x" />
+        <x-heroicon-o-cube class="heroicon heroicon-2x" />
         <span class="ms-1">Edit product</span>
     </div>
     <div class="card">

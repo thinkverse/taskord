@@ -1,6 +1,6 @@
 <div wire:init="loadRecentQuestions">
     <div class="pb-2 h5 d-flex align-items-center">
-        <x-heroicon-o-chat-alt-2 class="heroicon-2x me-2 text-secondary" />
+        <x-heroicon-o-chat-alt-2 class="heroicon heroicon-2x me-2 text-secondary" />
         <span>Recent questions</span>
     </div>
     <div class="card mb-4">

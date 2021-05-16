@@ -1,6 +1,6 @@
 <div>
     <div class="h5 mb-3 text-secondary d-flex align-content-center">
-        <x-heroicon-o-question-mark-circle class="heroicon-2x" />
+        <x-heroicon-o-question-mark-circle class="heroicon heroicon-2x" />
         <span class="ms-1">Edit question</span>
     </div>
     <div class="card">
