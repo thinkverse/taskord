@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
-use App\Notifications\Subscribed;
+use App\Notifications\Product\Subscribed;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;

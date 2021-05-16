@@ -34,7 +34,7 @@
                 <livewire:notification.type.comment.commented :data="$data" />
             @elseif ($type === "App\Notifications\Answer\Answered")
                 <livewire:notification.type.answer.answered :data="$data" />
-            @elseif ($type === "App\Notifications\Subscribed")
+            @elseif ($type === "App\Notifications\Product\Subscribed")
                 <livewire:notification.type.product.subscribed :data="$data" />
             @elseif ($type === "App\Notifications\Product\MemberAdded")
                 <livewire:notification.type.product.member-added :data="$data" />
