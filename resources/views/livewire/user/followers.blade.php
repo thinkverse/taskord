@@ -9,7 +9,7 @@
     @endif
     @if ($readyToLoad and count($followers) === 0)
         <div class="card-body text-center mt-3 mb-3">
-            <x-heroicon-o-users class="heroicon-4x text-primary mb-2" />
+            <x-heroicon-o-users class="heroicon heroicon-4x text-primary mb-2" />
             <div class="h4">
                 {{ $user->username }} doesn’t have any followers yet.
             </div>

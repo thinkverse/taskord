@@ -23,7 +23,7 @@
                 </form>
                 @if (!$tasks)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-search class="heroicon heroicon-4x text-primary mb-2" />
                         <div class="h4">
                             We couldn’t find any tasks matching '{{ $searchTerm }}'
                         </div>
@@ -50,7 +50,7 @@
                 </form>
                 @if (!$comments)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-search class="heroicon heroicon-4x text-primary mb-2" />
                         <div class="h4">
                             We couldn’t find any comments matching '{{ $searchTerm }}'
                         </div>
@@ -77,7 +77,7 @@
                 </form>
                 @if (!$questions)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-search class="heroicon heroicon-4x text-primary mb-2" />
                         <div class="h4">
                             We couldn’t find any questions matching '{{ $searchTerm }}'
                         </div>
@@ -105,7 +105,7 @@
                 </form>
                 @if (!$answers)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-search class="heroicon heroicon-4x text-primary mb-2" />
                         <div class="h4">
                             We couldn’t find any answers matching '{{ $searchTerm }}'
                         </div>
@@ -142,7 +142,7 @@
                 </form>
                 @if (!$products)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-search class="heroicon heroicon-4x text-primary mb-2" />
                         <div class="h4">
                             We couldn’t find any products matching '{{ $searchTerm }}'
                         </div>
@@ -208,7 +208,7 @@
                 </form>
                 @if (!$users)
                     <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                        <x-heroicon-o-search class="heroicon heroicon-4x text-primary mb-2" />
                         <div class="h4">
                             We couldn’t find any users matching '{{ $searchTerm }}'
                         </div>

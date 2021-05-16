@@ -6,7 +6,7 @@
         </div>
         @if (count($activities) === 0)
             <div class="card-body text-center mt-3 mb-3">
-                <x-heroicon-o-collection class="heroicon-4x text-primary mb-2" />
+                <x-heroicon-o-collection class="heroicon heroicon-4x text-primary mb-2" />
                 <div class="h4">
                     Nothing has been logged!
                 </div>

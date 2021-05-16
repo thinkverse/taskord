@@ -9,7 +9,7 @@
     @endif
     @if ($readyToLoad and count($milestones) === 0)
         <div class="card-body text-center mt-3 mb-3">
-            <x-heroicon-o-chat-alt-2 class="heroicon-4x text-primary mb-2" />
+            <x-heroicon-o-chat-alt-2 class="heroicon heroicon-4x text-primary mb-2" />
             <div class="h4">
                 No milestones made
             </div>
