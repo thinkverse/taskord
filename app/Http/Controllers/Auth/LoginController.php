@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Jobs\AuthGetIP;
 use App\Models\User;
 use App\Notifications\Auth\Login;
-use App\Notifications\MagicLink;
+use App\Notifications\Auth\MagicLink;
 use App\Providers\RouteServiceProvider;
 use Grosv\LaravelPasswordlessLogin\LoginUrl;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
