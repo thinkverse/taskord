@@ -57,7 +57,7 @@
             @auth
                 @if (auth()->user()->hasLiked($milestone))
                     <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                        <x-heroicon-s-thumb-up class="heroicon-small me-0" />
+                        <x-heroicon-s-thumb-up class="heroicon heroicon-small me-0" />
                         <span class="small text-white fw-bold">
                             {{ number_format($milestone->likerscount()) }}
                         </span>
@@ -69,7 +69,7 @@
                     </button>
                 @else
                     <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                        <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
+                        <x-heroicon-o-thumb-up class="heroicon heroicon-small me-0 text-secondary" />
                         @if ($milestone->likerscount() !== 0)
                             <span class="small text-dark fw-bold">
                                 {{ number_format($milestone->likerscount()) }}
@@ -85,7 +85,7 @@
                 @if (auth()->user()->staffShip or auth()->user()->id === $milestone->user->id)
                     @if ($type === "milestones.milestone")
                         <a href="{{ route('milestones.edit', ['milestone' => $milestone]) }}" class="btn btn-task btn-outline-info me-1">
-                            <x-heroicon-o-pencil-alt class="heroicon-small me-0 text-secondary" />
+                            <x-heroicon-o-pencil-alt class="heroicon heroicon-small me-0 text-secondary" />
                             <span class="small text-dark fw-bold">
                                 Edit
                             </span>
@@ -100,24 +100,24 @@
                         wire:offline.attr="disabled"
                         aria-label="Delete"
                     >
-                        <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
+                        <x-heroicon-o-trash class="heroicon heroicon-small me-0 text-secondary" />
                     </button>
                 @endif
                 @if (auth()->user()->staffShip)
                     <button type="button" class="btn btn-task {{ $milestone->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $milestone->id }}" title="Flag to admins" aria-label="Hide">
-                        <x-heroicon-o-eye-off class="heroicon-small me-0" />
+                        <x-heroicon-o-eye-off class="heroicon heroicon-small me-0" />
                     </button>
                 @endif
                 @if (auth()->user()->staffShip or auth()->user()->id === $milestone->user->id)
                     @if ($type === "milestones.milestone")
                         @if ($milestone->status)
                             <button type="button" class="btn btn-danger btn-task float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
-                                <x-heroicon-o-x class="heroicon-small" />
+                                <x-heroicon-o-x class="heroicon heroicon-small" />
                                 Close Milestone
                             </button>
                         @else
                             <button type="button" class="btn btn-success btn-task text-white float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
-                                <x-heroicon-o-check class="heroicon-small" />
+                                <x-heroicon-o-check class="heroicon heroicon-small" />
                                 Open Milestone
                             </button>
                         @endif
@@ -136,7 +136,7 @@
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
-                    <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
+                    <x-heroicon-o-thumb-up class="heroicon heroicon-small me-0 text-secondary" />
                     @if ($milestone->likerscount() !== 0)
                         <span class="small text-dark fw-bold">
                             {{ number_format($milestone->likerscount()) }}

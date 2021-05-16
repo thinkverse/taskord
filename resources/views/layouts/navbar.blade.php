@@ -120,7 +120,7 @@
                 @else
                     <li class="nav-item dropdown">
                         <a class="nav-link text-white" href="#" id="navbarNewDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <x-heroicon-o-plus-circle class="heroicon-notification me-0" />
+                            <x-heroicon-o-plus-circle class="heroicon-navbar me-0" />
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarNewDropdown">
                             <li>
@@ -159,7 +159,7 @@
                                 >
                                         @if (auth()->user()->vacation_mode)
                                         <span class="badge rounded-pill score text-white bg-success" title="Vacation mode on">
-                                            <x-heroicon-o-sun class="heroicon-small me-0" />
+                                            <x-heroicon-o-sun class="heroicon heroicon-small me-0" />
                                         </span>
                                     @else
                                         <span
@@ -169,7 +169,7 @@
                                             @else
                                                 bg-info
                                             @endif">
-                                            <x-heroicon-s-check-circle class="heroicon-small" />
+                                            <x-heroicon-s-check-circle class="heroicon heroicon-small" />
                                             {{ auth()->user()->daily_goal_reached }}/{{ auth()->user()->daily_goal }}
                                         </span>
                                     @endif
@@ -180,7 +180,7 @@
                     <li class="nav-item me-2">
                         <a class="nav-link" href="{{ route('reputation') }}">
                             <span class="badge rounded-pill text-reputation score bg-warning">
-                                <x-heroicon-o-fire class="heroicon-small text-danger" />
+                                <x-heroicon-o-fire class="heroicon heroicon-small text-danger" />
                                 {{ number_format(auth()->user()->getPoints()) }}
                             </span>
                         </a>

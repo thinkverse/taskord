@@ -60,11 +60,11 @@
                     wire:offline.attr="disabled"
                     aria-label="Delete"
                 >
-                    <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
+                    <x-heroicon-o-trash class="heroicon heroicon-small me-0 text-secondary" />
                 </button>
             @else
                 <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-success me-1" target="_blank" aria-label="Open task">
-                    <x-heroicon-o-external-link class="heroicon-small me-0" />
+                    <x-heroicon-o-external-link class="heroicon heroicon-small me-0" />
                     Open task
                 </a>
             @endif

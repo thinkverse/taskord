@@ -10,7 +10,7 @@
                     @if (auth()->user()->hasLiked($update))
                         <span>
                             <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praise">
-                                <x-heroicon-s-thumb-up class="heroicon-small me-0" />
+                                <x-heroicon-s-thumb-up class="heroicon heroicon-small me-0" />
                                 <span class="small text-white fw-bold">
                                     {{ number_format($update->likerscount()) }}
                                 </span>
@@ -24,7 +24,7 @@
                     @else
                         <span>
                             <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praises">
-                                <x-heroicon-o-thumb-up class="heroicon-small me-0" />
+                                <x-heroicon-o-thumb-up class="heroicon heroicon-small me-0" />
                                 @if ($update->likerscount() !== 0)
                                 <span class="small text-dark fw-bold">
                                     {{ number_format($update->likerscount()) }}
@@ -42,7 +42,7 @@
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
-                    <x-heroicon-o-thumb-up class="heroicon-small me-0" />
+                    <x-heroicon-o-thumb-up class="heroicon heroicon-small me-0" />
                     @if ($update->likerscount() !== 0)
                         <span class="small text-dark fw-bold">
                             {{ number_format($update->likerscount()) }}
@@ -66,7 +66,7 @@
                         wire:offline.attr="disabled"
                         aria-label="Delete"
                     >
-                        <x-heroicon-o-trash class="heroicon-small me-0" />
+                        <x-heroicon-o-trash class="heroicon heroicon-small me-0" />
                     </button>
                 @endif
             @endauth

@@ -69,7 +69,7 @@
                 @if (!$task->user->isPrivate and !$task->hidden)
                     @if (auth()->user()->hasLiked($task))
                         <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
-                            <x-heroicon-s-thumb-up class="heroicon-small me-0" />
+                            <x-heroicon-s-thumb-up class="heroicon heroicon-small me-0" />
                             <span class="small text-white fw-bold">
                                 {{ number_format($task->likerscount()) }}
                             </span>
@@ -81,7 +81,7 @@
                         </button>
                     @else
                         <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
-                            <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
+                            <x-heroicon-o-thumb-up class="heroicon heroicon-small me-0 text-secondary" />
                             @if ($task->likerscount() !== 0)
                                 <span class="small text-dark fw-bold">
                                     {{ number_format($task->likerscount()) }}
@@ -98,7 +98,7 @@
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
-                    <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
+                    <x-heroicon-o-thumb-up class="heroicon heroicon-small me-0 text-secondary" />
                     @if ($task->likerscount() !== 0)
                         <span class="small text-dark fw-bold">
                             {{ number_format($task->likerscount()) }}
@@ -112,7 +112,7 @@
                 </a>
             @endguest
             <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1" aria-label="Comments">
-                <x-heroicon-o-chat-alt class="heroicon-small me-0 text-secondary" />
+                <x-heroicon-o-chat-alt class="heroicon heroicon-small me-0 text-secondary" />
                 @if ($task->comments->count('id') !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($task->comments->count('id')) }}
@@ -130,7 +130,7 @@
                         wire:offline.attr="disabled"
                         aria-label="Delete"
                     >
-                        <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
+                        <x-heroicon-o-trash class="heroicon heroicon-small me-0 text-secondary" />
                     </button>
                     @livewire('task.select-milestone', [
                         'task' => $task
@@ -138,7 +138,7 @@
                 @endif
                 @if (auth()->user()->staffShip)
                     <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins" aria-label="Hide">
-                        <x-heroicon-o-eye-off class="heroicon-small me-0" />
+                        <x-heroicon-o-eye-off class="heroicon heroicon-small me-0" />
                     </button>
                 @endif
             @endauth
@@ -153,7 +153,7 @@
     </div>
     <div class="collapse mt-3 text-secondary" id="taskExpand-{{$task->id}}">
         <a class="text-secondary" href="{{ route('task', ['id' => $task->id]) }}">
-            <x-heroicon-o-calendar class="heroicon-small" />
+            <x-heroicon-o-calendar class="heroicon heroicon-small" />
             @auth
                 {{
                     !$task->done_at ?
