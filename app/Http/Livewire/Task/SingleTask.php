@@ -72,7 +72,7 @@ class SingleTask extends Component
 
     public function togglePraise()
     {
-        $throttler = Throttle::get(Request::instance(), 20, 5);
+        $throttler = Throttle::get(Request::instance(), 30, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
