@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Answer;
 
 use App\Gamify\Points\CommentCreated;
-use App\Models\Answer;
 use App\Models\Question;
 use App\Notifications\Answer\Answered;
 use Helper;
