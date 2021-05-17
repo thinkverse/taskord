@@ -35,7 +35,7 @@ class NewUpdate extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            $update = ProductUpdate::create([
+            $update = auth()->user()->product_updates()->create([
                 'user_id' =>  auth()->user()->id,
                 'product_id' => $this->product->id,
                 'title' => $this->title,
