@@ -35,8 +35,6 @@ class Onboarding extends Component
     {
         $task_count = auth()->user()->tasks()->count('id');
         $praise_count = auth()->user()->likes(Task::class)->count();
-        // TODO
-        //$product_count = Product::select('id')->where('user_id', auth()->user()->id)->count('id');
         $product_count = auth()->user()->ownedProducts->count('id');
         $has_name = auth()->user()->firstname;
         $changed_username = preg_match('/^[a-f0-9]{32}$/', auth()->user()->username);
