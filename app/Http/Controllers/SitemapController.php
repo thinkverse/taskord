@@ -35,7 +35,7 @@ class SitemapController extends Controller
     public function questions()
     {
         $questions = Question::select('id', 'hidden')
-            ->where('hidden', false)
+            ->whereHidden(false)
             ->get();
 
         return view('seo.sitemap_questions', [
@@ -46,7 +46,7 @@ class SitemapController extends Controller
     public function tasks()
     {
         $tasks = Task::select('id', 'source', 'hidden')
-            ->where('hidden', false)
+            ->whereHidden(false)
             ->get();
 
         return view('seo.sitemap_tasks', [
@@ -57,7 +57,7 @@ class SitemapController extends Controller
     public function comments()
     {
         $comments = Comment::select('id', 'hidden', 'task_id')
-            ->where('hidden', false)
+            ->whereHidden(false)
             ->get();
 
         return view('seo.sitemap_comments', [
@@ -68,7 +68,7 @@ class SitemapController extends Controller
     public function milestones()
     {
         $milestones = Milestone::select('id', 'hidden')
-            ->where('hidden', false)
+            ->whereHidden(false)
             ->get();
 
         return view('seo.sitemap_milestones', [
