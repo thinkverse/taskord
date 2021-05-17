@@ -52,8 +52,7 @@ class CreateComment extends Component
                 $this->comment = Helper::parseUserMentionsToMarkdownLinks($this->comment, $users);
             }
 
-            $comment = Comment::create([
-                'user_id' =>  auth()->user()->id,
+            $comment = auth()->user()->comments()->create([
                 'task_id' =>  $this->task->id,
                 'comment' => $this->comment,
             ]);
