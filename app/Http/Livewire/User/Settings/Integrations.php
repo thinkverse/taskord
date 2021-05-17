@@ -51,8 +51,7 @@ class Integrations extends Component
                 }
 
                 if (auth()->user()->id === $this->user->id) {
-                    $webhook = Webhook::create([
-                        'user_id' => auth()->user()->id,
+                    $webhook = auth()->user()->webhooks()->create([
                         'name' => $this->name,
                         'product_id' => $this->product,
                         'token' => md5(uniqid(auth()->user()->id, true)),
