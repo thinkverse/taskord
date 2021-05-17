@@ -46,7 +46,7 @@ class TelegramController extends Controller
 
     public function command($chat_id, $message, $file_id)
     {
-        $user = User::where('telegram_chat_id', $chat_id)->first();
+        $user = User::whereTelegramChatId($chat_id)->first();
 
         switch (true) {
             case Str::of($message)->startsWith('/start'):
@@ -117,7 +117,7 @@ class TelegramController extends Controller
 
     public function authCheck($chat_id)
     {
-        $user = User::where('telegram_chat_id', $chat_id)->first();
+        $user = User::whereTelegramChatId($chat_id)->first();
         if ($user) {
             return true;
         } else {
