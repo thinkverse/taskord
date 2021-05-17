@@ -37,7 +37,7 @@ class SearchController extends Controller
                     ['isPrivate', false],
                 ]);
             })
-                ->where('hidden', false)
+                ->whereHidden(false)
                 ->search($searchTerm)
                 ->paginate(10)
                 ->onEachSide(1);
@@ -66,7 +66,7 @@ class SearchController extends Controller
                     ['isPrivate', false],
                 ]);
             })
-                ->where('hidden', false)
+                ->whereHidden(false)
                 ->search($searchTerm)
                 ->paginate(10)
                 ->onEachSide(1);
@@ -94,7 +94,7 @@ class SearchController extends Controller
                     ['isFlagged', false],
                 ]);
             })
-                ->where('hidden', false)
+                ->whereHidden(false)
                 ->search($searchTerm)
                 ->paginate(10)
                 ->onEachSide(1);
@@ -122,7 +122,7 @@ class SearchController extends Controller
                     ['isFlagged', false],
                 ]);
             })
-                ->where('hidden', false)
+                ->whereHidden(false)
                 ->search($searchTerm)
                 ->paginate(10)
                 ->onEachSide(1);
