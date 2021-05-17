@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Meetup;
 
-use App\Models\Meetup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
