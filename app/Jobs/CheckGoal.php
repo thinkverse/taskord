@@ -42,7 +42,7 @@ class CheckGoal implements ShouldQueue
     {
         $last_reached = \DB::table('reputations')
             ->wherePayeeId($this->user->id)
-            ->where('name', 'GoalReached')
+            ->whereName('GoalReached')
             ->latest()
             ->get();
         if ($last_reached->isEmpty()) {
