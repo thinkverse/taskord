@@ -107,7 +107,7 @@ class ProductController extends Controller
     {
         if ($request['query'] >= 0) {
             $products = Product::select('slug', 'name', 'avatar')
-                ->where('user_id', auth()->id())
+                ->whereUserId(auth()->id())
                 ->orWhereHas('members', function (Builder $query) {
                     $query->where('user_id', auth()->id());
                 })
