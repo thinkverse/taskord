@@ -20,7 +20,7 @@ class Reputations extends Component
     public function getReputations()
     {
         return DB::table('reputations')
-            ->where('payee_id', auth()->user()->id)
+            ->wherePayeeId(auth()->user()->id)
             ->latest()
             ->paginate(50);
     }
