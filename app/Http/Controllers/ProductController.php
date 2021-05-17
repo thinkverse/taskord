@@ -47,7 +47,7 @@ class ProductController extends Controller
             ->count('id');
 
         $pending_count = $product->tasks()
-            ->where('done', false)
+            ->whereDone(false)
             ->whereIn('user_id', $members)
             ->count('id');
 
