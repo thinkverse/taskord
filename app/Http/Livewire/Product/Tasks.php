@@ -36,7 +36,7 @@ class Tasks extends Component
         $members->push($this->product->owner->id);
 
         return $this->product->tasks()
-            ->where('done', $this->type === 'product.done' ? true : false)
+            ->whereDone($this->type === 'product.done' ? true : false)
             ->whereIn('user_id', $members)
             ->latest('updated_at')
             ->paginate(10, '*', null, $this->page);
