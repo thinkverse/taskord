@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Question;
 
 use App\Gamify\Points\QuestionCreated;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class CreateQuestion extends Component

@@ -6,7 +6,6 @@ use App\Actions\CreateNewTask;
 use App\Rules\Repo;
 use App\Rules\ReservedSlug;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
