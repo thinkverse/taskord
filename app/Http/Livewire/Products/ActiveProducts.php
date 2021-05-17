@@ -16,7 +16,7 @@ class ActiveProducts extends Component
 
     public function getActiveProducts()
     {
-        return Product::where('launched', true)
+        return Product::whereLaunched(true)
             ->take(10)
             ->get()
             ->sortByDesc(function ($product) {
