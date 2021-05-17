@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Products;
 
 use App\Actions\CreateNewTask;
-use App\Models\Product;
 use App\Rules\Repo;
 use App\Rules\ReservedSlug;
 use Illuminate\Support\Arr;
