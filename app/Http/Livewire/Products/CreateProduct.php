@@ -84,8 +84,7 @@ class CreateProduct extends Component
                 $url = 'https://avatar.tobi.sh/'.md5($this->slug).'.svg?text=📦';
             }
 
-            $product = Product::create([
-                'user_id' =>  auth()->user()->id,
+            $product = auth()->user()->ownedProducts()->create([
                 'name' => $this->name,
                 'slug' => $this->slug,
                 'avatar' => $url,
