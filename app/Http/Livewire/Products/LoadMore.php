@@ -47,7 +47,7 @@ class LoadMore extends Component
                         return $date->created_at->format('Y,W');
                     });
             } elseif ($this->type === 'products.launched') {
-                $products = Product::where('launched', true)
+                $products = Product::whereLaunched(true)
                     ->orderBy('created_at', 'desc')
                     ->get()
                     ->groupBy(function ($date) {
