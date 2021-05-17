@@ -35,7 +35,7 @@ class Answers extends Component
 
     public function getAnswers()
     {
-        return Answer::where('question_id', $this->question->id)
+        return Answer::whereQuestionId($this->question->id)
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['isFlagged', false],
