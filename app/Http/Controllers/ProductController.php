@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function profile($slug)
     {
-        $product = Product::where('slug', $slug)
+        $product = Product::whereSlug($slug)
             ->firstOrFail();
         $type = Route::current()->getName();
         $tasks = $product->tasks()
