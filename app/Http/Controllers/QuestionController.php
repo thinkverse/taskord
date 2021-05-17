@@ -30,7 +30,7 @@ class QuestionController extends Controller
 
     public function question($id)
     {
-        $question = Question::find($id)->firstOrFail();
+        $question = Question::where('id', $id)->firstOrFail();
         $response = [
             'type' => 'question.question',
             'question' => $question,
