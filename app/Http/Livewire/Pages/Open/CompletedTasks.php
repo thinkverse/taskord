@@ -21,7 +21,7 @@ class CompletedTasks extends Component
         $current_date = carbon()->format('Y-m-d');
         $period = CarbonPeriod::create($created_at, '7 days', $current_date);
         $completed_tasks_count = Task::select('id')
-            ->where('done', true)
+            ->whereDone(true)
             ->count();
 
         $week_dates = [];
@@ -30,7 +30,7 @@ class CompletedTasks extends Component
         foreach ($period->toArray() as $date) {
             array_push($week_dates, carbon($date)->format('d M Y'));
             $count = Task::select('id')
-                ->where('done', true)
+                ->whereDone(true)
                 ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(7)])
                 ->count();
             array_push($completed_tasks, $count);
