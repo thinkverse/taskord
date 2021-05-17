@@ -28,7 +28,7 @@ class FeedController extends Controller
 
     public function product($slug, $page = 1)
     {
-        $product = Product::where('slug', $slug)
+        $product = Product::whereSlug($slug)
             ->firstOrFail();
         $tasks = $product->tasks()
             ->latest()
