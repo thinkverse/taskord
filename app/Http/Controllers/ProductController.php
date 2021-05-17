@@ -74,7 +74,7 @@ class ProductController extends Controller
 
     public function edit($slug)
     {
-        $product = Product::where('slug', $slug)
+        $product = Product::whereSlug($slug)
             ->firstOrFail();
 
         if (
