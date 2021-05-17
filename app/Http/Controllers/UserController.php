@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function profile($username)
     {
-        $user = User::where('username', $username)->firstOrFail();
+        $user = User::whereUsername($username)->firstOrFail();
         $type = Route::current()->getName();
 
         $response = [
