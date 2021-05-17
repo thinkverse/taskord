@@ -88,7 +88,7 @@ class Streaks extends Command
                 $user->save();
             }
         }
-        $ops = User::where('username', 'ops')->first();
+        $ops = User::whereUsername('ops')->first();
         loggy(request(), 'Admin', $ops, 'Resetted streaks for '.number_format(count($users)).' users in '.number_format(count($tz_list)).' timezones');
         $this->info('Streaks Calculation Completed!');
 

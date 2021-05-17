@@ -44,7 +44,7 @@ class ResetGoal extends Command
             $this->info('Reset Successful for @'.$user->username.'!');
             $user->save();
         }
-        $ops = User::where('username', 'ops')->first();
+        $ops = User::whereUsername('ops')->first();
         loggy(request(), 'Admin', $ops, 'Resetted daily goal for '.number_format(count($users)).' users');
         $this->info('Reset Completed!');
 
