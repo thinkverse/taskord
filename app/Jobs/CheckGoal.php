@@ -41,7 +41,7 @@ class CheckGoal implements ShouldQueue
     public function handle()
     {
         $last_reached = \DB::table('reputations')
-            ->where('payee_id', $this->user->id)
+            ->wherePayeeId($this->user->id)
             ->where('name', 'GoalReached')
             ->latest()
             ->get();
