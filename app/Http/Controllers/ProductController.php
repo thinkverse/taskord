@@ -42,7 +42,7 @@ class ProductController extends Controller
         $members->push($product->owner->id);
 
         $done_count = $product->tasks()
-            ->where('done', true)
+            ->whereDone(true)
             ->whereIn('user_id', $members)
             ->count('id');
 
