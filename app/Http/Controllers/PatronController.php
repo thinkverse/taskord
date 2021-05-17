@@ -44,7 +44,7 @@ class PatronController extends Controller
     {
         if ($user) {
             if (Patron::whereUserId($user->id)->count() === 0) {
-                Patron::create([
+                $user->patron()->create([
                     'user_id' => $user->id,
                     'checkout_id' => $request->checkout_id,
                     'subscription_plan_id' => $request->subscription_plan_id,
