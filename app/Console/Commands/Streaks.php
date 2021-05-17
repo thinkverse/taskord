@@ -70,7 +70,7 @@ class Streaks extends Command
             foreach ($period->toArray() as $date) {
                 $count = $user->tasks()
                     ->select('id')
-                    ->where('user_id', $user->id)
+                    ->whereUserId($user->id)
                     ->whereDate('created_at', carbon($date))
                     ->count();
                 if ($count > 0) {
