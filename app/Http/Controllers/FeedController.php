@@ -9,7 +9,7 @@ class FeedController extends Controller
 {
     public function user($username, $page = 1)
     {
-        $user = User::where('username', $username)
+        $user = User::whereUsername($username)
             ->firstOrFail();
         $tasks = $user->tasks()
             ->latest()
