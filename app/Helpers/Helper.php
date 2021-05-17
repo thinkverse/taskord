@@ -153,7 +153,7 @@ class Helper
         $products = collect(str_replace('#', '', $mentions));
 
         return $products
-            ->map(fn ($product) => Product::where('slug', $product)->first())->whereNotNull('id')
+            ->map(fn ($product) => Product::whereSlug($product)->first())->whereNotNull('id')
             ->filter(fn ($product) => $product->user_id === $user->id or $user->products->contains($product))
             ->pluck('id')->first();
     }
