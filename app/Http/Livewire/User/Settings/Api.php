@@ -5,7 +5,6 @@ namespace App\Http\Livewire\User\Settings;
 use App\Models\User;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Livewire\Component;

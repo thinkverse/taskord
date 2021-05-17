@@ -4,7 +4,6 @@ namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
 use App\Rules\ReservedSlug;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Account extends Component
