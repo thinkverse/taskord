@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\User;
 use App\Notifications\Product\MemberAdded;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class AddMember extends Component

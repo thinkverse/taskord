@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Pages;
 
 use App\Models\Deal;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class CreateDeal extends Component
