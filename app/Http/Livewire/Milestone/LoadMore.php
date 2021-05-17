@@ -41,7 +41,7 @@ class LoadMore extends Component
     {
         if ($this->loadMore) {
             if ($this->type === 'milestones.opened') {
-                $milestones = Milestone::where('status', true)
+                $milestones = Milestone::whereStatus(true)
                     ->whereHas('user', function ($q) {
                         $q->where([
                             ['isFlagged', false],
@@ -50,7 +50,7 @@ class LoadMore extends Component
                     ->latest()
                     ->get();
             } elseif ($this->type === 'milestones.closed') {
-                $milestones = Milestone::where('status', false)
+                $milestones = Milestone::whereStatus(false)
                     ->whereHas('user', function ($q) {
                         $q->where([
                             ['isFlagged', false],
