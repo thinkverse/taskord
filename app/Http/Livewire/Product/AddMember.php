@@ -20,7 +20,7 @@ class AddMember extends Component
     public function submit()
     {
         if (Auth::check()) {
-            $user = User::where('username', $this->username)->first();
+            $user = User::whereUsername($this->username)->first();
             if ($user === null) {
                 return $this->alert('error', 'User does not exists');
             }
