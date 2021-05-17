@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
 use App\Notifications\Product\MemberLeft;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Leave extends Component
