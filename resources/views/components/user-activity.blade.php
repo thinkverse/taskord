@@ -2,7 +2,7 @@
     @php
         $user = App\Models\User::find($activity->causer_id);
         if (!$user) {
-            $user = \App\Models\User::where('username', 'ghost')->first();
+            $user = \App\Models\User::whereUsername('ghost')->first();
         }
     @endphp
     <a href="{{ route('user.done', ['username' => $user->username]) }}">
