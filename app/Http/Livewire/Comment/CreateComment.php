@@ -6,7 +6,6 @@ use App\Gamify\Points\CommentCreated;
 use App\Models\Task;
 use App\Notifications\Comment\Commented;
 use Helper;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class CreateComment extends Component
