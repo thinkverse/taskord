@@ -21,7 +21,7 @@
         @endforeach
         @if ($task->user->milestones()->whereStatus(true)->count() === 0)
             <li>
-                <a class="dropdown-item cursor-pointer" href="{{ route('milestones.opened') }}">
+                <a class="dropdown-item cursor-pointer" href="{{ route('milestones.new') }}">
                     Create a milestone
                 </a>
             </li>
