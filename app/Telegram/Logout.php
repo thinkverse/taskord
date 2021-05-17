@@ -16,7 +16,7 @@ class Logout
 
     public function __invoke()
     {
-        $user = User::where('telegram_chat_id', $this->chat_id)->first();
+        $user = User::whereTelegramChatId($this->chat_id)->first();
         if ($user) {
             $user->telegram_chat_id = null;
             $user->save();
