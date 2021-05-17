@@ -20,7 +20,7 @@
                     {{ $milestone->name }}
                 @endif
             </a>
-            <div class="mt-2 body-font text-secondary">
+            <div class="my-2 body-font text-secondary">
                 {!! markdown($milestone->description) !!}
             </div>
         @endif
