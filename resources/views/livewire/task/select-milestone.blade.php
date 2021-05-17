@@ -1,7 +1,7 @@
 <span class="dropdown">
-    <a class="btn btn-task btn-outline-info dropdown-toggle" role="button" id="milestoneMenuItem" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-task btn-outline-info dropdown-toggle" id="milestoneMenuItem" data-bs-toggle="dropdown" aria-expanded="false">
         <x-heroicon-o-truck class="heroicon heroicon-15px text-secondary" />
-    </a>
+    </button>
     <ul class="dropdown-menu" aria-labelledby="milestoneMenuItem">
         @if ($task->milestone)
             <li>
