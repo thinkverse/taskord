@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class EditMilestone extends Component
