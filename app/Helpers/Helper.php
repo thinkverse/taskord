@@ -96,7 +96,7 @@ class Helper
     {
         if ($users) {
             for ($i = 0; $i < count($users); $i++) {
-                $user = User::where('username', $users[$i])->first();
+                $user = User::whereUsername($users[$i])->first();
                 if ($user !== null) {
                     if ($user->id !== $auth->id) {
                         $user->notify(new Mentioned($task, $type));
