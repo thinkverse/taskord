@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Home;
 
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class OnlyFollowing extends Component

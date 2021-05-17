@@ -6,7 +6,6 @@ use App\Models\User;
 use App\Notifications\Followed;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
