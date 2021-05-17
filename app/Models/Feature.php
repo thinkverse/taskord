@@ -25,7 +25,7 @@ class Feature extends Model
 
     public static function enabled($slug)
     {
-        $feature = self::where('slug', $slug)->first();
+        $feature = self::whereSlug($slug)->first();
         if (Auth::check()) {
             if ($feature->public) {
                 return true;
