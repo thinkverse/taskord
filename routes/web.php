@@ -161,6 +161,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::view('products', 'admin.products')->middleware('password.confirm')->name('products');
         Route::view('features', 'admin.features')->middleware('password.confirm')->name('features');
         Route::get('system', [AdminController::class, 'system'])->middleware('password.confirm')->name('system');
+        Route::view('jobs', 'admin.jobs')->middleware('password.confirm')->name('jobs');
     });
 
     // Patron

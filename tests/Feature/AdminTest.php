@@ -41,3 +41,9 @@ it('has stafftools/features page', function ($url, $expected) {
 })->with([
     ['/stafftools/features', 404, false],
 ]);
+
+it('has stafftools/jobs page', function ($url, $expected) {
+    $this->get($url)->assertStatus($expected);
+})->with([
+    ['/stafftools/jobs', 404, false],
+]);

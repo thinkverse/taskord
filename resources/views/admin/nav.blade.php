@@ -41,4 +41,10 @@
             Features
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link @if (Route::currentRouteName() === 'admin.jobs') active @endif" href="{{ route('admin.jobs') }}">
+            <x-heroicon-o-collection class="heroicon heroicon-18px" />
+            Jobs
+        </a>
+    </li>
 </ul>
