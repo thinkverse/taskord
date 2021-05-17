@@ -75,7 +75,7 @@ class SingleFeature extends Component
 
     public function deleteFeature()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             loggy(request(), 'Admin', auth()->user(), 'Deleted a feature flag | Feature ID: '.$this->feature->id);
             $this->feature->delete();
             auth()->user()->touch();

@@ -22,7 +22,7 @@ class Account extends Component
 
     public function enrollBeta()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->user->isBeta = ! $this->user->isBeta;
                 $this->user->save();
@@ -45,7 +45,7 @@ class Account extends Component
 
     public function enrollPrivate()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 if (! $this->user->isPatron) {
                     return $this->alert('error', 'Forbidden!');
@@ -71,7 +71,7 @@ class Account extends Component
 
     public function updated($field)
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validateOnly($field, [
                 'username' => ['required', 'min:2', 'max:20', 'alpha_dash', 'unique:users,username,'.$this->user->id, new ReservedSlug],
                 'email' => ['required', 'email', 'max:255', 'indisposable', 'unique:users,email,'.$this->user->id],
@@ -83,7 +83,7 @@ class Account extends Component
 
     public function updateAccount()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
                     'username' => ['required', 'min:2', 'max:20', 'alpha_dash', 'unique:users,username,'.$this->user->id, new ReservedSlug],

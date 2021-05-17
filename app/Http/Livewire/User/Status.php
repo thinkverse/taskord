@@ -21,7 +21,7 @@ class Status extends Component
 
     public function clearStatus()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             auth()->user()->status = null;
             auth()->user()->status_emoji = null;
             auth()->user()->save();
@@ -36,7 +36,7 @@ class Status extends Component
 
     public function submit($event)
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (strlen($event['status_emoji']) === 0) {
                 return $this->alert('warning', 'Select the emoji!');
             }

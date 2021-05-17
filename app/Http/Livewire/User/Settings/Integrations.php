@@ -39,7 +39,7 @@ class Integrations extends Component
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
                     'name' => ['required', 'min:2', 'max:20'],
@@ -76,7 +76,7 @@ class Integrations extends Component
 
     public function deleteWebhook($id)
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 loggy(request(), 'User', auth()->user(), 'Deleted a webhook | Webhook ID: '.$id);
                 $webhook = Webhook::find($id);

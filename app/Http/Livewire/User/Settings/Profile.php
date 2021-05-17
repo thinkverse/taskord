@@ -60,7 +60,7 @@ class Profile extends Component
 
     public function updatedAvatar()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validate([
                 'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
@@ -71,7 +71,7 @@ class Profile extends Component
 
     public function updateProfile()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
                     'firstname' => ['nullable', 'max:30'],
@@ -96,7 +96,7 @@ class Profile extends Component
                     $this->user->avatar = $avatar;
                 }
 
-                if (Auth::check()) {
+                if (auth()->check()) {
                     $this->user->firstname = $this->firstname;
                     $this->user->lastname = $this->lastname;
                     $this->user->bio = $this->bio;
@@ -117,7 +117,7 @@ class Profile extends Component
 
     public function resetAvatar()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $old_avatar = explode('storage/', $this->user->avatar);
                 if (array_key_exists(1, $old_avatar)) {
@@ -138,7 +138,7 @@ class Profile extends Component
 
     public function useGravatar()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $old_avatar = explode('storage/', $this->user->avatar);
                 if (array_key_exists(1, $old_avatar)) {
@@ -159,7 +159,7 @@ class Profile extends Component
 
     public function enableGoal()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->user->hasGoal = ! $this->user->hasGoal;
                 $this->user->save();
@@ -174,13 +174,13 @@ class Profile extends Component
 
     public function setGoal()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
                     'daily_goal' => ['integer', 'max:1000', 'min:5'],
                 ]);
 
-                if (Auth::check()) {
+                if (auth()->check()) {
                     $this->user->daily_goal = $this->daily_goal;
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated the goal '.$this->daily_goal.'/day');
@@ -197,7 +197,7 @@ class Profile extends Component
 
     public function toggleVacationMode()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->user->vacation_mode = ! $this->user->vacation_mode;
                 $this->user->save();
@@ -220,13 +220,13 @@ class Profile extends Component
 
     public function updateSponsor()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
                     'sponsor' => ['nullable', 'active_url'],
                 ]);
 
-                if (Auth::check()) {
+                if (auth()->check()) {
                     $this->user->sponsor = $this->sponsor;
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated the sponsor URL');
@@ -243,7 +243,7 @@ class Profile extends Component
 
     public function updateSocial()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
                     'website' => ['nullable', 'active_url'],
@@ -254,7 +254,7 @@ class Profile extends Component
                     'youtube' => ['nullable', 'alpha_dash', 'max:30'],
                 ]);
 
-                if (Auth::check()) {
+                if (auth()->check()) {
                     $this->user->website = $this->website;
                     $this->user->twitter = $this->twitter;
                     $this->user->twitch = $this->twitch;
@@ -276,7 +276,7 @@ class Profile extends Component
 
     public function onlyFollowingsTasks()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->user->onlyFollowingsTasks = ! $this->user->onlyFollowingsTasks;
                 $this->user->save();

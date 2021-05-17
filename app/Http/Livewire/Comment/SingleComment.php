@@ -31,7 +31,7 @@ class SingleComment extends Component
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
@@ -51,7 +51,7 @@ class SingleComment extends Component
 
     public function hide()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->comment);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide comment | Comment ID: '.$this->comment->id);
@@ -67,7 +67,7 @@ class SingleComment extends Component
 
     public function deleteComment()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }

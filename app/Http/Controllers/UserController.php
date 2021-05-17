@@ -29,7 +29,7 @@ class UserController extends Controller
             'milestone_count' => $user->milestones()->count('id'),
         ];
 
-        if (Auth::check() && auth()->user()->id === $user->id or Auth::check() && auth()->user()->staffShip) {
+        if (auth()->check() && auth()->user()->id === $user->id or auth()->check() && auth()->user()->staffShip) {
             return view($type, $response);
         } elseif ($user->isFlagged) {
             abort(404);
@@ -82,7 +82,7 @@ class UserController extends Controller
 
     public function exportAccount()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $account = User::find(auth()->user()->id);
             $data = collect([
                 'account' => $account,
@@ -113,7 +113,7 @@ class UserController extends Controller
 
     public function exportLogs()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $logs = Activity::causedBy(auth()->user())
                 ->get();
             $data = collect([

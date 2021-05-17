@@ -18,7 +18,7 @@ class Delete extends Component
 
     public function resetAccount()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 loggy(request(), 'User', auth()->user(), 'Resetted the user account');
                 $user = User::find($this->user->id);
@@ -62,7 +62,7 @@ class Delete extends Component
 
     public function deleteAccount()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 loggy(request(), 'User', auth()->user(), 'Deleted the user account');
                 $user = User::find($this->user->id);

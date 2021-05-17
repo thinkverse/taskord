@@ -63,7 +63,7 @@ class ProductController extends Controller
                 ->count('id'),
         ];
 
-        if (Auth::check() && auth()->user()->id === $product->owner->id or Auth::check() && auth()->user()->staffShip) {
+        if (auth()->check() && auth()->user()->id === $product->owner->id or auth()->check() && auth()->user()->staffShip) {
             return view($type, $response);
         } elseif ($product->owner->isFlagged) {
             abort(404);
@@ -78,8 +78,8 @@ class ProductController extends Controller
             ->firstOrFail();
 
         if (
-            Auth::check() && auth()->user()->id === $product->owner->id or
-            Auth::check() && auth()->user()->staffShip
+            auth()->check() && auth()->user()->id === $product->owner->id or
+            auth()->check() && auth()->user()->staffShip
         ) {
             return view('product.edit', [
                 'product' => $product,

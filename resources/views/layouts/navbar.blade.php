@@ -99,7 +99,7 @@
                         </li>
                     </ul>
                 </li>
-                @if (Auth::check() and auth()->user()->isStaff and !auth()->user()->staffShip)
+                @if (auth()->check() and auth()->user()->isStaff and !auth()->user()->staffShip)
                     <li class="nav-item">
                         <span class="nav-link text-secondary fw-bold">
                             {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms

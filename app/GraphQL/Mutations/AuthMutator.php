@@ -13,7 +13,7 @@ class AuthMutator
      */
     public function __invoke($_, array $args)
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->isSuspended) {
                 return [
                     'response' => 'Your account is suspended!',

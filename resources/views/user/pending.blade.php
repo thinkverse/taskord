@@ -33,8 +33,8 @@
             @endauth
             @if (
                 !$user->isPrivate or
-                Auth::check() and auth()->user()->id === $user->id or
-                Auth::check() and auth()->user()->staffShip
+                auth()->check() and auth()->user()->id === $user->id or
+                auth()->check() and auth()->user()->staffShip
             )
                 @livewire('user.tasks', [
                     'type' => 'user.pending',

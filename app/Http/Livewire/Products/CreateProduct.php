@@ -30,7 +30,7 @@ class CreateProduct extends Component
 
     public function updatedAvatar()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validate([
                 'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
@@ -41,7 +41,7 @@ class CreateProduct extends Component
 
     public function submit()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validate([
                 'name' => ['required', 'max:30'],
                 'slug' => ['required', 'min:3', 'max:20', 'unique:products', 'alpha_dash', new ReservedSlug],

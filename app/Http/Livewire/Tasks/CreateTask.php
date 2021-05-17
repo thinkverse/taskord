@@ -23,7 +23,7 @@ class CreateTask extends Component
 
     public function updatedImage()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validate([
                 'images' => ['max:5'],
                 'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
@@ -46,7 +46,7 @@ class CreateTask extends Component
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validate([
                 'task' => ['required', 'min:5', 'max:10000'],
                 'images' => ['max:5'],

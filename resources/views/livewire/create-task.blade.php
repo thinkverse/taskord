@@ -15,7 +15,7 @@
                     aria-label="Checkbox"
                     wire:click="checkState"
                     wire:offline.attr="disabled"
-                    {{ Auth::check() && auth()->user()->checkState ? 'checked' : 'unchecked' }}
+                    {{ auth()->check() && auth()->user()->checkState ? 'checked' : 'unchecked' }}
                 >
             </div>
             <input type="text" class="form-control mentionInput" placeholder="Add a Task" wire:model.lazy="task" autocomplete="off" aria-label="Task Input" />

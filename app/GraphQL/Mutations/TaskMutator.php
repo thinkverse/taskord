@@ -21,7 +21,7 @@ class TaskMutator
             ];
         }
 
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
                 return [
                     'response' => 'Your email is not verified!',
@@ -67,7 +67,7 @@ class TaskMutator
             ];
         }
 
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
                 return [
                     'response' => 'Your email is not verified!',
@@ -123,7 +123,7 @@ class TaskMutator
             ];
         }
 
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return [
                     'response' => 'Your account is flagged!',

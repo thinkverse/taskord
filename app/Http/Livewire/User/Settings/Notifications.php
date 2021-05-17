@@ -17,7 +17,7 @@ class Notifications extends Component
 
     public function notificationsEmail()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->user->notifications_email = ! $this->user->notifications_email;
                 $this->user->save();
@@ -34,7 +34,7 @@ class Notifications extends Component
 
     public function notificationsWeb()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->user->notifications_web = ! $this->user->notifications_web;
                 $this->user->save();

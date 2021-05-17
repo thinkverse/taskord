@@ -32,7 +32,7 @@ class LoadMore extends Component
     public function render()
     {
         if ($this->loadMore) {
-            if (Auth::check() && auth()->user()->onlyFollowingsTasks) {
+            if (auth()->check() && auth()->user()->onlyFollowingsTasks) {
                 $userIds = auth()->user()->followings->pluck('id');
                 $userIds->push(auth()->user()->id);
                 $tasks = Task::whereIn('user_id', $userIds)

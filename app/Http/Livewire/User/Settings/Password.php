@@ -22,7 +22,7 @@ class Password extends Component
 
     public function updated($field)
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validateOnly($field, [
                 'currentPassword' => ['required'],
                 'newPassword' => ['required', 'string', PasswordRule::min(8)->uncompromised()],
@@ -35,7 +35,7 @@ class Password extends Component
 
     public function updatePassword()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
                     'currentPassword' => ['required'],

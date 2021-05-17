@@ -15,7 +15,7 @@ class CreateMilestone extends Component
 
     public function submit()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validate([
                 'name' => ['required', 'min:5', 'max:100'],
                 'description' => ['required', 'min:3', 'max:10000'],

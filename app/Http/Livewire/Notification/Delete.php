@@ -9,7 +9,7 @@ class Delete extends Component
 {
     public function deleteAll()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             auth()->user()->notifications()->delete();
             $this->emit('deleteAll');
             auth()->user()->touch();

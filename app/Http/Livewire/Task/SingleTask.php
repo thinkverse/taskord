@@ -41,7 +41,7 @@ class SingleTask extends Component
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->id === $this->task->user->id) {
                 if ($this->task->done) {
                     $this->task->done_at = carbon();
@@ -84,7 +84,7 @@ class SingleTask extends Component
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
@@ -104,7 +104,7 @@ class SingleTask extends Component
 
     public function hide()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->task);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
@@ -120,7 +120,7 @@ class SingleTask extends Component
 
     public function deleteTask()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }

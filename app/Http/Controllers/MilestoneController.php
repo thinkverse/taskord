@@ -28,8 +28,8 @@ class MilestoneController extends Controller
             'milestone' => $milestone,
         ];
         if (
-            Auth::check() && auth()->user()->id === $milestone->user->id or
-            Auth::check() && auth()->user()->staffShip
+            auth()->check() && auth()->user()->id === $milestone->user->id or
+            auth()->check() && auth()->user()->staffShip
         ) {
             return view('milestone/milestone', $response);
         } elseif ($milestone->user->isFlagged or $milestone->user->isPrivate) {
@@ -42,8 +42,8 @@ class MilestoneController extends Controller
     public function edit(Milestone $milestone)
     {
         if (
-            Auth::check() && auth()->user()->id === $milestone->user->id or
-            Auth::check() && auth()->user()->staffShip
+            auth()->check() && auth()->user()->id === $milestone->user->id or
+            auth()->check() && auth()->user()->staffShip
         ) {
             return view('milestone.edit', [
                 'milestone' => $milestone,

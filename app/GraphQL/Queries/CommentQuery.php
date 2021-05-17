@@ -20,7 +20,7 @@ class CommentQuery
 
     public function hasPraised($comment, array $args)
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             return auth()->user()->hasLiked($comment);
         } else {
             return null;

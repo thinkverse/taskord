@@ -22,7 +22,7 @@
                     wire:click="checkTask"
                     {{ $task->done ? "checked" : "unchecked" }}
                     {{
-                        Auth::check() &&
+                        auth()->check() &&
                         auth()->user()->id === $task->user_id ?
                         "enabled" : "disabled"
                     }}

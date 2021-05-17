@@ -18,7 +18,7 @@ class Leave extends Component
 
     public function leaveProduct()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             auth()->user()->products()->detach($this->product);
             $this->product->owner->notify(new MemberLeft($this->product, auth()->user()->id));
             auth()->user()->touch();

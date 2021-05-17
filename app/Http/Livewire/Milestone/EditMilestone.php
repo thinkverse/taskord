@@ -30,7 +30,7 @@ class EditMilestone extends Component
 
     public function updated($field)
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validateOnly($field);
         } else {
             $this->alert('error', 'Forbidden!');
@@ -39,7 +39,7 @@ class EditMilestone extends Component
 
     public function submit()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {

@@ -21,7 +21,7 @@ class AnswerQuery
 
     public function hasPraised($answer, array $args)
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             return auth()->user()->hasLiked($answer);
         } else {
             return null;

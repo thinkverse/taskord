@@ -39,7 +39,7 @@ class SingleTask extends Component
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->task->done = ! $this->task->done;
             $this->task->done_at = carbon();
             auth()->user()->touch();
@@ -61,7 +61,7 @@ class SingleTask extends Component
 
     public function deleteTask()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }

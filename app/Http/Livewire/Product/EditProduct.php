@@ -48,7 +48,7 @@ class EditProduct extends Component
 
     public function updatedAvatar()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validate([
                 'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
@@ -59,7 +59,7 @@ class EditProduct extends Component
 
     public function submit()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validate([
                 'name' => ['required', 'max:30'],
                 'slug' => ['required', 'min:3', 'max:20', 'alpha_dash', 'unique:products,slug,'.$this->product->id, new ReservedSlug],
@@ -139,7 +139,7 @@ class EditProduct extends Component
 
     public function deleteProduct()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }

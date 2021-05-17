@@ -21,7 +21,7 @@ class Team extends Component
 
     public function removeMember()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->user->products()->detach($this->product);
             $this->user->notify(new MemberRemoved($this->product, auth()->user()->id));
             loggy(request(), 'Product', auth()->user(), 'Removed @'.$this->user->username.' from #'.$this->product->slug);

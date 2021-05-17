@@ -33,7 +33,7 @@ class SingleMilestone extends Component
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
@@ -53,7 +53,7 @@ class SingleMilestone extends Component
 
     public function hide()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->milestone);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
@@ -69,7 +69,7 @@ class SingleMilestone extends Component
 
     public function toggleStatus()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if ($this->milestone->status) {
                 $this->milestone->status = false;
                 $this->milestone->save();
@@ -90,7 +90,7 @@ class SingleMilestone extends Component
 
     public function deleteMilestone()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }

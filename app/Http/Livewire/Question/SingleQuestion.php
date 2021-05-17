@@ -33,7 +33,7 @@ class SingleQuestion extends Component
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
@@ -53,7 +53,7 @@ class SingleQuestion extends Component
 
     public function hide()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->question);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
@@ -69,7 +69,7 @@ class SingleQuestion extends Component
 
     public function deleteQuestion()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }

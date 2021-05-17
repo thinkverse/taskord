@@ -9,7 +9,7 @@ class MarkAsRead extends Component
 {
     public function markAsRead()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             auth()->user()->unreadNotifications->markAsRead();
             $this->emit('markAsRead');
             auth()->user()->touch();

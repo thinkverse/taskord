@@ -23,7 +23,7 @@ class NewMeetup extends Component
 
     public function updatedCover()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validate([
                 'cover' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
@@ -34,7 +34,7 @@ class NewMeetup extends Component
 
     public function submit()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             $this->validate([
                 'name' => ['required', 'max:30'],
                 'slug' => ['required', 'min:3', 'max:20', 'unique:meetups', 'alpha_dash'],

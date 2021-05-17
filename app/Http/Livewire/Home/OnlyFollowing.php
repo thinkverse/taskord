@@ -9,7 +9,7 @@ class OnlyFollowing extends Component
 {
     public function onlyFollowingsTasks()
     {
-        if (Auth::check()) {
+        if (auth()->check()) {
             auth()->user()->onlyFollowingsTasks = ! auth()->user()->onlyFollowingsTasks;
             auth()->user()->save();
             $this->emit('onlyFollowings');

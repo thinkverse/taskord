@@ -122,7 +122,7 @@
                         </span>
                         {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
                     </div>
-                    @if (Auth::check() && auth()->user()->id === $user->id)
+                    @if (auth()->check() && auth()->user()->id === $user->id)
                     <div class="mt-2">
                         <span>
                             <x-heroicon-o-sparkles class="heroicon heroicon-18px text-success" />
@@ -162,8 +162,8 @@
     <div class="card-footer text-muted">
         @if (
             !$user->isPrivate or
-            Auth::check() and auth()->user()->id === $user->id or
-            Auth::check() and auth()->user()->staffShip
+            auth()->check() and auth()->user()->id === $user->id or
+            auth()->check() and auth()->user()->staffShip
         )
         <a class="text-dark fw-bold me-4" href="{{ route('user.done', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif me-1">Done</span>

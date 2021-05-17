@@ -37,14 +37,14 @@ class QuestionController extends Controller
         ];
 
         if (
-            Auth::check() && auth()->user()->id === $question->user->id or
-            Auth::check() && auth()->user()->staffShip
+            auth()->check() && auth()->user()->id === $question->user->id or
+            auth()->check() && auth()->user()->staffShip
         ) {
             views($question)->record();
 
             return view('question.question', $response);
-        } elseif (Auth::check() && $question->patronOnly) {
-            if (Auth::check() && ! auth()->user()->isPatron) {
+        } elseif (auth()->check() && $question->patronOnly) {
+            if (auth()->check() && ! auth()->user()->isPatron) {
                 return redirect()->route('patron.home');
             } else {
                 views($question)->record();
@@ -65,8 +65,8 @@ class QuestionController extends Controller
     public function edit(Question $question)
     {
         if (
-            Auth::check() && auth()->user()->id === $question->user->id or
-            Auth::check() && auth()->user()->staffShip
+            auth()->check() && auth()->user()->id === $question->user->id or
+            auth()->check() && auth()->user()->staffShip
         ) {
             return view('question.edit', [
                 'question' => $question,
