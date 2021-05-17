@@ -43,7 +43,7 @@ class PatronController extends Controller
     public function handleSubscriptionCreated($user, $request)
     {
         if ($user) {
-            if (Patron::where('user_id', $user->id)->count() === 0) {
+            if (Patron::whereUserId($user->id)->count() === 0) {
                 Patron::create([
                     'user_id' => $user->id,
                     'checkout_id' => $request->checkout_id,
