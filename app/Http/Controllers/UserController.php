@@ -21,8 +21,8 @@ class UserController extends Controller
             'level' => $user->badges->sortBy(function ($post) {
                 return $post->pivot->created_at;
             }),
-            'done_count' => $user->tasks()->where('done', true)->count('id'),
-            'pending_count' => $user->tasks()->where('done', false)->count('id'),
+            'done_count' => $user->tasks()->whereDone(true)->count('id'),
+            'pending_count' => $user->tasks()->whereDone(false)->count('id'),
             'product_count' => $user->ownedProducts()->count('id'),
             'question_count' => $user->questions()->count('id'),
             'answer_count' => $user->answers()->count('id'),
