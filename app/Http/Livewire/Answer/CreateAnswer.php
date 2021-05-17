@@ -52,8 +52,7 @@ class CreateAnswer extends Component
                 $this->answer = Helper::parseUserMentionsToMarkdownLinks($this->answer, $users);
             }
 
-            $answer = Answer::create([
-                'user_id' =>  auth()->user()->id,
+            $answer = auth()->user()->answers()->create([
                 'question_id' =>  $this->question->id,
                 'answer' => $this->answer,
             ]);
