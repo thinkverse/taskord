@@ -30,7 +30,7 @@ class Stats extends Component
         $users = User::count('id');
         $users_active = User::whereDate('last_active', '>', carbon()->subDays(30))->count('id');
         $products = Product::count('id');
-        $products_launched = Product::where('launched', true)->count('id');
+        $products_launched = Product::whereLaunched(true)->count('id');
         $reputations = User::sum('reputation');
         $questions = Question::count('id');
         $questions_unanswered = Question::doesntHave('answer')->count('id');
