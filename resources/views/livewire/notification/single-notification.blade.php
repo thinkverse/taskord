@@ -2,7 +2,7 @@
     @php
         $user = \App\Models\User::find($data['user_id']);
         if (!$user or $user->isSuspended) {
-            $user = \App\Models\User::where('username', 'ghost')->first();
+            $user = \App\Models\User::whereUsername('ghost')->first();
         }
     @endphp
     <div class="card mb-3">
