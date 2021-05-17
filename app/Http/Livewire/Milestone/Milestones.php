@@ -30,7 +30,7 @@ class Milestones extends Component
     public function getMilestones()
     {
         if ($this->type === 'milestones.opened') {
-            return Milestone::where('status', true)
+            return Milestone::whereStatus(true)
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
@@ -39,7 +39,7 @@ class Milestones extends Component
                 ->latest()
                 ->get();
         } elseif ($this->type === 'milestones.closed') {
-            return Milestone::where('status', false)
+            return Milestone::whereStatus(false)
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
