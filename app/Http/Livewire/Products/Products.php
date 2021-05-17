@@ -36,7 +36,7 @@ class Products extends Component
                     return $date->created_at->format('Y,W');
                 });
         } elseif ($this->type === 'products.launched') {
-            return Product::where('launched', true)
+            return Product::whereLaunched(true)
                 ->orderBy('created_at', 'desc')
                 ->get()
                 ->groupBy(function ($date) {
