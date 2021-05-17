@@ -42,7 +42,7 @@ class Tasks extends Component
                         ['isPrivate', false],
                     ]);
                 })
-                ->where('done', true)
+                ->whereDone(true)
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, null, null, $this->page);
         } else {
@@ -52,7 +52,7 @@ class Tasks extends Component
                     ['isPrivate', false],
                 ]);
             })
-                ->where('done', true)
+                ->whereDone(true)
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, '*', null, $this->page);
         }
