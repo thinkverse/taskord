@@ -38,13 +38,6 @@ class SelectMilestone extends Component
 
     public function render()
     {
-        $milestones = $this->task->user->milestones()
-            ->where('status', true)
-            ->latest()
-            ->get();
-
-        return view('livewire.task.select-milestone', [
-            'milestones' => $milestones,
-        ]);
+        return view('livewire.task.select-milestone');
     }
 }

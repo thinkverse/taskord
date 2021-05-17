@@ -11,7 +11,7 @@
             </li>
             <div class="dropdown-divider"></div>
         @endif
-        @foreach ($milestones as $milestone)
+        @foreach ($task->user->milestones()->whereStatus(true)->latest()->get() as $milestone)
             <li wire:key="{{ $task->id }}_{{ $milestone->id }}">
                 <a class="dropdown-item cursor-pointer" wire:click="selectMilestone({{ $milestone }})">
                     <span class="text-secondary me-2 fw-bold">#{{ $milestone->id }}</span>
@@ -19,7 +19,7 @@
                 </a>
             </li>
         @endforeach
-        @if ($milestones->count() === 0)
+        @if ($task->user->milestones()->whereStatus(true)->count() === 0)
             <li>
                 <a class="dropdown-item cursor-pointer" href="{{ route('milestones.opened') }}">
                     Create a milestone
