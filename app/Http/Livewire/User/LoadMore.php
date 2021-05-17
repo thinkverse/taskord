@@ -36,7 +36,7 @@ class LoadMore extends Component
     {
         if ($this->loadMore) {
             $tasks = $this->user->tasks()
-                ->where('done', $this->type === 'user.done' ? true : false)
+                ->whereDone($this->type === 'user.done' ? true : false)
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, '*', null, $this->page);
 
