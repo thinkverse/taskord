@@ -109,7 +109,7 @@ class ProductController extends Controller
             $products = Product::select('slug', 'name', 'avatar')
                 ->whereUserId(auth()->id())
                 ->orWhereHas('members', function (Builder $query) {
-                    $query->where('user_id', auth()->id());
+                    $query->whereUserId(auth()->id());
                 })
                 ->search($request['query'])
                 ->take(10)
