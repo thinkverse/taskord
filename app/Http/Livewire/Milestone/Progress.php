@@ -26,8 +26,8 @@ class Progress extends Component
 
     public function render()
     {
-        $completed = $this->milestone->tasks()->where('done', true)->count();
-        $pending = $this->milestone->tasks()->where('done', false)->count();
+        $completed = $this->milestone->tasks()->whereDone(true)->count();
+        $pending = $this->milestone->tasks()->whereDone(false)->count();
         $total = $this->milestone->tasks()->count();
         if ($total != 0) {
             $percent = number_format($completed / $total * 100, 0);
