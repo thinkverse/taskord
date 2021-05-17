@@ -20,7 +20,7 @@ class OnlineStatus
     {
         if (auth()->check()) {
             $expiresAt = carbon()->addMinutes(5);
-            Cache::put('user-online-'.Auth::user()->id, true, $expiresAt);
+            Cache::put('user-online-'.auth()->user()->id, true, $expiresAt);
         }
 
         return $next($request);

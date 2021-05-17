@@ -31,11 +31,11 @@ class Feature extends Model
                 return true;
             }
 
-            if (Auth::user()->staffShip) {
+            if (auth()->user()->staffShip) {
                 return $feature->staff ? true : false;
-            } elseif (Auth::user()->isBeta) {
+            } elseif (auth()->user()->isBeta) {
                 return $feature->beta ? true : false;
-            } elseif (Auth::user()->isDeveloper) {
+            } elseif (auth()->user()->isDeveloper) {
                 return $feature->contributor ? true : false;
             } else {
                 return false;
