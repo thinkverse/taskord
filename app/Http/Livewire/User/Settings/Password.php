@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Livewire\Component;
