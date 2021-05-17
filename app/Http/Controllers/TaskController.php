@@ -10,8 +10,7 @@ class TaskController extends Controller
 {
     public function task($id)
     {
-        $task = Task::where('id', $id)
-            ->firstOrFail();
+        $task = Task::find($id)->firstOrFail();
         $response = [
             'task' => $task,
         ];
