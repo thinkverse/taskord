@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Home;
 
-use App\Models\Product;
 use App\Models\Task;
 use Livewire\Component;
 
