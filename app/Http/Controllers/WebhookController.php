@@ -164,7 +164,7 @@ class WebhookController extends Controller
             return response('Your are rate limited, try again later', 429);
         }
 
-        $webhook = Webhook::where('token', $token)->first();
+        $webhook = Webhook::whereToken($token)->first();
         if (! $webhook) {
             return response('No webhook exists', 404);
         }
