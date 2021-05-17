@@ -48,9 +48,9 @@ class LoginController extends Controller
     {
         $username = $request->input('username');
         if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
-            $user = User::where('email', $username)->first();
+            $user = User::whereEmail($username)->first();
         } else {
-            $user = User::where('username', $username)->first();
+            $user = User::whereUsername($username)->first();
         }
 
         if (! $user) {
