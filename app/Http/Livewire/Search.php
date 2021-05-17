@@ -30,7 +30,7 @@ class Search extends Component
                     ['isPrivate', false],
                 ]);
             })
-            ->where('hidden', false)
+            ->whereHidden(false)
             ->search($this->query)
             ->take(3)
             ->get();
@@ -48,7 +48,7 @@ class Search extends Component
                     ['isFlagged', false],
                 ]);
             })
-            ->where('hidden', false)
+            ->whereHidden(false)
             ->search($this->query)
             ->take(3)
             ->get();
