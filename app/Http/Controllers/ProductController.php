@@ -6,7 +6,6 @@ use App\Models\Product;
 use App\Models\ProductUpdate;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 class ProductController extends Controller

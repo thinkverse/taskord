@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Task;
-use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {

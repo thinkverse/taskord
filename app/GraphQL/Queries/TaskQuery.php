@@ -2,8 +2,6 @@
 
 namespace App\GraphQL\Queries;
 
-use Illuminate\Support\Facades\Auth;
-
 class TaskQuery
 {
     public function getTask($task, array $args)

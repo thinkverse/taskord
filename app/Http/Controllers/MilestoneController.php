@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Milestone;
-use Illuminate\Support\Facades\Auth;
 
 class MilestoneController extends Controller
 {

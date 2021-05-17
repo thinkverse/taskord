@@ -5,7 +5,6 @@ namespace App\GraphQL\Mutations;
 use App\Models\Task;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 
