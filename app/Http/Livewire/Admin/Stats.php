@@ -26,7 +26,7 @@ class Stats extends Component
     public function getStats()
     {
         $tasks = Task::count('id');
-        $tasks_done = Task::where('done', true)->count('id');
+        $tasks_done = Task::whereDone(true)->count('id');
         $users = User::count('id');
         $users_active = User::whereDate('last_active', '>', carbon()->subDays(30))->count('id');
         $products = Product::count('id');
