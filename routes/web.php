@@ -43,7 +43,7 @@ Route::fallback(function () {
 });
 
 // Routes with throttle
-Route::group(['middleware' => ['throttle:60,1']], function () {
+Route::group(['middleware' => ['throttle:100,1']], function () {
     // Home
     Route::view('/', 'home.home')->name('home');
 
