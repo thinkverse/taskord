@@ -17,8 +17,10 @@ class Adminbar extends Component
     {
         Clean::dispatch();
         loggy(request(), 'Admin', auth()->user(), 'Cleaned the Application');
-
-        return $this->alert('success', 'Cleaning process has been initiated successfully 🧼');
+        $this->dispatchBrowserEvent('toast', [
+            'type' => 'success',
+            'body' => "Cleaning process has been initiated successfully 🧼"
+        ]);
     }
 
     public function deploy()

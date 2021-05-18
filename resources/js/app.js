@@ -64,3 +64,15 @@ if (darkMode) {
     }
   });
 }
+
+window.addEventListener('toast', event => {
+  var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+  var toastList = toastElList.map(function (toastEl) {
+    return new bootstrap.Toast(toastEl);
+  });
+  toastList.forEach(toast => toast.show());
+  if (event.detail.type === 'success') {
+    document.getElementById('toast-title').innerHTML = '✅ Success';
+  }
+  document.getElementById('toast-body').innerHTML = event.detail.body;
+});
