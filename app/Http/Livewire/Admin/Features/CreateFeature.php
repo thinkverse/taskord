@@ -31,7 +31,10 @@ class CreateFeature extends Component
 
             return redirect()->route('admin.features');
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

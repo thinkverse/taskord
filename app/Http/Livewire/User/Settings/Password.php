@@ -28,7 +28,10 @@ class Password extends Component
                 'confirmPassword' => ['required', 'same:newPassword'],
             ]);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 

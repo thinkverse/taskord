@@ -96,7 +96,10 @@ class SingleAnswer extends Component
 
                 return $this->alert('success', 'Answer has been deleted successfully!');
             } else {
-                $this->alert('error', 'Forbidden!');
+                $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [

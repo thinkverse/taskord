@@ -27,7 +27,10 @@ class CreateComment extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -75,7 +78,10 @@ class CreateComment extends Component
 
             return $this->alert('success', 'Comment has been added!');
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 

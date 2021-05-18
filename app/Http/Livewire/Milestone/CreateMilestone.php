@@ -45,7 +45,10 @@ class CreateMilestone extends Component
 
             return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

@@ -119,7 +119,10 @@ class CreateProduct extends Component
 
             return redirect()->route('product.done', ['slug' => $product->slug]);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 

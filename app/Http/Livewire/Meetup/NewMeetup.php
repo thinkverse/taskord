@@ -85,7 +85,10 @@ class NewMeetup extends Component
 
             return redirect()->route('meetups.home');
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

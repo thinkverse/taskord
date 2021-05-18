@@ -45,7 +45,10 @@ class CreateQuestion extends Component
 
             return redirect()->route('question.question', ['id' => $question->id]);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

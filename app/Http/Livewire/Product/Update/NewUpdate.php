@@ -53,7 +53,10 @@ class NewUpdate extends Component
 
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

@@ -99,7 +99,10 @@ class SingleQuestion extends Component
 
                 return redirect()->route('questions.newest');
             } else {
-                $this->alert('error', 'Forbidden!');
+                $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
