@@ -50,7 +50,10 @@ class SingleMilestone extends Component
             ]);
             }
             if (auth()->user()->id === $this->milestone->user->id) {
-                return $this->alert('warning', 'You can\'t praise your own milestone!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'You can\'t praise your own milestone!'
+                ]);
             }
             Helper::togglePraise($this->milestone, 'MILESTONE');
             loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);

@@ -48,7 +48,10 @@ class SingleUpdate extends Component
             ]);
             }
             if (auth()->user()->id === $this->update->user->id) {
-                return $this->alert('warning', 'You can\'t praise your own update!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'You can\'t praise your own update!'
+                ]);
             }
             if (auth()->user()->hasLiked($this->update)) {
                 auth()->user()->unlike($this->update);

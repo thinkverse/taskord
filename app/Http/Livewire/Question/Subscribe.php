@@ -51,7 +51,10 @@ class Subscribe extends Component
             ]);
             }
             if (auth()->user()->id === $this->question->user->id) {
-                return $this->alert('warning', 'You can\'t subscribe your own question!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'You can\'t subscribe your own question!'
+                ]);
             } else {
                 auth()->user()->toggleSubscribe($this->question);
                 $this->question->refresh();

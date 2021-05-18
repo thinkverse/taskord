@@ -50,7 +50,10 @@ class SingleQuestion extends Component
             ]);
             }
             if (auth()->user()->id === $this->question->user->id) {
-                return $this->alert('warning', 'You can\'t praise your own question!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'You can\'t praise your own question!'
+                ]);
             }
             Helper::togglePraise($this->question, 'QUESTION');
             loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);

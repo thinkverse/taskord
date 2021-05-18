@@ -110,7 +110,10 @@ class SingleTask extends Component
             ]);
             }
             if (auth()->user()->id === $this->task->user->id) {
-                return $this->alert('warning', 'You can\'t praise your own task!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'You can\'t praise your own task!'
+                ]);
             }
             Helper::togglePraise($this->task, 'TASK');
             loggy(request(), 'Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
