@@ -153,9 +153,9 @@ class WebhookController extends Controller
 
     public function web($token, WebhookRequest $request)
     {
-        $throttler = Throttle::get(Request::instance(), 50, 5);
+        $throttler = Throttle::get(Request::instance(), 100, 5);
         $throttler->hit();
-        if (count($throttler) > 60) {
+        if (count($throttler) > 100) {
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
