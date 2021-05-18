@@ -33,4 +33,7 @@
             </div>
         @endif
     @endif
+    <div class="mt-3">
+        <x:shared.user-label-small :user="$milestone->user" />
+    </div>
 </div>
