@@ -63,7 +63,10 @@ class SingleAnswer extends Component
                 Helper::hide($this->answer);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
 
-                return $this->alert('success', 'Answer is hidden from public!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Answer is hidden from public!'
+                ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
@@ -94,7 +97,10 @@ class SingleAnswer extends Component
                 $this->emit('answerDeleted');
                 auth()->user()->touch();
 
-                return $this->alert('success', 'Answer has been deleted successfully!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Answer has been deleted successfully!'
+                ]);
             } else {
                 $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',

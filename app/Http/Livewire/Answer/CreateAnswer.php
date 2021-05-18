@@ -76,7 +76,10 @@ class CreateAnswer extends Component
             }
             loggy(request(), 'Answer', auth()->user(), 'Created a new answer | Answer ID: '.$answer->id);
 
-            return $this->alert('success', 'Answer has been added!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'success',
+                'body' => 'Answer has been added!'
+            ]);
         } else {
             $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',

@@ -138,7 +138,10 @@ class CreateTask extends Component
             }
             $this->latest_task = $task;
 
-            return $this->alert('success', 'Task has been created!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'success',
+                'body' => 'Task has been created!'
+            ]);
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
