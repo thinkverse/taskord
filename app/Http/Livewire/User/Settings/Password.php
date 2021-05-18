@@ -30,7 +30,7 @@ class Password extends Component
         } else {
             $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
@@ -63,13 +63,13 @@ class Password extends Component
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Forbidden!'
+                    'body' => 'Forbidden!',
                 ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }

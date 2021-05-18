@@ -30,7 +30,7 @@ class CreateTask extends Component
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
@@ -61,14 +61,14 @@ class CreateTask extends Component
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Your email is not verified!'
+                    'body' => 'Your email is not verified!',
                 ]);
             }
 
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your account is flagged!'
+                'body' => 'Your account is flagged!',
             ]);
             }
 
@@ -102,7 +102,7 @@ class CreateTask extends Component
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }

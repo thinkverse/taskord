@@ -33,7 +33,7 @@ class CreateFeature extends Component
         } else {
             $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }

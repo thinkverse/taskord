@@ -34,7 +34,7 @@ class Status extends Component
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
@@ -75,7 +75,7 @@ class Status extends Component
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }

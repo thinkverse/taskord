@@ -43,13 +43,13 @@ class Account extends Component
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Forbidden!'
+                    'body' => 'Forbidden!',
                 ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
@@ -61,7 +61,7 @@ class Account extends Component
                 if (! $this->user->isPatron) {
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'error',
-                        'body' => 'Forbidden!'
+                        'body' => 'Forbidden!',
                     ]);
                 }
                 $this->user->isPrivate = ! $this->user->isPrivate;
@@ -84,13 +84,13 @@ class Account extends Component
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Forbidden!'
+                    'body' => 'Forbidden!',
                 ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
@@ -105,7 +105,7 @@ class Account extends Component
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
@@ -137,13 +137,13 @@ class Account extends Component
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Forbidden!'
+                    'body' => 'Forbidden!',
                 ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }

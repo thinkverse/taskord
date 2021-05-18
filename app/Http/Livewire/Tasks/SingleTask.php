@@ -59,7 +59,7 @@ class SingleTask extends Component
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
@@ -70,7 +70,7 @@ class SingleTask extends Component
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your account is flagged!'
+                'body' => 'Your account is flagged!',
             ]);
             }
 
@@ -85,13 +85,13 @@ class SingleTask extends Component
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Forbidden!'
+                    'body' => 'Forbidden!',
                 ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }

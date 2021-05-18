@@ -32,7 +32,7 @@ class EditQuestion extends Component
         } else {
             $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
@@ -45,14 +45,14 @@ class EditQuestion extends Component
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Your email is not verified!'
+                    'body' => 'Your email is not verified!',
                 ]);
             }
 
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your account is flagged!'
+                'body' => 'Your account is flagged!',
             ]);
             }
 
@@ -74,13 +74,13 @@ class EditQuestion extends Component
             } else {
                 $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Forbidden!'
+                    'body' => 'Forbidden!',
                 ]);
             }
         } else {
             $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }

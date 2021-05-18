@@ -38,13 +38,13 @@ class Subscribe extends Component
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Your email is not verified!'
+                    'body' => 'Your email is not verified!',
                 ]);
             }
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your account is flagged!'
+                'body' => 'Your account is flagged!',
             ]);
             }
             if (auth()->user()->id === $this->product->owner->id) {
@@ -64,7 +64,7 @@ class Subscribe extends Component
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }

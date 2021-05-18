@@ -29,13 +29,13 @@ class Notifications extends Component
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Forbidden!'
+                    'body' => 'Forbidden!',
                 ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
@@ -55,13 +55,13 @@ class Notifications extends Component
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Forbidden!'
+                    'body' => 'Forbidden!',
                 ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }

@@ -51,7 +51,7 @@ class Integrations extends Component
                 if (auth()->user()->isFlagged) {
                     return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your account is flagged!'
+                'body' => 'Your account is flagged!',
             ]);
                 }
 
@@ -74,19 +74,19 @@ class Integrations extends Component
                 } else {
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'error',
-                        'body' => 'Forbidden!'
+                        'body' => 'Forbidden!',
                     ]);
                 }
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Forbidden!'
+                    'body' => 'Forbidden!',
                 ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
@@ -107,13 +107,13 @@ class Integrations extends Component
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Forbidden!'
+                    'body' => 'Forbidden!',
                 ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }

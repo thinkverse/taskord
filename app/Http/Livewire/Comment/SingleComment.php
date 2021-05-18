@@ -37,14 +37,14 @@ class SingleComment extends Component
             if (! auth()->user()->hasVerifiedEmail()) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Your email is not verified!'
+                    'body' => 'Your email is not verified!',
                 ]);
             }
 
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your account is flagged!'
+                'body' => 'Your account is flagged!',
             ]);
             }
             if (auth()->user()->id === $this->comment->user->id) {
@@ -58,7 +58,7 @@ class SingleComment extends Component
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
@@ -77,13 +77,13 @@ class SingleComment extends Component
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Forbidden!'
+                    'body' => 'Forbidden!',
                 ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
@@ -94,7 +94,7 @@ class SingleComment extends Component
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your account is flagged!'
+                'body' => 'Your account is flagged!',
             ]);
             }
             if (auth()->user()->staffShip or auth()->user()->id === $this->comment->user->id) {
@@ -110,13 +110,13 @@ class SingleComment extends Component
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Forbidden!'
+                    'body' => 'Forbidden!',
                 ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Forbidden!'
+                'body' => 'Forbidden!',
             ]);
         }
     }
