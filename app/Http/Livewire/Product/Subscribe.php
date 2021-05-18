@@ -36,7 +36,10 @@ class Subscribe extends Component
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your email is not verified!'
+                ]);
             }
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [

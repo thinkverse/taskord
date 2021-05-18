@@ -35,7 +35,10 @@ class SingleComment extends Component
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your email is not verified!'
+                ]);
             }
 
             if (auth()->user()->isFlagged) {
@@ -45,7 +48,10 @@ class SingleComment extends Component
             ]);
             }
             if (auth()->user()->id === $this->comment->user->id) {
-                return $this->alert('warning', 'You can\'t praise your own comment!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'You can\'t praise your own comment!'
+                ]);
             }
             Helper::togglePraise($this->comment, 'COMMENT');
             loggy(request(), 'Comment', auth()->user(), 'Toggled comment praise | Comment ID: '.$this->comment->id);

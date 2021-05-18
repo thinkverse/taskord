@@ -48,7 +48,10 @@ class NewMeetup extends Component
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your email is not verified!'
+                ]);
             }
 
             if (auth()->user()->isFlagged) {
