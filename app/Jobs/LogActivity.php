@@ -55,12 +55,16 @@ class LogActivity implements ShouldQueue
     {
         try {
             if (App::environment() === 'production') {
-                $ipInfo = json_decode(file_get_contents('http://ip-api.com/json/'.$this->ip));
-                if ($ipInfo->status === 'fail') {
-                    return null;
-                }
+                try {
+                    $ipInfo = json_decode(file_get_contents('http://ip-api.com/json/'.$this->ip));
+                    if ($ipInfo->status === 'fail') {
+                        return null;
+                    }
 
-                return $ipInfo->city.', '.$ipInfo->regionName.', '.$ipInfo->country;
+                    return $ipInfo->city.', '.$ipInfo->regionName.', '.$ipInfo->country;
+                } catch (Exception $e) {
+                    return 'IP API Rate limited';
+                }
             } else {
                 return 'Test Location';
             }
