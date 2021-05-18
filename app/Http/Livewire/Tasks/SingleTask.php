@@ -84,9 +84,9 @@ class SingleTask extends Component
                 auth()->user()->touch();
             } else {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [

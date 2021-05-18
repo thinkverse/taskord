@@ -42,9 +42,9 @@ class Account extends Component
                 }
             } else {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
@@ -60,9 +60,9 @@ class Account extends Component
             if (auth()->user()->id === $this->user->id) {
                 if (! $this->user->isPatron) {
                     return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                        'type' => 'error',
+                        'body' => 'Forbidden!'
+                    ]);
                 }
                 $this->user->isPrivate = ! $this->user->isPrivate;
                 $this->user->save();
@@ -83,9 +83,9 @@ class Account extends Component
                 }
             } else {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
@@ -136,9 +136,9 @@ class Account extends Component
                 }
             } else {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
