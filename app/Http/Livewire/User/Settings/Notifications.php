@@ -24,10 +24,16 @@ class Notifications extends Component
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -41,10 +47,16 @@ class Notifications extends Component
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

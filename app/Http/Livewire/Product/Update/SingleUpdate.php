@@ -53,7 +53,10 @@ class SingleUpdate extends Component
                 //$this->update->user->notify(new TaskPraised($this->update, auth()->user()->id));
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -69,10 +72,16 @@ class SingleUpdate extends Component
                 $this->update->delete();
                 $this->emitUp('updateDeleted');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

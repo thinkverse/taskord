@@ -64,7 +64,10 @@ class Profile extends Component
                 'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -107,10 +110,16 @@ class Profile extends Component
                     return $this->alert('success', 'Your profile has been updated!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -128,10 +137,16 @@ class Profile extends Component
 
                 return $this->alert('success', 'Your avatar has been resetted!');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -149,10 +164,16 @@ class Profile extends Component
 
                 return $this->alert('success', 'Your avatar has been switched to Gravatar!');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -164,10 +185,16 @@ class Profile extends Component
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Toggled goals settings');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -187,10 +214,16 @@ class Profile extends Component
                     return $this->alert('success', 'Your goal has been updated!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -210,10 +243,16 @@ class Profile extends Component
                     return $this->alert('success', 'Vacation mode has been disabled!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -233,10 +272,16 @@ class Profile extends Component
                     return $this->alert('success', 'Your sponsor link has been updated!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -266,10 +311,16 @@ class Profile extends Component
                     return $this->alert('success', 'Your social links has been updated!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -286,10 +337,16 @@ class Profile extends Component
                 }
                 loggy(request(), 'User', auth()->user(), 'Toggled only following users tasks in settings');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

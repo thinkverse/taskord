@@ -46,7 +46,10 @@ class SingleQuestion extends Component
             Helper::togglePraise($this->question, 'QUESTION');
             loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -59,10 +62,16 @@ class SingleQuestion extends Component
 
                 return $this->alert('success', 'Question is hidden from public!');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -84,7 +93,10 @@ class SingleQuestion extends Component
                 $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

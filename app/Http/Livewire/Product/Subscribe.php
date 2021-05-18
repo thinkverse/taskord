@@ -50,7 +50,10 @@ class Subscribe extends Component
                 loggy(request(), 'Product', auth()->user(), 'Toggled product subscribe | Product ID: #'.$this->product->slug);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 

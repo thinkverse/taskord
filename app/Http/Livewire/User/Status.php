@@ -29,7 +29,10 @@ class Status extends Component
 
             return $this->alert('success', 'Status cleared successfully!');
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -58,7 +61,10 @@ class Status extends Component
                 return $this->alert('success', 'Status cleared successfully!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 

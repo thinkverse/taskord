@@ -54,7 +54,10 @@ class SingleTask extends Component
 
             return true;
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -74,10 +77,16 @@ class SingleTask extends Component
                 $this->emitUp('taskDeleted');
                 auth()->user()->touch();
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 

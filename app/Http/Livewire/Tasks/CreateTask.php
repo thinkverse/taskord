@@ -28,7 +28,10 @@ class CreateTask extends Component
                 'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -88,7 +91,10 @@ class CreateTask extends Component
             $this->emit('taskAdded');
             $this->reset();
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

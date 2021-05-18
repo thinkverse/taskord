@@ -82,7 +82,10 @@ class SingleFeature extends Component
 
             return redirect()->route('admin.features');
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 

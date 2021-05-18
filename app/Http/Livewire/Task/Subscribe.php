@@ -50,7 +50,10 @@ class Subscribe extends Component
                 loggy(request(), 'Task', auth()->user(), 'Toggled task subscribe | Task ID: '.$this->task->id);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 

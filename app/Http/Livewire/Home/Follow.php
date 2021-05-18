@@ -49,7 +49,10 @@ class Follow extends Component
             }
             $this->emitUp('userFollowed');
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

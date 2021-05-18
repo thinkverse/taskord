@@ -20,7 +20,10 @@ class OnlyFollowing extends Component
                 return $this->alert('success', 'All users tasks will be visible!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

@@ -35,7 +35,10 @@ class CreateTask extends Component
             auth()->user()->checkState = ! auth()->user()->checkState;
             auth()->user()->save();
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -47,7 +50,10 @@ class CreateTask extends Component
                 'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -128,7 +134,10 @@ class CreateTask extends Component
 
             return $this->alert('success', 'Task has been created!');
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

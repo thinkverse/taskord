@@ -35,10 +35,16 @@ class Account extends Component
                     return $this->alert('success', 'Your are no longer a beta member!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -47,7 +53,10 @@ class Account extends Component
         if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 if (! $this->user->isPatron) {
-                    return $this->alert('error', 'Forbidden!');
+                    return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
                 }
                 $this->user->isPrivate = ! $this->user->isPrivate;
                 $this->user->save();
@@ -61,10 +70,16 @@ class Account extends Component
                     return $this->alert('success', 'All your tasks are now public');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -76,7 +91,10 @@ class Account extends Component
                 'email' => ['required', 'email', 'max:255', 'indisposable', 'unique:users,email,'.$this->user->id],
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -102,10 +120,16 @@ class Account extends Component
                     return $this->alert('success', 'Your account has been updated!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

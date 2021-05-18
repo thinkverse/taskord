@@ -44,7 +44,10 @@ class SingleComment extends Component
             Helper::togglePraise($this->comment, 'COMMENT');
             loggy(request(), 'Comment', auth()->user(), 'Toggled comment praise | Comment ID: '.$this->comment->id);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -57,10 +60,16 @@ class SingleComment extends Component
 
                 return $this->alert('success', 'Comment is hidden from public!');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 
@@ -78,10 +87,16 @@ class SingleComment extends Component
 
                 return $this->alert('success', 'Comment has been deleted successfully!');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

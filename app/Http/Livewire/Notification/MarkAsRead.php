@@ -16,7 +16,10 @@ class MarkAsRead extends Component
 
             return $this->alert('success', 'Notifications has been marked as read!');
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

@@ -73,6 +73,8 @@ window.addEventListener('toast', event => {
   toastList.forEach(toast => toast.show());
   if (event.detail.type === 'success') {
     document.getElementById('toast-title').innerHTML = '✅ Success';
+  } else if (event.detail.type === 'error') {
+    document.getElementById('toast-title').innerHTML = '❌ Error';
   }
   document.getElementById('toast-body').innerHTML = event.detail.body;
 });

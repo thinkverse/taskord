@@ -16,7 +16,10 @@ class Delete extends Component
 
             return $this->alert('success', 'All notifications has been deleted!');
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }

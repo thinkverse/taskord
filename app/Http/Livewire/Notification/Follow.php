@@ -46,7 +46,10 @@ class Follow extends Component
                 loggy(request(), 'Notification', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!'
+            ]);
         }
     }
 }
