@@ -47,7 +47,7 @@ class CreateTask extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your are rate limited, try again later!'
+                'body' => 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -67,9 +67,9 @@ class CreateTask extends Component
 
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             if ($this->images) {

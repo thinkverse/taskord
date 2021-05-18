@@ -30,21 +30,21 @@ class Follow extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your are rate limited, try again later!'
+                'body' => 'Your are rate limited, try again later!',
             ]);
         }
 
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
             if (auth()->user()->id === $this->user->id) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'You can\'t follow yourself!'
+                    'body' => 'You can\'t follow yourself!',
                 ]);
             } else {
                 auth()->user()->toggleFollow($this->user);

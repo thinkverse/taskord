@@ -30,7 +30,7 @@ class SingleUpdate extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your are rate limited, try again later!'
+                'body' => 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -43,14 +43,14 @@ class SingleUpdate extends Component
             }
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
             if (auth()->user()->id === $this->update->user->id) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'You can\'t praise your own update!'
+                    'body' => 'You can\'t praise your own update!',
                 ]);
             }
             if (auth()->user()->hasLiked($this->update)) {
@@ -77,9 +77,9 @@ class SingleUpdate extends Component
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->update->user->id) {

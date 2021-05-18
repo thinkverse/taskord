@@ -17,12 +17,12 @@ class OnlyFollowing extends Component
             if (auth()->user()->onlyFollowingsTasks) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Only following users tasks will be visible!'
+                    'body' => 'Only following users tasks will be visible!',
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'All users tasks will be visible!'
+                    'body' => 'All users tasks will be visible!',
                 ]);
             }
         } else {

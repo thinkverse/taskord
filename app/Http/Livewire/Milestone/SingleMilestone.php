@@ -31,7 +31,7 @@ class SingleMilestone extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your are rate limited, try again later!'
+                'body' => 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -45,14 +45,14 @@ class SingleMilestone extends Component
 
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
             if (auth()->user()->id === $this->milestone->user->id) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'You can\'t praise your own milestone!'
+                    'body' => 'You can\'t praise your own milestone!',
                 ]);
             }
             Helper::togglePraise($this->milestone, 'MILESTONE');
@@ -74,7 +74,7 @@ class SingleMilestone extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Milestone is hidden from public!'
+                    'body' => 'Milestone is hidden from public!',
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -119,9 +119,9 @@ class SingleMilestone extends Component
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->milestone->user_id) {

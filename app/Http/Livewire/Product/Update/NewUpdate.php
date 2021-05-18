@@ -34,9 +34,9 @@ class NewUpdate extends Component
 
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             $update = auth()->user()->product_updates()->create([

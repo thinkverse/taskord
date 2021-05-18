@@ -24,7 +24,7 @@ class Notifications extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Notification settings has been updated'
+                    'body' => 'Notification settings has been updated',
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -50,7 +50,7 @@ class Notifications extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Notification settings has been updated'
+                    'body' => 'Notification settings has been updated',
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [

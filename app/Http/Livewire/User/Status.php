@@ -29,7 +29,7 @@ class Status extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'success',
-                'body' => 'Status cleared successfully!'
+                'body' => 'Status cleared successfully!',
             ]);
         } else {
             return $this->dispatchBrowserEvent('toast', [
@@ -45,7 +45,7 @@ class Status extends Component
             if (strlen($event['status_emoji']) === 0) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'Select the emoji!'
+                    'body' => 'Select the emoji!',
                 ]);
             }
 
@@ -58,7 +58,7 @@ class Status extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Status set successfully!'
+                    'body' => 'Status set successfully!',
                 ]);
             } else {
                 auth()->user()->status = null;
@@ -69,7 +69,7 @@ class Status extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Status cleared successfully!'
+                    'body' => 'Status cleared successfully!',
                 ]);
             }
         } else {

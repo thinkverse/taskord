@@ -24,7 +24,7 @@ class SelectMilestone extends Component
 
         return $this->dispatchBrowserEvent('toast', [
             'type' => 'success',
-            'body' => 'Milestone has been removed from the task!'
+            'body' => 'Milestone has been removed from the task!',
         ]);
     }
 
@@ -38,7 +38,7 @@ class SelectMilestone extends Component
 
         return $this->dispatchBrowserEvent('toast', [
             'type' => 'success',
-            'body' => 'Task has been added to the milestone #'.$milestone->id
+            'body' => 'Task has been added to the milestone #'.$milestone->id,
         ]);
     }
 

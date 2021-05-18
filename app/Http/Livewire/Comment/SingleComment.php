@@ -29,7 +29,7 @@ class SingleComment extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your are rate limited, try again later!'
+                'body' => 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -43,14 +43,14 @@ class SingleComment extends Component
 
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
             if (auth()->user()->id === $this->comment->user->id) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'You can\'t praise your own comment!'
+                    'body' => 'You can\'t praise your own comment!',
                 ]);
             }
             Helper::togglePraise($this->comment, 'COMMENT');
@@ -72,7 +72,7 @@ class SingleComment extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Comment is hidden from public!'
+                    'body' => 'Comment is hidden from public!',
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -93,9 +93,9 @@ class SingleComment extends Component
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
             if (auth()->user()->staffShip or auth()->user()->id === $this->comment->user->id) {
                 loggy(request(), 'Comment', auth()->user(), 'Deleted a comment | Comment ID: '.$this->comment->id);
@@ -105,7 +105,7 @@ class SingleComment extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Comment has been deleted successfully!'
+                    'body' => 'Comment has been deleted successfully!',
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [

@@ -48,9 +48,9 @@ class CreateComment extends Component
 
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             $users = Helper::getUsernamesFromMentions($this->comment);
@@ -81,7 +81,7 @@ class CreateComment extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'success',
-                'body' => 'Comment has been added!'
+                'body' => 'Comment has been added!',
             ]);
         } else {
             $this->dispatchBrowserEvent('toast', [

@@ -34,7 +34,7 @@ class Api extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your are rate limited, try again later!'
+                'body' => 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -47,7 +47,7 @@ class Api extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'New API key been generated successfully'
+                    'body' => 'New API key been generated successfully',
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [

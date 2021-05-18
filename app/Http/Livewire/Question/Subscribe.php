@@ -33,7 +33,7 @@ class Subscribe extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your are rate limited, try again later!'
+                'body' => 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -46,14 +46,14 @@ class Subscribe extends Component
             }
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
             if (auth()->user()->id === $this->question->user->id) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'You can\'t subscribe your own question!'
+                    'body' => 'You can\'t subscribe your own question!',
                 ]);
             } else {
                 auth()->user()->toggleSubscribe($this->question);

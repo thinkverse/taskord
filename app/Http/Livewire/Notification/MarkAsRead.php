@@ -16,7 +16,7 @@ class MarkAsRead extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'success',
-                'body' => 'Notifications has been marked as read!'
+                'body' => 'Notifications has been marked as read!',
             ]);
         } else {
             return $this->dispatchBrowserEvent('toast', [

@@ -39,7 +39,7 @@ class SingleTask extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your are rate limited, try again later!'
+                'body' => 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -91,7 +91,7 @@ class SingleTask extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your are rate limited, try again later!'
+                'body' => 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -105,14 +105,14 @@ class SingleTask extends Component
 
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
             if (auth()->user()->id === $this->task->user->id) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'You can\'t praise your own task!'
+                    'body' => 'You can\'t praise your own task!',
                 ]);
             }
             Helper::togglePraise($this->task, 'TASK');
@@ -134,7 +134,7 @@ class SingleTask extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Task is hidden from public!'
+                    'body' => 'Task is hidden from public!',
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -155,9 +155,9 @@ class SingleTask extends Component
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->task->user->id) {
@@ -171,7 +171,7 @@ class SingleTask extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Task has been deleted successfully!'
+                    'body' => 'Task has been deleted successfully!',
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [

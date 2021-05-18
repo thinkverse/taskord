@@ -41,7 +41,7 @@ class Products extends Component
 
         return $this->dispatchBrowserEvent('toast', [
             'type' => 'success',
-            'body' => 'You are no longer member of the team!'
+            'body' => 'You are no longer member of the team!',
         ]);
     }
 }

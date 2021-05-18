@@ -29,7 +29,7 @@ class Rsvp extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your are rate limited, try again later!'
+                'body' => 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -42,14 +42,14 @@ class Rsvp extends Component
             }
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
             if (auth()->user()->id === $this->meetup->user_id) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'You can\'t RSVP your own meetup!'
+                    'body' => 'You can\'t RSVP your own meetup!',
                 ]);
             } else {
                 auth()->user()->toggleSubscribe($this->meetup);

@@ -143,7 +143,7 @@ class CreateTask extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'success',
-                'body' => 'Task has been created!'
+                'body' => 'Task has been created!',
             ]);
         } else {
             return $this->dispatchBrowserEvent('toast', [

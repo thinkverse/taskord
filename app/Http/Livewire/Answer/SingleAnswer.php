@@ -29,7 +29,7 @@ class SingleAnswer extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your are rate limited, try again later!'
+                'body' => 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -42,14 +42,14 @@ class SingleAnswer extends Component
             }
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
             if (auth()->user()->id === $this->answer->user->id) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'You can\'t praise your own answer!'
+                    'body' => 'You can\'t praise your own answer!',
                 ]);
             }
             Helper::togglePraise($this->answer, 'ANSWER');
@@ -71,7 +71,7 @@ class SingleAnswer extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Answer is hidden from public!'
+                    'body' => 'Answer is hidden from public!',
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -92,9 +92,9 @@ class SingleAnswer extends Component
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->answer->user->id) {
@@ -105,7 +105,7 @@ class SingleAnswer extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Answer has been deleted successfully!'
+                    'body' => 'Answer has been deleted successfully!',
                 ]);
             } else {
                 $this->dispatchBrowserEvent('toast', [

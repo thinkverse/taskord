@@ -30,14 +30,14 @@ class Account extends Component
 
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Your are now beta member!'
+                        'body' => 'Your are now beta member!',
                     ]);
                 } else {
                     loggy(request(), 'User', auth()->user(), 'Opted out from beta');
 
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Your are no longer a beta member!'
+                        'body' => 'Your are no longer a beta member!',
                     ]);
                 }
             } else {
@@ -71,14 +71,14 @@ class Account extends Component
 
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'All your tasks are now private'
+                        'body' => 'All your tasks are now private',
                     ]);
                 } else {
                     loggy(request(), 'User', auth()->user(), 'Enrolled as a public user');
 
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'All your tasks are now public'
+                        'body' => 'All your tasks are now public',
                     ]);
                 }
             } else {
@@ -131,7 +131,7 @@ class Account extends Component
 
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Your account has been updated!'
+                        'body' => 'Your account has been updated!',
                     ]);
                 }
             } else {

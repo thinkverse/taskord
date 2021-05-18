@@ -48,7 +48,7 @@ class Password extends Component
                 if (! Hash::check($this->currentPassword, auth()->user()->password)) {
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'error',
-                        'body' => 'Current password does not match!'
+                        'body' => 'Current password does not match!',
                     ]);
                 }
 
@@ -58,7 +58,7 @@ class Password extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Your password has been changed!'
+                    'body' => 'Your password has been changed!',
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [

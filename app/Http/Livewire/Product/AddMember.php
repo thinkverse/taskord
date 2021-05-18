@@ -23,19 +23,19 @@ class AddMember extends Component
             if ($user === null) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'User does not exists'
+                    'body' => 'User does not exists',
                 ]);
             }
             if ($user->products->contains($this->product) or $user->id === $this->product->owner->id) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'User is already in the team'
+                    'body' => 'User is already in the team',
                 ]);
             }
             if (auth()->user()->username === $this->username) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'You can\'t add yourself to the team!'
+                    'body' => 'You can\'t add yourself to the team!',
                 ]);
             }
             $user->products()->attach($this->product);

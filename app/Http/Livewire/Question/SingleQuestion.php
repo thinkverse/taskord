@@ -31,7 +31,7 @@ class SingleQuestion extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
-                'body' => 'Your are rate limited, try again later!'
+                'body' => 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -45,14 +45,14 @@ class SingleQuestion extends Component
 
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
             if (auth()->user()->id === $this->question->user->id) {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
-                    'body' => 'You can\'t praise your own question!'
+                    'body' => 'You can\'t praise your own question!',
                 ]);
             }
             Helper::togglePraise($this->question, 'QUESTION');
@@ -74,7 +74,7 @@ class SingleQuestion extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Question is hidden from public!'
+                    'body' => 'Question is hidden from public!',
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -95,9 +95,9 @@ class SingleQuestion extends Component
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your account is flagged!',
-            ]);
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {

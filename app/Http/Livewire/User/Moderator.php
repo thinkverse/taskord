@@ -385,7 +385,7 @@ class Moderator extends Component
 
         return $this->dispatchBrowserEvent('toast', [
             'type' => 'success',
-            'body' => 'Note has been updated!'
+            'body' => 'Note has been updated!',
         ]);
     }
 

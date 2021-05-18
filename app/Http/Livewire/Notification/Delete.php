@@ -16,7 +16,7 @@ class Delete extends Component
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'success',
-                'body' => 'All notifications has been deleted!'
+                'body' => 'All notifications has been deleted!',
             ]);
         } else {
             return $this->dispatchBrowserEvent('toast', [
