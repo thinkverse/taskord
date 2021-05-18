@@ -48,7 +48,6 @@ class Delete extends Component
                 $user->ownedProducts()->delete();
                 $user->notifications()->delete();
                 $user->likes()->delete();
-                $this->flash('success', 'Your account has been resetted!');
 
                 return redirect()->route('home');
             } else {
