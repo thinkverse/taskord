@@ -28,11 +28,17 @@ class Account extends Component
                 if ($this->user->isBeta) {
                     loggy(request(), 'User', auth()->user(), 'Enrolled to beta');
 
-                    return $this->alert('success', 'Your are now beta member!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Your are now beta member!'
+                    ]);
                 } else {
                     loggy(request(), 'User', auth()->user(), 'Opted out from beta');
 
-                    return $this->alert('success', 'Your are no longer a beta member!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Your are no longer a beta member!'
+                    ]);
                 }
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -63,11 +69,17 @@ class Account extends Component
                 if ($this->user->isPrivate) {
                     loggy(request(), 'User', auth()->user(), 'Enrolled as a private user');
 
-                    return $this->alert('success', 'All your tasks are now private');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'All your tasks are now private'
+                    ]);
                 } else {
                     loggy(request(), 'User', auth()->user(), 'Enrolled as a public user');
 
-                    return $this->alert('success', 'All your tasks are now public');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'All your tasks are now public'
+                    ]);
                 }
             } else {
                 return $this->dispatchBrowserEvent('toast', [

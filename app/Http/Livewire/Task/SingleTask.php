@@ -126,7 +126,10 @@ class SingleTask extends Component
                 Helper::hide($this->task);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
 
-                return $this->alert('success', 'Task is hidden from public!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Task is hidden from public!'
+                ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
@@ -160,7 +163,10 @@ class SingleTask extends Component
                 $this->emitUp('taskDeleted');
                 auth()->user()->touch();
 
-                return $this->alert('success', 'Task has been deleted successfully!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Task has been deleted successfully!'
+                ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',

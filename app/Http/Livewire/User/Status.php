@@ -27,7 +27,10 @@ class Status extends Component
             $this->emit('statusUpdated');
             loggy(request(), 'User', auth()->user(), 'Cleared the account status');
 
-            return $this->alert('success', 'Status cleared successfully!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'success',
+                'body' => 'Status cleared successfully!'
+            ]);
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
@@ -50,7 +53,10 @@ class Status extends Component
                 $this->emit('statusUpdated');
                 loggy(request(), 'User', auth()->user(), 'Updated the account status');
 
-                return $this->alert('success', 'Status set successfully!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Status set successfully!'
+                ]);
             } else {
                 auth()->user()->status = null;
                 auth()->user()->status_emoji = null;
@@ -58,7 +64,10 @@ class Status extends Component
                 $this->emit('statusUpdated');
                 loggy(request(), 'User', auth()->user(), 'Deleted the account status');
 
-                return $this->alert('success', 'Status cleared successfully!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Status cleared successfully!'
+                ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [

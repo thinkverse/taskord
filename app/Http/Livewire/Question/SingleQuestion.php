@@ -66,7 +66,10 @@ class SingleQuestion extends Component
                 Helper::hide($this->question);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
 
-                return $this->alert('success', 'Question is hidden from public!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Question is hidden from public!'
+                ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
