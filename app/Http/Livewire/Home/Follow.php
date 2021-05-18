@@ -38,7 +38,10 @@ class Follow extends Component
 
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your account is flagged!'
+            ]);
             }
             if (auth()->user()->id === $this->user->id) {
                 return $this->alert('warning', 'You can\'t follow yourself!');

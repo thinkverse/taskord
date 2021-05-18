@@ -44,7 +44,10 @@ class EditQuestion extends Component
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your account is flagged!'
+            ]);
             }
 
             $question = Question::where('id', $this->question->id)->firstOrFail();

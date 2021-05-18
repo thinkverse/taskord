@@ -39,7 +39,10 @@ class Subscribe extends Component
                 return $this->alert('warning', 'Your email is not verified!');
             }
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your account is flagged!'
+            ]);
             }
             if (auth()->user()->id === $this->product->owner->id) {
                 return $this->alert('warning', 'You can\'t subscribe your own product!');

@@ -39,7 +39,10 @@ class SingleComment extends Component
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your account is flagged!'
+            ]);
             }
             if (auth()->user()->id === $this->comment->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own comment!');
@@ -80,7 +83,10 @@ class SingleComment extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your account is flagged!'
+            ]);
             }
             if (auth()->user()->staffShip or auth()->user()->id === $this->comment->user->id) {
                 loggy(request(), 'Comment', auth()->user(), 'Deleted a comment | Comment ID: '.$this->comment->id);

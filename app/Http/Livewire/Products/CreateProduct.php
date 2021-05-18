@@ -61,7 +61,10 @@ class CreateProduct extends Component
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your account is flagged!'
+            ]);
             }
 
             $launched = ! $this->launched ? false : true;

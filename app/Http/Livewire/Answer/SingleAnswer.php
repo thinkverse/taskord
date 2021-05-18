@@ -38,7 +38,10 @@ class SingleAnswer extends Component
                 return $this->alert('warning', 'Your email is not verified!');
             }
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your account is flagged!'
+            ]);
             }
             if (auth()->user()->id === $this->answer->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own answer!');
@@ -79,7 +82,10 @@ class SingleAnswer extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your account is flagged!'
+            ]);
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->answer->user->id) {

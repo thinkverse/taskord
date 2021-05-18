@@ -24,7 +24,10 @@ class CreateQuestion extends Component
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your account is flagged!'
+            ]);
             }
 
             $patronOnly = ! $this->patronOnly ? false : true;

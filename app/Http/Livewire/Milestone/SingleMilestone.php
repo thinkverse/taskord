@@ -41,7 +41,10 @@ class SingleMilestone extends Component
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your account is flagged!'
+            ]);
             }
             if (auth()->user()->id === $this->milestone->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own milestone!');
@@ -106,7 +109,10 @@ class SingleMilestone extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your account is flagged!'
+            ]);
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->milestone->user_id) {
