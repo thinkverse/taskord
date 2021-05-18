@@ -78,9 +78,9 @@ class SingleMilestone extends Component
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
@@ -133,9 +133,9 @@ class SingleMilestone extends Component
                 return redirect()->route('milestones.opened');
             } else {
                 $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [

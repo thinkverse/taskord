@@ -73,9 +73,9 @@ class EditQuestion extends Component
                 return redirect()->route('question.question', ['id' => $question->id]);
             } else {
                 $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             $this->dispatchBrowserEvent('toast', [

@@ -136,9 +136,9 @@ class EditProduct extends Component
                 return redirect()->route('product.done', ['slug' => $product->slug]);
             } else {
                 $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             $this->dispatchBrowserEvent('toast', [
@@ -180,9 +180,9 @@ class EditProduct extends Component
                 return redirect()->route('products.newest');
             } else {
                 $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [

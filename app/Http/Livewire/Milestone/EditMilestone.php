@@ -74,9 +74,9 @@ class EditMilestone extends Component
                 return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
             } else {
                 $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             $this->dispatchBrowserEvent('toast', [

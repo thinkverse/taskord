@@ -75,9 +75,9 @@ class SingleAnswer extends Component
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
@@ -109,9 +109,9 @@ class SingleAnswer extends Component
                 ]);
             } else {
                 $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
