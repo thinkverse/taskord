@@ -100,12 +100,15 @@ class Integrations extends Component
                 $webhook->delete();
                 $this->emit('webhookDeleted');
 
-                return $this->alert('success', 'Webhook has been deleted!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Webhook has been deleted!'
+                ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!'
-            ]);
+                    'type' => 'error',
+                    'body' => 'Forbidden!'
+                ]);
             }
         } else {
             return $this->dispatchBrowserEvent('toast', [
