@@ -19,7 +19,7 @@ class Adminbar extends Component
         loggy(request(), 'Admin', auth()->user(), 'Cleaned the Application');
         return $this->dispatchBrowserEvent('toast', [
             'type' => 'success',
-            'body' => "Cleaning process has been initiated successfully 🧼"
+            'body' => 'Cleaning process has been initiated successfully'
         ]);
     }
 
@@ -30,9 +30,15 @@ class Adminbar extends Component
             Clean::dispatch();
             loggy(request(), 'Admin', auth()->user(), 'Deployed the Application');
 
-            return $this->alert('success', 'Deployment process has been initiated successfully 🚀');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'success',
+                'body' => 'Deployment process has been initiated successfully 🚀'
+            ]);
         } else {
-            return $this->alert('error', 'Permission denied!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Permission denied!'
+            ]);
         }
     }
 
