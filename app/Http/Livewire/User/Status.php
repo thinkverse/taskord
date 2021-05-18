@@ -43,7 +43,10 @@ class Status extends Component
     {
         if (auth()->check()) {
             if (strlen($event['status_emoji']) === 0) {
-                return $this->alert('warning', 'Select the emoji!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Select the emoji!'
+                ]);
             }
 
             if (strlen($event['status']) !== 0) {

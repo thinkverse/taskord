@@ -51,7 +51,10 @@ class Subscribe extends Component
             ]);
             }
             if (auth()->user()->id === $this->task->user->id) {
-                return $this->alert('warning', 'You can\'t subscribe your own task!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'You can\'t subscribe your own task!'
+                ]);
             } else {
                 auth()->user()->toggleSubscribe($this->task);
                 $this->task->refresh();

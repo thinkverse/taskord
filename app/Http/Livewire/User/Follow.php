@@ -42,7 +42,10 @@ class Follow extends Component
             ]);
             }
             if (auth()->user()->id === $this->user->id) {
-                return $this->alert('warning', 'You can\'t follow yourself!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'You can\'t follow yourself!'
+                ]);
             } else {
                 auth()->user()->toggleFollow($this->user);
                 $this->user->refresh();
