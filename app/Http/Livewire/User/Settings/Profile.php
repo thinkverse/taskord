@@ -107,7 +107,10 @@ class Profile extends Component
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated the profile settings');
 
-                    return $this->alert('success', 'Your profile has been updated!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Your profile has been updated!'
+                    ]);
                 }
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -136,6 +139,10 @@ class Profile extends Component
                 loggy(request(), 'User', auth()->user(), 'Resetted avatar to default');
 
                 return $this->alert('success', 'Your avatar has been resetted!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Your profile has been updated!'
+                ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
@@ -163,6 +170,10 @@ class Profile extends Component
                 loggy(request(), 'User', auth()->user(), 'Updated avatar provider to Gravatar');
 
                 return $this->alert('success', 'Your avatar has been switched to Gravatar!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Your profile has been updated!'
+                ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
@@ -212,6 +223,10 @@ class Profile extends Component
                     loggy(request(), 'User', auth()->user(), 'Updated the goal '.$this->daily_goal.'/day');
 
                     return $this->alert('success', 'Your goal has been updated!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Your profile has been updated!'
+                    ]);
                 }
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -237,10 +252,18 @@ class Profile extends Component
                     loggy(request(), 'User', auth()->user(), 'Enabled vacation mode');
 
                     return $this->alert('success', 'Vacation mode has been enabled!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Your profile has been updated!'
+                    ]);
                 } else {
                     loggy(request(), 'User', auth()->user(), 'Disabled vacation mode');
 
                     return $this->alert('success', 'Vacation mode has been disabled!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Your profile has been updated!'
+                    ]);
                 }
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -270,6 +293,10 @@ class Profile extends Component
                     loggy(request(), 'User', auth()->user(), 'Updated the sponsor URL');
 
                     return $this->alert('success', 'Your sponsor link has been updated!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Your profile has been updated!'
+                    ]);
                 }
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -308,7 +335,10 @@ class Profile extends Component
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated the social URLs');
 
-                    return $this->alert('success', 'Your social links has been updated!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Your social links has been updated!'
+                    ]);
                 }
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -331,9 +361,15 @@ class Profile extends Component
                 $this->user->onlyFollowingsTasks = ! $this->user->onlyFollowingsTasks;
                 $this->user->save();
                 if ($this->user->onlyFollowingsTasks) {
-                    $this->alert('success', 'Only following user\'s task will be show on homepage');
+                    $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Only following user\'s task will be show on homepage'
+                    ]);
                 } else {
-                    $this->alert('success', 'All user\'s task will be show on homepage');
+                    $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'All user\'s task will be show on homepage'
+                    ]);
                 }
                 loggy(request(), 'User', auth()->user(), 'Toggled only following users tasks in settings');
             } else {
