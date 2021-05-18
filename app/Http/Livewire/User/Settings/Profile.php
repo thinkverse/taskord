@@ -138,10 +138,9 @@ class Profile extends Component
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Resetted avatar to default');
 
-                return $this->alert('success', 'Your avatar has been resetted!');
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Your profile has been updated!'
+                    'body' => 'Your avatar has been resetted!'
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -169,10 +168,9 @@ class Profile extends Component
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Updated avatar provider to Gravatar');
 
-                return $this->alert('success', 'Your avatar has been switched to Gravatar!');
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Your profile has been updated!'
+                    'body' => 'Your avatar has been switched to Gravatar!'
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -222,10 +220,9 @@ class Profile extends Component
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated the goal '.$this->daily_goal.'/day');
 
-                    return $this->alert('success', 'Your goal has been updated!');
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Your profile has been updated!'
+                        'body' => 'Your goal has been updated!'
                     ]);
                 }
             } else {
@@ -251,18 +248,16 @@ class Profile extends Component
                 if ($this->user->vacation_mode) {
                     loggy(request(), 'User', auth()->user(), 'Enabled vacation mode');
 
-                    return $this->alert('success', 'Vacation mode has been enabled!');
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Your profile has been updated!'
+                        'body' => 'Vacation mode has been enabled!'
                     ]);
                 } else {
                     loggy(request(), 'User', auth()->user(), 'Disabled vacation mode');
 
-                    return $this->alert('success', 'Vacation mode has been disabled!');
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Your profile has been updated!'
+                        'body' => 'Vacation mode has been disabled!'
                     ]);
                 }
             } else {
@@ -292,10 +287,9 @@ class Profile extends Component
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated the sponsor URL');
 
-                    return $this->alert('success', 'Your sponsor link has been updated!');
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Your profile has been updated!'
+                        'body' => 'Your sponsor link has been updated!'
                     ]);
                 }
             } else {
