@@ -64,7 +64,10 @@ class SingleComment extends Component
                 Helper::hide($this->comment);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide comment | Comment ID: '.$this->comment->id);
 
-                return $this->alert('success', 'Comment is hidden from public!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Comment is hidden from public!'
+                ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
@@ -94,7 +97,10 @@ class SingleComment extends Component
                 $this->emit('commentDeleted');
                 auth()->user()->touch();
 
-                return $this->alert('success', 'Comment has been deleted successfully!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Comment has been deleted successfully!'
+                ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
