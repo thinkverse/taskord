@@ -84,8 +84,6 @@ class NewMeetup extends Component
             ]);
             auth()->user()->touch();
 
-            $this->flash('success', 'Meetup has been created!');
-
             return redirect()->route('meetups.home');
         } else {
             $this->dispatchBrowserEvent('toast', [

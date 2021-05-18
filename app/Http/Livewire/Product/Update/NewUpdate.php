@@ -52,8 +52,6 @@ class NewUpdate extends Component
             }
             loggy(request(), 'Product', auth()->user(), 'Created a new product update on #'.$this->product->slug.' | Update ID: '.$update->id);
 
-            $this->flash('success', 'New Update has been created!');
-
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {
             $this->dispatchBrowserEvent('toast', [

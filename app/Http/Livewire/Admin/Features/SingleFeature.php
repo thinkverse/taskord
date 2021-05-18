@@ -78,7 +78,6 @@ class SingleFeature extends Component
             loggy(request(), 'Admin', auth()->user(), 'Deleted a feature flag | Feature ID: '.$this->feature->id);
             $this->feature->delete();
             auth()->user()->touch();
-            $this->flash('success', 'Feature flag has been deleted successfully!');
 
             return redirect()->route('admin.features');
         } else {

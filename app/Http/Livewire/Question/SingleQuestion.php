@@ -104,7 +104,6 @@ class SingleQuestion extends Component
                 loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
                 $this->question->delete();
                 auth()->user()->touch();
-                $this->flash('success', 'Question has been deleted successfully!');
 
                 return redirect()->route('questions.newest');
             } else {

@@ -130,7 +130,6 @@ class EditProduct extends Component
 
                 auth()->user()->touch();
 
-                $this->flash('success', 'Product has been updated!');
                 loggy(request(), 'Product', auth()->user(), 'Updated a product | Product Slug: #'.$this->product->slug);
 
                 return redirect()->route('product.done', ['slug' => $product->slug]);
@@ -175,7 +174,6 @@ class EditProduct extends Component
                 $this->product->webhooks()->delete();
                 $this->product->delete();
                 auth()->user()->touch();
-                $this->flash('success', 'Product has been deleted!');
 
                 return redirect()->route('products.newest');
             } else {

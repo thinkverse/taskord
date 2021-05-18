@@ -128,7 +128,6 @@ class SingleMilestone extends Component
                 loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
                 $this->milestone->delete();
                 auth()->user()->touch();
-                $this->flash('success', 'Milestone has been deleted successfully!');
 
                 return redirect()->route('milestones.opened');
             } else {
