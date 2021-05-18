@@ -45,7 +45,10 @@ class Api extends Component
                 $this->emit('tokenRegenerated');
                 loggy(request(), 'User', auth()->user(), 'Created a new API key');
 
-                return $this->alert('success', 'New API key been generated successfully');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'New API key been generated successfully'
+                ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',

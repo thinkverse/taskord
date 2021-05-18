@@ -129,7 +129,10 @@ class Account extends Component
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated account settings');
 
-                    return $this->alert('success', 'Your account has been updated!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Your account has been updated!'
+                    ]);
                 }
             } else {
                 return $this->dispatchBrowserEvent('toast', [

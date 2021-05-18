@@ -67,7 +67,10 @@ class Integrations extends Component
                     session()->flash('created', $webhook);
                     loggy(request(), 'User', auth()->user(), 'Created a new webhook | Webhook ID: '.$webhook->id);
 
-                    return $this->alert('success', 'New webhook has been created!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'New webhook has been created!'
+                    ]);
                 } else {
                     return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
