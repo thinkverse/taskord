@@ -8,7 +8,7 @@ use Livewire\Component;
 class Status extends Component
 {
     public $listeners = [
-        'statusUpdated'  => 'render',
+        'refreshStatus'  => 'render',
     ];
 
     public User $user;
@@ -24,7 +24,7 @@ class Status extends Component
             auth()->user()->status = null;
             auth()->user()->status_emoji = null;
             auth()->user()->save();
-            $this->emit('statusUpdated');
+            $this->emit('refreshStatus');
             loggy(request(), 'User', auth()->user(), 'Cleared the account status');
 
             return $this->dispatchBrowserEvent('toast', [
@@ -53,7 +53,7 @@ class Status extends Component
                 auth()->user()->status = $event['status'];
                 auth()->user()->status_emoji = $event['status_emoji'];
                 auth()->user()->save();
-                $this->emit('statusUpdated');
+                $this->emit('refreshStatus');
                 loggy(request(), 'User', auth()->user(), 'Updated the account status');
 
                 return $this->dispatchBrowserEvent('toast', [
@@ -64,7 +64,7 @@ class Status extends Component
                 auth()->user()->status = null;
                 auth()->user()->status_emoji = null;
                 auth()->user()->save();
-                $this->emit('statusUpdated');
+                $this->emit('refreshStatus');
                 loggy(request(), 'User', auth()->user(), 'Deleted the account status');
 
                 return $this->dispatchBrowserEvent('toast', [
