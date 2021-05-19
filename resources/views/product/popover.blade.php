@@ -12,5 +12,12 @@
         @if ($product->description)
             <div class="mt-2 text-dark fw-normal">{{ $product->description }}</div>
         @endif
+        <div class="mt-2 text-secondary d-flex align-items-center">
+            @php
+                $members_count = $product->owner()->count() + $product->members()->count();
+            @endphp
+            <x-heroicon-o-users class="heroicon" />
+            <div class="ms-1">{{ $members_count }} {{ str_plural('member', $members_count) }} in the team</div>
+        </div>
     </div>
 </div>
