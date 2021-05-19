@@ -11,8 +11,11 @@
         <div class="card-body text-center mt-5">
             <x-heroicon-o-bell class="heroicon heroicon-60px text-primary mb-2" />
             <div class="h4">
-                All caught up!
+                Inbox zero
             </div>
+            <p class="text-secondary">
+                Congratulations, you have read all your notifications.
+            </p>
         </div>
     @endif
     @foreach ($notifications as $notification)
