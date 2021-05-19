@@ -14,7 +14,7 @@ class Api extends Component
     public User $user;
 
     public $listeners = [
-        'tokenRegenerated' => 'render',
+        'refreshApiToken' => 'render',
     ];
 
     public function mount($user)
@@ -42,7 +42,7 @@ class Api extends Component
             if (auth()->user()->id === $this->user->id) {
                 auth()->user()->api_token = Str::random(60);
                 auth()->user()->save();
-                $this->emit('tokenRegenerated');
+                $this->emit('refreshApiToken');
                 loggy(request(), 'User', auth()->user(), 'Created a new API key');
 
                 return $this->dispatchBrowserEvent('toast', [
