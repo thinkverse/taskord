@@ -9,10 +9,6 @@ use Livewire\Component;
 
 class Adminbar extends Component
 {
-    protected $listeners = [
-        'refreshStats' => 'render',
-    ];
-
     public function clean()
     {
         Clean::dispatch();
