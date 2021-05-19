@@ -9,7 +9,7 @@ class CreateQuestion extends Component
 {
     public $title;
     public $body;
-    public $solvable;
+    public $solvable = true;
     public $patronOnly;
 
     public function submit()
