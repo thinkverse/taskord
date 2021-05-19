@@ -106,6 +106,23 @@
                     >
                         <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
                     </button>
+                    @if ($question->is_solvable)
+                        <button
+                            role="button"
+                            class="btn btn-task btn-outline-success me-1"
+                            wire:click="toggleSolve"
+                            wire:loading.attr="disabled"
+                            wire:offline.attr="disabled"
+                        >
+                            @if ($question->solved)
+                                <x-heroicon-s-check-circle class="heroicon heroicon-15px me-0 text-success" />
+                                Unsolve
+                            @else
+                                <x-heroicon-s-check-circle class="heroicon heroicon-15px me-0 text-success" />
+                                Solve
+                            @endif
+                        </button>
+                    @endif
                 @endif
                 @if (auth()->user()->staffShip)
                     <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" title="Flag to admins" aria-label="Hide">

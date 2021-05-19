@@ -90,6 +90,39 @@ class SingleQuestion extends Component
         }
     }
 
+    public function toggleSolve()
+    {
+        if (auth()->check()) {
+            if (auth()->user()->isFlagged) {
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
+            }
+
+            if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {
+                loggy(request(), 'Question', auth()->user(), 'Toggled solve question | Question ID: '.$this->question->id);
+                $this->question->solved = ! $this->question->solved;
+                $this->question->save();
+                auth()->user()->touch();
+
+                return redirect()->route('question.question', [
+                    'id' => $this->question->id,
+                ]);
+            } else {
+                $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
+            }
+        } else {
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
+        }
+    }
+
     public function deleteQuestion()
     {
         if (auth()->check()) {
