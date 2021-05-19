@@ -56,7 +56,7 @@ class Follow extends Component
                 }
                 loggy(request(), 'Notification', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
             }
-            $this->emitUp('userFollowed');
+            $this->emitUp('refreshSuggestions');
         } else {
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'error',
