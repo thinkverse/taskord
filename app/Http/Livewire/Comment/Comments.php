@@ -11,8 +11,7 @@ use Livewire\Component;
 class Comments extends Component
 {
     public $listeners = [
-        'commentAdded' => 'render',
-        'commentDeleted' => 'render',
+        'refreshComments' => 'render',
     ];
 
     public Task $task;

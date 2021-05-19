@@ -100,7 +100,7 @@ class SingleComment extends Component
             if (auth()->user()->staffShip or auth()->user()->id === $this->comment->user->id) {
                 loggy(request(), 'Comment', auth()->user(), 'Deleted a comment | Comment ID: '.$this->comment->id);
                 $this->comment->delete();
-                $this->emit('commentDeleted');
+                $this->emit('refreshComments');
                 auth()->user()->touch();
 
                 return $this->dispatchBrowserEvent('toast', [
