@@ -12,8 +12,7 @@ use Livewire\Component;
 class Answers extends Component
 {
     public $listeners = [
-        'answerAdded' => 'render',
-        'answerDeleted' => 'render',
+        'refreshAnswer' => 'render',
     ];
 
     public Question $question;
