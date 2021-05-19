@@ -11,7 +11,7 @@ use Livewire\Component;
 class Subscribe extends Component
 {
     public $listeners = [
-        'taskSubscribed' => 'render',
+        'refreshTaskSubscribed' => 'render',
     ];
 
     public Task $task;
