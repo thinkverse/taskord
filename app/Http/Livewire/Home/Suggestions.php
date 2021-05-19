@@ -7,7 +7,9 @@ use Livewire\Component;
 
 class Suggestions extends Component
 {
-    protected $listeners = ['refreshSuggestions' => 'render'];
+    protected $listeners = [
+        'refreshSuggestions' => 'render',
+    ];
     public $readyToLoad = false;
     public $showText;
     public User $user;

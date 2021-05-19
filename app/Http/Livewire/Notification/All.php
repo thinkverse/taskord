@@ -10,7 +10,7 @@ use Livewire\Component;
 class All extends Component
 {
     public $listeners = [
-        'deleteAll' => 'render',
+        'refreshNotifications' => 'render',
     ];
 
     public $type;

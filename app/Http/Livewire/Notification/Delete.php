@@ -10,7 +10,7 @@ class Delete extends Component
     {
         if (auth()->check()) {
             auth()->user()->notifications()->delete();
-            $this->emit('deleteAll');
+            $this->emit('refreshNotifications');
             auth()->user()->touch();
             loggy(request(), 'Notification', auth()->user(), 'Deleted all notifications');
 
