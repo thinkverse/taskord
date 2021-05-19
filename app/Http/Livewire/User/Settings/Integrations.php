@@ -17,7 +17,7 @@ class Integrations extends Component
     public $type = 'web';
 
     public $listeners = [
-        'webhookDeleted' => 'render',
+        'refreshIntegrations' => 'render',
     ];
 
     public function mount($user)
@@ -98,7 +98,7 @@ class Integrations extends Component
                 loggy(request(), 'User', auth()->user(), 'Deleted a webhook | Webhook ID: '.$id);
                 $webhook = Webhook::find($id);
                 $webhook->delete();
-                $this->emit('webhookDeleted');
+                $this->emit('refreshIntegrations');
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
