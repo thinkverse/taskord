@@ -19,7 +19,7 @@ class SelectMilestone extends Component
     {
         $this->task->milestone()->disassociate();
         $this->task->save();
-        $this->emitUp('addedToMilestone');
+        $this->emitUp('refreshSingleTask');
         loggy(request(), 'Milestone', auth()->user(), 'Removed milestone from the task | Task ID: '.$this->task->id);
 
         return $this->dispatchBrowserEvent('toast', [
@@ -33,7 +33,7 @@ class SelectMilestone extends Component
         $milestone = Milestone::find($milestone->id);
         $this->task->milestone()->associate($milestone);
         $this->task->save();
-        $this->emitUp('addedToMilestone');
+        $this->emitUp('refreshSingleTask');
         loggy(request(), 'Milestone', auth()->user(), 'Added milestone to the task | Task ID: '.$this->task->id);
 
         return $this->dispatchBrowserEvent('toast', [
