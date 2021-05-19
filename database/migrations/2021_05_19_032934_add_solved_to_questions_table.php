@@ -14,7 +14,8 @@ class AddSolvedToQuestionsTable extends Migration
     public function up()
     {
         Schema::table('questions', function (Blueprint $table) {
-            //
+            $table->boolean('is_solvable')->default(true);
+            $table->boolean('solved')->default(false);
         });
     }
 
@@ -26,7 +27,8 @@ class AddSolvedToQuestionsTable extends Migration
     public function down()
     {
         Schema::table('questions', function (Blueprint $table) {
-            //
+            $table->dropColumn('is_solvable');
+            $table->dropColumn('solved');
         });
     }
 }
