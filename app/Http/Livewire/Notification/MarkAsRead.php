@@ -10,7 +10,7 @@ class MarkAsRead extends Component
     {
         if (auth()->check()) {
             auth()->user()->unreadNotifications->markAsRead();
-            $this->emit('markAsRead');
+            $this->emit('refreshNotifications');
             auth()->user()->touch();
             loggy(request(), 'Notification', auth()->user(), 'All notifications are marked as read');
 

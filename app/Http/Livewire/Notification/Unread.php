@@ -10,7 +10,7 @@ use Livewire\Component;
 class Unread extends Component
 {
     public $listeners = [
-        'markAsRead' => 'render',
+        'refreshNotifications' => 'render',
     ];
 
     public $type;
