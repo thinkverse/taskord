@@ -100,7 +100,7 @@ class SingleAnswer extends Component
             if (auth()->user()->staffShip or auth()->user()->id === $this->answer->user->id) {
                 loggy(request(), 'Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
                 $this->answer->delete();
-                $this->emit('refreshAnswer');
+                $this->emit('refreshAnswers');
                 auth()->user()->touch();
 
                 return $this->dispatchBrowserEvent('toast', [

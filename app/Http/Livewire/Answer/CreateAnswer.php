@@ -65,7 +65,7 @@ class CreateAnswer extends Component
             ]);
             auth()->user()->touch();
 
-            $this->emit('refreshAnswer');
+            $this->emit('refreshAnswers');
             $this->answer = '';
             Helper::mentionUsers($users, $answer, auth()->user(), 'answer');
             Helper::notifySubscribers($answer->question->subscribers, $answer, 'answer');

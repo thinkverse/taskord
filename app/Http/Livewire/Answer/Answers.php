@@ -12,7 +12,7 @@ use Livewire\Component;
 class Answers extends Component
 {
     public $listeners = [
-        'refreshAnswer' => 'render',
+        'refreshAnswers' => 'render',
     ];
 
     public Question $question;
