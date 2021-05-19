@@ -85,7 +85,7 @@ class SingleUpdate extends Component
             if (auth()->user()->staffShip or auth()->user()->id === $this->update->user->id) {
                 loggy(request(), 'Product', auth()->user(), 'Deleted a product update on #'.$this->update->product->slug.' | Update ID: '.$this->update->id);
                 $this->update->delete();
-                $this->emitUp('updateDeleted');
+                $this->emitUp('refreshProduct');
             } else {
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',

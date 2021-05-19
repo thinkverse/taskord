@@ -10,7 +10,7 @@ class Updates extends Component
     public Product $product;
 
     public $listeners = [
-        'updateDeleted' => 'render',
+        'refreshProduct' => 'render',
     ];
 
     public function mount($product)
