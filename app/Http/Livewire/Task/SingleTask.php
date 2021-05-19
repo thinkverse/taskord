@@ -62,7 +62,7 @@ class SingleTask extends Component
                 }
                 $this->task->done = ! $this->task->done;
                 $this->task->save();
-                $this->emit('taskChecked');
+                $this->emit('refreshTasks');
 
                 return true;
             } else {
@@ -166,7 +166,7 @@ class SingleTask extends Component
                     Storage::delete($image);
                 }
                 $this->task->delete();
-                $this->emitUp('taskDeleted');
+                $this->emitUp('refreshTasks');
                 auth()->user()->touch();
 
                 return $this->dispatchBrowserEvent('toast', [

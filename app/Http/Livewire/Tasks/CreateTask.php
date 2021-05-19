@@ -97,7 +97,7 @@ class CreateTask extends Component
                 'type' => $product_id ? 'product' : 'user',
             ]))();
 
-            $this->emit('taskAdded');
+            $this->emit('refreshTasks');
             $this->reset();
         } else {
             return $this->dispatchBrowserEvent('toast', [

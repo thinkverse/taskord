@@ -8,9 +8,7 @@ use Livewire\Component;
 class Tasks extends Component
 {
     public $listeners = [
-        'taskAdded' => 'render',
-        'taskDeleted' => 'render',
-        'taskChecked' => 'render',
+        'refreshTasks' => 'render',
     ];
 
     public Product $product;

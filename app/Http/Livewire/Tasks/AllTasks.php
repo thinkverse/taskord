@@ -8,9 +8,7 @@ use Livewire\WithPagination;
 class AllTasks extends Component
 {
     public $listeners = [
-        'taskChecked' => 'render',
-        'taskAdded' => 'render',
-        'taskDeleted' => 'render',
+        'refreshTasks' => 'render',
     ];
     use WithPagination;
     protected $paginationTheme = 'bootstrap';

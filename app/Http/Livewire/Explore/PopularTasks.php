@@ -8,8 +8,7 @@ use Livewire\Component;
 class PopularTasks extends Component
 {
     public $listeners = [
-        'taskDeleted' => 'render',
-        'taskChecked' => 'render',
+        'refreshTasks' => 'render',
     ];
 
     public $readyToLoad = false;

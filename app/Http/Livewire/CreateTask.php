@@ -132,7 +132,7 @@ class CreateTask extends Component
                 'type' => $product_id ? 'product' : 'user',
             ]))();
 
-            $this->emit('taskAdded');
+            $this->emit('refreshTasks');
             $this->reset(['task', 'images', 'due_at']);
             if (auth()->user()->hasGoal and $task->done) {
                 auth()->user()->daily_goal_reached++;

@@ -11,7 +11,7 @@ class OnlyFollowing extends Component
         if (auth()->check()) {
             auth()->user()->onlyFollowingsTasks = ! auth()->user()->onlyFollowingsTasks;
             auth()->user()->save();
-            $this->emit('onlyFollowings');
+            $this->emit('refreshTasks');
             loggy(request(), 'User', auth()->user(), 'Toggled only followings tasks');
 
             if (auth()->user()->onlyFollowingsTasks) {

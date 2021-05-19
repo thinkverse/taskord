@@ -12,9 +12,7 @@ class Tasks extends Component
     public $readyToLoad = false;
 
     public $listeners = [
-        'taskAdded' => 'render',
-        'taskDeleted' => 'render',
-        'taskChecked' => 'render',
+        'refreshTasks' => 'render',
     ];
 
     public function mount($milestone, $page)

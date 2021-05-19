@@ -47,7 +47,7 @@ class SingleTask extends Component
             auth()->user()->touch();
             givePoint(new TaskCompleted($this->task));
             $this->task->save();
-            $this->emit('taskChecked');
+            $this->emit('refreshTasks');
             if (auth()->user()->hasGoal and $this->task->done) {
                 auth()->user()->daily_goal_reached++;
                 auth()->user()->save();
@@ -80,7 +80,7 @@ class SingleTask extends Component
                     Storage::delete($image);
                 }
                 $this->task->delete();
-                $this->emitUp('taskDeleted');
+                $this->emitUp('refreshTasks');
                 auth()->user()->touch();
             } else {
                 return $this->dispatchBrowserEvent('toast', [
