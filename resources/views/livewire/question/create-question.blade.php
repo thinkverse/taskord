@@ -34,8 +34,8 @@
                         <x-heroicon-s-check-circle class="heroicon-18px text-success" />
                         <span class="ms-1">Solvable</span>
                     </div>
-                    <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patronOnly">
-                    <label for="patronOnly" class="ms-1">This question will enable you to solve the question</label>
+                    <input id="slovable" class="form-check-input" type="checkbox" wire:model.defer="slovable">
+                    <label for="slovable" class="ms-1">This question will enable you to solve the question</label>
                 </div>
                 @auth
                     @if (auth()->user()->isPatron)
