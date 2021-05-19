@@ -71,7 +71,7 @@ class CreateAnswer extends Component
             Helper::notifySubscribers($answer->question->subscribers, $answer, 'answer');
             if (! auth()->user()->hasSubscribed($answer->question)) {
                 auth()->user()->subscribe($answer->question);
-                $this->emit('questionSubscribed');
+                $this->emit('refreshQuestionSubscribe');
             }
             if (auth()->user()->id !== $this->question->user->id) {
                 $this->question->user->notify(new Answered($answer));

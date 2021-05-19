@@ -11,7 +11,7 @@ use Livewire\Component;
 class Subscribe extends Component
 {
     public $listeners = [
-        'questionSubscribed' => 'render',
+        'refreshQuestionSubscribe' => 'render',
     ];
 
     public Question $question;
