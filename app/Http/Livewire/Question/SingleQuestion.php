@@ -10,6 +10,10 @@ use Livewire\Component;
 
 class SingleQuestion extends Component
 {
+    public $listeners = [
+        'render' => 'render',
+    ];
+
     public Question $question;
     public $type;
 
@@ -106,9 +110,7 @@ class SingleQuestion extends Component
                 $this->question->save();
                 auth()->user()->touch();
 
-                return redirect()->route('question.question', [
-                    'id' => $this->question->id,
-                ]);
+                return $this->emit('render');
             } else {
                 $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
@@ -151,5 +153,10 @@ class SingleQuestion extends Component
                 'body' => 'Forbidden!',
             ]);
         }
+    }
+
+    public function render()
+    {
+        return view('livewire.question.single-question');
     }
 }
