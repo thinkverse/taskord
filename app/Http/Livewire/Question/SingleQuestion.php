@@ -11,7 +11,7 @@ use Livewire\Component;
 class SingleQuestion extends Component
 {
     public $listeners = [
-        'render' => 'render',
+        'refreshSingleQuestion' => 'render',
     ];
 
     public Question $question;
@@ -110,7 +110,7 @@ class SingleQuestion extends Component
                 $this->question->save();
                 auth()->user()->touch();
 
-                return $this->emit('render');
+                return $this->emit('refreshSingleQuestion');
             } else {
                 $this->dispatchBrowserEvent('toast', [
                     'type' => 'error',
