@@ -23,7 +23,6 @@
             <div class="mb-4">
                 <livewire:comment.single-comment :comment="$comment" :wire:key="$comment->id" />
             </div>
-            <livewire:comment.create-comment :task="$comment->task" />
             <a href="{{ route('task', ['id' => $task->id]) }}" class="btn w-100 btn-success mt-4 text-white fw-bold">
                 Go back to task
             </a>
