@@ -1,7 +1,6 @@
 <div class="col-sm d-inline-bock">
     <div class="d-block">
         @auth
-            {{ $user->isStaff ? 'yes' : 'no' }}
             @if (auth()->user()->staffShip)
                 <livewire:user.moderator :user="$user" />
             @endif

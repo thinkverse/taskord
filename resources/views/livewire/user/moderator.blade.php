@@ -2,6 +2,7 @@
     <div class="text-uppercase fw-bold text-secondary pb-2">
         <x-heroicon-o-shield-check class="heroicon text-danger" />
         <span class="text-danger">Moderator</span>
+        {{ $user->isStaff ? 'yes' : 'no' }}
     </div>
     <div class="card border-danger mb-4">
         <div class="card-body">
