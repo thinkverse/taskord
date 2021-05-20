@@ -21,6 +21,8 @@ class Moderator extends Component
     public $isDeveloper;
     public $isPrivate;
     public $isVerified;
+    public $isFlagged;
+    public $isSuspended;
     public $staff_notes;
     public $readyToLoad = false;
 
@@ -34,6 +36,8 @@ class Moderator extends Component
         $this->isDeveloper = $user->isDeveloper;
         $this->isPrivate = $user->isPrivate;
         $this->isVerified = $user->isVerified;
+        $this->isFlagged = $user->isFlagged;
+        $this->isSuspended = $user->isSuspended;
         $this->staff_notes = $user->staff_notes;
     }
 

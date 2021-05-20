@@ -174,11 +174,11 @@
                         Danger Zone
                     </div>
                     <div class="mt-2">
-                        <input wire:click="flagUser" id="flagUser" class="form-check-input" type="checkbox" {{ $user->isFlagged ? 'checked' : '' }}>
+                        <input wire:click="flagUser" id="flagUser" class="form-check-input" type="checkbox" wire:model="isFlagged">
                         <label for="flagUser" class="ms-1 text-danger fw-bold">Flag this user</label>
                     </div>
                     <div class="mt-2">
-                        <input wire:click="suspendUser" id="suspendUser" class="form-check-input" type="checkbox" {{ $user->isSuspended ? 'checked' : '' }}>
+                        <input wire:click="suspendUser" id="suspendUser" class="form-check-input" type="checkbox" wire:model="isSuspended">
                         <label for="suspendUser" class="ms-1 text-danger fw-bold">Suspend this user</label>
                     </div>
                     <div class="mt-3">
