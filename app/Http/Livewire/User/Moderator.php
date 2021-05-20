@@ -14,12 +14,26 @@ use Livewire\Component;
 class Moderator extends Component
 {
     public User $user;
+    public $isBeta;
+    public $isStaff;
+    public $isPatron;
+    public $darkMode;
+    public $isDeveloper;
+    public $isPrivate;
+    public $isVerified;
     public $staff_notes;
     public $readyToLoad = false;
 
     public function mount($user)
     {
         $this->user = $user;
+        $this->isBeta = $user->isBeta;
+        $this->isStaff = $user->isStaff;
+        $this->isPatron = $user->isPatron;
+        $this->darkMode = $user->darkMode;
+        $this->isDeveloper = $user->isDeveloper;
+        $this->isPrivate = $user->isPrivate;
+        $this->isVerified = $user->isVerified;
         $this->staff_notes = $user->staff_notes;
     }
 
