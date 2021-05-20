@@ -2,9 +2,7 @@
     <div class="d-block">
         @auth
             @if (auth()->user()->staffShip)
-                @livewire('user.moderator', [
-                    'user' => $user
-                ])
+                <livewire:user.moderator :user="$user" />
             @endif
             @if (auth()->user()->id === $user->id)
                 @section('scripts')
