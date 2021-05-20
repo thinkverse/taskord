@@ -2,7 +2,6 @@
     <div class="text-uppercase fw-bold text-secondary pb-2">
         <x-heroicon-o-shield-check class="heroicon text-danger" />
         <span class="text-danger">Moderator</span>
-        {{ $user->isStaff ? 'yes' : 'no' }}
     </div>
     <div class="card border-danger mb-4">
         <div class="card-body">
@@ -53,23 +52,23 @@
                         </span>
                     @endif
                     @php
-                        $users = \App\Models\User::where('lastIP', $user->lastIP)->get();
+                        $suspectedUsers = \App\Models\User::where('lastIP', $user->lastIP)->get();
                     @endphp
-                    @if ($users->count() > 1)
+                    @if ($suspectedUsers->count() > 1)
                         <div class="small mt-1">
                             <x-heroicon-o-exclamation class="heroicon me-1 text-danger" />
-                            <span class="fw-bold">{{ $users->count() }}</span>  {{ $users->count() < 1 ? 'user' : 'users' }} associated with the same IP
+                            <span class="fw-bold">{{ $suspectedUsers->count() }}</span>  {{ $suspectedUsers->count() < 1 ? 'user' : 'users' }} associated with the same IP
                             <details class="mt-1">
                                 <summary>See all associated users</summary>
                                 <ul class="mb-2">
-                                    @foreach ($users as $user)
+                                    @foreach ($suspectedUsers as $suspectedUser)
                                         <li>
                                             <a
                                                 class="user-popover"
-                                                data-id="{{ $user->id }}"
-                                                href="{{ route('user.done', ['username' => $user->username]) }}"
+                                                data-id="{{ $suspectedUser->id }}"
+                                                href="{{ route('user.done', ['username' => $suspectedUser->username]) }}"
                                             >
-                                                {{ '@'.$user->username }}
+                                                {{ '@'.$suspectedUser->username }}
                                             </a>
                                         </li>
                                     @endforeach
