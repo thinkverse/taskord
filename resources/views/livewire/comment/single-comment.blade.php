@@ -87,22 +87,20 @@
             </a>
         @endguest
     </div>
-        @if ($comment->replies()->count('id') > 0)
-            <div class="mt-4">
-                <livewire:comment.reply.replies :comment="$comment" />
-            </div>
-            @if (! $showReplyBox)
-                <button class="btn btn-sm btn-outline-primary ms-3 mt-3" wire:click="toggleCommentBox">
-                    <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-primary" />
-                    Reply now
-                </button>
-            @endif
+    <livewire:comment.reply.replies :comment="$comment" />
+    @if ($comment->replies()->count('id') > 0)
+        @if (! $showReplyBox)
+            <button class="btn btn-sm btn-outline-primary ms-3 mt-3" wire:click="toggleCommentBox">
+                <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-primary" />
+                Reply now
+            </button>
         @endif
-        @auth
-            @if ($showReplyBox)
-                <div class="mt-3 ms-3">
-                    <livewire:comment.reply.create-reply :comment="$comment" />
-                </div>
-            @endif
-        @endauth
+    @endif
+    @auth
+        @if ($showReplyBox)
+            <div class="mt-3 ms-3">
+                <livewire:comment.reply.create-reply :comment="$comment" />
+            </div>
+        @endif
+    @endauth
 </li>
