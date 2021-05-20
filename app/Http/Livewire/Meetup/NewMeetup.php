@@ -70,7 +70,7 @@ class NewMeetup extends Component
                 Storage::disk('public')->put('meetup-cover/'.$imageName, (string) $img);
                 $url = config('app.url').'/storage/meetup-cover/'.$imageName;
             } else {
-                $url = 'https://avatar.tobi.sh/'.md5($this->slug).'.svg?text=📦';
+                $url = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text=📦';
             }
 
             $meetup = auth()->user()->meetups()->create([
