@@ -53,6 +53,12 @@ class CreateReply extends Component
                 ]);
             }
 
+            $users = Helper::getUsernamesFromMentions($this->reply);
+
+            if ($users) {
+                $this->reply = Helper::parseUserMentionsToMarkdownLinks($this->reply, $users);
+            }
+
             $reply = auth()->user()->comment_replies()->create([
                 'comment_id' =>  $this->comment->id,
                 'reply' => $this->reply,
@@ -61,6 +67,8 @@ class CreateReply extends Component
 
             $this->emit('refreshReplies');
             $this->reset('reply');
+
+            Helper::mentionUsers($users, $reply, auth()->user(), 'comment_reply');
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'success',
