@@ -69,6 +69,7 @@ class CreateReply extends Component
             $this->reset('reply');
 
             Helper::mentionUsers($users, $reply, auth()->user(), 'comment_reply');
+            // TODO: Notify the comment user
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'success',
