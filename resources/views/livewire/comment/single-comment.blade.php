@@ -44,6 +44,14 @@
                     @endif
                 </button>
             @endif
+            <button class="btn btn-task btn-outline-primary me-1" wire:click="toggleCommentBox">
+                <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
+                @if ($comment->replies()->count('id') !== 0)
+                    <span class="small text-dark fw-bold">
+                        {{ number_format($comment->replies()->count('id')) }}
+                    </span>
+                @endif
+            </button>
             @if (auth()->user()->staffShip or auth()->user()->id === $comment->user->id)
                 <button
                     type="button"
@@ -82,9 +90,11 @@
     <div class="mt-4">
         <livewire:comment.reply.replies :comment="$comment" />
         @auth
-            <div class="mt-3 ms-3">
-                <livewire:comment.reply.create-reply :comment="$comment" />
-            </div>
+            @if ($showReplyBox)
+                <div class="mt-3 ms-3">
+                    <livewire:comment.reply.create-reply :comment="$comment" />
+                </div>
+            @endif
         @endauth
     </div>
 </li>
