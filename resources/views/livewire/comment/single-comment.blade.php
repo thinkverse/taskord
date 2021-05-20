@@ -88,14 +88,6 @@
         @endguest
     </div>
     <livewire:comment.reply.replies :comment="$comment" />
-    @if ($comment->replies()->count('id') > 0)
-        @if (! $showReplyBox)
-            <button class="btn btn-sm btn-outline-primary ms-3 mt-3" wire:click="toggleCommentBox">
-                <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-primary" />
-                Reply now
-            </button>
-        @endif
-    @endif
     @auth
         @if ($showReplyBox)
             <div class="mt-3 ms-3">
