@@ -92,7 +92,7 @@ class Profile extends Component
                     $img = Image::make($this->avatar)
                         ->fit(400)
                         ->encode('webp', 100);
-                    $imageName = Str::orderedUuid(32).'.webp';
+                    $imageName = Str::orderedUuid().'.webp';
                     Storage::disk('public')->put('avatars/'.$imageName, (string) $img);
                     $avatar = config('app.url').'/storage/avatars/'.$imageName;
                     $this->user->avatar = $avatar;
