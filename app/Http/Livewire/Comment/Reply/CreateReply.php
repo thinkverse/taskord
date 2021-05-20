@@ -59,6 +59,8 @@ class CreateReply extends Component
             ]);
             auth()->user()->touch();
 
+            $this->emit('refreshReplies');
+
             $this->reply = '';
 
             return $this->dispatchBrowserEvent('toast', [

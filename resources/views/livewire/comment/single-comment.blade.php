@@ -81,8 +81,10 @@
     </div>
     <div class="mt-4">
         <livewire:comment.reply.replies :comment="$comment" />
-        <div class="mt-2">
-            <livewire:comment.reply.create-reply :comment="$comment" />
-        </div>
+        @auth
+            <div class="mt-3 ms-3">
+                <livewire:comment.reply.create-reply :comment="$comment" />
+            </div>
+        @endauth
     </div>
 </li>

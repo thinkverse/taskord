@@ -7,6 +7,10 @@ use Livewire\Component;
 
 class Replies extends Component
 {
+    public $listeners = [
+        'refreshReplies' => 'render',
+    ];
+
     public Comment $comment;
 
     public function render()
