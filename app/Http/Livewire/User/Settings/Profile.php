@@ -134,7 +134,7 @@ class Profile extends Component
                 if (array_key_exists(1, $old_avatar)) {
                     Storage::delete($old_avatar[1]);
                 }
-                $this->user->avatar = 'https://avatar.tobi.sh/'.md5($this->user->email).'.svg?text='.strtoupper(substr($this->user->username, 0, 2));
+                $this->user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($this->user->username, 0, 2));
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Resetted avatar to default');
 
