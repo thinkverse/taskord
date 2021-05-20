@@ -7,6 +7,7 @@ use App\Models\Webhook;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class Integrations extends Component
@@ -59,7 +60,7 @@ class Integrations extends Component
                     $webhook = auth()->user()->webhooks()->create([
                         'name' => $this->name,
                         'product_id' => $this->product,
-                        'token' => md5(uniqid(auth()->user()->id, true)),
+                        'token' => Str::uuid(),
                         'type' => $this->type,
                     ]);
                     $this->name = '';

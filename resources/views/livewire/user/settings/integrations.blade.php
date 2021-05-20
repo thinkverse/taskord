@@ -194,8 +194,8 @@
                                 <td class="fw-bold">
                                     {{ Str::limit($webhook->name, '20') }}
                                 </td>
-                                <td class="font-monospace">
-                                    {{ Str::limit($webhook->token, '4', '****************') }}
+                                <td class="fw-bold">
+                                    <code>{{ Str::limit($webhook->token, '8', '****************') }}</code>
                                 </td>
                                 <td>
                                     {{ $webhook->created_at->format('M d, Y') }}
