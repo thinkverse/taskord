@@ -26,7 +26,7 @@ class SingleReply extends Component
             if (auth()->user()->staffShip or auth()->user()->id === $this->reply->user->id) {
                 loggy(request(), 'Reply', auth()->user(), 'Deleted a reply | Reply ID: '.$this->reply->id);
                 $this->reply->delete();
-                // $this->emit('refreshComments');
+                $this->emit('refreshReplies');
                 auth()->user()->touch();
 
                 return $this->dispatchBrowserEvent('toast', [
