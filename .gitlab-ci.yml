@@ -1,6 +1,5 @@
 include:
 - template: Dependency-Scanning.gitlab-ci.yml
-- template: License-Scanning.gitlab-ci.yml
 
 services:
   - mysql:latest
