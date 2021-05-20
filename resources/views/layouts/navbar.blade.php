@@ -92,7 +92,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item text-dark" href="https://www.notion.so/yoginth/Roadmap-89c75352cfe14d24b62644daa0f1cba0" target="_blank" rel="noreferrer">
+                            <a class="dropdown-item text-dark" href="https://www.notion.so/89c75352cfe14d24b62644daa0f1cba0" target="_blank" rel="noreferrer">
                                 <x-heroicon-o-map class="heroicon heroicon-18px text-secondary" />
                                 Roadmap
                             </a>
