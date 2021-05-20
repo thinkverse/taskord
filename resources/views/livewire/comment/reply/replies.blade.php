@@ -1,3 +1,5 @@
 <div>
-    {{-- In work, do what you enjoy. --}}
+    @foreach ($comment->replies as $reply)
+        {{ $reply }}
+    @endforeach
 </div>

@@ -79,4 +79,7 @@
             </a>
         @endguest
     </div>
+    {{ $comment->replies()->count() }}
+    <livewire:comment.reply.create-reply :comment="$comment" />
+    <livewire:comment.reply.replies :comment="$comment" />
 </li>
