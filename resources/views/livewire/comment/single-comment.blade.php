@@ -79,10 +79,10 @@
             </a>
         @endguest
     </div>
-    {{-- <div>
-        <livewire:comment.reply.create-reply :comment="$comment" />
-    </div> --}}
     <div class="mt-4">
         <livewire:comment.reply.replies :comment="$comment" />
+        <div class="mt-2">
+            <livewire:comment.reply.create-reply :comment="$comment" />
+        </div>
     </div>
 </li>

@@ -20,7 +20,7 @@
                         type="button"
                         class="btn btn-task btn-outline-danger"
                         onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
-                        wire:click="deleteComment"
+                        wire:click="deleteReply"
                         wire:loading.attr="disabled"
                         wire:offline.attr="disabled"
                         aria-label="Delete"
