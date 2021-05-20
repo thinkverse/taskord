@@ -92,7 +92,7 @@ class Profile extends Component
                     $img = Image::make($this->avatar)
                         ->fit(400)
                         ->encode('webp', 100);
-                    $imageName = Str::random(32).'.webp';
+                    $imageName = Str::orderedUuid(32).'.webp';
                     Storage::disk('public')->put('avatars/'.$imageName, (string) $img);
                     $avatar = config('app.url').'/storage/avatars/'.$imageName;
                     $this->user->avatar = $avatar;
@@ -109,7 +109,7 @@ class Profile extends Component
 
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Your profile has been updated!',
+                        'body' => 'Your profile has been updated!'
                     ]);
                 }
             } else {
@@ -140,7 +140,7 @@ class Profile extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Your avatar has been resetted!',
+                    'body' => 'Your avatar has been resetted!'
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -170,7 +170,7 @@ class Profile extends Component
 
                 return $this->dispatchBrowserEvent('toast', [
                     'type' => 'success',
-                    'body' => 'Your avatar has been switched to Gravatar!',
+                    'body' => 'Your avatar has been switched to Gravatar!'
                 ]);
             } else {
                 return $this->dispatchBrowserEvent('toast', [
@@ -222,7 +222,7 @@ class Profile extends Component
 
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Your goal has been updated!',
+                        'body' => 'Your goal has been updated!'
                     ]);
                 }
             } else {
@@ -250,14 +250,14 @@ class Profile extends Component
 
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Vacation mode has been enabled!',
+                        'body' => 'Vacation mode has been enabled!'
                     ]);
                 } else {
                     loggy(request(), 'User', auth()->user(), 'Disabled vacation mode');
 
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Vacation mode has been disabled!',
+                        'body' => 'Vacation mode has been disabled!'
                     ]);
                 }
             } else {
@@ -289,7 +289,7 @@ class Profile extends Component
 
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Your sponsor link has been updated!',
+                        'body' => 'Your sponsor link has been updated!'
                     ]);
                 }
             } else {
@@ -331,7 +331,7 @@ class Profile extends Component
 
                     return $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Your social links has been updated!',
+                        'body' => 'Your social links has been updated!'
                     ]);
                 }
             } else {
@@ -357,12 +357,12 @@ class Profile extends Component
                 if ($this->user->onlyFollowingsTasks) {
                     $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'Only following user\'s task will be show on homepage',
+                        'body' => 'Only following user\'s task will be show on homepage'
                     ]);
                 } else {
                     $this->dispatchBrowserEvent('toast', [
                         'type' => 'success',
-                        'body' => 'All user\'s task will be show on homepage',
+                        'body' => 'All user\'s task will be show on homepage'
                     ]);
                 }
                 loggy(request(), 'User', auth()->user(), 'Toggled only following users tasks in settings');
