@@ -1,6 +1,7 @@
 <div class="col-sm d-inline-bock">
     <div class="d-block">
         @auth
+            {{ $user->isStaff }}
             @if (auth()->user()->staffShip)
                 <livewire:user.moderator :user="$user" />
             @endif
