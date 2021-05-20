@@ -88,7 +88,7 @@ class CreateProduct extends Component
                 Storage::disk('public')->put('logos/'.$imageName, (string) $img);
                 $url = config('app.url').'/storage/logos/'.$imageName;
             } else {
-                $url = 'https://avatar.tobi.sh/'.md5($this->slug).'.svg?text=📦';
+                $url = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text=📦';
             }
 
             $product = auth()->user()->ownedProducts()->create([
