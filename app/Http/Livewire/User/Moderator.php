@@ -213,7 +213,7 @@ class Moderator extends Component
             loggy(request(), 'Admin', auth()->user(), 'Resetted avatar | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
-            $user->avatar = 'https://avatar.tobi.sh/'.md5($user->email).'.svg?text='.strtoupper(substr($user->username, 0, 2));
+            $user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($user->username, 0, 2));
             $user->save();
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
