@@ -167,6 +167,7 @@
                             </form>
                     </div>
                 @endif
+                {{ $user->isStaff ? 'yes' : 'no' }}
                 @if (!$user->isStaff)
                     <hr>
                     <div class="text-danger h5 mb-3">
