@@ -79,7 +79,10 @@
             </a>
         @endguest
     </div>
-    {{ $comment->replies()->count() }}
-    <livewire:comment.reply.create-reply :comment="$comment" />
-    <livewire:comment.reply.replies :comment="$comment" />
+    {{-- <div>
+        <livewire:comment.reply.create-reply :comment="$comment" />
+    </div> --}}
+    <div class="mt-4">
+        <livewire:comment.reply.replies :comment="$comment" />
+    </div>
 </li>
