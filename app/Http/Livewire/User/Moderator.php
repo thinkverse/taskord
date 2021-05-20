@@ -145,8 +145,10 @@ class Moderator extends Component
             $this->user->isSuspended = ! $this->user->isSuspended;
             if ($this->user->isSuspended) {
                 $this->user->isFlagged = true;
+                $this->isFlagged = true;
             } else {
                 $this->user->isFlagged = false;
+                $this->isFlagged = false;
             }
             $this->user->timestamps = false;
             $this->user->save();
