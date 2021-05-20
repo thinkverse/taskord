@@ -88,11 +88,28 @@
                 </a>
             @endguest
         </div>
-        <livewire:comment.reply.replies :comment="$comment" />
+    </div>
+    <div class="bg-light">
+        <div class="px-3">
+            <livewire:comment.reply.replies :comment="$comment" />
+        </div>
         @auth
             @if ($showReplyBox)
-                <div class="mt-3 ms-3">
+                <div class="px-3 {{ $comment->replies()->count() > 0 ? 'mb-3' : 'my-3' }}">
                     <livewire:comment.reply.create-reply :comment="$comment" />
+                </div>
+            @else
+                <div class="p-2 border-1 border-top d-flex align-items-center">
+                    <a
+                        href="{{ route('user.done', ['username' => auth()->user()->username]) }}"
+                        class="user-popover ms-2"
+                        data-id="{{ auth()->id() }}"
+                    >
+                        <img loading=lazy class="avatar-25 rounded-circle" src="{{ Helper::getCDNImage(auth()->user()->avatar, 80) }}" height="40" width="40" alt="{{ auth()->user()->username }}'s avatar" />
+                    </a>
+                    <div class="ms-2 w-100 btn btn-sm border-1 border-reply text-dark text-start bg-white" wire:click="toggleCommentBox">
+                        Reply now
+                    </div>
                 </div>
             @endif
         @endauth

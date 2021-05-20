@@ -1,11 +1,11 @@
 <div>
-    <div class="align-items-center d-flex mb-2">
+    <div class="align-items-center d-flex">
         <x:shared.user-label-small :user="$reply->user" />
         <span class="align-text-top small float-end ms-auto text-secondary">
             {{ carbon($reply->created_at)->diffForHumans() }}
         </span>
     </div>
-    <div class="border-2 border-start ps-3 ms-2">
+    <div class="border-2 border-start ps-3 reply-line pt-2 pb-3">
         @if ($reply->hidden)
             <span class="body-font fst-italic text-secondary">Reply was hidden by moderator</span>
         @else
