@@ -18,10 +18,11 @@ services:
         networks:
             - sail
         depends_on:
-            - mariadb
+            - mysql
             - redis
-    mariadb:
-        image: 'mariadb:10'
+    mysql:
+        platform: 'linux/x86_64'
+        image: 'mysql:8'
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
         environment:
@@ -31,7 +32,7 @@ services:
             MYSQL_PASSWORD: '${DB_PASSWORD}'
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
         volumes:
-            - 'sailmariadb:/var/lib/mysql'
+            - 'sailmysql:/var/lib/mysql'
         networks:
             - sail
         healthcheck:
@@ -57,7 +58,7 @@ networks:
     sail:
         driver: bridge
 volumes:
-    sailmariadb:
+    sailmysql:
         driver: local
     sailredis:
         driver: local
