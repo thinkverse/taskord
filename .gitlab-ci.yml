@@ -57,21 +57,6 @@ Commands:
     - php artisan user:streaks all
     - php artisan user:reset-goal
 
-Docker Compose:
-  image: edbizarro/gitlab-ci-pipeline-php:latest
-  stage: test
-  script:
-    - sudo composer self-update --2
-    - sudo composer install --no-progress --ignore-platform-reqs
-    - cp .env.example .env
-    - sudo apt update -yqq
-    - sudo apt install apt-transport-https ca-certificates curl software-properties-common
-    - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-    - sudo apt update -yqq
-    - sudo apt install docker-ce -yqq
-    - ./vendor/bin/sail up -d
-
 Housekeeping:
   stage: clean
   script:
