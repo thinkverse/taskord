@@ -36,6 +36,9 @@
             @endif
         @endif
     @endauth
+    @if (App::environment() === 'production')
+        <script async src="https://cdn.splitbee.io/sb.js"></script>
+    @endif
     <livewire:styles />
 </head>
 <body>
@@ -95,8 +98,5 @@
 <livewire:scripts />
 <script src="{{ mix('js/bootstrap.js') }}" defer></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
-@if (App::environment() === 'production')
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2baaa9bf42f7461f9d5087abc125fce4"}'></script>
-@endif
 @yield('scripts')
 </html>
