@@ -89,13 +89,13 @@
             @endguest
         </div>
     </div>
-    <div class="bg-light rounded-bottom">
+    <div class="bg-light rounded-bottom {{ $comment->replies()->count('id') > 0 ? 'border-1 border-top' : '' }}">
         <div class="px-3">
             <livewire:comment.reply.replies :comment="$comment" />
         </div>
         @auth
             @if ($showReplyBox)
-                <div class="px-3 {{ $comment->replies()->count() > 0 ? 'mb-3' : 'my-3' }}">
+                <div class="px-3 mb-3">
                     <livewire:comment.reply.create-reply :comment="$comment" />
                 </div>
             @else
