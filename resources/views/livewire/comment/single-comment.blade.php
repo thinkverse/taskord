@@ -89,7 +89,7 @@
             @endguest
         </div>
     </div>
-    <div class="bg-light">
+    <div class="bg-light rounded-bottom">
         <div class="px-3">
             <livewire:comment.reply.replies :comment="$comment" />
         </div>
