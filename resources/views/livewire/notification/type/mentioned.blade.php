@@ -37,8 +37,10 @@
                     reply
                 </a>
             </div>
-            <div class="mt-3 body-font">
-                {!! markdown($body->reply) !!}
+            <div class="card mt-3">
+                <div class="card-body body-font">
+                    {!! markdown($body->reply) !!}
+                </div>
             </div>
         @else
             <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>

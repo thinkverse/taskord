@@ -46,7 +46,7 @@ class Replied extends Notification implements ShouldQueue
                         ->line('💬 Your comment has new reply by @'.$user->username)
                         ->line('Comment: '.$this->reply->comment->comment)
                         ->line('Reply: '.$this->reply->reply)
-                        ->action('Go to Task', url('/task/'.$this->reply->comment->task->id))
+                        ->action('Go to Comment', url('/task/'.$this->reply->comment->task->id.'/'.$this->reply->comment->id))
                         ->line('Thank you for using Taskord!');
         } else {
             return null;
