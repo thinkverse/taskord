@@ -33,13 +33,13 @@ class Subscribe extends Component
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return  toast($this, 'error', 'Your email is not verified!');
+                 return toast($this, 'error', 'Your email is not verified!');
             }
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!');
+                 return toast($this, 'error', 'Your account is flagged!');
             }
             if (auth()->user()->id === $this->product->owner->id) {
-                return  toast($this, 'error', 'You can\'t subscribe your own product!');
+                 return toast($this, 'error', 'You can\'t subscribe your own product!');
             } else {
                 auth()->user()->toggleSubscribe($this->product);
                 $this->product->refresh();

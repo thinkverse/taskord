@@ -73,7 +73,7 @@ class EditProduct extends Component
             ]);
 
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!');
+                 return toast($this, 'error', 'Your account is flagged!');
             }
 
             $product = Product::where('id', $this->product->id)->firstOrFail();
@@ -140,11 +140,11 @@ class EditProduct extends Component
     {
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return  toast($this, 'error', 'Your email is not verified!');
+                 return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!');
+                 return toast($this, 'error', 'Your account is flagged!');
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->product->owner->id) {

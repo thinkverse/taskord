@@ -16,9 +16,9 @@ class OnlyFollowing extends Component
             loggy(request(), 'User', auth()->user(), 'Toggled only followings tasks');
 
             if (auth()->user()->onlyFollowingsTasks) {
-                return  toast($this, 'success', 'Only following users tasks will be visible!');
+                 return toast($this, 'success', 'Only following users tasks will be visible!');
             } else {
-                return  toast($this, 'success', 'All users tasks will be visible!');
+                 return toast($this, 'success', 'All users tasks will be visible!');
             }
         } else {
             return Helper::toast($this, 'error', 'Forbidden!');

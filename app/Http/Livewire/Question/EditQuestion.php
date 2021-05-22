@@ -43,11 +43,11 @@ class EditQuestion extends Component
             $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return  toast($this, 'error', 'Your email is not verified!');
+                 return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!');
+                 return toast($this, 'error', 'Your account is flagged!');
             }
 
             $question = Question::where('id', $this->question->id)->firstOrFail();

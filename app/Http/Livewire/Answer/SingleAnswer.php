@@ -32,13 +32,13 @@ class SingleAnswer extends Component
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return  toast($this, 'error', 'Your email is not verified!');
+                 return toast($this, 'error', 'Your email is not verified!');
             }
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!');
+                 return toast($this, 'error', 'Your account is flagged!');
             }
             if (auth()->user()->id === $this->answer->user->id) {
-                return  toast($this, 'error', 'You can\'t praise your own answer!');
+                 return toast($this, 'error', 'You can\'t praise your own answer!');
             }
             Helper::togglePraise($this->answer, 'ANSWER');
             loggy(request(), 'Answer', auth()->user(), 'Toggled answer praise | Answer ID: '.$this->answer->id);
@@ -54,9 +54,9 @@ class SingleAnswer extends Component
                 Helper::hide($this->answer);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
 
-                return  toast($this, 'success', 'Answer is hidden from public!');
+                 return toast($this, 'success', 'Answer is hidden from public!');
             } else {
-                return  toast($this, 'error', 'Forbidden!');
+                 return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return Helper::toast($this, 'error', 'Forbidden!');
@@ -67,7 +67,7 @@ class SingleAnswer extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!');
+                 return toast($this, 'error', 'Your account is flagged!');
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->answer->user->id) {
@@ -76,7 +76,7 @@ class SingleAnswer extends Component
                 $this->emit('refreshAnswers');
                 auth()->user()->touch();
 
-                return  toast($this, 'success', 'Answer has been deleted successfully!');
+                 return toast($this, 'success', 'Answer has been deleted successfully!');
             } else {
                  toast($this, 'error', 'Forbidden!');
             }

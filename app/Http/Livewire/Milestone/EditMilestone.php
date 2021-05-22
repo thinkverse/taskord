@@ -43,11 +43,11 @@ class EditMilestone extends Component
             $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return  toast($this, 'error', 'Your email is not verified!');
+                 return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!');
+                 return toast($this, 'error', 'Your account is flagged!');
             }
 
             $milestone = Milestone::where('id', $this->milestone->id)->firstOrFail();
