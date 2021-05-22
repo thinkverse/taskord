@@ -32,8 +32,7 @@ class Api extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while generating a API token');
 
-            return Helper::toast($this, 'error', 'Your are rate limited, try again later!',
-            ]);
+            return Helper::toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
         if (auth()->check()) {
@@ -54,8 +53,7 @@ class Api extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
