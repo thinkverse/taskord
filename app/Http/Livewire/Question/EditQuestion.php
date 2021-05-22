@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Question;
 
 use App\Models\Question;
 use Livewire\Component;
+use Helper;
 
 class EditQuestion extends Component
 {
@@ -32,8 +33,7 @@ class EditQuestion extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -79,8 +79,7 @@ class EditQuestion extends Component
                 ]);
             }
         } else {
-            Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }
