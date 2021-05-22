@@ -29,42 +29,42 @@ class EditMilestone extends Component
 
     public function updated($field)
     {
-        if (auth()->check()) {
-            $this->validateOnly($field);
-        } else {
-            toast($this, 'error', 'Forbidden!');
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
         }
+
+        $this->validateOnly($field);
     }
 
     public function submit()
     {
-        if (auth()->check()) {
-            $this->validate();
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-            if (! auth()->user()->hasVerifiedEmail()) {
-                return toast($this, 'error', 'Your email is not verified!');
-            }
+        $this->validate();
 
-            if (auth()->user()->isFlagged) {
-                return toast($this, 'error', 'Your account is flagged!');
-            }
+        if (! auth()->user()->hasVerifiedEmail()) {
+            return toast($this, 'error', 'Your email is not verified!');
+        }
 
-            $milestone = Milestone::where('id', $this->milestone->id)->firstOrFail();
+        if (auth()->user()->isFlagged) {
+            return toast($this, 'error', 'Your account is flagged!');
+        }
 
-            if (auth()->user()->staffShip or auth()->user()->id === $milestone->user_id) {
-                $milestone->name = $this->name;
-                $milestone->description = $this->description;
-                $milestone->start_date = $this->start_date ? $this->start_date : null;
-                $milestone->end_date = $this->start_date ? $this->end_date : null;
-                $milestone->save();
-                auth()->user()->touch();
+        $milestone = Milestone::where('id', $this->milestone->id)->firstOrFail();
 
-                loggy(request(), 'Milestone', auth()->user(), 'Updated a milestone | Milestone ID: '.$milestone->id);
+        if (auth()->user()->staffShip or auth()->user()->id === $milestone->user_id) {
+            $milestone->name = $this->name;
+            $milestone->description = $this->description;
+            $milestone->start_date = $this->start_date ? $this->start_date : null;
+            $milestone->end_date = $this->start_date ? $this->end_date : null;
+            $milestone->save();
+            auth()->user()->touch();
 
-                return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
-            } else {
-                toast($this, 'error', 'Forbidden!');
-            }
+            loggy(request(), 'Milestone', auth()->user(), 'Updated a milestone | Milestone ID: '.$milestone->id);
+
+            return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
         } else {
             toast($this, 'error', 'Forbidden!');
         }
