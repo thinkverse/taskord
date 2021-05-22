@@ -221,7 +221,6 @@ class Profile extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-
         if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'sponsor' => ['nullable', 'active_url'],
@@ -239,32 +238,30 @@ class Profile extends Component
 
     public function updateSocial()
     {
-        if (auth()->check()) {
-            if (auth()->user()->id === $this->user->id) {
-                $this->validate([
-                    'website' => ['nullable', 'active_url'],
-                    'twitter' => ['nullable', 'alpha_dash', 'max:30'],
-                    'twitch' => ['nullable', 'alpha_dash', 'max:200'],
-                    'telegram' => ['nullable', 'alpha_dash', 'max:30'],
-                    'github' => ['nullable', 'alpha_dash', 'max:30'],
-                    'youtube' => ['nullable', 'alpha_dash', 'max:30'],
-                ]);
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-                if (auth()->check()) {
-                    $this->user->website = $this->website;
-                    $this->user->twitter = $this->twitter;
-                    $this->user->twitch = $this->twitch;
-                    $this->user->telegram = $this->telegram;
-                    $this->user->github = $this->github;
-                    $this->user->youtube = $this->youtube;
-                    $this->user->save();
-                    loggy(request(), 'User', auth()->user(), 'Updated the social URLs');
+        if (auth()->user()->id === $this->user->id) {
+            $this->validate([
+                'website' => ['nullable', 'active_url'],
+                'twitter' => ['nullable', 'alpha_dash', 'max:30'],
+                'twitch' => ['nullable', 'alpha_dash', 'max:200'],
+                'telegram' => ['nullable', 'alpha_dash', 'max:30'],
+                'github' => ['nullable', 'alpha_dash', 'max:30'],
+                'youtube' => ['nullable', 'alpha_dash', 'max:30'],
+            ]);
 
-                    toast($this, 'success', 'Your social links has been updated!');
-                }
-            } else {
-                return toast($this, 'error', 'Forbidden!');
-            }
+            $this->user->website = $this->website;
+            $this->user->twitter = $this->twitter;
+            $this->user->twitch = $this->twitch;
+            $this->user->telegram = $this->telegram;
+            $this->user->github = $this->github;
+            $this->user->youtube = $this->youtube;
+            $this->user->save();
+            loggy(request(), 'User', auth()->user(), 'Updated the social URLs');
+
+            toast($this, 'success', 'Your social links has been updated!');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
@@ -272,19 +269,19 @@ class Profile extends Component
 
     public function onlyFollowingsTasks()
     {
-        if (auth()->check()) {
-            if (auth()->user()->id === $this->user->id) {
-                $this->user->onlyFollowingsTasks = ! $this->user->onlyFollowingsTasks;
-                $this->user->save();
-                if ($this->user->onlyFollowingsTasks) {
-                    toast($this, 'success', 'Only following user\'s task will be show on homepage');
-                } else {
-                    toast($this, 'success', 'All user\'s task will be show on homepage');
-                }
-                loggy(request(), 'User', auth()->user(), 'Toggled only following users tasks in settings');
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
+
+        if (auth()->user()->id === $this->user->id) {
+            $this->user->onlyFollowingsTasks = ! $this->user->onlyFollowingsTasks;
+            $this->user->save();
+            if ($this->user->onlyFollowingsTasks) {
+                toast($this, 'success', 'Only following user\'s task will be show on homepage');
             } else {
-                return toast($this, 'error', 'Forbidden!');
+                toast($this, 'success', 'All user\'s task will be show on homepage');
             }
+            loggy(request(), 'User', auth()->user(), 'Toggled only following users tasks in settings');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
