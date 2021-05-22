@@ -65,23 +65,23 @@ class SingleAnswer extends Component
 
     public function deleteAnswer()
     {
-        if (auth()->check()) {
-            if (auth()->user()->isFlagged) {
-                return toast($this, 'error', 'Your account is flagged!');
-            }
-
-            if (auth()->user()->staffShip or auth()->user()->id === $this->answer->user->id) {
-                loggy(request(), 'Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
-                $this->answer->delete();
-                $this->emit('refreshAnswers');
-                auth()->user()->touch();
-
-                return toast($this, 'success', 'Answer has been deleted successfully!');
-            } else {
-                toast($this, 'error', 'Forbidden!');
-            }
-        } else {
+        if (! auth()->check()) {
             return toast($this, 'error', 'Forbidden!');
+        }
+
+        if (auth()->user()->isFlagged) {
+            return toast($this, 'error', 'Your account is flagged!');
+        }
+
+        if (auth()->user()->staffShip or auth()->user()->id === $this->answer->user->id) {
+            loggy(request(), 'Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
+            $this->answer->delete();
+            $this->emit('refreshAnswers');
+            auth()->user()->touch();
+
+            return toast($this, 'success', 'Answer has been deleted successfully!');
+        } else {
+            toast($this, 'error', 'Forbidden!');
         }
     }
 }
