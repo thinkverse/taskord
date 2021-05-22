@@ -47,10 +47,7 @@ class Integrations extends Component
                 ]);
 
                 if (auth()->user()->isFlagged) {
-                    return $this->dispatchBrowserEvent('toast', [
-                        'type' => 'error',
-                        'body' => 'Your account is flagged!',
-                    ]);
+                    toast($this, 'error', 'Your account is flagged!');
                 }
 
                 if (auth()->user()->id === $this->user->id) {
@@ -65,15 +62,9 @@ class Integrations extends Component
                     session()->flash('created', $webhook);
                     loggy(request(), 'User', auth()->user(), 'Created a new webhook | Webhook ID: '.$webhook->id);
 
-                    return $this->dispatchBrowserEvent('toast', [
-                        'type' => 'success',
-                        'body' => 'New webhook has been created!',
-                    ]);
+                    toast($this, 'success', 'New webhook has been created!');
                 } else {
-                    return $this->dispatchBrowserEvent('toast', [
-                        'type' => 'error',
-                        'body' => 'Forbidden!',
-                    ]);
+                    toast($this, 'error', 'Forbidden!');
                 }
             } else {
                 return toast($this, 'error', 'Forbidden!');

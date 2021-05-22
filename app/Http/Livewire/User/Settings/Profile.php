@@ -104,10 +104,7 @@ class Profile extends Component
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated the profile settings');
 
-                    return $this->dispatchBrowserEvent('toast', [
-                        'type' => 'success',
-                        'body' => 'Your profile has been updated!',
-                    ]);
+                    toast($this, 'success', 'Your profile has been updated!');
                 }
             } else {
                 return toast($this, 'error', 'Forbidden!');
@@ -187,10 +184,7 @@ class Profile extends Component
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated the goal '.$this->daily_goal.'/day');
 
-                    return $this->dispatchBrowserEvent('toast', [
-                        'type' => 'success',
-                        'body' => 'Your goal has been updated!',
-                    ]);
+                    toast($this, 'success', 'Your goal has been updated!');
                 }
             } else {
                 return toast($this, 'error', 'Forbidden!');
@@ -209,17 +203,11 @@ class Profile extends Component
                 if ($this->user->vacation_mode) {
                     loggy(request(), 'User', auth()->user(), 'Enabled vacation mode');
 
-                    return $this->dispatchBrowserEvent('toast', [
-                        'type' => 'success',
-                        'body' => 'Vacation mode has been enabled!',
-                    ]);
+                    toast($this, 'success', 'Vacation mode has been enabled!');
                 } else {
                     loggy(request(), 'User', auth()->user(), 'Disabled vacation mode');
 
-                    return $this->dispatchBrowserEvent('toast', [
-                        'type' => 'success',
-                        'body' => 'Vacation mode has been disabled!',
-                    ]);
+                    toast($this, 'success', 'Vacation mode has been disabled!');
                 }
             } else {
                 return toast($this, 'error', 'Forbidden!');
@@ -242,10 +230,7 @@ class Profile extends Component
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated the sponsor URL');
 
-                    return $this->dispatchBrowserEvent('toast', [
-                        'type' => 'success',
-                        'body' => 'Your sponsor link has been updated!',
-                    ]);
+                    toast($this, 'success', 'Your sponsor link has been updated!');
                 }
             } else {
                 return toast($this, 'error', 'Forbidden!');
@@ -278,10 +263,7 @@ class Profile extends Component
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated the social URLs');
 
-                    return $this->dispatchBrowserEvent('toast', [
-                        'type' => 'success',
-                        'body' => 'Your social links has been updated!',
-                    ]);
+                    toast($this, 'success', 'Your social links has been updated!');
                 }
             } else {
                 return toast($this, 'error', 'Forbidden!');
@@ -298,15 +280,9 @@ class Profile extends Component
                 $this->user->onlyFollowingsTasks = ! $this->user->onlyFollowingsTasks;
                 $this->user->save();
                 if ($this->user->onlyFollowingsTasks) {
-                    $this->dispatchBrowserEvent('toast', [
-                        'type' => 'success',
-                        'body' => 'Only following user\'s task will be show on homepage',
-                    ]);
+                    toast($this, 'success', 'Only following user\'s task will be show on homepage');
                 } else {
-                    $this->dispatchBrowserEvent('toast', [
-                        'type' => 'success',
-                        'body' => 'All user\'s task will be show on homepage',
-                    ]);
+                    toast($this, 'success', 'All user\'s task will be show on homepage');
                 }
                 loggy(request(), 'User', auth()->user(), 'Toggled only following users tasks in settings');
             } else {

@@ -43,10 +43,7 @@ class Password extends Component
                 ]);
 
                 if (! Hash::check($this->currentPassword, auth()->user()->password)) {
-                    return $this->dispatchBrowserEvent('toast', [
-                        'type' => 'error',
-                        'body' => 'Current password does not match!',
-                    ]);
+                    toast($this, 'error', 'Current password does not match!');
                 }
 
                 auth()->user()->password = Hash::make($this->newPassword);

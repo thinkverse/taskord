@@ -22,10 +22,7 @@ class SelectMilestone extends Component
         $this->emitUp('refreshSingleTask');
         loggy(request(), 'Milestone', auth()->user(), 'Removed milestone from the task | Task ID: '.$this->task->id);
 
-        return $this->dispatchBrowserEvent('toast', [
-            'type' => 'success',
-            'body' => 'Milestone has been removed from the task!',
-        ]);
+        return toast($this, 'success', 'Milestone has been removed from the task!');
     }
 
     public function selectMilestone(Milestone $milestone)
