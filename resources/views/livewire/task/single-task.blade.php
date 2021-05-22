@@ -73,9 +73,7 @@
                 @if (!$task->user->isPrivate and !$task->hidden)
                     @if (auth()->user()->hasLiked($task))
                         <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
-                            <span wire:loading wire:target="togglePraise">
-                                <span class="spinner-border spinner-border-task" role="status"></span>
-                            </span>
+                            <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                             <x-heroicon-s-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                             <span class="small text-white fw-bold">
                                 {{ number_format($task->likerscount()) }}
@@ -88,9 +86,7 @@
                         </button>
                     @else
                         <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
-                            <span wire:loading wire:target="togglePraise">
-                                <span class="spinner-border spinner-border-task" role="status"></span>
-                            </span>
+                            <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                             <x-heroicon-o-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0 text-secondary" />
                             @if ($task->likerscount() !== 0)
                                 <span class="small text-dark fw-bold">
