@@ -59,18 +59,18 @@ class SingleUpdate extends Component
 
     public function deleteUpdate()
     {
-        if (auth()->check()) {
-            if (auth()->user()->isFlagged) {
-                return toast($this, 'error', 'Your account is flagged!');
-            }
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-            if (auth()->user()->staffShip or auth()->user()->id === $this->update->user->id) {
-                loggy(request(), 'Product', auth()->user(), 'Deleted a product update on #'.$this->update->product->slug.' | Update ID: '.$this->update->id);
-                $this->update->delete();
-                $this->emitUp('refreshProduct');
-            } else {
-                return toast($this, 'error', 'Forbidden!');
-            }
+        if (auth()->user()->isFlagged) {
+            return toast($this, 'error', 'Your account is flagged!');
+        }
+
+        if (auth()->user()->staffShip or auth()->user()->id === $this->update->user->id) {
+            loggy(request(), 'Product', auth()->user(), 'Deleted a product update on #'.$this->update->product->slug.' | Update ID: '.$this->update->id);
+            $this->update->delete();
+            $this->emitUp('refreshProduct');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
