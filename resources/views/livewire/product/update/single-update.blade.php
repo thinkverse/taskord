@@ -32,14 +32,14 @@
                                 </span>
                                 <x-heroicon-o-thumb-up wire:loading.remove class="heroicon heroicon-15px me-0" />
                                 @if ($update->likerscount() !== 0)
-                                <span class="small text-dark fw-bold">
-                                    {{ number_format($update->likerscount()) }}
-                                </span>
-                                <span class="avatar-stack ms-1">
-                                    @foreach($update->likers->take(5) as $user)
-                                        <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                                    @endforeach
-                                </span>
+                                    <span class="small text-dark fw-bold">
+                                        {{ number_format($update->likerscount()) }}
+                                    </span>
+                                    <span class="avatar-stack ms-1">
+                                        @foreach($update->likers->take(5) as $user)
+                                            <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
+                                        @endforeach
+                                    </span>
                                 @endif
                             </button>
                         </span>
