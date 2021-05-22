@@ -79,19 +79,16 @@ const initHover = () => {
   });
 
   tippy(".patron", {
-    allowHTML: true,
-    placement: "right",
+    placement: "top",
     content: "Patron",
   });
 
   tippy(".verified", {
-    allowHTML: true,
     placement: "right",
     content: "Verified",
   });
 
   tippy(".private", {
-    allowHTML: true,
     placement: "right",
     content: "Private Profile",
   });
