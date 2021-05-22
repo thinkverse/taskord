@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User\Settings;
 use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Helper;
 
 class Delete extends Component
 {
@@ -57,8 +58,7 @@ class Delete extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -105,8 +105,7 @@ class Delete extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }
