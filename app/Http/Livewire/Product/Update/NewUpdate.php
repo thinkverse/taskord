@@ -19,34 +19,34 @@ class NewUpdate extends Component
 
     public function submit()
     {
-        if (auth()->check()) {
-            $this->validate([
-                'title' => ['required', 'min:5', 'max:100'], ['required', 'min:3', 'max:10000'],
-            ]);
-
-            if (! auth()->user()->hasVerifiedEmail()) {
-                return toast($this, 'error', 'Your email is not verified!');
-            }
-
-            if (auth()->user()->isFlagged) {
-                return toast($this, 'error', 'Your account is flagged!');
-            }
-
-            $update = auth()->user()->product_updates()->create([
-                'user_id' =>  auth()->user()->id,
-                'product_id' => $this->product->id,
-                'title' => $this->title, $this->body,
-            ]);
-            auth()->user()->touch();
-            $users = Product::find($this->product->id)->subscribers()->get();
-            foreach ($users as $user) {
-                $user->notify(new NewProductUpdate($update));
-            }
-            loggy(request(), 'Product', auth()->user(), 'Created a new product update on #'.$this->product->slug.' | Update ID: '.$update->id);
-
-            return redirect()->route('product.updates', ['slug' => $update->product->slug]);
-        } else {
-            toast($this, 'error', 'Forbidden!');
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
         }
+
+        $this->validate([
+            'title' => ['required', 'min:5', 'max:100'], ['required', 'min:3', 'max:10000'],
+        ]);
+
+        if (! auth()->user()->hasVerifiedEmail()) {
+            return toast($this, 'error', 'Your email is not verified!');
+        }
+
+        if (auth()->user()->isFlagged) {
+            return toast($this, 'error', 'Your account is flagged!');
+        }
+
+        $update = auth()->user()->product_updates()->create([
+            'user_id' =>  auth()->user()->id,
+            'product_id' => $this->product->id,
+            'title' => $this->title, $this->body,
+        ]);
+        auth()->user()->touch();
+        $users = Product::find($this->product->id)->subscribers()->get();
+        foreach ($users as $user) {
+            $user->notify(new NewProductUpdate($update));
+        }
+        loggy(request(), 'Product', auth()->user(), 'Created a new product update on #'.$this->product->slug.' | Update ID: '.$update->id);
+
+        return redirect()->route('product.updates', ['slug' => $update->product->slug]);
     }
 }
