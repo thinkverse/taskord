@@ -29,45 +29,45 @@ class EditQuestion extends Component
 
     public function updated($field)
     {
-        if (auth()->check()) {
-            $this->validateOnly($field);
-        } else {
-            toast($this, 'error', 'Forbidden!');
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
         }
+
+        $this->validateOnly($field);
     }
 
     public function submit()
     {
-        if (auth()->check()) {
-            $this->validate();
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-            if (! auth()->user()->hasVerifiedEmail()) {
-                return toast($this, 'error', 'Your email is not verified!');
-            }
+        $this->validate();
 
-            if (auth()->user()->isFlagged) {
-                return toast($this, 'error', 'Your account is flagged!');
-            }
+        if (! auth()->user()->hasVerifiedEmail()) {
+            return toast($this, 'error', 'Your email is not verified!');
+        }
 
-            $question = Question::where('id', $this->question->id)->firstOrFail();
+        if (auth()->user()->isFlagged) {
+            return toast($this, 'error', 'Your account is flagged!');
+        }
 
-            $solvable = ! $this->solvable ? false : true;
-            $patronOnly = ! $this->patronOnly ? false : true;
+        $question = Question::where('id', $this->question->id)->firstOrFail();
 
-            if (auth()->user()->staffShip or auth()->user()->id === $question->user_id) {
-                $question->title = $this->title;
-                $question->body = $this->body;
-                $question->is_solvable = $this->solvable;
-                $question->patronOnly = $this->patronOnly;
-                $question->save();
-                auth()->user()->touch();
+        $solvable = ! $this->solvable ? false : true;
+        $patronOnly = ! $this->patronOnly ? false : true;
 
-                loggy(request(), 'Question', auth()->user(), 'Updated a question | Question ID: '.$question->id);
+        if (auth()->user()->staffShip or auth()->user()->id === $question->user_id) {
+            $question->title = $this->title;
+            $question->body = $this->body;
+            $question->is_solvable = $this->solvable;
+            $question->patronOnly = $this->patronOnly;
+            $question->save();
+            auth()->user()->touch();
 
-                return redirect()->route('question.question', ['id' => $question->id]);
-            } else {
-                toast($this, 'error', 'Forbidden!');
-            }
+            loggy(request(), 'Question', auth()->user(), 'Updated a question | Question ID: '.$question->id);
+
+            return redirect()->route('question.question', ['id' => $question->id]);
         } else {
             toast($this, 'error', 'Forbidden!');
         }
