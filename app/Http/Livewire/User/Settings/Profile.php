@@ -59,56 +59,54 @@ class Profile extends Component
 
     public function updatedAvatar()
     {
-        if (auth()->check()) {
-            $this->validate([
-                'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
-            ]);
-        } else {
+        if (! auth()->check()) {
             return toast($this, 'error', 'Forbidden!');
         }
+
+        $this->validate([
+            'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
+        ]);
     }
 
     public function updateProfile()
     {
-        if (auth()->check()) {
-            if (auth()->user()->id === $this->user->id) {
-                $this->validate([
-                    'firstname' => ['nullable', 'max:30'],
-                    'lastname' => ['nullable', 'max:30'],
-                    'bio' => ['nullable', 'max:160'],
-                    'location' => ['nullable', 'max:30'],
-                    'company' => ['nullable', 'max:30'],
-                    'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
-                ]);
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-                if ($this->avatar) {
-                    $old_avatar = explode('storage/', $this->user->avatar);
-                    if (array_key_exists(1, $old_avatar)) {
-                        Storage::delete($old_avatar[1]);
-                    }
-                    $img = Image::make($this->avatar)
-                        ->fit(400)
-                        ->encode('webp', 100);
-                    $imageName = Str::orderedUuid().'.webp';
-                    Storage::disk('public')->put('avatars/'.$imageName, (string) $img);
-                    $avatar = config('app.url').'/storage/avatars/'.$imageName;
-                    $this->user->avatar = $avatar;
+        if (auth()->user()->id === $this->user->id) {
+            $this->validate([
+                'firstname' => ['nullable', 'max:30'],
+                'lastname' => ['nullable', 'max:30'],
+                'bio' => ['nullable', 'max:160'],
+                'location' => ['nullable', 'max:30'],
+                'company' => ['nullable', 'max:30'],
+                'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
+            ]);
+
+            if ($this->avatar) {
+                $old_avatar = explode('storage/', $this->user->avatar);
+                if (array_key_exists(1, $old_avatar)) {
+                    Storage::delete($old_avatar[1]);
                 }
-
-                if (auth()->check()) {
-                    $this->user->firstname = $this->firstname;
-                    $this->user->lastname = $this->lastname;
-                    $this->user->bio = $this->bio;
-                    $this->user->location = $this->location;
-                    $this->user->company = $this->company;
-                    $this->user->save();
-                    loggy(request(), 'User', auth()->user(), 'Updated the profile settings');
-
-                    toast($this, 'success', 'Your profile has been updated!');
-                }
-            } else {
-                return toast($this, 'error', 'Forbidden!');
+                $img = Image::make($this->avatar)
+                    ->fit(400)
+                    ->encode('webp', 100);
+                $imageName = Str::orderedUuid().'.webp';
+                Storage::disk('public')->put('avatars/'.$imageName, (string) $img);
+                $avatar = config('app.url').'/storage/avatars/'.$imageName;
+                $this->user->avatar = $avatar;
             }
+
+            $this->user->firstname = $this->firstname;
+            $this->user->lastname = $this->lastname;
+            $this->user->bio = $this->bio;
+            $this->user->location = $this->location;
+            $this->user->company = $this->company;
+            $this->user->save();
+            loggy(request(), 'User', auth()->user(), 'Updated the profile settings');
+
+            toast($this, 'success', 'Your profile has been updated!');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
