@@ -84,12 +84,12 @@ const initHover = () => {
   });
 
   tippy(".verified", {
-    placement: "right",
+    placement: "top",
     content: "Verified",
   });
 
   tippy(".private", {
-    placement: "right",
+    placement: "top",
     content: "Private Profile",
   });
 }
