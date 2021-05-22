@@ -33,10 +33,7 @@ class SelectMilestone extends Component
         $this->emitUp('refreshSingleTask');
         loggy(request(), 'Milestone', auth()->user(), 'Added milestone to the task | Task ID: '.$this->task->id);
 
-        return $this->dispatchBrowserEvent('toast', [
-            'type' => 'success',
-            'body' => 'Task has been added to the milestone #'.$milestone->id,
-        ]);
+        return toast($this, 'success', 'Task has been added to the milestone #'.$milestone->id);
     }
 
     public function render()

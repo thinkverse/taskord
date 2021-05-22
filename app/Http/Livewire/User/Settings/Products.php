@@ -39,9 +39,6 @@ class Products extends Component
 
         loggy(request(), 'Product', $this->user, 'Left the team #'.$product->slug);
 
-        return $this->dispatchBrowserEvent('toast', [
-            'type' => 'success',
-            'body' => 'You are no longer member of the team!',
-        ]);
+        return toast($this, 'success', 'You are no longer member of the team!');
     }
 }
