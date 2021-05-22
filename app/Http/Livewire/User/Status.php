@@ -38,9 +38,7 @@ class Status extends Component
     {
         if (auth()->check()) {
             if (strlen($event['status_emoji']) === 0) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Select the emoji!',
+                return  toast($this, 'error', 'Select the emoji!',
                 ]);
             }
 
@@ -51,9 +49,7 @@ class Status extends Component
                 $this->emit('refreshStatus');
                 loggy(request(), 'User', auth()->user(), 'Updated the account status');
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'Status set successfully!',
+                return  toast($this, 'success', 'Status set successfully!',
                 ]);
             } else {
                 auth()->user()->status = null;
@@ -62,9 +58,7 @@ class Status extends Component
                 $this->emit('refreshStatus');
                 loggy(request(), 'User', auth()->user(), 'Deleted the account status');
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'Status cleared successfully!',
+                return  toast($this, 'success', 'Status cleared successfully!',
                 ]);
             }
         } else {

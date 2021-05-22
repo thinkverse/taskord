@@ -19,9 +19,7 @@ class SingleReply extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
             if (auth()->user()->staffShip or auth()->user()->id === $this->reply->user->id) {
@@ -30,14 +28,10 @@ class SingleReply extends Component
                 $this->emit('refreshReplies');
                 auth()->user()->touch();
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'Reply has been deleted successfully!',
+                return  toast($this, 'success', 'Reply has been deleted successfully!',
                 ]);
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                return  toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {

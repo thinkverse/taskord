@@ -33,21 +33,15 @@ class SingleUpdate extends Component
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your email is not verified!',
+                return  toast($this, 'error', 'Your email is not verified!',
                 ]);
             }
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
             if (auth()->user()->id === $this->update->user->id) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'You can\'t praise your own update!',
+                return  toast($this, 'error', 'You can\'t praise your own update!',
                 ]);
             }
             if (auth()->user()->hasLiked($this->update)) {
@@ -70,9 +64,7 @@ class SingleUpdate extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
 
@@ -81,9 +73,7 @@ class SingleUpdate extends Component
                 $this->update->delete();
                 $this->emitUp('refreshProduct');
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                return  toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {

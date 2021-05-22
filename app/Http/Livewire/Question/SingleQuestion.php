@@ -38,22 +38,16 @@ class SingleQuestion extends Component
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your email is not verified!',
+                return  toast($this, 'error', 'Your email is not verified!',
                 ]);
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
             if (auth()->user()->id === $this->question->user->id) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'You can\'t praise your own question!',
+                return  toast($this, 'error', 'You can\'t praise your own question!',
                 ]);
             }
             Helper::togglePraise($this->question, 'QUESTION');
@@ -70,14 +64,10 @@ class SingleQuestion extends Component
                 Helper::hide($this->question);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'Question is hidden from public!',
+                return  toast($this, 'success', 'Question is hidden from public!',
                 ]);
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                return  toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {
@@ -89,9 +79,7 @@ class SingleQuestion extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
 
@@ -103,9 +91,7 @@ class SingleQuestion extends Component
 
                 return $this->emit('refreshSingleQuestion');
             } else {
-                $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                 toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {
@@ -117,9 +103,7 @@ class SingleQuestion extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
 
@@ -130,9 +114,7 @@ class SingleQuestion extends Component
 
                 return redirect()->route('questions.newest');
             } else {
-                $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                 toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {

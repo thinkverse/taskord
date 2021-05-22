@@ -76,9 +76,7 @@ class Integrations extends Component
                     ]);
                 }
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                return  toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {
@@ -95,14 +93,10 @@ class Integrations extends Component
                 $webhook->delete();
                 $this->emit('refreshIntegrations');
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'Webhook has been deleted!',
+                return  toast($this, 'success', 'Webhook has been deleted!',
                 ]);
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                return  toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {

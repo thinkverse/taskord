@@ -42,14 +42,10 @@ class Api extends Component
                 $this->emit('refreshApiToken');
                 loggy(request(), 'User', auth()->user(), 'Created a new API key');
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'New API key been generated successfully',
+                return  toast($this, 'success', 'New API key been generated successfully',
                 ]);
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                return  toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {

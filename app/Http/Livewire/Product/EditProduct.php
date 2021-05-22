@@ -73,9 +73,7 @@ class EditProduct extends Component
             ]);
 
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
 
@@ -132,9 +130,7 @@ class EditProduct extends Component
 
                 return redirect()->route('product.done', ['slug' => $product->slug]);
             } else {
-                $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                 toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {
@@ -146,16 +142,12 @@ class EditProduct extends Component
     {
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your email is not verified!',
+                return  toast($this, 'error', 'Your email is not verified!',
                 ]);
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
 
@@ -172,9 +164,7 @@ class EditProduct extends Component
 
                 return redirect()->route('products.newest');
             } else {
-                $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                 toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {

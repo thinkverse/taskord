@@ -32,21 +32,15 @@ class SingleAnswer extends Component
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your email is not verified!',
+                return  toast($this, 'error', 'Your email is not verified!',
                 ]);
             }
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
             if (auth()->user()->id === $this->answer->user->id) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'You can\'t praise your own answer!',
+                return  toast($this, 'error', 'You can\'t praise your own answer!',
                 ]);
             }
             Helper::togglePraise($this->answer, 'ANSWER');
@@ -63,14 +57,10 @@ class SingleAnswer extends Component
                 Helper::hide($this->answer);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'Answer is hidden from public!',
+                return  toast($this, 'success', 'Answer is hidden from public!',
                 ]);
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                return  toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {
@@ -82,9 +72,7 @@ class SingleAnswer extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
 
@@ -94,14 +82,10 @@ class SingleAnswer extends Component
                 $this->emit('refreshAnswers');
                 auth()->user()->touch();
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'Answer has been deleted successfully!',
+                return  toast($this, 'success', 'Answer has been deleted successfully!',
                 ]);
             } else {
-                $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                 toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {

@@ -21,16 +21,12 @@ class CreateQuestion extends Component
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your email is not verified!',
+                return  toast($this, 'error', 'Your email is not verified!',
                 ]);
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
 

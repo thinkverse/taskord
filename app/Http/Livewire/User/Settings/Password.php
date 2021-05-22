@@ -54,14 +54,10 @@ class Password extends Component
                 auth()->user()->save();
                 loggy(request(), 'User', auth()->user(), 'Changed account password');
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'Your password has been changed!',
+                return  toast($this, 'success', 'Your password has been changed!',
                 ]);
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                return  toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {

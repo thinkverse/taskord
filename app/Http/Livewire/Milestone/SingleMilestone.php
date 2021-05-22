@@ -34,22 +34,16 @@ class SingleMilestone extends Component
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your email is not verified!',
+                return  toast($this, 'error', 'Your email is not verified!',
                 ]);
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
             if (auth()->user()->id === $this->milestone->user->id) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'You can\'t praise your own milestone!',
+                return  toast($this, 'error', 'You can\'t praise your own milestone!',
                 ]);
             }
             Helper::togglePraise($this->milestone, 'MILESTONE');
@@ -66,14 +60,10 @@ class SingleMilestone extends Component
                 Helper::hide($this->milestone);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'Milestone is hidden from public!',
+                return  toast($this, 'success', 'Milestone is hidden from public!',
                 ]);
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                return  toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {
@@ -106,9 +96,7 @@ class SingleMilestone extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
+                return  toast($this, 'error', 'Your account is flagged!',
                 ]);
             }
 
@@ -119,9 +107,7 @@ class SingleMilestone extends Component
 
                 return redirect()->route('milestones.opened');
             } else {
-                $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
+                 toast($this, 'error', 'Forbidden!',
                 ]);
             }
         } else {
