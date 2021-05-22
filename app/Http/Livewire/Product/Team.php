@@ -20,12 +20,14 @@ class Team extends Component
 
     public function removeMember()
     {
-        if (auth()->check()) {
-            $this->user->products()->detach($this->product);
-            $this->user->notify(new MemberRemoved($this->product, auth()->user()->id));
-            loggy(request(), 'Product', auth()->user(), 'Removed @'.$this->user->username.' from #'.$this->product->slug);
-
-            return redirect()->route('product.done', ['slug' => $this->product->slug]);
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
         }
+
+        $this->user->products()->detach($this->product);
+        $this->user->notify(new MemberRemoved($this->product, auth()->user()->id));
+        loggy(request(), 'Product', auth()->user(), 'Removed @'.$this->user->username.' from #'.$this->product->slug);
+
+        return redirect()->route('product.done', ['slug' => $this->product->slug]);
     }
 }
