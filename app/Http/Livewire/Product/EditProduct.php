@@ -73,8 +73,7 @@ class EditProduct extends Component
             ]);
 
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!',
-                ]);
+                return  toast($this, 'error', 'Your account is flagged!');
             }
 
             $product = Product::where('id', $this->product->id)->firstOrFail();
@@ -130,8 +129,7 @@ class EditProduct extends Component
 
                 return redirect()->route('product.done', ['slug' => $product->slug]);
             } else {
-                 toast($this, 'error', 'Forbidden!',
-                ]);
+                 toast($this, 'error', 'Forbidden!');
             }
         } else {
             Helper::toast($this, 'error', 'Forbidden!');
@@ -142,13 +140,11 @@ class EditProduct extends Component
     {
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return  toast($this, 'error', 'Your email is not verified!',
-                ]);
+                return  toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!',
-                ]);
+                return  toast($this, 'error', 'Your account is flagged!');
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->product->owner->id) {
@@ -164,8 +160,7 @@ class EditProduct extends Component
 
                 return redirect()->route('products.newest');
             } else {
-                 toast($this, 'error', 'Forbidden!',
-                ]);
+                 toast($this, 'error', 'Forbidden!');
             }
         } else {
             return Helper::toast($this, 'error', 'Forbidden!');
