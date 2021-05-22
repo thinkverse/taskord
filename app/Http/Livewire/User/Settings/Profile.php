@@ -135,20 +135,20 @@ class Profile extends Component
 
     public function useGravatar()
     {
-        if (auth()->check()) {
-            if (auth()->user()->id === $this->user->id) {
-                $old_avatar = explode('storage/', $this->user->avatar);
-                if (array_key_exists(1, $old_avatar)) {
-                    Storage::delete($old_avatar[1]);
-                }
-                $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(auth()->user()->email).'?s=500&d=identicon';
-                $this->user->save();
-                loggy(request(), 'User', auth()->user(), 'Updated avatar provider to Gravatar');
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-                return toast($this, 'success', 'Your avatar has been switched to Gravatar!');
-            } else {
-                return toast($this, 'error', 'Forbidden!');
+        if (auth()->user()->id === $this->user->id) {
+            $old_avatar = explode('storage/', $this->user->avatar);
+            if (array_key_exists(1, $old_avatar)) {
+                Storage::delete($old_avatar[1]);
             }
+            $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(auth()->user()->email).'?s=500&d=identicon';
+            $this->user->save();
+            loggy(request(), 'User', auth()->user(), 'Updated avatar provider to Gravatar');
+
+            return toast($this, 'success', 'Your avatar has been switched to Gravatar!');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
