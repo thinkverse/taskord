@@ -46,13 +46,11 @@ class NewMeetup extends Component
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return  toast($this, 'error', 'Your email is not verified!',
-                ]);
+                return  toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!',
-                ]);
+                return  toast($this, 'error', 'Your account is flagged!');
             }
 
             if ($this->cover) {
