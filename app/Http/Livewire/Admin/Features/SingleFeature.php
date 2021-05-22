@@ -74,15 +74,15 @@ class SingleFeature extends Component
 
     public function deleteFeature()
     {
-        if (auth()->check()) {
-            loggy(request(), 'Admin', auth()->user(), 'Deleted a feature flag | Feature ID: '.$this->feature->id);
-            $this->feature->delete();
-            auth()->user()->touch();
-
-            return redirect()->route('admin.features');
-        } else {
+        if (! auth()->check()) {
             return toast($this, 'error', 'Forbidden!');
         }
+
+        loggy(request(), 'Admin', auth()->user(), 'Deleted a feature flag | Feature ID: '.$this->feature->id);
+        $this->feature->delete();
+        auth()->user()->touch();
+
+        return redirect()->route('admin.features');
     }
 
     public function render()
