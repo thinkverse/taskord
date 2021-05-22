@@ -98,6 +98,5 @@
 <livewire:scripts />
 <script src="{{ mix('js/bootstrap.js') }}" defer></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
-<script defer src="https://feedback.fish/ff.js?pid=c0bc4379534829"></script>
 @yield('scripts')
 </html>
