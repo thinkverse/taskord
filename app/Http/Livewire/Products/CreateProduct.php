@@ -29,13 +29,13 @@ class CreateProduct extends Component
 
     public function updatedAvatar()
     {
-        if (auth()->check()) {
-            $this->validate([
-                'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
-            ]);
-        } else {
+        if (! auth()->check()) {
             return toast($this, 'error', 'Forbidden!');
         }
+
+        $this->validate([
+            'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
+        ]);
     }
 
     public function submit()
