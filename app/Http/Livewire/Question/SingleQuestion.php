@@ -94,22 +94,22 @@ class SingleQuestion extends Component
 
     public function deleteQuestion()
     {
-        if (auth()->check()) {
-            if (auth()->user()->isFlagged) {
-                return toast($this, 'error', 'Your account is flagged!');
-            }
-
-            if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {
-                loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
-                $this->question->delete();
-                auth()->user()->touch();
-
-                return redirect()->route('questions.newest');
-            } else {
-                toast($this, 'error', 'Forbidden!');
-            }
-        } else {
+        if (! auth()->check()) {
             return toast($this, 'error', 'Forbidden!');
+        }
+
+        if (auth()->user()->isFlagged) {
+            return toast($this, 'error', 'Your account is flagged!');
+        }
+
+        if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {
+            loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
+            $this->question->delete();
+            auth()->user()->touch();
+
+            return redirect()->route('questions.newest');
+        } else {
+            toast($this, 'error', 'Forbidden!');
         }
     }
 
