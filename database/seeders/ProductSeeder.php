@@ -17,7 +17,6 @@ class ProductSeeder extends Seeder
         Product::factory()->create([
             'slug' => 'taskord',
             'name' => 'Taskord',
-            'avatar' => 'https://taskord.com/storage/logos/jKG9nPJJmzZvtKjxSwUxMuXM6AfLyBtw.png',
             'description' => 'Get things done socially with Taskord',
             'user_id' => 1,
             'launched' => true,
