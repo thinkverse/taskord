@@ -27,9 +27,7 @@ class Rsvp extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while toggling the RSVP');
 
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your are rate limited, try again later!',
+            return Helper::toast($this, 'error', 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -57,9 +55,7 @@ class Rsvp extends Component
                 auth()->user()->touch();
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            return Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }

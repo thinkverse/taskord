@@ -179,6 +179,14 @@ class Helper
         return $task;
     }
 
+    public static function toast($livewire, $type, $body)
+    {
+        return $livewire->dispatchBrowserEvent('toast', [
+            'type' => 'error',
+            'body' => 'Your are rate limited, try again later!',
+        ]);
+    }
+
     public static function renderDueDate(Carbon $date)
     {
         $difference = carbon('today')->diffInDays($date, false);

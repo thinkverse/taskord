@@ -31,9 +31,7 @@ class Subscribe extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while subscribing to the task');
 
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your are rate limited, try again later!',
+            return Helper::toast($this, 'error', 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -62,9 +60,7 @@ class Subscribe extends Component
                 loggy(request(), 'Task', auth()->user(), 'Toggled task subscribe | Task ID: '.$this->task->id);
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            return Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }

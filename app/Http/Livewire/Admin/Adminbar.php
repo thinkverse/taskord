@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Jobs\Clean;
 use App\Jobs\Deploy;
+use Helper;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
 
@@ -27,15 +28,9 @@ class Adminbar extends Component
             Clean::dispatch();
             loggy(request(), 'Admin', auth()->user(), 'Deployed the Application');
 
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'success',
-                'body' => 'Deployment process has been initiated successfully 🚀',
-            ]);
+            return Helper::toast($this, 'success', 'Deployment process has been initiated successfully 🚀');
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Permission denied!',
-            ]);
+            return Helper::toast($this, 'error', 'Permission denied!');
         }
     }
 

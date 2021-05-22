@@ -29,9 +29,7 @@ class SingleMilestone extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the milestone');
 
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your are rate limited, try again later!',
+            return Helper::toast($this, 'error', 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -58,9 +56,7 @@ class SingleMilestone extends Component
             Helper::togglePraise($this->milestone, 'MILESTONE');
             loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            return Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }
@@ -83,9 +79,7 @@ class SingleMilestone extends Component
                 ]);
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            return Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }
@@ -107,9 +101,7 @@ class SingleMilestone extends Component
                 return redirect()->route('milestones.milestone', ['milestone' => $this->milestone]);
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            return Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }
@@ -137,9 +129,7 @@ class SingleMilestone extends Component
                 ]);
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            return Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }

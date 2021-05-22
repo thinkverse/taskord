@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Features;
 
 use App\Models\Feature;
+use Helper;
 use Livewire\Component;
 
 class SingleFeature extends Component
@@ -81,10 +82,7 @@ class SingleFeature extends Component
 
             return redirect()->route('admin.features');
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 

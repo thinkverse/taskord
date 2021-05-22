@@ -48,9 +48,7 @@ class CreateDeal extends Component
                 ]);
             }
         } else {
-            $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }

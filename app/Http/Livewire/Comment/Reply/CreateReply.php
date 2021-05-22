@@ -26,9 +26,7 @@ class CreateReply extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }
@@ -74,14 +72,10 @@ class CreateReply extends Component
 
             loggy(request(), 'Reply', auth()->user(), 'Created a new comment reply | Reply ID: '.$reply->id);
 
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'success',
-                'body' => 'Reply has been added!',
+            return Helper::toast($this, 'success', 'Reply has been added!',
             ]);
         } else {
-            $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }

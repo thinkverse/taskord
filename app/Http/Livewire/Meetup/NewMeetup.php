@@ -27,9 +27,7 @@ class NewMeetup extends Component
                 'cover' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            return Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }
@@ -86,9 +84,7 @@ class NewMeetup extends Component
 
             return redirect()->route('meetups.home');
         } else {
-            $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }

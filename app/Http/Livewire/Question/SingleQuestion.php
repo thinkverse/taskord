@@ -33,9 +33,7 @@ class SingleQuestion extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the question');
 
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your are rate limited, try again later!',
+            return Helper::toast($this, 'error', 'Your are rate limited, try again later!',
             ]);
         }
 
@@ -62,9 +60,7 @@ class SingleQuestion extends Component
             Helper::togglePraise($this->question, 'QUESTION');
             loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            return Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }
@@ -87,9 +83,7 @@ class SingleQuestion extends Component
                 ]);
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            return Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }
@@ -118,9 +112,7 @@ class SingleQuestion extends Component
                 ]);
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            return Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }
@@ -148,9 +140,7 @@ class SingleQuestion extends Component
                 ]);
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            return Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }

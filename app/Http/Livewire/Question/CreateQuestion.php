@@ -16,8 +16,7 @@ class CreateQuestion extends Component
     {
         if (auth()->check()) {
             $this->validate([
-                'title' => ['required', 'min:5', 'max:100'],
-                'body' => ['required', 'min:3', 'max:10000'],
+                'title' => ['required', 'min:5', 'max:100'], ['required', 'min:3', 'max:10000'],
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
@@ -38,8 +37,7 @@ class CreateQuestion extends Component
             $patronOnly = ! $this->patronOnly ? false : true;
 
             $question = auth()->user()->questions()->create([
-                'title' => $this->title,
-                'body' => $this->body,
+                'title' => $this->title, $this->body,
                 'is_solvable' => $solvable,
                 'patronOnly' => $patronOnly,
             ]);
@@ -50,9 +48,7 @@ class CreateQuestion extends Component
 
             return redirect()->route('question.question', ['id' => $question->id]);
         } else {
-            $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }

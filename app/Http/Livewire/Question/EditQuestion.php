@@ -32,9 +32,7 @@ class EditQuestion extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }
@@ -81,9 +79,7 @@ class EditQuestion extends Component
                 ]);
             }
         } else {
-            $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }

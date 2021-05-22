@@ -21,8 +21,7 @@ class NewUpdate extends Component
     {
         if (auth()->check()) {
             $this->validate([
-                'title' => ['required', 'min:5', 'max:100'],
-                'body' => ['required', 'min:3', 'max:10000'],
+                'title' => ['required', 'min:5', 'max:100'], ['required', 'min:3', 'max:10000'],
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
@@ -42,8 +41,7 @@ class NewUpdate extends Component
             $update = auth()->user()->product_updates()->create([
                 'user_id' =>  auth()->user()->id,
                 'product_id' => $this->product->id,
-                'title' => $this->title,
-                'body' => $this->body,
+                'title' => $this->title, $this->body,
             ]);
             auth()->user()->touch();
             $users = Product::find($this->product->id)->subscribers()->get();
@@ -54,9 +52,7 @@ class NewUpdate extends Component
 
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {
-            $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
+            Helper::toast($this, 'error', 'Forbidden!',
             ]);
         }
     }
