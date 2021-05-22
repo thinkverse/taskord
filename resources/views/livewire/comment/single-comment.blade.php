@@ -95,7 +95,7 @@
         </div>
         @auth
             @if ($showReplyBox)
-                <div class="px-3 mb-3">
+                <div class="px-3 pb-3">
                     <livewire:comment.reply.create-reply :comment="$comment" />
                 </div>
             @else

@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card {{ $comment->replies()->count('id') > 0 ? '' : 'mt-3' }}">
     <div class="card-body">
         @error('reply')
             <div class="alert alert-danger alert-dismissible fade show mt-2">
