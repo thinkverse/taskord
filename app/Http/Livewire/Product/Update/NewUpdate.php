@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Product\Update;
 use App\Models\Product;
 use App\Notifications\Product\NewProductUpdate;
 use Livewire\Component;
+use Helper;
 
 class NewUpdate extends Component
 {
@@ -52,8 +53,7 @@ class NewUpdate extends Component
 
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }

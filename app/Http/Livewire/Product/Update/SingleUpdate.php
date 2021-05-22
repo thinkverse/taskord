@@ -28,8 +28,7 @@ class SingleUpdate extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the update');
 
-            return Helper::toast($this, 'error', 'Your are rate limited, try again later!',
-            ]);
+            return Helper::toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
         if (auth()->check()) {
@@ -63,8 +62,7 @@ class SingleUpdate extends Component
                 //$this->update->user->notify(new TaskPraised($this->update, auth()->user()->id));
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -89,8 +87,7 @@ class SingleUpdate extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }
