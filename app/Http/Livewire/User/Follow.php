@@ -31,23 +31,23 @@ class Follow extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (auth()->check()) {
-            if (auth()->user()->isFlagged) {
-                return toast($this, 'error', 'Your account is flagged!');
-            }
-            if (auth()->user()->id === $this->user->id) {
-                return toast($this, 'error', 'You can\'t follow yourself!');
-            } else {
-                auth()->user()->toggleFollow($this->user);
-                $this->user->refresh();
-                auth()->user()->touch();
-                if (auth()->user()->isFollowing($this->user)) {
-                    $this->user->notify(new Followed(auth()->user()));
-                }
-                loggy(request(), 'User', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
-            }
-        } else {
+        if (! auth()->check()) {
             return toast($this, 'error', 'Forbidden!');
+        }
+
+        if (auth()->user()->isFlagged) {
+            return toast($this, 'error', 'Your account is flagged!');
+        }
+        if (auth()->user()->id === $this->user->id) {
+            return toast($this, 'error', 'You can\'t follow yourself!');
+        } else {
+            auth()->user()->toggleFollow($this->user);
+            $this->user->refresh();
+            auth()->user()->touch();
+            if (auth()->user()->isFollowing($this->user)) {
+                $this->user->notify(new Followed(auth()->user()));
+            }
+            loggy(request(), 'User', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
         }
     }
 }
