@@ -164,8 +164,8 @@ if (! function_exists('toast')) {
     function toast($livewire, $type, $body)
     {
         return $livewire->dispatchBrowserEvent('toast', [
-            'type' => 'error',
-            'body' => 'Your are rate limited, try again later!',
+            'type' => $type,
+            'body' => $body,
         ]);
     }
 }
