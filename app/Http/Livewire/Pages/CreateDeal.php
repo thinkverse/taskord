@@ -43,8 +43,7 @@ class CreateDeal extends Component
 
                 return redirect()->route('deals');
             } else {
-                 toast($this, 'error', 'Forbidden!',
-                ]);
+                 toast($this, 'error', 'Forbidden!');
             }
         } else {
             Helper::toast($this, 'error', 'Forbidden!');
