@@ -46,8 +46,10 @@ class Follow extends Component
                     $this->user->notify(new Followed(auth()->user()));
                 }
                 loggy(request(), 'Notification', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
+                $this->emitUp('refreshSuggestions');
+
+                return toast($this, 'success', 'Followed successfully!');
             }
-            $this->emitUp('refreshSuggestions');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
