@@ -35,6 +35,9 @@
                     @if ($activity->getExtraProperty('type') === 'Comment')
                         💬 Comment
                     @endif
+                    @if ($activity->getExtraProperty('type') === 'Reply')
+                        📢 Reply
+                    @endif
                     @if ($activity->getExtraProperty('type') === 'Question')
                         ❓ Question
                     @endif
