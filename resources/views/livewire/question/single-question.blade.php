@@ -56,7 +56,7 @@
                         <span wire:loading wire:target="togglePraise">
                             <span class="spinner-border spinner-border-task" role="status"></span>
                         </span>
-                        <x-heroicon-s-thumb-up wire:loading.remove class="heroicon heroicon-15px me-0" />
+                        <x-heroicon-s-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                         <span class="small text-white fw-bold">
                             {{ number_format($question->likerscount()) }}
                         </span>
@@ -71,7 +71,7 @@
                         <span wire:loading wire:target="togglePraise">
                             <span class="spinner-border spinner-border-task" role="status"></span>
                         </span>
-                        <x-heroicon-o-thumb-up wire:loading.remove class="heroicon heroicon-15px me-0 text-secondary" />
+                        <x-heroicon-o-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0 text-secondary" />
                         @if ($question->likerscount() !== 0)
                             <span class="small text-dark fw-bold">
                                 {{ number_format($question->likerscount()) }}
