@@ -35,7 +35,7 @@
                 </a>
             @endif
             @if ($user->isStaff)
-                <span title="Staff">
+                <span class="staff" title="Staff">
                     <x-heroicon-o-shield-check class="heroicon text-primary" />
                 </span>
             @endif

@@ -95,6 +95,12 @@ const initHover = () => {
     animation: "shift-away-subtle",
     content: "Private Profile",
   });
+
+  tippy(".staff", {
+    placement: "right",
+    animation: "shift-away-subtle",
+    content: "Staff",
+  });
 }
 
 const init = () => {
