@@ -20,6 +20,9 @@
     <a class="pe-2" href="{{ route('sponsors') }}">
         Sponsors
     </a>
+    <a class="pe-2" href="#" data-feedback-fish>
+        Feedback
+    </a>
     <a class="pe-2" href="{{ route('contact') }}">
         Contact
     </a>
