@@ -156,14 +156,14 @@ class Profile extends Component
 
     public function enableGoal()
     {
-        if (auth()->check()) {
-            if (auth()->user()->id === $this->user->id) {
-                $this->user->hasGoal = ! $this->user->hasGoal;
-                $this->user->save();
-                loggy(request(), 'User', auth()->user(), 'Toggled goals settings');
-            } else {
-                return toast($this, 'error', 'Forbidden!');
-            }
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
+
+        if (auth()->user()->id === $this->user->id) {
+            $this->user->hasGoal = ! $this->user->hasGoal;
+            $this->user->save();
+            loggy(request(), 'User', auth()->user(), 'Toggled goals settings');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
