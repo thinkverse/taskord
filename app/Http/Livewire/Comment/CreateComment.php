@@ -24,11 +24,11 @@ class CreateComment extends Component
 
     public function updated($field)
     {
-        if (auth()->check()) {
-            $this->validateOnly($field);
-        } else {
-            toast($this, 'error', 'Forbidden!');
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
         }
+
+        $this->validateOnly($field);
     }
 
     public function submit()
