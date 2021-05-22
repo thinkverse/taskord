@@ -58,7 +58,7 @@
                                 <a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">
                                     <x-heroicon-o-user-group class="heroicon heroicon-18px text-secondary" />
                                     Meetups
-                                    <x-staffship />
+                                     <x:labels.staff-ship />
                                 </a>
                             </li>
                         @endif
@@ -67,7 +67,7 @@
                                 <a class="dropdown-item text-dark" href="#">
                                     <x-heroicon-o-support class="heroicon heroicon-18px text-secondary" />
                                     Help
-                                    <x-staffship />
+                                     <x:labels.staff-ship />
                                 </a>
                             </li>
                         @endif
