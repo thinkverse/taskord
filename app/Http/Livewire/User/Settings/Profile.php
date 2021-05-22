@@ -217,22 +217,21 @@ class Profile extends Component
 
     public function updateSponsor()
     {
-        if (auth()->check()) {
-            if (auth()->user()->id === $this->user->id) {
-                $this->validate([
-                    'sponsor' => ['nullable', 'active_url'],
-                ]);
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-                if (auth()->check()) {
-                    $this->user->sponsor = $this->sponsor;
-                    $this->user->save();
-                    loggy(request(), 'User', auth()->user(), 'Updated the sponsor URL');
 
-                    toast($this, 'success', 'Your sponsor link has been updated!');
-                }
-            } else {
-                return toast($this, 'error', 'Forbidden!');
-            }
+        if (auth()->user()->id === $this->user->id) {
+            $this->validate([
+                'sponsor' => ['nullable', 'active_url'],
+            ]);
+
+            $this->user->sponsor = $this->sponsor;
+            $this->user->save();
+            loggy(request(), 'User', auth()->user(), 'Updated the sponsor URL');
+
+            toast($this, 'success', 'Your sponsor link has been updated!');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
