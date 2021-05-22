@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Question;
 
 use App\Gamify\Points\QuestionCreated;
 use Livewire\Component;
+use Helper;
 
 class CreateQuestion extends Component
 {
@@ -48,8 +49,7 @@ class CreateQuestion extends Component
 
             return redirect()->route('question.question', ['id' => $question->id]);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }
