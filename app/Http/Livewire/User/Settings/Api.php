@@ -35,17 +35,13 @@ class Api extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (auth()->check()) {
-            if (auth()->user()->id === $this->user->id) {
-                auth()->user()->api_token = Str::random(60);
-                auth()->user()->save();
-                $this->emit('refreshApiToken');
-                loggy(request(), 'User', auth()->user(), 'Created a new API key');
+        if (auth()->user()->id === $this->user->id) {
+            auth()->user()->api_token = Str::random(60);
+            auth()->user()->save();
+            $this->emit('refreshApiToken');
+            loggy(request(), 'User', auth()->user(), 'Created a new API key');
 
-                return toast($this, 'success', 'New API key been generated successfully');
-            } else {
-                return toast($this, 'error', 'Forbidden!');
-            }
+            return toast($this, 'success', 'New API key been generated successfully');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
