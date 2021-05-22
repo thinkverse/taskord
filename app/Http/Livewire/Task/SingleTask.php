@@ -103,15 +103,15 @@ class SingleTask extends Component
 
     public function hide()
     {
-        if (auth()->check()) {
-            if (auth()->user()->isStaff and auth()->user()->staffShip) {
-                Helper::hide($this->task);
-                loggy(request(), 'Admin', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-                return toast($this, 'success', 'Task is hidden from public!');
-            } else {
-                return toast($this, 'error', 'Forbidden!');
-            }
+        if (auth()->user()->isStaff and auth()->user()->staffShip) {
+            Helper::hide($this->task);
+            loggy(request(), 'Admin', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
+
+            return toast($this, 'success', 'Task is hidden from public!');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
