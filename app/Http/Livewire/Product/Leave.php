@@ -17,13 +17,15 @@ class Leave extends Component
 
     public function leaveProduct()
     {
-        if (auth()->check()) {
-            auth()->user()->products()->detach($this->product);
-            $this->product->owner->notify(new MemberLeft($this->product, auth()->user()->id));
-            auth()->user()->touch();
-            loggy(request(), 'Product', auth()->user(), 'Left the team #'.$this->product->slug);
-
-            return redirect()->route('product.done', ['slug' => $this->product->slug]);
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
         }
+
+        auth()->user()->products()->detach($this->product);
+        $this->product->owner->notify(new MemberLeft($this->product, auth()->user()->id));
+        auth()->user()->touch();
+        loggy(request(), 'Product', auth()->user(), 'Left the team #'.$this->product->slug);
+
+        return redirect()->route('product.done', ['slug' => $this->product->slug]);
     }
 }
