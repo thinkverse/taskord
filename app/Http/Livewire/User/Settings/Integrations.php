@@ -39,34 +39,30 @@ class Integrations extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (auth()->check()) {
+        if (auth()->user()->id === $this->user->id) {
+            $this->validate([
+                'name' => ['required', 'min:2', 'max:20'],
+                'product' => ['nullable'],
+            ]);
+
+            if (auth()->user()->isFlagged) {
+                toast($this, 'error', 'Your account is flagged!');
+            }
+
             if (auth()->user()->id === $this->user->id) {
-                $this->validate([
-                    'name' => ['required', 'min:2', 'max:20'],
-                    'product' => ['nullable'],
+                $webhook = auth()->user()->webhooks()->create([
+                    'name' => $this->name,
+                    'product_id' => $this->product,
+                    'token' => Str::uuid(),
+                    'type' => $this->type,
                 ]);
+                $this->reset(['name', 'product']);
+                session()->flash('created', $webhook);
+                loggy(request(), 'User', auth()->user(), 'Created a new webhook | Webhook ID: '.$webhook->id);
 
-                if (auth()->user()->isFlagged) {
-                    toast($this, 'error', 'Your account is flagged!');
-                }
-
-                if (auth()->user()->id === $this->user->id) {
-                    $webhook = auth()->user()->webhooks()->create([
-                        'name' => $this->name,
-                        'product_id' => $this->product,
-                        'token' => Str::uuid(),
-                        'type' => $this->type,
-                    ]);
-                    $this->reset(['name', 'product']);
-                    session()->flash('created', $webhook);
-                    loggy(request(), 'User', auth()->user(), 'Created a new webhook | Webhook ID: '.$webhook->id);
-
-                    toast($this, 'success', 'New webhook has been created!');
-                } else {
-                    toast($this, 'error', 'Forbidden!');
-                }
+                toast($this, 'success', 'New webhook has been created!');
             } else {
-                return toast($this, 'error', 'Forbidden!');
+                toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -75,17 +71,13 @@ class Integrations extends Component
 
     public function deleteWebhook($id)
     {
-        if (auth()->check()) {
-            if (auth()->user()->id === $this->user->id) {
-                loggy(request(), 'User', auth()->user(), 'Deleted a webhook | Webhook ID: '.$id);
-                $webhook = Webhook::find($id);
-                $webhook->delete();
-                $this->emit('refreshIntegrations');
+        if (auth()->user()->id === $this->user->id) {
+            loggy(request(), 'User', auth()->user(), 'Deleted a webhook | Webhook ID: '.$id);
+            $webhook = Webhook::find($id);
+            $webhook->delete();
+            $this->emit('refreshIntegrations');
 
-                return toast($this, 'success', 'Webhook has been deleted!');
-            } else {
-                return toast($this, 'error', 'Forbidden!');
-            }
+            return toast($this, 'success', 'Webhook has been deleted!');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
