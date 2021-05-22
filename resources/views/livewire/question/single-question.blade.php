@@ -53,7 +53,10 @@
             @auth
                 @if (auth()->user()->hasLiked($question))
                     <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                        <x-heroicon-s-thumb-up class="heroicon heroicon-15px me-0" />
+                        <span wire:loading wire:target="togglePraise">
+                            <span class="spinner-border spinner-border-task" role="status"></span>
+                        </span>
+                        <x-heroicon-s-thumb-up wire:loading.remove class="heroicon heroicon-15px me-0" />
                         <span class="small text-white fw-bold">
                             {{ number_format($question->likerscount()) }}
                         </span>
@@ -65,7 +68,10 @@
                     </button>
                 @else
                     <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                        <x-heroicon-o-thumb-up class="heroicon heroicon-15px me-0 text-secondary" />
+                        <span wire:loading wire:target="togglePraise">
+                            <span class="spinner-border spinner-border-task" role="status"></span>
+                        </span>
+                        <x-heroicon-o-thumb-up wire:loading.remove class="heroicon heroicon-15px me-0 text-secondary" />
                         @if ($question->likerscount() !== 0)
                             <span class="small text-dark fw-bold">
                                 {{ number_format($question->likerscount()) }}
