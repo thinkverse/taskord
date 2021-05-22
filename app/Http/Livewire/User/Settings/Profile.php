@@ -3,12 +3,12 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
+use Helper;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Helper;
 
 class Profile extends Component
 {

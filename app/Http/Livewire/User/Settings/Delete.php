@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
+use Helper;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use Helper;
 
 class Delete extends Component
 {

@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
-use Livewire\Component;
 use Helper;
+use Livewire\Component;
 
 class Status extends Component
 {

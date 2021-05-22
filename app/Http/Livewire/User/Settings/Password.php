@@ -3,10 +3,10 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
+use Helper;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Livewire\Component;
-use Helper;
 
 class Password extends Component
 {

@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Notification;
 
-use Livewire\Component;
 use Helper;
+use Livewire\Component;
 
 class Delete extends Component
 {

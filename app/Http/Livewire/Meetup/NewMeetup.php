@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Meetup;
 
+use Helper;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
-use Helper;
 use Livewire\WithFileUploads;
 
 class NewMeetup extends Component

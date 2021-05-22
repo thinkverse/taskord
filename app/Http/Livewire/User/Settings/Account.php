@@ -4,8 +4,8 @@ namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
 use App\Rules\ReservedSlug;
-use Livewire\Component;
 use Helper;
+use Livewire\Component;
 
 class Account extends Component
 {

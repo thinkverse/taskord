@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
-use Livewire\Component;
 use Helper;
+use Livewire\Component;
 
 class EditMilestone extends Component
 {
