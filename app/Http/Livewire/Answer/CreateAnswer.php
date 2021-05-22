@@ -57,7 +57,7 @@ class CreateAnswer extends Component
                 $this->answer = Helper::parseUserMentionsToMarkdownLinks($this->answer, $users);
             }
 
-            $this->reset('answer'); 
+            $this->reset('answer');
             Helper::mentionUsers($users, $answer, auth()->user(), 'answer');
             Helper::notifySubscribers($answer->question->subscribers, $answer, 'answer');
             if (auth()->user()->id !== $this->question->user->id) {
