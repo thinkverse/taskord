@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Pages;
 
 use App\Models\Deal;
 use Livewire\Component;
+use Helper;
 
 class CreateDeal extends Component
 {
@@ -48,8 +49,7 @@ class CreateDeal extends Component
                 ]);
             }
         } else {
-            Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }
