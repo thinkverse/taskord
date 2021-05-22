@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Models\User;
 use Livewire\Component;
+use Helper;
 
 class Status extends Component
 {
@@ -27,11 +28,9 @@ class Status extends Component
             $this->emit('refreshStatus');
             loggy(request(), 'User', auth()->user(), 'Cleared the account status');
 
-            return Helper::toast($this, 'success', 'Status cleared successfully!',
-            ]);
+            return Helper::toast($this, 'success', 'Status cleared successfully!');
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -69,8 +68,7 @@ class Status extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
