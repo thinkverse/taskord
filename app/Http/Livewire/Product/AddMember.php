@@ -18,22 +18,24 @@ class AddMember extends Component
 
     public function submit()
     {
-        if (auth()->check()) {
-            $user = User::whereUsername($this->username)->first();
-            if ($user === null) {
-                return toast($this, 'error', 'User does not exists');
-            }
-            if ($user->products->contains($this->product) or $user->id === $this->product->owner->id) {
-                return toast($this, 'error', 'User is already in the team');
-            }
-            if (auth()->user()->username === $this->username) {
-                return toast($this, 'error', 'You can\'t add yourself to the team!');
-            }
-            $user->products()->attach($this->product);
-            $user->notify(new MemberAdded($this->product, auth()->user()->id));
-            loggy(request(), 'Product', auth()->user(), 'Added @'.$user->username.' to #'.$this->product->slug);
-
-            return redirect()->route('product.done', ['slug' => $this->product->slug]);
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
         }
+
+        $user = User::whereUsername($this->username)->first();
+        if ($user === null) {
+            return toast($this, 'error', 'User does not exists');
+        }
+        if ($user->products->contains($this->product) or $user->id === $this->product->owner->id) {
+            return toast($this, 'error', 'User is already in the team');
+        }
+        if (auth()->user()->username === $this->username) {
+            return toast($this, 'error', 'You can\'t add yourself to the team!');
+        }
+        $user->products()->attach($this->product);
+        $user->notify(new MemberAdded($this->product, auth()->user()->id));
+        loggy(request(), 'Product', auth()->user(), 'Added @'.$user->username.' to #'.$this->product->slug);
+
+        return redirect()->route('product.done', ['slug' => $this->product->slug]);
     }
 }
