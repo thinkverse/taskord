@@ -36,22 +36,22 @@ class SingleQuestion extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (auth()->check()) {
-            if (! auth()->user()->hasVerifiedEmail()) {
-                return toast($this, 'error', 'Your email is not verified!');
-            }
-
-            if (auth()->user()->isFlagged) {
-                return toast($this, 'error', 'Your account is flagged!');
-            }
-            if (auth()->user()->id === $this->question->user->id) {
-                return toast($this, 'error', 'You can\'t praise your own question!');
-            }
-            Helper::togglePraise($this->question, 'QUESTION');
-            loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
-        } else {
+        if (! auth()->check()) {
             return toast($this, 'error', 'Forbidden!');
         }
+
+        if (! auth()->user()->hasVerifiedEmail()) {
+            return toast($this, 'error', 'Your email is not verified!');
+        }
+
+        if (auth()->user()->isFlagged) {
+            return toast($this, 'error', 'Your account is flagged!');
+        }
+        if (auth()->user()->id === $this->question->user->id) {
+            return toast($this, 'error', 'You can\'t praise your own question!');
+        }
+        Helper::togglePraise($this->question, 'QUESTION');
+        loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
     }
 
     public function hide()
