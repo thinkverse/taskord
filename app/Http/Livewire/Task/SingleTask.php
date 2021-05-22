@@ -119,24 +119,24 @@ class SingleTask extends Component
 
     public function deleteTask()
     {
-        if (auth()->check()) {
-            if (auth()->user()->isFlagged) {
-                return toast($this, 'error', 'Your account is flagged!');
-            }
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-            if (auth()->user()->staffShip or auth()->user()->id === $this->task->user->id) {
-                loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
-                foreach ($this->task->images ?? [] as $image) {
-                    Storage::delete($image);
-                }
-                $this->task->delete();
-                $this->emitUp('refreshTasks');
-                auth()->user()->touch();
+        if (auth()->user()->isFlagged) {
+            return toast($this, 'error', 'Your account is flagged!');
+        }
 
-                return toast($this, 'success', 'Task has been deleted successfully!');
-            } else {
-                return toast($this, 'error', 'Forbidden!');
+        if (auth()->user()->staffShip or auth()->user()->id === $this->task->user->id) {
+            loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
+            foreach ($this->task->images ?? [] as $image) {
+                Storage::delete($image);
             }
+            $this->task->delete();
+            $this->emitUp('refreshTasks');
+            auth()->user()->touch();
+
+            return toast($this, 'success', 'Task has been deleted successfully!');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
