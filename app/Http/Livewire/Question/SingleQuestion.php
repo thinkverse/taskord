@@ -56,15 +56,15 @@ class SingleQuestion extends Component
 
     public function hide()
     {
-        if (auth()->check()) {
-            if (auth()->user()->isStaff and auth()->user()->staffShip) {
-                Helper::hide($this->question);
-                loggy(request(), 'Admin', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-                return toast($this, 'success', 'Question is hidden from public!');
-            } else {
-                return toast($this, 'error', 'Forbidden!');
-            }
+        if (auth()->user()->isStaff and auth()->user()->staffShip) {
+            Helper::hide($this->question);
+            loggy(request(), 'Admin', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
+
+            return toast($this, 'success', 'Question is hidden from public!');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
