@@ -33,12 +33,10 @@ class Follow extends Component
 
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!',
-                ]);
+                return  toast($this, 'error', 'Your account is flagged!');
             }
             if (auth()->user()->id === $this->user->id) {
-                return  toast($this, 'error', 'You can\'t follow yourself!',
-                ]);
+                return  toast($this, 'error', 'You can\'t follow yourself!');
             } else {
                 auth()->user()->toggleFollow($this->user);
                 $this->user->refresh();
