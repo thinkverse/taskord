@@ -58,7 +58,7 @@ class Moderator extends Component
                 loggy(request(), 'Admin', auth()->user(), 'Un-enrolled from Beta | Username: @'.$this->user->username);
             }
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -66,7 +66,7 @@ class Moderator extends Component
     {
         if (auth()->check() && auth()->user()->isStaff) {
             if ($this->user->id === 1) {
-                return false;
+                return toast($this, 'error', 'Forbidden!');
             }
             $this->user->isStaff = ! $this->user->isStaff;
             $this->user->timestamps = false;
@@ -77,7 +77,7 @@ class Moderator extends Component
                 loggy(request(), 'Admin', auth()->user(), 'Un-enrolled from Staff | Username: @'.$this->user->username);
             }
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -94,7 +94,7 @@ class Moderator extends Component
                 loggy(request(), 'Admin', auth()->user(), 'Un-enrolled from Contributor | Username: @'.$this->user->username);
             }
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -102,7 +102,7 @@ class Moderator extends Component
     {
         if (auth()->check() && auth()->user()->isStaff) {
             if ($this->user->id === 1) {
-                return false;
+                return toast($this, 'error', 'Forbidden!');
             }
             $this->user->isPrivate = ! $this->user->isPrivate;
             $this->user->timestamps = false;
@@ -113,7 +113,7 @@ class Moderator extends Component
                 loggy(request(), 'Admin', auth()->user(), 'Un-enrolled from private user | Username: @'.$this->user->username);
             }
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -121,7 +121,7 @@ class Moderator extends Component
     {
         if (auth()->check() && auth()->user()->isStaff) {
             if ($this->user->id === 1) {
-                return false;
+                return toast($this, 'error', 'Forbidden!');
             }
             $this->user->isFlagged = ! $this->user->isFlagged;
             $this->user->timestamps = false;
@@ -132,7 +132,7 @@ class Moderator extends Component
                 loggy(request(), 'Admin', auth()->user(), 'Un-flagged the user | Username: @'.$this->user->username);
             }
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -140,7 +140,7 @@ class Moderator extends Component
     {
         if (auth()->check() && auth()->user()->isStaff) {
             if ($this->user->id === 1) {
-                return false;
+                return toast($this, 'error', 'Forbidden!');
             }
             $this->user->isSuspended = ! $this->user->isSuspended;
             if ($this->user->isSuspended) {
@@ -158,7 +158,7 @@ class Moderator extends Component
                 loggy(request(), 'Admin', auth()->user(), 'Un-suspended the user | Username: @'.$this->user->username);
             }
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -175,7 +175,7 @@ class Moderator extends Component
                 loggy(request(), 'Admin', auth()->user(), 'Un-enrolled from Patron | Username: @'.$this->user->username);
             }
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -192,7 +192,7 @@ class Moderator extends Component
                 loggy(request(), 'Admin', auth()->user(), 'Un-verified the user | Username: @'.$this->user->username);
             }
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -208,7 +208,7 @@ class Moderator extends Component
                 loggy(request(), 'Admin', auth()->user(), 'Un-enrolled from Dark mode | Username: @'.$this->user->username);
             }
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -216,14 +216,14 @@ class Moderator extends Component
     {
         if (auth()->check() && auth()->user()->isStaff) {
             if ($this->user->id === 1) {
-                return false;
+                return toast($this, 'error', 'Forbidden!');
             }
             loggy(request(), 'Admin', auth()->user(), 'Masqueraded | Username: @'.$this->user->username);
             Auth::loginUsingId($this->user->id);
 
             return redirect()->route('home');
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -238,7 +238,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -253,7 +253,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $user->username]);
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -272,7 +272,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -286,7 +286,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -300,7 +300,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -314,7 +314,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -328,7 +328,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -350,7 +350,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -359,7 +359,7 @@ class Moderator extends Component
         if (auth()->check() && auth()->user()->isStaff) {
             loggy(request(), 'Admin', auth()->user(), 'Deleted the user | Username: @'.$this->user->username);
             if ($this->user->id === 1) {
-                return false;
+                return toast($this, 'error', 'Forbidden!');
             }
 
             $user = User::find($this->user->id);
@@ -389,7 +389,7 @@ class Moderator extends Component
 
             return redirect()->route('home');
         } else {
-            return false;
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
