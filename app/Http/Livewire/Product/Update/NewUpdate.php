@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Product\Update;
 
 use App\Models\Product;
 use App\Notifications\Product\NewProductUpdate;
-use Helper;
 use Livewire\Component;
 
 class NewUpdate extends Component
@@ -26,7 +25,7 @@ class NewUpdate extends Component
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                 return toast($this, 'error', 'Your email is not verified!');
+                return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
