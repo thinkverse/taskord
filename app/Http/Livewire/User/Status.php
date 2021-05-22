@@ -20,45 +20,45 @@ class Status extends Component
 
     public function clearStatus()
     {
-        if (auth()->check()) {
-            auth()->user()->status = null;
-            auth()->user()->status_emoji = null;
-            auth()->user()->save();
-            $this->emit('refreshStatus');
-            loggy(request(), 'User', auth()->user(), 'Cleared the account status');
-
-            return toast($this, 'success', 'Status cleared successfully!');
-        } else {
+        if (! auth()->check()) {
             return toast($this, 'error', 'Forbidden!');
         }
+
+        auth()->user()->status = null;
+        auth()->user()->status_emoji = null;
+        auth()->user()->save();
+        $this->emit('refreshStatus');
+        loggy(request(), 'User', auth()->user(), 'Cleared the account status');
+
+        return toast($this, 'success', 'Status cleared successfully!');
     }
 
     public function submit($event)
     {
-        if (auth()->check()) {
-            if (strlen($event['status_emoji']) === 0) {
-                return toast($this, 'error', 'Select the emoji!');
-            }
-
-            if (strlen($event['status']) !== 0) {
-                auth()->user()->status = $event['status'];
-                auth()->user()->status_emoji = $event['status_emoji'];
-                auth()->user()->save();
-                $this->emit('refreshStatus');
-                loggy(request(), 'User', auth()->user(), 'Updated the account status');
-
-                return toast($this, 'success', 'Status set successfully!');
-            } else {
-                auth()->user()->status = null;
-                auth()->user()->status_emoji = null;
-                auth()->user()->save();
-                $this->emit('refreshStatus');
-                loggy(request(), 'User', auth()->user(), 'Deleted the account status');
-
-                return toast($this, 'success', 'Status cleared successfully!');
-            }
-        } else {
+        if (! auth()->check()) {
             return toast($this, 'error', 'Forbidden!');
+        }
+
+        if (strlen($event['status_emoji']) === 0) {
+            return toast($this, 'error', 'Select the emoji!');
+        }
+
+        if (strlen($event['status']) !== 0) {
+            auth()->user()->status = $event['status'];
+            auth()->user()->status_emoji = $event['status_emoji'];
+            auth()->user()->save();
+            $this->emit('refreshStatus');
+            loggy(request(), 'User', auth()->user(), 'Updated the account status');
+
+            return toast($this, 'success', 'Status set successfully!');
+        } else {
+            auth()->user()->status = null;
+            auth()->user()->status_emoji = null;
+            auth()->user()->save();
+            $this->emit('refreshStatus');
+            loggy(request(), 'User', auth()->user(), 'Deleted the account status');
+
+            return toast($this, 'success', 'Status cleared successfully!');
         }
     }
 
