@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Livewire\Component;
+use Helper;
 
 class Password extends Component
 {
@@ -28,8 +29,7 @@ class Password extends Component
                 'confirmPassword' => ['required', 'same:newPassword'],
             ]);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -65,8 +65,7 @@ class Password extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }
