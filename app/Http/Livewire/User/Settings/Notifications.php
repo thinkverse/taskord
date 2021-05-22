@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
 use Livewire\Component;
+use Helper;
 
 class Notifications extends Component
 {
@@ -33,8 +34,7 @@ class Notifications extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -57,8 +57,7 @@ class Notifications extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }
