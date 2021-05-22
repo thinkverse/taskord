@@ -44,27 +44,27 @@ class CreateAnswer extends Component
                 return toast($this, 'error', 'Your account is flagged!');
             }
 
+            $answer = auth()->user()->answers()->create([
+                'question_id' =>  $this->question->id,
+                'answer' => $this->answer,
+            ]);
+            auth()->user()->touch();
+            $this->emit('refreshAnswers');
+
             $users = Helper::getUsernamesFromMentions($this->answer);
 
             if ($users) {
                 $this->answer = Helper::parseUserMentionsToMarkdownLinks($this->answer, $users);
             }
 
-            $answer = auth()->user()->answers()->create([
-                'question_id' =>  $this->question->id,
-                'answer' => $this->answer,
-            ]);
-            auth()->user()->touch();
-
-            $this->emit('refreshAnswers');
             $this->answer = '';
             Helper::mentionUsers($users, $answer, auth()->user(), 'answer');
             Helper::notifySubscribers($answer->question->subscribers, $answer, 'answer');
-            if (! auth()->user()->hasSubscribed($answer->question)) {
-                auth()->user()->subscribe($answer->question);
-                $this->emit('refreshQuestionSubscribe');
-            }
             if (auth()->user()->id !== $this->question->user->id) {
+                if (! auth()->user()->hasSubscribed($answer->question)) {
+                    auth()->user()->subscribe($answer->question);
+                    $this->emit('refreshQuestionSubscribe');
+                }
                 $this->question->user->notify(new Answered($answer));
                 givePoint(new CommentCreated($answer));
             }
