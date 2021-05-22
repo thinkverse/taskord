@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Helper;
 
 class Profile extends Component
 {
@@ -64,8 +65,7 @@ class Profile extends Component
                 'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -117,8 +117,7 @@ class Profile extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -145,8 +144,7 @@ class Profile extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -173,8 +171,7 @@ class Profile extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -192,8 +189,7 @@ class Profile extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -222,8 +218,7 @@ class Profile extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -255,8 +250,7 @@ class Profile extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -285,8 +279,7 @@ class Profile extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -325,8 +318,7 @@ class Profile extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -355,8 +347,7 @@ class Profile extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }
