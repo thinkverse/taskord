@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User\Settings;
 use App\Models\User;
 use App\Rules\ReservedSlug;
 use Livewire\Component;
+use Helper;
 
 class Account extends Component
 {
@@ -47,8 +48,7 @@ class Account extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -86,8 +86,7 @@ class Account extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -99,8 +98,7 @@ class Account extends Component
                 'email' => ['required', 'email', 'max:255', 'indisposable', 'unique:users,email,'.$this->user->id],
             ]);
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -135,8 +133,7 @@ class Account extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }
