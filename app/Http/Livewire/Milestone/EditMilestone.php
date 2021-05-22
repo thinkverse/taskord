@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
 use Livewire\Component;
+use Helper;
 
 class EditMilestone extends Component
 {
@@ -32,8 +33,7 @@ class EditMilestone extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -76,8 +76,7 @@ class EditMilestone extends Component
                 ]);
             }
         } else {
-            Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }

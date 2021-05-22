@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Home;
 
+use Helper;
 use Livewire\Component;
 
 class OnlyFollowing extends Component
@@ -26,8 +27,7 @@ class OnlyFollowing extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }

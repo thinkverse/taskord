@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Comment\Reply;
 
 use App\Models\CommentReply;
+use Helper;
 use Livewire\Component;
 
 class SingleReply extends Component
@@ -40,8 +41,7 @@ class SingleReply extends Component
                 ]);
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
