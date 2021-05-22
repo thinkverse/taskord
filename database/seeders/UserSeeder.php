@@ -21,7 +21,6 @@ class UserSeeder extends Seeder
             'lastname' => 'Admin',
             'username' => 'admin',
             'email' => 'admin@taskord.com',
-            'avatar' => 'https://taskord.com/storage/logos/jKG9nPJJmzZvtKjxSwUxMuXM6AfLyBtw.png',
             'password' => Hash::make('admin'),
             'isPatron' => true,
             'isStaff' => true,
