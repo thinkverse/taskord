@@ -4,7 +4,6 @@ namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
 use App\Rules\ReservedSlug;
-use Helper;
 use Livewire\Component;
 
 class Account extends Component
@@ -42,7 +41,7 @@ class Account extends Component
                     ]);
                 }
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -77,7 +76,7 @@ class Account extends Component
                     ]);
                 }
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -121,7 +120,7 @@ class Account extends Component
                     ]);
                 }
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');

@@ -76,7 +76,7 @@ class Integrations extends Component
                     ]);
                 }
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -92,9 +92,9 @@ class Integrations extends Component
                 $webhook->delete();
                 $this->emit('refreshIntegrations');
 
-                 return toast($this, 'success', 'Webhook has been deleted!');
+                return toast($this, 'success', 'Webhook has been deleted!');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');

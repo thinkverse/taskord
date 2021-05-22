@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Products;
 use App\Actions\CreateNewTask;
 use App\Rules\Repo;
 use App\Rules\ReservedSlug;
-use Helper;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -55,11 +54,11 @@ class CreateProduct extends Component
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                 return toast($this, 'error', 'Your email is not verified!');
+                return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                 return toast($this, 'error', 'Your account is flagged!');
+                return toast($this, 'error', 'Your account is flagged!');
             }
 
             $launched = ! $this->launched ? false : true;

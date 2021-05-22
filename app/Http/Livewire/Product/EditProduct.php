@@ -6,7 +6,6 @@ use App\Actions\CreateNewTask;
 use App\Models\Product;
 use App\Rules\Repo;
 use App\Rules\ReservedSlug;
-use Helper;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -73,7 +72,7 @@ class EditProduct extends Component
             ]);
 
             if (auth()->user()->isFlagged) {
-                 return toast($this, 'error', 'Your account is flagged!');
+                return toast($this, 'error', 'Your account is flagged!');
             }
 
             $product = Product::where('id', $this->product->id)->firstOrFail();
@@ -129,7 +128,7 @@ class EditProduct extends Component
 
                 return redirect()->route('product.done', ['slug' => $product->slug]);
             } else {
-                 toast($this, 'error', 'Forbidden!');
+                toast($this, 'error', 'Forbidden!');
             }
         } else {
             toast($this, 'error', 'Forbidden!');
@@ -140,11 +139,11 @@ class EditProduct extends Component
     {
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                 return toast($this, 'error', 'Your email is not verified!');
+                return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                 return toast($this, 'error', 'Your account is flagged!');
+                return toast($this, 'error', 'Your account is flagged!');
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->product->owner->id) {
@@ -160,7 +159,7 @@ class EditProduct extends Component
 
                 return redirect()->route('products.newest');
             } else {
-                 toast($this, 'error', 'Forbidden!');
+                toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');

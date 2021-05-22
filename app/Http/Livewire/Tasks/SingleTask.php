@@ -62,7 +62,7 @@ class SingleTask extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                 return toast($this, 'error', 'Your account is flagged!');
+                return toast($this, 'error', 'Your account is flagged!');
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->task->user->id) {
@@ -74,7 +74,7 @@ class SingleTask extends Component
                 $this->emitUp('refreshTasks');
                 auth()->user()->touch();
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');

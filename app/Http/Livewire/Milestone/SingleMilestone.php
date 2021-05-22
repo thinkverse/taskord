@@ -34,14 +34,14 @@ class SingleMilestone extends Component
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                 return toast($this, 'error', 'Your email is not verified!');
+                return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                 return toast($this, 'error', 'Your account is flagged!');
+                return toast($this, 'error', 'Your account is flagged!');
             }
             if (auth()->user()->id === $this->milestone->user->id) {
-                 return toast($this, 'error', 'You can\'t praise your own milestone!');
+                return toast($this, 'error', 'You can\'t praise your own milestone!');
             }
             Helper::togglePraise($this->milestone, 'MILESTONE');
             loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);
@@ -57,9 +57,9 @@ class SingleMilestone extends Component
                 Helper::hide($this->milestone);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
 
-                 return toast($this, 'success', 'Milestone is hidden from public!');
+                return toast($this, 'success', 'Milestone is hidden from public!');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -91,7 +91,7 @@ class SingleMilestone extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                 return toast($this, 'error', 'Your account is flagged!');
+                return toast($this, 'error', 'Your account is flagged!');
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->milestone->user_id) {
@@ -101,7 +101,7 @@ class SingleMilestone extends Component
 
                 return redirect()->route('milestones.opened');
             } else {
-                 toast($this, 'error', 'Forbidden!');
+                toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');

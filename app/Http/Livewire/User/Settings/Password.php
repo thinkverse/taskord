@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
-use Helper;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password as PasswordRule;
 use Livewire\Component;
@@ -54,9 +53,9 @@ class Password extends Component
                 auth()->user()->save();
                 loggy(request(), 'User', auth()->user(), 'Changed account password');
 
-                 return toast($this, 'success', 'Your password has been changed!');
+                return toast($this, 'success', 'Your password has been changed!');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');

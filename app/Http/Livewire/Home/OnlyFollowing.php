@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Home;
 
-use Helper;
 use Livewire\Component;
 
 class OnlyFollowing extends Component
@@ -16,9 +15,9 @@ class OnlyFollowing extends Component
             loggy(request(), 'User', auth()->user(), 'Toggled only followings tasks');
 
             if (auth()->user()->onlyFollowingsTasks) {
-                 return toast($this, 'success', 'Only following users tasks will be visible!');
+                return toast($this, 'success', 'Only following users tasks will be visible!');
             } else {
-                 return toast($this, 'success', 'All users tasks will be visible!');
+                return toast($this, 'success', 'All users tasks will be visible!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');

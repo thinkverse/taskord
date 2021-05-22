@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Pages;
 
 use App\Models\Deal;
-use Helper;
 use Livewire\Component;
 
 class CreateDeal extends Component
@@ -43,7 +42,7 @@ class CreateDeal extends Component
 
                 return redirect()->route('deals');
             } else {
-                 toast($this, 'error', 'Forbidden!');
+                toast($this, 'error', 'Forbidden!');
             }
         } else {
             toast($this, 'error', 'Forbidden!');

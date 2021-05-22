@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
-use Helper;
 use Livewire\Component;
 
 class EditMilestone extends Component
@@ -43,11 +42,11 @@ class EditMilestone extends Component
             $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                 return toast($this, 'error', 'Your email is not verified!');
+                return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                 return toast($this, 'error', 'Your account is flagged!');
+                return toast($this, 'error', 'Your account is flagged!');
             }
 
             $milestone = Milestone::where('id', $this->milestone->id)->firstOrFail();
@@ -64,7 +63,7 @@ class EditMilestone extends Component
 
                 return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
             } else {
-                 toast($this, 'error', 'Forbidden!');
+                toast($this, 'error', 'Forbidden!');
             }
         } else {
             toast($this, 'error', 'Forbidden!');

@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
-use Helper;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -111,7 +110,7 @@ class Profile extends Component
                     ]);
                 }
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -130,9 +129,9 @@ class Profile extends Component
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Resetted avatar to default');
 
-                 return toast($this, 'success', 'Your avatar has been resetted!');
+                return toast($this, 'success', 'Your avatar has been resetted!');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -151,9 +150,9 @@ class Profile extends Component
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Updated avatar provider to Gravatar');
 
-                 return toast($this, 'success', 'Your avatar has been switched to Gravatar!');
+                return toast($this, 'success', 'Your avatar has been switched to Gravatar!');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -168,7 +167,7 @@ class Profile extends Component
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Toggled goals settings');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -194,7 +193,7 @@ class Profile extends Component
                     ]);
                 }
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -223,7 +222,7 @@ class Profile extends Component
                     ]);
                 }
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -249,7 +248,7 @@ class Profile extends Component
                     ]);
                 }
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -285,7 +284,7 @@ class Profile extends Component
                     ]);
                 }
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -311,7 +310,7 @@ class Profile extends Component
                 }
                 loggy(request(), 'User', auth()->user(), 'Toggled only following users tasks in settings');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');

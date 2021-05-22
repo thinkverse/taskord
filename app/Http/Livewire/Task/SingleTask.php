@@ -63,7 +63,7 @@ class SingleTask extends Component
 
                 return true;
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -85,11 +85,11 @@ class SingleTask extends Component
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                 return toast($this, 'error', 'Your email is not verified!');
+                return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                 return toast($this, 'error', 'Your account is flagged!');
+                return toast($this, 'error', 'Your account is flagged!');
             }
             if (auth()->user()->id === $this->task->user->id) {
                 return toast($this, 'error', 'You can\'t praise your own task!');
@@ -108,9 +108,9 @@ class SingleTask extends Component
                 Helper::hide($this->task);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
 
-                 return toast($this, 'success', 'Task is hidden from public!');
+                return toast($this, 'success', 'Task is hidden from public!');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -121,7 +121,7 @@ class SingleTask extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                 return toast($this, 'error', 'Your account is flagged!');
+                return toast($this, 'error', 'Your account is flagged!');
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->task->user->id) {
@@ -133,9 +133,9 @@ class SingleTask extends Component
                 $this->emitUp('refreshTasks');
                 auth()->user()->touch();
 
-                 return toast($this, 'success', 'Task has been deleted successfully!');
+                return toast($this, 'success', 'Task has been deleted successfully!');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');

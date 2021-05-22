@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Question;
 
 use App\Models\Question;
-use Helper;
 use Livewire\Component;
 
 class EditQuestion extends Component
@@ -43,11 +42,11 @@ class EditQuestion extends Component
             $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                 return toast($this, 'error', 'Your email is not verified!');
+                return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                 return toast($this, 'error', 'Your account is flagged!');
+                return toast($this, 'error', 'Your account is flagged!');
             }
 
             $question = Question::where('id', $this->question->id)->firstOrFail();
@@ -67,7 +66,7 @@ class EditQuestion extends Component
 
                 return redirect()->route('question.question', ['id' => $question->id]);
             } else {
-                 toast($this, 'error', 'Forbidden!');
+                toast($this, 'error', 'Forbidden!');
             }
         } else {
             toast($this, 'error', 'Forbidden!');

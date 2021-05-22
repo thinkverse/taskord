@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
-use Helper;
 use Livewire\Component;
 
 class Notifications extends Component
@@ -23,9 +22,9 @@ class Notifications extends Component
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Toggled the email notification settings');
 
-                 return toast($this, 'success', 'Notification settings has been updated');
+                return toast($this, 'success', 'Notification settings has been updated');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -40,9 +39,9 @@ class Notifications extends Component
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Toggled the web notification settings');
 
-                 return toast($this, 'success', 'Notification settings has been updated');
+                return toast($this, 'success', 'Notification settings has been updated');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');

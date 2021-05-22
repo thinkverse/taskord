@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
-use Helper;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
@@ -52,7 +51,7 @@ class Delete extends Component
 
                 return redirect()->route('home');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -96,7 +95,7 @@ class Delete extends Component
 
                 return redirect()->route('home');
             } else {
-                 return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');

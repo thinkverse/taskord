@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Notification;
 
-use Helper;
 use Livewire\Component;
 
 class MarkAsRead extends Component
