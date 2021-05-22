@@ -89,22 +89,22 @@ class SingleMilestone extends Component
 
     public function deleteMilestone()
     {
-        if (auth()->check()) {
-            if (auth()->user()->isFlagged) {
-                return toast($this, 'error', 'Your account is flagged!');
-            }
-
-            if (auth()->user()->staffShip or auth()->user()->id === $this->milestone->user_id) {
-                loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
-                $this->milestone->delete();
-                auth()->user()->touch();
-
-                return redirect()->route('milestones.opened');
-            } else {
-                toast($this, 'error', 'Forbidden!');
-            }
-        } else {
+        if (! auth()->check()) {
             return toast($this, 'error', 'Forbidden!');
+        }
+
+        if (auth()->user()->isFlagged) {
+            return toast($this, 'error', 'Your account is flagged!');
+        }
+
+        if (auth()->user()->staffShip or auth()->user()->id === $this->milestone->user_id) {
+            loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
+            $this->milestone->delete();
+            auth()->user()->touch();
+
+            return redirect()->route('milestones.opened');
+        } else {
+            toast($this, 'error', 'Forbidden!');
         }
     }
 }
