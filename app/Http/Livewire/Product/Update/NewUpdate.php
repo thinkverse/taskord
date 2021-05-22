@@ -30,7 +30,7 @@ class NewUpdate extends Component
             }
 
             if (auth()->user()->isFlagged) {
-                $this, 'error', 'Your account is flagged!');
+                return toast($this, 'error', 'Your account is flagged!');
             }
 
             $update = auth()->user()->product_updates()->create([
