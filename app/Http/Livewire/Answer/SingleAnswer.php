@@ -49,15 +49,15 @@ class SingleAnswer extends Component
 
     public function hide()
     {
-        if (auth()->check()) {
-            if (auth()->user()->isStaff and auth()->user()->staffShip) {
-                Helper::hide($this->answer);
-                loggy(request(), 'Admin', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-                return toast($this, 'success', 'Answer is hidden from public!');
-            } else {
-                return toast($this, 'error', 'Forbidden!');
-            }
+        if (auth()->user()->isStaff and auth()->user()->staffShip) {
+            Helper::hide($this->answer);
+            loggy(request(), 'Admin', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
+
+            return toast($this, 'success', 'Answer is hidden from public!');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
