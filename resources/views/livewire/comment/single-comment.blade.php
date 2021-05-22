@@ -111,7 +111,7 @@
                         Reply now
                     </div>
                 </div>
-                <div wire:loading>
+                <div wire:loading wire:target="toggleCommentBox">
                     <div class="spinner-border spinner-border-sm taskord-spinner text-secondary m-3" role="status"></div>
                 </div>
             @endif
