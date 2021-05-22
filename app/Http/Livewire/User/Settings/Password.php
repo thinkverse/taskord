@@ -21,39 +21,31 @@ class Password extends Component
 
     public function updated($field)
     {
-        if (auth()->check()) {
-            $this->validateOnly($field, [
-                'currentPassword' => ['required'],
-                'newPassword' => ['required', 'string', PasswordRule::min(8)->uncompromised()],
-                'confirmPassword' => ['required', 'same:newPassword'],
-            ]);
-        } else {
-            toast($this, 'error', 'Forbidden!');
-        }
+        $this->validateOnly($field, [
+            'currentPassword' => ['required'],
+            'newPassword' => ['required', 'string', PasswordRule::min(8)->uncompromised()],
+            'confirmPassword' => ['required', 'same:newPassword'],
+        ]);
     }
 
     public function updatePassword()
     {
-        if (auth()->check()) {
-            if (auth()->user()->id === $this->user->id) {
-                $this->validate([
-                    'currentPassword' => ['required'],
-                    'newPassword' => ['required', 'string', PasswordRule::min(8)->uncompromised()],
-                    'confirmPassword' => ['required', 'same:newPassword'],
-                ]);
+        if (auth()->user()->id === $this->user->id) {
+            $this->validate([
+                'currentPassword' => ['required'],
+                'newPassword' => ['required', 'string', PasswordRule::min(8)->uncompromised()],
+                'confirmPassword' => ['required', 'same:newPassword'],
+            ]);
 
-                if (! Hash::check($this->currentPassword, auth()->user()->password)) {
-                    toast($this, 'error', 'Current password does not match!');
-                }
-
-                auth()->user()->password = Hash::make($this->newPassword);
-                auth()->user()->save();
-                loggy(request(), 'User', auth()->user(), 'Changed account password');
-
-                return toast($this, 'success', 'Your password has been changed!');
-            } else {
-                return toast($this, 'error', 'Forbidden!');
+            if (! Hash::check($this->currentPassword, auth()->user()->password)) {
+                toast($this, 'error', 'Current password does not match!');
             }
+
+            auth()->user()->password = Hash::make($this->newPassword);
+            auth()->user()->save();
+            loggy(request(), 'User', auth()->user(), 'Changed account password');
+
+            return toast($this, 'success', 'Your password has been changed!');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }

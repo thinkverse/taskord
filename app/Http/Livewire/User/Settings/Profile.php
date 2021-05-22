@@ -59,10 +59,6 @@ class Profile extends Component
 
     public function updatedAvatar()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
         $this->validate([
             'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
@@ -70,10 +66,6 @@ class Profile extends Component
 
     public function updateProfile()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
         if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'firstname' => ['nullable', 'max:30'],
@@ -114,10 +106,6 @@ class Profile extends Component
 
     public function resetAvatar()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
         if (auth()->user()->id === $this->user->id) {
             $old_avatar = explode('storage/', $this->user->avatar);
             if (array_key_exists(1, $old_avatar)) {
@@ -135,10 +123,6 @@ class Profile extends Component
 
     public function useGravatar()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
         if (auth()->user()->id === $this->user->id) {
             $old_avatar = explode('storage/', $this->user->avatar);
             if (array_key_exists(1, $old_avatar)) {
@@ -156,10 +140,6 @@ class Profile extends Component
 
     public function enableGoal()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
         if (auth()->user()->id === $this->user->id) {
             $this->user->hasGoal = ! $this->user->hasGoal;
             $this->user->save();
@@ -171,10 +151,6 @@ class Profile extends Component
 
     public function setGoal()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
         if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'daily_goal' => ['integer', 'max:1000', 'min:5'],
@@ -192,10 +168,6 @@ class Profile extends Component
 
     public function toggleVacationMode()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
         if (auth()->user()->id === $this->user->id) {
             $this->user->vacation_mode = ! $this->user->vacation_mode;
             $this->user->save();
@@ -215,10 +187,6 @@ class Profile extends Component
 
     public function updateSponsor()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
         if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'sponsor' => ['nullable', 'active_url'],
@@ -236,10 +204,6 @@ class Profile extends Component
 
     public function updateSocial()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
         if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'website' => ['nullable', 'active_url'],
@@ -267,10 +231,6 @@ class Profile extends Component
 
     public function onlyFollowingsTasks()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
         if (auth()->user()->id === $this->user->id) {
             $this->user->onlyFollowingsTasks = ! $this->user->onlyFollowingsTasks;
             $this->user->save();
