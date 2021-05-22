@@ -82,7 +82,7 @@ class SingleFeature extends Component
 
             return redirect()->route('admin.features');
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 

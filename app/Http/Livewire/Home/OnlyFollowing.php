@@ -21,7 +21,7 @@ class OnlyFollowing extends Component
                  return toast($this, 'success', 'All users tasks will be visible!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 }

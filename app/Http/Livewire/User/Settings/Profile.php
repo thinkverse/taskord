@@ -65,7 +65,7 @@ class Profile extends Component
                 'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -114,7 +114,7 @@ class Profile extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -135,7 +135,7 @@ class Profile extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -156,7 +156,7 @@ class Profile extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -171,7 +171,7 @@ class Profile extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -197,7 +197,7 @@ class Profile extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -226,7 +226,7 @@ class Profile extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -252,7 +252,7 @@ class Profile extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -288,7 +288,7 @@ class Profile extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -314,7 +314,7 @@ class Profile extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 }

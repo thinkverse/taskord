@@ -28,7 +28,7 @@ class Notifications extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -45,7 +45,7 @@ class Notifications extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 }

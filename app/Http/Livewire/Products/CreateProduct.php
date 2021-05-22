@@ -35,7 +35,7 @@ class CreateProduct extends Component
                 'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -113,7 +113,7 @@ class CreateProduct extends Component
 
             return redirect()->route('product.done', ['slug' => $product->slug]);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 

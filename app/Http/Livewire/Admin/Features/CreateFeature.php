@@ -31,7 +31,7 @@ class CreateFeature extends Component
 
             return redirect()->route('admin.features');
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 }

@@ -29,7 +29,7 @@ class Password extends Component
                 'confirmPassword' => ['required', 'same:newPassword'],
             ]);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -59,7 +59,7 @@ class Password extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 }

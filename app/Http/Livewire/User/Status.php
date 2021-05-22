@@ -28,9 +28,9 @@ class Status extends Component
             $this->emit('refreshStatus');
             loggy(request(), 'User', auth()->user(), 'Cleared the account status');
 
-            return Helper::toast($this, 'success', 'Status cleared successfully!');
+            return toast($this, 'success', 'Status cleared successfully!');
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -59,7 +59,7 @@ class Status extends Component
                  return toast($this, 'success', 'Status cleared successfully!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 

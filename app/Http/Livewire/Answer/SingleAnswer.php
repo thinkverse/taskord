@@ -27,7 +27,7 @@ class SingleAnswer extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the answer');
 
-            return Helper::toast($this, 'error', 'Your are rate limited, try again later!');
+            return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
         if (auth()->check()) {
@@ -43,7 +43,7 @@ class SingleAnswer extends Component
             Helper::togglePraise($this->answer, 'ANSWER');
             loggy(request(), 'Answer', auth()->user(), 'Toggled answer praise | Answer ID: '.$this->answer->id);
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -59,7 +59,7 @@ class SingleAnswer extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -81,7 +81,7 @@ class SingleAnswer extends Component
                  toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 }

@@ -35,7 +35,7 @@ class SingleTask extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising a task');
 
-            return Helper::toast($this, 'error', 'Your are rate limited, try again later!');
+            return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
         if (auth()->check()) {
@@ -54,7 +54,7 @@ class SingleTask extends Component
 
             return true;
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -77,7 +77,7 @@ class SingleTask extends Component
                  return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 

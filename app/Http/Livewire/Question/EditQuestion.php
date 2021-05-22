@@ -33,7 +33,7 @@ class EditQuestion extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -70,7 +70,7 @@ class EditQuestion extends Component
                  toast($this, 'error', 'Forbidden!');
             }
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 }

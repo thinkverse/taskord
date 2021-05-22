@@ -27,7 +27,7 @@ class CreateAnswer extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -70,9 +70,9 @@ class CreateAnswer extends Component
             }
             loggy(request(), 'Answer', auth()->user(), 'Created a new answer | Answer ID: '.$answer->id);
 
-            return Helper::toast($this, 'success', 'Answer has been added!');
+            return toast($this, 'success', 'Answer has been added!');
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 

@@ -46,7 +46,7 @@ class CreateDeal extends Component
                  toast($this, 'error', 'Forbidden!');
             }
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 }

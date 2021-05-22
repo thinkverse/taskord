@@ -47,7 +47,7 @@ class NewUpdate extends Component
 
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 }

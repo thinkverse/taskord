@@ -27,7 +27,7 @@ class CreateComment extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -70,9 +70,9 @@ class CreateComment extends Component
             }
             loggy(request(), 'Comment', auth()->user(), 'Created a new comment | Comment ID: '.$comment->id);
 
-            return Helper::toast($this, 'success', 'Comment has been added!');
+            return toast($this, 'success', 'Comment has been added!');
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 

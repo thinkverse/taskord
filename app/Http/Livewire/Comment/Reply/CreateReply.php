@@ -26,7 +26,7 @@ class CreateReply extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -65,9 +65,9 @@ class CreateReply extends Component
 
             loggy(request(), 'Reply', auth()->user(), 'Created a new comment reply | Reply ID: '.$reply->id);
 
-            return Helper::toast($this, 'success', 'Reply has been added!');
+            return toast($this, 'success', 'Reply has been added!');
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 

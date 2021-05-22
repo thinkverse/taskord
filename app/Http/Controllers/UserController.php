@@ -107,7 +107,7 @@ class UserController extends Controller
 
             return $response;
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -129,7 +129,7 @@ class UserController extends Controller
 
             return $response;
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 

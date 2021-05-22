@@ -43,7 +43,7 @@ class CreateQuestion extends Component
 
             return redirect()->route('question.question', ['id' => $question->id]);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 }

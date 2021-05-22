@@ -28,9 +28,9 @@ class Adminbar extends Component
             Clean::dispatch();
             loggy(request(), 'Admin', auth()->user(), 'Deployed the Application');
 
-            return Helper::toast($this, 'success', 'Deployment process has been initiated successfully 🚀');
+            return toast($this, 'success', 'Deployment process has been initiated successfully 🚀');
         } else {
-            return Helper::toast($this, 'error', 'Permission denied!');
+            return toast($this, 'error', 'Permission denied!');
         }
     }
 

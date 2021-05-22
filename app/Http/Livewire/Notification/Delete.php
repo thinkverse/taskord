@@ -15,9 +15,9 @@ class Delete extends Component
             auth()->user()->touch();
             loggy(request(), 'Notification', auth()->user(), 'Deleted all notifications');
 
-            return Helper::toast($this, 'success', 'All notifications has been deleted!');
+            return toast($this, 'success', 'All notifications has been deleted!');
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 }

@@ -42,7 +42,7 @@ class CreateMilestone extends Component
 
             return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
         } else {
-            Helper::toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', 'Forbidden!');
         }
     }
 }
