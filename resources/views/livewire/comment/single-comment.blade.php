@@ -20,9 +20,7 @@
             @auth
                 @if (auth()->user()->hasLiked($comment))
                     <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
-                        <span wire:loading wire:target="togglePraise">
-                            <span class="spinner-border spinner-border-task" role="status"></span>
-                        </span>
+                        <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                         <x-heroicon-s-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                         <span class="small text-white fw-bold">
                             {{ number_format($comment->likerscount()) }}
@@ -35,9 +33,7 @@
                     </button>
                 @else
                     <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                        <span wire:loading wire:target="togglePraise">
-                            <span class="spinner-border spinner-border-task" role="status"></span>
-                        </span>
+                        <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                         <x-heroicon-o-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0 text-secondary" />
                         @if ($comment->likerscount() !== 0)
                             <span class="small text-dark fw-bold">
