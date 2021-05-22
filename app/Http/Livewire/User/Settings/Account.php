@@ -42,8 +42,7 @@ class Account extends Component
                     ]);
                 }
             } else {
-                return  toast($this, 'error', 'Forbidden!',
-                ]);
+                return  toast($this, 'error', 'Forbidden!');
             }
         } else {
             return Helper::toast($this, 'error', 'Forbidden!');
@@ -78,8 +77,7 @@ class Account extends Component
                     ]);
                 }
             } else {
-                return  toast($this, 'error', 'Forbidden!',
-                ]);
+                return  toast($this, 'error', 'Forbidden!');
             }
         } else {
             return Helper::toast($this, 'error', 'Forbidden!');
@@ -123,8 +121,7 @@ class Account extends Component
                     ]);
                 }
             } else {
-                return  toast($this, 'error', 'Forbidden!',
-                ]);
+                return  toast($this, 'error', 'Forbidden!');
             }
         } else {
             return Helper::toast($this, 'error', 'Forbidden!');
