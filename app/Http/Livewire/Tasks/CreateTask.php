@@ -28,8 +28,7 @@ class CreateTask extends Component
                 'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
             ]);
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -43,8 +42,7 @@ class CreateTask extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while creating a task');
 
-            return Helper::toast($this, 'error', 'Your are rate limited, try again later!',
-            ]);
+            return Helper::toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
         if (auth()->check()) {
@@ -96,8 +94,7 @@ class CreateTask extends Component
             $this->emit('refreshTasks');
             $this->reset();
         } else {
-            return Helper::toast($this, 'error', 'Forbidden!',
-            ]);
+            return Helper::toast($this, 'error', 'Forbidden!');
         }
     }
 }
