@@ -40,31 +40,31 @@ class SingleTask extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (auth()->check()) {
-            if (auth()->user()->id === $this->task->user->id) {
-                if ($this->task->done) {
-                    $this->task->done_at = carbon();
-                    auth()->user()->touch();
-                    loggy(request(), 'Task', auth()->user(), 'Updated a task as pending | Task ID: '.$this->task->id);
-                } else {
-                    $this->task->done_at = carbon();
-                    auth()->user()->touch();
-                    if (auth()->user()->hasGoal) {
-                        auth()->user()->daily_goal_reached++;
-                        auth()->user()->save();
-                        CheckGoal::dispatch(auth()->user(), $this->task);
-                    }
-                    givePoint(new TaskCompleted($this->task));
-                    loggy(request(), 'Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
-                }
-                $this->task->done = ! $this->task->done;
-                $this->task->save();
-                $this->emit('refreshTasks');
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-                return true;
+        if (auth()->user()->id === $this->task->user->id) {
+            if ($this->task->done) {
+                $this->task->done_at = carbon();
+                auth()->user()->touch();
+                loggy(request(), 'Task', auth()->user(), 'Updated a task as pending | Task ID: '.$this->task->id);
             } else {
-                return toast($this, 'error', 'Forbidden!');
+                $this->task->done_at = carbon();
+                auth()->user()->touch();
+                if (auth()->user()->hasGoal) {
+                    auth()->user()->daily_goal_reached++;
+                    auth()->user()->save();
+                    CheckGoal::dispatch(auth()->user(), $this->task);
+                }
+                givePoint(new TaskCompleted($this->task));
+                loggy(request(), 'Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
             }
+            $this->task->done = ! $this->task->done;
+            $this->task->save();
+            $this->emit('refreshTasks');
+
+            return true;
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
@@ -83,22 +83,22 @@ class SingleTask extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (auth()->check()) {
-            if (! auth()->user()->hasVerifiedEmail()) {
-                return toast($this, 'error', 'Your email is not verified!');
-            }
-
-            if (auth()->user()->isFlagged) {
-                return toast($this, 'error', 'Your account is flagged!');
-            }
-            if (auth()->user()->id === $this->task->user->id) {
-                return toast($this, 'error', 'You can\'t praise your own task!');
-            }
-            Helper::togglePraise($this->task, 'TASK');
-            loggy(request(), 'Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
-        } else {
+        if (! auth()->check()) {
             return toast($this, 'error', 'Forbidden!');
         }
+
+        if (! auth()->user()->hasVerifiedEmail()) {
+            return toast($this, 'error', 'Your email is not verified!');
+        }
+
+        if (auth()->user()->isFlagged) {
+            return toast($this, 'error', 'Your account is flagged!');
+        }
+        if (auth()->user()->id === $this->task->user->id) {
+            return toast($this, 'error', 'You can\'t praise your own task!');
+        }
+        Helper::togglePraise($this->task, 'TASK');
+        loggy(request(), 'Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
     }
 
     public function hide()
