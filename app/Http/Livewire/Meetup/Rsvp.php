@@ -30,22 +30,18 @@ class Rsvp extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (auth()->check()) {
-            if (! auth()->user()->hasVerifiedEmail()) {
-                return toast($this, 'error', 'Your email is not verified!');
-            }
-            if (auth()->user()->isFlagged) {
-                return toast($this, 'error', 'Your account is flagged!');
-            }
-            if (auth()->user()->id === $this->meetup->user_id) {
-                return toast($this, 'error', 'You can\'t RSVP your own meetup!');
-            } else {
-                auth()->user()->toggleSubscribe($this->meetup);
-                $this->meetup->refresh();
-                auth()->user()->touch();
-            }
+        if (! auth()->user()->hasVerifiedEmail()) {
+            return toast($this, 'error', 'Your email is not verified!');
+        }
+        if (auth()->user()->isFlagged) {
+            return toast($this, 'error', 'Your account is flagged!');
+        }
+        if (auth()->user()->id === $this->meetup->user_id) {
+            return toast($this, 'error', 'You can\'t RSVP your own meetup!');
         } else {
-            return toast($this, 'error', 'Forbidden!');
+            auth()->user()->toggleSubscribe($this->meetup);
+            $this->meetup->refresh();
+            auth()->user()->touch();
         }
     }
 }
