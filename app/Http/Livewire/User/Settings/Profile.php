@@ -173,22 +173,20 @@ class Profile extends Component
 
     public function setGoal()
     {
-        if (auth()->check()) {
-            if (auth()->user()->id === $this->user->id) {
-                $this->validate([
-                    'daily_goal' => ['integer', 'max:1000', 'min:5'],
-                ]);
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-                if (auth()->check()) {
-                    $this->user->daily_goal = $this->daily_goal;
-                    $this->user->save();
-                    loggy(request(), 'User', auth()->user(), 'Updated the goal '.$this->daily_goal.'/day');
+        if (auth()->user()->id === $this->user->id) {
+            $this->validate([
+                'daily_goal' => ['integer', 'max:1000', 'min:5'],
+            ]);
 
-                    toast($this, 'success', 'Your goal has been updated!');
-                }
-            } else {
-                return toast($this, 'error', 'Forbidden!');
-            }
+            $this->user->daily_goal = $this->daily_goal;
+            $this->user->save();
+            loggy(request(), 'User', auth()->user(), 'Updated the goal '.$this->daily_goal.'/day');
+
+            toast($this, 'success', 'Your goal has been updated!');
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
@@ -196,21 +194,21 @@ class Profile extends Component
 
     public function toggleVacationMode()
     {
-        if (auth()->check()) {
-            if (auth()->user()->id === $this->user->id) {
-                $this->user->vacation_mode = ! $this->user->vacation_mode;
-                $this->user->save();
-                if ($this->user->vacation_mode) {
-                    loggy(request(), 'User', auth()->user(), 'Enabled vacation mode');
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
 
-                    toast($this, 'success', 'Vacation mode has been enabled!');
-                } else {
-                    loggy(request(), 'User', auth()->user(), 'Disabled vacation mode');
+        if (auth()->user()->id === $this->user->id) {
+            $this->user->vacation_mode = ! $this->user->vacation_mode;
+            $this->user->save();
+            if ($this->user->vacation_mode) {
+                loggy(request(), 'User', auth()->user(), 'Enabled vacation mode');
 
-                    toast($this, 'success', 'Vacation mode has been disabled!');
-                }
+                toast($this, 'success', 'Vacation mode has been enabled!');
             } else {
-                return toast($this, 'error', 'Forbidden!');
+                loggy(request(), 'User', auth()->user(), 'Disabled vacation mode');
+
+                toast($this, 'success', 'Vacation mode has been disabled!');
             }
         } else {
             return toast($this, 'error', 'Forbidden!');
