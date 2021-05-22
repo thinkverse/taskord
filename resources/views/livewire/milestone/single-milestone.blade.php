@@ -55,19 +55,25 @@
             @auth
                 @if (auth()->user()->hasLiked($milestone))
                     <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                        <x-heroicon-s-thumb-up class="heroicon heroicon-15px me-0" />
+                        <span wire:loading wire:target="togglePraise">
+                            <span class="spinner-border spinner-border-task" role="status"></span>
+                        </span>
+                        <x-heroicon-s-thumb-up wire:loading.remove class="heroicon heroicon-15px me-0" />
                         <span class="small text-white fw-bold">
                             {{ number_format($milestone->likerscount()) }}
                         </span>
                         <span class="avatar-stack ms-1">
-                        @foreach($milestone->likers->take(5) as $user)
-                            <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                        @endforeach
+                            @foreach($milestone->likers->take(5) as $user)
+                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
+                            @endforeach
                         </span>
                     </button>
                 @else
                     <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                        <x-heroicon-o-thumb-up class="heroicon heroicon-15px me-0 text-secondary" />
+                        <span wire:loading wire:target="togglePraise">
+                            <span class="spinner-border spinner-border-task" role="status"></span>
+                        </span>
+                        <x-heroicon-o-thumb-up wire:loading.remove class="heroicon heroicon-15px me-0 text-secondary" />
                         @if ($milestone->likerscount() !== 0)
                             <span class="small text-dark fw-bold">
                                 {{ number_format($milestone->likerscount()) }}
