@@ -33,16 +33,13 @@ class SingleUpdate extends Component
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return  toast($this, 'error', 'Your email is not verified!',
-                ]);
+                return  toast($this, 'error', 'Your email is not verified!');
             }
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!',
-                ]);
+                return  toast($this, 'error', 'Your account is flagged!');
             }
             if (auth()->user()->id === $this->update->user->id) {
-                return  toast($this, 'error', 'You can\'t praise your own update!',
-                ]);
+                return  toast($this, 'error', 'You can\'t praise your own update!');
             }
             if (auth()->user()->hasLiked($this->update)) {
                 auth()->user()->unlike($this->update);
@@ -64,8 +61,7 @@ class SingleUpdate extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!',
-                ]);
+                return  toast($this, 'error', 'Your account is flagged!');
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->update->user->id) {
@@ -73,8 +69,7 @@ class SingleUpdate extends Component
                 $this->update->delete();
                 $this->emitUp('refreshProduct');
             } else {
-                return  toast($this, 'error', 'Forbidden!',
-                ]);
+                return  toast($this, 'error', 'Forbidden!');
             }
         } else {
             return Helper::toast($this, 'error', 'Forbidden!');
