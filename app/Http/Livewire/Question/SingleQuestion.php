@@ -38,17 +38,14 @@ class SingleQuestion extends Component
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return  toast($this, 'error', 'Your email is not verified!',
-                ]);
+                return  toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!',
-                ]);
+                return  toast($this, 'error', 'Your account is flagged!');
             }
             if (auth()->user()->id === $this->question->user->id) {
-                return  toast($this, 'error', 'You can\'t praise your own question!',
-                ]);
+                return  toast($this, 'error', 'You can\'t praise your own question!');
             }
             Helper::togglePraise($this->question, 'QUESTION');
             loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
@@ -64,11 +61,9 @@ class SingleQuestion extends Component
                 Helper::hide($this->question);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
 
-                return  toast($this, 'success', 'Question is hidden from public!',
-                ]);
+                return  toast($this, 'success', 'Question is hidden from public!');
             } else {
-                return  toast($this, 'error', 'Forbidden!',
-                ]);
+                return  toast($this, 'error', 'Forbidden!');
             }
         } else {
             return Helper::toast($this, 'error', 'Forbidden!');
@@ -79,8 +74,7 @@ class SingleQuestion extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!',
-                ]);
+                return  toast($this, 'error', 'Your account is flagged!');
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {
@@ -91,8 +85,7 @@ class SingleQuestion extends Component
 
                 return $this->emit('refreshSingleQuestion');
             } else {
-                 toast($this, 'error', 'Forbidden!',
-                ]);
+                 toast($this, 'error', 'Forbidden!');
             }
         } else {
             return Helper::toast($this, 'error', 'Forbidden!');
@@ -103,8 +96,7 @@ class SingleQuestion extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return  toast($this, 'error', 'Your account is flagged!',
-                ]);
+                return  toast($this, 'error', 'Your account is flagged!');
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {
@@ -114,8 +106,7 @@ class SingleQuestion extends Component
 
                 return redirect()->route('questions.newest');
             } else {
-                 toast($this, 'error', 'Forbidden!',
-                ]);
+                 toast($this, 'error', 'Forbidden!');
             }
         } else {
             return Helper::toast($this, 'error', 'Forbidden!');
