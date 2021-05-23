@@ -37,3 +37,4 @@ type Mutation {
 #import comment.graphql
 #import question.graphql
 #import answer.graphql
+#import milestone.graphql
