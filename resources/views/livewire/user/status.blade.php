@@ -1,4 +1,4 @@
-<div class="card mb-4">
+<div class="card mb-4" id="status-card">
     <div class="card-body">
         <form wire:submit.prevent="submit(Object.fromEntries(new FormData($event.target)))">
             <div class="input-group">
