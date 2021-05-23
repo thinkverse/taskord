@@ -20,6 +20,8 @@ type Query {
     question(id: ID @eq): Question @find
     answers(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Answer!]! @paginate(type: "connection")
     answer(id: ID @eq): Answer @find
+    milestones(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Milestone!]! @paginate(type: "connection")
+    milestone(id: ID @eq): Milestone @find
 }
 
 type Mutation {
