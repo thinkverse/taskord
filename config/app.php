@@ -183,6 +183,7 @@ return [
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Propaganistas\LaravelDisposableEmail\DisposableEmailServiceProvider::class,
+        Nuwave\Lighthouse\Tracing\TracingServiceProvider::class,
 
     ],
 
