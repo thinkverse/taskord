@@ -1,6 +1,9 @@
 <div class="col-sm">
     <div class="card mb-4">
         <ul class="list-group list-group-flush">
+            <div class="list-group-item text-dark pt-2 pb-2 fw-bold">
+                Account settings
+            </div>
             <a
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.profile') active text-white @endif"
                 href="{{ route('user.settings.profile') }}"
