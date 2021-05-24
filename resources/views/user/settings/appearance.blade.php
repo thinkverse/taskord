@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Settings / Notifications ·')
+@section('pageTitle', 'Settings / Appearance ·')
 
 @section('content')
 <div class="container-md">
