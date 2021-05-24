@@ -35,7 +35,7 @@
         <img src="https://img.shields.io/badge/license-MIT-green?longCache=true" alt="MIT License">
     </a>
     <a href="https://gitlab.com/yo/taskord">
-        <img src="https://img.shields.io/github/languages/code-size/taskordhq/taskord" alt="Code size">
+        <img src="https://img.shields.io/github/languages/code-size/taskordhq/web" alt="Code size">
     </a>
     <a href="https://gitlab.com/yo/taskord/-/commits/main">
         <img src="https://badgen.net/gitlab/last-commit/yo/taskord" alt="Last commit">
