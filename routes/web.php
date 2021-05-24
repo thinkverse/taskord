@@ -152,13 +152,15 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
         Route::get('users', [SearchController::class, 'users'])->name('users');
     });
 
-    /**
-     * Stafftools
-     *
-     * Stafftools are used by the admins to analyze Taskord.
-     * Stafftools routes are not available to normal users.
-     */
-
+    /*
+    |--------------------------------------------------------------------------
+    | Stafftools
+    |--------------------------------------------------------------------------
+    |
+    | Stafftools are used by the admins to analyze Taskord.
+    | Stafftools routes are not available to normal users.
+    |
+    */
     Route::group(['prefix' => 'stafftools', 'as' => 'admin.', 'middleware' => ['staffship']], function () {
         Route::view('', 'admin.stats')->middleware('password.confirm')->name('stats');
         Route::view('users', 'admin.users')->middleware('password.confirm')->name('users');
