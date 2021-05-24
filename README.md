@@ -16,8 +16,8 @@
     <a href="https://gitlab.styleci.io/repos/20359920?branch=main">
         <img src="https://gitlab.styleci.io/repos/20359920/shield" alt="Style CI">
     </a>
-    <a href="https://codeclimate.com/github/taskordhq/taskord/maintainability">
-        <img src="https://api.codeclimate.com/v1/badges/75e96c16840ed823cd66/maintainability" alt="CodeClimate"/>
+    <a href="https://codeclimate.com/github/taskordhq/web/maintainability">
+        <img src="https://api.codeclimate.com/v1/badges/bc9bca7b560e8d6fc843/maintainability" alt="CodeClimate"/>
     </a>
     <a href="https://gitpod.io/#https://gitlab.com/yo/taskord">
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
