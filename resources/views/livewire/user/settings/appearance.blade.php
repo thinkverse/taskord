@@ -10,7 +10,7 @@
                 <div class="card-footer">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="lightMode" id="lightMode" wire:click="toggleMode('light')" {{ $user->darkMode ? '' : 'checked'  }}>
-                        <label class="form-check-label" for="lightMode">
+                        <label class="form-check-label fw-bold" for="lightMode">
                             Default light
                         </label>
                     </div>
@@ -21,7 +21,7 @@
                 <div class="card-footer">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="darkMode" id="darkMode" wire:click="toggleMode('dark')" {{ $user->darkMode ? 'checked' : ''  }}>
-                        <label class="form-check-label" for="darkMode">
+                        <label class="form-check-label fw-bold" for="darkMode">
                             Default dark
                         </label>
                     </div>
