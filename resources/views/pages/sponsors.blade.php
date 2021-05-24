@@ -39,6 +39,17 @@
                 </div>
                 <div class="text-center mb-5 pt-2">
                     <div>
+                        <img loading=lazy height="50" src="https://ik.imagekit.io/taskordimg/macstadium_rSBB5WsBB.png" />
+                    </div>
+                    <div class="h6 mt-4 lh-base">
+                        MacStadium is the only provider of enterprise-class cloud solutions for Mac and iOS app development. Whether you need a Mac cloud for large-scale CI/CD or just need a single Mac mini to test your iOS app, MacStadium has a solution for all of your Mac development needs.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://macstadium.com" target="_blank" rel="noreferrer">➜ Go to MacStadium</a>
+                    </div>
+                </div>
+                <div class="text-center mb-5 pt-2">
+                    <div>
                         <img loading=lazy height="100" src="https://ik.imagekit.io/taskordimg/ossplanet__cpcTWLJt.jpeg" />
                     </div>
                     <div class="h6 mt-4 lh-base">
