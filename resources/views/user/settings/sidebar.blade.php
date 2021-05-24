@@ -19,8 +19,8 @@
                 Account
             </a>
             <a
-                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.account') active text-white @endif"
-                href="{{ route('user.settings.account') }}"
+                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.appearance') active text-white @endif"
+                href="{{ route('user.settings.appearance') }}"
             >
                 <x-heroicon-o-light-bulb class="heroicon" />
                 Appearance

@@ -44,6 +44,13 @@ class UserController extends Controller
         ]);
     }
 
+    public function appearanceSettings()
+    {
+        return view('user.settings.appearance', [
+            'user' => auth()->user(),
+        ]);
+    }
+
     public function accountSettings()
     {
         return view('user.settings.account', [
