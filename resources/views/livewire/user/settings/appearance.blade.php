@@ -5,16 +5,26 @@
             <div>Choose how Taskord looks to you.</div>
         </div>
         <div class="card-body">
-            <div>
-                <div class="form-check">
-                    <input wire:click="notificationsEmail" id="notificationsEmail" class="form-check-input" type="checkbox" {{ $user->notifications_email ? 'checked' : '' }}>
-                    <label for="notificationsEmail" class="form-check-label">Email</label>
+            <div class="card w-25 {{ $user->darkMode ? '' : 'border-primary'  }}">
+                <img class="rounded-top" src="https://github.githubassets.com/images/modules/settings/color_modes/dark_preview.svg" />
+                <div class="card-footer">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="lightMode" id="lightMode" wire:click="toggleMode('light')" {{ $user->darkMode ? '' : 'checked'  }}>
+                        <label class="form-check-label" for="lightMode">
+                            Default light
+                        </label>
+                    </div>
                 </div>
             </div>
-            <div>
-                <div class="form-check">
-                    <input wire:click="notificationsWeb" id="notificationsWeb" class="form-check-input" type="checkbox" {{ $user->notifications_web ? 'checked' : '' }}>
-                    <label for="notificationsWeb" class="form-check-label">Web</label>
+            <div class="card w-25 {{ $user->darkMode ? 'border-primary' : ''  }}">
+                <img class="rounded-top" src="https://github.githubassets.com/images/modules/settings/color_modes/light_preview.svg" />
+                <div class="card-footer">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="darkMode" id="darkMode" wire:click="toggleMode('dark')" {{ $user->darkMode ? 'checked' : ''  }}>
+                        <label class="form-check-label" for="darkMode">
+                            Default dark
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>

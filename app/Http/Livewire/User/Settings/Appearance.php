@@ -14,32 +14,22 @@ class Appearance extends Component
         $this->user = $user;
     }
 
-    public function render()
-    {
-        return view('livewire.user.settings.appearance');
-    }
-
-    public function notificationsEmail()
+    public function toggleMode($mode)
     {
         if (auth()->user()->id === $this->user->id) {
-            $this->user->notifications_email = ! $this->user->notifications_email;
-            $this->user->save();
-            loggy(request(), 'User', auth()->user(), 'Toggled the email notification settings');
+            if ($mode === 'light') {
+                $this->user->darkMode = false;
+                $this->user->save();
+                loggy(request(), 'User', auth()->user(), 'Disabled dark mode');
 
-            return toast($this, 'success', 'Notification settings has been updated');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
-        }
-    }
-
-    public function notificationsWeb()
-    {
-        if (auth()->user()->id === $this->user->id) {
-            $this->user->notifications_web = ! $this->user->notifications_web;
-            $this->user->save();
-            loggy(request(), 'User', auth()->user(), 'Toggled the web notification settings');
-
-            return toast($this, 'success', 'Notification settings has been updated');
+                return redirect()->route('user.settings.appearance');
+            } else {
+                $this->user->darkMode = true;
+                $this->user->save();
+                loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
+    
+                return redirect()->route('user.settings.appearance');
+            }
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
