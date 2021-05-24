@@ -1,7 +1,7 @@
 # Query
 type Comment {
     id: ID!
-    comment: String @field(resolver: "App\\GraphQL\\Queries\\CommentQuery@getComment")
+    comment: String!
     user: User @belongsTo
     task: Task @belongsTo
     hasPraised: Boolean @field(resolver: "App\\GraphQL\\Queries\\CommentQuery@hasPraised")
