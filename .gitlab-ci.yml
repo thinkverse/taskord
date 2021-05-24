@@ -18,6 +18,8 @@ cache:
     - node_modules/
 
 Test:
+  tags:
+    - taskord
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
@@ -34,6 +36,8 @@ Test:
     - php artisan test
 
 Enlightn:
+  tags:
+    - taskord
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
@@ -45,6 +49,8 @@ Enlightn:
   allow_failure: true
 
 Commands:
+  tags:
+    - taskord
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
@@ -58,6 +64,8 @@ Commands:
     - php artisan user:reset-goal
 
 Validate GraphQL:
+  tags:
+    - taskord
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
@@ -68,6 +76,8 @@ Validate GraphQL:
     - php artisan lighthouse:validate-schema
 
 Housekeeping:
+  tags:
+    - taskord
   stage: clean
   script:
     - curl --request POST --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/housekeeping
@@ -75,6 +85,8 @@ Housekeeping:
     - main
 
 Merged Branches:
+  tags:
+    - taskord
   stage: clean
   script:
     - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches
