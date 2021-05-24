@@ -6,6 +6,7 @@ type Answer {
     hasPraised: Boolean @field(resolver: "App\\GraphQL\\Queries\\AnswerQuery@hasPraised")
     praises: [User!]! @hasMany(relation: "likers", type: "connection")
     question: Question @belongsTo
+    hidden: Boolean!
     created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime! @cache(maxAge: 3600)
 }
