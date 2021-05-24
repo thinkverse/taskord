@@ -94,3 +94,7 @@ Start coding in a [ready-to-code development environment](https://www.gitpod.io)
 ## Installation
 
 [View full installation documentation.](/docs/installation.md)
+
+## License
+
+Taskord is open-sourced software licensed under the [MIT license](LICENSE).
