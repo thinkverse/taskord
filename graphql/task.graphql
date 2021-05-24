@@ -16,7 +16,7 @@ type DeleteTaskPayload {
 # Query
 type Task {
     id: ID!
-    task: String @field(resolver: "App\\GraphQL\\Queries\\TaskQuery@getTask")
+    task: String!
     image: String
     done: Boolean!
     type: String
