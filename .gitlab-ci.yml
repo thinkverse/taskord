@@ -1,5 +1,5 @@
 services:
-  - mariadb:latest
+  - mysql:latest
 
 variables:
   MYSQL_ROOT_PASSWORD: root
