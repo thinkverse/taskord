@@ -4,9 +4,9 @@
             <span class="h5">Theme preferences</span>
             <div>Choose how Taskord looks to you.</div>
         </div>
-        <div class="card-body">
-            <div class="card w-25 {{ $user->darkMode ? '' : 'border-primary'  }}">
-                <img class="rounded-top" src="https://github.githubassets.com/images/modules/settings/color_modes/dark_preview.svg" />
+        <div class="card-body d-flex">
+            <div class="me-3 card {{ $user->darkMode ? '' : 'border-primary'  }}">
+                <img class="rounded-top" src="https://github.githubassets.com/images/modules/settings/color_modes/light_preview.svg" />
                 <div class="card-footer">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="lightMode" id="lightMode" wire:click="toggleMode('light')" {{ $user->darkMode ? '' : 'checked'  }}>
@@ -16,8 +16,8 @@
                     </div>
                 </div>
             </div>
-            <div class="card w-25 {{ $user->darkMode ? 'border-primary' : ''  }}">
-                <img class="rounded-top" src="https://github.githubassets.com/images/modules/settings/color_modes/light_preview.svg" />
+            <div class="card {{ $user->darkMode ? 'border-primary' : ''  }}">
+                <img class="rounded-top" src="https://github.githubassets.com/images/modules/settings/color_modes/dark_preview.svg" />
                 <div class="card-footer">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="darkMode" id="darkMode" wire:click="toggleMode('dark')" {{ $user->darkMode ? 'checked' : ''  }}>
