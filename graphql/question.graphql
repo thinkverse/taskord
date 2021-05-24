@@ -1,8 +1,8 @@
 # Query
 type Question {
     id: ID!
-    title: String @field(resolver: "App\\GraphQL\\Queries\\QuestionQuery@getTitle")
-    body: String @field(resolver: "App\\GraphQL\\Queries\\QuestionQuery@getBody")
+    title: String!
+    body: String!
     patronOnly: Boolean!
     user: User @belongsTo
     hasPraised: Boolean @field(resolver: "App\\GraphQL\\Queries\\QuestionQuery@hasPraised")
