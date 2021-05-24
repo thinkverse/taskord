@@ -94,13 +94,3 @@ Start coding in a [ready-to-code development environment](https://www.gitpod.io)
 ## Installation
 
 [View full installation documentation.](/docs/installation.md)
-
------
-
-<br>
-
-<div align="center">
-    <img width="250px" src="https://ik.imagekit.io/taskordimg/yVtUpZa_5v_VIfhN4.gif">
-    <br>
-    <strong>Happy Shipping</strong> 🚀
-</div>
