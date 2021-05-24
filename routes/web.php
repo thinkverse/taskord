@@ -152,7 +152,7 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
         Route::get('users', [SearchController::class, 'users'])->name('users');
     });
 
-    // Admin
+    // Stafftools
     Route::group(['prefix' => 'stafftools', 'as' => 'admin.', 'middleware' => ['staffship']], function () {
         Route::view('', 'admin.stats')->middleware('password.confirm')->name('stats');
         Route::view('users', 'admin.users')->middleware('password.confirm')->name('users');
