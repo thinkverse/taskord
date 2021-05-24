@@ -27,7 +27,7 @@ class Appearance extends Component
                 $this->user->darkMode = true;
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
-    
+
                 return redirect()->route('user.settings.appearance');
             }
         } else {
