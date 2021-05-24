@@ -57,6 +57,16 @@ Commands:
     - php artisan user:streaks all
     - php artisan user:reset-goal
 
+Validate GraphQL:
+  image: edbizarro/gitlab-ci-pipeline-php:latest
+  stage: test
+  script:
+    - sudo composer self-update --2
+    - sudo composer install --no-progress --ignore-platform-reqs
+    - cp .env.ci .env
+    - php artisan key:generate
+    - php artisan lighthouse:validate-schema
+
 Housekeeping:
   stage: clean
   script:
