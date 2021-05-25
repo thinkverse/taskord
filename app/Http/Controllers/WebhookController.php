@@ -40,14 +40,14 @@ class WebhookController extends Controller
 
     public function simpleWebhook($request, $webhook)
     {
-        $request_body = $request->json()->all();
+        $requestBody = $request->json()->all();
         if (
-            ! array_key_exists('task', $request_body) or
-            ! array_key_exists('done', $request_body)
+            ! array_key_exists('task', $requestBody) or
+            ! array_key_exists('done', $requestBody)
         ) {
             return response('Invalid parameters', 422);
         }
-        if ($request_body['done']) {
+        if ($requestBody['done']) {
             $done_at = carbon();
         } else {
             $done_at = null;
@@ -55,8 +55,8 @@ class WebhookController extends Controller
 
         $this->createTask(
             $webhook,
-            $request_body['task'],
-            $request_body['done'],
+            $requestBody['task'],
+            $requestBody['done'],
             $done_at,
             $webhook->product_id,
             'Webhook'
@@ -83,18 +83,18 @@ class WebhookController extends Controller
             return response('Only push event is allowed', 200);
         }
 
-        $request_body = $request->json()->all();
+        $requestBody = $request->json()->all();
 
-        if (mb_strtolower($request_body['sender']['type'], 'UTF-8') == 'bot') {
+        if (mb_strtolower($requestBody['sender']['type'], 'UTF-8') == 'bot') {
             return response('Bot cannot log tasks', 200);
         }
 
-        if ($request_body['repository']['default_branch'] !== str_replace('refs/heads/', '', $request_body['ref'])) {
+        if ($requestBody['repository']['default_branch'] !== str_replace('refs/heads/', '', $requestBody['ref'])) {
             return response('Only commits from default branch is allowed', 200);
         }
 
-        if ($request_body['head_commit']) {
-            $commit = explode("\n\n", $request_body['head_commit']['message'])[0];
+        if ($requestBody['head_commit']) {
+            $commit = explode("\n\n", $requestBody['head_commit']['message'])[0];
             $task = Str::limit($commit, 100);
         } else {
             return response('No head_commit found', 200);
@@ -126,14 +126,14 @@ class WebhookController extends Controller
             return response('Only push event is allowed', 200);
         }
 
-        $request_body = $request->json()->all();
+        $requestBody = $request->json()->all();
 
-        if ($request_body['project']['default_branch'] !== str_replace('refs/heads/', '', $request_body['ref'])) {
+        if ($requestBody['project']['default_branch'] !== str_replace('refs/heads/', '', $requestBody['ref'])) {
             return response('Only commits from default branch is allowed', 200);
         }
 
-        if (count($request_body['commits']) >= 1) {
-            $commit = explode("\n", $request_body['commits'][0]['message'])[0];
+        if (count($requestBody['commits']) >= 1) {
+            $commit = explode("\n", $requestBody['commits'][0]['message'])[0];
             $task = Str::limit($commit, 100);
         } else {
             return response('No commits found', 200);
