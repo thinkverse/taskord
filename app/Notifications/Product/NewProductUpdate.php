@@ -18,7 +18,7 @@ class NewProductUpdate extends Notification implements ShouldQueue
         $this->update = $update;
     }
 
-    public function via($notifiable)
+    public function via()
     {
         return ['mail'];
     }
