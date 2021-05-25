@@ -53,10 +53,10 @@ class CreateTask
             $this->send($this->user->telegram_chat_id, '⏳ *A new pending task has been created* [#'.$task->id.'](https://taskord.com/task/'.$task->id.')');
     }
 
-    public function send($chat_id, $message)
+    public function send($chatId, $message)
     {
         return Telegram::sendMessage([
-            'chat_id' => $chat_id,
+            'chat_id' => $chatId,
             'text' => $message,
             'disable_web_page_preview' => true,
             'parse_mode' => 'Markdown',
