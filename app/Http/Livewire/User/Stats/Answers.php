@@ -31,7 +31,6 @@ class Answers extends Component
 
         $week_dates = [];
         $answers = [];
-        $tasks = [];
         foreach ($period->toArray() as $date) {
             array_push($week_dates, carbon($date)->format('d M Y'));
             $count = $this->user->answers()
