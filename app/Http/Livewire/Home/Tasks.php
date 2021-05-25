@@ -35,7 +35,7 @@ class Tasks extends Component
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
-                        ['isPrivate', false],
+                        ['is_private', false],
                     ]);
                 })
                 ->whereDone(true)
@@ -45,7 +45,7 @@ class Tasks extends Component
             return Task::whereHas('user', function ($q) {
                 $q->where([
                     ['isFlagged', false],
-                    ['isPrivate', false],
+                    ['is_private', false],
                 ]);
             })
                 ->whereDone(true)

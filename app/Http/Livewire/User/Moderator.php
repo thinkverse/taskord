@@ -19,7 +19,7 @@ class Moderator extends Component
     public $is_patron;
     public $dark_mode;
     public $is_contributor;
-    public $isPrivate;
+    public $is_private;
     public $isVerified;
     public $isFlagged;
     public $isSuspended;
