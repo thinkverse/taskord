@@ -18,14 +18,13 @@ class Reputations extends Component
 
     public function render()
     {
-        $created_at = carbon('Sep 1 2020')->format('Y-m-d');
-        $current_date = carbon()->format('Y-m-d');
-        $period = CarbonPeriod::create($created_at, $current_date);
-        $reputations_count = User::sum('reputation');
+        $createdAt = carbon('Sep 1 2020')->format('Y-m-d');
+        $currentDate = carbon()->format('Y-m-d');
+        $period = CarbonPeriod::create($createdAt, $currentDate);
+        $reputationsCount = User::sum('reputation');
 
         $weekDates = [];
         $reputations = [];
-        $tasks = [];
         foreach ($period->toArray() as $date) {
             array_push($weekDates, carbon($date)->format('d M Y'));
             $count = DB::table('reputations')
@@ -39,7 +38,7 @@ class Reputations extends Component
         return view('livewire.pages.open.reputations', [
             'week_dates' => json_encode($weekDates, JSON_NUMERIC_CHECK),
             'reputations' => $this->readyToLoad ? json_encode($reputations, JSON_NUMERIC_CHECK) : [],
-            'reputations_count' => $this->readyToLoad ? number_format($reputations_count) : '···',
+            'reputations_count' => $this->readyToLoad ? number_format($reputationsCount) : '···',
         ]);
     }
 }
