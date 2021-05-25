@@ -33,7 +33,7 @@ class SearchController extends Controller
         if ($searchTerm) {
             $tasks = Task::whereHas('user', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
+                    ['spammy', false],
                     ['is_private', false],
                 ]);
             })
@@ -62,7 +62,7 @@ class SearchController extends Controller
         if ($searchTerm) {
             $comments = Comment::whereHas('user', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
+                    ['spammy', false],
                     ['is_private', false],
                 ]);
             })
@@ -91,7 +91,7 @@ class SearchController extends Controller
         if ($searchTerm) {
             $questions = Question::whereHas('user', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
+                    ['spammy', false],
                 ]);
             })
                 ->whereHidden(false)
@@ -119,7 +119,7 @@ class SearchController extends Controller
         if ($searchTerm) {
             $answers = Answer::whereHas('user', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
+                    ['spammy', false],
                 ]);
             })
                 ->whereHidden(false)
@@ -147,7 +147,7 @@ class SearchController extends Controller
         if ($searchTerm) {
             $products = Product::whereHas('owner', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
+                    ['spammy', false],
                 ]);
             })
                 ->search($searchTerm)
