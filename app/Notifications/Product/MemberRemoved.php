@@ -11,12 +11,12 @@ class MemberRemoved extends Notification implements ShouldQueue
     use Queueable;
 
     protected $product;
-    protected $user_id;
+    protected $userId;
 
-    public function __construct($product, $user_id)
+    public function __construct($product, $userId)
     {
         $this->product = $product;
-        $this->user_id = $user_id;
+        $this->userId = $userId;
     }
 
     public function via()
@@ -28,7 +28,7 @@ class MemberRemoved extends Notification implements ShouldQueue
     {
         return [
             'product_id' => $this->product->id,
-            'user_id' => $this->user_id,
+            'user_id' => $this->userId,
         ];
     }
 }
