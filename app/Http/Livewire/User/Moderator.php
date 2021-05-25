@@ -18,7 +18,7 @@ class Moderator extends Component
     public $is_staff;
     public $isPatron;
     public $darkMode;
-    public $isDeveloper;
+    public $is_contributor;
     public $isPrivate;
     public $isVerified;
     public $isFlagged;
@@ -33,7 +33,7 @@ class Moderator extends Component
         $this->is_staff = $user->is_staff;
         $this->isPatron = $user->isPatron;
         $this->darkMode = $user->darkMode;
-        $this->isDeveloper = $user->isDeveloper;
+        $this->is_contributor = $user->is_contributor;
         $this->isPrivate = $user->isPrivate;
         $this->isVerified = $user->isVerified;
         $this->isFlagged = $user->isFlagged;
@@ -84,10 +84,10 @@ class Moderator extends Component
     public function enrollDeveloper()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            $this->user->isDeveloper = ! $this->user->isDeveloper;
+            $this->user->is_contributor = ! $this->user->is_contributor;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isDeveloper) {
+            if ($this->user->is_contributor) {
                 $this->user->notify(new ContributorEnabled(true));
                 loggy(request(), 'Staff', auth()->user(), 'Enrolled as Contributor | Username: @'.$this->user->username);
             } else {
