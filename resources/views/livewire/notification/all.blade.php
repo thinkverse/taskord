@@ -18,11 +18,11 @@
     @foreach ($notifications as $notification)
         <div>
             @livewire('notification.single-notification', [
-                'notification_id' => $notification->id,
+                'notificationId' => $notification->id,
                 'type' => $notification->type,
                 'data' => $notification->data,
-                'created_at' => $notification->created_at,
-                'page_type' => 'all',
+                'createdAt' => $notification->created_at,
+                'pageType' => 'all',
             ], key($notification->id))
         </div>
     @endforeach
