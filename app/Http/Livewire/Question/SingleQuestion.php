@@ -60,7 +60,7 @@ class SingleQuestion extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->is_staff and auth()->user()->staffShip) {
+        if (auth()->user()->is_staff and auth()->user()->staff_mode) {
             Helper::hide($this->question);
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
 
@@ -80,7 +80,7 @@ class SingleQuestion extends Component
             return toast($this, 'error', 'Your account is flagged!');
         }
 
-        if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $this->question->user_id) {
             loggy(request(), 'Question', auth()->user(), 'Toggled solve question | Question ID: '.$this->question->id);
             $this->question->solved = ! $this->question->solved;
             $this->question->save();
@@ -102,7 +102,7 @@ class SingleQuestion extends Component
             return toast($this, 'error', 'Your account is flagged!');
         }
 
-        if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $this->question->user_id) {
             loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
             $this->question->delete();
             auth()->user()->touch();
