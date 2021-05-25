@@ -17,7 +17,7 @@ type User {
     reputation: Int!
     is_staff: Boolean!
     isVerified: Boolean!
-    isDeveloper: Boolean!
+    is_contributor: Boolean!
     isBeta: Boolean!
     isPatron: Boolean!
     isPrivate: Boolean!
