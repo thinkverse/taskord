@@ -1,4 +1,4 @@
-name: Taskord CI
+name: Test
 
 on:
   push:
@@ -6,30 +6,23 @@ on:
 
 jobs:
   build:
-
-    runs-on: ${{ matrix.operating-system }}
-
-    strategy:
-      matrix:
-        operating-system: [ubuntu-latest]
-        php-versions: ['8.0']
-
-    name: PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }}
-
+    name: Test
+    runs-on: ubuntu-latest
     steps:
-    - uses: mirromutth/mysql-action@v1.1
+    - name: 🛒 Checkout
+      uses: actions/checkout@v2
+
+    - name: 💿 Setup Database
+      uses: mirromutth/mysql-action@v1.1
       with:
         mysql database: "taskord"
         mysql user: "taskord"
         mysql password: "taskord"
 
-    - name: 🛒 Checkout
-      uses: actions/checkout@v2
-
     - name: 🐘 Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: ${{ matrix.php-versions }}
+        php-version: '8.0'
         coverage: xdebug
         tools: composer:v2, php-cs-fixer, phpunit
 
