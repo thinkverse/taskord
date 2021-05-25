@@ -14,31 +14,31 @@ use Livewire\Component;
 class Moderator extends Component
 {
     public User $user;
-    public $is_beta;
-    public $is_staff;
-    public $is_patron;
-    public $dark_mode;
-    public $is_contributor;
-    public $is_private;
-    public $is_verified;
+    public $isBeta;
+    public $isStaff;
+    public $isPatron;
+    public $darkMode;
+    public $isContributor;
+    public $isPrivate;
+    public $isVerified;
     public $spammy;
-    public $is_suspended;
-    public $staff_notes;
+    public $isSuspended;
+    public $staffNotes;
     public $readyToLoad = false;
 
     public function mount($user)
     {
         $this->user = $user;
-        $this->is_beta = $user->is_beta;
-        $this->is_staff = $user->is_staff;
-        $this->is_patron = $user->is_patron;
-        $this->dark_mode = $user->dark_mode;
-        $this->is_contributor = $user->is_contributor;
-        $this->is_private = $user->is_private;
-        $this->is_verified = $user->is_verified;
+        $this->isBeta = $user->is_beta;
+        $this->isStaff = $user->is_staff;
+        $this->isPatron = $user->is_patron;
+        $this->darkMode = $user->dark_mode;
+        $this->isContributor = $user->is_contributor;
+        $this->isPrivate = $user->is_private;
+        $this->isVerified = $user->is_verified;
         $this->spammy = $user->spammy;
-        $this->is_suspended = $user->is_suspended;
-        $this->staff_notes = $user->staff_notes;
+        $this->isSuspended = $user->is_suspended;
+        $this->staffNotes = $user->staff_notes;
     }
 
     public function loadModerator()
@@ -399,7 +399,7 @@ class Moderator extends Component
             'staff_notes' => ['nullable'],
         ]);
 
-        User::where('id', $this->user->id)->update(['staff_notes' => $this->staff_notes]);
+        User::where('id', $this->user->id)->update(['staff_notes' => $this->staffNotes]);
 
         loggy(request(), 'Staff', auth()->user(), 'Updated the staff notes for user: @'.$this->user->username);
 

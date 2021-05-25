@@ -120,31 +120,31 @@
                     Flags
                 </div>
                 <div class="mb-2 mt-3">
-                    <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" wire:model="is_beta">
+                    <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" wire:model="isBeta">
                     <label for="enrollBeta" class="ms-1">Enroll to Beta</label >
                 </div>
                 <div class="mb-2">
-                    <input wire:click="enrollStaff" id="enrollStaff" class="form-check-input" type="checkbox" wire:model="is_staff">
+                    <input wire:click="enrollStaff" id="enrollStaff" class="form-check-input" type="checkbox" wire:model="isStaff">
                     <label for="enrollStaff" class="ms-1">Enroll to Staff</label>
                 </div>
                 <div class="mb-2">
-                    <input wire:click="enrollPatron" id="enrollPatron" class="form-check-input" type="checkbox" wire:model="is_patron">
+                    <input wire:click="enrollPatron" id="enrollPatron" class="form-check-input" type="checkbox" wire:model="isPatron">
                     <label for="enrollPatron" class="ms-1">Enroll to Patron</label>
                 </div>
                 <div class="mb-2">
-                    <input wire:click="enrollDarkMode" id="enrollDarkMode" class="form-check-input" type="checkbox" wire:model="dark_mode">
+                    <input wire:click="enrollDarkMode" id="enrollDarkMode" class="form-check-input" type="checkbox" wire:model="darkMode">
                     <label for="enrollDarkMode" class="ms-1">Enable Dark Mode</label>
                 </div>
                 <div class="mb-2">
-                    <input wire:click="enrollDeveloper" id="enrollDeveloper" class="form-check-input" type="checkbox" wire:model="is_contributor">
+                    <input wire:click="enrollDeveloper" id="enrollDeveloper" class="form-check-input" type="checkbox" wire:model="isContributor">
                     <label for="enrollDeveloper" class="ms-1">Enroll to Contributor</label>
                 </div>
                 <div class="mb-2">
-                    <input wire:click="privateUser" id="privateUser" class="form-check-input" type="checkbox" wire:model="is_private">
+                    <input wire:click="privateUser" id="privateUser" class="form-check-input" type="checkbox" wire:model="isPrivate">
                     <label for="privateUser" class="ms-1 text-danger fw-bold">Make user Private</label>
                 </div>
                 <div>
-                    <input wire:click="verifyUser" id="verifyUser" class="form-check-input" type="checkbox" wire:model="is_verified">
+                    <input wire:click="verifyUser" id="verifyUser" class="form-check-input" type="checkbox" wire:model="isVerified">
                     <label for="verifyUser" class="ms-1 text-success fw-bold">Verify this user</label>
                 </div>
                 @if (!$user->is_staff)
@@ -178,7 +178,7 @@
                         <label for="flagUser" class="ms-1 text-danger fw-bold">Flag this user</label>
                     </div>
                     <div class="mt-2">
-                        <input wire:click="suspendUser" id="suspendUser" class="form-check-input" type="checkbox" wire:model="is_suspended">
+                        <input wire:click="suspendUser" id="suspendUser" class="form-check-input" type="checkbox" wire:model="isSuspended">
                         <label for="suspendUser" class="ms-1 text-danger fw-bold">Suspend this user</label>
                     </div>
                     <div class="mt-3">
