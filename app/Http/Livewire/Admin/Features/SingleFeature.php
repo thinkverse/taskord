@@ -82,7 +82,7 @@ class SingleFeature extends Component
         $this->feature->delete();
         auth()->user()->touch();
 
-        return redirect()->route('admin.features');
+        return redirect()->route('staff.features');
     }
 
     public function render()
