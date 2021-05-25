@@ -25,6 +25,7 @@ class RenameColumnsInUsersTable extends Migration
             $table->renameColumn('isPrivate', 'is_private');
             $table->renameColumn('isFlagged', 'spammy');
             $table->renameColumn('isSuspended', 'is_suspended');
+            $table->renameColumn('lastIP', 'last_ip');
         });
     }
 
@@ -47,6 +48,7 @@ class RenameColumnsInUsersTable extends Migration
             $table->renameColumn('is_private', 'isPrivate');
             $table->renameColumn('spammy', 'isFlagged');
             $table->renameColumn('is_suspended', 'isSuspended');
+            $table->renameColumn('last_ip', 'lastIP');
         });
     }
 }
