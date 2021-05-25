@@ -19,7 +19,7 @@
     <title>@yield('pageTitle') Taskord</title>
     @auth
         @if (App::environment() === 'production')
-            @if (auth()->user()->isBeta)
+            @if (auth()->user()->is_beta)
                 <link rel="icon" href="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" sizes="any" type="image/svg+xml">
             @else
                 <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" sizes="any" type="image/svg+xml">
