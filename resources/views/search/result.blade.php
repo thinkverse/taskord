@@ -234,7 +234,7 @@
                                             <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                                         @endif
                                     @endauth
-                                    @if ($user->isPrivate)
+                                    @if ($user->is_private)
                                         <x-heroicon-o-lock-closed class="heroicon heroicon-20px text-primary ms-2 me-0 private" />
                                     @endif
                                     @if ($user->isVerified)

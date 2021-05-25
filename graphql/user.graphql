@@ -20,7 +20,7 @@ type User {
     is_contributor: Boolean!
     is_beta: Boolean!
     is_patron: Boolean!
-    isPrivate: Boolean!
+    is_private: Boolean!
     tasks: [Task!]! @hasMany(type: "connection")
     comments: [Comment!]! @hasMany(type: "connection")
     ownedProducts: [Product!]! @hasMany(type: "connection")

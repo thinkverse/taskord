@@ -70,7 +70,7 @@
         @endif
         <div class="pt-2">
             @auth
-                @if (!$task->user->isPrivate and !$task->hidden)
+                @if (!$task->user->is_private and !$task->hidden)
                     @if (auth()->user()->hasLiked($task))
                         <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
                             <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>

@@ -31,7 +31,7 @@
                 @endif
             @endauth
             @if (
-                !$user->isPrivate or
+                !$user->is_private or
                 auth()->check() and auth()->user()->id === $user->id or
                 auth()->check() and auth()->user()->staff_mode
             )

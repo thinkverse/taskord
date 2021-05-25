@@ -36,7 +36,7 @@
                         @endif
                         @auth
                         @endauth
-                        @if ($user->isPrivate)
+                        @if ($user->is_private)
                             <x-heroicon-o-lock-closed class="heroicon heroicon-20px text-primary ms-2 me-0 private" />
                         @endif
                         @if ($user->isVerified)
@@ -161,7 +161,7 @@
     </div>
     <div class="card-footer text-muted">
         @if (
-            !$user->isPrivate or
+            !$user->is_private or
             auth()->check() and auth()->user()->id === $user->id or
             auth()->check() and auth()->user()->staff_mode
         )

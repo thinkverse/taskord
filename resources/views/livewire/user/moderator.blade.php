@@ -140,7 +140,7 @@
                     <label for="enrollDeveloper" class="ms-1">Enroll to Contributor</label>
                 </div>
                 <div class="mb-2">
-                    <input wire:click="privateUser" id="privateUser" class="form-check-input" type="checkbox" wire:model="isPrivate">
+                    <input wire:click="privateUser" id="privateUser" class="form-check-input" type="checkbox" wire:model="is_private">
                     <label for="privateUser" class="ms-1 text-danger fw-bold">Make user Private</label>
                 </div>
                 <div>
