@@ -147,7 +147,7 @@
                         </span>
                     </div>
                     @endif
-                    @if ($user->isDeveloper)
+                    @if ($user->is_contributor)
                     <div class="mt-2">
                         <span class="fw-bold">
                             <x-heroicon-o-chip class="heroicon heroicon-18px text-dark" />
