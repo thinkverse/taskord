@@ -9,5 +9,6 @@
         "onecentlin.laravel-blade",
         "austenc.laravel-blade-spacer",
         "amiralizadeh9480.laravel-extra-intellisense",
+        "codingyu.laravel-goto-view"
     ]
 }
