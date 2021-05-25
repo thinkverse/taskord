@@ -14,7 +14,7 @@ use Livewire\Component;
 class Moderator extends Component
 {
     public User $user;
-    public $isBeta;
+    public $is_beta;
     public $is_staff;
     public $isPatron;
     public $dark_mode;
@@ -29,7 +29,7 @@ class Moderator extends Component
     public function mount($user)
     {
         $this->user = $user;
-        $this->isBeta = $user->isBeta;
+        $this->is_beta = $user->is_beta;
         $this->is_staff = $user->is_staff;
         $this->isPatron = $user->isPatron;
         $this->dark_mode = $user->dark_mode;
@@ -49,10 +49,10 @@ class Moderator extends Component
     public function enrollBeta()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            $this->user->isBeta = ! $this->user->isBeta;
+            $this->user->is_beta = ! $this->user->is_beta;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isBeta) {
+            if ($this->user->is_beta) {
                 loggy(request(), 'Staff', auth()->user(), 'Enrolled to Beta | Username: @'.$this->user->username);
             } else {
                 loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Beta | Username: @'.$this->user->username);
