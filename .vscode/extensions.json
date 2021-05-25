@@ -5,6 +5,7 @@
 // go back to using defaults: git update-index --no-skip-worktree .vscode/extensions.json
 {
     "recommendations": [
-        "eamodio.gitlens"
+        "eamodio.gitlens",
+        "onecentlin.laravel-blade"
     ]
 }
