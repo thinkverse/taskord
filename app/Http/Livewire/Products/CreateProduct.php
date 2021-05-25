@@ -67,11 +67,11 @@ class CreateProduct extends Component
         $launched = ! $this->launched ? false : true;
 
         if ($launched) {
-            $launched_status = true;
-            $launched_at = carbon();
+            $launchedStatus = true;
+            $launchedAt = carbon();
         } else {
-            $launched_status = false;
-            $launched_at = null;
+            $launchedStatus = false;
+            $launchedAt = null;
         }
 
         if ($this->avatar) {
@@ -95,17 +95,17 @@ class CreateProduct extends Component
             'repo' => $this->repo,
             'producthunt' => $this->producthunt,
             'sponsor' => $this->sponsor,
-            'launched' => $launched_status,
-            'launched_at' => $launched_at,
+            'launched' => $launchedStatus,
+            'launched_at' => $launchedAt,
         ]);
 
-        if ($launched_status) {
+        if ($launchedStatus) {
             $randomTask = Arr::random(config('taskord.tasks.templates'));
             (new CreateNewTask(auth()->user(), [
                 'product_id' => $product->id,
                 'task' => sprintf($randomTask, $product->slug),
                 'done' => true,
-                'done_at' => $product->launched_at,
+                'done_at' => $product->launchedAt,
                 'type' => 'product',
             ]))();
         }
