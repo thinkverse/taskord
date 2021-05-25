@@ -18,10 +18,14 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>@yield('pageTitle') Taskord</title>
     @auth
-        @if (auth()->user()->isBeta)
-            <link rel="icon" href="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" sizes="any" type="image/svg+xml">
+        @if (App::environment() === 'production')
+            @if (auth()->user()->isBeta)
+                <link rel="icon" href="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" sizes="any" type="image/svg+xml">
+            @else
+                <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" sizes="any" type="image/svg+xml">
+            @endif
         @else
-            <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" sizes="any" type="image/svg+xml">
+            <link rel="icon" href="https://ik.imagekit.io/taskordimg/dev_VSXZqiK5m.svg" sizes="any" type="image/svg+xml">
         @endif
     @endauth
     @guest
