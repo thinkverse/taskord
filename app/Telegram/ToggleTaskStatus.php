@@ -64,10 +64,10 @@ class ToggleTaskStatus
         }
     }
 
-    public function send($chat_id, $message)
+    public function send($chatId, $message)
     {
         return Telegram::sendMessage([
-            'chat_id' => $chat_id,
+            'chat_id' => $chatId,
             'text' => $message,
             'disable_web_page_preview' => true,
             'parse_mode' => 'Markdown',
