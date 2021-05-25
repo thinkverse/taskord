@@ -22,7 +22,7 @@ class Moderator extends Component
     public $is_private;
     public $isVerified;
     public $spammy;
-    public $isSuspended;
+    public $is_suspended;
     public $staff_notes;
     public $readyToLoad = false;
 
@@ -37,7 +37,7 @@ class Moderator extends Component
         $this->is_private = $user->is_private;
         $this->isVerified = $user->isVerified;
         $this->spammy = $user->spammy;
-        $this->isSuspended = $user->isSuspended;
+        $this->is_suspended = $user->is_suspended;
         $this->staff_notes = $user->staff_notes;
     }
 
@@ -142,8 +142,8 @@ class Moderator extends Component
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
-            $this->user->isSuspended = ! $this->user->isSuspended;
-            if ($this->user->isSuspended) {
+            $this->user->is_suspended = ! $this->user->is_suspended;
+            if ($this->user->is_suspended) {
                 $this->user->spammy = true;
                 $this->spammy = true;
             } else {
@@ -152,7 +152,7 @@ class Moderator extends Component
             }
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isSuspended) {
+            if ($this->user->is_suspended) {
                 loggy(request(), 'Staff', auth()->user(), 'Suspended the user | Username: @'.$this->user->username);
             } else {
                 loggy(request(), 'Staff', auth()->user(), 'Un-suspended the user | Username: @'.$this->user->username);
