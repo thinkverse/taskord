@@ -48,7 +48,7 @@ class Moderator extends Component
 
     public function enrollBeta()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             $this->user->isBeta = ! $this->user->isBeta;
             $this->user->timestamps = false;
             $this->user->save();
@@ -64,7 +64,7 @@ class Moderator extends Component
 
     public function enrollStaff()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
