@@ -22,9 +22,9 @@ class Account extends Component
     public function enrollBeta()
     {
         if (auth()->user()->id === $this->user->id) {
-            $this->user->isBeta = ! $this->user->isBeta;
+            $this->user->is_beta = ! $this->user->is_beta;
             $this->user->save();
-            if ($this->user->isBeta) {
+            if ($this->user->is_beta) {
                 loggy(request(), 'User', auth()->user(), 'Enrolled to beta');
 
                 toast($this, 'success', 'Your are now beta member!');
