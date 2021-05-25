@@ -2,7 +2,7 @@
     <div class="container-md">
         <a class="navbar-brand" href="{{ url('/') }}">
             @auth
-                @if (auth()->user()->isBeta)
+                @if (auth()->user()->is_beta)
                     <img loading=lazy src="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" height="35" alt="Taskord Beta" title="Taskord Beta">
                 @else
                     <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
