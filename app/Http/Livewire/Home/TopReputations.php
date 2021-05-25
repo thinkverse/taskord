@@ -16,7 +16,7 @@ class TopReputations extends Component
 
     public function getTopReputations()
     {
-        return User::select('id', 'username', 'firstname', 'lastname', 'avatar', 'reputation', 'status', 'status_emoji', 'isVerified')
+        return User::select('id', 'username', 'firstname', 'lastname', 'avatar', 'reputation', 'status', 'status_emoji', 'is_verified')
             ->where([
                 ['spammy', false],
                 ['id', '!=', 1],

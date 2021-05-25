@@ -184,7 +184,7 @@ class UserController extends Controller
     public function mention(Request $request)
     {
         if ($request['query']) {
-            $users = User::select('username', 'firstname', 'lastname', 'avatar', 'isVerified')
+            $users = User::select('username', 'firstname', 'lastname', 'avatar', 'is_verified')
                 ->search($request['query'])
                 ->take(10)
                 ->get();

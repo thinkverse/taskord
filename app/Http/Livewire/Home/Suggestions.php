@@ -27,7 +27,7 @@ class Suggestions extends Component
 
     public function getSuggestions()
     {
-        return User::select('id', 'username', 'firstname', 'lastname', 'reputation', 'avatar', 'isVerified', 'status', 'status_emoji', 'last_active')
+        return User::select('id', 'username', 'firstname', 'lastname', 'reputation', 'avatar', 'is_verified', 'status', 'status_emoji', 'last_active')
             ->whereNotIn('id', $this->user->followings->pluck('id'))
             ->where([
                 ['spammy', false],
