@@ -126,7 +126,7 @@
                 @endif
             </a>
             @auth
-                @if (auth()->user()->staffShip or auth()->user()->id === $task->user->id)
+                @if (auth()->user()->staff_mode or auth()->user()->id === $task->user->id)
                     <button
                         type="button"
                         class="btn btn-task btn-outline-danger me-1"
@@ -142,7 +142,7 @@
                         'task' => $task
                     ])
                 @endif
-                @if (auth()->user()->staffShip)
+                @if (auth()->user()->staff_mode)
                     <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Hide">
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                     </button>

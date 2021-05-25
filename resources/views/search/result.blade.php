@@ -230,7 +230,7 @@
                                         {{ $user->username }}
                                     @endif
                                     @auth
-                                        @if (auth()->user()->staffShip)
+                                        @if (auth()->user()->staff_mode)
                                             <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                                         @endif
                                     @endauth

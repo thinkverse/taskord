@@ -58,7 +58,7 @@
                 </a>
             @endguest
             @auth
-                @if (auth()->user()->staffShip or auth()->user()->id === $update->user->id)
+                @if (auth()->user()->staff_mode or auth()->user()->id === $update->user->id)
                     <button
                         type="button"
                         class="btn btn-task btn-outline-danger"
