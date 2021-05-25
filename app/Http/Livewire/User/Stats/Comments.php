@@ -25,7 +25,7 @@ class Comments extends Component
         $createdAt = $this->user->created_at->format('Y-m-d');
         $currentDate = carbon()->format('Y-m-d');
         $period = CarbonPeriod::create($createdAt, '7 days', $currentDate);
-        $comments_count = $this->user->comments()
+        $commentsCount = $this->user->comments()
             ->select('id')
             ->count();
 
@@ -44,7 +44,7 @@ class Comments extends Component
         return view('livewire.user.stats.comments', [
             'week_dates' => $this->readyToLoad ? json_encode($weekDates, JSON_NUMERIC_CHECK) : [],
             'comments' => $this->readyToLoad ? json_encode($comments, JSON_NUMERIC_CHECK) : [],
-            'comments_count' => $this->readyToLoad ? $comments_count : '···',
+            'comments_count' => $this->readyToLoad ? $commentsCount : '···',
         ]);
     }
 }
