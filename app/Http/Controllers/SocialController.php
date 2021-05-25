@@ -14,8 +14,8 @@ class SocialController extends Controller
 {
     public function redirect($provider)
     {
-        $provider_array = ['twitter', 'google', 'github', 'discord'];
-        if (in_array($provider, $provider_array)) {
+        $providerArray = ['twitter', 'google', 'github', 'discord'];
+        if (in_array($provider, $providerArray)) {
             return Socialite::driver($provider)->redirect();
         } else {
             abort(404);
