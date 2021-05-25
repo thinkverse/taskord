@@ -107,7 +107,7 @@ class SingleTask extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->is_staff and auth()->user()->staffShip) {
+        if (auth()->user()->is_staff and auth()->user()->staff_mode) {
             Helper::hide($this->task);
             loggy(request(), 'Staff', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
 
@@ -127,7 +127,7 @@ class SingleTask extends Component
             return toast($this, 'error', 'Your account is flagged!');
         }
 
-        if (auth()->user()->staffShip or auth()->user()->id === $this->task->user->id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $this->task->user->id) {
             loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
             foreach ($this->task->images ?? [] as $image) {
                 Storage::delete($image);
