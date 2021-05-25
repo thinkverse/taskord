@@ -231,10 +231,10 @@
                                 <a class="dropdown-item text-dark" id="admin-bar-click" role="button">
                                     @if (auth()->user()->staffShip)
                                         <x-heroicon-o-eye-off class="heroicon heroicon-18px text-secondary" />
-                                        Hide Admin Bar
+                                        Hide Staff Bar
                                     @else
                                         <x-heroicon-o-eye class="heroicon heroicon-18px text-secondary" />
-                                        Show Admin Bar
+                                        Show Staff Bar
                                     @endif
                                 </a>
                                 <div class="dropdown-divider"></div>
