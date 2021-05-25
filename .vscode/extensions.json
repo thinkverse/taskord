@@ -3,3 +3,8 @@
 //
 // to stop using defaults: git update-index --skip-worktree .vscode/extensions.json
 // go back to using defaults: git update-index --no-skip-worktree .vscode/extensions.json
+{
+    "recommendations": [
+        "eamodio.gitlens"
+    ]
+}
