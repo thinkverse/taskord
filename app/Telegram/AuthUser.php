@@ -8,45 +8,45 @@ use Telegram;
 class AuthUser
 {
     protected $token;
-    protected $chat_id;
+    protected $chatId;
 
     public function __construct(
         $token,
-        $chat_id
+        $chatId
     ) {
         $this->token = $token;
-        $this->chat_id = $chat_id;
+        $this->chatId = $chatId;
     }
 
     public function __invoke()
     {
         $user = User::whereApiToken($this->token)->first();
-        $user_count = User::whereTelegramChatId($this->chat_id)->count('id');
+        $user_count = User::whereTelegramChatId($this->chatId)->count('id');
         if (! $user or strlen($this->token) !== 60) {
             $helper = "Go to https://taskord.com/settings/api and copy your *API Token 🔑*\n\n"
                 .'And paste it here `/auth <API token>`';
 
-            return $this->send($this->chat_id, $helper);
+            return $this->send($this->chatId, $helper);
         }
 
         if ($user_count > 1) {
-            return $this->send($this->chat_id, '*This Telegram account is already associated with another account* 👀');
+            return $this->send($this->chatId, '*This Telegram account is already associated with another account* 👀');
         }
 
         if ($user->telegram_chat_id) {
             return $this->send($user->telegram_chat_id, '*You are already authenticated* ✅');
         } else {
-            $user->telegram_chat_id = $this->chat_id;
+            $user->telegram_chat_id = $this->chatId;
             $user->save();
 
             return $this->send($user->telegram_chat_id, '*Authentication successful* ✅');
         }
     }
 
-    public function send($chat_id, $message)
+    public function send($chatId, $message)
     {
         return Telegram::sendMessage([
-            'chat_id' => $chat_id,
+            'chat_id' => $chatId,
             'text' => $message,
             'disable_web_page_preview' => true,
             'parse_mode' => 'Markdown',
