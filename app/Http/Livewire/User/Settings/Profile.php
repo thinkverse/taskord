@@ -77,9 +77,9 @@ class Profile extends Component
             ]);
 
             if ($this->avatar) {
-                $old_avatar = explode('storage/', $this->user->avatar);
-                if (array_key_exists(1, $old_avatar)) {
-                    Storage::delete($old_avatar[1]);
+                $oldAvatar = explode('storage/', $this->user->avatar);
+                if (array_key_exists(1, $oldAvatar)) {
+                    Storage::delete($oldAvatar[1]);
                 }
                 $img = Image::make($this->avatar)
                     ->fit(400)
@@ -107,9 +107,9 @@ class Profile extends Component
     public function resetAvatar()
     {
         if (auth()->user()->id === $this->user->id) {
-            $old_avatar = explode('storage/', $this->user->avatar);
-            if (array_key_exists(1, $old_avatar)) {
-                Storage::delete($old_avatar[1]);
+            $oldAvatar = explode('storage/', $this->user->avatar);
+            if (array_key_exists(1, $oldAvatar)) {
+                Storage::delete($oldAvatar[1]);
             }
             $this->user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($this->user->username, 0, 2));
             $this->user->save();
@@ -124,9 +124,9 @@ class Profile extends Component
     public function useGravatar()
     {
         if (auth()->user()->id === $this->user->id) {
-            $old_avatar = explode('storage/', $this->user->avatar);
-            if (array_key_exists(1, $old_avatar)) {
-                Storage::delete($old_avatar[1]);
+            $oldAvatar = explode('storage/', $this->user->avatar);
+            if (array_key_exists(1, $oldAvatar)) {
+                Storage::delete($oldAvatar[1]);
             }
             $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(auth()->user()->email).'?s=500&d=identicon';
             $this->user->save();
