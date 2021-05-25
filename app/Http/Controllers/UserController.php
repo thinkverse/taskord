@@ -104,10 +104,10 @@ class UserController extends Controller
                 'patron' => $account->patron()->get(),
             ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-            $file_name = carbon()->format('d_m_Y_h_i_s').'_'.$account->username.'_data.json';
+            $fileName = carbon()->format('d_m_Y_h_i_s').'_'.$account->username.'_data.json';
             $response = response($data, 200, [
                 'Content-Type' => 'application/json',
-                'Content-Disposition' => 'attachment; filename="'.$file_name.'"',
+                'Content-Disposition' => 'attachment; filename="'.$fileName.'"',
             ]);
             loggy(request(), 'User', auth()->user(), 'Exported the account data');
 
@@ -126,10 +126,10 @@ class UserController extends Controller
                 'logs' => $logs,
             ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-            $file_name = carbon()->format('d_m_Y_h_i_s').'_'.auth()->user()->username.'_logs.json';
+            $fileName = carbon()->format('d_m_Y_h_i_s').'_'.auth()->user()->username.'_logs.json';
             $response = response($data, 200, [
                 'Content-Type' => 'application/json',
-                'Content-Disposition' => 'attachment; filename="'.$file_name.'"',
+                'Content-Disposition' => 'attachment; filename="'.$fileName.'"',
             ]);
             loggy(request(), 'User', auth()->user(), 'Exported the account logs');
 
