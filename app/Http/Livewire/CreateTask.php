@@ -35,7 +35,7 @@ class CreateTask extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        auth()->user()->checkState = ! auth()->user()->checkState;
+        auth()->user()->check_state = ! auth()->user()->check_state;
         auth()->user()->save();
     }
 
@@ -96,7 +96,7 @@ class CreateTask extends Component
             $images = null;
         }
 
-        $state = auth()->user()->checkState;
+        $state = auth()->user()->check_state;
 
         if ($state) {
             $done_at = carbon();
