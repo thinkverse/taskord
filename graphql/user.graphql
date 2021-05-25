@@ -19,7 +19,7 @@ type User {
     isVerified: Boolean!
     is_contributor: Boolean!
     is_beta: Boolean!
-    isPatron: Boolean!
+    is_patron: Boolean!
     isPrivate: Boolean!
     tasks: [Task!]! @hasMany(type: "connection")
     comments: [Comment!]! @hasMany(type: "connection")
