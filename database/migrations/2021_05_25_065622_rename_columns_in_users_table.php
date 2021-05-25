@@ -16,6 +16,7 @@ class RenameColumnsInUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('onlyFollowingsTasks', 'only_followings_tasks');
             $table->renameColumn('checkState', 'check_state');
+            $table->renameColumn('isStaff', 'is_staff');
         });
     }
 
@@ -29,6 +30,7 @@ class RenameColumnsInUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('only_followings_tasks', 'onlyFollowingsTasks');
             $table->renameColumn('check_state', 'checkState');
+            $table->renameColumn('is_staff', 'isStaff');
         });
     }
 }
