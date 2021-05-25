@@ -85,7 +85,7 @@ class PatronController extends Controller
         if ($user) {
             $user->patron->delete();
             $user->is_patron = false;
-            $user->isPrivate = false;
+            $user->is_private = false;
             $user->save();
 
             return 'Success';

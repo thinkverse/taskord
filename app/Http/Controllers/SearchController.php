@@ -34,7 +34,7 @@ class SearchController extends Controller
             $tasks = Task::whereHas('user', function ($q) {
                 $q->where([
                     ['isFlagged', false],
-                    ['isPrivate', false],
+                    ['is_private', false],
                 ]);
             })
                 ->whereHidden(false)
@@ -63,7 +63,7 @@ class SearchController extends Controller
             $comments = Comment::whereHas('user', function ($q) {
                 $q->where([
                     ['isFlagged', false],
-                    ['isPrivate', false],
+                    ['is_private', false],
                 ]);
             })
                 ->whereHidden(false)

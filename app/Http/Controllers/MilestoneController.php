@@ -31,7 +31,7 @@ class MilestoneController extends Controller
             auth()->check() && auth()->user()->staff_mode
         ) {
             return view('milestone/milestone', $response);
-        } elseif ($milestone->user->isFlagged or $milestone->user->isPrivate) {
+        } elseif ($milestone->user->isFlagged or $milestone->user->is_private) {
             abort(404);
         }
 
