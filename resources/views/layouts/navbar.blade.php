@@ -248,7 +248,7 @@
                                     Dark Mode
                                 @endif
                             </a>
-                            @if (auth()->user()->isDeveloper)
+                            @if (auth()->user()->is_contributor)
                                 <a class="dropdown-item text-dark" href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
                                     <x-heroicon-o-code class="heroicon heroicon-18px text-secondary" />
                                     GitLab
