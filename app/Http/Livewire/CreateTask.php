@@ -19,10 +19,10 @@ class CreateTask extends Component
 
     public $task;
     public $images = [];
-    public $due_at;
+    public $dueAt;
     public $product;
-    public $show_latest_task = false;
-    public $latest_task;
+    public $showLatestTask = false;
+    public $latestTask;
 
     public function mount($product = null)
     {
@@ -116,18 +116,18 @@ class CreateTask extends Component
             'done' => $state,
             'done_at' => $done_at,
             'images' => $images,
-            'due_at' => $this->due_at,
+            'due_at' => $this->dueAt,
             'type' => $product_id ? 'product' : 'user',
         ]))();
 
         $this->emit('refreshTasks');
-        $this->reset(['task', 'images', 'due_at']);
+        $this->reset(['task', 'images', 'dueAt']);
         if (auth()->user()->has_goal and $task->done) {
             auth()->user()->daily_goal_reached++;
             auth()->user()->save();
             CheckGoal::dispatch(auth()->user(), $task);
         }
-        $this->latest_task = $task;
+        $this->latestTask = $task;
 
         return toast($this, 'success', 'Task has been created!');
     }

@@ -12,7 +12,7 @@
             <div class="modal-body px-4 pb-4">
                 @if (!auth()->user()->spammy)
                     @livewire('create-task', [
-                        'show_latest_task' => true
+                        'showLatestTask' => true
                     ])
                 @else
                     <div class="text-center">

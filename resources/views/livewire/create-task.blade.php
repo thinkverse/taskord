@@ -55,12 +55,12 @@
             <div class="text-danger fw-bold mt-3">{{ $message }}</div>
         @enderror
     </form>
-    @if ($show_latest_task and $latest_task)
+    @if ($showLatestTask and $latestTask)
         <div class="mt-3">
             @livewire('tasks.single-task', [
-                'task' => $latest_task,
+                'task' => $latestTask,
                 'show_delete' => false
-            ], key($latest_task->id))
+            ], key($latestTask->id))
         </div>
     @endif
 </div>
