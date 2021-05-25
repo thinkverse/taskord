@@ -11,7 +11,7 @@
                 @if ($type !== "App\Notifications\Welcome" and $type !== "App\Notifications\Staff\VersionReleased")
                     <x:shared.user-label-small :user="$user" />
                 @endif
-                @if ($page_type === 'unread')
+                @if ($pageType === 'unread')
                     <button wire:click="markSingleNotificationAsRead" class="btn btn-sm btn-task ms-5" title="Mark as read">
                         <span wire:loading.remove>
                             <x-heroicon-s-check class="heroicon heroicon-20px text-secondary me-0" />
@@ -79,7 +79,7 @@
                 </div>
             @endif
             <div class="small mt-3 text-secondary">
-                {{ carbon($created_at)->diffForHumans() }}
+                {{ carbon($createdAt)->diffForHumans() }}
             </div>
         </div>
     </div>

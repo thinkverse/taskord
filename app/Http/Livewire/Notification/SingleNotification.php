@@ -6,26 +6,27 @@ use Livewire\Component;
 
 class SingleNotification extends Component
 {
-    public $notification_id;
+    public $notificationId;
     public $type;
     public $data;
-    public $created_at;
-    public $page_type;
+    public $createdAt;
+    public $pageType;
 
-    public function mount($notification_id, $type, $data, $created_at, $page_type)
+    public function mount($notificationId, $type, $data, $createdAt, $pageType)
     {
-        $this->notification_id = $notification_id;
+        $this->notificationId = $notificationId;
         $this->type = $type;
-        $this->page_type = $page_type;
+        $this->pageType = $pageType;
         $this->data = $data;
-        $this->created_at = strval($created_at);
+        $this->createdAt = strval($createdAt);
     }
 
     public function markSingleNotificationAsRead()
     {
-        auth()->user()->unreadNotifications->where('id', $this->notification_id)->markAsRead();
+        auth()->user()->unreadNotifications->where('id', $this->notificationId)->markAsRead();
         $this->emit('refreshNotifications');
+        loggy(request(), 'Notification', auth()->user(), 'Single notification is marked as read');
 
-        return loggy(request(), 'Notification', auth()->user(), 'Single notification is marked as read');
+        return toast($this, 'success', 'Notification has been marked as read!');
     }
 }
