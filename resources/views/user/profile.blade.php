@@ -139,7 +139,7 @@
                         <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
                     </div>
                     @endif
-                    @if ($user->isBeta)
+                    @if ($user->is_beta)
                     <div class="mt-2">
                         <span class="fw-bold">
                             <x-heroicon-o-beaker class="heroicon heroicon-18px text-info" />
