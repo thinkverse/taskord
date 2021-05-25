@@ -44,10 +44,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 // Staff Bar toggle in dropdown
-var adminBar = document.getElementById("admin-bar-click");
-if (adminBar) {
-  adminBar.addEventListener("click", async () => {
-    const res = await window.fetch(`/site/adminbar`);
+var staffBar = document.getElementById("staff-bar-click");
+if (staffBar) {
+  staffBar.addEventListener("click", async () => {
+    const res = await window.fetch(`/site/staffbar`);
     if (res.status === 200) {
       window.location.reload();
     }
