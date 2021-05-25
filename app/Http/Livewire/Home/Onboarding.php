@@ -7,23 +7,23 @@ use Livewire\Component;
 
 class Onboarding extends Component
 {
-    public function calculateCompleteness($task_count, $praise_count, $product_count, $has_name)
+    public function calculateCompleteness($taskCount, $praiseCount, $productCount, $hasName)
     {
         $completed = [];
 
-        if ($task_count !== 0) {
+        if ($taskCount !== 0) {
             array_push($completed, 'task_count');
         }
 
-        if ($praise_count !== 0) {
-            array_push($completed, 'task_count');
+        if ($praiseCount !== 0) {
+            array_push($completed, 'praise_count');
         }
 
-        if ($product_count !== 0) {
-            array_push($completed, 'task_count');
+        if ($productCount !== 0) {
+            array_push($completed, 'product_count');
         }
 
-        if (strlen($has_name) !== 0) {
+        if (strlen($hasName) !== 0) {
             array_push($completed, 'has_name');
         }
 
@@ -32,23 +32,23 @@ class Onboarding extends Component
 
     public function render()
     {
-        $task_count = auth()->user()->tasks()->count('id');
-        $praise_count = auth()->user()->likes(Task::class)->count();
-        $product_count = auth()->user()->ownedProducts->count('id');
-        $has_name = auth()->user()->firstname;
+        $taskCount = auth()->user()->tasks()->count('id');
+        $praiseCount = auth()->user()->likes(Task::class)->count();
+        $productCount = auth()->user()->ownedProducts->count('id');
+        $hasName = auth()->user()->firstname;
         $changed_username = preg_match('/^[a-f0-9]{32}$/', auth()->user()->username);
         $completed = $this->calculateCompleteness(
-                        $task_count,
-                        $praise_count,
-                        $product_count,
-                        $has_name,
+                        $taskCount,
+                        $praiseCount,
+                        $productCount,
+                        $hasName,
                     );
 
         return view('livewire.home.onboarding', [
-            'task_count' => $task_count,
-            'praise_count' => $praise_count,
-            'product_count' => $product_count,
-            'has_name' => $has_name,
+            'task_count' => $taskCount,
+            'praise_count' => $praiseCount,
+            'product_count' => $productCount,
+            'has_name' => $hasName,
             'changed_username' => $changed_username,
             'completed' => $completed,
         ]);
