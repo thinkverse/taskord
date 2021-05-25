@@ -94,7 +94,7 @@ class EditProduct extends Component
             $product->avatar = $avatar;
         }
 
-        if (auth()->user()->staffShip or auth()->user()->id === $product->owner->id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $product->owner->id) {
             $isNewelyLaunched = false;
 
             if ($this->launched and ! $product->launched) {
@@ -149,7 +149,7 @@ class EditProduct extends Component
             return toast($this, 'error', 'Your account is flagged!');
         }
 
-        if (auth()->user()->staffShip or auth()->user()->id === $this->product->owner->id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $this->product->owner->id) {
             loggy(request(), 'Product', auth()->user(), 'Deleted a product | Product Slug: #'.$this->product->slug);
             $avatar = explode('storage/', $this->product->avatar);
             if (array_key_exists(1, $avatar)) {
