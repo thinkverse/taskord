@@ -6,11 +6,11 @@ use Telegram;
 
 class Start
 {
-    protected $chat_id;
+    protected $chatId;
 
-    public function __construct($chat_id)
+    public function __construct($chatId)
     {
-        $this->chat_id = $chat_id;
+        $this->chatId = $chatId;
     }
 
     public function __invoke()
@@ -32,13 +32,13 @@ class Start
                ."*Others*\n\n"
                ."/start - See this message again anytime\n";
 
-        return $this->send($this->chat_id, $res);
+        return $this->send($this->chatId, $res);
     }
 
-    public function send($chat_id, $message)
+    public function send($chatId, $message)
     {
         return Telegram::sendMessage([
-            'chat_id' => $chat_id,
+            'chat_id' => $chatId,
             'text' => $message,
             'disable_web_page_preview' => true,
             'parse_mode' => 'Markdown',
