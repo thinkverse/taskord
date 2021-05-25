@@ -13,12 +13,12 @@ class QuestionPraised extends Notification implements ShouldQueue
     use Queueable;
 
     protected $question;
-    protected $user_id;
+    protected $userId;
 
-    public function __construct($question, $user_id)
+    public function __construct($question, $userId)
     {
         $this->question = $question;
-        $this->user_id = $user_id;
+        $this->userId = $userId;
     }
 
     public function via($notifiable)
@@ -38,7 +38,7 @@ class QuestionPraised extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        $user = User::find($this->user_id);
+        $user = User::find($this->userId);
 
         if (! $user->spammy) {
             return (new MailMessage)
@@ -57,7 +57,7 @@ class QuestionPraised extends Notification implements ShouldQueue
     {
         return [
             'question_id' => $this->question->id,
-            'user_id' => $this->user_id,
+            'user_id' => $this->userId,
         ];
     }
 }
