@@ -25,7 +25,7 @@ class AllTasks extends Component
         $createdAt = $this->user->created_at->format('Y-m-d');
         $currentDate = carbon()->format('Y-m-d');
         $period = CarbonPeriod::create($createdAt, '5 days', $currentDate);
-        $all_tasks_count = $this->user->tasks()
+        $allTasksCount = $this->user->tasks()
             ->select('id')
             ->count();
 
@@ -44,7 +44,7 @@ class AllTasks extends Component
         return view('livewire.user.stats.all-tasks', [
             'week_dates' => json_encode($week_dates, JSON_NUMERIC_CHECK),
             'all_tasks' => $this->readyToLoad ? json_encode($all_tasks, JSON_NUMERIC_CHECK) : [],
-            'all_tasks_count' => $this->readyToLoad ? $all_tasks_count : '···',
+            'all_tasks_count' => $this->readyToLoad ? $allTasksCount : '···',
         ]);
     }
 }
