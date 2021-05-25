@@ -165,10 +165,10 @@ class Moderator extends Component
     public function enrollPatron()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            $this->user->isPatron = ! $this->user->isPatron;
+            $this->user->is_patron = ! $this->user->is_patron;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isPatron) {
+            if ($this->user->is_patron) {
                 $this->user->notify(new PatronGifted(true));
                 loggy(request(), 'Staff', auth()->user(), 'Enrolled as Patron | Username: @'.$this->user->username);
             } else {
