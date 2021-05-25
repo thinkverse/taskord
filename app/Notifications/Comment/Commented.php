@@ -54,7 +54,7 @@ class Commented extends Notification implements ShouldQueue
         }
     }
 
-    public function toDatabase($notifiable)
+    public function toDatabase()
     {
         return [
             'comment_id' => $this->comment->id,
