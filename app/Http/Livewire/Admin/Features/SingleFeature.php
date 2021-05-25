@@ -31,7 +31,7 @@ class SingleFeature extends Component
             $this->feature->contributor = false;
         }
         $this->feature->save();
-        loggy(request(), 'Admin', auth()->user(), 'Toggled staff feature flag | Feature ID: '.$this->feature->id);
+        loggy(request(), 'Staff', auth()->user(), 'Toggled staff feature flag | Feature ID: '.$this->feature->id);
     }
 
     public function contributorToggle()
@@ -41,7 +41,7 @@ class SingleFeature extends Component
             $this->feature->staff = true;
         }
         $this->feature->save();
-        loggy(request(), 'Admin', auth()->user(), 'Toggled contributor feature flag | Feature ID: '.$this->feature->id);
+        loggy(request(), 'Staff', auth()->user(), 'Toggled contributor feature flag | Feature ID: '.$this->feature->id);
     }
 
     public function betaToggle()
@@ -52,7 +52,7 @@ class SingleFeature extends Component
             $this->feature->contributor = true;
         }
         $this->feature->save();
-        loggy(request(), 'Admin', auth()->user(), 'Toggled beta feature flag | Feature ID: '.$this->feature->id);
+        loggy(request(), 'Staff', auth()->user(), 'Toggled beta feature flag | Feature ID: '.$this->feature->id);
     }
 
     public function publicToggle()
@@ -64,7 +64,7 @@ class SingleFeature extends Component
             $this->feature->beta = true;
         }
         $this->feature->save();
-        loggy(request(), 'Admin', auth()->user(), 'Toggled public feature flag | Feature ID: '.$this->feature->id);
+        loggy(request(), 'Staff', auth()->user(), 'Toggled public feature flag | Feature ID: '.$this->feature->id);
     }
 
     public function confirmDelete()
@@ -78,7 +78,7 @@ class SingleFeature extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        loggy(request(), 'Admin', auth()->user(), 'Deleted a feature flag | Feature ID: '.$this->feature->id);
+        loggy(request(), 'Staff', auth()->user(), 'Deleted a feature flag | Feature ID: '.$this->feature->id);
         $this->feature->delete();
         auth()->user()->touch();
 
