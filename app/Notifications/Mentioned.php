@@ -72,7 +72,7 @@ class Mentioned extends Notification implements ShouldQueue
         }
     }
 
-    public function toDatabase($notifiable)
+    public function toDatabase()
     {
         if ($this->type === 'task') {
             $id = $this->body->id;
