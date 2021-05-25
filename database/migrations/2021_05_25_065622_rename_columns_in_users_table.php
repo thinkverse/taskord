@@ -18,6 +18,7 @@ class RenameColumnsInUsersTable extends Migration
             $table->renameColumn('checkState', 'check_state');
             $table->renameColumn('isStaff', 'is_staff');
             $table->renameColumn('isDeveloper', 'is_contributor');
+            $table->renameColumn('staffShip', 'staff_mode');
         });
     }
 
@@ -33,6 +34,7 @@ class RenameColumnsInUsersTable extends Migration
             $table->renameColumn('check_state', 'checkState');
             $table->renameColumn('is_staff', 'isStaff');
             $table->renameColumn('is_contributor', 'isDeveloper');
+            $table->renameColumn('staff_mode', 'staffShip');
         });
     }
 }
