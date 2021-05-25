@@ -36,7 +36,7 @@ class Onboarding extends Component
         $praiseCount = auth()->user()->likes(Task::class)->count();
         $productCount = auth()->user()->ownedProducts->count('id');
         $hasName = auth()->user()->firstname;
-        $changed_username = preg_match('/^[a-f0-9]{32}$/', auth()->user()->username);
+        $changedUsername = preg_match('/^[a-f0-9]{32}$/', auth()->user()->username);
         $completed = $this->calculateCompleteness(
                         $taskCount,
                         $praiseCount,
@@ -49,7 +49,7 @@ class Onboarding extends Component
             'praise_count' => $praiseCount,
             'product_count' => $productCount,
             'has_name' => $hasName,
-            'changed_username' => $changed_username,
+            'changed_username' => $changedUsername,
             'completed' => $completed,
         ]);
     }
