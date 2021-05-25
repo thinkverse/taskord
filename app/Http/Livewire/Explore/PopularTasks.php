@@ -24,7 +24,7 @@ class PopularTasks extends Component
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
-                        ['isPrivate', false],
+                        ['is_private', false],
                     ]);
                 })
                 ->latest('created_at')

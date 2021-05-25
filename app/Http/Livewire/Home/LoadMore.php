@@ -36,7 +36,7 @@ class LoadMore extends Component
                     ->whereHas('user', function ($q) {
                         $q->where([
                             ['isFlagged', false],
-                            ['isPrivate', false],
+                            ['is_private', false],
                         ]);
                     })
                     ->whereDone(true)
@@ -46,7 +46,7 @@ class LoadMore extends Component
                 $tasks = Task::whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
-                        ['isPrivate', false],
+                        ['is_private', false],
                     ]);
                 })
                     ->whereDone(true)

@@ -27,7 +27,7 @@ class Search extends Component
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['isFlagged', false],
-                    ['isPrivate', false],
+                    ['is_private', false],
                 ]);
             })
             ->whereHidden(false)
