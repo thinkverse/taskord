@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Features;
+namespace App\Http\Livewire\Staff\Features;
 
 use App\Models\Feature;
 use Livewire\Component;
@@ -87,6 +87,6 @@ class SingleFeature extends Component
 
     public function render()
     {
-        return view('livewire.admin.features.single-feature');
+        return view('livewire.staff.features.single-feature');
     }
 }
