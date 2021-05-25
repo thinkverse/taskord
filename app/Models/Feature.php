@@ -30,7 +30,7 @@ class Feature extends Model
                 return true;
             }
 
-            if (auth()->user()->staffShip) {
+            if (auth()->user()->staff_mode) {
                 return $feature->staff ? true : false;
             } elseif (auth()->user()->isBeta) {
                 return $feature->beta ? true : false;

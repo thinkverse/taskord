@@ -16,7 +16,7 @@ class IsStaffShip
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user() && $request->user()->staffShip) {
+        if ($request->user() && $request->user()->staff_mode) {
             return $next($request);
         } else {
             return abort(404);

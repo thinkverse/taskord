@@ -25,7 +25,7 @@
     </a>
     @auth
         @if (auth()->user()->is_staff)
-            @if (auth()->user()->staffShip)
+            @if (auth()->user()->staff_mode)
                 <span class="pe-2 text-danger">
                     <x-heroicon-o-shield-check class="heroicon me-0" />
                     Staff mode on
