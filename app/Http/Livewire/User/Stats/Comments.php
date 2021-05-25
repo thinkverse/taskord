@@ -22,9 +22,9 @@ class Comments extends Component
 
     public function render()
     {
-        $created_at = $this->user->created_at->format('Y-m-d');
-        $current_date = carbon()->format('Y-m-d');
-        $period = CarbonPeriod::create($created_at, '7 days', $current_date);
+        $createdAt = $this->user->created_at->format('Y-m-d');
+        $currentDate = carbon()->format('Y-m-d');
+        $period = CarbonPeriod::create($createdAt, '7 days', $currentDate);
         $comments_count = $this->user->comments()
             ->select('id')
             ->count();
