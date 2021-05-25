@@ -120,7 +120,7 @@
                     Flags
                 </div>
                 <div class="mb-2 mt-3">
-                    <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" wire:model="isBeta">
+                    <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" wire:model="is_beta">
                     <label for="enrollBeta" class="ms-1">Enroll to Beta</label >
                 </div>
                 <div class="mb-2">
