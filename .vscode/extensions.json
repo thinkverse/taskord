@@ -13,6 +13,7 @@
         "onecentlin.laravel5-snippets",
         "stef-k.laravel-goto-controller",
         "robbowen.synthwave-vscode",
-        "ms-vscode-remote.remote-containers"
+        "ms-vscode-remote.remote-containers",
+        "ms-azuretools.vscode-docker"
     ]
 }
