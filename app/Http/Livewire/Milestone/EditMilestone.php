@@ -54,7 +54,7 @@ class EditMilestone extends Component
 
         $milestone = Milestone::where('id', $this->milestone->id)->firstOrFail();
 
-        if (auth()->user()->staffShip or auth()->user()->id === $milestone->user_id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $milestone->user_id) {
             $milestone->name = $this->name;
             $milestone->description = $this->description;
             $milestone->start_date = $this->start_date ? $this->start_date : null;
