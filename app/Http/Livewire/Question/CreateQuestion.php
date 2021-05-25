@@ -10,7 +10,7 @@ class CreateQuestion extends Component
     public $title;
     public $body;
     public $solvable = true;
-    public $patronOnly;
+    public $patron_only;
 
     public function submit()
     {
@@ -31,12 +31,12 @@ class CreateQuestion extends Component
         }
 
         $solvable = ! $this->solvable ? false : true;
-        $patronOnly = ! $this->patronOnly ? false : true;
+        $patron_only = ! $this->patron_only ? false : true;
 
         $question = auth()->user()->questions()->create([
             'title' => $this->title, $this->body,
             'is_solvable' => $solvable,
-            'patronOnly' => $patronOnly,
+            'patron_only' => $patron_only,
         ]);
         auth()->user()->touch();
 
