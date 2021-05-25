@@ -11,7 +11,7 @@
 @endif
 <div class="card">
     @auth
-    @if (auth()->user()->isStaff && $user->isFlagged)
+    @if (auth()->user()->is_staff && $user->isFlagged)
         <div class="p-4 pb-0">
             <div class="alert alert-danger alert-dismissible">
                 This user is flagged
@@ -96,7 +96,7 @@
                             <x-heroicon-o-briefcase class="heroicon heroicon-15px text-secondary" />
                             {{ $user->company }}
                         </span>
-                        @if ($user->isStaff)
+                        @if ($user->is_staff)
                         <span class="border border-1 border-info text-info fw-bold ms-1 px-2 rounded-pill small">Staff</span>
                         @endif
                         @endif
