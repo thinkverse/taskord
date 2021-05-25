@@ -37,7 +37,7 @@ class QuestionController extends Controller
 
         if (
             auth()->check() && auth()->user()->id === $question->user->id or
-            auth()->check() && auth()->user()->staffShip
+            auth()->check() && auth()->user()->staff_mode
         ) {
             views($question)->record();
 
@@ -65,7 +65,7 @@ class QuestionController extends Controller
     {
         if (
             auth()->check() && auth()->user()->id === $question->user->id or
-            auth()->check() && auth()->user()->staffShip
+            auth()->check() && auth()->user()->staff_mode
         ) {
             return view('question.edit', [
                 'question' => $question,
