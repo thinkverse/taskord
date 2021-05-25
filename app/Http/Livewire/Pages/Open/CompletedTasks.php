@@ -24,11 +24,11 @@ class CompletedTasks extends Component
             ->whereDone(true)
             ->count();
 
-        $week_dates = [];
+        $weekDates = [];
         $completed_tasks = [];
         $tasks = [];
         foreach ($period->toArray() as $date) {
-            array_push($week_dates, carbon($date)->format('d M Y'));
+            array_push($weekDates, carbon($date)->format('d M Y'));
             $count = Task::select('id')
                 ->whereDone(true)
                 ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(7)])
@@ -37,7 +37,7 @@ class CompletedTasks extends Component
         }
 
         return view('livewire.pages.open.completed-tasks', [
-            'week_dates' => json_encode($week_dates, JSON_NUMERIC_CHECK),
+            'week_dates' => json_encode($weekDates, JSON_NUMERIC_CHECK),
             'completed_tasks' => $this->readyToLoad ? json_encode($completed_tasks, JSON_NUMERIC_CHECK) : [],
             'completed_tasks_count' => $this->readyToLoad ? number_format($completed_tasks_count) : '···',
         ]);
