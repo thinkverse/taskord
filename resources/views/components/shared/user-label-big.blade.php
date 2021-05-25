@@ -29,7 +29,7 @@
             @if ($user->isVerified)
                 <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
             @endif
-            @if ($user->isPatron)
+            @if ($user->is_patron)
                 <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
                     <x-heroicon-s-star class="heroicon text-gold" />
                 </a>
