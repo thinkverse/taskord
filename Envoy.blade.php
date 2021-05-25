@@ -47,6 +47,7 @@
 @task('build-assets')
     echo "Building CSS and JS assets";
     yarn production
+    php artisan horizon:publish
 @endtask
 
 @success
