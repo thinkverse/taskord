@@ -52,7 +52,7 @@ class Subscribed extends Notification implements ShouldQueue
         }
     }
 
-    public function toDatabase($notifiable)
+    public function toDatabase()
     {
         return [
             'product_id' => $this->product->id,
