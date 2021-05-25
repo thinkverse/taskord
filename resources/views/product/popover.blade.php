@@ -17,7 +17,7 @@
                 $members_count = $product->owner()->count() + $product->members()->count();
             @endphp
             <x-heroicon-o-users class="heroicon" />
-            <div class="ms-1">{{ $members_count }} {{ str_plural('member', $members_count) }} in the team</div>
+            <div class="ms-1">{{ $members_count }} {{ pluralize('member', $members_count) }} in the team</div>
         </div>
     </div>
 </div>

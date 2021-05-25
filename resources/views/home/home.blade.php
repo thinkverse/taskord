@@ -79,17 +79,17 @@
                         <a class="text-dark" href="{{ route('user.following', ['username' => auth()->user()->username]) }}">
                             <x-heroicon-o-user-add class="heroicon text-secondary" />
                             {{ auth()->user()->followings->count() }}
-                            {{ str_plural('Following', auth()->user()->followings->count()) }}
+                            {{ pluralize('Following', auth()->user()->followings->count()) }}
                         </a>
                         <a class="text-dark" href="{{ route('user.followers', ['username' => auth()->user()->username]) }}">
                             <x-heroicon-o-users class="heroicon text-secondary" />
                             {{ number_format(auth()->user()->followers->count()) }}
-                            {{ str_plural('Follower', auth()->user()->followers->count()) }}
+                            {{ pluralize('Follower', auth()->user()->followers->count()) }}
                         </a>
                         <span title="{{ number_format(auth()->user()->streaks) }} day streak">
                             <x-heroicon-o-fire class="heroicon text-secondary" />
                             {{ number_format(auth()->user()->streaks) }}
-                            {{ str_plural('Streak', auth()->user()->streaks) }}
+                            {{ pluralize('Streak', auth()->user()->streaks) }}
                         </span>
                     </div>
                 </div>

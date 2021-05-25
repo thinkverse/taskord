@@ -142,7 +142,7 @@
                                 <div class="mt-1">
                                     <span>Streaks:</span>
                                     <span class="badge bg-success">
-                                        {{ $user->streaks }} {{ str_plural('Streak', $user->streaks) }}
+                                        {{ $user->streaks }} {{ pluralize('Streak', $user->streaks) }}
                                     </span>
                                 </div>
                                 <div class="mt-1">

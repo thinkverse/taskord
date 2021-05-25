@@ -155,7 +155,7 @@
                             $views = views($question)->remember(now()->addHours(6))->unique()->count('id')
                         @endphp
                         <span class="fw-bold">{{ number_format($views) }}</span>
-                        {{ str_plural('View', $views) }}
+                        {{ pluralize('View', $views) }}
                     </span>
                 </span>
             @endif

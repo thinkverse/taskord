@@ -83,7 +83,7 @@ if (! function_exists('memory_usage')) {
     }
 }
 
-if (! function_exists('str_plural')) {
+if (! function_exists('pluralize')) {
     /**
      * Get the plural form of an English word.
      *
@@ -92,7 +92,7 @@ if (! function_exists('str_plural')) {
      *
      * @return string
      */
-    function str_plural($word, $count): string
+    function pluralize($word, $count): string
     {
         return Str::plural($word, $count);
     }

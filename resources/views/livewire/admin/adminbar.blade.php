@@ -28,7 +28,7 @@
                 <x-heroicon-o-collection class="heroicon" />
                 {{ $jobs }}
                 <span class="fw-normal text-white-50">
-                    {{ str_plural('job', (int) $jobs) }}
+                    {{ pluralize('job', (int) $jobs) }}
                 </span>
             </a>
             <span class="fw-bold me-3">

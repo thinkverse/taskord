@@ -131,7 +131,7 @@ it('can render due date correctly', function ($days, $expected) {
 ]);
 
 it('can covert text to plural', function ($count, $word, $expected) {
-    expect(str_plural($word, $count))->toEqual($expected);
+    expect(pluralize($word, $count))->toEqual($expected);
 })->with([
     [0, 'following', 'followings'],
     [1, 'following', 'following'],

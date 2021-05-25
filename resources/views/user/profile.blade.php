@@ -113,7 +113,7 @@
                             <x-heroicon-o-lightning-bolt class="heroicon heroicon-18px text-success" />
                             {{ number_format($user->streaks) }}
                         </span>
-                        {{ str_plural('day streak', $user->streaks) }}
+                        {{ pluralize('day streak', $user->streaks) }}
                     </div>
                     <div class="mt-2">
                         <span class="fw-bold">

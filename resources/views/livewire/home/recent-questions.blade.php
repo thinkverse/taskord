@@ -34,7 +34,7 @@
                             </a>
                             @if ($question->answer->count('id') >= 1)
                                 <span class="ms-1 text-secondary">
-                                    · {{ $question->answer->count('id') }} {{ str_plural('answer', $question->answer->count('id')) }}
+                                    · {{ $question->answer->count('id') }} {{ pluralize('answer', $question->answer->count('id')) }}
                                 </span>
                             @endif
                             <span class="avatar-stack ms-1">

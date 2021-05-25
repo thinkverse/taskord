@@ -14,6 +14,6 @@
     @endauth
     <span class="small ms-2">
         <span class="fw-bold">{{ number_format($question->subscribersCount()) }}</span>
-        {{ str_plural('Subscriber', $question->subscribersCount()) }}
+        {{ pluralize('Subscriber', $question->subscribersCount()) }}
     </span>
 </div>

@@ -24,7 +24,7 @@
                             @endphp
                             <x-heroicon-o-eye class="heroicon" />
                             <span class="fw-bold">{{ number_format($views) }}</span>
-                            {{ str_plural('View', $views) }}
+                            {{ pluralize('View', $views) }}
                         </div>
                     </div>
                     <a

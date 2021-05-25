@@ -35,11 +35,11 @@
         </li>
         <li class="list-group-item py-3 fw-bold text-primary">
             {{ $user->followings->count('id') }} following
-            {{ str_plural('user', $user->followings->count('id')) }}
+            {{ pluralize('user', $user->followings->count('id')) }}
         </li>
         <li class="list-group-item py-3 fw-bold text-primary">
             {{ $user->tasks()->count('id') }}
-            {{ str_plural('task', $user->tasks()->count('id')) }} created
+            {{ pluralize('task', $user->tasks()->count('id')) }} created
         </li>
     </ul>
     @endif
