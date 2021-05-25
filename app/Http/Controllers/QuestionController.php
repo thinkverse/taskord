@@ -50,7 +50,7 @@ class QuestionController extends Controller
 
                 return view('question.question', $response);
             }
-        } elseif ($question->user->isFlagged) {
+        } elseif ($question->user->spammy) {
             abort(404);
         }
 
