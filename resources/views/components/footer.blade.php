@@ -24,7 +24,7 @@
         Contact
     </a>
     @auth
-        @if (auth()->user()->isStaff)
+        @if (auth()->user()->is_staff)
             @if (auth()->user()->staffShip)
                 <span class="pe-2 text-danger">
                     <x-heroicon-o-shield-check class="heroicon me-0" />
