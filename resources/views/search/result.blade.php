@@ -273,7 +273,7 @@
                                             <x-heroicon-o-briefcase class="heroicon text-secondary" />
                                             {{ $user->company }}
                                         </span>
-                                        @if ($user->isStaff)
+                                        @if ($user->is_staff)
                                             <span class="badge rounded-pill bg-primary ms-1">Staff</span>
                                         @endif
                                     @endif
