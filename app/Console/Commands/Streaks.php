@@ -40,12 +40,12 @@ class Streaks extends Command
     public function handle()
     {
         $timezones = timezone_identifiers_list();
-        $tz_list = [];
+        $tzList = [];
 
         foreach ($timezones as $timezone) {
             $time = carbon()->tz($timezone)->format('H');
             if ($time === '23') {
-                array_push($tz_list, $timezone);
+                array_push($tzList, $timezone);
             }
         }
 
@@ -54,7 +54,7 @@ class Streaks extends Command
         if ($type === 'timezone') {
             $this->info('Calculating timezone based users streaks!');
             $users = User::select('id', 'username', 'timezone', 'streaks', 'created_at')
-                ->whereIn('timezone', $tz_list)
+                ->whereIn('timezone', $tzList)
                 ->get();
         } else {
             $this->info('Calculating all users streaks!');
@@ -63,9 +63,9 @@ class Streaks extends Command
         }
 
         foreach ($users as $user) {
-            $created_at = $user->created_at->format('Y-m-d');
-            $current_date = carbon()->format('Y-m-d');
-            $period = CarbonPeriod::create($created_at, $current_date);
+            $createdAt = $user->created_at->format('Y-m-d');
+            $currentDate = carbon()->format('Y-m-d');
+            $period = CarbonPeriod::create($createdAt, $currentDate);
             $streaks = 0;
             foreach ($period->toArray() as $date) {
                 $count = $user->tasks()
@@ -89,7 +89,7 @@ class Streaks extends Command
             }
         }
         $ops = User::whereUsername('ops')->first();
-        loggy(request(), 'Staff', $ops, 'Resetted streaks for '.number_format(count($users)).' users in '.number_format(count($tz_list)).' timezones');
+        loggy(request(), 'Staff', $ops, 'Resetted streaks for '.number_format(count($users)).' users in '.number_format(count($tzList)).' timezones');
         $this->info('Streaks Calculation Completed!');
 
         return 0;
