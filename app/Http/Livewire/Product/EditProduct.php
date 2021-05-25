@@ -81,9 +81,9 @@ class EditProduct extends Component
         $product = Product::where('id', $this->product->id)->firstOrFail();
 
         if ($this->avatar) {
-            $old_avatar = explode('storage/', $this->product->avatar);
-            if (array_key_exists(1, $old_avatar)) {
-                Storage::delete($old_avatar[1]);
+            $oldAvatar = explode('storage/', $this->product->avatar);
+            if (array_key_exists(1, $oldAvatar)) {
+                Storage::delete($oldAvatar[1]);
             }
             $img = Image::make($this->avatar)
                     ->fit(400)
