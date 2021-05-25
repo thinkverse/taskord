@@ -36,7 +36,7 @@ class CreateQuestion extends Component
 
         $question = auth()->user()->questions()->create([
             'title' => $this->title,
-            'body' => $this->body, 
+            'body' => $this->body,
             'is_solvable' => $solvable,
             'patron_only' => $patron_only,
         ]);
