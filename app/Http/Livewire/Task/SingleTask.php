@@ -52,7 +52,7 @@ class SingleTask extends Component
             } else {
                 $this->task->done_at = carbon();
                 auth()->user()->touch();
-                if (auth()->user()->hasGoal) {
+                if (auth()->user()->has_goal) {
                     auth()->user()->daily_goal_reached++;
                     auth()->user()->save();
                     CheckGoal::dispatch(auth()->user(), $this->task);
