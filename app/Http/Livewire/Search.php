@@ -26,7 +26,7 @@ class Search extends Component
         $this->tasks = Task::select('id', 'task', 'done', 'hidden', 'user_id')
             ->whereHas('user', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
+                    ['spammy', false],
                     ['is_private', false],
                 ]);
             })
@@ -34,7 +34,7 @@ class Search extends Component
             ->search($this->query)
             ->take(3)
             ->get();
-        $this->users = User::where('isFlagged', 'false')
+        $this->users = User::where('spammy', 'false')
             ->search($this->query)
             ->take(3)
             ->get();
