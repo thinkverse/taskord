@@ -7,7 +7,7 @@ use App\Jobs\Deploy;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
 
-class Adminbar extends Component
+class Staffbar extends Component
 {
     public function clean()
     {
@@ -36,7 +36,7 @@ class Adminbar extends Component
         $commit = git('rev-parse --short HEAD') ?: '0000000';
         $jobs = Queue::size();
 
-        return view('livewire.admin.adminbar', [
+        return view('livewire.admin.staffbar', [
             'branchname' => $branch,
             'headHASH' => $commit,
             'jobs' => number_format($jobs),
