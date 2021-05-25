@@ -24,7 +24,7 @@ class Moderator extends Component
     public $spammy;
     public $is_suspended;
     public $staff_notes;
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function mount($user)
     {
@@ -43,7 +43,7 @@ class Moderator extends Component
 
     public function loadModerator()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function enrollBeta()
@@ -409,7 +409,7 @@ class Moderator extends Component
     public function render()
     {
         return view('livewire.user.moderator', [
-            'user' => $this->ready_to_load ? $this->user : [],
+            'user' => $this->readyToLoad ? $this->user : [],
         ]);
     }
 }

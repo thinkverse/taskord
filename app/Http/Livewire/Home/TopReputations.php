@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class TopReputations extends Component
 {
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function loadTopReputations()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getTopReputations()
@@ -29,7 +29,7 @@ class TopReputations extends Component
     public function render()
     {
         return view('livewire.home.top-reputations', [
-            'reputations' => $this->ready_to_load ? $this->getTopReputations() : [],
+            'reputations' => $this->readyToLoad ? $this->getTopReputations() : [],
         ]);
     }
 }

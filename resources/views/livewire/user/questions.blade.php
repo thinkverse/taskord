@@ -1,5 +1,5 @@
 <div wire:init="loadQuestions">
-    @if (!$ready_to_load)
+    @if (!$readyToLoad)
         <div class="card-body text-center mt-3 mb-3">
             <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
             <div class="h6">
@@ -7,7 +7,7 @@
             </div>
         </div>
     @endif
-    @if ($ready_to_load and count($questions) === 0)
+    @if ($readyToLoad and count($questions) === 0)
         <div class="card-body text-center mt-3 mb-3">
             <x-heroicon-o-question-mark-circle class="heroicon heroicon-60px text-primary mb-2" />
             <div class="h4">
@@ -22,5 +22,5 @@
         ], key($question->id))
     @endforeach
 
-    {{ $ready_to_load ? $questions->links() : '' }}
+    {{ $readyToLoad ? $questions->links() : '' }}
 </div>

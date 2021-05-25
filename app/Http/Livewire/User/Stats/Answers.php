@@ -8,7 +8,7 @@ use Livewire\Component;
 class Answers extends Component
 {
     public $user;
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function mount($user)
     {
@@ -17,7 +17,7 @@ class Answers extends Component
 
     public function loadAnswers()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function render()
@@ -41,9 +41,9 @@ class Answers extends Component
         }
 
         return view('livewire.user.stats.answers', [
-            'week_dates' => $this->ready_to_load ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
-            'answers' => $this->ready_to_load ? json_encode($answers, JSON_NUMERIC_CHECK) : [],
-            'answers_count' => $this->ready_to_load ? $answers_count : '···',
+            'week_dates' => $this->readyToLoad ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
+            'answers' => $this->readyToLoad ? json_encode($answers, JSON_NUMERIC_CHECK) : [],
+            'answers_count' => $this->readyToLoad ? $answers_count : '···',
         ]);
     }
 }

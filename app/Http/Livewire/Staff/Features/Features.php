@@ -7,17 +7,17 @@ use Livewire\Component;
 
 class Features extends Component
 {
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function loadFeatures()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function render()
     {
         return view('livewire.staff.features.features', [
-            'features' => $this->ready_to_load ? Feature::latest()->get() : [],
+            'features' => $this->readyToLoad ? Feature::latest()->get() : [],
         ]);
     }
 }

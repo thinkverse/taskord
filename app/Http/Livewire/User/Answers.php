@@ -11,7 +11,7 @@ class Answers extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public User $user;
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function mount($user)
     {
@@ -20,7 +20,7 @@ class Answers extends Component
 
     public function loadAnswers()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getAnswers()
@@ -33,7 +33,7 @@ class Answers extends Component
     public function render()
     {
         return view('livewire.user.answers', [
-            'answers' => $this->ready_to_load ? $this->getAnswers() : [],
+            'answers' => $this->readyToLoad ? $this->getAnswers() : [],
         ]);
     }
 }

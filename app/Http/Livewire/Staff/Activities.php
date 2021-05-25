@@ -10,11 +10,11 @@ class Activities extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function loadActivities()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getActivities()
@@ -25,7 +25,7 @@ class Activities extends Component
     public function render()
     {
         return view('livewire.staff.activities', [
-            'activities' => $this->ready_to_load ? $this->getActivities() : [],
+            'activities' => $this->readyToLoad ? $this->getActivities() : [],
             'count' => number_format(Activity::count('id')),
         ]);
     }

@@ -16,7 +16,7 @@ class All extends Component
     public $type;
     public $page;
     public $perPage;
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function mount($type, $page, $perPage)
     {
@@ -27,7 +27,7 @@ class All extends Component
 
     public function loadAllNotifications()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function paginate($items, $options = [])
@@ -41,7 +41,7 @@ class All extends Component
     public function render()
     {
         return view('livewire.notification.all', [
-            'notifications' => $this->ready_to_load ? $this->paginate(auth()->user()->notifications) : [],
+            'notifications' => $this->readyToLoad ? $this->paginate(auth()->user()->notifications) : [],
         ]);
     }
 }

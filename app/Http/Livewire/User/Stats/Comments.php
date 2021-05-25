@@ -8,7 +8,7 @@ use Livewire\Component;
 class Comments extends Component
 {
     public $user;
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function mount($user)
     {
@@ -17,7 +17,7 @@ class Comments extends Component
 
     public function loadComments()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function render()
@@ -42,9 +42,9 @@ class Comments extends Component
         }
 
         return view('livewire.user.stats.comments', [
-            'week_dates' => $this->ready_to_load ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
-            'comments' => $this->ready_to_load ? json_encode($comments, JSON_NUMERIC_CHECK) : [],
-            'comments_count' => $this->ready_to_load ? $comments_count : '···',
+            'week_dates' => $this->readyToLoad ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
+            'comments' => $this->readyToLoad ? json_encode($comments, JSON_NUMERIC_CHECK) : [],
+            'comments_count' => $this->readyToLoad ? $comments_count : '···',
         ]);
     }
 }

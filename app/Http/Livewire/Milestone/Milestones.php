@@ -13,7 +13,7 @@ class Milestones extends Component
     public $type;
     public $page;
     public $perPage;
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function mount($page, $perPage, $type)
     {
@@ -24,7 +24,7 @@ class Milestones extends Component
 
     public function loadMilestones()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getMilestones()
@@ -61,7 +61,7 @@ class Milestones extends Component
     public function render()
     {
         return view('livewire.milestone.milestones', [
-            'milestones' => $this->ready_to_load ? $this->paginate($this->getMilestones()) : [],
+            'milestones' => $this->readyToLoad ? $this->paginate($this->getMilestones()) : [],
             'page' => $this->page,
         ]);
     }

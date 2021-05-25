@@ -13,7 +13,7 @@ class Products extends Component
     public $type;
     public $page;
     public $perPage;
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function mount($page, $perPage, $type)
     {
@@ -24,7 +24,7 @@ class Products extends Component
 
     public function loadProducts()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getProducts()
@@ -56,7 +56,7 @@ class Products extends Component
     public function render()
     {
         return view('livewire.products.products', [
-            'products' => $this->ready_to_load ? $this->paginate($this->getProducts()) : [],
+            'products' => $this->readyToLoad ? $this->paginate($this->getProducts()) : [],
             'page' => $this->page,
         ]);
     }

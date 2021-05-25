@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class RecentlyLaunched extends Component
 {
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function loadRecentlyLaunched()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getRecentlyLaunched()
@@ -26,7 +26,7 @@ class RecentlyLaunched extends Component
     public function render()
     {
         return view('livewire.home.recently-launched', [
-            'products' => $this->ready_to_load ? $this->getRecentlyLaunched() : [],
+            'products' => $this->readyToLoad ? $this->getRecentlyLaunched() : [],
         ]);
     }
 }

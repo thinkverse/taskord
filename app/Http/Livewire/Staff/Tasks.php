@@ -10,11 +10,11 @@ class Tasks extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function loadTasks()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getTasks()
@@ -25,8 +25,8 @@ class Tasks extends Component
     public function render()
     {
         return view('livewire.staff.tasks', [
-            'tasks' => $this->ready_to_load ? $this->getTasks() : [],
-            'count' => $this->ready_to_load ? Task::count('id') : [],
+            'tasks' => $this->readyToLoad ? $this->getTasks() : [],
+            'count' => $this->readyToLoad ? Task::count('id') : [],
         ]);
     }
 }

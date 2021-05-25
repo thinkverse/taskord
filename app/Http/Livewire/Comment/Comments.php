@@ -17,7 +17,7 @@ class Comments extends Component
     public Task $task;
     public $page;
     public $perPage;
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function mount($task, $page, $perPage)
     {
@@ -28,7 +28,7 @@ class Comments extends Component
 
     public function loadComments()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getComments()
@@ -54,7 +54,7 @@ class Comments extends Component
     public function render()
     {
         return view('livewire.comment.comments', [
-            'comments' => $this->ready_to_load ? $this->paginate($this->getComments()) : [],
+            'comments' => $this->readyToLoad ? $this->paginate($this->getComments()) : [],
             'page' => $this->page,
         ]);
     }

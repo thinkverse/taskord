@@ -1,5 +1,5 @@
 <div wire:init="loadProducts">
-    @if (!$ready_to_load)
+    @if (!$readyToLoad)
         <div class="card-body text-center mt-3 mb-3">
             <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
             <div class="h6">
@@ -7,7 +7,7 @@
             </div>
         </div>
     @endif
-    @if ($ready_to_load and count($products) === 0)
+    @if ($readyToLoad and count($products) === 0)
         <div class="card-body text-center mt-3 mb-3">
             <x-heroicon-o-cube class="heroicon heroicon-60px text-primary mb-2" />
             <div class="h4">
@@ -38,7 +38,7 @@
             </div>
         @endforeach
     @endforeach
-    @if ($ready_to_load and $products->hasMorePages())
+    @if ($readyToLoad and $products->hasMorePages())
         <livewire:products.load-more :type="$type" :page="$page" :perPage="$perPage" />
     @endif
 </div>

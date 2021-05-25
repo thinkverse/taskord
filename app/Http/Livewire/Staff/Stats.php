@@ -16,11 +16,11 @@ use Spatie\Activitylog\Models\Activity;
 
 class Stats extends Component
 {
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function loadStats()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getStats()
@@ -70,7 +70,7 @@ class Stats extends Component
     public function render()
     {
         return view('livewire.staff.stats', [
-            'stats' => $this->ready_to_load ? $this->getStats() : [],
+            'stats' => $this->readyToLoad ? $this->getStats() : [],
         ]);
     }
 }

@@ -1,5 +1,5 @@
 <div wire:init="loadComments">
-    @if (!$ready_to_load)
+    @if (!$readyToLoad)
         <div class="card-body text-center mt-3">
             <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
             <div class="h6">
@@ -7,7 +7,7 @@
             </div>
         </div>
     @endif
-    @if ($ready_to_load and count($comments) === 0)
+    @if ($readyToLoad and count($comments) === 0)
         <div class="card-body text-center mt-3 mb-3">
             <x-heroicon-o-chat-alt-2 class="heroicon heroicon-60px text-primary mb-2" />
             <div class="h4">
@@ -23,7 +23,7 @@
         @endforeach
     </ul>
     <div class="mt-4">
-        @if ($ready_to_load and $comments->hasMorePages())
+        @if ($readyToLoad and $comments->hasMorePages())
             <livewire:comment.load-more :task="$task" :page="$page" :perPage="$perPage" />
         @endif
     </div>

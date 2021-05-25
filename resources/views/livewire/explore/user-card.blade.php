@@ -1,5 +1,5 @@
 <div class="card" wire:init="loadUser">
-    @if (!$ready_to_load)
+    @if (!$readyToLoad)
         <div class="card-body text-center">
             <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
         </div>

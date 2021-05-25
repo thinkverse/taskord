@@ -12,11 +12,11 @@ class Products extends Component
 
     protected string $paginationTheme = 'bootstrap';
 
-    public bool $ready_to_load = false;
+    public bool $readyToLoad = false;
 
     public function loadProducts()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getProducts()
@@ -30,8 +30,8 @@ class Products extends Component
     public function render()
     {
         return view('livewire.staff.products', [
-            'products' => $this->ready_to_load ? $this->getProducts() : [],
-            'count'    => $this->ready_to_load ? Product::count('id') : [],
+            'products' => $this->readyToLoad ? $this->getProducts() : [],
+            'count'    => $this->readyToLoad ? Product::count('id') : [],
         ]);
     }
 }

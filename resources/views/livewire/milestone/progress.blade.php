@@ -1,5 +1,5 @@
 <div wire:init="loadProgress" class="mt-3">
-    @if (!$ready_to_load)
+    @if (!$readyToLoad)
         <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
     @else
         <div class="progress w-50" style="height:6px" title="{{ $percent }}% completed">

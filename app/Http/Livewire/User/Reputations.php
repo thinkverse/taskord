@@ -10,11 +10,11 @@ class Reputations extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function loadReputations()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getReputations()
@@ -28,7 +28,7 @@ class Reputations extends Component
     public function render()
     {
         return view('livewire.user.reputations', [
-            'points' => $this->ready_to_load ? $this->getReputations() : [],
+            'points' => $this->readyToLoad ? $this->getReputations() : [],
         ]);
     }
 }

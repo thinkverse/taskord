@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class TrendingMakers extends Component
 {
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function loadTrendingMakers()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getTrendingMakers()
@@ -32,7 +32,7 @@ class TrendingMakers extends Component
     public function render()
     {
         return view('livewire.explore.trending-makers', [
-            'users' => $this->ready_to_load ? $this->getTrendingMakers() : [],
+            'users' => $this->readyToLoad ? $this->getTrendingMakers() : [],
         ]);
     }
 }

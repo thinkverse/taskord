@@ -12,11 +12,11 @@ class AllTasks extends Component
     ];
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $ready_to_load = false;
+    public $readyToLoad = false;
 
     public function loadAllTasks()
     {
-        $this->ready_to_load = true;
+        $this->readyToLoad = true;
     }
 
     public function getAllTasks()
@@ -30,7 +30,7 @@ class AllTasks extends Component
     public function render()
     {
         return view('livewire.tasks.all-tasks', [
-            'tasks' => $this->ready_to_load ? $this->getAllTasks() : [],
+            'tasks' => $this->readyToLoad ? $this->getAllTasks() : [],
         ]);
     }
 }

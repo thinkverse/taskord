@@ -3,12 +3,12 @@
         Who to follow
     </div>
     <div class="card mb-4">
-        @if (!$ready_to_load)
+        @if (!$readyToLoad)
             <div class="card-body text-center">
                 <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
             </div>
         @endif
-        @if ($ready_to_load and count($users) === 0)
+        @if ($readyToLoad and count($users) === 0)
             <div class="card-body text-center fw-bold text-secondary">
                 <x-heroicon-o-user class="heroicon heroicon-20px text-primary" />
                 Nothing to suggest!
