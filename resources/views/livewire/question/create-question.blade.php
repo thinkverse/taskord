@@ -44,7 +44,7 @@
                                 <x-heroicon-s-star class="heroicon-18px text-gold" />
                                 <span class="ms-1">Patron only</span>
                             </div>
-                            <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patron_only">
+                            <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patronOnly">
                             <label for="patronOnly" class="ms-1">This question will visible only for patrons</label>
                         </div>
                     @else
