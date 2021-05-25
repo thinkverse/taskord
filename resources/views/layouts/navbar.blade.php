@@ -151,7 +151,7 @@
                     </li>
                     @include('layouts.modals.new-task')
                     <livewire:notification.icon />
-                    @if (auth()->user()->hasGoal)
+                    @if (auth()->user()->has_goal)
                         <li class="nav-item me-2">
                             <div class="nav-link">
                                 <a
