@@ -67,7 +67,7 @@
     </div>
     @if (auth()->user()->is_staff)
         <div class="d-flex justify-content-between mt-2">
-            <span>Enable staffship / performance bar</span>
+            <span>Enable staff mode</span>
             <span>
                 <kbd class="me-1">p</kbd><kbd>b</kbd> or
                 <kbd>`</kbd>
