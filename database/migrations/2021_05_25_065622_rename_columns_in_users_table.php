@@ -23,6 +23,7 @@ class RenameColumnsInUsersTable extends Migration
             $table->renameColumn('isBeta', 'is_beta');
             $table->renameColumn('isPatron', 'is_patron');
             $table->renameColumn('isPrivate', 'is_private');
+            $table->renameColumn('isVerified', 'is_verified');
             $table->renameColumn('isFlagged', 'spammy');
             $table->renameColumn('isSuspended', 'is_suspended');
             $table->renameColumn('lastIP', 'last_ip');
@@ -46,6 +47,7 @@ class RenameColumnsInUsersTable extends Migration
             $table->renameColumn('is_beta', 'isBeta');
             $table->renameColumn('is_patron', 'isPatron');
             $table->renameColumn('is_private', 'isPrivate');
+            $table->renameColumn('is_verified', 'isVerified');
             $table->renameColumn('spammy', 'isFlagged');
             $table->renameColumn('is_suspended', 'isSuspended');
             $table->renameColumn('last_ip', 'lastIP');
