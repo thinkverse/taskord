@@ -124,7 +124,7 @@
                     <label for="enrollBeta" class="ms-1">Enroll to Beta</label >
                 </div>
                 <div class="mb-2">
-                    <input wire:click="enrollStaff" id="enrollStaff" class="form-check-input" type="checkbox" wire:model="isStaff">
+                    <input wire:click="enrollStaff" id="enrollStaff" class="form-check-input" type="checkbox" wire:model="is_staff">
                     <label for="enrollStaff" class="ms-1">Enroll to Staff</label>
                 </div>
                 <div class="mb-2">
@@ -147,7 +147,7 @@
                     <input wire:click="verifyUser" id="verifyUser" class="form-check-input" type="checkbox" wire:model="isVerified">
                     <label for="verifyUser" class="ms-1 text-success fw-bold">Verify this user</label>
                 </div>
-                @if (!$user->isStaff)
+                @if (!$user->is_staff)
                     <div class="mt-3">
                         <button wire:loading.attr="disabled" wire:click="masquerade" class="btn btn-sm btn-warning fw-bold">
                             <x-heroicon-o-eye class="heroicon" />
@@ -167,7 +167,7 @@
                             </form>
                     </div>
                 @endif
-                @if (!$user->isStaff)
+                @if (!$user->is_staff)
                     <hr>
                     <div class="text-danger h5 mb-3">
                         <x-heroicon-o-user class="heroicon heroicon-20px" />
