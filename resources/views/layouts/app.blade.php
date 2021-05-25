@@ -25,7 +25,7 @@
                 <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" sizes="any" type="image/svg+xml">
             @endif
         @else
-            <link rel="icon" href="https://ik.imagekit.io/taskordimg/dev_VSXZqiK5m.svg" sizes="any" type="image/svg+xml">
+            <link rel="icon" href="https://ik.imagekit.io/taskordimg/dev_nRoZHKwhy.svg" sizes="any" type="image/svg+xml">
         @endif
     @endauth
     @guest
