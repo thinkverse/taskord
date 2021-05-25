@@ -23,6 +23,7 @@ class RenameColumnsInUsersTable extends Migration
             $table->renameColumn('isBeta', 'is_beta');
             $table->renameColumn('isPatron', 'is_patron');
             $table->renameColumn('isPrivate', 'is_private');
+            $table->renameColumn('isFlagged', 'spammy');
         });
     }
 
@@ -43,6 +44,7 @@ class RenameColumnsInUsersTable extends Migration
             $table->renameColumn('is_beta', 'isBeta');
             $table->renameColumn('is_patron', 'isPatron');
             $table->renameColumn('is_private', 'isPrivate');
+            $table->renameColumn('spammy', 'isFlagged');
         });
     }
 }
