@@ -128,7 +128,7 @@
                     <label for="enrollStaff" class="ms-1">Enroll to Staff</label>
                 </div>
                 <div class="mb-2">
-                    <input wire:click="enrollPatron" id="enrollPatron" class="form-check-input" type="checkbox" wire:model="isPatron">
+                    <input wire:click="enrollPatron" id="enrollPatron" class="form-check-input" type="checkbox" wire:model="is_patron">
                     <label for="enrollPatron" class="ms-1">Enroll to Patron</label>
                 </div>
                 <div class="mb-2">

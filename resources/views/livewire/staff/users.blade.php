@@ -147,7 +147,7 @@
                                 </div>
                                 <div class="mt-1">
                                     <span>Plan:</span>
-                                    @if (!$user->isPatron)
+                                    @if (!$user->is_patron)
                                         <span class="badge bg-danger">Free user</span>
                                     @else
                                         @if ($user->patron)

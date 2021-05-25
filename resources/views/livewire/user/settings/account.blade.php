@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="card-body">
-            @if ($user->isPatron)
+            @if ($user->is_patron)
                 <div class="form-check">
                     <input wire:click="enrollPrivate" id="enrollPrivate" class="form-check-input" type="checkbox" {{ $user->isPrivate ? 'checked' : '' }}>
                     <label for="enrollPrivate" class="form-check-label">Hide all tasks from public</label>

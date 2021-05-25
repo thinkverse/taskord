@@ -51,7 +51,7 @@
                             <a href="{{ $deal->website }}" target="_blank">{{ $deal->website }}</a>
                         </div>
                         @auth
-                            @if (auth()->user()->isPatron)
+                            @if (auth()->user()->is_patron)
                                 @if ($deal->coupon)
                                     <div class="mt-2">
                                         Coupon Code
