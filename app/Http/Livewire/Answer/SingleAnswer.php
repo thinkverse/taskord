@@ -53,7 +53,7 @@ class SingleAnswer extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isStaff and auth()->user()->staffShip) {
+        if (auth()->user()->is_staff and auth()->user()->staffShip) {
             Helper::hide($this->answer);
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
 

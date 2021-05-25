@@ -60,7 +60,7 @@ class SingleComment extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isStaff and auth()->user()->staffShip) {
+        if (auth()->user()->is_staff and auth()->user()->staffShip) {
             Helper::hide($this->comment);
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide comment | Comment ID: '.$this->comment->id);
 
