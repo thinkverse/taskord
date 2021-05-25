@@ -3,3 +3,13 @@
 //
 // to stop using defaults: git update-index --skip-worktree .vscode/settings.json
 // go back to using defaults: git update-index --no-skip-worktree .vscode/settings.json
+{
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "window.zoomLevel": 1,
+    "explorer.confirmDragAndDrop": false,
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "workbench.colorTheme": "SynthWave '84",
+}
