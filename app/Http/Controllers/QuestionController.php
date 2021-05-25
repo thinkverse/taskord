@@ -43,7 +43,7 @@ class QuestionController extends Controller
 
             return view('question.question', $response);
         } elseif (auth()->check() && $question->patronOnly) {
-            if (auth()->check() && ! auth()->user()->isPatron) {
+            if (auth()->check() && ! auth()->user()->is_patron) {
                 return redirect()->route('patron.home');
             } else {
                 views($question)->record();
