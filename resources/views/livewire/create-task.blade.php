@@ -27,7 +27,7 @@
         @auth
             @if (!auth()->user()->check_state)
                 <div class="ms-auto me-2 d-none d-sm-block">
-                    <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ carbon('today')->format('Y-m-d') }}" />
+                    <input class="form-control form-control-sm" wire:model.defer="dueAt" type="date" placeholder="Due date" min="{{ carbon('today')->format('Y-m-d') }}" />
                 </div>
             @endif
         @endauth

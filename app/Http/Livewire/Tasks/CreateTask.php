@@ -18,7 +18,7 @@ class CreateTask extends Component
 
     public $task;
     public $images = [];
-    public $due_at;
+    public $dueAt;
 
     public function updatedImage()
     {
@@ -83,7 +83,7 @@ class CreateTask extends Component
             'task' => $this->task,
             'done' => false,
             'images' => $images,
-            'due_at' => $this->due_at,
+            'due_at' => $this->dueAt,
             'type' => $product_id ? 'product' : 'user',
         ]))();
 
