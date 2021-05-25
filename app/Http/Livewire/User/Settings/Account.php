@@ -41,7 +41,7 @@ class Account extends Component
     public function enrollPrivate()
     {
         if (auth()->user()->id === $this->user->id) {
-            if (! $this->user->isPatron) {
+            if (! $this->user->is_patron) {
                 toast($this, 'error', 'Forbidden!');
             }
             $this->user->isPrivate = ! $this->user->isPrivate;
