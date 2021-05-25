@@ -12,7 +12,7 @@ class Staffbar extends Component
     public function clean()
     {
         Clean::dispatch();
-        loggy(request(), 'Admin', auth()->user(), 'Cleaned the Application');
+        loggy(request(), 'Staff', auth()->user(), 'Cleaned the Application');
 
         return toast($this, 'success', 'Cleaning process has been initiated successfully');
     }
@@ -22,7 +22,7 @@ class Staffbar extends Component
         if (auth()->id() === 1) {
             Deploy::dispatch(auth()->user(), request()->ip());
             Clean::dispatch();
-            loggy(request(), 'Admin', auth()->user(), 'Deployed the Application');
+            loggy(request(), 'Staff', auth()->user(), 'Deployed the Application');
 
             return toast($this, 'success', 'Deployment process has been initiated successfully 🚀');
         } else {
