@@ -34,7 +34,7 @@ class Feature extends Model
                 return $feature->staff ? true : false;
             } elseif (auth()->user()->isBeta) {
                 return $feature->beta ? true : false;
-            } elseif (auth()->user()->isDeveloper) {
+            } elseif (auth()->user()->is_contributor) {
                 return $feature->contributor ? true : false;
             } else {
                 return false;
