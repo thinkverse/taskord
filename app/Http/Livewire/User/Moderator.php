@@ -21,7 +21,7 @@ class Moderator extends Component
     public $is_contributor;
     public $is_private;
     public $isVerified;
-    public $isFlagged;
+    public $spammy;
     public $isSuspended;
     public $staff_notes;
     public $readyToLoad = false;
@@ -36,7 +36,7 @@ class Moderator extends Component
         $this->is_contributor = $user->is_contributor;
         $this->is_private = $user->is_private;
         $this->isVerified = $user->isVerified;
-        $this->isFlagged = $user->isFlagged;
+        $this->spammy = $user->spammy;
         $this->isSuspended = $user->isSuspended;
         $this->staff_notes = $user->staff_notes;
     }
@@ -123,10 +123,10 @@ class Moderator extends Component
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
-            $this->user->isFlagged = ! $this->user->isFlagged;
+            $this->user->spammy = ! $this->user->spammy;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isFlagged) {
+            if ($this->user->spammy) {
                 loggy(request(), 'Staff', auth()->user(), 'Flagged the user | Username: @'.$this->user->username);
             } else {
                 loggy(request(), 'Staff', auth()->user(), 'Un-flagged the user | Username: @'.$this->user->username);
@@ -144,11 +144,11 @@ class Moderator extends Component
             }
             $this->user->isSuspended = ! $this->user->isSuspended;
             if ($this->user->isSuspended) {
-                $this->user->isFlagged = true;
-                $this->isFlagged = true;
+                $this->user->spammy = true;
+                $this->spammy = true;
             } else {
-                $this->user->isFlagged = false;
-                $this->isFlagged = false;
+                $this->user->spammy = false;
+                $this->spammy = false;
             }
             $this->user->timestamps = false;
             $this->user->save();
