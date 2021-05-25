@@ -25,28 +25,28 @@ class CompletedTasks extends Component
         $createdAt = $this->user->created_at->format('Y-m-d');
         $currentDate = carbon()->format('Y-m-d');
         $period = CarbonPeriod::create($createdAt, '7 days', $currentDate);
-        $completed_tasks_count = $this->user->tasks()
+        $completedTasksCount = $this->user->tasks()
             ->select('id')
             ->whereDone(true)
             ->count();
 
-        $week_dates = [];
-        $completed_tasks = [];
+        $weekDates = [];
+        $completedTasks = [];
         $tasks = [];
         foreach ($period->toArray() as $date) {
-            array_push($week_dates, carbon($date)->format('d M Y'));
+            array_push($weekDates, carbon($date)->format('d M Y'));
             $count = $this->user->tasks()
                 ->select('id')
                 ->whereDone(true)
                 ->whereBetween('done_at', [carbon($date), carbon($date)->addDays(7)])
                 ->count();
-            array_push($completed_tasks, $count);
+            array_push($completedTasks, $count);
         }
 
         return view('livewire.user.stats.completed-tasks', [
-            'week_dates' => $this->readyToLoad ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
-            'completed_tasks' => $this->readyToLoad ? json_encode($completed_tasks, JSON_NUMERIC_CHECK) : [],
-            'completed_tasks_count' => $this->readyToLoad ? $completed_tasks_count : '···',
+            'week_dates' => $this->readyToLoad ? json_encode($weekDates, JSON_NUMERIC_CHECK) : [],
+            'completed_tasks' => $this->readyToLoad ? json_encode($completedTasks, JSON_NUMERIC_CHECK) : [],
+            'completed_tasks_count' => $this->readyToLoad ? $completedTasksCount : '···',
         ]);
     }
 }
