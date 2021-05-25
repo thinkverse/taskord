@@ -17,7 +17,7 @@ class Moderator extends Component
     public $isBeta;
     public $is_staff;
     public $isPatron;
-    public $darkMode;
+    public $dark_mode;
     public $is_contributor;
     public $isPrivate;
     public $isVerified;
@@ -32,7 +32,7 @@ class Moderator extends Component
         $this->isBeta = $user->isBeta;
         $this->is_staff = $user->is_staff;
         $this->isPatron = $user->isPatron;
-        $this->darkMode = $user->darkMode;
+        $this->dark_mode = $user->dark_mode;
         $this->is_contributor = $user->is_contributor;
         $this->isPrivate = $user->isPrivate;
         $this->isVerified = $user->isVerified;
@@ -199,10 +199,10 @@ class Moderator extends Component
     public function enrollDarkMode()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            $this->user->darkMode = ! $this->user->darkMode;
+            $this->user->dark_mode = ! $this->user->dark_mode;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->darkMode) {
+            if ($this->user->dark_mode) {
                 loggy(request(), 'Staff', auth()->user(), 'Enrolled to Dark mode | Username: @'.$this->user->username);
             } else {
                 loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Dark mode | Username: @'.$this->user->username);
