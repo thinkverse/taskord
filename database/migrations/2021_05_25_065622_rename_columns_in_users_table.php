@@ -19,6 +19,7 @@ class RenameColumnsInUsersTable extends Migration
             $table->renameColumn('isStaff', 'is_staff');
             $table->renameColumn('isDeveloper', 'is_contributor');
             $table->renameColumn('staffShip', 'staff_mode');
+            $table->renameColumn('darkMode', 'dark_mode');
         });
     }
 
@@ -35,6 +36,7 @@ class RenameColumnsInUsersTable extends Migration
             $table->renameColumn('is_staff', 'isStaff');
             $table->renameColumn('is_contributor', 'isDeveloper');
             $table->renameColumn('staff_mode', 'staffShip');
+            $table->renameColumn('dark_mode', 'darkMode');
         });
     }
 }
