@@ -22,16 +22,16 @@ class ProductController extends Controller
                 return $date->created_at->format('m');
             });
 
-        $taskmcount = [];
+        $taskCount = [];
         $countArr = [];
 
         foreach ($tasks as $key => $value) {
-            $taskmcount[(int) $key] = count($value);
+            $taskCount[(int) $key] = count($value);
         }
 
         for ($i = 1; $i <= 12; $i++) {
-            if (! empty($taskmcount[$i])) {
-                $countArr[$i] = $taskmcount[$i];
+            if (! empty($taskCount[$i])) {
+                $countArr[$i] = $taskCount[$i];
             } else {
                 $countArr[$i] = 0;
             }
@@ -40,12 +40,12 @@ class ProductController extends Controller
         $members = $product->members->pluck('id');
         $members->push($product->owner->id);
 
-        $done_count = $product->tasks()
+        $doneCount = $product->tasks()
             ->whereDone(true)
             ->whereIn('user_id', $members)
             ->count('id');
 
-        $pending_count = $product->tasks()
+        $pendingCount = $product->tasks()
             ->whereDone(false)
             ->whereIn('user_id', $members)
             ->count('id');
@@ -54,8 +54,8 @@ class ProductController extends Controller
             'product' => $product,
             'type' => $type,
             'graph' => $countArr,
-            'done_count' => $done_count,
-            'pending_count' => $pending_count,
+            'done_count' => $doneCount,
+            'pending_count' => $pendingCount,
             'updates_count' => ProductUpdate::where([
                 ['product_id', $product->id],
             ])
