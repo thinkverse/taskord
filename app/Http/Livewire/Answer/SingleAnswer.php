@@ -37,7 +37,7 @@ class SingleAnswer extends Component
         if (! auth()->user()->hasVerifiedEmail()) {
             return toast($this, 'error', 'Your email is not verified!');
         }
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
         if (auth()->user()->id === $this->answer->user->id) {
@@ -69,7 +69,7 @@ class SingleAnswer extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 

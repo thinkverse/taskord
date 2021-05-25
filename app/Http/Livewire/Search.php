@@ -45,7 +45,7 @@ class Search extends Component
         $this->questions = Question::select('id', 'title', 'user_id')
             ->whereHas('user', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
+                    ['spammy', false],
                 ]);
             })
             ->whereHidden(false)
