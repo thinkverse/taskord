@@ -174,7 +174,7 @@
                         Danger Zone
                     </div>
                     <div class="mt-2">
-                        <input wire:click="flagUser" id="flagUser" class="form-check-input" type="checkbox" wire:model="isFlagged">
+                        <input wire:click="flagUser" id="flagUser" class="form-check-input" type="checkbox" wire:model="spammy">
                         <label for="flagUser" class="ms-1 text-danger fw-bold">Flag this user</label>
                     </div>
                     <div class="mt-2">

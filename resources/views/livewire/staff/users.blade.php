@@ -132,10 +132,10 @@
                                     @if ($user->isSuspended)
                                         <span class="badge bg-danger">Suspended</span>
                                     @endif
-                                    @if ($user->isFlagged)
+                                    @if ($user->spammy)
                                         <span class="badge bg-info">Flagged</span>
                                     @endif
-                                    @if (!$user->isSuspended or !$user->isFlagged)
+                                    @if (!$user->isSuspended or !$user->spammy)
                                         <span class="badge bg-success">Good</span>
                                     @endif
                                 </div>

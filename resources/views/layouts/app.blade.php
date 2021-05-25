@@ -61,7 +61,7 @@
             </div>
         @endif
         @auth
-            @if (auth()->user()->isFlagged)
+            @if (auth()->user()->spammy)
                 <div class="alert alert-danger rounded-0" role="alert">
                     <div class="fw-bold">
                         <x-heroicon-o-flag class="heroicon" />

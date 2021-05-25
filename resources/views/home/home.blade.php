@@ -11,7 +11,7 @@
             <livewire:home.recent-questions />
             <livewire:home.launched-today />
             @auth
-                @if (!auth()->user()->isFlagged)
+                @if (!auth()->user()->spammy)
                     <div class="card mb-3">
                         <div class="card-body">
                             <livewire:create-task />
