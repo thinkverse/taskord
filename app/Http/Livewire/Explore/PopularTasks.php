@@ -23,7 +23,7 @@ class PopularTasks extends Component
         return Task::withCount(['comments', 'likers'])
                 ->whereHas('user', function ($q) {
                     $q->where([
-                        ['isFlagged', false],
+                        ['spammy', false],
                         ['is_private', false],
                     ]);
                 })

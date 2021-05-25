@@ -39,7 +39,7 @@ class SingleComment extends Component
             return toast($this, 'error', 'Your email is not verified!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
         if (auth()->user()->id === $this->comment->user->id) {
@@ -76,7 +76,7 @@ class SingleComment extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 
