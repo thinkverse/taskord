@@ -12,6 +12,7 @@
         "codingyu.laravel-goto-view",
         "onecentlin.laravel5-snippets",
         "stef-k.laravel-goto-controller",
-        "robbowen.synthwave-vscode"
+        "robbowen.synthwave-vscode",
+        "ms-vscode-remote.remote-containers"
     ]
 }
