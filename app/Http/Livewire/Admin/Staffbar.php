@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\Staff;
 
 use App\Jobs\Clean;
 use App\Jobs\Deploy;
@@ -36,7 +36,7 @@ class Staffbar extends Component
         $commit = git('rev-parse --short HEAD') ?: '0000000';
         $jobs = Queue::size();
 
-        return view('livewire.admin.staffbar', [
+        return view('livewire.staff.staffbar', [
             'branchname' => $branch,
             'headHASH' => $commit,
             'jobs' => number_format($jobs),
