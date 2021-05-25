@@ -56,7 +56,7 @@
                         @if ($user->isFollowing(auth()->user()))
                             <span class="ms-2 badge bg-light text-secondary">Follows you</span>
                         @endif
-                        @if (auth()->user()->staffShip)
+                        @if (auth()->user()->staff_mode)
                             <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                         @endif
                         @endauth
@@ -163,7 +163,7 @@
         @if (
             !$user->isPrivate or
             auth()->check() and auth()->user()->id === $user->id or
-            auth()->check() and auth()->user()->staffShip
+            auth()->check() and auth()->user()->staff_mode
         )
         <a class="text-dark fw-bold me-4" href="{{ route('user.done', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif me-1">Done</span>
