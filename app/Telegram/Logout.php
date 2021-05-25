@@ -7,28 +7,28 @@ use Telegram;
 
 class Logout
 {
-    protected $chat_id;
+    protected $chatId;
 
-    public function __construct($chat_id)
+    public function __construct($chatId)
     {
-        $this->chat_id = $chat_id;
+        $this->chatId = $chatId;
     }
 
     public function __invoke()
     {
-        $user = User::whereTelegramChatId($this->chat_id)->first();
+        $user = User::whereTelegramChatId($this->chatId)->first();
         if ($user) {
             $user->telegram_chat_id = null;
             $user->save();
 
-            return $this->send($this->chat_id, '🚪 *Logout successful*');
+            return $this->send($this->chatId, '🚪 *Logout successful*');
         }
     }
 
-    public function send($chat_id, $message)
+    public function send($chatId, $message)
     {
         return Telegram::sendMessage([
-            'chat_id' => $chat_id,
+            'chat_id' => $chatId,
             'text' => $message,
             'disable_web_page_preview' => true,
             'parse_mode' => 'Markdown',
