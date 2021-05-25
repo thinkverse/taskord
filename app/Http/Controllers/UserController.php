@@ -28,7 +28,7 @@ class UserController extends Controller
             'milestone_count' => $user->milestones()->count('id'),
         ];
 
-        if (auth()->check() && auth()->user()->id === $user->id or auth()->check() && auth()->user()->staffShip) {
+        if (auth()->check() && auth()->user()->id === $user->id or auth()->check() && auth()->user()->staff_mode) {
             return view($type, $response);
         } elseif ($user->isFlagged) {
             abort(404);
