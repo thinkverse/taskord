@@ -42,9 +42,9 @@
                         <x-heroicon-o-credit-card class="heroicon text-secondary" />
                         Last login IP:
                     </span>
-                    @if ($user->lastIP)
-                        <a class="fw-bold" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank" rel="noreferrer">
-                            {{ Str::limit($user->lastIP, 15, '..') }}
+                    @if ($user->last_ip)
+                        <a class="fw-bold" href="https://ipinfo.io/{{ $user->last_ip }}" target="_blank" rel="noreferrer">
+                            {{ Str::limit($user->last_ip, 15, '..') }}
                         </a>
                     @else
                         <span class="fw-bold text-secondary">
@@ -52,7 +52,7 @@
                         </span>
                     @endif
                     @php
-                        $suspectedUsers = \App\Models\User::where('lastIP', $user->lastIP)->get();
+                        $suspectedUsers = \App\Models\User::where('last_ip', $user->last_ip)->get();
                     @endphp
                     @if ($suspectedUsers->count() > 1)
                         <div class="small mt-1">
