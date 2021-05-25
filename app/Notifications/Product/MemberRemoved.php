@@ -19,12 +19,12 @@ class MemberRemoved extends Notification implements ShouldQueue
         $this->user_id = $user_id;
     }
 
-    public function via($notifiable)
+    public function via()
     {
         return ['database'];
     }
 
-    public function toDatabase($notifiable)
+    public function toDatabase()
     {
         return [
             'product_id' => $this->product->id,
