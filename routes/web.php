@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\StaffController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\MeetupController;
 use App\Http\Controllers\MilestoneController;
@@ -11,6 +10,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TelegramController;
