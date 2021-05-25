@@ -18,7 +18,7 @@ class Login extends Notification implements ShouldQueue
         $this->ip = $ip;
     }
 
-    public function via($notifiable)
+    public function via()
     {
         return ['mail'];
     }
