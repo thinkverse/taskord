@@ -136,7 +136,7 @@
                     <label for="enrollDarkMode" class="ms-1">Enable Dark Mode</label>
                 </div>
                 <div class="mb-2">
-                    <input wire:click="enrollDeveloper" id="enrollDeveloper" class="form-check-input" type="checkbox" wire:model="isDeveloper">
+                    <input wire:click="enrollDeveloper" id="enrollDeveloper" class="form-check-input" type="checkbox" wire:model="is_contributor">
                     <label for="enrollDeveloper" class="ms-1">Enroll to Contributor</label>
                 </div>
                 <div class="mb-2">
