@@ -18,7 +18,7 @@ type User {
     is_staff: Boolean!
     isVerified: Boolean!
     is_contributor: Boolean!
-    isBeta: Boolean!
+    is_beta: Boolean!
     isPatron: Boolean!
     isPrivate: Boolean!
     tasks: [Task!]! @hasMany(type: "connection")
