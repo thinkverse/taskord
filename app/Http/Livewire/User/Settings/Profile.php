@@ -23,7 +23,7 @@ class Profile extends Component
     public $avatar;
     // Goal
     public $daily_goal;
-    public $hasGoal;
+    public $has_goal;
     // Sponsor
     public $sponsor;
     // Social
@@ -44,7 +44,7 @@ class Profile extends Component
         $this->location = $user->location;
         $this->company = $user->company;
         // Goal
-        $this->hasGoal = $user->hasGoal;
+        $this->has_goal = $user->has_goal;
         $this->daily_goal = $user->daily_goal;
         // Sponsor
         $this->sponsor = $user->sponsor;
@@ -141,7 +141,7 @@ class Profile extends Component
     public function enableGoal()
     {
         if (auth()->user()->id === $this->user->id) {
-            $this->user->hasGoal = ! $this->user->hasGoal;
+            $this->user->has_goal = ! $this->user->has_goal;
             $this->user->save();
             loggy(request(), 'User', auth()->user(), 'Toggled goals settings');
         } else {
