@@ -16,7 +16,7 @@ type User {
     youtube: String
     reputation: Int!
     is_staff: Boolean!
-    isVerified: Boolean!
+    is_verified: Boolean!
     is_contributor: Boolean!
     is_beta: Boolean!
     is_patron: Boolean!
