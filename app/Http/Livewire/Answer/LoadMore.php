@@ -20,9 +20,9 @@ class LoadMore extends Component
     public function mount($question, $page, $perPage)
     {
         $this->question = $question;
-        $this->page = $page + 1; //increment the page
+        $this->page = $page + 1;
         $this->perPage = $perPage;
-        $this->loadMore = false; //show the button
+        $this->loadMore = false;
     }
 
     public function paginate($items, $options = [])
