@@ -20,7 +20,7 @@ class Moderator extends Component
     public $dark_mode;
     public $is_contributor;
     public $is_private;
-    public $isVerified;
+    public $is_verified;
     public $spammy;
     public $is_suspended;
     public $staff_notes;
@@ -35,7 +35,7 @@ class Moderator extends Component
         $this->dark_mode = $user->dark_mode;
         $this->is_contributor = $user->is_contributor;
         $this->is_private = $user->is_private;
-        $this->isVerified = $user->isVerified;
+        $this->is_verified = $user->is_verified;
         $this->spammy = $user->spammy;
         $this->is_suspended = $user->is_suspended;
         $this->staff_notes = $user->staff_notes;
@@ -182,10 +182,10 @@ class Moderator extends Component
     public function verifyUser()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            $this->user->isVerified = ! $this->user->isVerified;
+            $this->user->is_verified = ! $this->user->is_verified;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isVerified) {
+            if ($this->user->is_verified) {
                 $this->user->notify(new UserVerified(true));
                 loggy(request(), 'Staff', auth()->user(), 'Verified the user | Username: @'.$this->user->username);
             } else {
