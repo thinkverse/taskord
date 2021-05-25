@@ -18,7 +18,7 @@ class MagicLink extends Notification implements ShouldQueue
         $this->url = $url;
     }
 
-    public function via($notifiable)
+    public function via()
     {
         return ['mail'];
     }
