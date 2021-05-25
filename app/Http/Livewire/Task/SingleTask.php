@@ -107,7 +107,7 @@ class SingleTask extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isStaff and auth()->user()->staffShip) {
+        if (auth()->user()->is_staff and auth()->user()->staffShip) {
             Helper::hide($this->task);
             loggy(request(), 'Staff', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
 
