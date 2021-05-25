@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'email' => 'staff@taskord.com',
             'password' => Hash::make('staff'),
             'isPatron' => true,
-            'isStaff' => true,
+            'is_staff' => true,
         ]);
 
         // 2

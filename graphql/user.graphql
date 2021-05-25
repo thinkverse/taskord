@@ -15,7 +15,7 @@ type User {
     github: String
     youtube: String
     reputation: Int!
-    isStaff: Boolean!
+    is_staff: Boolean!
     isVerified: Boolean!
     isDeveloper: Boolean!
     isBeta: Boolean!
