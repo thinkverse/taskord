@@ -60,7 +60,7 @@ class SingleQuestion extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isStaff and auth()->user()->staffShip) {
+        if (auth()->user()->is_staff and auth()->user()->staffShip) {
             Helper::hide($this->question);
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
 
