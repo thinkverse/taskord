@@ -29,11 +29,11 @@ class Comments extends Component
             ->select('id')
             ->count();
 
-        $week_dates = [];
+        $weekDates = [];
         $comments = [];
         $tasks = [];
         foreach ($period->toArray() as $date) {
-            array_push($week_dates, carbon($date)->format('d M Y'));
+            array_push($weekDates, carbon($date)->format('d M Y'));
             $count = $this->user->comments()
                 ->select('id')
                 ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(7)])
@@ -42,7 +42,7 @@ class Comments extends Component
         }
 
         return view('livewire.user.stats.comments', [
-            'week_dates' => $this->readyToLoad ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
+            'week_dates' => $this->readyToLoad ? json_encode($weekDates, JSON_NUMERIC_CHECK) : [],
             'comments' => $this->readyToLoad ? json_encode($comments, JSON_NUMERIC_CHECK) : [],
             'comments_count' => $this->readyToLoad ? $comments_count : '···',
         ]);
