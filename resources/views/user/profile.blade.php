@@ -11,7 +11,7 @@
 @endif
 <div class="card">
     @auth
-    @if (auth()->user()->is_staff && $user->isFlagged)
+    @if (auth()->user()->is_staff && $user->spammy)
         <div class="p-4 pb-0">
             <div class="alert alert-danger alert-dismissible">
                 This user is flagged

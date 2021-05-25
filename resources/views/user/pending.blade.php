@@ -23,7 +23,7 @@
     <div class="row justify-content-center mt-4">
         <div class="col-lg-8">
             @auth
-                @if (auth()->user()->id === $user->id && !$user->isFlagged)
+                @if (auth()->user()->id === $user->id && !$user->spammy)
                     <div class="card mb-3">
                         <div class="card-body">
                             <livewire:create-task />
