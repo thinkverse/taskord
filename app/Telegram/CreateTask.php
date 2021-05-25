@@ -37,14 +37,14 @@ class CreateTask
             return $this->send($this->user->telegram_chat_id, '🚩 Your account is flagged!');
         }
 
-        $product_id = Helper::getProductIDFromMention($this->task, $this->user);
+        $productId = Helper::getProductIDFromMention($this->task, $this->user);
 
         $task = (new CreateNewTask($this->user, [
-            'product_id' =>  $product_id,
+            'product_id' =>  $productId,
             'task' => $this->task,
             'done' => $this->status,
             'done_at' => $this->status ? carbon() : null,
-            'type' => $product_id ? 'product' : 'user',
+            'type' => $productId ? 'product' : 'user',
             'source' => 'Telegram',
         ]))();
 
