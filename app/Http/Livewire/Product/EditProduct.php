@@ -74,7 +74,7 @@ class EditProduct extends Component
             'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 
@@ -145,7 +145,7 @@ class EditProduct extends Component
             return toast($this, 'error', 'Your email is not verified!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 
