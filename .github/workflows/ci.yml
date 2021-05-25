@@ -11,10 +11,10 @@ jobs:
 
     strategy:
       matrix:
-        operating-system: [ubuntu-latest]
+        operating-system: [ubuntu-latest, windows-latest]
         php-versions: ['8.0']
 
-    name: 📦 php ${{ matrix.php-versions }} 🖥️ ${{ matrix.operating-system }}
+    name: PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }}
 
     steps:
     - uses: mirromutth/mysql-action@v1.1
