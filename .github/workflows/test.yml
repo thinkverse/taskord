@@ -1,4 +1,4 @@
-name: Taskord
+name: Test
 
 on:
   push:
