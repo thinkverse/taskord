@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Admin Bar toggle in dropdown
+// Staff Bar toggle in dropdown
 var adminBar = document.getElementById("admin-bar-click");
 if (adminBar) {
   adminBar.addEventListener("click", async () => {

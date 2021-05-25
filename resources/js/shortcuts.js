@@ -1,6 +1,6 @@
 import hotkeys from "hotkeys-js";
 
-// Admin Bar
+// Staff Bar
 hotkeys("p+b, `", async () => {
   const res = await window.fetch(`/site/adminbar`);
   if (res.status === 200) {
