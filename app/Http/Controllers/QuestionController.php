@@ -42,7 +42,7 @@ class QuestionController extends Controller
             views($question)->record();
 
             return view('question.question', $response);
-        } elseif (auth()->check() && $question->patronOnly) {
+        } elseif (auth()->check() && $question->patron_only) {
             if (auth()->check() && ! auth()->user()->is_patron) {
                 return redirect()->route('patron.home');
             } else {
@@ -54,7 +54,7 @@ class QuestionController extends Controller
             abort(404);
         }
 
-        if ($question->patronOnly) {
+        if ($question->patron_only) {
             return redirect()->route('patron.home');
         } else {
             return view('question.question', $response);
