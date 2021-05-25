@@ -68,10 +68,10 @@ class Moderator extends Component
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
-            $this->user->isStaff = ! $this->user->isStaff;
+            $this->user->is_staff = ! $this->user->is_staff;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isStaff) {
+            if ($this->user->is_staff) {
                 loggy(request(), 'Staff', auth()->user(), 'Enrolled as Staff | Username: @'.$this->user->username);
             } else {
                 loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Staff | Username: @'.$this->user->username);
