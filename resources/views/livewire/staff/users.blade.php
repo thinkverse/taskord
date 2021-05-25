@@ -129,13 +129,13 @@
                             <div class="col-lg">
                                 <div>
                                     <span>Status:</span>
-                                    @if ($user->isSuspended)
+                                    @if ($user->is_suspended)
                                         <span class="badge bg-danger">Suspended</span>
                                     @endif
                                     @if ($user->spammy)
                                         <span class="badge bg-info">Flagged</span>
                                     @endif
-                                    @if (!$user->isSuspended or !$user->spammy)
+                                    @if (!$user->is_suspended or !$user->spammy)
                                         <span class="badge bg-success">Good</span>
                                     @endif
                                 </div>

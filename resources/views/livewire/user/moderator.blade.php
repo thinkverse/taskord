@@ -178,7 +178,7 @@
                         <label for="flagUser" class="ms-1 text-danger fw-bold">Flag this user</label>
                     </div>
                     <div class="mt-2">
-                        <input wire:click="suspendUser" id="suspendUser" class="form-check-input" type="checkbox" wire:model="isSuspended">
+                        <input wire:click="suspendUser" id="suspendUser" class="form-check-input" type="checkbox" wire:model="is_suspended">
                         <label for="suspendUser" class="ms-1 text-danger fw-bold">Suspend this user</label>
                     </div>
                     <div class="mt-3">

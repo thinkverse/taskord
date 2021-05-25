@@ -15,7 +15,7 @@
         <div class="p-4 pb-0">
             <div class="alert alert-danger alert-dismissible">
                 This user is flagged
-                {{ $user->isSuspended ? 'and suspended' : '' }}
+                {{ $user->is_suspended ? 'and suspended' : '' }}
                 as spammy!
             </div>
         </div>

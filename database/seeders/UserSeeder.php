@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
             'firstname' => 'Taskord',
             'lastname' => 'Suspended',
             'username' => 'suspended',
-            'isSuspended' => true,
+            'is_suspended' => true,
             'spammy' => true,
             'email' => 'suspended@taskord.com',
         ]);
