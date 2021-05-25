@@ -53,7 +53,7 @@ class PatronController extends Controller
                     'event_time' => $request->event_time,
                     'next_bill_date' => $request->next_bill_date,
                 ]);
-                $user->isPatron = true;
+                $user->is_patron = true;
                 $user->save();
 
                 return 'Success';
@@ -84,7 +84,7 @@ class PatronController extends Controller
     {
         if ($user) {
             $user->patron->delete();
-            $user->isPatron = false;
+            $user->is_patron = false;
             $user->isPrivate = false;
             $user->save();
 
