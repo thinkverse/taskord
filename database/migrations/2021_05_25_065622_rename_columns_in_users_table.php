@@ -17,6 +17,7 @@ class RenameColumnsInUsersTable extends Migration
             $table->renameColumn('onlyFollowingsTasks', 'only_followings_tasks');
             $table->renameColumn('checkState', 'check_state');
             $table->renameColumn('isStaff', 'is_staff');
+            $table->renameColumn('isDeveloper', 'is_contributor');
         });
     }
 
@@ -31,6 +32,7 @@ class RenameColumnsInUsersTable extends Migration
             $table->renameColumn('only_followings_tasks', 'onlyFollowingsTasks');
             $table->renameColumn('check_state', 'checkState');
             $table->renameColumn('is_staff', 'isStaff');
+            $table->renameColumn('is_contributor', 'isDeveloper');
         });
     }
 }
