@@ -240,7 +240,7 @@
                                 <div class="dropdown-divider"></div>
                             @endif
                             <a class="dropdown-item text-dark" id="dark-mode" role="button">
-                                @if (auth()->user()->darkMode)
+                                @if (auth()->user()->dark_mode)
                                     <x-heroicon-o-sun class="heroicon heroicon-18px text-secondary" />
                                     Light Mode
                                 @else
