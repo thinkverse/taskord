@@ -19,9 +19,9 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'firstname' => 'Taskord',
             'lastname' => 'Staff',
-            'username' => 'admin',
-            'email' => 'admin@taskord.com',
-            'password' => Hash::make('admin'),
+            'username' => 'staff',
+            'email' => 'staff@taskord.com',
+            'password' => Hash::make('staff'),
             'isPatron' => true,
             'isStaff' => true,
         ]);
