@@ -24,14 +24,14 @@
             </a>
         </span>
         <span class="float-end">
-            <a class="fw-bold me-3 text-white" href="/stafftools/horizon" target="_blank" rel="noreferrer">
+            <a class="fw-bold me-3 text-white" href="/stafftools/horizon" title="Pending jobs" target="_blank" rel="noreferrer">
                 <x-heroicon-o-collection class="heroicon" />
                 {{ $jobs }}
                 <span class="fw-normal text-white-50">
                     {{ pluralize('job', (int) $jobs) }}
                 </span>
             </a>
-            <span class="fw-bold me-3">
+            <span class="fw-bold me-3" title="Memory usage">
                 <x-heroicon-o-cog class="heroicon" />
                 {{ memory_usage() }}
             </span>
