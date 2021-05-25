@@ -1,4 +1,4 @@
-<div class="card mb-2 {{ $question->patronOnly ? 'bg-patron' : '' }}">
+<div class="card mb-2 {{ $question->patron_only ? 'bg-patron' : '' }}">
     <div class="card-body">
         <div class="d-flex align-items-center">
             <x:shared.user-label-big :user="$question->user" />
@@ -41,7 +41,7 @@
         </a>
         <div class="mt-2 body-font">
             @if ($type !== "question.question")
-                @if (!$question->patronOnly)
+                @if (!$question->patron_only)
                     {!! markdown(Str::words($question->body, '30')) !!}
                 @endif
             @else
