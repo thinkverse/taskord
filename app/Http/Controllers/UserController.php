@@ -30,7 +30,7 @@ class UserController extends Controller
 
         if (auth()->check() && auth()->user()->id === $user->id or auth()->check() && auth()->user()->staff_mode) {
             return view($type, $response);
-        } elseif ($user->isFlagged) {
+        } elseif ($user->spammy) {
             abort(404);
         }
 
