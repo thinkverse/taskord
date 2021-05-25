@@ -132,7 +132,7 @@
                     <label for="enrollPatron" class="ms-1">Enroll to Patron</label>
                 </div>
                 <div class="mb-2">
-                    <input wire:click="enrollDarkMode" id="enrollDarkMode" class="form-check-input" type="checkbox" wire:model="darkMode">
+                    <input wire:click="enrollDarkMode" id="enrollDarkMode" class="form-check-input" type="checkbox" wire:model="dark_mode">
                     <label for="enrollDarkMode" class="ms-1">Enable Dark Mode</label>
                 </div>
                 <div class="mb-2">
