@@ -22,8 +22,8 @@ class Profile extends Component
     public $company;
     public $avatar;
     // Goal
-    public $daily_goal;
-    public $has_goal;
+    public $dailyGoal;
+    public $hasGoal;
     // Sponsor
     public $sponsor;
     // Social
@@ -44,8 +44,8 @@ class Profile extends Component
         $this->location = $user->location;
         $this->company = $user->company;
         // Goal
-        $this->has_goal = $user->has_goal;
-        $this->daily_goal = $user->daily_goal;
+        $this->hasGoal = $user->has_goal;
+        $this->dailyGoal = $user->daily_goal;
         // Sponsor
         $this->sponsor = $user->sponsor;
         // Social
@@ -156,9 +156,9 @@ class Profile extends Component
                 'daily_goal' => ['integer', 'max:1000', 'min:5'],
             ]);
 
-            $this->user->daily_goal = $this->daily_goal;
+            $this->user->daily_goal = $this->dailyGoal;
             $this->user->save();
-            loggy(request(), 'User', auth()->user(), 'Updated the goal '.$this->daily_goal.'/day');
+            loggy(request(), 'User', auth()->user(), 'Updated the goal '.$this->dailyGoal.'/day');
 
             toast($this, 'success', 'Your goal has been updated!');
         } else {
