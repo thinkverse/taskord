@@ -20,7 +20,7 @@ class TelegramController extends Controller
         $updates = Telegram::getWebhookUpdates();
         $response = $updates->message;
         if (isset($response['message_id'])) {
-            $chat_id = $response['from']['id'];
+            $chatId = $response['from']['id'];
             if (
                 isset($response['document']) or // Avoid Document
                 isset($response['sticker']) or // Avoid Sticker
@@ -29,38 +29,38 @@ class TelegramController extends Controller
                 isset($response['contact']) or // Avoid contact
                 isset($response['forward_from']) // Avoid forwards
             ) {
-                return $this->send($chat_id, '⚠ *Oops! Not allowed!*');
+                return $this->send($chatId, '⚠ *Oops! Not allowed!*');
             } elseif (isset($response['photo'])) {
                 $message = isset($response['caption']) ? $response['caption'] : '/start';
-                $file_id = $response['photo'][1]['file_id'];
+                $fileId = $response['photo'][1]['file_id'];
             } else {
                 $message = $response['text'];
-                $file_id = null;
+                $fileId = null;
             }
         } else {
             return false;
         }
 
-        return $this->command($chat_id, $message, $file_id);
+        return $this->command($chatId, $message, $fileId);
     }
 
-    public function command($chat_id, $message, $file_id)
+    public function command($chatId, $message, $fileId)
     {
-        $user = User::whereTelegramChatId($chat_id)->first();
+        $user = User::whereTelegramChatId($chatId)->first();
 
         switch (true) {
             case Str::of($message)->startsWith('/start'):
-                return (new Start($chat_id))();
+                return (new Start($chatId))();
             break;
 
             case Str::of($message)->startsWith('/auth'):
                 $token = substr($message, strpos($message, '/auth') + 6);
 
-                return (new AuthUser($token, $chat_id))();
+                return (new AuthUser($token, $chatId))();
             break;
 
             case Str::of($message)->startsWith('/todo'):
-                if ($this->authCheck($chat_id)) {
+                if ($this->authCheck($chatId)) {
                     $task = substr($message, strpos($message, '/todo') + 6);
 
                     return (new CreateTask($user, $task, false))();
@@ -68,15 +68,15 @@ class TelegramController extends Controller
             break;
 
             case Str::of($message)->startsWith('/done'):
-                if ($this->authCheck($chat_id)) {
+                if ($this->authCheck($chatId)) {
                     $task = substr($message, strpos($message, '/done') + 6);
 
-                    return (new CreateTask($user, $task, $file_id, true))();
+                    return (new CreateTask($user, $task, $fileId, true))();
                 }
             break;
 
             case Str::of($message)->startsWith('/complete'):
-                if ($this->authCheck($chat_id)) {
+                if ($this->authCheck($chatId)) {
                     $id = substr($message, strpos($message, '/complete') + 10);
 
                     return (new ToggleTaskStatus($user, $id, true))();
@@ -84,7 +84,7 @@ class TelegramController extends Controller
             break;
 
             case Str::of($message)->startsWith('/uncomplete'):
-                if ($this->authCheck($chat_id)) {
+                if ($this->authCheck($chatId)) {
                     $id = substr($message, strpos($message, '/complete') + 12);
 
                     return (new ToggleTaskStatus($user, $id, false))();
@@ -92,45 +92,45 @@ class TelegramController extends Controller
             break;
 
             case Str::of($message)->startsWith('/pending'):
-                if ($this->authCheck($chat_id)) {
+                if ($this->authCheck($chatId)) {
                     return (new Pending($user))();
                 }
             break;
 
             case Str::of($message)->startsWith('/stats'):
-                if ($this->authCheck($chat_id)) {
+                if ($this->authCheck($chatId)) {
                     return (new Stats($user))();
                 }
             break;
 
             case Str::of($message)->startsWith('/logout'):
-                if ($this->authCheck($chat_id)) {
-                    return (new Logout($chat_id))();
+                if ($this->authCheck($chatId)) {
+                    return (new Logout($chatId))();
                 }
             break;
 
             default:
-                return $this->send($chat_id, 'Please enter the valid command!');
+                return $this->send($chatId, 'Please enter the valid command!');
             break;
         }
     }
 
-    public function authCheck($chat_id)
+    public function authCheck($chatId)
     {
-        $user = User::whereTelegramChatId($chat_id)->first();
+        $user = User::whereTelegramChatId($chatId)->first();
         if ($user) {
             return true;
         } else {
-            $this->send($chat_id, '🔒 *You\'re not logged in. /auth <token> to begin*');
+            $this->send($chatId, '🔒 *You\'re not logged in. /auth <token> to begin*');
 
             return false;
         }
     }
 
-    public function send($chat_id, $message)
+    public function send($chatId, $message)
     {
         return Telegram::sendMessage([
-            'chat_id' => $chat_id,
+            'chat_id' => $chatId,
             'text' => $message,
             'disable_web_page_preview' => true,
             'parse_mode' => 'Markdown',
