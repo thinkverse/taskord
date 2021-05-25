@@ -86,16 +86,16 @@ class StaffController extends Controller
     public static function system()
     {
         // Memory Info
-        $mem_file = file_get_contents('/proc/meminfo');
-        preg_match_all('/(\w+):\s+(\d+)\s/', $mem_file, $matches);
+        $memFile = file_get_contents('/proc/meminfo');
+        preg_match_all('/(\w+):\s+(\d+)\s/', $memFile, $matches);
         $meminfo = array_combine($matches[1], $matches[2]);
 
         // Uptime
         $uptime = explode(',', explode(' up ', shell_exec('uptime'))[1])[0];
 
         // CPU
-        $cpuinfo_file = file_get_contents('/proc/cpuinfo');
-        preg_match_all('/^processor/m', $cpuinfo_file, $matches);
+        $cpuinfoFile = file_get_contents('/proc/cpuinfo');
+        preg_match_all('/^processor/m', $cpuinfoFile, $matches);
         $ncpu = count($matches[0]);
 
         return view('staff.system', [
