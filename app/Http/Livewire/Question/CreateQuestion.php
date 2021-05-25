@@ -35,7 +35,8 @@ class CreateQuestion extends Component
         $patron_only = ! $this->patron_only ? false : true;
 
         $question = auth()->user()->questions()->create([
-            'title' => $this->title, $this->body,
+            'title' => $this->title,
+            'body' => $this->body, 
             'is_solvable' => $solvable,
             'patron_only' => $patron_only,
         ]);
