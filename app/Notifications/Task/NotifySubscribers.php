@@ -13,12 +13,12 @@ class NotifySubscribers extends Notification implements ShouldQueue
     use Queueable;
 
     protected $comment;
-    protected $user_id;
+    protected $userId;
 
     public function __construct($comment)
     {
         $this->comment = $comment;
-        $this->user_id = $comment->user->id;
+        $this->userId = $comment->user->id;
     }
 
     public function via($notifiable)
@@ -28,7 +28,7 @@ class NotifySubscribers extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        $user = User::find($this->user_id);
+        $user = User::find($this->userId);
 
         if (! $user->spammy) {
             return (new MailMessage)
@@ -48,7 +48,7 @@ class NotifySubscribers extends Notification implements ShouldQueue
     {
         return [
             'comment_id' => $this->comment->id,
-            'user_id' => $this->user_id,
+            'user_id' => $this->userId,
         ];
     }
 }
