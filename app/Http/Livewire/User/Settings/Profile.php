@@ -232,9 +232,9 @@ class Profile extends Component
     public function onlyFollowingsTasks()
     {
         if (auth()->user()->id === $this->user->id) {
-            $this->user->onlyFollowingsTasks = ! $this->user->onlyFollowingsTasks;
+            $this->user->only_followings_tasks = ! $this->user->only_followings_tasks;
             $this->user->save();
-            if ($this->user->onlyFollowingsTasks) {
+            if ($this->user->only_followings_tasks) {
                 toast($this, 'success', 'Only following user\'s task will be show on homepage');
             } else {
                 toast($this, 'success', 'All user\'s task will be show on homepage');

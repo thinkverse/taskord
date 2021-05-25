@@ -139,7 +139,7 @@
         </div>
         <div class="card-body">
             <div class="form-check">
-                <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input" type="checkbox" {{ $user->onlyFollowingsTasks ? 'checked' : '' }}>
+                <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input" type="checkbox" {{ $user->only_followings_tasks ? 'checked' : '' }}>
                 <label for="onlyFollowingsTasks" class="form-check-label">Show only following user's tasks on homepage</label>
             </div>
         </div>

@@ -26,7 +26,7 @@ class Tasks extends Component
 
     public function getTasks()
     {
-        if (auth()->check() && auth()->user()->onlyFollowingsTasks) {
+        if (auth()->check() && auth()->user()->only_followings_tasks) {
             $userIds = auth()->user()->followings->pluck('id');
             $userIds->push(auth()->user()->id);
 
