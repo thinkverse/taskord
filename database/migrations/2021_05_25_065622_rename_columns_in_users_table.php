@@ -14,7 +14,7 @@ class RenameColumnsInUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->renameColumn('onlyFollowingsTasks', 'only_followings_tasks');
         });
     }
 
@@ -26,7 +26,7 @@ class RenameColumnsInUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->renameColumn('only_followings_tasks', 'onlyFollowingsTasks');
         });
     }
 }
