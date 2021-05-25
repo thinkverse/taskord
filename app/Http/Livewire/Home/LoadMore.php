@@ -35,7 +35,7 @@ class LoadMore extends Component
                 $tasks = Task::whereIn('user_id', $userIds)
                     ->whereHas('user', function ($q) {
                         $q->where([
-                            ['isFlagged', false],
+                            ['spammy', false],
                             ['is_private', false],
                         ]);
                     })
@@ -45,7 +45,7 @@ class LoadMore extends Component
             } else {
                 $tasks = Task::whereHas('user', function ($q) {
                     $q->where([
-                        ['isFlagged', false],
+                        ['spammy', false],
                         ['is_private', false],
                     ]);
                 })

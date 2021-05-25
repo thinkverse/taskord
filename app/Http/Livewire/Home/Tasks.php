@@ -34,7 +34,7 @@ class Tasks extends Component
                 ->whereIn('user_id', $userIds)
                 ->whereHas('user', function ($q) {
                     $q->where([
-                        ['isFlagged', false],
+                        ['spammy', false],
                         ['is_private', false],
                     ]);
                 })
@@ -44,7 +44,7 @@ class Tasks extends Component
         } else {
             return Task::whereHas('user', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
+                    ['spammy', false],
                     ['is_private', false],
                 ]);
             })

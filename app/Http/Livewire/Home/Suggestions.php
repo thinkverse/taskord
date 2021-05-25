@@ -30,7 +30,7 @@ class Suggestions extends Component
         return User::select('id', 'username', 'firstname', 'lastname', 'reputation', 'avatar', 'isVerified', 'status', 'status_emoji', 'last_active')
             ->whereNotIn('id', $this->user->followings->pluck('id'))
             ->where([
-                ['isFlagged', false],
+                ['spammy', false],
                 ['id', '!=', $this->user->id],
             ])
             ->latest('last_active')

@@ -18,7 +18,7 @@ class TopReputations extends Component
     {
         return User::select('id', 'username', 'firstname', 'lastname', 'avatar', 'reputation', 'status', 'status_emoji', 'isVerified')
             ->where([
-                ['isFlagged', false],
+                ['spammy', false],
                 ['id', '!=', 1],
             ])
             ->orderBy('reputation', 'DESC')
