@@ -21,7 +21,7 @@ class NotifySubscribers extends Notification implements ShouldQueue
         $this->user_id = $answer->user->id;
     }
 
-    public function via($notifiable)
+    public function via()
     {
         return ['mail', 'database'];
     }
@@ -44,7 +44,7 @@ class NotifySubscribers extends Notification implements ShouldQueue
         }
     }
 
-    public function toArray($notifiable)
+    public function toArray()
     {
         return [
             'answer_id' => $this->answer->id,

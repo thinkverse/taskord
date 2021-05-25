@@ -16,7 +16,7 @@ class UserVerified extends Notification implements ShouldQueue
         //
     }
 
-    public function via($notifiable)
+    public function via()
     {
         return ['mail'];
     }
