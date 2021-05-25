@@ -15,7 +15,7 @@ class Moderator extends Component
 {
     public User $user;
     public $isBeta;
-    public $isStaff;
+    public $is_staff;
     public $isPatron;
     public $darkMode;
     public $isDeveloper;
@@ -30,7 +30,7 @@ class Moderator extends Component
     {
         $this->user = $user;
         $this->isBeta = $user->isBeta;
-        $this->isStaff = $user->isStaff;
+        $this->is_staff = $user->is_staff;
         $this->isPatron = $user->isPatron;
         $this->darkMode = $user->darkMode;
         $this->isDeveloper = $user->isDeveloper;
