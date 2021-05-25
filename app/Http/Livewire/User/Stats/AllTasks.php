@@ -30,7 +30,7 @@ class AllTasks extends Component
             ->count();
 
         $week_dates = [];
-        $all_tasks = [];
+        $allTasks = [];
         $tasks = [];
         foreach ($period->toArray() as $date) {
             array_push($week_dates, carbon($date)->format('d M Y'));
@@ -38,12 +38,12 @@ class AllTasks extends Component
                 ->select('id')
                 ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(5)])
                 ->count();
-            array_push($all_tasks, $count);
+            array_push($allTasks, $count);
         }
 
         return view('livewire.user.stats.all-tasks', [
             'week_dates' => json_encode($week_dates, JSON_NUMERIC_CHECK),
-            'all_tasks' => $this->readyToLoad ? json_encode($all_tasks, JSON_NUMERIC_CHECK) : [],
+            'all_tasks' => $this->readyToLoad ? json_encode($allTasks, JSON_NUMERIC_CHECK) : [],
             'all_tasks_count' => $this->readyToLoad ? $allTasksCount : '···',
         ]);
     }
