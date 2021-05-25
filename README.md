@@ -13,6 +13,9 @@
     <a href="https://gitlab.com/yo/taskord-deploy/-/pipelines">
         <img src="https://img.shields.io/gitlab/pipeline/yo/taskord-deploy/master?color=%236a63ec&label=deploy" alt="Deploy">
     </a>
+    <a href="https://github.com/taskordhq/web/actions/workflows/ci.yml">
+        <img src="https://github.com/taskordhq/web/actions/workflows/ci.yml/badge.svg?branch=main" alt="GitHub Action">
+    </a>
     <a href="https://gitlab.styleci.io/repos/20359920?branch=main">
         <img src="https://gitlab.styleci.io/repos/20359920/shield" alt="Style CI">
     </a>
