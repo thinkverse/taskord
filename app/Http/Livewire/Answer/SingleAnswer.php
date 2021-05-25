@@ -53,7 +53,7 @@ class SingleAnswer extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->is_staff and auth()->user()->staffShip) {
+        if (auth()->user()->is_staff and auth()->user()->staff_mode) {
             Helper::hide($this->answer);
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
 
@@ -73,7 +73,7 @@ class SingleAnswer extends Component
             return toast($this, 'error', 'Your account is flagged!');
         }
 
-        if (auth()->user()->staffShip or auth()->user()->id === $this->answer->user->id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $this->answer->user->id) {
             loggy(request(), 'Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
             $this->answer->delete();
             $this->emit('refreshAnswers');
