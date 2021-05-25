@@ -204,8 +204,8 @@ class UserController extends Controller
 
     public function darkMode()
     {
-        if (auth()->user()->darkMode) {
-            auth()->user()->darkMode = false;
+        if (auth()->user()->dark_mode) {
+            auth()->user()->dark_mode = false;
             auth()->user()->save();
             loggy(request(), 'User', auth()->user(), 'Disabled dark mode');
 
@@ -213,7 +213,7 @@ class UserController extends Controller
                 'status' => 'disabled',
             ]);
         } else {
-            auth()->user()->darkMode = true;
+            auth()->user()->dark_mode = true;
             auth()->user()->save();
             loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
 
