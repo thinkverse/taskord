@@ -2,7 +2,7 @@ import hotkeys from "hotkeys-js";
 
 // Staff Bar
 hotkeys("p+b, `", async () => {
-  const res = await window.fetch(`/site/adminbar`);
+  const res = await window.fetch(`/site/staffbar`);
   if (res.status === 200) {
     location.reload();
   }
