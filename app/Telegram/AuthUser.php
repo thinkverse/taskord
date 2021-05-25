@@ -21,7 +21,7 @@ class AuthUser
     public function __invoke()
     {
         $user = User::whereApiToken($this->token)->first();
-        $user_count = User::whereTelegramChatId($this->chatId)->count('id');
+        $userCount = User::whereTelegramChatId($this->chatId)->count('id');
         if (! $user or strlen($this->token) !== 60) {
             $helper = "Go to https://taskord.com/settings/api and copy your *API Token 🔑*\n\n"
                 .'And paste it here `/auth <API token>`';
@@ -29,7 +29,7 @@ class AuthUser
             return $this->send($this->chatId, $helper);
         }
 
-        if ($user_count > 1) {
+        if ($userCount > 1) {
             return $this->send($this->chatId, '*This Telegram account is already associated with another account* 👀');
         }
 
