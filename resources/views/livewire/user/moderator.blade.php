@@ -144,7 +144,7 @@
                     <label for="privateUser" class="ms-1 text-danger fw-bold">Make user Private</label>
                 </div>
                 <div>
-                    <input wire:click="verifyUser" id="verifyUser" class="form-check-input" type="checkbox" wire:model="isVerified">
+                    <input wire:click="verifyUser" id="verifyUser" class="form-check-input" type="checkbox" wire:model="is_verified">
                     <label for="verifyUser" class="ms-1 text-success fw-bold">Verify this user</label>
                 </div>
                 @if (!$user->is_staff)

@@ -19,7 +19,7 @@
             @else
                 {{ $user->username }}
             @endif
-            @if ($user->isVerified)
+            @if ($user->is_verified)
                 <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
             @endif
         </a>

@@ -237,7 +237,7 @@
                                     @if ($user->is_private)
                                         <x-heroicon-o-lock-closed class="heroicon heroicon-20px text-primary ms-2 me-0 private" />
                                     @endif
-                                    @if ($user->isVerified)
+                                    @if ($user->is_verified)
                                         <x-heroicon-s-badge-check class="heroicon heroicon-20px text-primary ms-2 me-0 verified" />
                                     @endif
                                     @if ($user->is_patron)

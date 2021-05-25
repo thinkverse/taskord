@@ -60,7 +60,7 @@
                                         @else
                                             <span class="ms-1 small" title="Set Status">💭</span>
                                         @endif
-                                        @if (auth()->user()->isVerified)
+                                        @if (auth()->user()->is_verified)
                                             <x-heroicon-s-badge-check class="heroicon heroicon-20px ms-1 text-primary verified" />
                                         @endif
                                     </div>
