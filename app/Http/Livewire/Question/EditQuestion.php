@@ -57,7 +57,7 @@ class EditQuestion extends Component
         $solvable = ! $this->solvable ? false : true;
         $patronOnly = ! $this->patronOnly ? false : true;
 
-        if (auth()->user()->staffShip or auth()->user()->id === $question->user_id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $question->user_id) {
             $question->title = $this->title;
             $question->body = $this->body;
             $question->is_solvable = $this->solvable;
