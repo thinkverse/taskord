@@ -46,7 +46,7 @@
 <body>
     <div id="app">
         @auth
-            @if (auth()->user()->isStaff and auth()->user()->staffShip)
+            @if (auth()->user()->is_staff and auth()->user()->staffShip)
                 <div class="staff-bar">
                     <livewire:staff.staffbar />
                 </div>
