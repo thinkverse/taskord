@@ -10,8 +10,8 @@ class EditMilestone extends Component
     public Milestone $milestone;
     public $name;
     public $description;
-    public $start_date;
-    public $end_date;
+    public $startDate;
+    public $endDate;
 
     protected $rules = [
         'name' => ['required', 'min:5', 'max:150'],
@@ -23,8 +23,8 @@ class EditMilestone extends Component
         $this->milestone = $milestone;
         $this->name = $milestone->name;
         $this->description = $milestone->description;
-        $this->start_date = $milestone->start_date ? carbon($milestone->start_date)->format('Y-m-d') : null;
-        $this->end_date = $milestone->end_date ? carbon($milestone->end_date)->format('Y-m-d') : null;
+        $this->startDate = $milestone->start_date ? carbon($milestone->start_date)->format('Y-m-d') : null;
+        $this->endDate = $milestone->end_date ? carbon($milestone->end_date)->format('Y-m-d') : null;
     }
 
     public function updated($field)
@@ -57,8 +57,8 @@ class EditMilestone extends Component
         if (auth()->user()->staff_mode or auth()->user()->id === $milestone->user_id) {
             $milestone->name = $this->name;
             $milestone->description = $this->description;
-            $milestone->start_date = $this->start_date ? $this->start_date : null;
-            $milestone->end_date = $this->start_date ? $this->end_date : null;
+            $milestone->start_date = $this->startDate ? $this->startDate : null;
+            $milestone->end_date = $this->startDate ? $this->endDate : null;
             $milestone->save();
             auth()->user()->touch();
 

@@ -30,12 +30,12 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Start Date</label>
-                        <input class="form-control" wire:model="start_date" type="date" />
+                        <input class="form-control" wire:model="startDate" type="date" />
                     </div>
-                    @if ($start_date)
+                    @if ($startDate)
                         <div class="mb-3">
                             <label class="form-label fw-bold">End Date</label>
-                            <input class="form-control" wire:model="end_date" type="date" min="{{ carbon($start_date)->format('Y-m-d') }}" />
+                            <input class="form-control" wire:model="endDate" type="date" min="{{ carbon($startDate)->format('Y-m-d') }}" />
                         </div>
                     @else
                         <div class="fw-bold">Select from date to pick due date</div>
