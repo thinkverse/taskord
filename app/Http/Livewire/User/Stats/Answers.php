@@ -25,7 +25,7 @@ class Answers extends Component
         $createdAt = $this->user->created_at->format('Y-m-d');
         $currentDate = carbon()->format('Y-m-d');
         $period = CarbonPeriod::create($createdAt, '7 days', $currentDate);
-        $answers_count = $this->user->answers()
+        $answersCount = $this->user->answers()
             ->select('id')
             ->count();
 
@@ -43,7 +43,7 @@ class Answers extends Component
         return view('livewire.user.stats.answers', [
             'week_dates' => $this->readyToLoad ? json_encode($weekDates, JSON_NUMERIC_CHECK) : [],
             'answers' => $this->readyToLoad ? json_encode($answers, JSON_NUMERIC_CHECK) : [],
-            'answers_count' => $this->readyToLoad ? $answers_count : '···',
+            'answers_count' => $this->readyToLoad ? $answersCount : '···',
         ]);
     }
 }
