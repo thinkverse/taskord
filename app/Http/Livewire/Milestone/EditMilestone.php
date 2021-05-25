@@ -14,7 +14,7 @@ class EditMilestone extends Component
     public $end_date;
 
     protected $rules = [
-        'name' => ['required', 'min:5', 'max:100'],
+        'name' => ['required', 'min:5', 'max:150'],
         'description' => ['required', 'min:3', 'max:10000'],
     ];
 

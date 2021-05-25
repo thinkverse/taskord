@@ -19,7 +19,7 @@ class CreateMilestone extends Component
         }
 
         $this->validate([
-            'name' => ['required', 'min:5', 'max:100'],
+            'name' => ['required', 'min:5', 'max:150'],
             'description' => ['required', 'min:3', 'max:10000'],
         ]);
 
