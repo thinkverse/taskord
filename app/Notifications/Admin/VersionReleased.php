@@ -17,7 +17,7 @@ class VersionReleased extends Notification implements ShouldQueue
         $this->message = $message;
     }
 
-    public function via($notifiable)
+    public function via()
     {
         return ['database'];
     }
