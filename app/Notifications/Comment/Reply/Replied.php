@@ -54,7 +54,7 @@ class Replied extends Notification implements ShouldQueue
         }
     }
 
-    public function toDatabase($notifiable)
+    public function toDatabase()
     {
         return [
             'reply_id' => $this->reply->id,
