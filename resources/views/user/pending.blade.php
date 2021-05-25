@@ -34,7 +34,7 @@
             @if (
                 !$user->isPrivate or
                 auth()->check() and auth()->user()->id === $user->id or
-                auth()->check() and auth()->user()->staffShip
+                auth()->check() and auth()->user()->staff_mode
             )
                 @livewire('user.tasks', [
                     'type' => 'user.pending',
