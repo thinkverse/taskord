@@ -44,9 +44,9 @@ class Account extends Component
             if (! $this->user->is_patron) {
                 toast($this, 'error', 'Forbidden!');
             }
-            $this->user->isPrivate = ! $this->user->isPrivate;
+            $this->user->is_private = ! $this->user->is_private;
             $this->user->save();
-            if ($this->user->isPrivate) {
+            if ($this->user->is_private) {
                 loggy(request(), 'User', auth()->user(), 'Enrolled as a private user');
 
                 toast($this, 'success', 'All your tasks are now private');

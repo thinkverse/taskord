@@ -34,7 +34,7 @@ class Moderator extends Component
         $this->is_patron = $user->is_patron;
         $this->dark_mode = $user->dark_mode;
         $this->is_contributor = $user->is_contributor;
-        $this->isPrivate = $user->isPrivate;
+        $this->is_private = $user->is_private;
         $this->isVerified = $user->isVerified;
         $this->isFlagged = $user->isFlagged;
         $this->isSuspended = $user->isSuspended;
@@ -104,10 +104,10 @@ class Moderator extends Component
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
-            $this->user->isPrivate = ! $this->user->isPrivate;
+            $this->user->is_private = ! $this->user->is_private;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isPrivate) {
+            if ($this->user->is_private) {
                 loggy(request(), 'Staff', auth()->user(), 'Enrolled as private user | Username: @'.$this->user->username);
             } else {
                 loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from private user | Username: @'.$this->user->username);
