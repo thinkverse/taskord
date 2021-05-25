@@ -23,14 +23,14 @@ class Graph extends Component
 
     public function render()
     {
-        $start_date = carbon('60 days ago')->format('Y-m-d');
-        $current_date = carbon()->format('Y-m-d');
-        $period = CarbonPeriod::create($start_date, $current_date);
+        $startDate = carbon('60 days ago')->format('Y-m-d');
+        $currentDate = carbon()->format('Y-m-d');
+        $period = CarbonPeriod::create($startDate, $currentDate);
 
-        $week_dates = [];
+        $weekDates = [];
         $tasks = [];
         foreach ($period->toArray() as $date) {
-            array_push($week_dates, carbon($date)->format('d M Y'));
+            array_push($weekDates, carbon($date)->format('d M Y'));
             $count = $this->product->tasks()
                 ->select('id', 'created_at')
                 ->whereDate('created_at', carbon($date))
@@ -40,7 +40,7 @@ class Graph extends Component
         }
 
         return view('livewire.product.graph', [
-            'week_dates' => $this->readyToLoad ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
+            'week_dates' => $this->readyToLoad ? json_encode($weekDates, JSON_NUMERIC_CHECK) : [],
             'tasks' => $this->readyToLoad ? json_encode($tasks, JSON_NUMERIC_CHECK) : [],
             'count' => $this->readyToLoad ? array_sum($tasks) : 0,
         ]);
