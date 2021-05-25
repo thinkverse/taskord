@@ -13,12 +13,12 @@ class Subscribed extends Notification implements ShouldQueue
     use Queueable;
 
     protected $product;
-    protected $user_id;
+    protected $userId;
 
-    public function __construct($product, $user_id)
+    public function __construct($product, $userId)
     {
         $this->product = $product;
-        $this->user_id = $user_id;
+        $this->userId = $userId;
     }
 
     public function via($notifiable)
@@ -38,7 +38,7 @@ class Subscribed extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        $user = User::find($this->user_id);
+        $user = User::find($this->userId);
 
         if (! $user->spammy) {
             return (new MailMessage)
@@ -56,7 +56,7 @@ class Subscribed extends Notification implements ShouldQueue
     {
         return [
             'product_id' => $this->product->id,
-            'user_id' => $this->user_id,
+            'user_id' => $this->userId,
         ];
     }
 }
