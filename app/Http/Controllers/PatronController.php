@@ -10,8 +10,8 @@ class PatronController extends Controller
 {
     public function handleWebhook(Request $request)
     {
-        $public_key_string = config('services.paddle.public_key');
-        $public_key = openssl_get_publickey($public_key_string);
+        $publicKeyString = config('services.paddle.public_key');
+        $publicKey = openssl_get_publickey($publicKeyString);
         $signature = base64_decode($request->p_signature);
         $fields = $request->all();
         unset($fields['p_signature']);
@@ -22,7 +22,7 @@ class PatronController extends Controller
             }
         }
         $data = serialize($fields);
-        $verification = openssl_verify($data, $signature, $public_key, OPENSSL_ALGO_SHA1);
+        $verification = openssl_verify($data, $signature, $publicKey, OPENSSL_ALGO_SHA1);
         if ($verification == 1) {
             $user = User::whereEmail($request->email)->first();
             if ($request->alert_name === 'subscription_created') {
