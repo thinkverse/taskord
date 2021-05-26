@@ -4,6 +4,6 @@
         <label class="form-check-label" for="onlyFollowingsTasks">
             Only following
         </label>
-        <div wire:loading class="spinner-border taskord-spinner spinner-border-sm ms-1"></div>
+        <div wire:loading wire:target="onlyFollowingsTasks" class="spinner-border taskord-spinner spinner-border-sm ms-1"></div>
     </div>
 </span>
