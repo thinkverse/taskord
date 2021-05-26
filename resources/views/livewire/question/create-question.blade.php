@@ -30,6 +30,16 @@
                     </div>
                 </div>
                 <div class="mb-3">
+                    <label class="form-label fw-bold">
+                        Tags <span class="fw-normal text-secondary">- Use <i>ctrl</i> to select</span>
+                    </label>
+                    <select class="form-select" multiple>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="mb-3">
                     <div class="fw-bold mb-2 d-flex align-items-center">
                         <x-heroicon-s-check-circle class="heroicon-18px text-success" />
                         <span class="ms-1">Solvable</span>
