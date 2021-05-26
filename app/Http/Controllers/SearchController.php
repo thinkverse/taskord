@@ -89,11 +89,12 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $questions = Question::whereHas('user', function ($q) {
-                $q->where([
-                    ['spammy', false],
-                ]);
-            })
+            $questions = Question::withCount('answers')
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['spammy', false],
+                    ]);
+                })
                 ->whereHidden(false)
                 ->search($searchTerm)
                 ->paginate(10)
