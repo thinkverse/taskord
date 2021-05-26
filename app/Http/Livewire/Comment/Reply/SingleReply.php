@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Comment\Reply;
 
 use App\Models\CommentReply;
+use Helper;
 use Livewire\Component;
 
 class SingleReply extends Component
@@ -36,8 +37,19 @@ class SingleReply extends Component
         }
     }
 
-    public function render()
+    public function hide()
     {
-        return view('livewire.comment.reply.single-reply');
+        if (! auth()->check()) {
+            return toast($this, 'error', 'Forbidden!');
+        }
+
+        if (auth()->user()->is_staff and auth()->user()->staff_mode) {
+            Helper::hide($this->reply);
+            loggy(request(), 'Staff', auth()->user(), 'Toggled hide reply | Reply ID: '.$this->reply->id);
+
+            return toast($this, 'success', 'Reply is hidden from public!');
+        } else {
+            return toast($this, 'error', 'Forbidden!');
+        }
     }
 }
