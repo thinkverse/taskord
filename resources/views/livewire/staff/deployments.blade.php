@@ -8,7 +8,7 @@
             <div class="card-body text-center mt-3">
                 <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
                 <div class="h6">
-                    Loading users...
+                    Loading deployments...
                 </div>
             </div>
         @else
@@ -20,11 +20,21 @@
                     </div>
                 </div>
             @endif
-            @foreach ($deployments as $deployment)
-                <div class="card mt-3">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-2">
+            <table class="table text-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Status</th>
+                        <th scope="col">Job</th>
+                        <th scope="col">Deployed by</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Started at</th>
+                        <th scope="col">Finished at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($deployments as $deployment)
+                        <tr>
+                            <th>
                                 @if ($deployment->status === 'success')
                                     <span class="badge bg-success p-2">
                                         Deployment Successful
@@ -50,27 +60,41 @@
                                         Deployment Canceled
                                     </span>
                                 @endif
-                            </div>
-                            <div class="col-2">
-                                <span>
-                                    Deployment ID:
-                                </span>
+                            </th>
+                            <td>
                                 <code class="fw-bold">
-                                    {{ $deployment->id }}
+                                    #{{ $deployment->id }}
                                 </code>
-                            </div>
-                            <div class="col-2">
-                                <span class="text-secondary">
-                                    {{ carbon($deployment->created_at)->diffForHumans() }}
-                                </span>
                                 <a href="{{ $deployment->web_url }}" class="fw-bold ms-1" target="_blank">
                                     <x-heroicon-o-external-link class="heroicon" />
                                 </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img class="avatar-25 rounded-circle" src="{{ $deployment->user->avatar_url }}" />
+                                    <span class="ms-2">{{ $deployment->user->name }}</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <x-heroicon-o-clock class="heroicon heroicon-15px me-1" />
+                                    <span>{{ round($deployment->duration, 2) }} seconds</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="text-secondary" title="{{ $deployment->started_at }}">
+                                    {{ carbon($deployment->started_at)->diffForHumans() }}
+                                </span>
+                            </td>
+                            <td>
+                                <span class="text-secondary" title="{{ $deployment->started_at }}">
+                                    {{ carbon($deployment->finished_at)->diffForHumans() }}
+                                </span>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         @endif
     </div>
 </div>
