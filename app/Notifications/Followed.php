@@ -45,9 +45,9 @@ class Followed extends Notification implements ShouldQueue
                         ->line('@'.$user->username.' followed you on Taskord.')
                         ->action('Go to user profile @'.$user->username, url('/@'.$user->username))
                         ->line('Thank you for using Taskord!');
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     public function toDatabase()
