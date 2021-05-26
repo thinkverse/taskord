@@ -49,9 +49,9 @@ class Answered extends Notification implements ShouldQueue
                         ->line('Answer: '.$this->answer->answer)
                         ->action('Go to Question', url('/question/'.$this->answer->question->id))
                         ->line('Thank you for using Taskord!');
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     public function toDatabase()

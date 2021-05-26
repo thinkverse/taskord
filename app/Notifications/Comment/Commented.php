@@ -49,9 +49,9 @@ class Commented extends Notification implements ShouldQueue
                         ->line('Comment: '.$this->comment->comment)
                         ->action('Go to Task', url('/task/'.$this->comment->task->id))
                         ->line('Thank you for using Taskord!');
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     public function toDatabase()
