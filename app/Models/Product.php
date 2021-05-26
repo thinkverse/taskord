@@ -2,10 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\ProductUpdate;
-use App\Models\Task;
-use App\Models\User;
-use App\Models\Webhook;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;

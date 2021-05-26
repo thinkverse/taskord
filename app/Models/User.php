@@ -2,17 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Answer;
-use App\Models\Comment;
-use App\Models\CommentReply;
-use App\Models\Meetup;
-use App\Models\Milestone;
-use App\Models\Patron;
-use App\Models\Product;
-use App\Models\ProductUpdate;
-use App\Models\Question;
-use App\Models\Task;
-use App\Models\Webhook;
 use App\Jobs\VerifyEmailQueue;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

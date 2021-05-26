@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Answer;
-use App\Models\User;
 use Conner\Tagging\Taggable;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
