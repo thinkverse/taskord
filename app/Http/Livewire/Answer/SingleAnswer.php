@@ -58,9 +58,9 @@ class SingleAnswer extends Component
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
 
             return toast($this, 'success', 'Answer is hidden from public!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteAnswer()
