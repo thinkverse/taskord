@@ -22,41 +22,40 @@
             @endif
             @foreach ($deployments as $deployment)
                 <div class="card mt-3">
-                    <div>
-                        <code>
-                            {{ $deployment->id }}
-                        </code>
+                    <div class="card-body d-flex justify-content-between">
                         @if ($deployment->status === 'success')
-                            <span class="badge bg-success">
+                            <span class="badge bg-success p-2">
                                 Deployment Successful
                             </span>
                         @elseif ($deployment->status === 'failed')
-                            <span class="badge bg-danger">
+                            <span class="badge bg-danger p-2">
                                 Deployment Failed
                             </span>
                         @elseif ($deployment->status === 'pending')
-                            <span class="badge bg-secondary">
+                            <span class="badge bg-secondary p-2">
                                 Deployment Pending
                             </span>
                         @elseif ($deployment->status === 'running')
-                            <span class="badge bg-info">
+                            <span class="badge bg-info p-2">
                                 In Progress
                             </span>
                         @elseif ($deployment->status === 'preparing')
-                            <span class="badge bg-info">
+                            <span class="badge bg-info p-2">
                                 Preparing to deploy
                             </span>
                         @elseif ($deployment->status === 'canceled')
-                            <span class="badge bg-info">
+                            <span class="badge bg-info p-2">
                                 Deployment Canceled
                             </span>
                         @endif
-                        <span class="ms-1">
-                            {{ carbon($deployment->updated_at)->diffForHumans() }}
-                        </span>
-                        <a href="{{ $deployment->web_url }}" class="fw-bold ms-1" target="_blank">
-                            <x-heroicon-o-external-link class="heroicon" />
-                        </a>
+                        <div>
+                            <span class="ms-1 text-secondary">
+                                {{ carbon($deployment->updated_at)->diffForHumans() }}
+                            </span>
+                            <a href="{{ $deployment->web_url }}" class="fw-bold ms-1" target="_blank">
+                                <x-heroicon-o-external-link class="heroicon" />
+                            </a>
+                        </div>
                     </div>
                 </div>
             @endforeach

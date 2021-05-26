@@ -22,7 +22,7 @@ class Deployments extends Component
         $client = new Client(['http_errors' => false]);
         $deployments = $client->request('GET', 'https://gitlab.com/api/v4/projects/25370928/pipelines', [
             'query' => [
-                'per_page' => 50,
+                'per_page' => 100,
                 'ref' => 'master',
             ],
         ]);
