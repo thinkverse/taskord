@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use App\Models\Question;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
@@ -18,9 +18,7 @@ class Answer extends Model
     use SearchableTrait;
 
     public $cacheFor = 3600;
-
     public $cacheTags = ['answers'];
-
     public $cachePrefix = 'answers_';
 
     protected static $flushCacheOnUpdate = true;
@@ -31,7 +29,6 @@ class Answer extends Model
         'answer',
         'hidden',
     ];
-
     protected $searchable = [
         'columns' => [
             'answers.answer' => 10,
