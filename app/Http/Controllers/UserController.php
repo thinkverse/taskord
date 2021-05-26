@@ -113,9 +113,9 @@ class UserController extends Controller
             loggy(request(), 'User', auth()->user(), 'Exported the account data');
 
             return $response;
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function exportLogs()
