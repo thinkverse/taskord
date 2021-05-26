@@ -368,7 +368,6 @@ class Moderator extends Component
     public function deleteTasks()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            loggy(request(), 'Staff', auth()->user(), 'Deleted all tasks | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             foreach ($user->tasks as $task) {
@@ -377,6 +376,12 @@ class Moderator extends Component
                 }
             }
             $user->tasks()->delete();
+            loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Deleted all tasks | Username: @'.$this->user->username
+            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
