@@ -130,15 +130,15 @@ class SearchController extends Controller
             if (count($answers) === 0) {
                 $answers = null;
             }
-        } else {
-            return redirect()->route('search.home');
+
+            return view('search.result', [
+                'type' => 'answers',
+                'searchTerm' => $searchTerm,
+                'answers' =>  $answers,
+            ]);
         }
 
-        return view('search.result', [
-            'type' => 'answers',
-            'searchTerm' => $searchTerm,
-            'answers' =>  $answers,
-        ]);
+        return redirect()->route('search.home');
     }
 
     public function products(Request $request)
