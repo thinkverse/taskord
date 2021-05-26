@@ -46,6 +46,12 @@ class CreateReply extends Component
             return toast($this, 'error', 'Your account is flagged!');
         }
 
+        $users = Helper::getUsernamesFromMentions($this->reply);
+
+        if ($users) {
+            $this->reply = Helper::parseUserMentionsToMarkdownLinks($this->reply, $users);
+        }
+
         $reply = auth()->user()->comment_replies()->create([
             'comment_id' =>  $this->comment->id,
             'reply' => $this->reply,
@@ -53,12 +59,6 @@ class CreateReply extends Component
         auth()->user()->touch();
         $this->emit('refreshReplies');
         $this->reset('reply');
-
-        $users = Helper::getUsernamesFromMentions($this->reply);
-
-        if ($users) {
-            $this->reply = Helper::parseUserMentionsToMarkdownLinks($this->reply, $users);
-        }
 
         Helper::mentionUsers($users, $reply, auth()->user(), 'comment_reply');
         if (auth()->user()->id !== $this->comment->user->id) {

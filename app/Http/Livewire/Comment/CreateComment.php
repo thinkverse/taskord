@@ -47,18 +47,18 @@ class CreateComment extends Component
             return toast($this, 'error', 'Your account is flagged!');
         }
 
+        $users = Helper::getUsernamesFromMentions($this->comment);
+
+        if ($users) {
+            $this->comment = Helper::parseUserMentionsToMarkdownLinks($this->comment, $users);
+        }
+
         $comment = auth()->user()->comments()->create([
             'task_id' =>  $this->task->id,
             'comment' => $this->comment,
         ]);
         auth()->user()->touch();
         $this->emit('refreshComments');
-
-        $users = Helper::getUsernamesFromMentions($this->comment);
-
-        if ($users) {
-            $this->comment = Helper::parseUserMentionsToMarkdownLinks($this->comment, $users);
-        }
 
         $this->reset('comment');
         Helper::mentionUsers($users, $comment, auth()->user(), 'comment');

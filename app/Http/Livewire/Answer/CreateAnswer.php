@@ -47,18 +47,18 @@ class CreateAnswer extends Component
             return toast($this, 'error', 'Your account is flagged!');
         }
 
+        $users = Helper::getUsernamesFromMentions($this->answer);
+
+        if ($users) {
+            $this->answer = Helper::parseUserMentionsToMarkdownLinks($this->answer, $users);
+        }
+
         $answer = auth()->user()->answers()->create([
             'question_id' =>  $this->question->id,
             'answer' => $this->answer,
         ]);
         auth()->user()->touch();
         $this->emit('refreshAnswers');
-
-        $users = Helper::getUsernamesFromMentions($this->answer);
-
-        if ($users) {
-            $this->answer = Helper::parseUserMentionsToMarkdownLinks($this->answer, $users);
-        }
 
         $this->reset('answer');
         Helper::mentionUsers($users, $answer, auth()->user(), 'answer');
