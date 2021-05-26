@@ -62,12 +62,10 @@ class SingleTask extends Component
             }
             $this->task->done = ! $this->task->done;
             $this->task->save();
-            $this->emit('refreshTasks');
-
-            return true;
-        } else {
-            return toast($this, 'error', 'Forbidden!');
+            return $this->emit('refreshTasks');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function togglePraise()
