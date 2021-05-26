@@ -57,16 +57,18 @@
                     </div>
                 </div>
             @endauth
-            <div class="fw-bold text-secondary pb-2">
-                Tags <x:labels.beta />
-            </div>
-            <div class="card mb-4">
-                <div class="card-body">
-                    @foreach ($question->tags as $tag)
-                        <span class="badge bg-secondary me-2">{{ $tag->name }}</span>
-                    @endforeach
+            @if (count($question->tagNames()) > 0)
+                <div class="fw-bold text-secondary pb-2">
+                    Tags <x:labels.beta />
                 </div>
-            </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        @foreach ($question->tags as $tag)
+                            <span class="badge bg-secondary me-2">{{ $tag->name }}</span>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
             @if ($question->answers_count > 0)
                 <div class="fw-bold text-secondary pb-2">
                     Users Involved
