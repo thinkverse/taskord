@@ -8,8 +8,7 @@ class TaskController extends Controller
 {
     public function task($id)
     {
-        $task = Task::withCount(['comments', 'likers'])
-            ->where('id', $id)
+        $task = Task::where('id', $id)
             ->firstOrFail();
         $response = [
             'task' => $task,
@@ -28,8 +27,7 @@ class TaskController extends Controller
 
     public function comment($id, $comment_id)
     {
-        $task = Task::withCount(['comments', 'likers'])
-            ->where('id', $id)
+        $task = Task::where('id', $id)
             ->firstOrFail();
         $comment = $task->comments->where('id', $comment_id)->first();
         if (! $comment) {
