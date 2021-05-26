@@ -64,7 +64,7 @@ class LoadMore extends Component
                             ['spammy', false],
                         ]);
                     })
-                    ->has('answer')
+                    ->has('answers')
                     ->orderBy('answer_count', 'desc')
                     ->get();
             }
