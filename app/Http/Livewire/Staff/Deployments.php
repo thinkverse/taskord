@@ -20,12 +20,14 @@ class Deployments extends Component
     public function getDeployments()
     {
         $client = new Client(['http_errors' => false]);
-        $deployments = $client->request('GET', 'https://gitlab.com/api/v4/projects/25370928/pipelines', [
+        $deployments = $client->request('GET', 'https://gitlab.com/api/v4/projects/25370928/jobs', [
             'query' => [
                 'per_page' => 100,
                 'ref' => 'master',
             ],
         ]);
+
+        dd($deployments->getStatusCode());
 
         if ($deployments->getStatusCode() === 200) {
             return json_decode($deployments->getBody()->getContents());
