@@ -495,10 +495,16 @@ class Moderator extends Component
     public function deleteUser()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            loggy(request(), 'Staff', auth()->user(), 'Deleted the user | Username: @'.$this->user->username);
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
+
+            loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Deleted the user | Username: @'.$this->user->username
+            );
 
             $user = User::find($this->user->id);
             // Delete Task Images
@@ -539,7 +545,12 @@ class Moderator extends Component
 
         User::where('id', $this->user->id)->update(['staff_notes' => $this->staffNotes]);
 
-        loggy(request(), 'Staff', auth()->user(), 'Updated the staff notes for user: @'.$this->user->username);
+        loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Updated the staff notes for user: @'.$this->user->username
+        );
 
         return toast($this, 'success', 'Note has been updated!');
     }
