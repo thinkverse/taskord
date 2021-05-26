@@ -39,9 +39,8 @@ class Product extends Model
         'launched',
         'launched_at',
     ];
-    // Deprecated
-    protected $dates = [
-        'launched_at',
+    protected $casts = [
+        'launched_at' => 'datetime',
     ];
     protected $searchable = [
         'columns' => [

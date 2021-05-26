@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Comment;
+use App\Models\Milestone;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
@@ -19,7 +23,9 @@ class Task extends Model
     public $cacheFor = 3600;
     public $cacheTags = ['tasks'];
     public $cachePrefix = 'tasks_';
+
     protected static $flushCacheOnUpdate = true;
+
     protected $fillable = [
         'user_id',
         'product_id',
@@ -32,12 +38,10 @@ class Task extends Model
         'type',
         'hidden',
     ];
-
     protected $casts = [
         'images' => 'array',
         'due_at' => 'datetime',
     ];
-
     protected $searchable = [
         'columns' => [
             'tasks.task' => 10,
@@ -46,21 +50,21 @@ class Task extends Model
 
     public function user()
     {
-        return $this->belongsTo(\App\Models\User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function comments()
     {
-        return $this->hasMany(\App\Models\Comment::class);
+        return $this->hasMany(Comment::class);
     }
 
     public function product()
     {
-        return $this->belongsTo(\App\Models\Product::class);
+        return $this->belongsTo(Product::class);
     }
 
     public function milestone()
     {
-        return $this->belongsTo(\App\Models\Milestone::class);
+        return $this->belongsTo(Milestone::class);
     }
 }
