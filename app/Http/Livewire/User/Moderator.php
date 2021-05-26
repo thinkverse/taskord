@@ -392,10 +392,15 @@ class Moderator extends Component
     public function deleteComments()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            loggy(request(), 'Staff', auth()->user(), 'Deleted all comments | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->comments()->delete();
+            loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Deleted all comments | Username: @'.$this->user->username
+            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -406,10 +411,15 @@ class Moderator extends Component
     public function deleteQuestions()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            loggy(request(), 'Staff', auth()->user(), 'Deleted all questions | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->questions()->delete();
+            loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Deleted all questions | Username: @'.$this->user->username
+            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -420,10 +430,15 @@ class Moderator extends Component
     public function deleteAnswers()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            loggy(request(), 'Staff', auth()->user(), 'Deleted all answers | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->answers()->delete();
+            loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Deleted all answers | Username: @'.$this->user->username
+            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
