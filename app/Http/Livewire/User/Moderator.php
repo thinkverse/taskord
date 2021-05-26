@@ -286,10 +286,20 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->dark_mode) {
-                return loggy(request(), 'Staff', auth()->user(), 'Enrolled to Dark mode | Username: @'.$this->user->username);
+                return loggy(
+                    request(),
+                    'Staff',
+                    auth()->user(),
+                    'Enrolled to Dark mode | Username: @'.$this->user->username
+                );
             }
 
-            return loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Dark mode | Username: @'.$this->user->username);
+            return loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Un-enrolled from Dark mode | Username: @'.$this->user->username
+            );
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
@@ -301,7 +311,12 @@ class Moderator extends Component
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
-            loggy(request(), 'Staff', auth()->user(), 'Masqueraded | Username: @'.$this->user->username);
+            loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Masqueraded | Username: @'.$this->user->username
+            );
             Auth::loginUsingId($this->user->id);
 
             return redirect()->route('home');
@@ -313,11 +328,16 @@ class Moderator extends Component
     public function resetAvatar()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            loggy(request(), 'Staff', auth()->user(), 'Resetted avatar | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($user->username, 0, 2));
             $user->save();
+            loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Resetted avatar | Username: @'.$this->user->username
+            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -332,7 +352,12 @@ class Moderator extends Component
             $user->timestamps = false;
             $user->username = strtolower(Str::random(6));
             $user->save();
-            loggy(request(), 'Staff', auth()->user(), 'Released the username | Username: @'.$user->username);
+            loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Released the username | Username: @'.$user->username
+            );
 
             return redirect()->route('user.done', ['username' => $user->username]);
         } else {
