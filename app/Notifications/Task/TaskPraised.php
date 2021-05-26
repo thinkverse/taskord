@@ -48,9 +48,9 @@ class TaskPraised extends Notification implements ShouldQueue
                         ->line($this->task->task)
                         ->action('Go to Task', url('/task/'.$this->task->id))
                         ->line('Thank you for using Taskord!');
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     public function toDatabase()
