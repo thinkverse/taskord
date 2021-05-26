@@ -8,8 +8,8 @@ class CommentQuery
     {
         if (auth()->check()) {
             return auth()->user()->hasLiked($comment);
-        } else {
-            return null;
         }
+
+        return null;
     }
 }
