@@ -62,6 +62,7 @@ class SingleTask extends Component
             }
             $this->task->done = ! $this->task->done;
             $this->task->save();
+
             return $this->emit('refreshTasks');
         }
 

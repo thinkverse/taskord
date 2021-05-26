@@ -97,6 +97,7 @@ class Moderator extends Component
                 'Un-enrolled from Staff | Username: @'.$this->user->username
             );
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -124,6 +125,7 @@ class Moderator extends Component
                 'Un-enrolled from Contributor | Username: @'.$this->user->username
             );
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -152,6 +154,7 @@ class Moderator extends Component
                 'Un-enrolled from private user | Username: @'.$this->user->username
             );
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -180,6 +183,7 @@ class Moderator extends Component
                 'Un-flagged the user | Username: @'.$this->user->username
             );
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -215,6 +219,7 @@ class Moderator extends Component
                 'Un-suspended the user | Username: @'.$this->user->username
             );
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -242,6 +247,7 @@ class Moderator extends Component
                 'Un-enrolled from Patron | Username: @'.$this->user->username
             );
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -269,6 +275,7 @@ class Moderator extends Component
                 'Un-verified the user | Username: @'.$this->user->username
             );
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -294,6 +301,7 @@ class Moderator extends Component
                 'Un-enrolled from Dark mode | Username: @'.$this->user->username
             );
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -313,6 +321,7 @@ class Moderator extends Component
 
             return redirect()->route('home');
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -332,6 +341,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -351,6 +361,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $user->username]);
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -374,6 +385,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -392,6 +404,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -410,6 +423,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -428,6 +442,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -446,6 +461,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -472,6 +488,7 @@ class Moderator extends Component
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -516,6 +533,7 @@ class Moderator extends Component
 
             return redirect()->route('home');
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 

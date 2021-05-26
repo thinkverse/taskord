@@ -75,6 +75,7 @@ class SingleTask extends Component
             }
             $this->task->delete();
             $this->emitUp('refreshTasks');
+
             return auth()->user()->touch();
         }
 

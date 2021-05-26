@@ -51,6 +51,7 @@ class Subscribe extends Component
         if (auth()->user()->hasSubscribed($this->product)) {
             $this->product->owner->notify(new Subscribed($this->product, auth()->user()->id));
         }
+
         return loggy(request(), 'Product', auth()->user(), 'Toggled product subscribe | Product ID: #'.$this->product->slug);
     }
 
