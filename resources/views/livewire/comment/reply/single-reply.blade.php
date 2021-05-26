@@ -22,6 +22,7 @@
                         onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                         wire:click="deleteReply"
                         wire:loading.attr="disabled"
+                        wire:target="deleteReply"
                         wire:offline.attr="disabled"
                         aria-label="Delete"
                     >
