@@ -15,7 +15,7 @@ return [
     // 'connection' => 'mysql',
 
     // When deleting a model, remove all the tags first
-    'untag_on_delete' => false,
+    'untag_on_delete' => true,
 
     // Auto-delete unused tags from the 'tags' database table (when they are used zero times)
     'delete_unused_tags' => false,
