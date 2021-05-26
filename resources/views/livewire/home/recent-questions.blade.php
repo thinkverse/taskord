@@ -32,9 +32,9 @@
                             >
                                 by {{ '@'.$question->user->username }}
                             </a>
-                            @if ($question->answers->count('id') >= 1)
+                            @if ($question->answers_count >= 1)
                                 <span class="ms-1 text-secondary">
-                                    · {{ $question->answers->count('id') }} {{ pluralize('answer', $question->answers->count('id')) }}
+                                    · {{ $question->answers_count }} {{ pluralize('answer', $question->answers_count) }}
                                 </span>
                             @endif
                             <span class="avatar-stack ms-1">
