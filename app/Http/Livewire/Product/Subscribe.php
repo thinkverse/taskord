@@ -43,15 +43,15 @@ class Subscribe extends Component
         }
         if (auth()->user()->id === $this->product->owner->id) {
             return toast($this, 'error', 'You can\'t subscribe your own product!');
-        } else {
-            auth()->user()->toggleSubscribe($this->product);
-            $this->product->refresh();
-            auth()->user()->touch();
-            if (auth()->user()->hasSubscribed($this->product)) {
-                $this->product->owner->notify(new Subscribed($this->product, auth()->user()->id));
-            }
-            loggy(request(), 'Product', auth()->user(), 'Toggled product subscribe | Product ID: #'.$this->product->slug);
         }
+
+        auth()->user()->toggleSubscribe($this->product);
+        $this->product->refresh();
+        auth()->user()->touch();
+        if (auth()->user()->hasSubscribed($this->product)) {
+            $this->product->owner->notify(new Subscribed($this->product, auth()->user()->id));
+        }
+        return loggy(request(), 'Product', auth()->user(), 'Toggled product subscribe | Product ID: #'.$this->product->slug);
     }
 
     public function render()
