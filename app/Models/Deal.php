@@ -14,7 +14,9 @@ class Deal extends Model
     public $cacheFor = 3600;
     public $cacheTags = ['deals'];
     public $cachePrefix = 'deals_';
+    
     protected static $flushCacheOnUpdate = true;
+
     protected $fillable = [
         'name',
         'offer',
