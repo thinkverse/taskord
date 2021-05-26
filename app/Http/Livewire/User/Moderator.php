@@ -539,11 +539,8 @@ class Moderator extends Component
 
     public function updateUserStaffNotes()
     {
-        $this->validate([
-            'staff_notes' => ['nullable'],
-        ]);
-
-        User::where('id', $this->user->id)->update(['staff_notes' => $this->staffNotes]);
+        $this->user->staff_notes = $this->staffNotes;
+        $this->user->save();
 
         loggy(
             request(),
