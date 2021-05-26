@@ -24,6 +24,7 @@ class EditQuestion extends Component
         $this->question = $question;
         $this->title = $question->title;
         $this->body = $question->body;
+        $this->selectedTags = $question->tagNames();
         $this->solvable = $question->is_solvable;
         $this->patronOnly = $question->patron_only;
     }

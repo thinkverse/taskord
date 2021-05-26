@@ -35,7 +35,9 @@
                     </label>
                     <select class="form-select @error('tags') is-invalid @enderror" multiple wire:model="selectedTags">
                         @foreach (Conner\Tagging\Model\Tag::get() as $tag)
-                            <option class="font-monospace p-1" value="{{ $tag->slug }}">{{ $tag->name }}</option>
+                            <option class="font-monospace p-1" value="{{ $tag->name }}">
+                                {{ $tag->name }}
+                            </option>
                         @endforeach
                     </select>
                     @error('tags')
