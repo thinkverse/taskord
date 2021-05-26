@@ -30,7 +30,7 @@
 
 @task('install-laravel-dependencies')
     echo "Installing PHP dependencies";
-    composer install --no-progress
+    composer install --no-progress --no-dev
     composer dump-autoload
 @endtask
 
