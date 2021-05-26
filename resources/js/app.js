@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 var staffBar = document.getElementById("staff-bar-click");
 if (staffBar) {
   staffBar.addEventListener("click", async () => {
-    const res = await window.fetch(`/site/staffbar`);
+    const res = await window.fetch("/site/staffbar");
     if (res.status === 200) {
       window.location.reload();
     }
@@ -47,7 +47,7 @@ if (staffBar) {
 var darkMode = document.getElementById("dark-mode");
 if (darkMode) {
   darkMode.addEventListener("click", async () => {
-    const res = await window.fetch(`/darkmode`);
+    const res = await window.fetch("/darkmode");
     if (res.status === 200) {
       window.location.reload();
     }
