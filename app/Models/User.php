@@ -98,7 +98,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(\App\Models\Product::class);
     }
 
-    public function product_updates()
+    public function productUpdates()
     {
         return $this->belongsTo(\App\Models\ProductUpdate::class);
     }

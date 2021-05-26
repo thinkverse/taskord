@@ -60,7 +60,7 @@ class Product extends Model
         return $this->hasMany(\App\Models\Task::class);
     }
 
-    public function product_updates()
+    public function productUpdates()
     {
         return $this->hasMany(\App\Models\ProductUpdate::class);
     }

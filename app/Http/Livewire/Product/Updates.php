@@ -20,7 +20,7 @@ class Updates extends Component
 
     public function render()
     {
-        $updates = $this->product->product_updates()
+        $updates = $this->product->productUpdates()
             ->latest()
             ->paginate(10);
 

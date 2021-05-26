@@ -97,7 +97,7 @@ class UserController extends Controller
                 'tasks' => $account->tasks()->get(),
                 'comments' => $account->comments()->get(),
                 'products' => $account->ownedProducts()->get(),
-                'product_updates' => $account->product_updates()->get(),
+                'product_updates' => $account->productUpdates()->get(),
                 'questions' => $account->questions()->get(),
                 'answers' => $account->answers()->get(),
                 'milestones' => $account->milestones()->get(),
