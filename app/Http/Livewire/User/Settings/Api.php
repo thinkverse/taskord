@@ -42,9 +42,9 @@ class Api extends Component
             loggy(request(), 'User', auth()->user(), 'Created a new API key');
 
             return toast($this, 'success', 'New API key been generated successfully');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function render()
