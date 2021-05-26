@@ -101,7 +101,7 @@ const initHover = () => {
     animation: "shift-away-subtle",
     content: "Staff",
   });
-}
+};
 
 const init = () => {
   if (
@@ -113,8 +113,8 @@ const init = () => {
   } else {
     setTimeout(() => {
       init();
-    }, 300)
+    }, 300);
   }
-}
+};
 
 init();
