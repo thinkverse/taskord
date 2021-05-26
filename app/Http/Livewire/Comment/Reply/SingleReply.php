@@ -32,9 +32,9 @@ class SingleReply extends Component
             auth()->user()->touch();
 
             return toast($this, 'success', 'Reply has been deleted successfully!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function hide()
@@ -48,8 +48,8 @@ class SingleReply extends Component
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide reply | Reply ID: '.$this->reply->id);
 
             return toast($this, 'success', 'Reply is hidden from public!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 }
