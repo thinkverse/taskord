@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\ProductUpdate;
+use App\Models\Task;
+use App\Models\User;
+use App\Models\Webhook;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
@@ -18,7 +22,9 @@ class Product extends Model
     public $cacheFor = 3600;
     public $cacheTags = ['products'];
     public $cachePrefix = 'products_';
+
     protected static $flushCacheOnUpdate = true;
+
     protected $fillable = [
         'user_id',
         'name',
@@ -33,11 +39,10 @@ class Product extends Model
         'launched',
         'launched_at',
     ];
-
+    // Deprecated
     protected $dates = [
         'launched_at',
     ];
-
     protected $searchable = [
         'columns' => [
             'products.slug' => 10,
@@ -47,26 +52,26 @@ class Product extends Model
 
     public function owner()
     {
-        return $this->belongsTo(\App\Models\User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function members()
     {
-        return $this->belongsToMany(\App\Models\User::class)->withTimestamps();
+        return $this->belongsToMany(User::class)->withTimestamps();
     }
 
     public function tasks()
     {
-        return $this->hasMany(\App\Models\Task::class);
+        return $this->hasMany(Task::class);
     }
 
     public function productUpdates()
     {
-        return $this->hasMany(\App\Models\ProductUpdate::class);
+        return $this->hasMany(ProductUpdate::class);
     }
 
     public function webhooks()
     {
-        return $this->hasMany(\App\Models\Webhook::class);
+        return $this->hasMany(Webhook::class);
     }
 }
