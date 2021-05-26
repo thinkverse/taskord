@@ -17,11 +17,11 @@ class Trending extends Component
     public function getTrending()
     {
         return Question::orderByViews()
-            ->has('answer')
+            ->has('answers')
             ->take(5)
             ->get()
             ->sortByDesc(function ($question) {
-                return $question->answer->count('id');
+                return $question->answers->count('id');
             });
     }
 

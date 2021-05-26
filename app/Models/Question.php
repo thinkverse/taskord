@@ -44,7 +44,7 @@ class Question extends Model implements Viewable
         return $this->belongsTo(\App\Models\User::class);
     }
 
-    public function answer()
+    public function answers()
     {
         return $this->hasMany(\App\Models\Answer::class);
     }

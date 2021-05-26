@@ -57,13 +57,13 @@
                     </div>
                 </div>
             @endauth
-            @if ($question->answer->count('id') > 0)
+            @if ($question->answers_count > 0)
                 <div class="fw-bold text-secondary pb-2">
                     Users Involved
                 </div>
                 <div class="card mb-4">
                     <div class="card-body align-items-center pb-2">
-                        @foreach ($question->answer->groupBy('user_id') as $answer)
+                        @foreach ($question->answers->groupBy('user_id') as $answer)
                             <a
                                 href="{{ route('user.done', ['username' => $answer[0]->user->username]) }}"
                                 class="me-1 user-popover"

@@ -82,9 +82,9 @@
                 @endif
                 <a href="{{ route('question.question', ['id' => $question->id]) }}" class="btn btn-task btn-outline-primary me-1" aria-label="Questions">
                     <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
-                    @if ($question->answer->count('id') !== 0)
+                    @if ($question->answers->count('id') !== 0)
                         <span class="small text-dark fw-bold">
-                            {{ number_format($question->answer->count('id')) }}
+                            {{ number_format($question->answers->count('id')) }}
                         </span>
                     @endif
                 </a>
@@ -161,7 +161,7 @@
             @endif
             @if ($type !== "question.question")
                 <a href="{{ route('question.question', ['id' => $question->id]) }}" class="avatar-stack text-dark">
-                    @foreach ($question->answer->groupBy('user_id')->take(5) as $answer)
+                    @foreach ($question->answers->groupBy('user_id')->take(5) as $answer)
                         <img
                             loading=lazy
                             class="user-popover rounded-circle avatar avatar-30"
@@ -171,9 +171,9 @@
                             alt="{{ $answer[0]->user->username }}'s avatar"
                         />
                     @endforeach
-                    @if ($question->answer->groupBy('user_id')->count('id') >= 5)
+                    @if ($question->answers->groupBy('user_id')->count('id') >= 5)
                         <span class="ms-3 ps-1 align-middle fw-bold small">
-                            +{{ number_format($question->answer->groupBy('user_id')->count('id') - 5) }} more
+                            +{{ number_format($question->answers->groupBy('user_id')->count('id') - 5) }} more
                         </span>
                     @endif
                 </a>

@@ -32,13 +32,13 @@
                             >
                                 by {{ '@'.$question->user->username }}
                             </a>
-                            @if ($question->answer->count('id') >= 1)
+                            @if ($question->answers->count('id') >= 1)
                                 <span class="ms-1 text-secondary">
-                                    · {{ $question->answer->count('id') }} {{ pluralize('answer', $question->answer->count('id')) }}
+                                    · {{ $question->answers->count('id') }} {{ pluralize('answer', $question->answers->count('id')) }}
                                 </span>
                             @endif
                             <span class="avatar-stack ms-1">
-                                @foreach ($question->answer->groupBy('user_id')->take(5) as $answer)
+                                @foreach ($question->answers->groupBy('user_id')->take(5) as $answer)
                                     <img
                                         loading=lazy
                                         class="user-popover replies-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}"

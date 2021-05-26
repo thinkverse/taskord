@@ -29,7 +29,8 @@ class QuestionController extends Controller
 
     public function question($id)
     {
-        $question = Question::where('id', $id)->firstOrFail();
+        $question = Question::withCount('answers')
+            ->where('id', $id)->firstOrFail();
         $response = [
             'type' => 'question.question',
             'question' => $question,
