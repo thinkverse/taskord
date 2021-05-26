@@ -11,7 +11,7 @@ var userMention = new Tribute({
   fillAttr: "username",
   menuShowMinLength: 1,
   menuItemTemplate: (item) => {
-    const { avatar, username, firstname, lastname, isVerified } = item.original;
+    const { avatar, username, firstname, lastname, is_verified } = item.original;
     return `
       <span class="d-flex align-items-center">
         <img loading=lazy class="rounded-circle avatar-30" src="${avatar}" height="30" width="30" />
