@@ -22,12 +22,11 @@ class Deployments extends Component
         $client = new Client(['http_errors' => false]);
         $deployments = $client->request('GET', 'https://gitlab.com/api/v4/projects/25370928/jobs', [
             'query' => [
+                'access_token' => config('services.gitlab.pat'),
                 'per_page' => 100,
                 'ref' => 'master',
             ],
         ]);
-
-        dd($deployments->getStatusCode());
 
         if ($deployments->getStatusCode() === 200) {
             return json_decode($deployments->getBody()->getContents());

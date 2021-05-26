@@ -61,7 +61,7 @@
                             </div>
                             <div class="col-2">
                                 <span class="text-secondary">
-                                    {{ carbon($deployment->updated_at)->diffForHumans() }}
+                                    {{ carbon($deployment->created_at)->diffForHumans() }}
                                 </span>
                                 <a href="{{ $deployment->web_url }}" class="fw-bold ms-1" target="_blank">
                                     <x-heroicon-o-external-link class="heroicon" />
