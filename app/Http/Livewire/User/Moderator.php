@@ -53,10 +53,20 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->is_beta) {
-                return loggy(request(), 'Staff', auth()->user(), 'Enrolled to Beta | Username: @'.$this->user->username);
+                return loggy(
+                    request(),
+                    'Staff',
+                    auth()->user(),
+                    'Enrolled to Beta | Username: @'.$this->user->username
+                );
             }
 
-            return loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Beta | Username: @'.$this->user->username);
+            return loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Un-enrolled from Beta | Username: @'.$this->user->username
+            );
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
@@ -72,10 +82,20 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->is_staff) {
-                return loggy(request(), 'Staff', auth()->user(), 'Enrolled as Staff | Username: @'.$this->user->username);
+                return loggy(
+                    request(),
+                    'Staff',
+                    auth()->user(),
+                    'Enrolled as Staff | Username: @'.$this->user->username
+                );
             }
 
-            return loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Staff | Username: @'.$this->user->username);
+            return loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Un-enrolled from Staff | Username: @'.$this->user->username
+            );
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
@@ -90,10 +110,20 @@ class Moderator extends Component
             if ($this->user->is_contributor) {
                 $this->user->notify(new ContributorEnabled(true));
 
-                return loggy(request(), 'Staff', auth()->user(), 'Enrolled as Contributor | Username: @'.$this->user->username);
+                return loggy(
+                    request(),
+                    'Staff',
+                    auth()->user(),
+                    'Enrolled as Contributor | Username: @'.$this->user->username
+                );
             }
 
-            return loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Contributor | Username: @'.$this->user->username);
+            return loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Un-enrolled from Contributor | Username: @'.$this->user->username
+            );
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
@@ -109,7 +139,12 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->is_private) {
-                loggy(request(), 'Staff', auth()->user(), 'Enrolled as private user | Username: @'.$this->user->username);
+                loggy(
+                    request(),
+                    'Staff',
+                    auth()->user(),
+                    'Enrolled as private user | Username: @'.$this->user->username
+                );
             }
 
             return loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from private user | Username: @'.$this->user->username);
