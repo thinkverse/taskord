@@ -117,6 +117,7 @@
                     type="button"
                     onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                     wire:click="deleteProduct"
+                    wire:target="deleteProduct"
                     wire:loading.attr="disabled"
                     wire:offline.attr="disabled"
                     aria-label="Delete"
