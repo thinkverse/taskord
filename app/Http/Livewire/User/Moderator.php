@@ -147,7 +147,12 @@ class Moderator extends Component
                 );
             }
 
-            return loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from private user | Username: @'.$this->user->username);
+            return loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Un-enrolled from private user | Username: @'.$this->user->username
+            );
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
@@ -163,10 +168,20 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->spammy) {
-                return loggy(request(), 'Staff', auth()->user(), 'Flagged the user | Username: @'.$this->user->username);
+                return loggy(
+                    request(),
+                    'Staff',
+                    auth()->user(),
+                    'Flagged the user | Username: @'.$this->user->username
+                );
             }
 
-            return loggy(request(), 'Staff', auth()->user(), 'Un-flagged the user | Username: @'.$this->user->username);
+            return loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Un-flagged the user | Username: @'.$this->user->username
+            );
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
@@ -189,10 +204,20 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->is_suspended) {
-                return loggy(request(), 'Staff', auth()->user(), 'Suspended the user | Username: @'.$this->user->username);
+                return loggy(
+                    request(),
+                    'Staff',
+                    auth()->user(),
+                    'Suspended the user | Username: @'.$this->user->username
+                );
             }
 
-            return loggy(request(), 'Staff', auth()->user(), 'Un-suspended the user | Username: @'.$this->user->username);
+            return loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Un-suspended the user | Username: @'.$this->user->username
+            );
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
@@ -207,10 +232,20 @@ class Moderator extends Component
             if ($this->user->is_patron) {
                 $this->user->notify(new PatronGifted(true));
 
-                return loggy(request(), 'Staff', auth()->user(), 'Enrolled as Patron | Username: @'.$this->user->username);
+                return loggy(
+                    request(),
+                    'Staff',
+                    auth()->user(),
+                    'Enrolled as Patron | Username: @'.$this->user->username
+                );
             }
 
-            return loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Patron | Username: @'.$this->user->username);
+            return loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Un-enrolled from Patron | Username: @'.$this->user->username
+            );
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
@@ -225,10 +260,20 @@ class Moderator extends Component
             if ($this->user->is_verified) {
                 $this->user->notify(new UserVerified(true));
 
-                return loggy(request(), 'Staff', auth()->user(), 'Verified the user | Username: @'.$this->user->username);
+                return loggy(
+                    request(),
+                    'Staff',
+                    auth()->user(),
+                    'Verified the user | Username: @'.$this->user->username
+                );
             }
 
-            return loggy(request(), 'Staff', auth()->user(), 'Un-verified the user | Username: @'.$this->user->username);
+            return loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Un-verified the user | Username: @'.$this->user->username
+            );
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
