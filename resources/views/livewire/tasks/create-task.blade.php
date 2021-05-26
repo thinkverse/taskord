@@ -20,9 +20,9 @@
                     <input class="form-control form-control-sm" wire:model.defer="dueAt" type="date" placeholder="Due date" min="{{ carbon('today')->format('Y-m-d') }}" />
                 </div>
                 <button wire:offline.attr="disabled" class="btn btn-sm btn-primary d-flex align-items-center" type="submit">
-                    <div wire:loading class="spinner-border spinner-border-sm me-2"></div>
+                    <div wire:loading wire:target="submit" class="spinner-border spinner-border-sm me-2"></div>
                     <div>
-                        <x-heroicon-o-plus wire:loading.remove class="heroicon" />
+                        <x-heroicon-o-plus wire:loading.remove wire:target="submit" class="heroicon" />
                         <span>Add Task</span>
                     </div>
                 </button>
