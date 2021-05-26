@@ -11,7 +11,8 @@ class UserController extends Controller
 {
     public function profile($username)
     {
-        $user = User::whereUsername($username)->firstOrFail();
+        $user = User::withCount(['questions', 'answers', 'milestones'])
+            ->whereUsername($username)->firstOrFail();
         $type = Route::current()->getName();
 
         $response = [
@@ -23,9 +24,9 @@ class UserController extends Controller
             'done_count' => $user->tasks()->whereDone(true)->count('id'),
             'pending_count' => $user->tasks()->whereDone(false)->count('id'),
             'product_count' => $user->ownedProducts()->count('id'),
-            'question_count' => $user->questions()->count('id'),
-            'answer_count' => $user->answers()->count('id'),
-            'milestone_count' => $user->milestones()->count('id'),
+            'question_count' => $user->questions_count,
+            'answer_count' => $user->answers_count,
+            'milestone_count' => $user->milestones_count,
         ];
 
         if (auth()->check() && auth()->user()->id === $user->id or auth()->check() && auth()->user()->staff_mode) {
