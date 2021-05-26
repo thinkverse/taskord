@@ -49,7 +49,7 @@ class Questions extends Component
                 ->latest()
                 ->get();
         } elseif ($this->type === 'questions.popular') {
-            return Question::withCount('answer')
+            return Question::withCount('answers')
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['spammy', false],
