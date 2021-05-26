@@ -30,8 +30,7 @@ class Questions extends Component
     public function getQuestions()
     {
         if ($this->type === 'questions.newest') {
-            return Question::withCount('answers')
-                ->whereHas('user', function ($q) {
+            return Question::whereHas('user', function ($q) {
                     $q->where([
                         ['spammy', false],
                     ]);
@@ -39,8 +38,7 @@ class Questions extends Component
                 ->latest()
                 ->get();
         } elseif ($this->type === 'questions.unanswered') {
-            return Question::withCount('answers')
-                ->whereHas('user', function ($q) {
+            return Question::whereHas('user', function ($q) {
                     $q->where([
                         ['spammy', false],
                     ]);
@@ -49,8 +47,7 @@ class Questions extends Component
                 ->latest()
                 ->get();
         } elseif ($this->type === 'questions.popular') {
-            return Question::withCount('answers')
-                ->whereHas('user', function ($q) {
+            return Question::whereHas('user', function ($q) {
                     $q->where([
                         ['spammy', false],
                     ]);

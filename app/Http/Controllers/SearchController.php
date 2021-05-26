@@ -89,8 +89,7 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $questions = Question::withCount('answers')
-                ->whereHas('user', function ($q) {
+            $questions = Question::whereHas('user', function ($q) {
                     $q->where([
                         ['spammy', false],
                     ]);

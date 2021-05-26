@@ -82,9 +82,9 @@
                 @endif
                 <a href="{{ route('question.question', ['id' => $question->id]) }}" class="btn btn-task btn-outline-primary me-1" aria-label="Questions">
                     <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
-                    @if ($question->answers_count !== 0)
+                    @if ($question->answers->count('id') !== 0)
                         <span class="small text-dark fw-bold">
-                            {{ number_format($question->answers_count) }}
+                            {{ number_format($question->answers->count('id')) }}
                         </span>
                     @endif
                 </a>
