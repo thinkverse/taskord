@@ -14,7 +14,9 @@ class AddIndexToProductUpdatesTable extends Migration
     public function up()
     {
         Schema::table('product_updates', function (Blueprint $table) {
-            //
+            $table->index('id');
+            $table->index('user_id');
+            $table->index('product_id');
         });
     }
 
@@ -26,7 +28,9 @@ class AddIndexToProductUpdatesTable extends Migration
     public function down()
     {
         Schema::table('product_updates', function (Blueprint $table) {
-            //
+            $table->dropIndex('id');
+            $table->dropIndex('user_id');
+            $table->dropIndex('product_id');
         });
     }
 }
