@@ -13,10 +13,10 @@
                 @endif
                 @if ($pageType === 'unread')
                     <button wire:click="markSingleNotificationAsRead" class="btn btn-sm btn-task ms-5" title="Mark as read">
-                        <span wire:loading.remove>
+                        <span wire:loading.remove wire:target="markSingleNotificationAsRead">
                             <x-heroicon-s-check class="heroicon heroicon-20px text-secondary me-0" />
                         </span>
-                        <span wire:loading class="spinner-border spinner-border-sm"></span>
+                        <span wire:loading wire:target="markSingleNotificationAsRead" class="spinner-border spinner-border-sm"></span>
                     </button>
                 @endif
             </div>
