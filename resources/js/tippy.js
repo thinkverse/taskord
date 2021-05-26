@@ -105,9 +105,9 @@ const initHover = () => {
 
 const init = () => {
   if (
-    document.getElementsByClassName('user-popover').length > 0 &&
-    document.getElementsByClassName('product-popover').length > 0 &&
-    document.getElementsByClassName('milestone-popover').length > 0
+    document.getElementsByClassName("user-popover").length > 0 &&
+    document.getElementsByClassName("product-popover").length > 0 &&
+    document.getElementsByClassName("milestone-popover").length > 0
   ) {
     initHover();
   } else {

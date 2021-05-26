@@ -2,7 +2,7 @@ import hotkeys from "hotkeys-js";
 
 // Staff Bar
 hotkeys("p+b, `", async () => {
-  const res = await window.fetch(`/site/staffbar`);
+  const res = await window.fetch("/site/staffbar");
   if (res.status === 200) {
     location.reload();
   }
@@ -10,7 +10,7 @@ hotkeys("p+b, `", async () => {
 
 // Dark Mode
 hotkeys("d+m", async () => {
-  const res = await window.fetch(`/darkmode`);
+  const res = await window.fetch("/darkmode");
   if (res.status === 200) {
     location.reload();
   }
