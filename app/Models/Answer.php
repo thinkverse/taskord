@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\User;
+use App\Models\Question;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
@@ -16,9 +18,13 @@ class Answer extends Model
     use SearchableTrait;
 
     public $cacheFor = 3600;
+
     public $cacheTags = ['answers'];
+
     public $cachePrefix = 'answers_';
+
     protected static $flushCacheOnUpdate = true;
+
     protected $fillable = [
         'user_id',
         'question_id',
@@ -34,11 +40,11 @@ class Answer extends Model
 
     public function user()
     {
-        return $this->belongsTo(\App\Models\User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function question()
     {
-        return $this->belongsTo(\App\Models\Question::class);
+        return $this->belongsTo(Question::class);
     }
 }
