@@ -18,7 +18,7 @@ class Follow extends Component
         $this->user = $user;
     }
 
-    public function followUser()
+    public function toggleFollow()
     {
         $throttler = Throttle::get(Request::instance(), 10, 5);
         $throttler->hit();
