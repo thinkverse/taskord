@@ -222,6 +222,11 @@ input[type="color"]:focus,
     background-size: contain;
 }
 
+.bg-tag {
+    background: #eae9ff;
+    color: $primary;
+}
+
 .avatar-stack {
     .avatar {
         height: 30px;
