@@ -31,7 +31,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label fw-bold">
-                        Tags <span class="fw-normal text-secondary">- Use <i>ctrl</i> to select</span>
+                        Tags <span class="fw-normal text-secondary">- Use <i>ctrl</i> to multi select</span>
                     </label>
                     <select class="form-select @error('tags') is-invalid @enderror" multiple wire:model="selectedTags">
                         @foreach (Conner\Tagging\Model\Tag::get() as $tag)
