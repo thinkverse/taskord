@@ -21,11 +21,11 @@ class PopularTasks extends Component
     public function getPopularTasks()
     {
         return Task::whereHas('user', function ($q) {
-                    $q->where([
-                        ['spammy', false],
-                        ['is_private', false],
-                    ]);
-                })
+            $q->where([
+                ['spammy', false],
+                ['is_private', false],
+            ]);
+        })
                 ->latest('created_at')
                 ->take(50)
                 ->has('comments')
