@@ -45,15 +45,15 @@ class SearchController extends Controller
             if (count($tasks) === 0) {
                 $tasks = null;
             }
-        } else {
-            return redirect()->route('search.home');
+
+            return view('search.result', [
+                'type' => 'tasks',
+                'searchTerm' => $searchTerm,
+                'tasks' =>  $tasks,
+            ]);
         }
 
-        return view('search.result', [
-            'type' => 'tasks',
-            'searchTerm' => $searchTerm,
-            'tasks' =>  $tasks,
-        ]);
+        return redirect()->route('search.home');
     }
 
     public function comments(Request $request)
@@ -74,15 +74,15 @@ class SearchController extends Controller
             if (count($comments) === 0) {
                 $comments = null;
             }
-        } else {
-            return redirect()->route('search.home');
+
+            return view('search.result', [
+                'type' => 'comments',
+                'searchTerm' => $searchTerm,
+                'comments' =>  $comments,
+            ]);
         }
 
-        return view('search.result', [
-            'type' => 'comments',
-            'searchTerm' => $searchTerm,
-            'comments' =>  $comments,
-        ]);
+        return redirect()->route('search.home');
     }
 
     public function questions(Request $request)
@@ -102,15 +102,15 @@ class SearchController extends Controller
             if (count($questions) === 0) {
                 $questions = null;
             }
-        } else {
-            return redirect()->route('search.home');
+
+            return view('search.result', [
+                'type' => 'questions',
+                'searchTerm' => $searchTerm,
+                'questions' =>  $questions,
+            ]);
         }
 
-        return view('search.result', [
-            'type' => 'questions',
-            'searchTerm' => $searchTerm,
-            'questions' =>  $questions,
-        ]);
+        return redirect()->route('search.home');
     }
 
     public function answers(Request $request)
