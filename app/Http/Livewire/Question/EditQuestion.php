@@ -40,7 +40,7 @@ class EditQuestion extends Component
 
     public function updatedSelectedTags()
     {
-        if (count($this->selectedTags) > 3) {
+        if (count($this->selectedTags) > 5) {
             $this->addError('tags', 'Only 5 tags are allowed!');
         }
     }
