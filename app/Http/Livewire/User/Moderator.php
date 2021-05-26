@@ -449,10 +449,15 @@ class Moderator extends Component
     public function deleteMilestones()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            loggy(request(), 'Staff', auth()->user(), 'Deleted all milestones | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->milestones()->delete();
+            loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Deleted all milestones | Username: @'.$this->user->username
+            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -463,7 +468,6 @@ class Moderator extends Component
     public function deleteProducts()
     {
         if (auth()->check() && auth()->user()->is_staff) {
-            loggy(request(), 'Staff', auth()->user(), 'Deleted all products | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             foreach ($user->ownedProducts as $product) {
@@ -475,6 +479,12 @@ class Moderator extends Component
                 }
             }
             $user->ownedProducts()->delete();
+            loggy(
+                request(),
+                'Staff',
+                auth()->user(),
+                'Deleted all products | Username: @'.$this->user->username
+            );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
