@@ -29,7 +29,10 @@ class AddIndexToCommentRepliesTable extends Migration
     public function down()
     {
         Schema::table('comment_replies', function (Blueprint $table) {
-            //
+            $table->dropIndex('id');
+            $table->dropIndex('user_id');
+            $table->dropIndex('comment_id');
+            $table->dropIndex('hidden');
         });
     }
 }
