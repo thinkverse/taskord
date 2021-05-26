@@ -56,7 +56,7 @@ class Questions extends Component
                     ]);
                 })
                 ->has('answers')
-                ->orderBy('answer_count', 'desc')
+                ->orderBy('answers_count', 'desc')
                 ->get();
         }
     }

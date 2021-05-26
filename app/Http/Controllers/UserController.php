@@ -23,10 +23,10 @@ class UserController extends Controller
             }),
             'done_count' => $user->tasks()->whereDone(true)->count('id'),
             'pending_count' => $user->tasks()->whereDone(false)->count('id'),
-            'product_count' => $user->ownedProducts()->count('id'),
-            'question_count' => $user->questions_count,
-            'answer_count' => $user->answers_count,
-            'milestone_count' => $user->milestones_count,
+            'products_count' => $user->ownedProducts()->count('id'),
+            'questions_count' => $user->questions_count,
+            'answers_count' => $user->answers_count,
+            'milestones_count' => $user->milestones_count,
         ];
 
         if (auth()->check() && auth()->user()->id === $user->id or auth()->check() && auth()->user()->staff_mode) {
