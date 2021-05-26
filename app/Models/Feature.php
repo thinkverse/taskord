@@ -14,6 +14,7 @@ class Feature extends Model
     public $cacheFor = 3600;
     public $cacheTags = ['features'];
     public $cachePrefix = 'features_';
+
     protected static $flushCacheOnUpdate = true;
 
     protected $fillable = [
