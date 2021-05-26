@@ -67,8 +67,9 @@ class StaffController extends Controller
     public static function deploymentData()
     {
         $client = new Client(['http_errors' => false]);
-        $deployments = $client->request('GET', 'https://gitlab.com/api/v4/projects/25370928/pipelines', [
+        $deployments = $client->request('GET', 'https://gitlab.com/api/v4/projects/25370928/jobs', [
             'query' => [
+                'access_token' => config('services.gitlab.pat'),
                 'per_page' => 5,
                 'ref' => 'master',
             ],

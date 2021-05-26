@@ -30,7 +30,7 @@
                 </span>
             @endif
             <span class="ms-1">
-                {{ carbon($deployment->updated_at)->diffForHumans() }}
+                {{ carbon($deployment->started_at)->diffForHumans() }}
             </span>
             <a href="{{ $deployment->web_url }}" class="fw-bold ms-1" target="_blank">
                 <x-heroicon-o-external-link class="heroicon" />
