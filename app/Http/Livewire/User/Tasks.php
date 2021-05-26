@@ -31,7 +31,6 @@ class Tasks extends Component
     public function getTasks()
     {
         return $this->user->tasks()
-            ->withCount(['comments', 'likers'])
             ->whereDone($this->type === 'user.done' ? true : false)
             ->latest('updated_at')
             ->paginate(10, '*', null, $this->page);

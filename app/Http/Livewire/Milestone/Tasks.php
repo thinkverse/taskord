@@ -29,7 +29,6 @@ class Tasks extends Component
     public function getTasks()
     {
         return $this->milestone->tasks()
-            ->withCount(['comments', 'likers'])
             ->orderBy('created_at', 'desc')
             ->paginate(10, '*', null, $this->page);
     }
