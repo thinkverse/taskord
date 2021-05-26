@@ -14,7 +14,10 @@ class AddIndexToQuestionsTable extends Migration
     public function up()
     {
         Schema::table('questions', function (Blueprint $table) {
-            //
+            $table->index('id');
+            $table->index('user_id');
+            $table->index('patron_only');
+            $table->index('hidden');
         });
     }
 
@@ -26,7 +29,10 @@ class AddIndexToQuestionsTable extends Migration
     public function down()
     {
         Schema::table('questions', function (Blueprint $table) {
-            //
+            $table->dropIndex('id');
+            $table->dropIndex('user_id');
+            $table->dropIndex('patron_only');
+            $table->dropIndex('hidden');
         });
     }
 }
