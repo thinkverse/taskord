@@ -17,6 +17,7 @@ class AddIndexToTasksTable extends Migration
             $table->index('id');
             $table->index('user_id');
             $table->index('product_id');
+            $table->index('milestone_id');
             $table->index('source');
             $table->index('hidden');
         });
@@ -33,6 +34,7 @@ class AddIndexToTasksTable extends Migration
             $table->dropIndex('id');
             $table->dropIndex('user_id');
             $table->dropIndex('product_id');
+            $table->dropIndex('milestone_id');
             $table->dropIndex('source');
             $table->dropIndex('hidden');
         });
