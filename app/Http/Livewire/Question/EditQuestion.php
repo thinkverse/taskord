@@ -10,6 +10,7 @@ class EditQuestion extends Component
     public Question $question;
     public $title;
     public $body;
+    public $selectedTags;
     public $solvable;
     public $patronOnly;
 
@@ -34,6 +35,13 @@ class EditQuestion extends Component
         }
 
         $this->validateOnly($field);
+    }
+
+    public function updatedSelectedTags()
+    {
+        if (count($this->selectedTags) > 3) {
+            $this->addError('tags', 'Only 5 tags are allowed!');
+        }
     }
 
     public function submit()
@@ -63,6 +71,7 @@ class EditQuestion extends Component
             $question->is_solvable = $solvable;
             $question->patron_only = $patronOnly;
             $question->save();
+            $question->retag($this->selectedTags);
             auth()->user()->touch();
 
             loggy(request(), 'Question', auth()->user(), 'Updated a question | Question ID: '.$question->id);
