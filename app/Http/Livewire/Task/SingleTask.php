@@ -110,9 +110,9 @@ class SingleTask extends Component
             loggy(request(), 'Staff', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
 
             return toast($this, 'success', 'Task is hidden from public!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteTask()
@@ -135,9 +135,9 @@ class SingleTask extends Component
             auth()->user()->touch();
 
             return toast($this, 'success', 'Task has been deleted successfully!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function render()
