@@ -2,6 +2,17 @@
 
 namespace App\Models;
 
+use App\Models\Answer;
+use App\Models\Comment;
+use App\Models\CommentReply;
+use App\Models\Meetup;
+use App\Models\Milestone;
+use App\Models\Patron;
+use App\Models\Product;
+use App\Models\ProductUpdate;
+use App\Models\Question;
+use App\Models\Task;
+use App\Models\Webhook;
 use App\Jobs\VerifyEmailQueue;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -29,7 +40,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public $cacheFor = 3600;
     public $cacheTags = ['users'];
     public $cachePrefix = 'users_';
+
     protected static $flushCacheOnUpdate = true;
+
     protected $fillable = [
         'username',
         'firstname',
@@ -42,90 +55,77 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at',
         'api_token',
     ];
-
     protected $searchable = [
         'columns' => [
             'users.username' => 10,
             'users.firstname' => 9,
         ],
     ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
     public function tasks()
     {
-        return $this->hasMany(\App\Models\Task::class);
+        return $this->hasMany(Task::class);
     }
 
     public function comments()
     {
-        return $this->hasMany(\App\Models\Comment::class);
+        return $this->hasMany(Comment::class);
     }
 
     public function comment_replies()
     {
-        return $this->hasMany(\App\Models\CommentReply::class);
+        return $this->hasMany(CommentReply::class);
     }
 
     public function milestones()
     {
-        return $this->hasMany(\App\Models\Milestone::class);
+        return $this->hasMany(Milestone::class);
     }
 
     public function ownedProducts()
     {
-        return $this->hasMany(\App\Models\Product::class);
+        return $this->hasMany(Product::class);
     }
 
     public function products()
     {
-        return $this->belongsToMany(\App\Models\Product::class);
+        return $this->belongsToMany(Product::class);
     }
 
     public function productUpdates()
     {
-        return $this->belongsTo(\App\Models\ProductUpdate::class);
+        return $this->belongsTo(ProductUpdate::class);
     }
 
     public function questions()
     {
-        return $this->hasMany(\App\Models\Question::class);
+        return $this->hasMany(Question::class);
     }
 
     public function answers()
     {
-        return $this->hasMany(\App\Models\Answer::class);
+        return $this->hasMany(Answer::class);
     }
 
     public function patron()
     {
-        return $this->hasOne(\App\Models\Patron::class);
+        return $this->hasOne(Patron::class);
     }
 
     public function webhooks()
     {
-        return $this->hasMany(\App\Models\Webhook::class);
+        return $this->hasMany(Webhook::class);
     }
 
     public function meetups()
     {
-        return $this->hasMany(\App\Models\Meetup::class);
+        return $this->hasMany(Meetup::class);
     }
 
     public function isOnline()
