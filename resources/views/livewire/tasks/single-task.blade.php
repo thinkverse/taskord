@@ -56,6 +56,7 @@
                     class="btn btn-task btn-outline-danger my-1"
                     onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                     wire:click="deleteTask"
+                    wire:target="deleteTask"
                     wire:loading.attr="disabled"
                     wire:offline.attr="disabled"
                     aria-label="Delete"
