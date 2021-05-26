@@ -31,27 +31,27 @@ class Questions extends Component
     {
         if ($this->type === 'questions.newest') {
             return Question::whereHas('user', function ($q) {
-                    $q->where([
-                        ['spammy', false],
-                    ]);
-                })
+                $q->where([
+                    ['spammy', false],
+                ]);
+            })
                 ->latest()
                 ->get();
         } elseif ($this->type === 'questions.unanswered') {
             return Question::whereHas('user', function ($q) {
-                    $q->where([
-                        ['spammy', false],
-                    ]);
-                })
+                $q->where([
+                    ['spammy', false],
+                ]);
+            })
                 ->doesntHave('answer')
                 ->latest()
                 ->get();
         } elseif ($this->type === 'questions.popular') {
             return Question::whereHas('user', function ($q) {
-                    $q->where([
-                        ['spammy', false],
-                    ]);
-                })
+                $q->where([
+                    ['spammy', false],
+                ]);
+            })
                 ->has('answers')
                 ->orderBy('answers_count', 'desc')
                 ->get();
