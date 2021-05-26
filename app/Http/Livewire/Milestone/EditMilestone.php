@@ -65,8 +65,8 @@ class EditMilestone extends Component
             loggy(request(), 'Milestone', auth()->user(), 'Updated a milestone | Milestone ID: '.$milestone->id);
 
             return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
-        } else {
-            toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 }
