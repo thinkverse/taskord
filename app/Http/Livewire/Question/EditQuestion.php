@@ -54,11 +54,14 @@ class EditQuestion extends Component
 
         $question = Question::where('id', $this->question->id)->firstOrFail();
 
+        $solvable = ! $this->solvable ? false : true;
+        $patronOnly = ! $this->patronOnly ? false : true;
+
         if (auth()->user()->staff_mode or auth()->user()->id === $question->user_id) {
             $question->title = $this->title;
             $question->body = $this->body;
-            $question->is_solvable = $this->solvable;
-            $question->patron_only = $this->patronOnly;
+            $question->is_solvable = $solvable;
+            $question->patron_only = $patronOnly;
             $question->save();
             auth()->user()->touch();
 
