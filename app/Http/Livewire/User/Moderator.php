@@ -89,6 +89,7 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->is_contributor) {
                 $this->user->notify(new ContributorEnabled(true));
+
                 return loggy(request(), 'Staff', auth()->user(), 'Enrolled as Contributor | Username: @'.$this->user->username);
             }
 
@@ -129,6 +130,7 @@ class Moderator extends Component
             if ($this->user->spammy) {
                 return loggy(request(), 'Staff', auth()->user(), 'Flagged the user | Username: @'.$this->user->username);
             }
+
             return loggy(request(), 'Staff', auth()->user(), 'Un-flagged the user | Username: @'.$this->user->username);
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -154,6 +156,7 @@ class Moderator extends Component
             if ($this->user->is_suspended) {
                 return loggy(request(), 'Staff', auth()->user(), 'Suspended the user | Username: @'.$this->user->username);
             }
+
             return loggy(request(), 'Staff', auth()->user(), 'Un-suspended the user | Username: @'.$this->user->username);
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -168,6 +171,7 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->is_patron) {
                 $this->user->notify(new PatronGifted(true));
+
                 return loggy(request(), 'Staff', auth()->user(), 'Enrolled as Patron | Username: @'.$this->user->username);
             }
 
@@ -185,8 +189,10 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->is_verified) {
                 $this->user->notify(new UserVerified(true));
+
                 return loggy(request(), 'Staff', auth()->user(), 'Verified the user | Username: @'.$this->user->username);
             }
+
             return loggy(request(), 'Staff', auth()->user(), 'Un-verified the user | Username: @'.$this->user->username);
         } else {
             return toast($this, 'error', 'Forbidden!');
@@ -202,6 +208,7 @@ class Moderator extends Component
             if ($this->user->dark_mode) {
                 return loggy(request(), 'Staff', auth()->user(), 'Enrolled to Dark mode | Username: @'.$this->user->username);
             }
+
             return loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Dark mode | Username: @'.$this->user->username);
         } else {
             return toast($this, 'error', 'Forbidden!');
