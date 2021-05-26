@@ -8,8 +8,8 @@ class AnswerQuery
     {
         if (auth()->check()) {
             return auth()->user()->hasLiked($answer);
-        } else {
-            return null;
         }
+
+        return null;
     }
 }
