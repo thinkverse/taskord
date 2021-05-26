@@ -22,9 +22,9 @@ class Notifications extends Component
             loggy(request(), 'User', auth()->user(), 'Toggled the email notification settings');
 
             return toast($this, 'success', 'Notification settings has been updated');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function notificationsWeb()
@@ -35,8 +35,8 @@ class Notifications extends Component
             loggy(request(), 'User', auth()->user(), 'Toggled the web notification settings');
 
             return toast($this, 'success', 'Notification settings has been updated');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 }
