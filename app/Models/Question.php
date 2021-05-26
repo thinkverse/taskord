@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Answer;
+use App\Models\User;
 use Conner\Tagging\Taggable;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
@@ -24,7 +26,9 @@ class Question extends Model implements Viewable
     public $cacheFor = 3600;
     public $cacheTags = ['questions'];
     public $cachePrefix = 'questions_';
+
     protected static $flushCacheOnUpdate = true;
+
     protected $fillable = [
         'user_id',
         'title',
@@ -34,7 +38,6 @@ class Question extends Model implements Viewable
         'patron_only',
         'hidden',
     ];
-
     protected $searchable = [
         'columns' => [
             'questions.title' => 10,
@@ -43,11 +46,11 @@ class Question extends Model implements Viewable
 
     public function user()
     {
-        return $this->belongsTo(\App\Models\User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function answers()
     {
-        return $this->hasMany(\App\Models\Answer::class);
+        return $this->hasMany(Answer::class);
     }
 }
