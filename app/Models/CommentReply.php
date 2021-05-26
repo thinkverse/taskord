@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Rennokki\QueryCache\Traits\QueryCacheable;
@@ -14,7 +16,9 @@ class CommentReply extends Model
     public $cacheFor = 3600;
     public $cacheTags = ['comment_replies'];
     public $cachePrefix = 'comment_replies_';
+
     protected static $flushCacheOnUpdate = true;
+
     protected $fillable = [
         'user_id',
         'comment_id',
@@ -24,11 +28,11 @@ class CommentReply extends Model
 
     public function user()
     {
-        return $this->belongsTo(\App\Models\User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function comment()
     {
-        return $this->belongsTo(\App\Models\Comment::class);
+        return $this->belongsTo(Comment::class);
     }
 }
