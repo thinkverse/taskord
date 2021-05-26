@@ -67,9 +67,9 @@ class Moderator extends Component
                 auth()->user(),
                 'Un-enrolled from Beta | Username: @'.$this->user->username
             );
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function enrollStaff()
@@ -96,9 +96,8 @@ class Moderator extends Component
                 auth()->user(),
                 'Un-enrolled from Staff | Username: @'.$this->user->username
             );
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function enrollDeveloper()
@@ -124,9 +123,8 @@ class Moderator extends Component
                 auth()->user(),
                 'Un-enrolled from Contributor | Username: @'.$this->user->username
             );
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function privateUser()
@@ -153,9 +151,8 @@ class Moderator extends Component
                 auth()->user(),
                 'Un-enrolled from private user | Username: @'.$this->user->username
             );
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function flagUser()
@@ -182,9 +179,8 @@ class Moderator extends Component
                 auth()->user(),
                 'Un-flagged the user | Username: @'.$this->user->username
             );
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function suspendUser()
@@ -218,9 +214,8 @@ class Moderator extends Component
                 auth()->user(),
                 'Un-suspended the user | Username: @'.$this->user->username
             );
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function enrollPatron()
@@ -246,9 +241,8 @@ class Moderator extends Component
                 auth()->user(),
                 'Un-enrolled from Patron | Username: @'.$this->user->username
             );
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function verifyUser()
@@ -274,9 +268,8 @@ class Moderator extends Component
                 auth()->user(),
                 'Un-verified the user | Username: @'.$this->user->username
             );
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function enrollDarkMode()
@@ -300,9 +293,8 @@ class Moderator extends Component
                 auth()->user(),
                 'Un-enrolled from Dark mode | Username: @'.$this->user->username
             );
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function masquerade()
@@ -320,9 +312,8 @@ class Moderator extends Component
             Auth::loginUsingId($this->user->id);
 
             return redirect()->route('home');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function resetAvatar()
@@ -340,9 +331,8 @@ class Moderator extends Component
             );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function releaseUsername()
@@ -360,9 +350,8 @@ class Moderator extends Component
             );
 
             return redirect()->route('user.done', ['username' => $user->username]);
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteTasks()
@@ -384,9 +373,8 @@ class Moderator extends Component
             );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteComments()
@@ -403,9 +391,8 @@ class Moderator extends Component
             );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteQuestions()
@@ -422,9 +409,8 @@ class Moderator extends Component
             );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteAnswers()
@@ -441,9 +427,8 @@ class Moderator extends Component
             );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteMilestones()
@@ -460,9 +445,8 @@ class Moderator extends Component
             );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteProducts()
@@ -487,9 +471,8 @@ class Moderator extends Component
             );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteUser()
@@ -532,9 +515,8 @@ class Moderator extends Component
             $user->delete();
 
             return redirect()->route('home');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function updateUserStaffNotes()

@@ -75,10 +75,10 @@ class SingleTask extends Component
             }
             $this->task->delete();
             $this->emitUp('refreshTasks');
-            auth()->user()->touch();
-        } else {
-            return toast($this, 'error', 'Forbidden!');
+            return auth()->user()->touch();
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function render()
