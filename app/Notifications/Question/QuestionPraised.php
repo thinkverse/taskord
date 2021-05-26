@@ -48,9 +48,9 @@ class QuestionPraised extends Notification implements ShouldQueue
                         ->line($this->question->title)
                         ->action('Go to Question', url('/question/'.$this->question->id))
                         ->line('Thank you for using Taskord!');
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     public function toDatabase()
