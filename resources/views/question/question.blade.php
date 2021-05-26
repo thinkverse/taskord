@@ -58,7 +58,7 @@
                 </div>
             @endauth
             <div class="fw-bold text-secondary pb-2">
-                Tags
+                Tags <x:labels.beta />
             </div>
             <div class="card mb-4">
                 <div class="card-body">
