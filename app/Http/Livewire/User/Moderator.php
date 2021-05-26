@@ -170,10 +170,10 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->is_patron) {
                 $this->user->notify(new PatronGifted(true));
-                loggy(request(), 'Staff', auth()->user(), 'Enrolled as Patron | Username: @'.$this->user->username);
-            } else {
-                loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Patron | Username: @'.$this->user->username);
+                return loggy(request(), 'Staff', auth()->user(), 'Enrolled as Patron | Username: @'.$this->user->username);
             }
+
+            return loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Patron | Username: @'.$this->user->username);
         } else {
             return toast($this, 'error', 'Forbidden!');
         }
