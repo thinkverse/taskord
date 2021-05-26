@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Staff;
 
+use GuzzleHttp\Client;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -18,7 +19,19 @@ class Deployments extends Component
 
     public function getDeployments()
     {
-        return true;
+        $client = new Client(['http_errors' => false]);
+        $deployments = $client->request('GET', 'https://gitlab.com/api/v4/projects/25370928/pipelines', [
+            'query' => [
+                'per_page' => 50,
+                'ref' => 'master',
+            ],
+        ]);
+
+        if ($deployments->getStatusCode() === 200) {
+            return json_decode($deployments->getBody()->getContents());
+        } else {
+            return [];
+        }
     }
 
     public function render()
