@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\CommentReply;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
@@ -18,14 +21,15 @@ class Comment extends Model
     public $cacheFor = 3600;
     public $cacheTags = ['comments'];
     public $cachePrefix = 'comments_';
+
     protected static $flushCacheOnUpdate = true;
+
     protected $fillable = [
         'user_id',
         'task_id',
         'comment',
         'hidden',
     ];
-
     protected $searchable = [
         'columns' => [
             'comments.comment' => 10,
@@ -34,16 +38,16 @@ class Comment extends Model
 
     public function user()
     {
-        return $this->belongsTo(\App\Models\User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function task()
     {
-        return $this->belongsTo(\App\Models\Task::class);
+        return $this->belongsTo(Task::class);
     }
 
     public function replies()
     {
-        return $this->hasMany(\App\Models\CommentReply::class);
+        return $this->hasMany(CommentReply::class);
     }
 }
