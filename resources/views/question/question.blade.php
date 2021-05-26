@@ -64,7 +64,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         @foreach ($question->tags as $tag)
-                            <span class="border-primary border badge bg-tag me-1 p-2">{{ $tag->name }}</span>
+                            <span class="border-primary border badge bg-tag me-1">{{ $tag->name }}</span>
                         @endforeach
                     </div>
                 </div>
