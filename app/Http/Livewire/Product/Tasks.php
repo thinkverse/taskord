@@ -34,6 +34,7 @@ class Tasks extends Component
         $members->push($this->product->owner->id);
 
         return $this->product->tasks()
+            ->withCount(['comments', 'likers'])
             ->whereDone($this->type === 'product.done' ? true : false)
             ->whereIn('user_id', $members)
             ->latest('updated_at')

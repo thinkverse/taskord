@@ -30,7 +30,7 @@ class Tasks extends Component
             $userIds = auth()->user()->followings->pluck('id');
             $userIds->push(auth()->user()->id);
 
-            return Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'milestone_id', 'source', 'images', 'hidden')
+            return Task::withCount(['comments', 'likers'])
                 ->whereIn('user_id', $userIds)
                 ->whereHas('user', function ($q) {
                     $q->where([
@@ -42,12 +42,13 @@ class Tasks extends Component
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, null, null, $this->page);
         } else {
-            return Task::whereHas('user', function ($q) {
-                $q->where([
-                    ['spammy', false],
-                    ['is_private', false],
-                ]);
-            })
+            return Task::withCount(['comments', 'likers'])
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['spammy', false],
+                        ['is_private', false],
+                    ]);
+                })
                 ->whereDone(true)
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, '*', null, $this->page);

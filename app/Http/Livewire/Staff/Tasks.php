@@ -19,7 +19,9 @@ class Tasks extends Component
 
     public function getTasks()
     {
-        return Task::latest()->paginate(50);
+        return Task::withCount(['comments', 'likers'])
+            ->latest()
+            ->paginate(50);
     }
 
     public function render()

@@ -33,7 +33,7 @@ class Stats extends Component
         $products_launched = Product::whereLaunched(true)->count('id');
         $reputations = User::sum('reputation');
         $questions = Question::count('id');
-        $questions_unanswered = Question::doesntHave('answer')->count('id');
+        $questions_unanswered = Question::doesntHave('answers')->count('id');
         $answers = Answer::count('id');
         $comments = Comment::count('id');
         $milestones = Milestone::count('id');
