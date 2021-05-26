@@ -33,11 +33,16 @@
                     <label class="form-label fw-bold">
                         Tags <span class="fw-normal text-secondary">- Use <i>ctrl</i> to select</span>
                     </label>
-                    <select class="form-select" multiple>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select @error('tags') is-invalid @enderror" multiple wire:model="selectedTags">
+                        @foreach (Conner\Tagging\Model\Tag::get() as $tag)
+                            <option class="font-monospace p-1" value="{{ $tag->slug }}">{{ $tag->name }}</option>
+                        @endforeach
                     </select>
+                    @error('tags')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <div class="fw-bold mb-2 d-flex align-items-center">
