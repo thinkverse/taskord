@@ -70,9 +70,9 @@ class SingleUpdate extends Component
         if (auth()->user()->staff_mode or auth()->user()->id === $this->update->user->id) {
             loggy(request(), 'Product', auth()->user(), 'Deleted a product update on #'.$this->update->product->slug.' | Update ID: '.$this->update->id);
             $this->update->delete();
-            $this->emitUp('refreshProduct');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
+            return $this->emitUp('refreshProduct');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 }

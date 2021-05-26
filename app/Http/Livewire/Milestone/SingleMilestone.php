@@ -61,9 +61,9 @@ class SingleMilestone extends Component
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
 
             return toast($this, 'success', 'Milestone is hidden from public!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function toggleStatus()
