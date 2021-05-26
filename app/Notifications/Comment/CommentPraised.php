@@ -47,9 +47,9 @@ class CommentPraised extends Notification implements ShouldQueue
                         ->line('👏 Your comment was praised by @'.$user->username)
                         ->line($this->comment->comment)
                         ->line('Thank you for using Taskord!');
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     public function toDatabase()

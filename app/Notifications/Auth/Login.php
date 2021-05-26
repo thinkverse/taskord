@@ -31,8 +31,8 @@ class Login extends Notification implements ShouldQueue
                         ->greeting('Hello @'.$notifiable->username.' 👋')
                         ->line('There was a successful login to **'.$notifiable->username.'** from **'.$this->ip.'**. If this was not you please contact us immediately.')
                         ->line('Thank you for using Taskord!');
-        } else {
-            return null;
         }
+
+        return null;
     }
 }

@@ -49,9 +49,9 @@ class Replied extends Notification implements ShouldQueue
                         ->line('Reply: '.$this->reply->reply)
                         ->action('Go to Comment', url('/task/'.$this->reply->comment->task->id.'/'.$this->reply->comment->id))
                         ->line('Thank you for using Taskord!');
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     public function toDatabase()
