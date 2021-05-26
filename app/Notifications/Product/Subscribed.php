@@ -47,9 +47,9 @@ class Subscribed extends Notification implements ShouldQueue
                         ->line('🎉 @'.$user->username.' subscribed to your product "'.$this->product->name.'"')
                         ->action('Go to user profile @'.$user->username, url('/@'.$user->username))
                         ->line('Thank you for using Taskord!');
-        } else {
-            return null;
         }
+
+        return null;
     }
 
     public function toDatabase()
