@@ -65,9 +65,9 @@ class SingleComment extends Component
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide comment | Comment ID: '.$this->comment->id);
 
             return toast($this, 'success', 'Comment is hidden from public!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteComment()
@@ -87,8 +87,8 @@ class SingleComment extends Component
             auth()->user()->touch();
 
             return toast($this, 'success', 'Comment has been deleted successfully!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 }
