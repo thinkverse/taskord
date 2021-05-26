@@ -49,10 +49,7 @@ class CreateQuestion extends Component
             'patron_only' => $patronOnly,
         ]);
 
-        foreach ($this->selectedTags as $tag) {
-            $question->tag($tag);
-        }
-
+        $question->retag($this->selectedTags);
         auth()->user()->touch();
 
         givePoint(new QuestionCreated($question));
