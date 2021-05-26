@@ -48,6 +48,11 @@ class CreateQuestion extends Component
             'is_solvable' => $solvable,
             'patron_only' => $patronOnly,
         ]);
+
+        foreach ($this->selectedTags as $tag) {
+            $question->tag($tag);
+        }
+
         auth()->user()->touch();
 
         givePoint(new QuestionCreated($question));
