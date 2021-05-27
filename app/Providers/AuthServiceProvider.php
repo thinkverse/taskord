@@ -35,6 +35,16 @@ class AuthServiceProvider extends ServiceProvider
             return $user->is_staff;
         });
 
+        Gate::define('check.task', function (User $user, Task $task) {
+            if ($user->spammy) {
+                return false;
+            }
+
+            if ($user->id === $task->user->id) {
+                return true;
+            }
+        });
+
         Gate::define('delete.task', function (User $user, Task $task) {
             if ($user->spammy) {
                 return false;

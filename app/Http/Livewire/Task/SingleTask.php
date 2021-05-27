@@ -41,11 +41,7 @@ class SingleTask extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
-        if (auth()->user()->id === $this->task->user->id) {
+        if (Gate::allows('check.task', $this->task)) {
             if ($this->task->done) {
                 $this->task->done_at = carbon();
                 auth()->user()->touch();
