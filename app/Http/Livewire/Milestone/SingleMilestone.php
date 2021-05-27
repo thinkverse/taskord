@@ -34,7 +34,7 @@ class SingleMilestone extends Component
         }
 
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (! auth()->user()->hasVerifiedEmail()) {
@@ -61,13 +61,13 @@ class SingleMilestone extends Component
             return toast($this, 'success', 'Milestone is hidden from public!');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function toggleStatus()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if ($this->milestone->status) {
@@ -88,7 +88,7 @@ class SingleMilestone extends Component
     public function deleteMilestone()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (auth()->user()->spammy) {
@@ -103,6 +103,6 @@ class SingleMilestone extends Component
             return redirect()->route('milestones.opened');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 }

@@ -48,7 +48,7 @@ class EditProduct extends Component
     public function updatedAvatar()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate([
@@ -59,7 +59,7 @@ class EditProduct extends Component
     public function submit()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate([
@@ -132,13 +132,13 @@ class EditProduct extends Component
             return redirect()->route('product.done', ['slug' => $product->slug]);
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function deleteProduct()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (! auth()->user()->hasVerifiedEmail()) {
@@ -163,6 +163,6 @@ class EditProduct extends Component
             return redirect()->route('products.newest');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 }

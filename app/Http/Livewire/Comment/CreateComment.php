@@ -25,7 +25,7 @@ class CreateComment extends Component
     public function updated($field)
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validateOnly($field);
@@ -34,7 +34,7 @@ class CreateComment extends Component
     public function submit()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate();

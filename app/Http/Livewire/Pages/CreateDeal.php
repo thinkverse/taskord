@@ -44,6 +44,6 @@ class CreateDeal extends Component
             return redirect()->route('deals');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 }

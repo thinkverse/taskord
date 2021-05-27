@@ -23,7 +23,7 @@ class CreateTask extends Component
     public function updatedImage()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate([
@@ -45,7 +45,7 @@ class CreateTask extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate([

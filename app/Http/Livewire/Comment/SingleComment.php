@@ -33,7 +33,7 @@ class SingleComment extends Component
         }
 
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (! auth()->user()->hasVerifiedEmail()) {
@@ -64,13 +64,13 @@ class SingleComment extends Component
             return toast($this, 'success', 'Comment is hidden from public!');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function deleteComment()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (auth()->user()->spammy) {
@@ -86,6 +86,6 @@ class SingleComment extends Component
             return toast($this, 'success', 'Comment has been deleted successfully!');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 }

@@ -20,7 +20,7 @@ class NewUpdate extends Component
     public function submit()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate([

@@ -31,6 +31,6 @@ class Appearance extends Component
             return redirect()->route('user.settings.appearance');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 }

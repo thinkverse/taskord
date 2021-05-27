@@ -79,7 +79,7 @@ class SingleFeature extends Component
     public function deleteFeature()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         loggy(request(), 'Staff', auth()->user(), 'Deleted a feature flag | Feature ID: '.$this->feature->id);

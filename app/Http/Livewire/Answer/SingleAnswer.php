@@ -32,7 +32,7 @@ class SingleAnswer extends Component
         }
 
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (! auth()->user()->hasVerifiedEmail()) {
@@ -57,13 +57,13 @@ class SingleAnswer extends Component
             return toast($this, 'success', 'Answer is hidden from public!');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function deleteAnswer()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (auth()->user()->spammy) {
@@ -79,6 +79,6 @@ class SingleAnswer extends Component
             return toast($this, 'success', 'Answer has been deleted successfully!');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 }

@@ -32,7 +32,7 @@ class SingleUpdate extends Component
         }
 
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (! auth()->user()->hasVerifiedEmail()) {
@@ -59,7 +59,7 @@ class SingleUpdate extends Component
     public function deleteUpdate()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (auth()->user()->spammy) {
@@ -73,6 +73,6 @@ class SingleUpdate extends Component
             return $this->emitUp('refreshProduct');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 }

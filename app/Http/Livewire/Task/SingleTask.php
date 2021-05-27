@@ -63,7 +63,7 @@ class SingleTask extends Component
             return $this->emit('refreshTasks');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function togglePraise()
@@ -85,7 +85,7 @@ class SingleTask extends Component
             return loggy(request(), 'Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function hide()
@@ -97,7 +97,7 @@ class SingleTask extends Component
             return toast($this, 'success', 'Task is hidden from public!');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function deleteTask()
@@ -114,7 +114,7 @@ class SingleTask extends Component
             return toast($this, 'success', 'Task has been deleted successfully!');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function render()

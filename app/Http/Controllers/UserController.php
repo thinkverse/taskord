@@ -115,7 +115,7 @@ class UserController extends Controller
             return $response;
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function exportLogs()
@@ -137,7 +137,7 @@ class UserController extends Controller
             return $response;
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function integrationsSettings()

@@ -44,7 +44,7 @@ class Api extends Component
             return toast($this, 'success', 'New API key been generated successfully');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function render()

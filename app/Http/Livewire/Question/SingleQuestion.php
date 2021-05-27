@@ -38,7 +38,7 @@ class SingleQuestion extends Component
         }
 
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (! auth()->user()->hasVerifiedEmail()) {
@@ -64,14 +64,14 @@ class SingleQuestion extends Component
 
             return toast($this, 'success', 'Question is hidden from public!');
         } else {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
     }
 
     public function toggleSolve()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (auth()->user()->spammy) {
@@ -86,14 +86,14 @@ class SingleQuestion extends Component
 
             return $this->emit('refreshSingleQuestion');
         } else {
-            toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', "Oops! You can't perform this action");
         }
     }
 
     public function deleteQuestion()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (auth()->user()->spammy) {
@@ -107,7 +107,7 @@ class SingleQuestion extends Component
 
             return redirect()->route('questions.newest');
         } else {
-            toast($this, 'error', 'Forbidden!');
+            toast($this, 'error', "Oops! You can't perform this action");
         }
     }
 

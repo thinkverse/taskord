@@ -24,7 +24,7 @@ class Notifications extends Component
             return toast($this, 'success', 'Notification settings has been updated');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function notificationsWeb()
@@ -37,6 +37,6 @@ class Notifications extends Component
             return toast($this, 'success', 'Notification settings has been updated');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 }

@@ -35,14 +35,14 @@ class Account extends Component
             return toast($this, 'success', 'Your are no longer a beta member!');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function enrollPrivate()
     {
         if (auth()->user()->id === $this->user->id) {
             if (! $this->user->is_patron) {
-                toast($this, 'error', 'Forbidden!');
+                toast($this, 'error', "Oops! You can't perform this action");
             }
             $this->user->is_private = ! $this->user->is_private;
             $this->user->save();
@@ -57,7 +57,7 @@ class Account extends Component
             }
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function updated($field)
@@ -90,6 +90,6 @@ class Account extends Component
             }
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 }

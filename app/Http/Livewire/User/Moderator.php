@@ -70,14 +70,14 @@ class Moderator extends Component
             );
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function enrollStaff()
     {
         if (Gate::allows('staff_mode')) {
             if ($this->user->id === 1) {
-                return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', "Oops! You can't perform this action");
             }
             $this->user->is_staff = ! $this->user->is_staff;
             $this->user->timestamps = false;
@@ -99,7 +99,7 @@ class Moderator extends Component
             );
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function enrollDeveloper()
@@ -127,14 +127,14 @@ class Moderator extends Component
             );
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function privateUser()
     {
         if (Gate::allows('staff_mode')) {
             if ($this->user->id === 1) {
-                return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', "Oops! You can't perform this action");
             }
             $this->user->is_private = ! $this->user->is_private;
             $this->user->timestamps = false;
@@ -156,14 +156,14 @@ class Moderator extends Component
             );
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function flagUser()
     {
         if (Gate::allows('staff_mode')) {
             if ($this->user->id === 1) {
-                return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', "Oops! You can't perform this action");
             }
             $this->user->spammy = ! $this->user->spammy;
             $this->user->timestamps = false;
@@ -185,14 +185,14 @@ class Moderator extends Component
             );
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function suspendUser()
     {
         if (Gate::allows('staff_mode')) {
             if ($this->user->id === 1) {
-                return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', "Oops! You can't perform this action");
             }
             $this->user->is_suspended = ! $this->user->is_suspended;
             if ($this->user->is_suspended) {
@@ -221,7 +221,7 @@ class Moderator extends Component
             );
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function enrollPatron()
@@ -249,7 +249,7 @@ class Moderator extends Component
             );
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function verifyUser()
@@ -277,7 +277,7 @@ class Moderator extends Component
             );
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function enrollDarkMode()
@@ -303,14 +303,14 @@ class Moderator extends Component
             );
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function masquerade()
     {
         if (Gate::allows('staff_mode')) {
             if ($this->user->id === 1) {
-                return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', "Oops! You can't perform this action");
             }
             loggy(
                 request(),
@@ -323,7 +323,7 @@ class Moderator extends Component
             return redirect()->route('home');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function resetAvatar()
@@ -343,7 +343,7 @@ class Moderator extends Component
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function releaseUsername()
@@ -363,7 +363,7 @@ class Moderator extends Component
             return redirect()->route('user.done', ['username' => $user->username]);
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function deleteTasks()
@@ -387,7 +387,7 @@ class Moderator extends Component
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function deleteComments()
@@ -406,7 +406,7 @@ class Moderator extends Component
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function deleteQuestions()
@@ -425,7 +425,7 @@ class Moderator extends Component
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function deleteAnswers()
@@ -444,7 +444,7 @@ class Moderator extends Component
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function deleteMilestones()
@@ -463,7 +463,7 @@ class Moderator extends Component
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function deleteProducts()
@@ -490,14 +490,14 @@ class Moderator extends Component
             return redirect()->route('user.done', ['username' => $this->user->username]);
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function deleteUser()
     {
         if (Gate::allows('staff_mode')) {
             if ($this->user->id === 1) {
-                return toast($this, 'error', 'Forbidden!');
+                return toast($this, 'error', "Oops! You can't perform this action");
             }
 
             loggy(
@@ -535,7 +535,7 @@ class Moderator extends Component
             return redirect()->route('home');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function updateUserStaffNotes()

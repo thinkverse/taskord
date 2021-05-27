@@ -48,6 +48,6 @@ class Password extends Component
             return toast($this, 'success', 'Your password has been changed!');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 }

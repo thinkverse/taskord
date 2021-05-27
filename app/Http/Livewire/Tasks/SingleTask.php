@@ -39,7 +39,7 @@ class SingleTask extends Component
         }
 
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->task->done = ! $this->task->done;
@@ -60,7 +60,7 @@ class SingleTask extends Component
     public function deleteTask()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (auth()->user()->spammy) {
@@ -78,7 +78,7 @@ class SingleTask extends Component
             return auth()->user()->touch();
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function render()

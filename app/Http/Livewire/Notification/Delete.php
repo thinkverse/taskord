@@ -9,7 +9,7 @@ class Delete extends Component
     public function deleteAll()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         auth()->user()->notifications()->delete();

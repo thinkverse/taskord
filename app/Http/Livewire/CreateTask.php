@@ -32,7 +32,7 @@ class CreateTask extends Component
     public function checkState()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         auth()->user()->check_state = ! auth()->user()->check_state;
@@ -43,7 +43,7 @@ class CreateTask extends Component
     public function updatedImage()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate([
@@ -66,7 +66,7 @@ class CreateTask extends Component
         }
 
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate([

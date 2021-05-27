@@ -19,7 +19,7 @@ class SingleReply extends Component
     public function deleteReply()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if (auth()->user()->spammy) {
@@ -35,7 +35,7 @@ class SingleReply extends Component
             return toast($this, 'success', 'Reply has been deleted successfully!');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function hide()
@@ -47,6 +47,6 @@ class SingleReply extends Component
             return toast($this, 'success', 'Reply is hidden from public!');
         }
 
-        return toast($this, 'error', 'Forbidden!');
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 }
