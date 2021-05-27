@@ -45,8 +45,8 @@ class LoadMore extends Component
             return view('livewire.product.tasks', [
                 'tasks' => $tasks,
             ]);
-        } else {
-            return view('livewire.load-more');
         }
+
+        return view('livewire.load-more');
     }
 }
