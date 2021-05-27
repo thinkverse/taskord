@@ -130,9 +130,9 @@ class EditProduct extends Component
             loggy(request(), 'Product', auth()->user(), 'Updated a product | Product Slug: #'.$this->product->slug);
 
             return redirect()->route('product.done', ['slug' => $product->slug]);
-        } else {
-            toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteProduct()
@@ -161,8 +161,8 @@ class EditProduct extends Component
             auth()->user()->touch();
 
             return redirect()->route('products.newest');
-        } else {
-            toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 }
