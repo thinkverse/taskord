@@ -26,7 +26,6 @@ class CompletedTasks extends Component
 
         $weekDates = [];
         $completedTasks = [];
-        $tasks = [];
         foreach ($period->toArray() as $date) {
             array_push($weekDates, carbon($date)->format('d M Y'));
             $count = Task::select('id')
