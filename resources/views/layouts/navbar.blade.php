@@ -99,13 +99,6 @@
                         </li>
                     </ul>
                 </li>
-                @if (auth()->check() and auth()->user()->is_staff and !auth()->user()->staff_mode)
-                    <li class="nav-item">
-                        <span class="nav-link text-secondary fw-bold">
-                            {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms
-                        </span>
-                    </li>
-                @endif
             </ul>
             <ul class="navbar-nav ms-auto">
                 @guest
