@@ -34,11 +34,11 @@
                     <x-heroicon-s-star class="heroicon text-gold" />
                 </a>
             @endif
-            @if ($user->is_staff)
+            @can('is_staff')
                 <span class="staff" title="Staff">
                     <x-heroicon-o-shield-check class="heroicon text-primary" />
                 </span>
-            @endif
+            @endcan
             @if ($user->bio)
                 <div class="fw-normal">
                     {{ $user->bio }}
