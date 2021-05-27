@@ -7,10 +7,10 @@ use App\Jobs\CheckGoal;
 use App\Models\Task;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use Illuminate\Support\Facades\Gate;
 
 class SingleTask extends Component
 {

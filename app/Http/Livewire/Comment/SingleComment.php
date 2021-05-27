@@ -5,9 +5,9 @@ namespace App\Http\Livewire\Comment;
 use App\Models\Comment;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use Illuminate\Support\Facades\Gate;
 
 class SingleComment extends Component
 {
