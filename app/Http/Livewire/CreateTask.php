@@ -36,6 +36,7 @@ class CreateTask extends Component
         }
 
         auth()->user()->check_state = ! auth()->user()->check_state;
+
         return auth()->user()->save();
     }
 

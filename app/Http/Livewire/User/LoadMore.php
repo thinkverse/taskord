@@ -42,6 +42,7 @@ class LoadMore extends Component
                 'tasks' => $tasks,
             ]);
         }
+
         return view('livewire.load-more');
     }
 }

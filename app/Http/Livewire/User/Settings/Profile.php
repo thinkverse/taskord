@@ -143,8 +143,10 @@ class Profile extends Component
         if (auth()->user()->id === $this->user->id) {
             $this->user->has_goal = ! $this->user->has_goal;
             $this->user->save();
+
             return loggy(request(), 'User', auth()->user(), 'Toggled goals settings');
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -161,6 +163,7 @@ class Profile extends Component
 
             return toast($this, 'success', 'Your goal has been updated!');
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -178,6 +181,7 @@ class Profile extends Component
 
             return toast($this, 'success', 'Vacation mode has been disabled!');
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -194,6 +198,7 @@ class Profile extends Component
 
             return toast($this, 'success', 'Your sponsor link has been updated!');
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -220,6 +225,7 @@ class Profile extends Component
 
             return toast($this, 'success', 'Your social links has been updated!');
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 
@@ -233,8 +239,10 @@ class Profile extends Component
             } else {
                 toast($this, 'success', 'All user\'s task will be show on homepage');
             }
+
             return loggy(request(), 'User', auth()->user(), 'Toggled only following users tasks in settings');
         }
+
         return toast($this, 'error', 'Forbidden!');
     }
 }

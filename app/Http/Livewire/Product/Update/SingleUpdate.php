@@ -47,10 +47,12 @@ class SingleUpdate extends Component
         if (auth()->user()->hasLiked($this->update)) {
             auth()->user()->unlike($this->update);
             $this->update->refresh();
+
             return auth()->user()->touch();
         }
         auth()->user()->like($this->update);
         $this->update->refresh();
+
         return auth()->user()->touch();
     }
 
