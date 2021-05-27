@@ -192,10 +192,9 @@ class Profile extends Component
             $this->user->save();
             loggy(request(), 'User', auth()->user(), 'Updated the sponsor URL');
 
-            toast($this, 'success', 'Your sponsor link has been updated!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'success', 'Your sponsor link has been updated!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function updateSocial()
