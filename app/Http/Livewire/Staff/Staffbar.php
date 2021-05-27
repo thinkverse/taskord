@@ -25,9 +25,9 @@ class Staffbar extends Component
             loggy(request(), 'Staff', auth()->user(), 'Deployed the Application');
 
             return toast($this, 'success', 'Deployment process has been initiated successfully 🚀');
-        } else {
-            return toast($this, 'error', 'Permission denied!');
         }
+
+        return toast($this, 'error', 'Permission denied!');
     }
 
     public function render()
