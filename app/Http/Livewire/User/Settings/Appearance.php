@@ -23,15 +23,14 @@ class Appearance extends Component
                 loggy(request(), 'User', auth()->user(), 'Disabled dark mode');
 
                 return redirect()->route('user.settings.appearance');
-            } else {
-                $this->user->dark_mode = true;
-                $this->user->save();
-                loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
-
-                return redirect()->route('user.settings.appearance');
             }
-        } else {
-            return toast($this, 'error', 'Forbidden!');
+            $this->user->dark_mode = true;
+            $this->user->save();
+            loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
+
+            return redirect()->route('user.settings.appearance');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 }
