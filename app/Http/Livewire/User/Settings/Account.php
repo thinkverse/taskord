@@ -28,11 +28,11 @@ class Account extends Component
                 loggy(request(), 'User', auth()->user(), 'Enrolled to beta');
 
                 return toast($this, 'success', 'Your are now beta member!');
-            } else {
-                loggy(request(), 'User', auth()->user(), 'Opted out from beta');
-
-                return toast($this, 'success', 'Your are no longer a beta member!');
             }
+
+            loggy(request(), 'User', auth()->user(), 'Opted out from beta');
+
+            return toast($this, 'success', 'Your are no longer a beta member!');
         }
 
         return toast($this, 'error', 'Forbidden!');
