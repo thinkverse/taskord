@@ -60,13 +60,13 @@ class Integrations extends Component
                 session()->flash('created', $webhook);
                 loggy(request(), 'User', auth()->user(), 'Created a new webhook | Webhook ID: '.$webhook->id);
 
-                toast($this, 'success', 'New webhook has been created!');
-            } else {
-                toast($this, 'error', 'Forbidden!');
+                return toast($this, 'success', 'New webhook has been created!');
             }
-        } else {
+
             return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteWebhook($id)
@@ -78,9 +78,9 @@ class Integrations extends Component
             $this->emit('refreshIntegrations');
 
             return toast($this, 'success', 'Webhook has been deleted!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function render()
