@@ -69,11 +69,11 @@ class Integrations extends Component
         return toast($this, 'error', 'Forbidden!');
     }
 
-    public function deleteWebhook($id)
+    public function deleteWebhook($webhookId)
     {
         if (auth()->user()->id === $this->user->id) {
-            loggy(request(), 'User', auth()->user(), 'Deleted a webhook | Webhook ID: '.$id);
-            $webhook = Webhook::find($id);
+            loggy(request(), 'User', auth()->user(), 'Deleted a webhook | Webhook ID: '.$webhookId);
+            $webhook = Webhook::find($webhookId);
             $webhook->delete();
             $this->emit('refreshIntegrations');
 
