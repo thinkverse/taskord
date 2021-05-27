@@ -55,9 +55,9 @@ class Account extends Component
 
                 toast($this, 'success', 'All your tasks are now public');
             }
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function updated($field)
@@ -88,8 +88,8 @@ class Account extends Component
 
                 toast($this, 'success', 'Your account has been updated!');
             }
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 }
