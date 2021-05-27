@@ -116,15 +116,7 @@ class SingleTask extends Component
 
     public function deleteTask()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-
-        if (auth()->user()->staff_mode or auth()->user()->id === $this->task->user->id) {
+        if (Gate::allows('delete.task', $this->task)) {
             loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
             foreach ($this->task->images ?? [] as $image) {
                 Storage::delete($image);

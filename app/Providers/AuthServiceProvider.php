@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -32,6 +33,16 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('is_staff', function (User $user) {
             return $user->is_staff;
+        });
+
+        Gate::define('delete.task', function (User $user, Task $task) {
+            if ($user->spammy) {
+                return false;
+            }
+
+            if ($user->staff_mode or $user->id === $task->user->id) {
+                return true;
+            }
         });
     }
 }
