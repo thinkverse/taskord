@@ -108,8 +108,8 @@
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                     </button>
                 @endcan
-                @if (auth()->user()->staff_mode or auth()->user()->id === $milestone->user->id)
-                    @if ($type === "milestones.milestone")
+                @if ($type === "milestones.milestone")
+                    @can('delete', $milestone)
                         @if ($milestone->status)
                             <button type="button" class="btn btn-danger btn-task float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
                                 <x-heroicon-o-x class="heroicon heroicon-15px" />
@@ -121,16 +121,16 @@
                                 Open Milestone
                             </button>
                         @endif
+                    @endcan
+                @else
+                    @if ($milestone->status)
+                        <div class="float-end text-success fw-bold">
+                            OPENED
+                        </div>
                     @else
-                        @if ($milestone->status)
-                            <div class="float-end text-success fw-bold">
-                                OPENED
-                            </div>
-                        @else
-                            <div class="float-end text-danger fw-bold">
-                                CLOSED
-                            </div>
-                        @endif
+                        <div class="float-end text-danger fw-bold">
+                            CLOSED
+                        </div>
                     @endif
                 @endif
             @endauth
