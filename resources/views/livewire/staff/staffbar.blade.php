@@ -49,19 +49,19 @@
                     </a>
                 </span>
                 <span class="fw-bold me-3">
-                    <a href="{{ route('staff.stats') }}" title="Stafftool">
-                        <x-heroicon-o-shield-check class="heroicon text-white" />
-                    </a>
-                </span>
-                <span class="fw-bold me-3">
                     <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#deployModal" title="Deploy">
                         <x-heroicon-o-cloud class="heroicon text-white" />
                     </a>
                 </span>
             </span>
-            <span class="fw-bold">
+            <span class="fw-bold me-3">
                 <a class="cursor-pointer" id="expand-stats">
                     <x-heroicon-o-view-grid class="heroicon text-white" />
+                </a>
+            </span>
+            <span class="fw-bold">
+                <a href="{{ route('staff.stats') }}" title="Stafftool">
+                    <x-heroicon-o-shield-check class="heroicon text-white" />
                 </a>
             </span>
         </span>
