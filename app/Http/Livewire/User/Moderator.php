@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 
 class Moderator extends Component
 {
@@ -48,7 +49,7 @@ class Moderator extends Component
 
     public function enrollBeta()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $this->user->is_beta = ! $this->user->is_beta;
             $this->user->timestamps = false;
             $this->user->save();
@@ -74,7 +75,7 @@ class Moderator extends Component
 
     public function enrollStaff()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
@@ -103,7 +104,7 @@ class Moderator extends Component
 
     public function enrollDeveloper()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $this->user->is_contributor = ! $this->user->is_contributor;
             $this->user->timestamps = false;
             $this->user->save();
@@ -131,7 +132,7 @@ class Moderator extends Component
 
     public function privateUser()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
@@ -160,7 +161,7 @@ class Moderator extends Component
 
     public function flagUser()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
