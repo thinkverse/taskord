@@ -67,7 +67,7 @@ class NewMeetup extends Component
             $url = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text=📦';
         }
 
-        $meetup = auth()->user()->meetups()->create([
+        auth()->user()->meetups()->create([
             'name' => $this->name,
             'slug' => $this->slug,
             'cover' => $url,
