@@ -18,7 +18,7 @@ class SingleReply extends Component
 
     public function deleteReply()
     {
-        if (Gate::allows('delete', $this->reply)) {
+        if (Gate::allows('act', $this->reply)) {
             loggy(request(), 'Reply', auth()->user(), 'Deleted a reply | Reply ID: '.$this->reply->id);
             $this->reply->delete();
             $this->emit('refreshReplies');

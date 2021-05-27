@@ -45,7 +45,7 @@
                     @endif
                 </button>
             @endif
-            @can('delete', $answer)
+            @can('act', $answer)
                 <button
                     type="button"
                     class="btn btn-task btn-outline-danger"

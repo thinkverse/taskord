@@ -102,7 +102,7 @@ class SingleTask extends Component
 
     public function deleteTask()
     {
-        if (Gate::allows('delete', $this->task)) {
+        if (Gate::allows('act', $this->task)) {
             loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
             foreach ($this->task->images ?? [] as $image) {
                 Storage::delete($image);

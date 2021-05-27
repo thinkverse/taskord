@@ -58,7 +58,7 @@ class AuthServiceProvider extends ServiceProvider
             return true;
         });
 
-        Gate::define('delete', function (User $user, $entity) {
+        Gate::define('act', function (User $user, $entity) {
             if ($user->spammy) {
                 return false;
             }

@@ -126,7 +126,7 @@
                 @endif
             </a>
             @auth
-                @can('delete', $task)
+                @can('act', $task)
                     <button
                         type="button"
                         class="btn btn-task btn-outline-danger me-1"

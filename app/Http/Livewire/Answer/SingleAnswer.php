@@ -53,7 +53,7 @@ class SingleAnswer extends Component
 
     public function deleteAnswer()
     {
-        if (Gate::allows('delete', $this->answer)) {
+        if (Gate::allows('act', $this->answer)) {
             loggy(request(), 'Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
             $this->answer->delete();
             $this->emit('refreshAnswers');

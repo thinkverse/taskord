@@ -60,7 +60,7 @@ class SingleComment extends Component
 
     public function deleteComment()
     {
-        if (Gate::allows('delete', $this->comment)) {
+        if (Gate::allows('act', $this->comment)) {
             loggy(request(), 'Comment', auth()->user(), 'Deleted a comment | Comment ID: '.$this->comment->id);
             $this->comment->delete();
             $this->emit('refreshComments');

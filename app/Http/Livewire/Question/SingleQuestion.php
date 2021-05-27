@@ -82,7 +82,7 @@ class SingleQuestion extends Component
 
     public function deleteQuestion()
     {
-        if (Gate::allows('delete', $this->question)) {
+        if (Gate::allows('act', $this->question)) {
             loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
             $this->question->delete();
             auth()->user()->touch();

@@ -33,7 +33,7 @@ class SingleMilestone extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (Gate::allows('delete', $this->milestone)) {
+        if (Gate::allows('praise', $this->milestone)) {
             Helper::togglePraise($this->milestone, 'MILESTONE');
 
             return loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);
@@ -77,7 +77,7 @@ class SingleMilestone extends Component
 
     public function deleteMilestone()
     {
-        if (Gate::allows('delete', $this->milestone)) {
+        if (Gate::allows('act', $this->milestone)) {
             loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
             $this->milestone->delete();
             auth()->user()->touch();

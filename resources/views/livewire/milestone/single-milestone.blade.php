@@ -82,7 +82,7 @@
                         @endif
                     </button>
                 @endif
-                @can('delete', $milestone)
+                @can('act', $milestone)
                     @if ($type === "milestones.milestone")
                         <a href="{{ route('milestones.edit', ['milestone' => $milestone]) }}" class="btn btn-task btn-outline-info me-1">
                             <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />
@@ -109,7 +109,7 @@
                     </button>
                 @endcan
                 @if ($type === "milestones.milestone")
-                    @can('delete', $milestone)
+                    @can('act', $milestone)
                         @if ($milestone->status)
                             <button type="button" class="btn btn-danger btn-task float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
                                 <x-heroicon-o-x class="heroicon heroicon-15px" />
