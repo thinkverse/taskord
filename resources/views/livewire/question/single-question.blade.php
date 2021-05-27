@@ -88,7 +88,7 @@
                         </span>
                     @endif
                 </a>
-                @if (auth()->user()->staff_mode or auth()->user()->id === $question->user->id)
+                @can('delete', $question)
                     @if ($type === "question.question")
                         <a href="{{ route('question.edit', ['question' => $question]) }}" class="btn btn-task btn-outline-info me-1">
                             <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />
@@ -125,7 +125,7 @@
                             @endif
                         </button>
                     @endif
-                @endif
+                @endcan
                 @can('staff_mode')
                     <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" aria-label="Hide">
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
