@@ -26,6 +26,7 @@ class Answers extends Component
     public function getAnswers()
     {
         return $this->user->answers()
+            ->with('question.user')
             ->latest()
             ->paginate(10);
     }
