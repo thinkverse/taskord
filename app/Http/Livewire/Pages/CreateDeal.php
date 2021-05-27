@@ -45,8 +45,8 @@ class CreateDeal extends Component
             loggy(request(), 'Staff', auth()->user(), 'Created a new deal | Deal ID: '.$deal->id);
 
             return redirect()->route('deals');
-        } else {
-            toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 }
