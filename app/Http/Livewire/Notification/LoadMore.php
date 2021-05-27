@@ -42,13 +42,13 @@ class LoadMore extends Component
                 return view('livewire.notification.unread', [
                     'notifications' => $this->paginate(auth()->user()->unreadNotifications),
                 ]);
-            } else {
-                return view('livewire.notification.all', [
-                    'notifications' => $this->paginate(auth()->user()->notifications),
-                ]);
             }
-        } else {
-            return view('livewire.load-more');
+
+            return view('livewire.notification.all', [
+                'notifications' => $this->paginate(auth()->user()->notifications),
+            ]);
         }
+
+        return view('livewire.load-more');
     }
 }
