@@ -200,23 +200,23 @@ hr {
 }
 
 .bg-light {
-    background-color: $border-bg !important;
+  background-color: $border-bg !important;
 }
 
 .btn-close {
-    filter: invert(1) grayscale(100%) brightness(200%);
+  filter: invert(1) grayscale(100%) brightness(200%);
 }
 
 .toast {
-    background-color: $card-bg !important;
-    border: 1px solid $border-bg;
+  background-color: $card-bg !important;
+  border: 1px solid $border-bg;
 }
 
 ::-webkit-scrollbar {
-    background-color: $border-bg;
+  background-color: $border-bg;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: $border-bg;
-    border: 2px solid $border-bg;
+  background-color: $border-bg;
+  border: 2px solid $border-bg;
 }
