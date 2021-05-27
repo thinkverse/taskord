@@ -52,8 +52,8 @@ class LoadMore extends Component
             return view('livewire.answer.answers', [
                 'answers' => $this->paginate($answers),
             ]);
-        } else {
-            return view('livewire.load-more');
         }
+
+        return view('livewire.load-more');
     }
 }

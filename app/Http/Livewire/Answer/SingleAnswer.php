@@ -80,8 +80,8 @@ class SingleAnswer extends Component
             auth()->user()->touch();
 
             return toast($this, 'success', 'Answer has been deleted successfully!');
-        } else {
-            toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 }

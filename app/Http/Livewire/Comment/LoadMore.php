@@ -52,8 +52,8 @@ class LoadMore extends Component
             return view('livewire.comment.comments', [
                 'comments' => $this->paginate($comments),
             ]);
-        } else {
-            return view('livewire.load-more');
         }
+
+        return view('livewire.load-more');
     }
 }
