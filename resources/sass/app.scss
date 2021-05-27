@@ -16,6 +16,7 @@ a {
 .btn-primary {
   color: white;
   background-color: $primary;
+
   &:hover, &:active, &:focus {
     background-color: #6f68ee;
   }
@@ -24,6 +25,7 @@ a {
 .btn-blurple {
   color: white;
   background-color: #7289da;
+
   &:hover, &:active, &:focus {
     background-color: #657ac3;
     color: white;
@@ -33,6 +35,7 @@ a {
 .btn-telegram {
   color: white;
   background-color: #32afed;
+
   &:hover, &:active, &:focus {
     background-color: #1fa2e3;
     color: white;
