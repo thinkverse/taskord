@@ -297,50 +297,50 @@ input[type="date"]:before {
 
 input[type="date"]:focus:before,
 input[type="date"]:valid:before {
-    content: "";
+  content: "";
 }
 
 .sticky-footer {
-    position: sticky;
-    top: 25px;
+  position: sticky;
+  top: 25px;
 }
 
 .pagination {
-    justify-content: center;
+  justify-content: center;
 }
 
 .page-link {
-    background-color: transparent;
-    border: none;
-    border-radius: 5px;
-    margin: 10px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
 }
 
 .tribute-container {
-    background-color: white;
-    border: 1px solid $gray-400;
-    border-radius: 6px;
-    margin-top: 10px;
-    max-width: auto;
+  background-color: white;
+  border: 1px solid $gray-400;
+  border-radius: 6px;
+  margin-top: 10px;
+  max-width: auto;
 }
 
 .tribute-container ul {
-    background: $gray-200;
+  background: $gray-200;
 }
 
 .tribute-container li {
-    cursor: pointer;
-    margin-bottom: 1px;
-    background: white;
-    padding: 5px 15px;
-    &.highlight {
-        background: $gray-200;
-    }
+  cursor: pointer;
+  margin-bottom: 1px;
+  background: white;
+  padding: 5px 15px;
+  &.highlight {
+    background: $gray-200;
+  }
 }
 
 .vertical-line {
-    border-left: 3px solid lightgray;
-    height: 40px;
+  border-left: 3px solid lightgray;
+  height: 40px;
 }
 
 // Curvy Style
