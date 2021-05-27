@@ -13,14 +13,14 @@
                 v{{ config('app.version') }}
             </a>
             <a class="text-white-50 ms-3"
-                href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank" rel="noreferrer">
+                href="https://github.com/laravel/framework/releases/tag/v{{ $laravel_version }}" target="_blank" rel="noreferrer">
                 <x-heroicon-o-chip class="heroicon" />
-                Laravel v{{ laravel_version() }}
+                Laravel {{ $laravel_version }}.<span class="fw-bold">{{ $laravel_ref }}</span>
             </a>
             <span class="border border-secondary border-end-0 mx-2"></span>
             <a class="text-white-50"
                 href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" title="PHP Version" target="_blank" rel="noreferrer">
-                v{{ phpversion() }}
+                PHP {{ phpversion() }}
             </a>
         </span>
         <span class="float-end">

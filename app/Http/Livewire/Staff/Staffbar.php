@@ -6,6 +6,7 @@ use App\Jobs\Clean;
 use App\Jobs\Deploy;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
+use Jean85\PrettyVersions;
 
 class Staffbar extends Component
 {
@@ -35,10 +36,13 @@ class Staffbar extends Component
         $branch = git('rev-parse --abbrev-ref HEAD') ?: 'main';
         $commit = git('rev-parse --short HEAD') ?: '0000000';
         $jobs = Queue::size();
+        $version = PrettyVersions::getVersion('laravel/framework');
 
         return view('livewire.staff.staffbar', [
             'branchname' => $branch,
             'headHASH' => $commit,
+            'laravel_version' => $version->getShortVersion(),
+            'laravel_ref' => $version->getShortReference(),
             'jobs' => number_format($jobs),
         ]);
     }
