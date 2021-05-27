@@ -137,13 +137,13 @@ a {
 .btn-outline-success,
 .btn-outline-primary,
 .btn-outline-info {
-    &:hover, &:active {
-        color: white;
+  &:hover, &:active {
+    color: white;
 
-        & > [class*='text-'] {
-            color: inherit !important;
-        }
+    & > [class*='text-'] {
+      color: inherit !important;
     }
+  }
 }
 
 // Remove Bootstrap Glow on Input and Button
@@ -163,99 +163,99 @@ input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {
-    box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .fa-link {
-    color: $primary;
+  color: $primary;
 }
 
 .list-group-item {
-    padding: 0.4rem 1rem;
+  padding: 0.4rem 1rem;
 }
 
 .form-check-input {
-    &:disabled {
-        opacity: initial;
-    }
+  &:disabled {
+    opacity: initial;
+  }
 }
 
 .task-icon {
-    height: 15px;
-    width: 15px;
+  height: 15px;
+  width: 15px;
 }
 
 .task-font {
-    font-size: medium;
+  font-size: medium;
 }
 
 .task-check {
-    height: 1.3rem;
-    width: 1.3rem;
-    margin-top: 2px;
-    border-radius: 100% !important;
-    border: 2px solid $primary;
+  height: 1.3rem;
+  width: 1.3rem;
+  margin-top: 2px;
+  border-radius: 100% !important;
+  border: 2px solid $primary;
 }
 
 .body-font {
-    color: $gray-700;
-    img {
-        width: 100%;
-        border-radius: 5px;
-        border: 1px solid $gray-300;
-    }
-    p:last-child {
-        margin-bottom: 0;
-    }
+  color: $gray-700;
+  img {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid $gray-300;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .staff-bar {
-    font-size: 13px;
-    .fa,
-    .fab {
-        font-size: 12px;
-    }
+  font-size: 13px;
+  .fa,
+  .fab {
+    font-size: 12px;
+  }
 }
 
 .bg-hero {
-    background: linear-gradient(90deg, $primary 0%, #6a63ecba 90%);
-    background-size: contain;
+  background: linear-gradient(90deg, $primary 0%, #6a63ecba 90%);
+  background-size: contain;
 }
 
 .bg-tag {
-    background: #eae9ff;
-    color: $primary;
+  background: #eae9ff;
+  color: $primary;
 }
 
 .avatar-stack {
-    .avatar {
-        height: 30px;
-        margin-right: -18px;
-        border: 2px solid white;
-        transition: all 0.2s ease;
-    }
-    .praise-avatar {
-        height: 15px;
-        width: 15px;
-        margin-right: -10px;
-        border: 1px solid white;
-        vertical-align: sub;
-    }
-    .replies-avatar {
-        height: 18px;
-        width: 18px;
-        margin-right: -10px;
-        border: 1px solid white;
-    }
-    span {
-        margin-left: 15px !important;
-    }
-    &:hover .avatar {
-        margin-right: -3px !important;
-    }
-    &:hover span {
-        margin-left: 5px !important;
-    }
+  .avatar {
+    height: 30px;
+    margin-right: -18px;
+    border: 2px solid white;
+    transition: all 0.2s ease;
+  }
+  .praise-avatar {
+    height: 15px;
+    width: 15px;
+    margin-right: -10px;
+    border: 1px solid white;
+    vertical-align: sub;
+  }
+  .replies-avatar {
+    height: 18px;
+    width: 18px;
+    margin-right: -10px;
+    border: 1px solid white;
+  }
+  span {
+    margin-left: 15px !important;
+  }
+  &:hover .avatar {
+    margin-right: -3px !important;
+  }
+  &:hover span {
+    margin-left: 5px !important;
+  }
 }
 
 .spinner-border-mini {
