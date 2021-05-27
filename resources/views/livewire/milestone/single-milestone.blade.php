@@ -82,7 +82,7 @@
                         @endif
                     </button>
                 @endif
-                @if (auth()->user()->staff_mode or auth()->user()->id === $milestone->user->id)
+                @can('delete', $milestone)
                     @if ($type === "milestones.milestone")
                         <a href="{{ route('milestones.edit', ['milestone' => $milestone]) }}" class="btn btn-task btn-outline-info me-1">
                             <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />
@@ -102,7 +102,7 @@
                     >
                         <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
                     </button>
-                @endif
+                @endcan
                 @can('staff_mode')
                     <button type="button" class="btn btn-task {{ $milestone->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $milestone->id }}" aria-label="Hide">
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
