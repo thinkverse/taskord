@@ -292,6 +292,7 @@ input[type="color"]:focus,
 
 .dropdown-item:active {
   color: white !important;
+
   & > [class^='heroicon-'],
   & > [class^='heroicon'] {
     color: inherit !important;
@@ -417,6 +418,7 @@ input[type="date"]:valid:before {
 
 .gallery {
   display: flex;
+
   img {
     width: 100%;
     height: auto;
