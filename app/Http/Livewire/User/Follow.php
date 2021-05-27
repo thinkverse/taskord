@@ -40,14 +40,14 @@ class Follow extends Component
         }
         if (auth()->user()->id === $this->user->id) {
             return toast($this, 'error', 'You can\'t follow yourself!');
-        } else {
-            auth()->user()->toggleFollow($this->user);
-            $this->user->refresh();
-            auth()->user()->touch();
-            if (auth()->user()->isFollowing($this->user)) {
-                $this->user->notify(new Followed(auth()->user()));
-            }
-            loggy(request(), 'User', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
         }
+
+        auth()->user()->toggleFollow($this->user);
+        $this->user->refresh();
+        auth()->user()->touch();
+        if (auth()->user()->isFollowing($this->user)) {
+            $this->user->notify(new Followed(auth()->user()));
+        }
+        return loggy(request(), 'User', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
     }
 }
