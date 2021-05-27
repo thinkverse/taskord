@@ -25,7 +25,7 @@ const initHover = () => {
         .then((blob) => {
           instance.setContent(blob);
         })
-        .catch((error) => {
+        .catch(() => {
           instance.setContent(`<div class="p-3">Something went wrong!</div>`);
         });
     },
@@ -46,7 +46,7 @@ const initHover = () => {
         .then((blob) => {
           instance.setContent(blob);
         })
-        .catch((error) => {
+        .catch(() => {
           instance.setContent(`<div class="p-3">Something went wrong!</div>`);
         });
     },
@@ -67,7 +67,7 @@ const initHover = () => {
         .then((blob) => {
           instance.setContent(blob);
         })
-        .catch((error) => {
+        .catch(() => {
           instance.setContent(`<div class="p-3">Something went wrong!</div>`);
         });
     },
