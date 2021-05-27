@@ -48,6 +48,7 @@ class Follow extends Component
         if (auth()->user()->isFollowing($this->user)) {
             $this->user->notify(new Followed(auth()->user()));
         }
+
         return loggy(request(), 'User', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
     }
 }
