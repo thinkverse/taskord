@@ -51,15 +51,14 @@ class Status extends Component
             loggy(request(), 'User', auth()->user(), 'Updated the account status');
 
             return toast($this, 'success', 'Status set successfully!');
-        } else {
-            auth()->user()->status = null;
-            auth()->user()->status_emoji = null;
-            auth()->user()->save();
-            $this->emit('refreshStatus');
-            loggy(request(), 'User', auth()->user(), 'Deleted the account status');
-
-            return toast($this, 'success', 'Status cleared successfully!');
         }
+        auth()->user()->status = null;
+        auth()->user()->status_emoji = null;
+        auth()->user()->save();
+        $this->emit('refreshStatus');
+        loggy(request(), 'User', auth()->user(), 'Deleted the account status');
+
+        return toast($this, 'success', 'Status cleared successfully!');
     }
 
     public function render()
