@@ -218,10 +218,9 @@ class Profile extends Component
             $this->user->save();
             loggy(request(), 'User', auth()->user(), 'Updated the social URLs');
 
-            toast($this, 'success', 'Your social links has been updated!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'success', 'Your social links has been updated!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function onlyFollowingsTasks()
