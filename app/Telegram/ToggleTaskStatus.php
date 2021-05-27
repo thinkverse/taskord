@@ -9,16 +9,16 @@ use Telegram;
 class ToggleTaskStatus
 {
     protected User $user;
-    protected $id;
+    protected $messageId;
     protected $status;
 
     public function __construct(
         $user,
-        $id,
+        $messageId,
         $status
     ) {
         $this->user = $user;
-        $this->id = $id;
+        $this->id = $messageId;
         $this->status = $status;
     }
 

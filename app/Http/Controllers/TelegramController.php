@@ -77,17 +77,17 @@ class TelegramController extends Controller
 
             case Str::of($message)->startsWith('/complete'):
                 if ($this->authCheck($chatId)) {
-                    $id = substr($message, strpos($message, '/complete') + 10);
+                    $messageId = substr($message, strpos($message, '/complete') + 10);
 
-                    return (new ToggleTaskStatus($user, $id, true))();
+                    return (new ToggleTaskStatus($user, $messageId, true))();
                 }
             break;
 
             case Str::of($message)->startsWith('/uncomplete'):
                 if ($this->authCheck($chatId)) {
-                    $id = substr($message, strpos($message, '/complete') + 12);
+                    $messageId = substr($message, strpos($message, '/complete') + 12);
 
-                    return (new ToggleTaskStatus($user, $id, false))();
+                    return (new ToggleTaskStatus($user, $messageId, false))();
                 }
             break;
 
