@@ -53,12 +53,12 @@
                             </span>
                         @endif
                         @auth
-                        @if ($user->isFollowing(auth()->user()))
-                            <span class="ms-2 badge bg-light text-secondary">Follows you</span>
-                        @endif
-                        @if (auth()->user()->staff_mode)
-                            <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
-                        @endif
+                            @if ($user->isFollowing(auth()->user()))
+                                <span class="ms-2 badge bg-light text-secondary">Follows you</span>
+                            @endif
+                            @can('staff_mode')
+                                <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
+                            @endcan
                         @endauth
                     </div>
                     <div class="text-secondary mb-3">
