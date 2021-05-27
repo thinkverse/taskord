@@ -88,6 +88,7 @@ class CreateTask extends Component
         ]))();
 
         $this->emit('refreshTasks');
-        $this->reset();
+
+        return $this->reset();
     }
 }

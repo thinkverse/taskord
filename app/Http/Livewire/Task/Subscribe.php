@@ -46,12 +46,12 @@ class Subscribe extends Component
         }
         if (auth()->user()->id === $this->task->user->id) {
             return toast($this, 'error', 'You can\'t subscribe your own task!');
-        } else {
-            auth()->user()->toggleSubscribe($this->task);
-            $this->task->refresh();
-            auth()->user()->touch();
-            loggy(request(), 'Task', auth()->user(), 'Toggled task subscribe | Task ID: '.$this->task->id);
         }
+        auth()->user()->toggleSubscribe($this->task);
+        $this->task->refresh();
+        auth()->user()->touch();
+
+        return loggy(request(), 'Task', auth()->user(), 'Toggled task subscribe | Task ID: '.$this->task->id);
     }
 
     public function render()
