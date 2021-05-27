@@ -190,7 +190,7 @@ class Moderator extends Component
 
     public function suspendUser()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
@@ -226,7 +226,7 @@ class Moderator extends Component
 
     public function enrollPatron()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $this->user->is_patron = ! $this->user->is_patron;
             $this->user->timestamps = false;
             $this->user->save();
@@ -254,7 +254,7 @@ class Moderator extends Component
 
     public function verifyUser()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $this->user->is_verified = ! $this->user->is_verified;
             $this->user->timestamps = false;
             $this->user->save();
@@ -282,7 +282,7 @@ class Moderator extends Component
 
     public function enrollDarkMode()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $this->user->dark_mode = ! $this->user->dark_mode;
             $this->user->timestamps = false;
             $this->user->save();
@@ -308,7 +308,7 @@ class Moderator extends Component
 
     public function masquerade()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
@@ -328,7 +328,7 @@ class Moderator extends Component
 
     public function resetAvatar()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($user->username, 0, 2));
@@ -348,7 +348,7 @@ class Moderator extends Component
 
     public function releaseUsername()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->username = strtolower(Str::random(6));
@@ -368,7 +368,7 @@ class Moderator extends Component
 
     public function deleteTasks()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
             foreach ($user->tasks as $task) {
@@ -392,7 +392,7 @@ class Moderator extends Component
 
     public function deleteComments()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->comments()->delete();
@@ -411,7 +411,7 @@ class Moderator extends Component
 
     public function deleteQuestions()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->questions()->delete();
@@ -430,7 +430,7 @@ class Moderator extends Component
 
     public function deleteAnswers()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->answers()->delete();
@@ -449,7 +449,7 @@ class Moderator extends Component
 
     public function deleteMilestones()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->milestones()->delete();
@@ -468,7 +468,7 @@ class Moderator extends Component
 
     public function deleteProducts()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
             foreach ($user->ownedProducts as $product) {
@@ -495,7 +495,7 @@ class Moderator extends Component
 
     public function deleteUser()
     {
-        if (auth()->check() && auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
