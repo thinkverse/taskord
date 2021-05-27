@@ -41,9 +41,8 @@ class Graph extends Component
 
         if ($type === 'tasks') {
             return $tasks;
-        } else {
-            return $week_dates;
         }
+        return $week_dates;
     }
 
     public function render()
