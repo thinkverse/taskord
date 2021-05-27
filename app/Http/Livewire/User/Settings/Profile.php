@@ -144,9 +144,8 @@ class Profile extends Component
             $this->user->has_goal = ! $this->user->has_goal;
             $this->user->save();
             loggy(request(), 'User', auth()->user(), 'Toggled goals settings');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function setGoal()
@@ -161,9 +160,8 @@ class Profile extends Component
             loggy(request(), 'User', auth()->user(), 'Updated the goal '.$this->dailyGoal.'/day');
 
             toast($this, 'success', 'Your goal has been updated!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function toggleVacationMode()
