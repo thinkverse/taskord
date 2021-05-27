@@ -259,40 +259,40 @@ input[type="color"]:focus,
 }
 
 .spinner-border-mini {
-    height: 13px;
-    width: 13px;
-    margin-bottom: 1px;
-    border-width: 0.2em;
+  height: 13px;
+  width: 13px;
+  margin-bottom: 1px;
+  border-width: 0.2em;
 }
 
 .spinner-border-task {
-    width: 0.80rem;
-    height: 0.80rem;
-    border-width: .2em;
-    margin-right: 2px;
+  width: 0.80rem;
+  height: 0.80rem;
+  border-width: .2em;
+  margin-right: 2px;
 }
 
 .dropdown-item:active {
-    color: white !important;
+  color: white !important;
 
-    & > [class^='heroicon-'],
-    & > [class^='heroicon'] {
-        color: inherit !important;
-    }
+  & > [class^='heroicon-'],
+  & > [class^='heroicon'] {
+    color: inherit !important;
+  }
 }
 
 .bg-patron {
-    background-color: $yellow-100 !important;
+  background-color: $yellow-100 !important;
 }
 
 .recent-questions {
-    border-radius: 15px !important;
+  border-radius: 15px !important;
 }
 
 input[type="date"]:before {
-    content: attr(placeholder) !important;
-    color: $gray-600;
-    margin-right: 0.5em;
+  content: attr(placeholder) !important;
+  color: $gray-600;
+  margin-right: 0.5em;
 }
 
 input[type="date"]:focus:before,
