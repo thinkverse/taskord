@@ -98,10 +98,10 @@ class Profile extends Component
             $this->user->save();
             loggy(request(), 'User', auth()->user(), 'Updated the profile settings');
 
-            toast($this, 'success', 'Your profile has been updated!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
+            return toast($this, 'success', 'Your profile has been updated!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function resetAvatar()
@@ -116,9 +116,9 @@ class Profile extends Component
             loggy(request(), 'User', auth()->user(), 'Resetted avatar to default');
 
             return toast($this, 'success', 'Your avatar has been resetted!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function useGravatar()
@@ -133,9 +133,9 @@ class Profile extends Component
             loggy(request(), 'User', auth()->user(), 'Updated avatar provider to Gravatar');
 
             return toast($this, 'success', 'Your avatar has been switched to Gravatar!');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function enableGoal()
