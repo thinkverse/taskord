@@ -38,10 +38,10 @@ class Rsvp extends Component
         }
         if (auth()->user()->id === $this->meetup->user_id) {
             return toast($this, 'error', 'You can\'t RSVP your own meetup!');
-        } else {
-            auth()->user()->toggleSubscribe($this->meetup);
-            $this->meetup->refresh();
-            auth()->user()->touch();
         }
+        auth()->user()->toggleSubscribe($this->meetup);
+        $this->meetup->refresh();
+
+        return auth()->user()->touch();
     }
 }
