@@ -58,8 +58,8 @@ class LoadMore extends Component
             return view('livewire.products.products', [
                 'products' => $this->paginate($products),
             ]);
-        } else {
-            return view('livewire.load-more');
         }
+
+        return view('livewire.load-more');
     }
 }
