@@ -24,10 +24,10 @@
             </a>
         </span>
         <span class="float-end">
-            <span class="fw-bold me-3 border rounded px-1 border-secondary">
-                @php
-                    $response = bcmul((microtime(true) - LARAVEL_START), '1000', 0);
-                @endphp
+            @php
+                $response = bcmul((microtime(true) - LARAVEL_START), '1000', 0);
+            @endphp
+            <span class="fw-bold me-3 border rounded px-1 {{ $response >= 200 ? 'border-warning' : 'border-success' }}">
                 <span>{{ $response >= 200 ? '🐢' : '⚡️' }}</span>
                 <span>{{ $response }}ms</span>
             </span>
