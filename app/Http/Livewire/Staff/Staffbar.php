@@ -5,8 +5,8 @@ namespace App\Http\Livewire\Staff;
 use App\Jobs\Clean;
 use App\Jobs\Deploy;
 use Illuminate\Support\Facades\Queue;
-use Livewire\Component;
 use Jean85\PrettyVersions;
+use Livewire\Component;
 
 class Staffbar extends Component
 {
