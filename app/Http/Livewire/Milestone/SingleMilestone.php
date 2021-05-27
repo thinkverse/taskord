@@ -47,7 +47,8 @@ class SingleMilestone extends Component
             return toast($this, 'error', 'You can\'t praise your own milestone!');
         }
         Helper::togglePraise($this->milestone, 'MILESTONE');
-        loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);
+
+        return loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);
     }
 
     public function hide()
@@ -78,13 +79,13 @@ class SingleMilestone extends Component
             loggy(request(), 'Milestone', auth()->user(), 'Closed the milestone | Milestone ID: '.$this->milestone->id);
 
             return redirect()->route('milestones.milestone', ['milestone' => $this->milestone]);
-        } else {
-            $this->milestone->status = true;
-            $this->milestone->save();
-            loggy(request(), 'Milestone', auth()->user(), 'Opened the milestone | Milestone ID: '.$this->milestone->id);
-
-            return redirect()->route('milestones.milestone', ['milestone' => $this->milestone]);
         }
+
+        $this->milestone->status = true;
+        $this->milestone->save();
+        loggy(request(), 'Milestone', auth()->user(), 'Opened the milestone | Milestone ID: '.$this->milestone->id);
+
+        return redirect()->route('milestones.milestone', ['milestone' => $this->milestone]);
     }
 
     public function deleteMilestone()
@@ -103,8 +104,8 @@ class SingleMilestone extends Component
             auth()->user()->touch();
 
             return redirect()->route('milestones.opened');
-        } else {
-            toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 }
