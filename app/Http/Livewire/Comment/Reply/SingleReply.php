@@ -18,15 +18,7 @@ class SingleReply extends Component
 
     public function deleteReply()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-
-        if (auth()->user()->staff_mode or auth()->user()->id === $this->reply->user->id) {
+        if (Gate::allows('delete', $this->reply)) {
             loggy(request(), 'Reply', auth()->user(), 'Deleted a reply | Reply ID: '.$this->reply->id);
             $this->reply->delete();
             $this->emit('refreshReplies');
