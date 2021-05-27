@@ -28,11 +28,11 @@
                     <x-heroicon-s-star class="heroicon text-gold" />
                 </a>
             @endif
-            @can('is_staff')
+            @if ($user->is_staff)
                 <span class="staff" title="Staff">
                     <x-heroicon-o-shield-check class="heroicon text-primary" />
                 </span>
-            @endcan
+            @endif
             <span class="small text-secondary fw-normal">{{ "@" . $user->username }}</span>
         </a>
     </div>
