@@ -30,7 +30,8 @@ class Milestones extends Component
     public function getMilestones()
     {
         if ($this->type === 'milestones.opened') {
-            return Milestone::whereStatus(true)
+            return Milestone::with('user')
+                ->whereStatus(true)
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['spammy', false],
