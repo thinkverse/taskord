@@ -30,9 +30,9 @@ class Deployments extends Component
 
         if ($deployments->getStatusCode() === 200) {
             return json_decode($deployments->getBody()->getContents());
-        } else {
-            return [];
         }
+
+        return [];
     }
 
     public function render()
