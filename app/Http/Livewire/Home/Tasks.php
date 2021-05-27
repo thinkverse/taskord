@@ -31,6 +31,7 @@ class Tasks extends Component
             $userIds->push(auth()->user()->id);
 
             return Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'milestone_id', 'source', 'images', 'hidden')
+                ->with('user')
                 ->whereIn('user_id', $userIds)
                 ->whereHas('user', function ($q) {
                     $q->where([
@@ -43,12 +44,13 @@ class Tasks extends Component
                 ->paginate(10, null, null, $this->page);
         }
 
-        return Task::whereHas('user', function ($q) {
-            $q->where([
-                ['spammy', false],
-                ['is_private', false],
-            ]);
-        })
+        return Task::with('user')
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['spammy', false],
+                    ['is_private', false],
+                ]);
+            })
             ->whereDone(true)
             ->orderBy('done_at', 'desc')
             ->paginate(10, '*', null, $this->page);
