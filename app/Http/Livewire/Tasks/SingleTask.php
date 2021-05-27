@@ -53,9 +53,8 @@ class SingleTask extends Component
             auth()->user()->save();
             CheckGoal::dispatch(auth()->user(), $this->task);
         }
-        loggy(request(), 'Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
 
-        return true;
+        return loggy(request(), 'Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
     }
 
     public function deleteTask()
