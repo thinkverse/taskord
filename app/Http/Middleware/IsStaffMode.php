@@ -18,8 +18,8 @@ class IsStaffMode
     {
         if ($request->user() && $request->user()->staff_mode) {
             return $next($request);
-        } else {
-            return abort(404);
         }
+
+        return abort(404);
     }
 }
