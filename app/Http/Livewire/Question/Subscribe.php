@@ -46,12 +46,13 @@ class Subscribe extends Component
         }
         if (auth()->user()->id === $this->question->user->id) {
             return toast($this, 'error', 'You can\'t subscribe your own question!');
-        } else {
-            auth()->user()->toggleSubscribe($this->question);
-            $this->question->refresh();
-            auth()->user()->touch();
-            loggy(request(), 'Question', auth()->user(), 'Toggled question subscribe | Question ID: '.$this->question->id);
         }
+
+        auth()->user()->toggleSubscribe($this->question);
+        $this->question->refresh();
+        auth()->user()->touch();
+
+        return loggy(request(), 'Question', auth()->user(), 'Toggled question subscribe | Question ID: '.$this->question->id);
     }
 
     public function render()
