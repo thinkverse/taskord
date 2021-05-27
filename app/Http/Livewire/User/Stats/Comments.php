@@ -31,7 +31,6 @@ class Comments extends Component
 
         $weekDates = [];
         $comments = [];
-        $tasks = [];
         foreach ($period->toArray() as $date) {
             array_push($weekDates, carbon($date)->format('d M Y'));
             $count = $this->user->comments()
