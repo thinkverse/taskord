@@ -104,11 +104,7 @@ class SingleTask extends Component
 
     public function hide()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
-        if (auth()->user()->is_staff and auth()->user()->staff_mode) {
+        if (Gate::allows('staff_mode')) {
             Helper::hide($this->task);
             loggy(request(), 'Staff', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
 
