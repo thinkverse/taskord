@@ -149,6 +149,7 @@ a {
   &:hover,
   &:active {
     color: white;
+
     & > [class*='text-'] {
       color: inherit !important;
     }
