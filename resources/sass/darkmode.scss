@@ -26,8 +26,8 @@ body {
   color: white;
   border: 1px solid $border-bg;
 
-  .card-header,
-  .popover-header {
+  .popover-header,
+  .card-header {
     background-color: $input-bg;
   }
 }
@@ -70,6 +70,7 @@ body {
 
   .dropdown-item {
     color: white;
+
     &:hover {
       background-color: $body-bg;
     }
