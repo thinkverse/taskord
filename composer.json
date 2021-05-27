@@ -21,7 +21,7 @@
         "irazasyed/telegram-bot-sdk": "3.4.1",
         "laravel/envoy": "2.7.0",
         "laravel/framework": "8.43.0",
-        "laravel/horizon": "5.7.7",
+        "laravel/horizon": "5.7.8",
         "laravel/socialite": "5.2.3",
         "laravel/tinker": "2.6.1",
         "laravel/ui": "3.3.0",
@@ -32,7 +32,7 @@
         "multicaret/laravel-acquaintances": "3.5.1",
         "nesbot/carbon": "2.48.1",
         "nicolaslopezj/searchable": "1.13.0",
-        "nuwave/lighthouse": "5.12.1",
+        "nuwave/lighthouse": "5.12.2",
         "propaganistas/laravel-disposable-email": "2.0.19",
         "qcod/laravel-gamify": "1.0.5",
         "rennokki/laravel-eloquent-query-cache": "2.6.0",
@@ -47,7 +47,7 @@
         "symfony/psr-http-message-bridge": "2.1.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.5",
+        "barryvdh/laravel-debugbar": "3.5.7",
         "facade/ignition": "2.9.0",
         "fakerphp/faker": "1.14.1",
         "laravel/sail": "1.7.0",
