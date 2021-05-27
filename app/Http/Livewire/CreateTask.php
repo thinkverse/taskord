@@ -36,7 +36,7 @@ class CreateTask extends Component
         }
 
         auth()->user()->check_state = ! auth()->user()->check_state;
-        auth()->user()->save();
+        return auth()->user()->save();
     }
 
     public function updatedImage()
