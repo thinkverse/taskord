@@ -52,7 +52,6 @@ a {
   align-items: center;
   padding: 5px 8px;
   line-height: 1px;
-
   & > [class^="heroicon"] {
     margin-right: 2px;
   }
@@ -139,7 +138,6 @@ a {
 .btn-outline-info {
   &:hover, &:active {
     color: white;
-
     & > [class*='text-'] {
       color: inherit !important;
     }
@@ -274,7 +272,6 @@ input[type="color"]:focus,
 
 .dropdown-item:active {
   color: white !important;
-
   & > [class^='heroicon-'],
   & > [class^='heroicon'] {
     color: inherit !important;

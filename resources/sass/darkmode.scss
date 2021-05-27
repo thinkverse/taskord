@@ -25,7 +25,6 @@ body {
   background-color: $card-bg;
   color: white;
   border: 1px solid $border-bg;
-
   .card-header,
   .popover-header {
     background-color: $input-bg;
@@ -67,10 +66,8 @@ body {
 .dropdown-menu {
   background-color: $card-bg;
   border: 1px solid #30363d !important;
-
   .dropdown-item {
     color: white;
-
     &:hover {
       background-color: $body-bg;
     }
@@ -114,7 +111,6 @@ hr {
 
 .bg-patron {
   background-color: #817d5a57 !important;
-
   .text-secondary {
     color: white !important;
   }
