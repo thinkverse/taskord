@@ -27,7 +27,7 @@
             @php
                 $response = bcmul((microtime(true) - LARAVEL_START), '1000', 0);
             @endphp
-            <span class="fw-bold me-3 border rounded px-1 {{ $response >= 200 ? 'border-warning' : 'border-success' }}">
+            <span class="fw-bold me-3 border rounded-pill px-1 {{ $response >= 200 ? 'border-warning' : 'border-success' }}">
                 <span>{{ $response >= 200 ? '🐢' : '⚡️' }}</span>
                 <span>{{ $response }}ms</span>
             </span>
