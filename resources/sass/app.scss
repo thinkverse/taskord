@@ -357,81 +357,81 @@ input[type="date"]:valid:before {
 .tooltip-inner,
 .modal-content,
 .popover {
-    border-radius: 6px;
+  border-radius: 6px;
 }
 
 .popover-body {
-    padding: 0;
+  padding: 0;
 }
 
 .rounded {
-    border-radius: 6px !important;
+  border-radius: 6px !important;
 }
 
 .rounded-top {
-    border-top-left-radius: 5px !important;
-    border-top-right-radius: 5px !important;
+  border-top-left-radius: 5px !important;
+  border-top-right-radius: 5px !important;
 }
 
 .rounded-bottom {
-    border-bottom-right-radius: 5px !important;
-    border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+  border-bottom-left-radius: 5px !important;
 }
 
 .card-header:first-child,
 .popover-header {
-    border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
 }
 
 .badge {
-    border-radius: 15px;
+  border-radius: 15px;
 }
 
 .list-group-item:first-child {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .list-group-item:last-child,
 .accordion-flush .accordion-item:last-of-type .accordion-button.collapsed {
-    border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .gallery {
-    display: flex;
-    img {
-        width: 100%;
-        height: auto;
-        vertical-align: middle;
-    }
+  display: flex;
+  img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+  }
 }
 
 .gallery>div:not(:last-child) {
-    margin-right: 1%;
+  margin-right: 1%;
 }
 
 .tippy-box {
-    border-radius: 6px !important;
+  border-radius: 6px !important;
 }
 
 .btn-social {
-    &.btn-google {
-        color: $google;
-        border-color: $google;
-    }
-    &.btn-twitter {
-        color: $twitter;
-        border-color: $twitter;
-    }
-    &.btn-github {
-        color: $github;
-        border-color: $github;
-    }
-    &.btn-discord {
-        color: $discord;
-        border-color: $discord;
-    }
+  &.btn-google {
+    color: $google;
+    border-color: $google;
+  }
+  &.btn-twitter {
+    color: $twitter;
+    border-color: $twitter;
+  }
+  &.btn-github {
+    color: $github;
+    border-color: $github;
+  }
+  &.btn-discord {
+    color: $discord;
+    border-color: $discord;
+  }
 }
 
 .cursor-pointer {
