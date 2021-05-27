@@ -69,15 +69,7 @@ class SingleComment extends Component
 
     public function deleteComment()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-
-        if (auth()->user()->staff_mode or auth()->user()->id === $this->comment->user->id) {
+        if (Gate::allows('delete', $this->comment)) {
             loggy(request(), 'Comment', auth()->user(), 'Deleted a comment | Comment ID: '.$this->comment->id);
             $this->comment->delete();
             $this->emit('refreshComments');

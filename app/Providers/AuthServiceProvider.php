@@ -46,11 +46,11 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
-        Gate::define('praise.task', function (User $user, Task $task) {
+        Gate::define('praise', function (User $user, $entity) {
             if (
                 $user->spammy or
                 ! $user->hasVerifiedEmail() or
-                $user->id === $task->user->id
+                $user->id === $entity->user->id
 
             ) {
                 return false;
@@ -59,22 +59,12 @@ class AuthServiceProvider extends ServiceProvider
             return true;
         });
 
-        Gate::define('delete.task', function (User $user, Task $task) {
+        Gate::define('delete', function (User $user, $entity) {
             if ($user->spammy) {
                 return false;
             }
 
-            if ($user->staff_mode or $user->id === $task->user->id) {
-                return true;
-            }
-        });
-
-        Gate::define('delete.comment', function (User $user, Comment $comment) {
-            if ($user->spammy) {
-                return false;
-            }
-
-            if ($user->staff_mode or $user->id === $comment->user->id) {
+            if ($user->staff_mode or $user->id === $entity->user->id) {
                 return true;
             }
         });

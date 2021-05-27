@@ -79,7 +79,7 @@ class SingleTask extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (Gate::allows('praise.task', $this->task)) {
+        if (Gate::allows('praise', $this->task)) {
             Helper::togglePraise($this->task, 'TASK');
 
             return loggy(request(), 'Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
@@ -102,7 +102,7 @@ class SingleTask extends Component
 
     public function deleteTask()
     {
-        if (Gate::allows('delete.task', $this->task)) {
+        if (Gate::allows('delete', $this->task)) {
             loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
             foreach ($this->task->images ?? [] as $image) {
                 Storage::delete($image);
