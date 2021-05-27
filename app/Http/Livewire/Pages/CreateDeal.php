@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Pages;
 
 use App\Models\Deal;
-use Livewire\Component;
 use Illuminate\Support\Facades\Gate;
+use Livewire\Component;
 
 class CreateDeal extends Component
 {
