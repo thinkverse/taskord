@@ -54,7 +54,7 @@ class LoadMore extends Component
                         ['spammy', false],
                     ]);
                 })
-                    ->doesntHave('answer')
+                    ->doesntHave('answers')
                     ->latest()
                     ->get();
             } elseif ($this->type === 'questions.popular') {

@@ -7,6 +7,7 @@ use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 
 class SingleAnswer extends Component
 {
@@ -53,7 +54,7 @@ class SingleAnswer extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->is_staff and auth()->user()->staff_mode) {
+        if (Gate::allows('staff_mode')) {
             Helper::hide($this->answer);
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
 
