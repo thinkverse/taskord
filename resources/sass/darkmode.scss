@@ -127,76 +127,76 @@ hr {
 }
 
 .modal-content {
-    background-color: $card-bg;
+  background-color: $card-bg;
 }
 
 .modal-header,
 .popover-header {
-    border-bottom: 1px solid $border-bg;
+  border-bottom: 1px solid $border-bg;
 }
 
 .modal-footer {
-    border-top: 1px solid $border-bg;
+  border-top: 1px solid $border-bg;
 }
 
 .tribute-container {
-    background-color: $card-bg;
-    border: 1px solid $border-bg;
+  background-color: $card-bg;
+  border: 1px solid $border-bg;
 }
 
 .tribute-container ul {
-    background: $border-bg;
+  background: $border-bg;
 }
 
 .tribute-container li {
-    background: $card-bg;
+  background: $card-bg;
 
-    &.highlight {
-        background: $border-bg;
-    }
+  &.highlight {
+    background: $border-bg;
+  }
 }
 
 ::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 6px 6px 6px 6px #adb5bd;
+  -webkit-box-shadow: inset 6px 6px 6px 6px #adb5bd;
 }
 
 .tippy-box {
-    background-color: $input-bg !important;
-    border: 1px solid $border-bg !important;
+  background-color: $input-bg !important;
+  border: 1px solid $border-bg !important;
 }
 
 .tippy-arrow:before {
-    border-top-color: $input-bg !important;
+  border-top-color: $input-bg !important;
 }
 
 .tippy-arrow:after {
-    border-top-color: rgb(255 255 255 / 20%) !important;
+  border-top-color: rgb(255 255 255 / 20%) !important;
 }
 
 .body-font {
-    color: #ced4da;
+  color: #ced4da;
 }
 
 .taskord-spinner {
-    border: 3px solid #495057;
-    border-right-color: white;
+  border: 3px solid #495057;
+  border-right-color: white;
 }
 
 .github-logo {
-    filter: invert(1);
+  filter: invert(1);
 }
 
 .explore-nav {
-    background-color: $border-bg !important;
+  background-color: $border-bg !important;
 }
 
 .avatar-stack {
-    .avatar {
-        border: 2px solid $border-bg;
-    }
-    .replies-avatar {
-        border: 1px solid $border-bg;
-    }
+  .avatar {
+    border: 2px solid $border-bg;
+  }
+  .replies-avatar {
+    border: 1px solid $border-bg;
+  }
 }
 
 .bg-light {
