@@ -10,6 +10,7 @@ use Helper;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 
 class SingleTask extends Component
 {

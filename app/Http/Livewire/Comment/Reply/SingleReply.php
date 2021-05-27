@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Comment\Reply;
 use App\Models\CommentReply;
 use Helper;
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 
 class SingleReply extends Component
 {

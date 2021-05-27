@@ -50,10 +50,6 @@ class SingleAnswer extends Component
 
     public function hide()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
         if (Gate::allows('staff_mode')) {
             Helper::hide($this->answer);
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
