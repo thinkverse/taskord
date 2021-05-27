@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Comment;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -64,6 +65,16 @@ class AuthServiceProvider extends ServiceProvider
             }
 
             if ($user->staff_mode or $user->id === $task->user->id) {
+                return true;
+            }
+        });
+
+        Gate::define('delete.comment', function (User $user, Comment $comment) {
+            if ($user->spammy) {
+                return false;
+            }
+
+            if ($user->staff_mode or $user->id === $comment->user->id) {
                 return true;
             }
         });
