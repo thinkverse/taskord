@@ -38,8 +38,8 @@ class LoadMoreTasks extends Component
             return view('livewire.milestone.tasks', [
                 'tasks' => $tasks,
             ]);
-        } else {
-            return view('livewire.load-more');
         }
+
+        return view('livewire.load-more');
     }
 }

@@ -27,15 +27,15 @@ class Account extends Component
             if ($this->user->is_beta) {
                 loggy(request(), 'User', auth()->user(), 'Enrolled to beta');
 
-                toast($this, 'success', 'Your are now beta member!');
+                return toast($this, 'success', 'Your are now beta member!');
             } else {
                 loggy(request(), 'User', auth()->user(), 'Opted out from beta');
 
-                toast($this, 'success', 'Your are no longer a beta member!');
+                return toast($this, 'success', 'Your are no longer a beta member!');
             }
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function enrollPrivate()
