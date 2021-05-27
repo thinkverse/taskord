@@ -16,15 +16,15 @@ class StaffController extends Controller
             return response()->json([
                 'status' => 'disabled',
             ]);
-        } else {
-            auth()->user()->staff_mode = true;
-            auth()->user()->save();
-            loggy(request(), 'Staff', auth()->user(), 'Enabled staff ship');
-
-            return response()->json([
-                'status' => 'enabled',
-            ]);
         }
+
+        auth()->user()->staff_mode = true;
+        auth()->user()->save();
+        loggy(request(), 'Staff', auth()->user(), 'Enabled staff ship');
+
+        return response()->json([
+            'status' => 'enabled',
+        ]);
     }
 
     public static function commitData()
@@ -40,9 +40,9 @@ class StaffController extends Controller
             return view('site.commit', [
                 'commit' => json_decode($commit->getBody()->getContents())[0],
             ]);
-        } else {
-            return 'Something went wrong!';
         }
+
+        return 'Something went wrong!';
     }
 
     public static function ciData()
@@ -59,9 +59,9 @@ class StaffController extends Controller
             return view('site.ci', [
                 'ci' => json_decode($ci->getBody()->getContents())[0],
             ]);
-        } else {
-            return 'Something went wrong!';
         }
+
+        return 'Something went wrong!';
     }
 
     public static function deploymentData()
@@ -79,9 +79,9 @@ class StaffController extends Controller
             return view('site.deployment', [
                 'deployments' => json_decode($deployments->getBody()->getContents()),
             ]);
-        } else {
-            return 'Something went wrong!';
         }
+
+        return 'Something went wrong!';
     }
 
     public static function system()
