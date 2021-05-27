@@ -51,7 +51,8 @@ class SingleQuestion extends Component
             return toast($this, 'error', 'You can\'t praise your own question!');
         }
         Helper::togglePraise($this->question, 'QUESTION');
-        loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
+
+        return loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
     }
 
     public function hide()
