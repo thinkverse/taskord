@@ -15,7 +15,7 @@ class StatusController extends Controller
     public function redis()
     {
         try {
-            $redis = Redis::connect('127.0.0.1', 3306);
+            Redis::connect('127.0.0.1', 3306);
 
             return 'ok';
         } catch (\Exception $e) {
