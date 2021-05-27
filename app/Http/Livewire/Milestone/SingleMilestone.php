@@ -33,23 +33,13 @@ class SingleMilestone extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+        if (Gate::allows('delete', $this->milestone)) {
+            Helper::togglePraise($this->milestone, 'MILESTONE');
+
+            return loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);
         }
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-        if (auth()->user()->id === $this->milestone->user->id) {
-            return toast($this, 'error', 'You can\'t praise your own milestone!');
-        }
-        Helper::togglePraise($this->milestone, 'MILESTONE');
-
-        return loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function hide()
@@ -87,15 +77,7 @@ class SingleMilestone extends Component
 
     public function deleteMilestone()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-
-        if (auth()->user()->staff_mode or auth()->user()->id === $this->milestone->user_id) {
+        if (Gate::allows('delete', $this->milestone)) {
             loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
             $this->milestone->delete();
             auth()->user()->touch();
