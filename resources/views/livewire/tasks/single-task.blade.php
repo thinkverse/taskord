@@ -46,7 +46,7 @@
                 {!! Helper::renderDueDate($task->due_at) !!}
             </div>
         @endif
-        @if (auth()->user()->id === $task->user->id)
+        @can('delete', $task)
             @livewire('task.select-milestone', [
                 'task' => $task
             ])
@@ -69,6 +69,6 @@
                     Open task
                 </a>
             @endif
-        @endif
+        @endcan
     </div>
 </li>
