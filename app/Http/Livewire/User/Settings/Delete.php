@@ -49,9 +49,9 @@ class Delete extends Component
             $user->likes()->delete();
 
             return redirect()->route('home');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function deleteAccount()
