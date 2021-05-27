@@ -30,22 +30,13 @@ class SingleAnswer extends Component
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
+        if (Gate::allows('praise', $this->answer)) {
+            Helper::togglePraise($this->answer, 'ANSWER');
 
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return loggy(request(), 'Answer', auth()->user(), 'Toggled answer praise | Answer ID: '.$this->answer->id);
         }
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-        if (auth()->user()->id === $this->answer->user->id) {
-            return toast($this, 'error', 'You can\'t praise your own answer!');
-        }
-        Helper::togglePraise($this->answer, 'ANSWER');
-        loggy(request(), 'Answer', auth()->user(), 'Toggled answer praise | Answer ID: '.$this->answer->id);
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function hide()
@@ -62,15 +53,7 @@ class SingleAnswer extends Component
 
     public function deleteAnswer()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-
-        if (auth()->user()->staff_mode or auth()->user()->id === $this->answer->user->id) {
+        if (Gate::allows('delete', $this->answer)) {
             loggy(request(), 'Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
             $this->answer->delete();
             $this->emit('refreshAnswers');
