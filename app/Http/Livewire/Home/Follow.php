@@ -43,16 +43,16 @@ class Follow extends Component
 
         if (auth()->user()->id === $this->user->id) {
             return toast($this, 'error', 'You can\'t follow yourself!');
-        } else {
-            auth()->user()->toggleFollow($this->user);
-            auth()->user()->touch();
-            if (auth()->user()->isFollowing($this->user)) {
-                $this->user->notify(new Followed(auth()->user()));
-            }
-            loggy(request(), 'Notification', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
-            $this->emitUp('refreshSuggestions');
-
-            return toast($this, 'success', 'Followed successfully!');
         }
+
+        auth()->user()->toggleFollow($this->user);
+        auth()->user()->touch();
+        if (auth()->user()->isFollowing($this->user)) {
+            $this->user->notify(new Followed(auth()->user()));
+        }
+        loggy(request(), 'Notification', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
+        $this->emitUp('refreshSuggestions');
+
+        return toast($this, 'success', 'Followed successfully!');
     }
 }
