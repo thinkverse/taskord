@@ -19,8 +19,8 @@ class OnlyFollowing extends Component
 
         if (auth()->user()->only_followings_tasks) {
             return toast($this, 'success', 'Only following users tasks will be visible!');
-        } else {
-            return toast($this, 'success', 'All users tasks will be visible!');
         }
+
+        return toast($this, 'success', 'All users tasks will be visible!');
     }
 }
