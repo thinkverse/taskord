@@ -78,8 +78,8 @@ class EditQuestion extends Component
             loggy(request(), 'Question', auth()->user(), 'Updated a question | Question ID: '.$question->id);
 
             return redirect()->route('question.question', ['id' => $question->id]);
-        } else {
-            toast($this, 'error', 'Forbidden!');
         }
+
+        return toast($this, 'error', 'Forbidden!');
     }
 }
