@@ -137,7 +137,10 @@ a {
 
 .btn-danger {
   color: white;
-  &:hover, &:focus, &:disabled {
+
+  &:hover,
+  &:focus,
+  &:disabled {
     color: white;
   }
 }
