@@ -37,23 +37,13 @@ class SingleQuestion extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+        if (Gate::allows('praise', $this->question)) {
+            Helper::togglePraise($this->question, 'QUESTION');
+
+            return loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
         }
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-        if (auth()->user()->id === $this->question->user->id) {
-            return toast($this, 'error', 'You can\'t praise your own question!');
-        }
-        Helper::togglePraise($this->question, 'QUESTION');
-
-        return loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function hide()
@@ -92,23 +82,15 @@ class SingleQuestion extends Component
 
     public function deleteQuestion()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-
-        if (auth()->user()->staff_mode or auth()->user()->id === $this->question->user_id) {
+        if (Gate::allows('delete', $this->question)) {
             loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
             $this->question->delete();
             auth()->user()->touch();
 
             return redirect()->route('questions.newest');
-        } else {
-            toast($this, 'error', "Oops! You can't perform this action");
         }
+
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function render()

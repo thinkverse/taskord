@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Comment;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
