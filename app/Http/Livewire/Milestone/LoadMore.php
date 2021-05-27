@@ -63,8 +63,8 @@ class LoadMore extends Component
             return view('livewire.milestone.milestones', [
                 'milestones' => $this->paginate($milestones),
             ]);
-        } else {
-            return view('livewire.load-more');
         }
+
+        return view('livewire.load-more');
     }
 }
