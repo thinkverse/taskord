@@ -41,17 +41,17 @@ class Tasks extends Component
                 ->whereDone(true)
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, null, null, $this->page);
-        } else {
-            return Task::whereHas('user', function ($q) {
-                $q->where([
-                    ['spammy', false],
-                    ['is_private', false],
-                ]);
-            })
-                ->whereDone(true)
-                ->orderBy('done_at', 'desc')
-                ->paginate(10, '*', null, $this->page);
         }
+
+        return Task::whereHas('user', function ($q) {
+            $q->where([
+                ['spammy', false],
+                ['is_private', false],
+            ]);
+        })
+            ->whereDone(true)
+            ->orderBy('done_at', 'desc')
+            ->paginate(10, '*', null, $this->page);
     }
 
     public function render()
