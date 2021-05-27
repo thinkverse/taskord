@@ -17,7 +17,9 @@ a {
   color: white;
   background-color: $primary;
 
-  &:hover, &:active, &:focus {
+  &:hover,
+  &:active,
+  &:focus {
     background-color: #6f68ee;
   }
 }
@@ -26,7 +28,9 @@ a {
   color: white;
   background-color: #7289da;
 
-  &:hover, &:active, &:focus {
+  &:hover,
+  &:active,
+  &:focus {
     background-color: #657ac3;
     color: white;
   }
@@ -36,7 +40,9 @@ a {
   color: white;
   background-color: #32afed;
 
-  &:hover, &:active, &:focus {
+  &:hover,
+  &:active,
+  &:focus {
     background-color: #1fa2e3;
     color: white;
   }
