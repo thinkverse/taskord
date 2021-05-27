@@ -4,126 +4,126 @@ $border-bg: #30363d;
 $input-bg: #161b22;
 
 a:hover {
-    color: #7d79cc;
+  color: #7d79cc;
 }
 
 body {
-    background-color: $body-bg;
-    color: #c9d1d9;
+  background-color: $body-bg;
+  color: #c9d1d9;
 }
 
 .navbar {
-    background-color: $input-bg !important;
+  background-color: $input-bg !important;
 }
 
 #search-input {
-    background-color: $card-bg !important;
+  background-color: $card-bg !important;
 }
 
 .card,
 .popover {
-    background-color: $card-bg;
-    color: white;
-    border: 1px solid $border-bg;
+  background-color: $card-bg;
+  color: white;
+  border: 1px solid $border-bg;
 
-    .card-header,
-    .popover-header {
-        background-color: $input-bg;
-    }
+  .card-header,
+  .popover-header {
+    background-color: $input-bg;
+  }
 }
 
 .list-group-item {
-    background-color: $card-bg;
-    border: 1px solid $border-bg;
+  background-color: $card-bg;
+  border: 1px solid $border-bg;
 }
 
 .form-control:focus {
-    background-color: $input-bg;
-    border-color: $border-bg;
+  background-color: $input-bg;
+  border-color: $border-bg;
 }
 
 .form-control:disabled,
 .form-control[readonly] {
-    background-color: $input-bg;
+  background-color: $input-bg;
 }
 
 .form-check-input {
-    background-color: $border-bg;
+  background-color: $border-bg;
 }
 
 .text-secondary {
-    color: #c0c0c0 !important;
+  color: #c0c0c0 !important;
 }
 
 .text-dark,
 .link-dark {
-    color: #c9d1d9 !important;
+  color: #c9d1d9 !important;
 }
 
 .score {
-    color: black !important;
+  color: black !important;
 }
 
 .dropdown-menu {
-    background-color: $card-bg;
-    border: 1px solid #30363d !important;
+  background-color: $card-bg;
+  border: 1px solid #30363d !important;
 
-    .dropdown-item {
-        color: white;
+  .dropdown-item {
+    color: white;
 
-        &:hover {
-            background-color: $body-bg;
-        }
+    &:hover {
+      background-color: $body-bg;
     }
+  }
 }
 
 .dropdown-divider {
-    border-top: 1px solid $border-bg;
+  border-top: 1px solid $border-bg;
 }
 
 .form-control,
 .form-select {
-    background-color: $input-bg;
-    color: white !important;
-    border: 1px solid $border-bg;
+  background-color: $input-bg;
+  color: white !important;
+  border: 1px solid $border-bg;
 }
 
 .form-control::-webkit-file-upload-button {
-    color: white;
-    background-color: $body-bg;
+  color: white;
+  background-color: $body-bg;
 }
 
 .input-group-text {
-    background-color: $input-bg;
-    color: white;
-    border: 1px solid $border-bg;
+  background-color: $input-bg;
+  color: white;
+  border: 1px solid $border-bg;
 }
 
 .form-file-label {
-    border-color: $border-bg;
+  border-color: $border-bg;
 }
 
 .progress {
-    background-color: $body-bg;
+  background-color: $body-bg;
 }
 
 .border-bottom,
 hr {
-    border-bottom: 1px solid $border-bg !important;
+  border-bottom: 1px solid $border-bg !important;
 }
 
 .bg-patron {
-    background-color: #817d5a57 !important;
+  background-color: #817d5a57 !important;
 
-    .text-secondary {
-        color: white !important;
-    }
+  .text-secondary {
+    color: white !important;
+  }
 }
 
 .recent-questions {
-    span {
-        color: black;
-    }
+  span {
+    color: black;
+  }
 }
 
 .modal-content {
