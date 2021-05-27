@@ -66,6 +66,7 @@ body {
 .dropdown-menu {
   background-color: $card-bg;
   border: 1px solid #30363d !important;
+
   .dropdown-item {
     color: white;
     &:hover {
@@ -111,6 +112,7 @@ hr {
 
 .bg-patron {
   background-color: #817d5a57 !important;
+
   .text-secondary {
     color: white !important;
   }
@@ -190,6 +192,7 @@ hr {
   .avatar {
     border: 2px solid $border-bg;
   }
+
   .replies-avatar {
     border: 1px solid $border-bg;
   }
