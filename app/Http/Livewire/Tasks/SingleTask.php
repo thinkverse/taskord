@@ -37,37 +37,28 @@ class SingleTask extends Component
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
+        if (Gate::allows('check.task', $this->task)) {
+            $this->task->done = ! $this->task->done;
+            $this->task->done_at = carbon();
+            auth()->user()->touch();
+            givePoint(new TaskCompleted($this->task));
+            $this->task->save();
+            $this->emit('refreshTasks');
+            if (auth()->user()->has_goal and $this->task->done) {
+                auth()->user()->daily_goal_reached++;
+                auth()->user()->save();
+                CheckGoal::dispatch(auth()->user(), $this->task);
+            }
 
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return loggy(request(), 'Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
         }
 
-        $this->task->done = ! $this->task->done;
-        $this->task->done_at = carbon();
-        auth()->user()->touch();
-        givePoint(new TaskCompleted($this->task));
-        $this->task->save();
-        $this->emit('refreshTasks');
-        if (auth()->user()->has_goal and $this->task->done) {
-            auth()->user()->daily_goal_reached++;
-            auth()->user()->save();
-            CheckGoal::dispatch(auth()->user(), $this->task);
-        }
-
-        return loggy(request(), 'Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
+        return toast($this, 'error', "Oops! You can't perform this action");
     }
 
     public function deleteTask()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-
-        if (auth()->user()->staff_mode or auth()->user()->id === $this->task->user->id) {
+        if (Gate::allows('delete', $this->task)) {
             loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
             foreach ($this->task->images ?? [] as $image) {
                 Storage::delete($image);
