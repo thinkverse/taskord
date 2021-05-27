@@ -17,6 +17,7 @@ class RecentQuestions extends Component
     public function getRecentQuestions()
     {
         return Question::select('id', 'title', 'body', 'patron_only', 'created_at', 'user_id')
+            ->with(['user', 'answers.user'])
             ->withCount('answers')
             ->orderBy('created_at', 'DESC')
             ->take(5)
