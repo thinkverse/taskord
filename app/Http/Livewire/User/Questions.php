@@ -26,6 +26,7 @@ class Questions extends Component
     public function getQuestions()
     {
         return $this->user->questions()
+            ->with('answers.user')
             ->latest()
             ->paginate(10);
     }
