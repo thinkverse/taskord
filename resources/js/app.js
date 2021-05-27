@@ -54,6 +54,19 @@ if (darkMode) {
   });
 }
 
+// Toggle stats in adminbar
+var expandStats = document.getElementById("expand-stats");
+if (expandStats) {
+  expandStats.addEventListener("click", async () => {
+    var stats = document.getElementById("staffbar-stats");
+    if (stats.style.display === "none") {
+      stats.classList.toggle('d-inline');
+    } else {
+      stats.classList.toggle('d-none');
+    }
+  });
+}
+
 window.addEventListener("toast", event => {
   var toastElList = [].slice.call(document.querySelectorAll(".toast"));
   var toastList = toastElList.map(function (toastEl) {

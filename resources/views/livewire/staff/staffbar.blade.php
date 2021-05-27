@@ -26,35 +26,42 @@
                 <span>{{ $response >= 200 ? '🐢' : '⚡️' }}</span>
                 <span>{{ $response }}ms</span>
             </span>
-            <a class="fw-bold me-3 text-white" href="/stafftools/horizon" title="Pending jobs" target="_blank" rel="noreferrer">
-                <x-heroicon-o-collection class="heroicon" />
-                {{ $jobs }}
-                <span class="fw-normal text-white-50">
-                    {{ pluralize('job', (int) $jobs) }}
+            <span id="staffbar-stats" class="d-none">
+                <a class="fw-bold me-3 text-white" href="/stafftools/horizon" title="Pending jobs" target="_blank" rel="noreferrer">
+                    <x-heroicon-o-collection class="heroicon" />
+                    {{ $jobs }}
+                    <span class="fw-normal text-white-50">
+                        {{ pluralize('job', (int) $jobs) }}
+                    </span>
+                </a>
+                <span class="fw-bold me-3" title="Memory usage">
+                    <x-heroicon-o-cog class="heroicon" />
+                    {{ memory_usage() }}
                 </span>
-            </a>
-            <span class="fw-bold me-3" title="Memory usage">
-                <x-heroicon-o-cog class="heroicon" />
-                {{ memory_usage() }}
-            </span>
-            <span class="fw-bold me-3">
-                <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#cleanModal" title="Clear Cache">
-                    <x-heroicon-o-trash class="heroicon text-white" />
-                </a>
-            </span>
-            <span class="fw-bold me-3">
-                <a href="/graphiql" target="_blank" title="GraphiQL" rel="noreferrer">
-                    <x-heroicon-o-cube-transparent class="heroicon text-white" />
-                </a>
-            </span>
-            <span class="fw-bold me-3">
-                <a href="{{ route('staff.stats') }}" title="Stafftool">
-                    <x-heroicon-o-shield-check class="heroicon text-white" />
-                </a>
+                <span class="fw-bold me-3">
+                    <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#cleanModal" title="Clear Cache">
+                        <x-heroicon-o-trash class="heroicon text-white" />
+                    </a>
+                </span>
+                <span class="fw-bold me-3">
+                    <a href="/graphiql" target="_blank" title="GraphiQL" rel="noreferrer">
+                        <x-heroicon-o-cube-transparent class="heroicon text-white" />
+                    </a>
+                </span>
+                <span class="fw-bold me-3">
+                    <a href="{{ route('staff.stats') }}" title="Stafftool">
+                        <x-heroicon-o-shield-check class="heroicon text-white" />
+                    </a>
+                </span>
+                <span class="fw-bold me-3">
+                    <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#deployModal" title="Deploy">
+                        <x-heroicon-o-cloud class="heroicon text-white" />
+                    </a>
+                </span>
             </span>
             <span class="fw-bold">
-                <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#deployModal" title="Deploy">
-                    <x-heroicon-o-cloud class="heroicon text-white" />
+                <a class="cursor-pointer" id="expand-stats">
+                    <x-heroicon-o-view-grid class="heroicon text-white" />
                 </a>
             </span>
         </span>
