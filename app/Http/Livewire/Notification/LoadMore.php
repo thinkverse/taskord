@@ -15,11 +15,11 @@ class LoadMore extends Component
     public $loadMore;
     public $readyToLoad = true;
 
-    public function mount($type, $page = 1, $perPage = 1)
+    public function mount($page = 1, $perPage = 1)
     {
-        $this->page = $page + 1; //increment the page
+        $this->page = $page + 1;
         $this->perPage = $perPage;
-        $this->loadMore = false; //show the button
+        $this->loadMore = false;
     }
 
     public function paginate($items, $options = [])
