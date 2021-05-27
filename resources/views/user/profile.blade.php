@@ -10,17 +10,17 @@
 </div>
 @endif
 <div class="card">
-    @auth
-    @if (auth()->user()->is_staff && $user->spammy)
-        <div class="p-4 pb-0">
-            <div class="alert alert-danger alert-dismissible">
-                This user is flagged
-                {{ $user->is_suspended ? 'and suspended' : '' }}
-                as spammy!
+    @can('staff_mode')
+        @if ($user->spammy)
+            <div class="p-4 pb-0">
+                <div class="alert alert-danger alert-dismissible">
+                    This user is flagged
+                    {{ $user->is_suspended ? 'and suspended' : '' }}
+                    as spammy!
+                </div>
             </div>
-        </div>
-    @endif
-    @endauth
+        @endif
+    @endcan
     <div class="row">
         <div class="col-md-7">
             <div class="card-body d-flex align-items-center">
