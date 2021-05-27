@@ -17,11 +17,6 @@
                 <x-heroicon-o-chip class="heroicon" />
                 Laravel {{ $laravel_version }}.<span class="fw-bold">{{ $laravel_ref }}</span>
             </a>
-            <span class="border border-secondary border-end-0 mx-2"></span>
-            <a class="text-white-50"
-                href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" title="PHP Version" target="_blank" rel="noreferrer">
-                PHP {{ phpversion() }}
-            </a>
         </span>
         <span class="float-end">
             @php
