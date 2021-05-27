@@ -20,20 +20,21 @@ class PopularTasks extends Component
 
     public function getPopularTasks()
     {
-        return Task::whereHas('user', function ($q) {
-            $q->where([
-                ['spammy', false],
-                ['is_private', false],
-            ]);
-        })
-                ->latest('created_at')
-                ->take(50)
-                ->has('comments')
-                ->limit(10)
-                ->get()
-                ->sortByDesc('likers_count')
-                ->sortByDesc('comments_count')
-                ->shuffle();
+        return Task::with(['user', 'comments.user'])
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['spammy', false],
+                    ['is_private', false],
+                ]);
+            })
+            ->latest('created_at')
+            ->take(50)
+            ->has('comments')
+            ->limit(10)
+            ->get()
+            ->sortByDesc('likers_count')
+            ->sortByDesc('comments_count')
+            ->shuffle();
     }
 
     public function render()
