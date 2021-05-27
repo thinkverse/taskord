@@ -143,7 +143,7 @@ class Profile extends Component
         if (auth()->user()->id === $this->user->id) {
             $this->user->has_goal = ! $this->user->has_goal;
             $this->user->save();
-            loggy(request(), 'User', auth()->user(), 'Toggled goals settings');
+            return loggy(request(), 'User', auth()->user(), 'Toggled goals settings');
         }
         return toast($this, 'error', 'Forbidden!');
     }
@@ -159,7 +159,7 @@ class Profile extends Component
             $this->user->save();
             loggy(request(), 'User', auth()->user(), 'Updated the goal '.$this->dailyGoal.'/day');
 
-            toast($this, 'success', 'Your goal has been updated!');
+            return toast($this, 'success', 'Your goal has been updated!');
         }
         return toast($this, 'error', 'Forbidden!');
     }
@@ -172,15 +172,13 @@ class Profile extends Component
             if ($this->user->vacation_mode) {
                 loggy(request(), 'User', auth()->user(), 'Enabled vacation mode');
 
-                toast($this, 'success', 'Vacation mode has been enabled!');
-            } else {
-                loggy(request(), 'User', auth()->user(), 'Disabled vacation mode');
-
-                toast($this, 'success', 'Vacation mode has been disabled!');
+                return toast($this, 'success', 'Vacation mode has been enabled!');
             }
-        } else {
-            return toast($this, 'error', 'Forbidden!');
+            loggy(request(), 'User', auth()->user(), 'Disabled vacation mode');
+
+            return toast($this, 'success', 'Vacation mode has been disabled!');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function updateSponsor()
