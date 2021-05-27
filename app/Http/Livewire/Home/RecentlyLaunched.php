@@ -17,6 +17,7 @@ class RecentlyLaunched extends Component
     public function getRecentlyLaunched()
     {
         return Product::select('id', 'slug', 'name', 'launched', 'avatar', 'user_id')
+            ->with('owner')
             ->whereLaunched(true)
             ->orderBy('created_at', 'DESC')
             ->take(5)
