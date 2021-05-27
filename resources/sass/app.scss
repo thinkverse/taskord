@@ -6,56 +6,56 @@
 @import "./form";
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .rm-shadow {
-    box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .btn-primary {
-    color: white;
-    background-color: $primary;
-    &:hover, &:active, &:focus {
-        background-color: #6f68ee;
-    }
+  color: white;
+  background-color: $primary;
+  &:hover, &:active, &:focus {
+    background-color: #6f68ee;
+  }
 }
 
 .btn-blurple {
+  color: white;
+  background-color: #7289da;
+  &:hover, &:active, &:focus {
+    background-color: #657ac3;
     color: white;
-    background-color: #7289da;
-    &:hover, &:active, &:focus {
-        background-color: #657ac3;
-        color: white;
-    }
+  }
 }
 
 .btn-telegram {
+  color: white;
+  background-color: #32afed;
+  &:hover, &:active, &:focus {
+    background-color: #1fa2e3;
     color: white;
-    background-color: #32afed;
-    &:hover, &:active, &:focus {
-        background-color: #1fa2e3;
-        color: white;
-    }
+  }
 }
 
 .text-gold {
-    color: $yellow-600;
+  color: $yellow-600;
 }
 
 .text-reputation {
-    color: black;
+  color: black;
 }
 
 .score {
-    display: inline-flex;
-    align-items: center;
-    padding: 5px 8px;
-    line-height: 1px;
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 8px;
+  line-height: 1px;
 
-    & > [class^="heroicon"] {
-        margin-right: 2px;
-    }
+  & > [class^="heroicon"] {
+    margin-right: 2px;
+  }
 }
 
 .navbar {
