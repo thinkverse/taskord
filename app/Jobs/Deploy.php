@@ -32,7 +32,7 @@ class Deploy implements ShouldQueue
     {
         if (App::environment() === 'production') {
             $client = new Client();
-            $res = $client->request('POST', 'https://gitlab.com/api/v4/projects/25370928/ref/master/trigger/pipeline', [
+            $client->request('POST', 'https://gitlab.com/api/v4/projects/25370928/ref/master/trigger/pipeline', [
                 'form_params' => [
                     'token' => config('services.gitlab.trigger_token'),
                     'variables[DEPLOY_USER]' => '@'.$this->user->username,
