@@ -233,9 +233,8 @@ class Profile extends Component
             } else {
                 toast($this, 'success', 'All user\'s task will be show on homepage');
             }
-            loggy(request(), 'User', auth()->user(), 'Toggled only following users tasks in settings');
-        } else {
-            return toast($this, 'error', 'Forbidden!');
+            return loggy(request(), 'User', auth()->user(), 'Toggled only following users tasks in settings');
         }
+        return toast($this, 'error', 'Forbidden!');
     }
 }
