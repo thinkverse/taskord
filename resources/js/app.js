@@ -59,12 +59,23 @@ var expandStats = document.getElementById("expand-stats");
 if (expandStats) {
   expandStats.addEventListener("click", async () => {
     var stats = document.getElementById("staffbar-stats");
-    if (stats.style.display === "none") {
-      stats.classList.toggle('d-inline');
+    stats.classList.toggle('d-none');
+    if (stats.classList.value === "d-none") {
+      localStorage.setItem("staffbar-stats", "false");
     } else {
-      stats.classList.toggle('d-none');
+      localStorage.setItem("staffbar-stats", "true");
     }
   });
+}
+
+var staffBarStats = document.getElementById("staffbar-stats");
+if (staffBarStats) {
+  var stats = document.getElementById("staffbar-stats");
+  if (localStorage.getItem("staffbar-stats") === "true") {
+    stats.className = "d-inline";
+  } else {
+    stats.className = "d-none";
+  }
 }
 
 window.addEventListener("toast", event => {
