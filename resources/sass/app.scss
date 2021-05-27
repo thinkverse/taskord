@@ -146,7 +146,8 @@ a {
 .btn-outline-success,
 .btn-outline-primary,
 .btn-outline-info {
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: white;
     & > [class*='text-'] {
       color: inherit !important;
