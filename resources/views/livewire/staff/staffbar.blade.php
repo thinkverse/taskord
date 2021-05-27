@@ -24,6 +24,13 @@
             </a>
         </span>
         <span class="float-end">
+            <span class="fw-bold me-3 border rounded px-1 border-secondary">
+                @php
+                    $response = bcmul((microtime(true) - LARAVEL_START), '1000', 0);
+                @endphp
+                <span>{{ $response >= 200 ? '🐢' : '⚡️' }}</span>
+                <span>{{ $response }}ms</span>
+            </span>
             <a class="fw-bold me-3 text-white" href="/stafftools/horizon" title="Pending jobs" target="_blank" rel="noreferrer">
                 <x-heroicon-o-collection class="heroicon" />
                 {{ $jobs }}
@@ -34,11 +41,6 @@
             <span class="fw-bold me-3" title="Memory usage">
                 <x-heroicon-o-cog class="heroicon" />
                 {{ memory_usage() }}
-            </span>
-            <span class="fw-bold me-3">
-                <x-heroicon-o-clock class="heroicon" />
-                {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms
-                <span class="fw-normal text-white-50">response total</span>
             </span>
             <span class="fw-bold me-3">
                 <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#cleanModal" title="Clear Cache">
