@@ -7,10 +7,10 @@ use App\Notifications\Staff\ContributorEnabled;
 use App\Notifications\Staff\PatronGifted;
 use App\Notifications\Staff\UserVerified;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
-use Illuminate\Support\Facades\Gate;
 
 class Moderator extends Component
 {
