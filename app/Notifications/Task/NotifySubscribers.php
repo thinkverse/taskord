@@ -21,7 +21,7 @@ class NotifySubscribers extends Notification implements ShouldQueue
         $this->userId = $comment->user->id;
     }
 
-    public function via($notifiable)
+    public function via()
     {
         return ['mail', 'database'];
     }
