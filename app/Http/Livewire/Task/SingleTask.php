@@ -79,23 +79,13 @@ class SingleTask extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
+        if (Gate::allows('praise.task', $this->task)) {
+            Helper::togglePraise($this->task, 'TASK');
+
+            return loggy(request(), 'Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
         }
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-        if (auth()->user()->id === $this->task->user->id) {
-            return toast($this, 'error', 'You can\'t praise your own task!');
-        }
-        Helper::togglePraise($this->task, 'TASK');
-
-        return loggy(request(), 'Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
+        return toast($this, 'error', 'Forbidden!');
     }
 
     public function hide()

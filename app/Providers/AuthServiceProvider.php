@@ -45,6 +45,22 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
+        Gate::define('praise.task', function (User $user, Task $task) {
+            if ($user->spammy) {
+                return false;
+            }
+
+            if (! $user->hasVerifiedEmail()) {
+                return false;
+            }
+
+            if ($user->id === $task->user->id) {
+                return false;
+            }
+
+            return true;
+        });
+
         Gate::define('delete.task', function (User $user, Task $task) {
             if ($user->spammy) {
                 return false;
