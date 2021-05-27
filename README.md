@@ -13,14 +13,14 @@
     <a href="https://gitlab.com/yo/taskord-deploy/-/pipelines">
         <img src="https://img.shields.io/gitlab/pipeline/yo/taskord-deploy/master?color=%236a63ec&label=deploy" alt="Deploy">
     </a>
-    <a href="https://github.com/taskordhq/web/actions/workflows/ci.yml">
-        <img src="https://github.com/taskordhq/web/actions/workflows/ci.yml/badge.svg?branch=main" alt="GitHub Action">
+    <a href="https://github.com/taskordhq/web/actions/workflows/test.yml">
+        <img src="https://github.com/taskordhq/web/actions/workflows/test.yml/badge.svg?branch=main" alt="GitHub Action">
     </a>
     <a href="https://gitlab.styleci.io/repos/20359920?branch=main">
         <img src="https://gitlab.styleci.io/repos/20359920/shield" alt="Style CI">
     </a>
-    <a href="https://codeclimate.com/github/taskordhq/web/maintainability">
-        <img src="https://api.codeclimate.com/v1/badges/bc9bca7b560e8d6fc843/maintainability" alt="CodeClimate"/>
+    <a href="https://www.codacy.com/gl/yo/taskord/dashboard">
+        <img src="https://app.codacy.com/project/badge/Grade/07bf3a6ca7db4352a781485c94db59d3" alt="CodeClimate"/>
     </a>
     <a href="https://gitpod.io/#https://gitlab.com/yo/taskord">
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
