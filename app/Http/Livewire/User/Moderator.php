@@ -307,11 +307,7 @@ class Moderator extends Component
 
     public function masquerade()
     {
-        if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
-        if ($this->user->id === 1) {
+        if (Gate::denies('staff_mode')  or $this->user->id === 1) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
