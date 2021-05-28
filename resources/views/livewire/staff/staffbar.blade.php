@@ -44,11 +44,6 @@
                     </a>
                 </span>
                 <span class="fw-bold me-3">
-                    <a href="/graphiql" target="_blank" title="GraphiQL" rel="noreferrer">
-                        <x-heroicon-o-cube-transparent class="heroicon text-white" />
-                    </a>
-                </span>
-                <span class="fw-bold me-3">
                     <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#deployModal" title="Deploy">
                         <x-heroicon-o-cloud class="heroicon text-white" />
                     </a>
