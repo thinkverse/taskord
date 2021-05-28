@@ -6,7 +6,6 @@ use App\Actions\CreateNewTask;
 use App\Models\User;
 use App\Models\Webhook;
 use GrahamCampbell\Throttle\Facades\Throttle;
-use GuzzleHttp\Client;
 use Helper;
 use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
