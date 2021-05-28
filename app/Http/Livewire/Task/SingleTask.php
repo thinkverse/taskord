@@ -32,7 +32,7 @@ class SingleTask extends Component
     {
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
-        
+
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
@@ -93,14 +93,14 @@ class SingleTask extends Component
 
     public function hide()
     {
-        if (Gate::allows('staff_mode')) {
-            Helper::hide($this->task);
-            loggy(request(), 'Staff', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
-
-            return toast($this, 'success', 'Task is hidden from public!');
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        Helper::hide($this->task);
+        loggy(request(), 'Staff', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
+
+        return toast($this, 'success', 'Task is hidden from public!');
     }
 
     public function deleteTask()
