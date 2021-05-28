@@ -73,19 +73,20 @@ class SingleTask extends Component
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
+        
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising a task');
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (Gate::allows('praise', $this->task)) {
-            Helper::togglePraise($this->task, 'TASK');
-
-            return loggy(request(), 'Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
+        if (Gate::denies('praise', $this->task)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        Helper::togglePraise($this->task, 'TASK');
+
+        return loggy(request(), 'Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
     }
 
     public function hide()
