@@ -55,11 +55,16 @@ class CreateTask extends Component
 
     public function submit()
     {
+        if (Gate::denies('create')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
+
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
+        
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while creating a task');
 
@@ -71,10 +76,6 @@ class CreateTask extends Component
             'images' => ['max:5'],
             'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
         ]);
-
-        if (Gate::denies('create')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
 
         if ($this->images) {
             $images = [];

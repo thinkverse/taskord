@@ -18,6 +18,10 @@ class CreateDeal extends Component
 
     public function submit()
     {
+        if (Gate::denies('create')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
+
         $this->validate([
             'name' => ['required', 'min:2'],
             'description' => ['required', 'min:5'],
@@ -27,10 +31,6 @@ class CreateDeal extends Component
             'website' => ['required', 'active_url'],
             'logo' => ['required', 'active_url'],
         ]);
-
-        if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
 
         $deal = Deal::create([
             'name' =>  $this->name,
