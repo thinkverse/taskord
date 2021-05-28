@@ -32,13 +32,13 @@ class SingleReply extends Component
 
     public function hide()
     {
-        if (Gate::allows('staff_mode')) {
-            Helper::hide($this->reply);
-            loggy(request(), 'Staff', auth()->user(), 'Toggled hide reply | Reply ID: '.$this->reply->id);
-
-            return toast($this, 'success', 'Reply is hidden from public!');
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        Helper::hide($this->reply);
+        loggy(request(), 'Staff', auth()->user(), 'Toggled hide reply | Reply ID: '.$this->reply->id);
+
+        return toast($this, 'success', 'Reply is hidden from public!');
     }
 }
