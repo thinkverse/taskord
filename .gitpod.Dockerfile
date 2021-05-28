@@ -4,6 +4,7 @@ FROM gitpod/workspace-mysql
 RUN sudo add-apt-repository ppa:ondrej/php -y \
     && sudo apt update -y \
     && sudo apt install -y \
+    && sudo apt-get purge apache2* -y \
     redis-server \
     php8.0 \
     php8.0-curl \
@@ -17,7 +18,7 @@ RUN sudo add-apt-repository ppa:ondrej/php -y \
     php8.0-gd \
     php8.0-bcmath \
     && sudo rm -rf /var/lib/apt/lists/*
-    
+
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && HASH=`curl -sS https://composer.github.io/installer.sig` \
