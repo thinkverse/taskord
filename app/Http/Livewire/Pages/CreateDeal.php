@@ -28,22 +28,22 @@ class CreateDeal extends Component
             'logo' => ['required', 'active_url'],
         ]);
 
-        if (Gate::allows('staff_mode')) {
-            $deal = Deal::create([
-                'name' =>  $this->name,
-                'description' => $this->description,
-                'offer' => $this->offer,
-                'coupon' => $this->coupon,
-                'referral' => $this->referral,
-                'website' => $this->website,
-                'logo' => $this->logo,
-            ]);
-            auth()->user()->touch();
-            loggy(request(), 'Staff', auth()->user(), 'Created a new deal | Deal ID: '.$deal->id);
-
-            return redirect()->route('deals');
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        $deal = Deal::create([
+            'name' =>  $this->name,
+            'description' => $this->description,
+            'offer' => $this->offer,
+            'coupon' => $this->coupon,
+            'referral' => $this->referral,
+            'website' => $this->website,
+            'logo' => $this->logo,
+        ]);
+        auth()->user()->touch();
+        loggy(request(), 'Staff', auth()->user(), 'Created a new deal | Deal ID: '.$deal->id);
+
+        return redirect()->route('deals');
     }
 }

@@ -78,7 +78,7 @@ class SingleMilestone extends Component
 
     public function deleteMilestone()
     {
-        if (Gate::allows('act', $this->milestone)) {
+        if (Gate::denies('act', $this->milestone)) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
