@@ -511,51 +511,55 @@ class Moderator extends Component
 
     public function deleteUser()
     {
-        if (Gate::allows('staff_mode')) {
-            if ($this->user->id === 1) {
-                return toast($this, 'error', "Oops! You can't perform this action");
-            }
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
 
-            loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                'Deleted the user | Username: @'.$this->user->username
-            );
+        if ($this->user->id === 1) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
 
-            $user = User::find($this->user->id);
-            // Delete Task Images
-            foreach ($user->tasks as $task) {
-                foreach ($task->images ?? [] as $image) {
-                    Storage::delete($image);
-                }
+        loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Deleted the user | Username: @'.$this->user->username
+        );
+
+        $user = User::find($this->user->id);
+        // Delete Task Images
+        foreach ($user->tasks as $task) {
+            foreach ($task->images ?? [] as $image) {
+                Storage::delete($image);
             }
-            // Delete Product Logos
-            foreach ($user->ownedProducts as $product) {
-                $product->tasks()->delete();
-                $product->webhooks()->delete();
-                $avatar = explode('storage/', $product->avatar);
-                if (array_key_exists(1, $avatar)) {
-                    Storage::delete($avatar[1]);
-                }
-            }
-            // Delete User Avatar
-            $avatar = explode('storage/', $user->avatar);
+        }
+        // Delete Product Logos
+        foreach ($user->ownedProducts as $product) {
+            $product->tasks()->delete();
+            $product->webhooks()->delete();
+            $avatar = explode('storage/', $product->avatar);
             if (array_key_exists(1, $avatar)) {
                 Storage::delete($avatar[1]);
             }
-            $user->likes()->delete();
-            $user->notifications()->delete();
-            $user->delete();
-
-            return redirect()->route('home');
         }
+        // Delete User Avatar
+        $avatar = explode('storage/', $user->avatar);
+        if (array_key_exists(1, $avatar)) {
+            Storage::delete($avatar[1]);
+        }
+        $user->likes()->delete();
+        $user->notifications()->delete();
+        $user->delete();
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return redirect()->route('home');
     }
 
     public function updateUserStaffNotes()
     {
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
+        
         $this->user->staff_notes = $this->staffNotes;
         $this->user->save();
 
