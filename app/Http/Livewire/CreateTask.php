@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Gate;
 
 class CreateTask extends Component
 {
@@ -65,22 +66,14 @@ class CreateTask extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
         $this->validate([
             'task' => ['required', 'min:5', 'max:10000'],
             'images' => ['max:5'],
             'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
         ]);
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
+        if (Gate::denies('create')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if ($this->images) {
