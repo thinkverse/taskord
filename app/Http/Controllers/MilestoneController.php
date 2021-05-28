@@ -32,7 +32,7 @@ class MilestoneController extends Controller
         ) {
             return view('milestone/milestone', $response);
         } elseif ($milestone->user->spammy or $milestone->user->is_private) {
-            abort(404);
+            return abort(404);
         }
 
         return view('milestone/milestone', $response);
@@ -48,7 +48,7 @@ class MilestoneController extends Controller
                 'milestone' => $milestone,
             ]);
         } else {
-            abort(404);
+            return abort(404);
         }
     }
 
