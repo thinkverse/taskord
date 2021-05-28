@@ -114,7 +114,7 @@ class Moderator extends Component
         $this->user->is_contributor = ! $this->user->is_contributor;
         $this->user->timestamps = false;
         $this->user->save();
-        
+
         if ($this->user->is_contributor) {
             $this->user->notify(new ContributorEnabled(true));
 
@@ -167,31 +167,33 @@ class Moderator extends Component
 
     public function flagUser()
     {
-        if (Gate::allows('staff_mode')) {
-            if ($this->user->id === 1) {
-                return toast($this, 'error', "Oops! You can't perform this action");
-            }
-            $this->user->spammy = ! $this->user->spammy;
-            $this->user->timestamps = false;
-            $this->user->save();
-            if ($this->user->spammy) {
-                return loggy(
-                    request(),
-                    'Staff',
-                    auth()->user(),
-                    'Flagged the user | Username: @'.$this->user->username
-                );
-            }
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
 
+        if ($this->user->id === 1) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
+        
+        $this->user->spammy = ! $this->user->spammy;
+        $this->user->timestamps = false;
+        $this->user->save();
+
+        if ($this->user->spammy) {
             return loggy(
                 request(),
                 'Staff',
                 auth()->user(),
-                'Un-flagged the user | Username: @'.$this->user->username
+                'Flagged the user | Username: @'.$this->user->username
             );
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Un-flagged the user | Username: @'.$this->user->username
+        );
     }
 
     public function suspendUser()
