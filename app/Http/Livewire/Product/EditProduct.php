@@ -91,45 +91,41 @@ class EditProduct extends Component
             $product->avatar = $avatar;
         }
 
-        if (auth()->user()->staff_mode or auth()->user()->id === $product->owner->id) {
-            $isNewelyLaunched = false;
+        $isNewelyLaunched = false;
 
-            if ($this->launched and ! $product->launched) {
-                $product->launched_at = carbon();
-                $isNewelyLaunched = true;
-            }
-
-            $product->name = $this->name;
-            $product->slug = $this->slug;
-            $product->description = $this->description;
-            $product->website = $this->website;
-            $product->twitter = $this->twitter;
-            $product->repo = $this->repo;
-            $product->producthunt = $this->producthunt;
-            $product->sponsor = $this->sponsor;
-            $product->launched = $this->launched;
-            $product->deprecated = $this->deprecated;
-            $product->save();
-
-            if ($isNewelyLaunched) {
-                $randomTask = Arr::random(config('taskord.tasks.templates'));
-                (new CreateNewTask(auth()->user(), [
-                    'product_id' => $product->id,
-                    'task' => sprintf($randomTask, $product->slug),
-                    'done' => true,
-                    'done_at' => $product->launched_at,
-                    'type' => 'product',
-                ]))();
-            }
-
-            auth()->user()->touch();
-
-            loggy(request(), 'Product', auth()->user(), 'Updated a product | Product Slug: #'.$this->product->slug);
-
-            return redirect()->route('product.done', ['slug' => $product->slug]);
+        if ($this->launched and ! $product->launched) {
+            $product->launched_at = carbon();
+            $isNewelyLaunched = true;
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        $product->name = $this->name;
+        $product->slug = $this->slug;
+        $product->description = $this->description;
+        $product->website = $this->website;
+        $product->twitter = $this->twitter;
+        $product->repo = $this->repo;
+        $product->producthunt = $this->producthunt;
+        $product->sponsor = $this->sponsor;
+        $product->launched = $this->launched;
+        $product->deprecated = $this->deprecated;
+        $product->save();
+
+        if ($isNewelyLaunched) {
+            $randomTask = Arr::random(config('taskord.tasks.templates'));
+            (new CreateNewTask(auth()->user(), [
+                'product_id' => $product->id,
+                'task' => sprintf($randomTask, $product->slug),
+                'done' => true,
+                'done_at' => $product->launched_at,
+                'type' => 'product',
+            ]))();
+        }
+
+        auth()->user()->touch();
+
+        loggy(request(), 'Product', auth()->user(), 'Updated a product | Product Slug: #'.$this->product->slug);
+
+        return redirect()->route('product.done', ['slug' => $product->slug]);
     }
 
     public function deleteProduct()
