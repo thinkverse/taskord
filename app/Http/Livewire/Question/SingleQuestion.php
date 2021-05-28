@@ -31,19 +31,20 @@ class SingleQuestion extends Component
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
+
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the question');
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (Gate::allows('praise', $this->question)) {
-            Helper::togglePraise($this->question, 'QUESTION');
-
-            return loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
+        if (Gate::denies('praise', $this->question)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
+        
+        Helper::togglePraise($this->question, 'QUESTION');
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
     }
 
     public function hide()
