@@ -13,12 +13,6 @@ Contributions are what makes the open-source community such an amazing place to 
 5. Push to the Branch (`git push origin AmazingFeature`)
 6. Open a Merge Request
 
-Start coding in a [ready-to-code development environment](https://www.gitpod.io):
-
-<a href="https://gitpod.io/#https://gitlab.com/yo/taskord" style="padding: 10px;">
-    <img src="https://gitpod.io/button/open-in-gitpod.svg" width="150" alt="Push" align="center">
-</a>
-
 ## Installation
 
 [View full installation documentation.](/docs/installation.md)

@@ -22,9 +22,6 @@
     <a href="https://www.codacy.com/gl/yo/taskord/dashboard">
         <img src="https://app.codacy.com/project/badge/Grade/07bf3a6ca7db4352a781485c94db59d3" alt="CodeClimate"/>
     </a>
-    <a href="https://gitpod.io/#https://gitlab.com/yo/taskord">
-        <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
-    </a>
     <a href="https://gitlab.com/yo/taskord/-/releases">
         <img src="https://badgen.net/gitlab/release/yo/taskord" alt="Taskord version">
     </a>
