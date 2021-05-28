@@ -83,15 +83,15 @@ class SingleQuestion extends Component
 
     public function deleteQuestion()
     {
-        if (Gate::allows('act', $this->question)) {
-            loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
-            $this->question->delete();
-            auth()->user()->touch();
-
-            return redirect()->route('questions.newest');
+        if (Gate::denies('act', $this->question)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
+        $this->question->delete();
+        auth()->user()->touch();
+
+        return redirect()->route('questions.newest');
     }
 
     public function render()
