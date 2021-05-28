@@ -103,7 +103,7 @@ class Moderator extends Component
 
     public function enrollDeveloper()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff_mode') or $this->user->id === 1) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
@@ -222,7 +222,7 @@ class Moderator extends Component
 
     public function enrollPatron()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff_mode') or $this->user->id === 1) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
@@ -251,7 +251,7 @@ class Moderator extends Component
 
     public function verifyUser()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff_mode') or $this->user->id === 1) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
