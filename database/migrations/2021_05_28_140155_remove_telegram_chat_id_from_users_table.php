@@ -14,7 +14,7 @@ class RemoveTelegramChatIdFromUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('telegram_chat_id');
         });
     }
 
@@ -26,7 +26,7 @@ class RemoveTelegramChatIdFromUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->string('telegram_chat_id')->nullable()->default(null);
         });
     }
 }
