@@ -48,10 +48,6 @@ class EditProduct extends Component
 
     public function updatedAvatar()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
         $this->validate([
             'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
@@ -130,32 +126,20 @@ class EditProduct extends Component
 
     public function deleteProduct()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('act', $this->product)) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
+        loggy(request(), 'Product', auth()->user(), 'Deleted a product | Product Slug: #'.$this->product->slug);
+        $avatar = explode('storage/', $this->product->avatar);
+        if (array_key_exists(1, $avatar)) {
+            Storage::delete($avatar[1]);
         }
+        $this->product->tasks()->delete();
+        $this->product->webhooks()->delete();
+        $this->product->delete();
+        auth()->user()->touch();
 
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-
-        if (auth()->user()->staff_mode or auth()->user()->id === $this->product->owner->id) {
-            loggy(request(), 'Product', auth()->user(), 'Deleted a product | Product Slug: #'.$this->product->slug);
-            $avatar = explode('storage/', $this->product->avatar);
-            if (array_key_exists(1, $avatar)) {
-                Storage::delete($avatar[1]);
-            }
-            $this->product->tasks()->delete();
-            $this->product->webhooks()->delete();
-            $this->product->delete();
-            auth()->user()->touch();
-
-            return redirect()->route('products.newest');
-        }
-
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return redirect()->route('products.newest');
     }
 }
