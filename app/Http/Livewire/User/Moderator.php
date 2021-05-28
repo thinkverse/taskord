@@ -49,85 +49,87 @@ class Moderator extends Component
 
     public function enrollBeta()
     {
-        if (Gate::allows('staff_mode')) {
-            $this->user->is_beta = ! $this->user->is_beta;
-            $this->user->timestamps = false;
-            $this->user->save();
-            if ($this->user->is_beta) {
-                return loggy(
-                    request(),
-                    'Staff',
-                    auth()->user(),
-                    'Enrolled to Beta | Username: @'.$this->user->username
-                );
-            }
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
 
+        $this->user->is_beta = ! $this->user->is_beta;
+        $this->user->timestamps = false;
+        $this->user->save();
+        if ($this->user->is_beta) {
             return loggy(
                 request(),
                 'Staff',
                 auth()->user(),
-                'Un-enrolled from Beta | Username: @'.$this->user->username
+                'Enrolled to Beta | Username: @'.$this->user->username
             );
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Un-enrolled from Beta | Username: @'.$this->user->username
+        );
     }
 
     public function enrollStaff()
     {
-        if (Gate::allows('staff_mode')) {
-            if ($this->user->id === 1) {
-                return toast($this, 'error', "Oops! You can't perform this action");
-            }
-            $this->user->is_staff = ! $this->user->is_staff;
-            $this->user->timestamps = false;
-            $this->user->save();
-            if ($this->user->is_staff) {
-                return loggy(
-                    request(),
-                    'Staff',
-                    auth()->user(),
-                    'Enrolled as Staff | Username: @'.$this->user->username
-                );
-            }
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
 
+        if ($this->user->id === 1) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
+
+        $this->user->is_staff = ! $this->user->is_staff;
+        $this->user->timestamps = false;
+        $this->user->save();
+
+        if ($this->user->is_staff) {
             return loggy(
                 request(),
                 'Staff',
                 auth()->user(),
-                'Un-enrolled from Staff | Username: @'.$this->user->username
+                'Enrolled as Staff | Username: @'.$this->user->username
             );
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Un-enrolled from Staff | Username: @'.$this->user->username
+        );
     }
 
     public function enrollDeveloper()
     {
-        if (Gate::allows('staff_mode')) {
-            $this->user->is_contributor = ! $this->user->is_contributor;
-            $this->user->timestamps = false;
-            $this->user->save();
-            if ($this->user->is_contributor) {
-                $this->user->notify(new ContributorEnabled(true));
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
 
-                return loggy(
-                    request(),
-                    'Staff',
-                    auth()->user(),
-                    'Enrolled as Contributor | Username: @'.$this->user->username
-                );
-            }
+        $this->user->is_contributor = ! $this->user->is_contributor;
+        $this->user->timestamps = false;
+        $this->user->save();
+        if ($this->user->is_contributor) {
+            $this->user->notify(new ContributorEnabled(true));
 
             return loggy(
                 request(),
                 'Staff',
                 auth()->user(),
-                'Un-enrolled from Contributor | Username: @'.$this->user->username
+                'Enrolled as Contributor | Username: @'.$this->user->username
             );
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Un-enrolled from Contributor | Username: @'.$this->user->username
+        );
     }
 
     public function privateUser()
