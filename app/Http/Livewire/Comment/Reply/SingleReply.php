@@ -18,16 +18,16 @@ class SingleReply extends Component
 
     public function deleteReply()
     {
-        if (Gate::allows('act', $this->reply)) {
-            loggy(request(), 'Reply', auth()->user(), 'Deleted a reply | Reply ID: '.$this->reply->id);
-            $this->reply->delete();
-            $this->emit('refreshReplies');
-            auth()->user()->touch();
-
-            return toast($this, 'success', 'Reply has been deleted successfully!');
+        if (Gate::denies('act', $this->reply)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        loggy(request(), 'Reply', auth()->user(), 'Deleted a reply | Reply ID: '.$this->reply->id);
+        $this->reply->delete();
+        $this->emit('refreshReplies');
+        auth()->user()->touch();
+
+        return toast($this, 'success', 'Reply has been deleted successfully!');
     }
 
     public function hide()
