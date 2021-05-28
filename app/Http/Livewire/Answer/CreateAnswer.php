@@ -30,11 +30,11 @@ class CreateAnswer extends Component
 
     public function submit()
     {
-        $this->validate();
-
         if (Gate::denies('create')) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
+
+        $this->validate();
 
         $users = Helper::getUsernamesFromMentions($this->answer);
 
