@@ -18,7 +18,6 @@
         "grosv/laravel-passwordless-login": "1.6.0",
         "guzzlehttp/guzzle": "7.3.0",
         "intervention/image": "2.5.1",
-        "irazasyed/telegram-bot-sdk": "3.4.1",
         "jean85/pretty-package-versions": "2.0.4",
         "laravel/envoy": "2.7.0",
         "laravel/framework": "8.44.0",

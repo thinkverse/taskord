@@ -13,7 +13,6 @@ use App\Http\Controllers\SocialController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TaskController;
-use App\Http\Controllers\TelegramController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebhookController;
 use Illuminate\Support\Facades\Route;
@@ -258,9 +257,4 @@ Route::group(['prefix' => 'site'], function () {
     Route::get('ci-data', [StaffController::class, 'ciData'])->name('ci-data')->middleware('staff_mode');
     Route::get('deployment-data', [StaffController::class, 'deploymentData'])->name('deployment-data')->middleware('staff_mode');
     Route::get('staffbar', [StaffController::class, 'toggle'])->middleware('staff')->name('staffbar');
-});
-
-// Site
-Route::group(['prefix' => 'bot'], function () {
-    Route::post('getUpdates', [TelegramController::class, 'getUpdates']);
 });

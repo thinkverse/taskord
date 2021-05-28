@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTelegramChatIdToUsersTable extends Migration
+class RemoveTelegramChatIdFromUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddTelegramChatIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('telegram_chat_id')->nullable()->default(null);
+            $table->dropColumn('telegram_chat_id');
         });
     }
 
@@ -26,7 +26,7 @@ class AddTelegramChatIdToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('telegram_chat_id');
+            $table->string('telegram_chat_id')->nullable()->default(null);
         });
     }
 }
