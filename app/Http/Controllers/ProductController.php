@@ -65,7 +65,7 @@ class ProductController extends Controller
         if (auth()->check() && auth()->user()->id === $product->owner->id or auth()->check() && auth()->user()->staff_mode) {
             return view($type, $response);
         } elseif ($product->owner->spammy) {
-            abort(404);
+            return abort(404);
         }
 
         return view($type, $response);
@@ -84,7 +84,7 @@ class ProductController extends Controller
                 'product' => $product,
             ]);
         } else {
-            abort(404);
+            return abort(404);
         }
     }
 
