@@ -105,19 +105,19 @@ class SingleTask extends Component
 
     public function deleteTask()
     {
-        if (Gate::allows('act', $this->task)) {
-            loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
-            foreach ($this->task->images ?? [] as $image) {
-                Storage::delete($image);
-            }
-            $this->task->delete();
-            $this->emitUp('refreshTasks');
-            auth()->user()->touch();
-
-            return toast($this, 'success', 'Task has been deleted successfully!');
+        if (Gate::denies('act', $this->task)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
+        
+        loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
+        foreach ($this->task->images ?? [] as $image) {
+            Storage::delete($image);
+        }
+        $this->task->delete();
+        $this->emitUp('refreshTasks');
+        auth()->user()->touch();
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return toast($this, 'success', 'Task has been deleted successfully!');
     }
 
     public function render()
