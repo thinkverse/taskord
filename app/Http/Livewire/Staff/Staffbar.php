@@ -39,8 +39,8 @@ class Staffbar extends Component
         $version = PrettyVersions::getVersion('laravel/framework');
 
         return view('livewire.staff.staffbar', [
-            'branchname' => $branch,
-            'headHASH' => $commit,
+            'branch_name' => $branch,
+            'head_ref' => $commit,
             'laravel_version' => $version->getShortVersion(),
             'laravel_ref' => $version->getShortReference(),
             'jobs' => number_format($jobs),
