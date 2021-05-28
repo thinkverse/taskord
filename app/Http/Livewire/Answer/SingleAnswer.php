@@ -46,7 +46,7 @@ class SingleAnswer extends Component
         if (Gate::denies('staff_mode')) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
-        
+
         Helper::hide($this->answer);
         loggy(request(), 'Staff', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
 
@@ -55,15 +55,14 @@ class SingleAnswer extends Component
 
     public function deleteAnswer()
     {
-        if (Gate::allows('act', $this->answer)) {
-            loggy(request(), 'Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
-            $this->answer->delete();
-            $this->emit('refreshAnswers');
-            auth()->user()->touch();
-
+        if (Gate::denies('act', $this->answer)) {
             return toast($this, 'success', 'Answer has been deleted successfully!');
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        loggy(request(), 'Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
+        $this->answer->delete();
+        $this->emit('refreshAnswers');
+        
+        return auth()->user()->touch();
     }
 }
