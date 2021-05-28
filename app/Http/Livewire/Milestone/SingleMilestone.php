@@ -79,13 +79,13 @@ class SingleMilestone extends Component
     public function deleteMilestone()
     {
         if (Gate::allows('act', $this->milestone)) {
-            loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
-            $this->milestone->delete();
-            auth()->user()->touch();
-
-            return redirect()->route('milestones.opened');
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
+        $this->milestone->delete();
+        auth()->user()->touch();
+
+        return redirect()->route('milestones.opened');
     }
 }
