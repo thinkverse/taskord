@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Staff\Features;
 
 use App\Models\Feature;
-use Livewire\Component;
 use Illuminate\Support\Facades\Gate;
+use Livewire\Component;
 
 class CreateFeature extends Component
 {
