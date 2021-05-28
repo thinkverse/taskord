@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Gate;
 
 class EditProduct extends Component
 {
@@ -58,7 +59,7 @@ class EditProduct extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('act', $this->product)) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
@@ -73,10 +74,6 @@ class EditProduct extends Component
             'sponsor' => ['nullable', 'active_url'],
             'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
 
         $product = Product::where('id', $this->product->id)->firstOrFail();
 
