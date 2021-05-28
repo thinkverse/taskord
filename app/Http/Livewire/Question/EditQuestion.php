@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Question;
 
 use App\Models\Question;
-use Livewire\Component;
 use Illuminate\Support\Facades\Gate;
+use Livewire\Component;
 
 class EditQuestion extends Component
 {

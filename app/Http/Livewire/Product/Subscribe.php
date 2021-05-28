@@ -6,9 +6,9 @@ use App\Models\Product;
 use App\Notifications\Product\Subscribed;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use Illuminate\Support\Facades\Gate;
 
 class Subscribe extends Component
 {

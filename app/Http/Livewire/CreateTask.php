@@ -64,7 +64,7 @@ class CreateTask extends Component
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
-        
+
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while creating a task');
 

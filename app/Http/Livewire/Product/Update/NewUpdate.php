@@ -4,8 +4,8 @@ namespace App\Http\Livewire\Product\Update;
 
 use App\Models\Product;
 use App\Notifications\Product\NewProductUpdate;
-use Livewire\Component;
 use Illuminate\Support\Facades\Gate;
+use Livewire\Component;
 
 class NewUpdate extends Component
 {
