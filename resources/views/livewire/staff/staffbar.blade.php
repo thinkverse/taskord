@@ -7,11 +7,6 @@
                 <x-heroicon-s-arrow-sm-right class="heroicon mx-0" />
                 <a class="text-white" href="https://gitlab.com/yo/taskord/-/commit/{{ $headHASH }}" target="_blank" rel="noreferrer">{{ Str::limit($headHASH, 8, '') }}</a>
             </span>
-            <a class="text-white fw-bold ms-3"
-                href="https://gitlab.com/yo/taskord/-/releases/v{{ config('app.version') }}" target="_blank" rel="noreferrer">
-                <x-heroicon-o-archive class="heroicon" />
-                v{{ config('app.version') }}
-            </a>
             <a class="text-white-50 ms-3"
                 href="https://github.com/laravel/framework/releases/tag/v{{ $laravel_version }}" target="_blank" rel="noreferrer">
                 <x-heroicon-o-chip class="heroicon" />
