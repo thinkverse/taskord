@@ -19,7 +19,7 @@ class TaskController extends Controller
         ) {
             return view('task/task', $response);
         } elseif ($task->user->spammy or $task->user->is_private) {
-            abort(404);
+            return abort(404);
         }
 
         return view('task/task', $response);
@@ -31,7 +31,7 @@ class TaskController extends Controller
             ->firstOrFail();
         $comment = $task->comments->where('id', $comment_id)->first();
         if (! $comment) {
-            abort(404);
+            return abort(404);
         }
         $response = [
             'task' => $task,
@@ -43,7 +43,7 @@ class TaskController extends Controller
         ) {
             return view('comment/comment', $response);
         } elseif ($task->user->spammy or $task->user->is_private) {
-            abort(404);
+            return abort(404);
         }
 
         return view('comment/comment', $response);
