@@ -45,7 +45,7 @@ class AuthServiceProvider extends ServiceProvider
             }
         });
 
-        Gate::define('create', function (User $user, $entity) {
+        Gate::define('create', function (User $user) {
             if (
                 $user->spammy or
                 ! $user->hasVerifiedEmail()

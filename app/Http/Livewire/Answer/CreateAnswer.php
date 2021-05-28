@@ -7,6 +7,7 @@ use App\Models\Question;
 use App\Notifications\Answer\Answered;
 use Helper;
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 
 class CreateAnswer extends Component
 {
