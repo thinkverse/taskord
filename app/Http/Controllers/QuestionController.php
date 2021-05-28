@@ -51,7 +51,7 @@ class QuestionController extends Controller
                 return view('question.question', $response);
             }
         } elseif ($question->user->spammy) {
-            abort(404);
+            return abort(404);
         }
 
         if ($question->patron_only) {
@@ -71,7 +71,7 @@ class QuestionController extends Controller
                 'question' => $question,
             ]);
         } else {
-            abort(404);
+            return abort(404);
         }
     }
 }
