@@ -7,6 +7,7 @@ use App\Models\Task;
 use App\Notifications\Comment\Commented;
 use Helper;
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 
 class CreateComment extends Component
 {
@@ -33,18 +34,10 @@ class CreateComment extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
         $this->validate();
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
+        if (Gate::denies('create')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $users = Helper::getUsernamesFromMentions($this->comment);

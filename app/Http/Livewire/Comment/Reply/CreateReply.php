@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Notifications\Comment\Reply\Replied;
 use Helper;
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 
 class CreateReply extends Component
 {
