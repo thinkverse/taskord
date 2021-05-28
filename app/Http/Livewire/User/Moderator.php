@@ -465,21 +465,21 @@ class Moderator extends Component
 
     public function deleteMilestones()
     {
-        if (Gate::allows('staff_mode')) {
-            $user = User::find($this->user->id);
-            $user->timestamps = false;
-            $user->milestones()->delete();
-            loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                'Deleted all milestones | Username: @'.$this->user->username
-            );
-
-            return redirect()->route('user.done', ['username' => $this->user->username]);
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        $user = User::find($this->user->id);
+        $user->timestamps = false;
+        $user->milestones()->delete();
+        loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Deleted all milestones | Username: @'.$this->user->username
+        );
+
+        return redirect()->route('user.done', ['username' => $this->user->username]);
     }
 
     public function deleteProducts()
