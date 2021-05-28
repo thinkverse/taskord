@@ -13,10 +13,7 @@ use League\CommonMark\GithubFlavoredMarkdownConverter;
 if (! function_exists('git')) {
     function git(string $args): ?string
     {
-        $approved_args = ['rev-parse'];
-        $arguments = explode(' ', $args);
-
-        if (! in_array($arguments[0], $approved_args, true)) {
+        if (! in_array(explode(' ', $args)[0], ['rev-parse'], true)) {
             return null;
         }
 
