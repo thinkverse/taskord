@@ -205,7 +205,7 @@ class Moderator extends Component
         if ($this->user->id === 1) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
-        
+
         $this->user->is_suspended = ! $this->user->is_suspended;
 
         if ($this->user->is_suspended) {
@@ -238,30 +238,31 @@ class Moderator extends Component
 
     public function enrollPatron()
     {
-        if (Gate::allows('staff_mode')) {
-            $this->user->is_patron = ! $this->user->is_patron;
-            $this->user->timestamps = false;
-            $this->user->save();
-            if ($this->user->is_patron) {
-                $this->user->notify(new PatronGifted(true));
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
 
-                return loggy(
-                    request(),
-                    'Staff',
-                    auth()->user(),
-                    'Enrolled as Patron | Username: @'.$this->user->username
-                );
-            }
+        $this->user->is_patron = ! $this->user->is_patron;
+        $this->user->timestamps = false;
+        $this->user->save();
+        
+        if ($this->user->is_patron) {
+            $this->user->notify(new PatronGifted(true));
 
             return loggy(
                 request(),
                 'Staff',
                 auth()->user(),
-                'Un-enrolled from Patron | Username: @'.$this->user->username
+                'Enrolled as Patron | Username: @'.$this->user->username
             );
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Un-enrolled from Patron | Username: @'.$this->user->username
+        );
     }
 
     public function verifyUser()
