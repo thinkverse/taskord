@@ -56,7 +56,7 @@
             </span>
             <span class="fw-bold">
                 <a href="{{ route('staff.stats') }}" title="Stafftool">
-                    <x-heroicon-o-shield-check class="heroicon text-white" />
+                    <x-heroicon-s-shield-check class="heroicon text-white" />
                 </a>
             </span>
         </span>
