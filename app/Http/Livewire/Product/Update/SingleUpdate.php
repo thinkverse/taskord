@@ -7,6 +7,7 @@ use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 
 class SingleUpdate extends Component
 {
@@ -25,6 +26,7 @@ class SingleUpdate extends Component
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
+        
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the update');
 
