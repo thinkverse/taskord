@@ -35,7 +35,7 @@ class SingleAnswer extends Component
         if (Gate::denies('praise', $this->answer)) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
-        
+
         Helper::togglePraise($this->answer, 'ANSWER');
 
         return loggy(request(), 'Answer', auth()->user(), 'Toggled answer praise | Answer ID: '.$this->answer->id);
@@ -43,14 +43,14 @@ class SingleAnswer extends Component
 
     public function hide()
     {
-        if (Gate::allows('staff_mode')) {
-            Helper::hide($this->answer);
-            loggy(request(), 'Staff', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
-
-            return toast($this, 'success', 'Answer is hidden from public!');
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
+        
+        Helper::hide($this->answer);
+        loggy(request(), 'Staff', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return toast($this, 'success', 'Answer is hidden from public!');
     }
 
     public function deleteAnswer()
