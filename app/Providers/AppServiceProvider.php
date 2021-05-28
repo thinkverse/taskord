@@ -32,5 +32,8 @@ class AppServiceProvider extends ServiceProvider
         }
 
         Paginator::useBootstrap();
+
+        $sha = git('rev-parse --short HEAD') ?: '0000000';
+        config(['app.sha' => $sha]);
     }
 }
