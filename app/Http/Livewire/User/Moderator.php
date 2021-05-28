@@ -303,7 +303,7 @@ class Moderator extends Component
         $this->user->dark_mode = ! $this->user->dark_mode;
         $this->user->timestamps = false;
         $this->user->save();
-        
+
         if ($this->user->dark_mode) {
             return loggy(
                 request(),
@@ -323,42 +323,43 @@ class Moderator extends Component
 
     public function masquerade()
     {
-        if (Gate::allows('staff_mode')) {
-            if ($this->user->id === 1) {
-                return toast($this, 'error', "Oops! You can't perform this action");
-            }
-            loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                'Masqueraded | Username: @'.$this->user->username
-            );
-            Auth::loginUsingId($this->user->id);
-
-            return redirect()->route('home');
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        if ($this->user->id === 1) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
+
+        loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Masqueraded | Username: @'.$this->user->username
+        );
+        Auth::loginUsingId($this->user->id);
+
+        return redirect()->route('home');
     }
 
     public function resetAvatar()
     {
-        if (Gate::allows('staff_mode')) {
-            $user = User::find($this->user->id);
-            $user->timestamps = false;
-            $user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($user->username, 0, 2));
-            $user->save();
-            loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                'Resetted avatar | Username: @'.$this->user->username
-            );
-
-            return redirect()->route('user.done', ['username' => $this->user->username]);
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        $user = User::find($this->user->id);
+        $user->timestamps = false;
+        $user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($user->username, 0, 2));
+        $user->save();
+        loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Resetted avatar | Username: @'.$this->user->username
+        );
+
+        return redirect()->route('user.done', ['username' => $this->user->username]);
     }
 
     public function releaseUsername()
