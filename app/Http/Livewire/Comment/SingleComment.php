@@ -26,19 +26,20 @@ class SingleComment extends Component
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
+        
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the comment');
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (Gate::allows('praise', $this->comment)) {
-            Helper::togglePraise($this->comment, 'COMMENT');
-
-            return loggy(request(), 'Comment', auth()->user(), 'Toggled comment praise | Comment ID: '.$this->comment->id);
+        if (Gate::denies('praise', $this->comment)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        Helper::togglePraise($this->comment, 'COMMENT');
+
+        return loggy(request(), 'Comment', auth()->user(), 'Toggled comment praise | Comment ID: '.$this->comment->id);
     }
 
     public function toggleCommentBox()
