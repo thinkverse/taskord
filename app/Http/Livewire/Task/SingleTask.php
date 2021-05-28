@@ -32,38 +32,40 @@ class SingleTask extends Component
     {
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
+        
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
+
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while checking a task');
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (Gate::allows('check.task', $this->task)) {
-            if ($this->task->done) {
-                $this->task->done_at = carbon();
-                auth()->user()->touch();
-                loggy(request(), 'Task', auth()->user(), 'Updated a task as pending | Task ID: '.$this->task->id);
-            } else {
-                $this->task->done_at = carbon();
-                auth()->user()->touch();
-                if (auth()->user()->has_goal) {
-                    auth()->user()->daily_goal_reached++;
-                    auth()->user()->save();
-                    CheckGoal::dispatch(auth()->user(), $this->task);
-                }
-                givePoint(new TaskCompleted($this->task));
-                loggy(request(), 'Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
-            }
-            $this->task->done = ! $this->task->done;
-            $this->task->save();
-
-            return $this->emit('refreshTasks');
+        if (Gate::denies('check.task', $this->task)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        if ($this->task->done) {
+            $this->task->done_at = carbon();
+            auth()->user()->touch();
+            loggy(request(), 'Task', auth()->user(), 'Updated a task as pending | Task ID: '.$this->task->id);
+        } else {
+            $this->task->done_at = carbon();
+            auth()->user()->touch();
+            if (auth()->user()->has_goal) {
+                auth()->user()->daily_goal_reached++;
+                auth()->user()->save();
+                CheckGoal::dispatch(auth()->user(), $this->task);
+            }
+            givePoint(new TaskCompleted($this->task));
+            loggy(request(), 'Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
+        }
+        $this->task->done = ! $this->task->done;
+        $this->task->save();
+
+        return $this->emit('refreshTasks');
     }
 
     public function togglePraise()
@@ -73,7 +75,7 @@ class SingleTask extends Component
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
-        
+
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising a task');
 
