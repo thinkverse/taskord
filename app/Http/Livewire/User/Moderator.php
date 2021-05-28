@@ -384,26 +384,26 @@ class Moderator extends Component
 
     public function deleteTasks()
     {
-        if (Gate::allows('staff_mode')) {
-            $user = User::find($this->user->id);
-            $user->timestamps = false;
-            foreach ($user->tasks as $task) {
-                foreach ($task->images ?? [] as $image) {
-                    Storage::delete($image);
-                }
-            }
-            $user->tasks()->delete();
-            loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                'Deleted all tasks | Username: @'.$this->user->username
-            );
-
-            return redirect()->route('user.done', ['username' => $this->user->username]);
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        $user = User::find($this->user->id);
+        $user->timestamps = false;
+        foreach ($user->tasks as $task) {
+            foreach ($task->images ?? [] as $image) {
+                Storage::delete($image);
+            }
+        }
+        $user->tasks()->delete();
+        loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Deleted all tasks | Username: @'.$this->user->username
+        );
+
+        return redirect()->route('user.done', ['username' => $this->user->username]);
     }
 
     public function deleteComments()
