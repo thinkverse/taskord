@@ -2,7 +2,7 @@
     <div class="ps-2 pe-2">
         <span class="float-start">
             <span class="fw-bold">
-                <x-heroicon-o-duplicate class="heroicon me-1" />
+                <x-heroicon-o-terminal class="heroicon me-1" />
                 <a class="text-white" href="https://gitlab.com/yo/taskord/-/tree/{{ $branchname }}" target="_blank" rel="noreferrer">{{ $branchname }}</a>
                 <x-heroicon-s-arrow-sm-right class="heroicon mx-0" />
                 <a class="text-white" href="https://gitlab.com/yo/taskord/-/commit/{{ $headHASH }}" target="_blank" rel="noreferrer">{{ Str::limit($headHASH, 8, '') }}</a>
