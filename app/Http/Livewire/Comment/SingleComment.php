@@ -26,7 +26,7 @@ class SingleComment extends Component
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
-        
+
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the comment');
 
@@ -49,27 +49,27 @@ class SingleComment extends Component
 
     public function hide()
     {
-        if (Gate::allows('staff_mode')) {
-            Helper::hide($this->comment);
-            loggy(request(), 'Staff', auth()->user(), 'Toggled hide comment | Comment ID: '.$this->comment->id);
-
-            return toast($this, 'success', 'Comment is hidden from public!');
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        Helper::hide($this->comment);
+        loggy(request(), 'Staff', auth()->user(), 'Toggled hide comment | Comment ID: '.$this->comment->id);
+
+        return toast($this, 'success', 'Comment is hidden from public!');
     }
 
     public function deleteComment()
     {
-        if (Gate::allows('act', $this->comment)) {
-            loggy(request(), 'Comment', auth()->user(), 'Deleted a comment | Comment ID: '.$this->comment->id);
-            $this->comment->delete();
-            $this->emit('refreshComments');
-            auth()->user()->touch();
-
-            return toast($this, 'success', 'Comment has been deleted successfully!');
+        if (Gate::denies('act', $this->comment)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        loggy(request(), 'Comment', auth()->user(), 'Deleted a comment | Comment ID: '.$this->comment->id);
+        $this->comment->delete();
+        $this->emit('refreshComments');
+        auth()->user()->touch();
+
+        return toast($this, 'success', 'Comment has been deleted successfully!');
     }
 }
