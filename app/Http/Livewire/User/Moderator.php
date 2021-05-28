@@ -364,22 +364,22 @@ class Moderator extends Component
 
     public function releaseUsername()
     {
-        if (Gate::allows('staff_mode')) {
-            $user = User::find($this->user->id);
-            $user->timestamps = false;
-            $user->username = strtolower(Str::random(6));
-            $user->save();
-            loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                'Released the username | Username: @'.$user->username
-            );
-
-            return redirect()->route('user.done', ['username' => $user->username]);
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        $user = User::find($this->user->id);
+        $user->timestamps = false;
+        $user->username = strtolower(Str::random(6));
+        $user->save();
+        loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Released the username | Username: @'.$user->username
+        );
+
+        return redirect()->route('user.done', ['username' => $user->username]);
     }
 
     public function deleteTasks()
