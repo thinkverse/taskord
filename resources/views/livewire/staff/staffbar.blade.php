@@ -51,7 +51,7 @@
             </span>
             <span class="fw-bold me-3">
                 <a class="cursor-pointer" id="expand-stats">
-                    <x-heroicon-o-view-grid class="heroicon text-white" />
+                    <x-heroicon-o-menu class="heroicon text-white" />
                 </a>
             </span>
             <span class="fw-bold">
