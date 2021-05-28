@@ -174,7 +174,7 @@ class Moderator extends Component
         if ($this->user->id === 1) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
-        
+
         $this->user->spammy = ! $this->user->spammy;
         $this->user->timestamps = false;
         $this->user->save();
@@ -198,38 +198,42 @@ class Moderator extends Component
 
     public function suspendUser()
     {
-        if (Gate::allows('staff_mode')) {
-            if ($this->user->id === 1) {
-                return toast($this, 'error', "Oops! You can't perform this action");
-            }
-            $this->user->is_suspended = ! $this->user->is_suspended;
-            if ($this->user->is_suspended) {
-                $this->user->spammy = true;
-                $this->spammy = true;
-            } else {
-                $this->user->spammy = false;
-                $this->spammy = false;
-            }
-            $this->user->timestamps = false;
-            $this->user->save();
-            if ($this->user->is_suspended) {
-                return loggy(
-                    request(),
-                    'Staff',
-                    auth()->user(),
-                    'Suspended the user | Username: @'.$this->user->username
-                );
-            }
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
 
+        if ($this->user->id === 1) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
+        
+        $this->user->is_suspended = ! $this->user->is_suspended;
+
+        if ($this->user->is_suspended) {
+            $this->user->spammy = true;
+            $this->spammy = true;
+        } else {
+            $this->user->spammy = false;
+            $this->spammy = false;
+        }
+
+        $this->user->timestamps = false;
+        $this->user->save();
+
+        if ($this->user->is_suspended) {
             return loggy(
                 request(),
                 'Staff',
                 auth()->user(),
-                'Un-suspended the user | Username: @'.$this->user->username
+                'Suspended the user | Username: @'.$this->user->username
             );
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Un-suspended the user | Username: @'.$this->user->username
+        );
     }
 
     public function enrollPatron()
