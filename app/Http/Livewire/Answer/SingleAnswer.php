@@ -25,18 +25,20 @@ class SingleAnswer extends Component
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
+
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the answer');
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
-        if (Gate::allows('praise', $this->answer)) {
-            Helper::togglePraise($this->answer, 'ANSWER');
 
-            return loggy(request(), 'Answer', auth()->user(), 'Toggled answer praise | Answer ID: '.$this->answer->id);
+        if (Gate::denies('praise', $this->answer)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
+        
+        Helper::togglePraise($this->answer, 'ANSWER');
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return loggy(request(), 'Answer', auth()->user(), 'Toggled answer praise | Answer ID: '.$this->answer->id);
     }
 
     public function hide()
