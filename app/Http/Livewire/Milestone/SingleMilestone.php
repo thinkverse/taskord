@@ -37,7 +37,7 @@ class SingleMilestone extends Component
         if (Gate::denies('praise', $this->milestone)) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
-        
+
         Helper::togglePraise($this->milestone, 'MILESTONE');
 
         return loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);
@@ -45,14 +45,14 @@ class SingleMilestone extends Component
 
     public function hide()
     {
-        if (Gate::allows('staff_mode')) {
-            Helper::hide($this->milestone);
-            loggy(request(), 'Staff', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
-
-            return toast($this, 'success', 'Milestone is hidden from public!');
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        Helper::hide($this->milestone);
+        loggy(request(), 'Staff', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
+
+        return toast($this, 'success', 'Milestone is hidden from public!');
     }
 
     public function toggleStatus()
