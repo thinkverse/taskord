@@ -484,29 +484,29 @@ class Moderator extends Component
 
     public function deleteProducts()
     {
-        if (Gate::allows('staff_mode')) {
-            $user = User::find($this->user->id);
-            $user->timestamps = false;
-            foreach ($user->ownedProducts as $product) {
-                $product->tasks()->delete();
-                $product->webhooks()->delete();
-                $avatar = explode('storage/', $product->avatar);
-                if (array_key_exists(1, $avatar)) {
-                    Storage::delete($avatar[1]);
-                }
-            }
-            $user->ownedProducts()->delete();
-            loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                'Deleted all products | Username: @'.$this->user->username
-            );
-
-            return redirect()->route('user.done', ['username' => $this->user->username]);
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        $user = User::find($this->user->id);
+        $user->timestamps = false;
+        foreach ($user->ownedProducts as $product) {
+            $product->tasks()->delete();
+            $product->webhooks()->delete();
+            $avatar = explode('storage/', $product->avatar);
+            if (array_key_exists(1, $avatar)) {
+                Storage::delete($avatar[1]);
+            }
+        }
+        $user->ownedProducts()->delete();
+        loggy(
+            request(),
+            'Staff',
+            auth()->user(),
+            'Deleted all products | Username: @'.$this->user->username
+        );
+
+        return redirect()->route('user.done', ['username' => $this->user->username]);
     }
 
     public function deleteUser()
