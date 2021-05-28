@@ -7,7 +7,7 @@
             @elseif ($task->source === 'GitHub')
                 <img class="task-icon github-logo me-2" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" alt="GitLab Icon" />
             @endif
-            {{ !$task->done_at ? $task->created_at->diffForHumans() : carbon($task->done_at)->diffForHumans() }}
+            {{ !$task->done_at ? carbon($task->created_at)->diffForHumans() : carbon($task->done_at)->diffForHumans() }}
         </span>
     </div>
     <div class="pt-3">
