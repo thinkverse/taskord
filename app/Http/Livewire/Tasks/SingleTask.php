@@ -64,7 +64,7 @@ class SingleTask extends Component
         if (Gate::denies('act', $this->task)) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
-        
+
         loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
         foreach ($this->task->images ?? [] as $image) {
             Storage::delete($image);
