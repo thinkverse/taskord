@@ -17,7 +17,7 @@ return [
 
     'error' => [
         'deny' => "Oops! You can't perform this action",
-        'rate-limit' => "Oops! You can't perform this action",
+        'rate-limit' => "Oops! You are rate limited.",
     ],
 
     'reserved_slugs' => [

@@ -77,7 +77,7 @@ class SingleTask extends Component
         try {
             $this->rateLimit(10);
         } catch (TooManyRequestsException $exception) {
-            return toast($this, 'error', "Slow down! Please wait another $exception->secondsUntilAvailable seconds.");
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (Gate::denies('praise', $this->task)) {
