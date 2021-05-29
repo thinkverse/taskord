@@ -13,6 +13,8 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class SingleUpdate extends Component
 {
+    use WithRateLimiting;
+    
     public ProductUpdate $update;
 
     public function mount($update)
