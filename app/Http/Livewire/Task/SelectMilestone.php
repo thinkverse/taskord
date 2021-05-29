@@ -4,8 +4,8 @@ namespace App\Http\Livewire\Task;
 
 use App\Models\Milestone;
 use App\Models\Task;
-use Livewire\Component;
 use Illuminate\Support\Facades\Gate;
+use Livewire\Component;
 
 class SelectMilestone extends Component
 {
