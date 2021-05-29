@@ -13,6 +13,8 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class SingleMilestone extends Component
 {
+    use WithRateLimiting;
+    
     public Milestone $milestone;
     public $type;
 
