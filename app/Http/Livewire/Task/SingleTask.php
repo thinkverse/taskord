@@ -33,7 +33,7 @@ class SingleTask extends Component
     public function checkTask()
     {
         try {
-            $this->rateLimit(10);
+            $this->rateLimit(50);
         } catch (TooManyRequestsException $exception) {
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
@@ -66,7 +66,7 @@ class SingleTask extends Component
     public function togglePraise()
     {
         try {
-            $this->rateLimit(10);
+            $this->rateLimit(50);
         } catch (TooManyRequestsException $exception) {
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }

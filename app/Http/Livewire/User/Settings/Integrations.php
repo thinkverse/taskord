@@ -30,7 +30,7 @@ class Integrations extends Component
     public function submit()
     {
         try {
-            $this->rateLimit(10);
+            $this->rateLimit(50);
         } catch (TooManyRequestsException $exception) {
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
