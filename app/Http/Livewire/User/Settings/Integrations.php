@@ -32,15 +32,10 @@ class Integrations extends Component
 
     public function submit()
     {
-        $throttler = Throttle::get(Request::instance(), 5, 5);
-        $throttler->hit();
-        if (count($throttler) > 10) {
-            Helper::flagAccount(auth()->user());
-        }
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while creating an API integration');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(10);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (auth()->user()->id === $this->user->id) {
