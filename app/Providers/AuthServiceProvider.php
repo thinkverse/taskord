@@ -61,19 +61,11 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('praise', function (User $user, $entity) {
-            if ($this->isCurrentUserGood($user, $entity->user)) {
-                return false;
-            }
-
-            return true;
+            return $this->isCurrentUserGood($user, $entity->user);
         });
 
         Gate::define('follow', function (User $sourceUser, User $targetUser) {
-            if ($this->isCurrentUserGood($sourceUser, $targetUser)) {
-                return false;
-            }
-
-            return true;
+            return $this->isCurrentUserGood($user, $entity->user);
         });
 
         Gate::define('act', function (User $user, $entity) {
@@ -94,7 +86,7 @@ class AuthServiceProvider extends ServiceProvider
             ! $currentUser->hasVerifiedEmail() or
             $currentUser->id === $entityUser->id
         ) {
-            return true;
+            return false;
         }
     }
 }
