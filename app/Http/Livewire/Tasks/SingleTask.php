@@ -15,6 +15,8 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class SingleTask extends Component
 {
+    use WithRateLimiting;
+    
     public $listeners = [
         'refreshSingleTask' => 'render',
     ];
