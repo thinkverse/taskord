@@ -15,6 +15,8 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class WebhookController extends Controller
 {
+    use WithRateLimiting;
+    
     public function createTask($webhook, $task, $done, $done_at, $product_id, $type)
     {
         $ignoreList = [
@@ -156,7 +158,7 @@ class WebhookController extends Controller
         try {
             $this->rateLimit(10);
         } catch (TooManyRequestsException $exception) {
-            return toast($this, 'error', config('taskord.error.rate-limit'));
+            return response('Your are rate limited, try again later', 429);
         }
 
         $webhook = Webhook::whereToken($token)->first();
