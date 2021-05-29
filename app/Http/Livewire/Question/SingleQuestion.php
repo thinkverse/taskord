@@ -30,16 +30,10 @@ class SingleQuestion extends Component
 
     public function togglePraise()
     {
-        $throttler = Throttle::get(Request::instance(), 30, 5);
-        $throttler->hit();
-        if (count($throttler) > 30) {
-            Helper::flagAccount(auth()->user());
-        }
-
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the question');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(10);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (Gate::denies('praise', $this->question)) {
