@@ -40,7 +40,15 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('task.check', function (User $user, Task $task) {
-            return $this->isUserVerified($user);
+            if ($user->spammy) {
+                return false;
+            }
+
+            if ($user->id === $task->user->id) {
+                return true;
+            }
+
+            return false;
         });
 
         Gate::define('create', function (User $user) {
