@@ -27,6 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+
+
         Gate::define('staff_mode', function (User $user) {
             return $user->is_staff and $user->staff_mode;
         });
@@ -59,11 +61,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('praise', function (User $user, $entity) {
-            if (
-                $user->spammy or
-                ! $user->hasVerifiedEmail() or
-                $user->id === $entity->user->id
-            ) {
+            if ($this->isCurrentUserGood($user, $entity->user)) {
                 return false;
             }
 
@@ -71,11 +69,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('follow', function (User $sourceUser, User $targetUser) {
-            if (
-                $sourceUser->spammy or
-                ! $sourceUser->hasVerifiedEmail() or
-                $sourceUser->id === $targetUser->id
-            ) {
+            if ($this->isCurrentUserGood($sourceUser, $targetUser)) {
                 return false;
             }
 
@@ -91,5 +85,16 @@ class AuthServiceProvider extends ServiceProvider
                 return true;
             }
         });
+    }
+
+    public function isCurrentUserGood(User $currentUser, User $entityUser)
+    {
+        if (
+            $currentUser->spammy or
+            ! $currentUser->hasVerifiedEmail() or
+            $currentUser->id === $entityUser->id
+        ) {
+            return true;
+        }
     }
 }
