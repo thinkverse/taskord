@@ -153,7 +153,7 @@ class WebhookController extends Controller
     public function web($token, WebhookRequest $request)
     {
         try {
-            $this->rateLimit(10);
+            $this->rateLimit(50);
         } catch (TooManyRequestsException $exception) {
             return response('Your are rate limited, try again later', 429);
         }
