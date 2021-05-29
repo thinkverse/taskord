@@ -13,6 +13,8 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class Api extends Component
 {
+    use WithRateLimiting;
+    
     public User $user;
 
     public $listeners = [
