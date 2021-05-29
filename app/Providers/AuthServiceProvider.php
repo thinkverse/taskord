@@ -43,6 +43,8 @@ class AuthServiceProvider extends ServiceProvider
             if ($user->id === $task->user->id) {
                 return true;
             }
+
+            return false;
         });
 
         Gate::define('create', function (User $user) {
