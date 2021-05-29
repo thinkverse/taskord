@@ -52,13 +52,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('act', function (User $user, $entity) {
-            if ($user->spammy) {
-                return false;
-            }
-
-            if ($user->staff_mode or $user->id === $entity->user->id) {
-                return true;
-            }
+            return $this->canPerformOnEntity($user, $entity->user);
         });
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Task;
 use App\Models\Milestone;
 use App\Models\Task;
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 
 class SelectMilestone extends Component
 {
@@ -28,6 +29,11 @@ class SelectMilestone extends Component
     public function selectMilestone(Milestone $milestone)
     {
         $milestone = Milestone::find($milestone->id);
+
+        if (Gate::denies('act', $milestone)) {
+            return toast($this, 'error', config('taskord.error.deny'));
+        }
+
         $this->task->milestone()->associate($milestone);
         $this->task->save();
         $this->emitUp('refreshSingleTask');
