@@ -18,6 +18,7 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 class CreateTask extends Component
 {
     use WithFileUploads;
+    use WithRateLimiting;
 
     public $task;
     public $images = [];
