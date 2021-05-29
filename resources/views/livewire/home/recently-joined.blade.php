@@ -7,13 +7,14 @@
             <div class="card-body text-center">
                 <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
             </div>
+        @else
+            <div class="card-body">
+                @foreach ($recently_joined as $user)
+                    <div class="py-2">
+                        <x:shared.user-label-with-bio :user="$user" />
+                    </div>
+                @endforeach
+            </div>
         @endif
-        <div class="card-body">
-            @foreach ($recently_joined as $user)
-                <div class="py-2">
-                    <x:shared.user-label-with-bio :user="$user" />
-                </div>
-            @endforeach
-        </div>
     </div>
 </div>
