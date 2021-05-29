@@ -58,7 +58,7 @@
                 </a>
             @endguest
             @auth
-                @if (auth()->user()->staff_mode or auth()->user()->id === $update->user->id)
+                @can('act', $update)
                     <button
                         type="button"
                         class="btn btn-task btn-outline-danger"
@@ -70,7 +70,7 @@
                     >
                         <x-heroicon-o-trash class="heroicon heroicon-15px me-0" />
                     </button>
-                @endif
+                @endcan
             @endauth
         </div>
     </div>
