@@ -14,6 +14,8 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class Subscribe extends Component
 {
+    use WithRateLimiting;
+    
     public Product $product;
 
     public function mount($product)
