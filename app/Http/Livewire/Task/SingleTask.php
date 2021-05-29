@@ -38,7 +38,7 @@ class SingleTask extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('check.task', $this->task)) {
+        if (Gate::denies('task.check', $this->task)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

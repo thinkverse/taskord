@@ -39,7 +39,7 @@ class AuthServiceProvider extends ServiceProvider
             return $this->isCurrentUserGood($sourceUser, $targetUser);
         });
 
-        Gate::define('check.task', function (User $user, Task $task) {
+        Gate::define('task.check', function (User $user, Task $task) {
             if ($user->spammy) {
                 return false;
             }
