@@ -35,19 +35,6 @@
                         <div class="col-md-3 mb-4">
                             <div class="card">
                                 <div class="card-header fw-bold d-flex align-items-center">
-                                    <x-heroicon-o-cog class="heroicon me-1" />
-                                    <span>Memory usage</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="h5 mb-0">
-                                        {{ formatBytes(floatval($meminfo['Active']) * 1024) }} / {{ formatBytes(floatval($meminfo['MemTotal']) * 1024) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-4">
-                            <div class="card">
-                                <div class="card-header fw-bold d-flex align-items-center">
                                     <x-heroicon-o-clock class="heroicon me-1" />
                                     <span>Uptime</span>
                                 </div>
