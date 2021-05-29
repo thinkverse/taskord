@@ -1,6 +1,6 @@
 <div>
     @auth
-        @if (auth()->user()->id !== $user->id && !$user->spammy)
+        @can('follow', $user)
             @if (auth()->user()->isFollowing($user))
                 <button wire:click="toggleFollow" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
                     <div wire:loading class="spinner-border spinner-border-sm me-1"></div>
@@ -14,7 +14,7 @@
                     Follow
                 </button>
             @endif
-        @endif
+        @endcan
     @endauth
     <div class="small">
         <a class="text-dark" href="{{ route('user.following', ['username' => $user->username]) }}">

@@ -51,7 +51,6 @@ class AuthServiceProvider extends ServiceProvider
             if (
                 $user->spammy or
                 ! $user->hasVerifiedEmail()
-
             ) {
                 return false;
             }
@@ -64,7 +63,18 @@ class AuthServiceProvider extends ServiceProvider
                 $user->spammy or
                 ! $user->hasVerifiedEmail() or
                 $user->id === $entity->user->id
+            ) {
+                return false;
+            }
 
+            return true;
+        });
+
+        Gate::define('follow', function (User $sourceUser, User $targetUser) {
+            if (
+                $sourceUser->spammy or
+                ! $sourceUser->hasVerifiedEmail() or
+                $sourceUser->id === $targetUser->id
             ) {
                 return false;
             }

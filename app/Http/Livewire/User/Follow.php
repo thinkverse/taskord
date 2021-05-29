@@ -7,6 +7,7 @@ use App\Notifications\Followed;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 
 class Follow extends Component
 {
@@ -27,15 +28,8 @@ class Follow extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (! auth()->check()) {
+        if (Gate::denies('praise', $this)) {
             return toast($this, 'error', config('taskord.error.deny'));
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-        if (auth()->user()->id === $this->user->id) {
-            return toast($this, 'error', 'You can\'t follow yourself!');
         }
 
         auth()->user()->toggleFollow($this->user);
