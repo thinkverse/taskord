@@ -30,7 +30,7 @@ class SelectMilestone extends Component
     {
         $milestone = Milestone::find($milestone->id);
 
-        if (Gate::denies('act', $milestone)) {
+        if (Gate::denies('edit/delete', $milestone)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

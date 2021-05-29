@@ -57,7 +57,7 @@ class SingleComment extends Component
 
     public function deleteComment()
     {
-        if (Gate::denies('act', $this->comment)) {
+        if (Gate::denies('edit/delete', $this->comment)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

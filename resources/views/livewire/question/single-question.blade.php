@@ -88,7 +88,7 @@
                         </span>
                     @endif
                 </a>
-                @can('act', $question)
+                @can('edit/delete', $question)
                     @if ($type === "question.question")
                         <a href="{{ route('question.edit', ['question' => $question]) }}" class="btn btn-task btn-outline-info me-1">
                             <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />

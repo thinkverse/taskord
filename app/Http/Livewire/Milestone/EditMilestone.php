@@ -39,7 +39,7 @@ class EditMilestone extends Component
 
     public function submit()
     {
-        if (Gate::denies('act', $this->milestone)) {
+        if (Gate::denies('edit/delete', $this->milestone)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

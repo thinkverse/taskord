@@ -58,7 +58,7 @@
                 </a>
             @endguest
             @auth
-                @can('act', $update)
+                @can('edit/delete', $update)
                     <button
                         type="button"
                         class="btn btn-task btn-outline-danger"

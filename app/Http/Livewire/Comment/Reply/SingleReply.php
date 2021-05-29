@@ -18,7 +18,7 @@ class SingleReply extends Component
 
     public function deleteReply()
     {
-        if (Gate::denies('act', $this->reply)) {
+        if (Gate::denies('edit/delete', $this->reply)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

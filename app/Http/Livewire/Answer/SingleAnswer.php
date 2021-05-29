@@ -51,7 +51,7 @@ class SingleAnswer extends Component
 
     public function deleteAnswer()
     {
-        if (Gate::denies('act', $this->answer)) {
+        if (Gate::denies('edit/delete', $this->answer)) {
             return toast($this, 'success', 'Answer has been deleted successfully!');
         }
 

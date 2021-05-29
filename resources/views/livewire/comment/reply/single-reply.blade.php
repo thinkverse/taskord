@@ -15,7 +15,7 @@
         @endif
         <div class="mt-2">
             @auth
-                @can('act', $reply)
+                @can('edit/delete', $reply)
                     <button
                         type="button"
                         class="btn btn-task btn-outline-danger"

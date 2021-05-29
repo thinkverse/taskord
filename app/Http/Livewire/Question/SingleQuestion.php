@@ -79,7 +79,7 @@ class SingleQuestion extends Component
 
     public function deleteQuestion()
     {
-        if (Gate::denies('act', $this->question)) {
+        if (Gate::denies('edit/delete', $this->question)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

@@ -94,7 +94,7 @@ class SingleTask extends Component
 
     public function deleteTask()
     {
-        if (Gate::denies('act', $this->task)) {
+        if (Gate::denies('edit/delete', $this->task)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

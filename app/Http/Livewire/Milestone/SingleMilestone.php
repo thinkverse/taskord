@@ -74,7 +74,7 @@ class SingleMilestone extends Component
 
     public function deleteMilestone()
     {
-        if (Gate::denies('act', $this->milestone)) {
+        if (Gate::denies('edit/delete', $this->milestone)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

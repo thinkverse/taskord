@@ -55,7 +55,7 @@ class EditProduct extends Component
 
     public function submit()
     {
-        if (Gate::denies('act', $this->product)) {
+        if (Gate::denies('edit/delete', $this->product)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -126,7 +126,7 @@ class EditProduct extends Component
 
     public function deleteProduct()
     {
-        if (Gate::denies('act', $this->product)) {
+        if (Gate::denies('edit/delete', $this->product)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

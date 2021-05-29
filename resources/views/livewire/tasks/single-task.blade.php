@@ -46,7 +46,7 @@
                 {!! Helper::renderDueDate($task->due_at) !!}
             </div>
         @endif
-        @can('act', $task)
+        @can('edit/delete', $task)
             @livewire('task.select-milestone', [
                 'task' => $task
             ])

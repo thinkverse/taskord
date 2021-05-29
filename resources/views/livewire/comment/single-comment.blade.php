@@ -55,7 +55,7 @@
                         </span>
                     @endif
                 </button>
-                @can('act', $comment)
+                @can('edit/delete', $comment)
                     <button
                         type="button"
                         class="btn btn-task btn-outline-danger"
