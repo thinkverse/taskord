@@ -3,18 +3,16 @@
 namespace App\Http\Livewire\Comment;
 
 use App\Models\Comment;
-use GrahamCampbell\Throttle\Facades\Throttle;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
-use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class SingleComment extends Component
 {
     use WithRateLimiting;
-    
+
     public Comment $comment;
     public $showReplyBox = false;
 

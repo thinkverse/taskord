@@ -4,18 +4,15 @@ namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
 use App\Models\Webhook;
-use GrahamCampbell\Throttle\Facades\Throttle;
-use Helper;
-use Illuminate\Support\Facades\Request;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Str;
 use Livewire\Component;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
-use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class Integrations extends Component
 {
     use WithRateLimiting;
-    
+
     public User $user;
     public $name;
     public $product;

@@ -5,18 +5,15 @@ namespace App\Http\Livewire\Tasks;
 use App\Gamify\Points\TaskCompleted;
 use App\Jobs\CheckGoal;
 use App\Models\Task;
-use GrahamCampbell\Throttle\Facades\Throttle;
-use Helper;
-use Illuminate\Support\Facades\Request;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
-use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class SingleTask extends Component
 {
     use WithRateLimiting;
-    
+
     public $listeners = [
         'refreshSingleTask' => 'render',
     ];

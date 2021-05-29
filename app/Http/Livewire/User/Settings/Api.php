@@ -3,18 +3,15 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
-use GrahamCampbell\Throttle\Facades\Throttle;
-use Helper;
-use Illuminate\Support\Facades\Request;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Str;
 use Livewire\Component;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
-use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class Api extends Component
 {
     use WithRateLimiting;
-    
+
     public User $user;
 
     public $listeners = [

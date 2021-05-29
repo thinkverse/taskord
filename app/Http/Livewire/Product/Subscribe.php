@@ -4,18 +4,15 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
 use App\Notifications\Product\Subscribed;
-use GrahamCampbell\Throttle\Facades\Throttle;
-use Helper;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
-use Livewire\Component;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Support\Facades\Gate;
+use Livewire\Component;
 
 class Subscribe extends Component
 {
     use WithRateLimiting;
-    
+
     public Product $product;
 
     public function mount($product)

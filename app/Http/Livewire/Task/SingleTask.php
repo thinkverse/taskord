@@ -5,14 +5,12 @@ namespace App\Http\Livewire\Task;
 use App\Gamify\Points\TaskCompleted;
 use App\Jobs\CheckGoal;
 use App\Models\Task;
-use GrahamCampbell\Throttle\Facades\Throttle;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
-use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class SingleTask extends Component
 {
@@ -39,7 +37,7 @@ class SingleTask extends Component
         } catch (TooManyRequestsException $exception) {
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
-        
+
         if (Gate::denies('check.task', $this->task)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }

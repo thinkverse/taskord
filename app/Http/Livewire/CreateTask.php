@@ -4,17 +4,15 @@ namespace App\Http\Livewire;
 
 use App\Actions\CreateNewTask;
 use App\Jobs\CheckGoal;
-use GrahamCampbell\Throttle\Facades\Throttle;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
-use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class CreateTask extends Component
 {
@@ -63,7 +61,7 @@ class CreateTask extends Component
         } catch (TooManyRequestsException $exception) {
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
-        
+
         if (Gate::denies('create')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }

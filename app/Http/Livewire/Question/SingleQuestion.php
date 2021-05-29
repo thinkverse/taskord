@@ -3,18 +3,16 @@
 namespace App\Http\Livewire\Question;
 
 use App\Models\Question;
-use GrahamCampbell\Throttle\Facades\Throttle;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
-use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class SingleQuestion extends Component
 {
     use WithRateLimiting;
-    
+
     public $listeners = [
         'refreshSingleQuestion' => 'render',
     ];

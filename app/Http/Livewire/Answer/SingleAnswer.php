@@ -3,18 +3,16 @@
 namespace App\Http\Livewire\Answer;
 
 use App\Models\Answer;
-use GrahamCampbell\Throttle\Facades\Throttle;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
-use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class SingleAnswer extends Component
 {
     use WithRateLimiting;
-    
+
     public Answer $answer;
 
     public function mount($answer)

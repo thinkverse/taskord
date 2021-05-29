@@ -5,18 +5,15 @@ namespace App\Http\Controllers;
 use App\Actions\CreateNewTask;
 use App\Models\User;
 use App\Models\Webhook;
-use GrahamCampbell\Throttle\Facades\Throttle;
-use Helper;
-use Illuminate\Http\Request as WebhookRequest;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Str;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Http\Request as WebhookRequest;
+use Illuminate\Support\Str;
 
 class WebhookController extends Controller
 {
     use WithRateLimiting;
-    
+
     public function createTask($webhook, $task, $done, $done_at, $product_id, $type)
     {
         $ignoreList = [
