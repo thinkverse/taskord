@@ -36,27 +36,19 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('user.follow', function (User $sourceUser, User $targetUser) {
-            return $this->isCurrentUserGood($sourceUser, $targetUser);
+            return $this->cannotPerformOnEntity($sourceUser, $targetUser);
         });
 
         Gate::define('task.check', function (User $user, Task $task) {
-            if ($user->spammy) {
-                return false;
-            }
-
-            if ($user->id === $task->user->id) {
-                return true;
-            }
-
-            return false;
+            return $this->canPerformOnEntity($user, $task->user);
         });
 
         Gate::define('create', function (User $user) {
-            return $this->isUserVerified($user);
+            return $this->canPerform($user);
         });
 
         Gate::define('praise', function (User $user, $entity) {
-            return $this->isCurrentUserGood($user, $entity->user);
+            return $this->cannotPerformOnEntity($user, $entity->user);
         });
 
         Gate::define('act', function (User $user, $entity) {
@@ -70,7 +62,7 @@ class AuthServiceProvider extends ServiceProvider
         });
     }
 
-    public function isCurrentUserGood(User $currentUser, User $entityUser)
+    public function cannotPerformOnEntity(User $currentUser, User $entityUser)
     {
         if (
             $currentUser->spammy or
@@ -83,7 +75,20 @@ class AuthServiceProvider extends ServiceProvider
         }
     }
 
-    public function isUserVerified(User $user)
+    public function canPerformOnEntity(User $user, User $entityUser)
+    {
+        if ($user->spammy) {
+            return false;
+        }
+
+        if ($user->id === $entityUser->id) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function canPerform(User $user)
     {
         if (
             $user->spammy or
