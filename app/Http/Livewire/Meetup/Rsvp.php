@@ -12,6 +12,8 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class Rsvp extends Component
 {
+    use WithRateLimiting;
+    
     public Meetup $meetup;
 
     public function mount($meetup)

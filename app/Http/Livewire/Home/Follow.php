@@ -13,6 +13,8 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class Follow extends Component
 {
+    use WithRateLimiting;
+    
     public User $user;
     public $showText;
 
