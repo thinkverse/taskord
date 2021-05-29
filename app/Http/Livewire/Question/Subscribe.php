@@ -13,6 +13,8 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class Subscribe extends Component
 {
+    use WithRateLimiting;
+    
     public $listeners = [
         'refreshQuestionSubscribe' => 'render',
     ];
