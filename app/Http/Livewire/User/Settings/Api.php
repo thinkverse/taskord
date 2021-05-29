@@ -44,7 +44,7 @@ class Api extends Component
             return toast($this, 'success', 'New API key been generated successfully');
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return toast($this, 'error', config('taskord.error.deny'));
     }
 
     public function render()

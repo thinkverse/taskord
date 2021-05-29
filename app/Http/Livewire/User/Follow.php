@@ -32,7 +32,7 @@ class Follow extends Component
         }
 
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if (auth()->user()->spammy) {

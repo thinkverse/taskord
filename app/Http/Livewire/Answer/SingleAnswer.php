@@ -33,7 +33,7 @@ class SingleAnswer extends Component
         }
 
         if (Gate::denies('praise', $this->answer)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::togglePraise($this->answer, 'ANSWER');
@@ -44,7 +44,7 @@ class SingleAnswer extends Component
     public function hide()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::hide($this->answer);

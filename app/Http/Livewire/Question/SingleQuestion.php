@@ -39,7 +39,7 @@ class SingleQuestion extends Component
         }
 
         if (Gate::denies('praise', $this->question)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::togglePraise($this->question, 'QUESTION');
@@ -50,7 +50,7 @@ class SingleQuestion extends Component
     public function hide()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::hide($this->question);
@@ -62,7 +62,7 @@ class SingleQuestion extends Component
     public function toggleSolve()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if (auth()->user()->spammy) {
@@ -77,14 +77,14 @@ class SingleQuestion extends Component
 
             return $this->emit('refreshSingleQuestion');
         } else {
-            toast($this, 'error', "Oops! You can't perform this action");
+            toast($this, 'error', config('taskord.error.deny'));
         }
     }
 
     public function deleteQuestion()
     {
         if (Gate::denies('act', $this->question)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);

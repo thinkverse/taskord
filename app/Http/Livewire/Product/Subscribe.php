@@ -33,7 +33,7 @@ class Subscribe extends Component
         }
 
         if (Gate::denies('praise', $this->product)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         auth()->user()->toggleSubscribe($this->product);

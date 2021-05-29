@@ -15,6 +15,10 @@ return [
         ],
     ],
 
+    'error' => [
+        'deny' => config('taskord.error.deny')
+    ],
+
     'reserved_slugs' => [
         'launched',
         'new',

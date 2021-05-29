@@ -31,7 +31,7 @@ class Rsvp extends Component
         }
 
         if (Gate::denies('praise', $this->meetup)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         auth()->user()->toggleSubscribe($this->meetup);

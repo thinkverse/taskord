@@ -33,7 +33,7 @@ class CreateTask extends Component
     public function checkState()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         auth()->user()->check_state = ! auth()->user()->check_state;
@@ -44,7 +44,7 @@ class CreateTask extends Component
     public function updatedImage()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->validate([
@@ -56,7 +56,7 @@ class CreateTask extends Component
     public function submit()
     {
         if (Gate::denies('create')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $throttler = Throttle::get(Request::instance(), 20, 5);

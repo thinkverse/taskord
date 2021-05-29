@@ -24,7 +24,7 @@ class CreateTask extends Component
     public function updatedImage()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->validate([
@@ -53,7 +53,7 @@ class CreateTask extends Component
         ]);
 
         if (Gate::denies('create')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if ($this->images) {

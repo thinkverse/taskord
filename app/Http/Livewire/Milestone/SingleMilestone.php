@@ -35,7 +35,7 @@ class SingleMilestone extends Component
         }
 
         if (Gate::denies('praise', $this->milestone)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::togglePraise($this->milestone, 'MILESTONE');
@@ -46,7 +46,7 @@ class SingleMilestone extends Component
     public function hide()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::hide($this->milestone);
@@ -58,7 +58,7 @@ class SingleMilestone extends Component
     public function toggleStatus()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if ($this->milestone->status) {
@@ -79,7 +79,7 @@ class SingleMilestone extends Component
     public function deleteMilestone()
     {
         if (Gate::denies('act', $this->milestone)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);

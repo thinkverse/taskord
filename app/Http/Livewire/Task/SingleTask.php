@@ -48,7 +48,7 @@ class SingleTask extends Component
         }
 
         if (Gate::denies('check.task', $this->task)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if ($this->task->done) {
@@ -75,13 +75,13 @@ class SingleTask extends Component
     public function togglePraise()
     {
         try {
-            $this->rateLimit(2);
+            $this->rateLimit(10);
         } catch (TooManyRequestsException $exception) {
-            return toast($this, 'error', "Oops! suck");
+            return toast($this, 'error', "Slow down! Please wait another $exception->secondsUntilAvailable seconds.");
         }
 
         if (Gate::denies('praise', $this->task)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::togglePraise($this->task, 'TASK');
@@ -92,7 +92,7 @@ class SingleTask extends Component
     public function hide()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::hide($this->task);
@@ -104,7 +104,7 @@ class SingleTask extends Component
     public function deleteTask()
     {
         if (Gate::denies('act', $this->task)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);

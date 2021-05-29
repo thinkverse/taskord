@@ -34,7 +34,7 @@ class SingleComment extends Component
         }
 
         if (Gate::denies('praise', $this->comment)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::togglePraise($this->comment, 'COMMENT');
@@ -50,7 +50,7 @@ class SingleComment extends Component
     public function hide()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::hide($this->comment);
@@ -62,7 +62,7 @@ class SingleComment extends Component
     public function deleteComment()
     {
         if (Gate::denies('act', $this->comment)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         loggy(request(), 'Comment', auth()->user(), 'Deleted a comment | Comment ID: '.$this->comment->id);

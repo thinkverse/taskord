@@ -34,7 +34,7 @@ class SingleUpdate extends Component
         }
 
         if (Gate::denies('praise', $this->update)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if (auth()->user()->hasLiked($this->update)) {
@@ -52,7 +52,7 @@ class SingleUpdate extends Component
     public function deleteUpdate()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if (auth()->user()->spammy) {
@@ -66,6 +66,6 @@ class SingleUpdate extends Component
             return $this->emitUp('refreshProduct');
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return toast($this, 'error', config('taskord.error.deny'));
     }
 }
