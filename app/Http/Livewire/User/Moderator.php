@@ -49,7 +49,7 @@ class Moderator extends Component
 
     public function enrollBeta()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -76,7 +76,7 @@ class Moderator extends Component
 
     public function enrollStaff()
     {
-        if (Gate::denies('staff_mode') or $this->user->id === 1) {
+        if (Gate::denies('staff.ops') or $this->user->id === 1) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -103,7 +103,7 @@ class Moderator extends Component
 
     public function enrollDeveloper()
     {
-        if (Gate::denies('staff_mode') or $this->user->id === 1) {
+        if (Gate::denies('staff.ops') or $this->user->id === 1) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -132,7 +132,7 @@ class Moderator extends Component
 
     public function privateUser()
     {
-        if (Gate::denies('staff_mode') or $this->user->id === 1) {
+        if (Gate::denies('staff.ops') or $this->user->id === 1) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -159,7 +159,7 @@ class Moderator extends Component
 
     public function flagUser()
     {
-        if (Gate::denies('staff_mode') or $this->user->id === 1) {
+        if (Gate::denies('staff.ops') or $this->user->id === 1) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -186,7 +186,7 @@ class Moderator extends Component
 
     public function suspendUser()
     {
-        if (Gate::denies('staff_mode') or $this->user->id === 1) {
+        if (Gate::denies('staff.ops') or $this->user->id === 1) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -222,7 +222,7 @@ class Moderator extends Component
 
     public function enrollPatron()
     {
-        if (Gate::denies('staff_mode') or $this->user->id === 1) {
+        if (Gate::denies('staff.ops') or $this->user->id === 1) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -251,7 +251,7 @@ class Moderator extends Component
 
     public function verifyUser()
     {
-        if (Gate::denies('staff_mode') or $this->user->id === 1) {
+        if (Gate::denies('staff.ops') or $this->user->id === 1) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -280,7 +280,7 @@ class Moderator extends Component
 
     public function enrollDarkMode()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -307,7 +307,7 @@ class Moderator extends Component
 
     public function masquerade()
     {
-        if (Gate::denies('staff_mode') or $this->user->id === 1) {
+        if (Gate::denies('staff.ops') or $this->user->id === 1) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -324,7 +324,7 @@ class Moderator extends Component
 
     public function resetAvatar()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -344,7 +344,7 @@ class Moderator extends Component
 
     public function releaseUsername()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -364,7 +364,7 @@ class Moderator extends Component
 
     public function deleteTasks()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -388,7 +388,7 @@ class Moderator extends Component
 
     public function deleteComments()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -407,7 +407,7 @@ class Moderator extends Component
 
     public function deleteQuestions()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -426,7 +426,7 @@ class Moderator extends Component
 
     public function deleteAnswers()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -445,7 +445,7 @@ class Moderator extends Component
 
     public function deleteMilestones()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -464,7 +464,7 @@ class Moderator extends Component
 
     public function deleteProducts()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -491,7 +491,7 @@ class Moderator extends Component
 
     public function deleteUser()
     {
-        if (Gate::denies('staff_mode') or $this->user->id === 1) {
+        if (Gate::denies('staff.ops') or $this->user->id === 1) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
@@ -532,7 +532,7 @@ class Moderator extends Component
 
     public function updateUserStaffNotes()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

@@ -42,7 +42,7 @@
             <a href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
                 GitLab
             </a>
-            @can('staff_mode')
+            @can('staff.ops')
                 <span class="text-danger ms-2">
                     <x-heroicon-o-shield-check class="heroicon me-0" />
                     Staff mode on

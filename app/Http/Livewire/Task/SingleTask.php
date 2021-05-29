@@ -82,7 +82,7 @@ class SingleTask extends Component
 
     public function hide()
     {
-        if (Gate::denies('staff_mode')) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

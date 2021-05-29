@@ -10,7 +10,7 @@
 </div>
 @endif
 <div class="card">
-    @can('staff_mode')
+    @can('staff.ops')
         @if ($user->spammy)
             <div class="p-4 pb-0">
                 <div class="alert alert-danger alert-dismissible">
@@ -56,7 +56,7 @@
                             @if ($user->isFollowing(auth()->user()))
                                 <span class="ms-2 badge bg-light text-secondary">Follows you</span>
                             @endif
-                            @can('staff_mode')
+                            @can('staff.ops')
                                 <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                             @endcan
                         @endauth

@@ -229,7 +229,7 @@
                                     @else
                                         {{ $user->username }}
                                     @endif
-                                    @can('staff_mode')
+                                    @can('staff.ops')
                                         <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                                     @endcan
                                     @if ($user->is_private)

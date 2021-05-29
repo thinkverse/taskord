@@ -45,7 +45,7 @@
 </head>
 <body>
     <div id="app">
-        @can('staff_mode')
+        @can('staff.ops')
             <div class="staff-bar">
                 <livewire:staff.staffbar />
             </div>

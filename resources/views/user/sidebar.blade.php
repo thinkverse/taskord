@@ -1,7 +1,7 @@
 <div class="col-sm d-inline-bock">
     <div class="d-block">
         @auth
-            @can('staff_mode')
+            @can('staff.ops')
                 <livewire:user.moderator :user="$user" />
             @endcan
             @if (auth()->user()->id === $user->id)

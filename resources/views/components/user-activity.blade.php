@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="mt-2">
-            @can('staff_mode')
+            @can('staff.ops')
                 <span class="font-monospace text-secondary" title="Log ID">Log ID: {{ $activity->id }}</span>
                 <span class="vertical-separator"></span>
             @endcan
@@ -80,7 +80,7 @@
                 <span class="text-dark">{{ $activity->getExtraProperty('location') }}</span>
                 <span class="vertical-separator"></span>
             @endif
-            @can('staff_mode')
+            @can('staff.ops')
                 @if ($activity->getExtraProperty('user_agent'))
                     <a
                         class="cursor-pointer text-dark"

@@ -233,7 +233,7 @@
                             <div class="dropdown-divider"></div>
                             @if (auth()->user()->is_staff)
                                 <a class="dropdown-item text-dark" id="staff-bar-click" role="button">
-                                    @can('staff_mode')
+                                    @can('staff.ops')
                                         <x-heroicon-o-eye-off class="heroicon heroicon-18px text-secondary" />
                                         Hide Staff Bar
                                     @else

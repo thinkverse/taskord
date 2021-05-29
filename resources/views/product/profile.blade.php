@@ -16,7 +16,7 @@
                         <x-heroicon-o-shield-exclamation class="heroicon text-danger" />
                     </span>
                 @endif
-                @can('staff_mode')
+                @can('staff.ops')
                     <span class="ms-1 text-secondary small">#{{ $product->id }}</span>
                 @endcan
             </div>
