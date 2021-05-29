@@ -31,10 +31,6 @@ class AuthServiceProvider extends ServiceProvider
             return $user->is_staff and $user->staff_mode;
         });
 
-        Gate::define('is_staff', function (User $user) {
-            return $user->is_staff;
-        });
-
         Gate::define('user.follow', function (User $sourceUser, User $targetUser) {
             return $this->cannotPerformOnEntity($sourceUser, $targetUser);
         });

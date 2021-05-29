@@ -231,7 +231,7 @@
                                 Patron
                             </a>
                             <div class="dropdown-divider"></div>
-                            @can('is_staff')
+                            @if (auth()->user()->is_staff)
                                 <a class="dropdown-item text-dark" id="staff-bar-click" role="button">
                                     @can('staff_mode')
                                         <x-heroicon-o-eye-off class="heroicon heroicon-18px text-secondary" />
@@ -242,7 +242,7 @@
                                     @endcan
                                 </a>
                                 <div class="dropdown-divider"></div>
-                            @endcan
+                            @endif
                             <a class="dropdown-item text-dark" id="dark-mode" role="button">
                                 @if (auth()->user()->dark_mode)
                                     <x-heroicon-o-sun class="heroicon heroicon-18px text-secondary" />
