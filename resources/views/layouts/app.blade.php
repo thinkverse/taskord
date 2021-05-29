@@ -42,7 +42,7 @@
         <script async src="https://cdn.splitbee.io/sb.js"></script>
         @auth
             <script>
-                if (window.splitbee)
+                if (window.splitbee) {
                     window.splitbee.user.set({
                         username: "{{ auth()->user()->username }}",
                         email: "{{ auth()->user()->email }}"
