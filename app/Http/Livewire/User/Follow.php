@@ -24,15 +24,10 @@ class Follow extends Component
 
     public function toggleFollow()
     {
-        $throttler = Throttle::get(Request::instance(), 10, 5);
-        $throttler->hit();
-        if (count($throttler) > 20) {
-            Helper::flagAccount(auth()->user());
-        }
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while following the user');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(10);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (! auth()->check()) {
