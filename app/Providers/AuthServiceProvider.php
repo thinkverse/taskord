@@ -65,7 +65,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('follow', function (User $sourceUser, User $targetUser) {
-            return $this->isCurrentUserGood($user, $entity->user);
+            return $this->isCurrentUserGood($sourceUser, $targetUser);
         });
 
         Gate::define('act', function (User $user, $entity) {
@@ -87,6 +87,8 @@ class AuthServiceProvider extends ServiceProvider
             $currentUser->id === $entityUser->id
         ) {
             return false;
+        } else {
+            return true;
         }
     }
 }
