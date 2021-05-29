@@ -34,7 +34,7 @@ class SingleQuestion extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('praise', $this->question)) {
+        if (Gate::denies('praise/subscribe', $this->question)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

@@ -30,7 +30,7 @@ class SingleMilestone extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('praise', $this->milestone)) {
+        if (Gate::denies('praise/subscribe', $this->milestone)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

@@ -29,7 +29,7 @@ class SingleComment extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('praise', $this->comment)) {
+        if (Gate::denies('praise/subscribe', $this->comment)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

@@ -47,7 +47,7 @@ class AuthServiceProvider extends ServiceProvider
             return $this->canPerform($user);
         });
 
-        Gate::define('praise', function (User $user, $entity) {
+        Gate::define('praise/subscribe', function (User $user, $entity) {
             return $this->cannotPerformOnEntity($user, $entity->user);
         });
 

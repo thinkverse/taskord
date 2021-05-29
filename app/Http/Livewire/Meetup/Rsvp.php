@@ -26,7 +26,7 @@ class Rsvp extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('praise', $this->meetup)) {
+        if (Gate::denies('praise/subscribe', $this->meetup)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
