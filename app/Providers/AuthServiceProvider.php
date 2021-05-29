@@ -81,7 +81,7 @@ class AuthServiceProvider extends ServiceProvider
             return false;
         }
 
-        if ($user->id === $entityUser->id) {
+        if ($user->staff_mode or $user->id === $entityUser->id) {
             return true;
         }
 
