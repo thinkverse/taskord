@@ -28,15 +28,10 @@ class Api extends Component
 
     public function regenerateToken()
     {
-        $throttler = Throttle::get(Request::instance(), 5, 5);
-        $throttler->hit();
-        if (count($throttler) > 10) {
-            Helper::flagAccount(auth()->user());
-        }
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while generating a API token');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(10);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (auth()->user()->id === $this->user->id) {
