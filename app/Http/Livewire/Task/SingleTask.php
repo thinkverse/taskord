@@ -11,9 +11,13 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class SingleTask extends Component
 {
+    use WithRateLimiting;
+
     public $listeners = [
         'refreshSingleTask' => 'render',
     ];
@@ -70,16 +74,10 @@ class SingleTask extends Component
 
     public function togglePraise()
     {
-        $throttler = Throttle::get(Request::instance(), 30, 5);
-        $throttler->hit();
-        if (count($throttler) > 30) {
-            Helper::flagAccount(auth()->user());
-        }
-
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising a task');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(2);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', "Oops! suck");
         }
 
         if (Gate::denies('praise', $this->task)) {

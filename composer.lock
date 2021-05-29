@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0bd773a82e2285ea71f11b6e5157af2",
+    "content-hash": "b434ddda75fd5d252bb69b3d2a2e985e",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -478,6 +478,60 @@
                 "source": "https://github.com/cyrildewit/eloquent-viewable/tree/v6.0.2"
             },
             "time": "2021-01-02T15:47:17+00:00"
+        },
+        {
+            "name": "danharrin/livewire-rate-limiting",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danharrin/livewire-rate-limiting.git",
+                "reference": "c97041cd4f94168d5077d4463062e681d057e00a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danharrin/livewire-rate-limiting/zipball/c97041cd4f94168d5077d4463062e681d057e00a",
+                "reference": "c97041cd4f94168d5077d4463062e681d057e00a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.0",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "livewire/livewire": "^2.3",
+                "orchestra/testbench": "^6.2",
+                "phpunit/phpunit": "^9.4",
+                "symplify/monorepo-builder": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DanHarrin\\LivewireRateLimiting\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Harrin",
+                    "email": "dan@danharrin.com"
+                }
+            ],
+            "description": "Apply rate limiters to Laravel Livewire actions.",
+            "homepage": "https://github.com/danharrin/livewire-rate-limiting",
+            "support": {
+                "issues": "https://github.com/danharrin/livewire-rate-limiting/issues",
+                "source": "https://github.com/danharrin/livewire-rate-limiting"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/danharrin",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-05-17T08:01:19+00:00"
         },
         {
             "name": "doctrine/cache",
