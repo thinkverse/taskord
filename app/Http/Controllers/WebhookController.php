@@ -153,15 +153,10 @@ class WebhookController extends Controller
 
     public function web($token, WebhookRequest $request)
     {
-        $throttler = Throttle::get(Request::instance(), 100, 5);
-        $throttler->hit();
-        if (count($throttler) > 100) {
-            Helper::flagAccount(auth()->user());
-        }
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited in Webhook');
-
-            return response('Your are rate limited, try again later', 429);
+        try {
+            $this->rateLimit(10);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         $webhook = Webhook::whereToken($token)->first();

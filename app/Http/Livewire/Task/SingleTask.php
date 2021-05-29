@@ -34,19 +34,12 @@ class SingleTask extends Component
 
     public function checkTask()
     {
-        $throttler = Throttle::get(Request::instance(), 20, 5);
-        $throttler->hit();
-
-        if (count($throttler) > 30) {
-            Helper::flagAccount(auth()->user());
+        try {
+            $this->rateLimit(10);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
-
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while checking a task');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
-        }
-
+        
         if (Gate::denies('check.task', $this->task)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
