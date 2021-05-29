@@ -30,7 +30,7 @@ class Follow extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('follow', $this->user)) {
+        if (Gate::denies('user.follow', $this->user)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

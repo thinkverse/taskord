@@ -1,6 +1,6 @@
 <div>
     @auth
-        @can('follow', $user)
+        @can('user.follow', $user)
             @if (auth()->user()->isFollowing($user))
                 <button wire:click="toggleFollow" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
                     <div wire:loading class="spinner-border spinner-border-sm me-1"></div>

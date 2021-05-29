@@ -35,6 +35,10 @@ class AuthServiceProvider extends ServiceProvider
             return $user->is_staff;
         });
 
+        Gate::define('user.follow', function (User $sourceUser, User $targetUser) {
+            return $this->isCurrentUserGood($sourceUser, $targetUser);
+        });
+
         Gate::define('check.task', function (User $user, Task $task) {
             if ($user->spammy) {
                 return false;
@@ -60,10 +64,6 @@ class AuthServiceProvider extends ServiceProvider
 
         Gate::define('praise', function (User $user, $entity) {
             return $this->isCurrentUserGood($user, $entity->user);
-        });
-
-        Gate::define('follow', function (User $sourceUser, User $targetUser) {
-            return $this->isCurrentUserGood($sourceUser, $targetUser);
         });
 
         Gate::define('act', function (User $user, $entity) {
