@@ -27,8 +27,6 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-
-
         Gate::define('staff_mode', function (User $user) {
             return $user->is_staff and $user->staff_mode;
         });
