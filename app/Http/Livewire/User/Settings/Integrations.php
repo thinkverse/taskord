@@ -9,6 +9,8 @@ use Helper;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class Integrations extends Component
 {
