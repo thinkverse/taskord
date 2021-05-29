@@ -14,6 +14,8 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class Integrations extends Component
 {
+    use WithRateLimiting;
+    
     public User $user;
     public $name;
     public $product;
