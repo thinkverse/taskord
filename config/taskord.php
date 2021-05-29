@@ -16,7 +16,8 @@ return [
     ],
 
     'error' => [
-        'deny' => config('taskord.error.deny')
+        'deny' => "Oops! You can't perform this action",
+        'rate-limit' => "Oops! You can't perform this action",
     ],
 
     'reserved_slugs' => [
