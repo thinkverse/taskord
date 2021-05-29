@@ -13,6 +13,8 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class SingleAnswer extends Component
 {
+    use WithRateLimiting;
+    
     public Answer $answer;
 
     public function mount($answer)

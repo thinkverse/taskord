@@ -13,6 +13,8 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class SingleComment extends Component
 {
+    use WithRateLimiting;
+    
     public Comment $comment;
     public $showReplyBox = false;
 
