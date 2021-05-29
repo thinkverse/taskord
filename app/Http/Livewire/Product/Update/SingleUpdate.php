@@ -25,16 +25,10 @@ class SingleUpdate extends Component
     // TODO
     public function togglePraise()
     {
-        $throttler = Throttle::get(Request::instance(), 20, 5);
-        $throttler->hit();
-        if (count($throttler) > 30) {
-            Helper::flagAccount(auth()->user());
-        }
-
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the update');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(10);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (Gate::denies('praise', $this->update)) {
