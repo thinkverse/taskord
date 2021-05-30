@@ -52,7 +52,7 @@ class Helper
             || $entity->source !== 'GitHub'
             && $entity->source !== 'Gitlab'
         ) {
-            ($hasLiked)
+            $hasLiked
                 ? undoPoint(new PraiseCreated($entity))
                 : givePoint(new PraiseCreated($entity));
         }
