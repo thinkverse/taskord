@@ -44,8 +44,7 @@
             <script>
                 if (window.splitbee) {
                     window.splitbee.user.set({
-                        username: "{{ auth()->user()->username }}",
-                        email: "{{ auth()->user()->email }}"
+                        name: "{{ auth()->user()->username }}_{{ auth()->id() }}",
                     })
                 }
             </script>
