@@ -154,10 +154,17 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     });
 
     // Products
-    Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
-        Route::get('', [ProductController::class, 'newest'])->name('newest');
-        Route::get('launched', [ProductController::class, 'launched'])->name('launched');
-        Route::view('new', 'products.new')->middleware('auth')->name('new');
+    Route::group([
+        'prefix' => 'products',
+        'as' => 'products.'
+    ], function () {
+        Route::get('', [ProductController::class, 'newest'])
+            ->name('newest');
+        Route::get('launched', [ProductController::class, 'launched'])
+            ->name('launched');
+        Route::view('new', 'products.new')
+            ->middleware('auth')
+            ->name('new');
     });
 
     // Question
