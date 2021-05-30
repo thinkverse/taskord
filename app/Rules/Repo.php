@@ -9,7 +9,11 @@ class Repo implements Rule
 {
     public function passes($attribute, $value)
     {
-        return Str::contains($value, ['github.com/', 'gitlab.com/', 'bitbucket.org/']);
+        return Str::contains($value, [
+            'github.com/',
+            'gitlab.com/',
+            'bitbucket.org/'
+        ]);
     }
 
     public function message()
