@@ -11,8 +11,9 @@ class AllTasks extends Component
         'refreshTasks' => 'render',
     ];
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+
     public $readyToLoad = false;
+    protected $paginationTheme = 'bootstrap';
 
     public function loadAllTasks()
     {
