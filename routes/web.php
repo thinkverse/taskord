@@ -368,9 +368,14 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     });
 
     // Feed
-    Route::group(['prefix' => 'feed', 'as' => 'feed.'], function () {
-        Route::get('user/{username}/{page?}', [FeedController::class, 'user'])->name('user');
-        Route::get('product/{slug}/{page?}', [FeedController::class, 'product'])->name('product');
+    Route::group([
+        'prefix' => 'feed',
+        'as' => 'feed.',
+    ], function () {
+        Route::get('user/{username}/{page?}', [FeedController::class, 'user'])
+            ->name('user');
+        Route::get('product/{slug}/{page?}', [FeedController::class, 'product'])
+            ->name('product');
     });
 });
 
