@@ -44,8 +44,8 @@ class Feature extends Model
             }
 
             return false;
-        } else {
-            return $feature->public ? true : false;
         }
+
+        return $feature->public ? true : false;
     }
 }
