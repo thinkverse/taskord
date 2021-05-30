@@ -380,7 +380,10 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
 });
 
 // Mention
-Route::group(['prefix' => 'mention', 'middleware' => ['auth']], function () {
+Route::group([
+    'prefix' => 'mention',
+    'middleware' => ['auth'],
+], function () {
     Route::get('users', [UserController::class, 'mention']);
     Route::get('products', [ProductController::class, 'mention']);
 });
@@ -394,8 +397,11 @@ Route::group(['prefix' => 'popover'], function () {
 
 // Site
 Route::group(['prefix' => 'site'], function () {
-    Route::view('shortcuts', 'site.shortcuts')->name('shortcuts');
-    Route::get('commit-data', [StaffController::class, 'commitData'])->name('commit-data')->middleware('staff_mode');
+    Route::view('shortcuts', 'site.shortcuts')
+        ->name('shortcuts');
+    Route::get('commit-data', [StaffController::class, 'commitData'])
+        ->middleware('staff_mode')
+        ->name('commit-data');
     Route::get('ci-data', [StaffController::class, 'ciData'])->name('ci-data')->middleware('staff_mode');
     Route::get('deployment-data', [StaffController::class, 'deploymentData'])->name('deployment-data')->middleware('staff_mode');
     Route::get('staffbar', [StaffController::class, 'toggle'])->middleware('staff')->name('staffbar');
