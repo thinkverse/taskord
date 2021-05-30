@@ -44,7 +44,7 @@ class Helper
         $user = auth()->user();
         $hasLiked = $user->hasLiked($entity);
 
-        ($hasLiked)
+        $hasLiked
             ? $user->unlike($entity)
             : $user->like($entity);
 
