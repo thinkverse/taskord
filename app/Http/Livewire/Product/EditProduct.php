@@ -79,8 +79,8 @@ class EditProduct extends Component
                 Storage::delete($oldAvatar[1]);
             }
             $img = Image::make($this->avatar)
-                    ->fit(400)
-                    ->encode('webp', 100);
+                ->fit(400)
+                ->encode('webp', 100);
             $imageName = Str::orderedUuid().'.webp';
             Storage::disk('public')->put('logos/'.$imageName, (string) $img);
             $avatar = config('app.url').'/storage/logos/'.$imageName;
