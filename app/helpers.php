@@ -71,7 +71,13 @@ if (! function_exists('carbon')) {
 if (! function_exists('loggy')) {
     function loggy($request, $type, $user, $message)
     {
-        return LogActivity::dispatch($request->ip(), $request->header('User-Agent'), $type, $user, $message);
+        return LogActivity::dispatch(
+            $request->ip(),
+            $request->header('User-Agent'),
+            $type,
+            $user,
+            $message
+        );
     }
 }
 
