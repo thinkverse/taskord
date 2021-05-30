@@ -33,6 +33,14 @@ Test:
     - php artisan migrate:fresh --seed
     - php artisan test
 
+Insights:
+  image: edbizarro/gitlab-ci-pipeline-php:latest
+  stage: test
+  script:
+    - sudo composer self-update --2
+    - sudo composer install --no-progress --ignore-platform-reqs
+    - php artisan insights
+
 Validate GraphQL:
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
