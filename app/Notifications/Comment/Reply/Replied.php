@@ -42,13 +42,13 @@ class Replied extends Notification implements ShouldQueue
 
         if (! $user->spammy) {
             return (new MailMessage())
-                        ->subject('@'.$user->username.' replied to your comment')
-                        ->greeting('Hello @'.$notifiable->username.' 👋')
-                        ->line('💬 Your comment has new reply by @'.$user->username)
-                        ->line('Comment: '.$this->reply->comment->comment)
-                        ->line('Reply: '.$this->reply->reply)
-                        ->action('Go to Comment', url('/task/'.$this->reply->comment->task->id.'/'.$this->reply->comment->id))
-                        ->line('Thank you for using Taskord!');
+                ->subject('@'.$user->username.' replied to your comment')
+                ->greeting('Hello @'.$notifiable->username.' 👋')
+                ->line('💬 Your comment has new reply by @'.$user->username)
+                ->line('Comment: '.$this->reply->comment->comment)
+                ->line('Reply: '.$this->reply->reply)
+                ->action('Go to Comment', url('/task/'.$this->reply->comment->task->id.'/'.$this->reply->comment->id))
+                ->line('Thank you for using Taskord!');
         }
 
         return null;
