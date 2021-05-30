@@ -183,7 +183,7 @@ class SearchController extends Controller
             return view('search.result', [
                 'type' => 'users',
                 'searchTerm' => $searchTerm,
-                'users' =>  $users,
+                'users' => $users,
             ]);
         }
 

@@ -26,7 +26,7 @@ class WebhookController extends Controller
             $webhook->user->touch();
 
             $task = (new CreateNewTask($webhook->user, [
-                'user_id' =>  $webhook->user_id,
+                'user_id' => $webhook->user_id,
                 'task' => $task,
                 'done' => $done,
                 'done_at' => $done_at,
