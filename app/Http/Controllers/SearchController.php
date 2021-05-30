@@ -49,7 +49,7 @@ class SearchController extends Controller
             return view('search.result', [
                 'type' => 'tasks',
                 'searchTerm' => $searchTerm,
-                'tasks' =>  $tasks,
+                'tasks' => $tasks,
             ]);
         }
 
