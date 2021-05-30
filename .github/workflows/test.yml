@@ -73,13 +73,6 @@ jobs:
     - name: 🏃 Run the Application
       run: php artisan serve & sleep 5 ; kill $! || echo $?
 
-    - name: 🖥 Test commands
-      run: |
-        php artisan migrate:fresh --seed
-        php artisan user:streaks
-        php artisan user:streaks all
-        php artisan user:reset-goal
-
     - name: 🕸 Validate GraphQL schema
       run: php artisan lighthouse:validate-schema
 
