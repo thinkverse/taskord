@@ -402,7 +402,9 @@ Route::group(['prefix' => 'site'], function () {
     Route::get('commit-data', [StaffController::class, 'commitData'])
         ->middleware('staff_mode')
         ->name('commit-data');
-    Route::get('ci-data', [StaffController::class, 'ciData'])->name('ci-data')->middleware('staff_mode');
+    Route::get('ci-data', [StaffController::class, 'ciData'])
+        ->middleware('staff_mode')
+        ->name('ci-data');
     Route::get('deployment-data', [StaffController::class, 'deploymentData'])->name('deployment-data')->middleware('staff_mode');
     Route::get('staffbar', [StaffController::class, 'toggle'])->middleware('staff')->name('staffbar');
 });
