@@ -93,7 +93,7 @@
             <div>Complete your goal and earn additional reputations</div>
         </div>
         <div class="card-body">
-            <form wire:submit.prevent="setGoal">
+            <form wire:submit.prevent="updateGoal">
                 <div>
                     <div class="form-check">
                         <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox" wire:model="hasGoal">

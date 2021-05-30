@@ -150,7 +150,7 @@ class Profile extends Component
         return toast($this, 'error', config('taskord.error.deny'));
     }
 
-    public function setGoal()
+    public function updateGoal()
     {
         if (auth()->user()->id === $this->user->id) {
             $this->validate([
