@@ -19,7 +19,7 @@ class Clean implements ShouldQueue
     {
         if (App::environment() === 'production') {
             $client = new Client();
-            $res = $client->request('POST', 'https://api.cloudflare.com/client/v4/zones/06be44cac798e7deeb4abda1378c4339/purge_cache', [
+            $client->request('POST', 'https://api.cloudflare.com/client/v4/zones/06be44cac798e7deeb4abda1378c4339/purge_cache', [
                 'headers' => [
                     'X-Auth-Email' => config('services.cloudflare.email'),
                     'X-Auth-Key' => config('services.cloudflare.api_key'),
