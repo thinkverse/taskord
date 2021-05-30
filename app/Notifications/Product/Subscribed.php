@@ -42,11 +42,11 @@ class Subscribed extends Notification implements ShouldQueue
 
         if (! $user->spammy) {
             return (new MailMessage())
-                        ->subject('@'.$user->username.' subscribed to "'.$this->product->name.'"')
-                        ->greeting('Hello @'.$notifiable->username.' 👋')
-                        ->line('🎉 @'.$user->username.' subscribed to your product "'.$this->product->name.'"')
-                        ->action('Go to user profile @'.$user->username, url('/@'.$user->username))
-                        ->line('Thank you for using Taskord!');
+                ->subject('@'.$user->username.' subscribed to "'.$this->product->name.'"')
+                ->greeting('Hello @'.$notifiable->username.' 👋')
+                ->line('🎉 @'.$user->username.' subscribed to your product "'.$this->product->name.'"')
+                ->action('Go to user profile @'.$user->username, url('/@'.$user->username))
+                ->line('Thank you for using Taskord!');
         }
 
         return null;
