@@ -12,7 +12,7 @@ class Repo implements Rule
         return Str::contains($value, [
             'github.com/',
             'gitlab.com/',
-            'bitbucket.org/'
+            'bitbucket.org/',
         ]);
     }
 
