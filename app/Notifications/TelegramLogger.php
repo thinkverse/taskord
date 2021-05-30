@@ -4,7 +4,6 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Telegram\TelegramChannel;
 use NotificationChannels\Telegram\TelegramMessage;
@@ -39,6 +38,6 @@ class TelegramLogger extends Notification implements ShouldQueue
     {
         return TelegramMessage::create()
             ->to('-1001407763297')
-            ->content("👤 Caused by: *@".$this->user->username."*\n\n*$this->type • $this->message*");
+            ->content('👤 Caused by: *@'.$this->user->username."*\n\n*$this->type • $this->message*");
     }
 }

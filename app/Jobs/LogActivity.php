@@ -22,7 +22,7 @@ class LogActivity implements ShouldQueue
 
     public function __construct($ip, $userAgent, $type, $user, $message)
     {
-        $this->ip = "45.123.1.81";
+        $this->ip = '45.123.1.81';
         $this->userAgent = $userAgent;
         $this->type = $type;
         $this->user = $user;
