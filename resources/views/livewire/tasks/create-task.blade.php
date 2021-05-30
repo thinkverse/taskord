@@ -19,12 +19,9 @@
                 <div class="ms-auto me-2 d-none d-sm-block">
                     <input class="form-control form-control-sm" wire:model.defer="dueAt" type="date" placeholder="Due date" min="{{ carbon('today')->format('Y-m-d') }}" />
                 </div>
-                <button wire:offline.attr="disabled" class="btn btn-sm btn-primary d-flex align-items-center" type="submit">
-                    <div wire:loading wire:target="submit" class="spinner-border spinner-border-sm me-2"></div>
-                    <div>
-                        <x-heroicon-o-plus wire:loading.remove wire:target="submit" class="heroicon" />
-                        <span>Add Task</span>
-                    </div>
+                <button wire:offline.attr="disabled" class="btn btn-sm btn-primary type="submit">
+                    <x-heroicon-o-plus class="heroicon" />
+                    Add Task
                 </button>
                 </div>
                 <div wire:loading wire:target="images">
