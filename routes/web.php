@@ -408,5 +408,7 @@ Route::group(['prefix' => 'site'], function () {
     Route::get('deployment-data', [StaffController::class, 'deploymentData'])
         ->middleware('staff_mode')
         ->name('deployment-data');
-    Route::get('staffbar', [StaffController::class, 'toggle'])->middleware('staff')->name('staffbar');
+    Route::get('staffbar', [StaffController::class, 'toggle'])
+        ->middleware('staff')
+        ->name('staffbar');
 });
