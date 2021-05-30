@@ -121,7 +121,7 @@ class SingleTask extends Component
 
         $launchFound = false;
         foreach ($launchList as $keyword) {
-            if (preg_match("/\b$keyword\b/", strtolower($this->task->task))) {
+            if (preg_match("/\b${keyword}\b/", strtolower($this->task->task))) {
                 $launchFound = true;
                 break;
             }
