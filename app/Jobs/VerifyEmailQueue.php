@@ -34,6 +34,6 @@ class VerifyEmailQueue implements ShouldQueue
     public function handle()
     {
         // Here the email verification will be sent to the user
-        $this->user->notify(new VerifyEmail);
+        $this->user->notify(new VerifyEmail());
     }
 }
