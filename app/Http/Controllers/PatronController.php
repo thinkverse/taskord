@@ -18,7 +18,7 @@ class PatronController extends Controller
         ksort($fields);
         foreach ($fields as $k => $v) {
             if (! in_array(gettype($v), ['object', 'array'])) {
-                $fields[$k] = "$v";
+                $fields[$k] = "${v}";
             }
         }
         $data = serialize($fields);
