@@ -270,7 +270,9 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
         Route::get('system', [StaffController::class, 'system'])
             ->middleware('password.confirm')
             ->name('system');
-        Route::view('jobs', 'staff.jobs')->middleware('password.confirm')->name('jobs');
+        Route::view('jobs', 'staff.jobs')
+            ->middleware('password.confirm')
+            ->name('jobs');
         Route::view('deployments', 'staff.deployments')->middleware('password.confirm')->name('deployments');
     });
 
