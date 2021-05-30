@@ -331,9 +331,16 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
         ->name('deals');
 
     // Meetups
-    Route::group(['prefix' => 'meetups', 'as' => 'meetups.'], function () {
-        Route::get('/', [MeetupController::class, 'meetups'])->name('home')->middleware('staff');
-        Route::get('/rsvpd', [MeetupController::class, 'rsvpd'])->name('rsvpd')->middleware('staff');
+    Route::group([
+        'prefix' => 'meetups',
+        'as' => 'meetups.',
+    ], function () {
+        Route::get('/', [MeetupController::class, 'meetups'])
+            ->middleware('staff')
+            ->name('home');
+        Route::get('/rsvpd', [MeetupController::class, 'rsvpd'])
+            ->middleware('staff')
+            ->name('rsvpd');
         Route::get('/finished', [MeetupController::class, 'finished'])->name('finished')->middleware('staff');
     });
 
