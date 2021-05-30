@@ -83,9 +83,9 @@ class ProductController extends Controller
             return view('product.edit', [
                 'product' => $product,
             ]);
-        } else {
-            return abort(404);
         }
+
+        return abort(404);
     }
 
     public function newest()

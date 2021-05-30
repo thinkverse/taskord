@@ -35,9 +35,9 @@ class PatronController extends Controller
             ) {
                 return $this->handleSubscriptionCancelled($user);
             }
-        } else {
-            return 'Forbidden';
         }
+
+        return 'Forbidden';
     }
 
     public function handleSubscriptionCreated($user, $request)
