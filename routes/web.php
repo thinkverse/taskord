@@ -204,7 +204,8 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
             ->name('opened');
         Route::get('closed', [MilestoneController::class, 'closed'])
             ->name('closed');
-        Route::view('new', 'milestone.new')->middleware('auth')
+        Route::view('new', 'milestone.new')
+            ->middleware('auth')
             ->name('new');
         Route::get('{milestone}/edit', [MilestoneController::class, 'edit'])
             ->middleware('auth')
