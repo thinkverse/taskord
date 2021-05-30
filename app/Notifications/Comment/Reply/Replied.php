@@ -41,7 +41,7 @@ class Replied extends Notification implements ShouldQueue
         $user = User::find($this->userId);
 
         if (! $user->spammy) {
-            return (new MailMessage)
+            return (new MailMessage())
                         ->subject('@'.$user->username.' replied to your comment')
                         ->greeting('Hello @'.$notifiable->username.' 👋')
                         ->line('💬 Your comment has new reply by @'.$user->username)

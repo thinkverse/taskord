@@ -38,7 +38,7 @@ class Mentioned extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         if ($this->type === 'task') {
-            return (new MailMessage)
+            return (new MailMessage())
                     ->subject('@'.$this->body->user->username.' mentioned you in a task')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('@'.$this->body->user->username.' mentioned you in a task.')
@@ -48,7 +48,7 @@ class Mentioned extends Notification implements ShouldQueue
         }
 
         if ($this->type === 'comment') {
-            return (new MailMessage)
+            return (new MailMessage())
                     ->subject('@'.$this->body->user->username.' mentioned you in a comment')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('@'.$this->body->user->username.' mentioned you in a comment.')
@@ -58,7 +58,7 @@ class Mentioned extends Notification implements ShouldQueue
         }
 
         if ($this->type === 'comment_reply') {
-            return (new MailMessage)
+            return (new MailMessage())
                     ->subject('@'.$this->body->user->username.' mentioned you in a comment reply')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('@'.$this->body->user->username.' mentioned you in a comment reply.')
@@ -68,7 +68,7 @@ class Mentioned extends Notification implements ShouldQueue
         }
 
         if ($this->type === 'answer') {
-            return (new MailMessage)
+            return (new MailMessage())
                     ->subject('@'.$this->body->user->username.' mentioned you in an answer')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('@'.$this->body->user->username.' mentioned you in an answer.')

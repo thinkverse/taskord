@@ -25,7 +25,7 @@ class NewProductUpdate extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+        return (new MailMessage())
                     ->subject('New product update from "'.$this->update->product->name.'"')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('New product update from "'.$this->update->product->name.'"')

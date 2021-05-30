@@ -41,7 +41,7 @@ class Answered extends Notification implements ShouldQueue
         $user = User::find($this->userId);
 
         if (! $user->spammy) {
-            return (new MailMessage)
+            return (new MailMessage())
                         ->subject('@'.$user->username.' answered your question')
                         ->greeting('Hello @'.$notifiable->username.' 👋')
                         ->line('💬 Your question has new answer by @'.$user->username)

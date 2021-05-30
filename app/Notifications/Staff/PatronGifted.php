@@ -23,7 +23,7 @@ class PatronGifted extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+        return (new MailMessage())
                     ->subject('You\'ve been gifted with a patron account 🎉')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('Your account was gifted with a patron account by one of the staff members 🎉')

@@ -23,7 +23,7 @@ class UserVerified extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+        return (new MailMessage())
                     ->subject('Your account has been verified ✅')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('Your account has been verified by one of the staff members 🎉')

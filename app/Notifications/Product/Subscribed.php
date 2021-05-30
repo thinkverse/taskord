@@ -41,7 +41,7 @@ class Subscribed extends Notification implements ShouldQueue
         $user = User::find($this->userId);
 
         if (! $user->spammy) {
-            return (new MailMessage)
+            return (new MailMessage())
                         ->subject('@'.$user->username.' subscribed to "'.$this->product->name.'"')
                         ->greeting('Hello @'.$notifiable->username.' 👋')
                         ->line('🎉 @'.$user->username.' subscribed to your product "'.$this->product->name.'"')

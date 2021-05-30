@@ -41,7 +41,7 @@ class AnswerPraised extends Notification implements ShouldQueue
         $user = User::find($this->userId);
 
         if (! $user->spammy) {
-            return (new MailMessage)
+            return (new MailMessage())
                         ->subject('@'.$user->username.' praised your answer')
                         ->greeting('Hello @'.$notifiable->username.' 👋')
                         ->line('👏 Your answer was praised by @'.$user->username)

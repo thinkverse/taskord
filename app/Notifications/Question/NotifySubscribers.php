@@ -31,7 +31,7 @@ class NotifySubscribers extends Notification implements ShouldQueue
         $user = User::find($this->userId);
 
         if (! $user->spammy) {
-            return (new MailMessage)
+            return (new MailMessage())
                         ->subject('@'.$user->username.' answered a question you subscribe to')
                         ->greeting('Hello @'.$notifiable->username.' 👋')
                         ->line('💬 The question you subscribe to has a new answer by @'.$user->username)
