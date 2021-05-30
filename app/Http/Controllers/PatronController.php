@@ -23,7 +23,7 @@ class PatronController extends Controller
         }
         $data = serialize($fields);
         $verification = openssl_verify($data, $signature, $publicKey, OPENSSL_ALGO_SHA1);
-        if ($verification == 1) {
+        if ($verification === 1) {
             $user = User::whereEmail($request->email)->first();
             if ($request->alert_name === 'subscription_created') {
                 return $this->handleSubscriptionCreated($user, $request);
