@@ -22,7 +22,7 @@ class SocialController extends Controller
         return abort(404);
     }
 
-    public function Callback(Request $request, $provider)
+    public function callback(Request $request, $provider)
     {
         if ($provider === 'twitter') {
             $userSocial = Socialite::driver($provider)->user();
