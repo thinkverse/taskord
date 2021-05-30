@@ -37,9 +37,9 @@ class Feature extends Model
                 return $feature->beta ? true : false;
             } elseif (auth()->user()->is_contributor) {
                 return $feature->contributor ? true : false;
-            } else {
-                return false;
             }
+
+            return false;
         } else {
             return $feature->public ? true : false;
         }
