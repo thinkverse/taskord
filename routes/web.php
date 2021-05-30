@@ -325,8 +325,10 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     Route::view('reputation', 'pages.reputation')
         ->name('reputation')
         ->middleware('auth');
-    Route::view('open', 'pages.open')->name('open');
-    Route::get('deals', [PagesController::class, 'deals'])->name('deals');
+    Route::view('open', 'pages.open')
+        ->name('open');
+    Route::get('deals', [PagesController::class, 'deals'])
+        ->name('deals');
 
     // Meetups
     Route::group(['prefix' => 'meetups', 'as' => 'meetups.'], function () {
