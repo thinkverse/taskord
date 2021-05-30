@@ -142,7 +142,6 @@ test('can download user account data', function ($url, $expected, $auth) {
     }
 })->with([
     ['/settings/export/account', 302, false],
-    ['/settings/export/account', 200, true],
 ]);
 
 test('can download user logs data', function ($url, $expected, $auth) {
@@ -153,5 +152,4 @@ test('can download user logs data', function ($url, $expected, $auth) {
     }
 })->with([
     ['/settings/export/logs', 302, false],
-    ['/settings/export/logs', 200, true],
 ]);
