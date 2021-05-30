@@ -78,13 +78,23 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     });
 
     // Settings
-    Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => ['auth']], function () {
-        Route::get('', [UserController::class, 'profileSettings'])->name('profile');
-        Route::get('account', [UserController::class, 'accountSettings'])->name('account');
-        Route::get('appearance', [UserController::class, 'appearanceSettings'])->name('appearance');
-        Route::get('products', [UserController::class, 'productsSettings'])->name('products');
-        Route::get('patron', [UserController::class, 'patronSettings'])->name('patron');
-        Route::get('password', [UserController::class, 'passwordSettings'])->name('password');
+    Route::group([
+        'prefix' => 'settings',
+        'as' => 'user.settings.',
+        'middleware' => ['auth']
+    ], function () {
+        Route::get('', [UserController::class, 'profileSettings'])
+            ->name('profile');
+        Route::get('account', [UserController::class, 'accountSettings'])
+            ->name('account');
+        Route::get('appearance', [UserController::class, 'appearanceSettings'])
+            ->name('appearance');
+        Route::get('products', [UserController::class, 'productsSettings'])
+            ->name('products');
+        Route::get('patron', [UserController::class, 'patronSettings'])
+            ->name('patron');
+        Route::get('password', [UserController::class, 'passwordSettings'])
+            ->name('password');
         Route::get('notifications', [UserController::class, 'notificationsSettings'])->name('notifications');
         Route::get('integrations', [UserController::class, 'integrationsSettings'])->name('integrations');
         Route::get('api', [UserController::class, 'apiSettings'])->name('api');
