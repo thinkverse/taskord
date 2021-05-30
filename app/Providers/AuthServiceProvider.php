@@ -60,9 +60,9 @@ class AuthServiceProvider extends ServiceProvider
             $currentUser->id === $entityUser->id
         ) {
             return false;
-        } else {
-            return true;
         }
+
+        return true;
     }
 
     public function canPerformOnEntity(User $user, User $entityUser)
