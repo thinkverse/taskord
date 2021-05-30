@@ -114,9 +114,15 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     });
 
     // Notifications
-    Route::group(['prefix' => 'notifications', 'as' => 'notifications.', 'middleware' => ['auth']], function () {
-        Route::view('', 'notifications.unread')->name('unread');
-        Route::view('all', 'notifications.all')->name('all');
+    Route::group([
+        'prefix' => 'notifications',
+        'as' => 'notifications.',
+        'middleware' => ['auth']
+    ], function () {
+        Route::view('', 'notifications.unread')
+            ->name('unread');
+        Route::view('all', 'notifications.all')
+            ->name('all');
     });
 
     // Suspended
