@@ -85,8 +85,8 @@ class AuthServiceProvider extends ServiceProvider
             ! $user->hasVerifiedEmail()
         ) {
             return false;
-        } else {
-            return true;
         }
+
+        return true;
     }
 }
