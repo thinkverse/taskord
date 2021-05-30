@@ -1,4 +1,4 @@
-import { getLCP, getFID, getCLS } from 'web-vitals';
+import { getLCP, getFID, getCLS, getFCP, getTTFB } from 'web-vitals';
 
 function logInConsole(metric) {
     const body = JSON.stringify({ [metric.name]: metric.value });
@@ -11,3 +11,5 @@ function logInConsole(metric) {
 getCLS(logInConsole);
 getFID(logInConsole);
 getLCP(logInConsole);
+getFCP(logInConsole);
+getTTFB(logInConsole);
