@@ -213,14 +213,14 @@ class UserController extends Controller
             return response()->json([
                 'status' => 'disabled',
             ]);
-        } else {
-            auth()->user()->dark_mode = true;
-            auth()->user()->save();
-            loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
-
-            return response()->json([
-                'status' => 'enabled',
-            ]);
         }
+
+        auth()->user()->dark_mode = true;
+        auth()->user()->save();
+        loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
+
+        return response()->json([
+            'status' => 'enabled',
+        ]);
     }
 }
