@@ -310,13 +310,21 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
         ->middleware('auth');
 
     // Pages
-    Route::get('about', [PagesController::class, 'about'])->name('about');
-    Route::view('terms', 'pages.terms')->name('terms');
-    Route::view('privacy', 'pages.privacy')->name('privacy');
-    Route::view('security', 'pages.security')->name('security');
-    Route::view('sponsors', 'pages.sponsors')->name('sponsors');
-    Route::view('contact', 'pages.contact')->name('contact');
-    Route::view('reputation', 'pages.reputation')->name('reputation')->middleware('auth');
+    Route::get('about', [PagesController::class, 'about'])
+        ->name('about');
+    Route::view('terms', 'pages.terms')
+        ->name('terms');
+    Route::view('privacy', 'pages.privacy')
+        ->name('privacy');
+    Route::view('security', 'pages.security')
+        ->name('security');
+    Route::view('sponsors', 'pages.sponsors')
+        ->name('sponsors');
+    Route::view('contact', 'pages.contact')
+        ->name('contact');
+    Route::view('reputation', 'pages.reputation')
+        ->name('reputation')
+        ->middleware('auth');
     Route::view('open', 'pages.open')->name('open');
     Route::get('deals', [PagesController::class, 'deals'])->name('deals');
 
