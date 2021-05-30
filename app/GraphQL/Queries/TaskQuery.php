@@ -8,8 +8,8 @@ class TaskQuery
     {
         if (auth()->check()) {
             return auth()->user()->hasLiked($task);
-        } else {
-            return null;
         }
+
+        return null;
     }
 }

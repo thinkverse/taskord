@@ -48,11 +48,11 @@ class VerificationController extends Controller
             session()->flash('global', 'Your email is already verified!');
 
             return redirect()->route('home');
-        } else {
-            $request->user()->sendEmailVerificationNotification();
-            session()->flash('global', 'Verification link has been sent to your email!');
-
-            return redirect()->route('home');
         }
+
+        $request->user()->sendEmailVerificationNotification();
+        session()->flash('global', 'Verification link has been sent to your email!');
+
+        return redirect()->route('home');
     }
 }

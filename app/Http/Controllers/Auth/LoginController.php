@@ -57,20 +57,20 @@ class LoginController extends Controller
             $request->session()->flash('error', 'No user found with "'.$request->input('username').'"');
 
             return redirect()->back();
-        } else {
-            if (! $user->spammy) {
-                $generator = new LoginUrl($user);
-                $generator->setRedirectUrl('/');
-                $url = $generator->generate();
-                $user->notify(new MagicLink($url));
-                $request->session()->flash('global', 'Magic link has been sent to your email');
-                AuthGetIP::dispatch($user, $request->ip());
-            } else {
-                $request->session()->flash('global', 'Your account is flagged or suspended 😢');
-            }
-
-            return redirect()->route('home');
         }
+
+        if (! $user->spammy) {
+            $generator = new LoginUrl($user);
+            $generator->setRedirectUrl('/');
+            $url = $generator->generate();
+            $user->notify(new MagicLink($url));
+            $request->session()->flash('global', 'Magic link has been sent to your email');
+            AuthGetIP::dispatch($user, $request->ip());
+        } else {
+            $request->session()->flash('global', 'Your account is flagged or suspended 😢');
+        }
+
+        return redirect()->route('home');
     }
 
     public function login(Request $request)
