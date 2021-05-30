@@ -215,14 +215,24 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     });
 
     // Search
-    Route::group(['prefix' => 'search', 'as' => 'search.'], function () {
-        Route::get('', [SearchController::class, 'search'])->name('home');
-        Route::get('tasks', [SearchController::class, 'tasks'])->name('tasks');
-        Route::get('comments', [SearchController::class, 'comments'])->name('comments');
-        Route::get('questions', [SearchController::class, 'questions'])->name('questions');
-        Route::get('answers', [SearchController::class, 'answers'])->name('answers');
-        Route::get('products', [SearchController::class, 'products'])->name('products');
-        Route::get('users', [SearchController::class, 'users'])->name('users');
+    Route::group([
+        'prefix' => 'search',
+        'as' => 'search.',
+    ], function () {
+        Route::get('', [SearchController::class, 'search'])
+            ->name('home');
+        Route::get('tasks', [SearchController::class, 'tasks'])
+            ->name('tasks');
+        Route::get('comments', [SearchController::class, 'comments'])
+            ->name('comments');
+        Route::get('questions', [SearchController::class, 'questions'])
+            ->name('questions');
+        Route::get('answers', [SearchController::class, 'answers'])
+            ->name('answers');
+        Route::get('products', [SearchController::class, 'products'])
+            ->name('products');
+        Route::get('users', [SearchController::class, 'users'])
+            ->name('users');
     });
 
     /*
