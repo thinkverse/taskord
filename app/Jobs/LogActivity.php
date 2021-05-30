@@ -58,7 +58,7 @@ class LogActivity implements ShouldQueue
     public function getGeoDetails()
     {
         try {
-            if (App::environment() === 'local') {
+            if (App::environment() === 'production') {
                 try {
                     $ipInfo = json_decode(file_get_contents('http://ip-api.com/json/'.$this->ip));
                     if ($ipInfo->status === 'fail') {
