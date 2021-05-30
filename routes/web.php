@@ -279,8 +279,12 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     });
 
     // Patron
-    Route::group(['prefix' => 'patron', 'as' => 'patron.'], function () {
-        Route::view('', 'pages.patron')->name('home');
+    Route::group([
+        'prefix' => 'patron',
+        'as' => 'patron.',
+    ], function () {
+        Route::view('', 'pages.patron')
+            ->name('home');
     });
 
     // Paddle Integration
