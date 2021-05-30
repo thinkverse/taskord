@@ -65,8 +65,8 @@ class CreateProduct extends Component
 
         if ($this->avatar) {
             $img = Image::make($this->avatar)
-                    ->fit(400)
-                    ->encode('webp', 100);
+                ->fit(400)
+                ->encode('webp', 100);
             $imageName = Str::orderedUuid().'.webp';
             Storage::disk('public')->put('logos/'.$imageName, (string) $img);
             $url = config('app.url').'/storage/logos/'.$imageName;
