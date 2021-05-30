@@ -35,7 +35,8 @@ class Helper
      * Toggle praise on a model.
      *
      * @param \Illuminate\Database\Eloquent\Model $entity
-     * @param string                              $type
+     * @param string $type
+     *
      * @return void
      */
     public static function togglePraise(Model $entity, string $type)
