@@ -95,14 +95,22 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
             ->name('patron');
         Route::get('password', [UserController::class, 'passwordSettings'])
             ->name('password');
-        Route::get('notifications', [UserController::class, 'notificationsSettings'])->name('notifications');
-        Route::get('integrations', [UserController::class, 'integrationsSettings'])->name('integrations');
-        Route::get('api', [UserController::class, 'apiSettings'])->name('api');
-        Route::get('logs', [UserController::class, 'logsSettings'])->name('logs');
-        Route::get('data', [UserController::class, 'dataSettings'])->name('data');
-        Route::get('delete', [UserController::class, 'deleteSettings'])->name('delete');
-        Route::get('export/account', [UserController::class, 'exportAccount'])->name('export.account');
-        Route::get('export/logs', [UserController::class, 'exportLogs'])->name('export.logs');
+        Route::get('notifications', [UserController::class, 'notificationsSettings'])
+            ->name('notifications');
+        Route::get('integrations', [UserController::class, 'integrationsSettings'])
+            ->name('integrations');
+        Route::get('api', [UserController::class, 'apiSettings'])
+            ->name('api');
+        Route::get('logs', [UserController::class, 'logsSettings'])
+            ->name('logs');
+        Route::get('data', [UserController::class, 'dataSettings'])
+            ->name('data');
+        Route::get('delete', [UserController::class, 'deleteSettings'])
+            ->name('delete');
+        Route::get('export/account', [UserController::class, 'exportAccount'])
+            ->name('export.account');
+        Route::get('export/logs', [UserController::class, 'exportLogs'])
+            ->name('export.logs');
     });
 
     // Notifications
