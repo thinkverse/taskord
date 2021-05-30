@@ -31,9 +31,9 @@
                 </div>
             @endif
         @endauth
-        <button wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
+        <button wire:offline.attr="disabled" class="btn btn-sm btn-primary d-flex align-items-center" type="submit">
             <x-heroicon-o-plus class="heroicon" />
-            Add Task
+            <span>Add Task</span>
         </button>
         </div>
         <div wire:loading wire:target="images">
