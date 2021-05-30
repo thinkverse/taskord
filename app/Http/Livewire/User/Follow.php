@@ -37,8 +37,12 @@ class Follow extends Component
         auth()->user()->touch();
         if (auth()->user()->isFollowing($this->user)) {
             $this->user->notify(new Followed(auth()->user()));
-        }
+            loggy(request(), 'User', auth()->user(), 'Followed the user | Username: @'.$this->user->username);
 
-        return loggy(request(), 'User', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
+            return toast($this, 'success', 'Followed successfully!');
+        }
+        loggy(request(), 'User', auth()->user(), 'Unfollowed the user | Username: @'.$this->user->username);
+
+        return toast($this, 'success', 'Unfollowed successfully!');
     }
 }
