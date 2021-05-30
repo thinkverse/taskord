@@ -66,9 +66,9 @@ class LoginController extends Controller
             $user->notify(new MagicLink($url));
             $request->session()->flash('global', 'Magic link has been sent to your email');
             AuthGetIP::dispatch($user, $request->ip());
-        } else {
-            $request->session()->flash('global', 'Your account is flagged or suspended 😢');
         }
+
+        $request->session()->flash('global', 'Your account is flagged or suspended 😢');
 
         return redirect()->route('home');
     }
@@ -92,10 +92,10 @@ class LoginController extends Controller
             loggy(request(), 'Auth', auth()->user(), 'Logged in via Taskord auth with '.auth()->user()->email);
 
             return redirect()->route('home');
-        } else {
-            $request->session()->flash('error', 'Invalid login credentials');
-
-            return redirect()->back();
         }
+
+        $request->session()->flash('error', 'Invalid login credentials');
+
+        return redirect()->back();
     }
 }
