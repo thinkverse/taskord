@@ -82,7 +82,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function notificationsSettings()
+    public function notifySettings()
     {
         return view('user.settings.notifications', [
             'user' => auth()->user(),

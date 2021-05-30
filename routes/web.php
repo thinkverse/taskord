@@ -93,7 +93,7 @@ Route::group([
         ->name('patron');
     Route::get('password', [UserController::class, 'passwordSettings'])
         ->name('password');
-    Route::get('notifications', [UserController::class, 'notificationsSettings'])
+    Route::get('notifications', [UserController::class, 'notifySettings'])
         ->name('notifications');
     Route::get('integrations', [UserController::class, 'integrationsSettings'])
         ->name('integrations');
