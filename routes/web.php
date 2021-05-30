@@ -126,10 +126,12 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     });
 
     // Suspended
-    Route::view('suspended', 'auth.suspended')->name('suspended');
+    Route::view('suspended', 'auth.suspended')
+        ->name('suspended');
 
     // Avatar
-    Route::get('avatar/{username}.png', [UserController::class, 'avatar'])->name('avatar');
+    Route::get('avatar/{username}.png', [UserController::class, 'avatar'])
+        ->name('avatar');
 
     // Webhooks
     Route::group(['prefix' => 'webhook'], function () {
@@ -138,11 +140,17 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
 
     // Product
     Route::group(['prefix' => 'product/{slug}', 'as' => 'product.'], function () {
-        Route::get('', [ProductController::class, 'profile'])->name('done');
-        Route::get('pending', [ProductController::class, 'profile'])->name('pending');
-        Route::get('updates', [ProductController::class, 'profile'])->name('updates');
-        Route::get('subscribers', [ProductController::class, 'profile'])->name('subscribers');
-        Route::get('edit', [ProductController::class, 'edit'])->middleware('auth')->name('edit');
+        Route::get('', [ProductController::class, 'profile'])
+            ->name('done');
+        Route::get('pending', [ProductController::class, 'profile'])
+            ->name('pending');
+        Route::get('updates', [ProductController::class, 'profile'])
+            ->name('updates');
+        Route::get('subscribers', [ProductController::class, 'profile'])
+            ->name('subscribers');
+        Route::get('edit', [ProductController::class, 'edit'])
+            ->middleware('auth')
+            ->name('edit');
     });
 
     // Products
