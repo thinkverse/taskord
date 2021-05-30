@@ -288,10 +288,13 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     });
 
     // Paddle Integration
-    Route::post('paddle/webhook', [PatronController::class, 'handleWebhook'])->name('paddle.webhook');
+    Route::post('paddle/webhook', [PatronController::class, 'handleWebhook'])
+        ->name('paddle.webhook');
 
     // Dark mode
-    Route::get('darkmode', [UserController::class, 'darkMode'])->name('darkmode')->middleware('auth');
+    Route::get('darkmode', [UserController::class, 'darkMode'])
+        ->name('darkmode')
+        ->middleware('auth');
 
     // Single Task and comment
     Route::group(['prefix' => 'task'], function () {
