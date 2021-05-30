@@ -196,12 +196,21 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     });
 
     // Milestone
-    Route::group(['prefix' => 'milestones', 'as' => 'milestones.'], function () {
-        Route::get('', [MilestoneController::class, 'opened'])->name('opened');
-        Route::get('closed', [MilestoneController::class, 'closed'])->name('closed');
-        Route::view('new', 'milestone.new')->middleware('auth')->name('new');
-        Route::get('{milestone}/edit', [MilestoneController::class, 'edit'])->middleware('auth')->name('edit');
-        Route::get('{milestone}', [MilestoneController::class, 'milestone'])->name('milestone');
+    Route::group([
+        'prefix' => 'milestones',
+        'as' => 'milestones.',
+    ], function () {
+        Route::get('', [MilestoneController::class, 'opened'])
+            ->name('opened');
+        Route::get('closed', [MilestoneController::class, 'closed'])
+            ->name('closed');
+        Route::view('new', 'milestone.new')->middleware('auth')
+            ->name('new');
+        Route::get('{milestone}/edit', [MilestoneController::class, 'edit'])
+            ->middleware('auth')
+            ->name('edit');
+        Route::get('{milestone}', [MilestoneController::class, 'milestone'])
+            ->name('milestone');
     });
 
     // Search
