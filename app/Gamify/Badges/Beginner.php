@@ -21,7 +21,7 @@ class Beginner extends BadgeType
      *
      * @return bool
      */
-    public function qualifier($user)
+    public function qualifier(User $user)
     {
         return $user->getPoints() >= 0;
     }

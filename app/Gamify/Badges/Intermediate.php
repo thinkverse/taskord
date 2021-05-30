@@ -21,7 +21,7 @@ class Intermediate extends BadgeType
      *
      * @return bool
      */
-    public function qualifier($user)
+    public function qualifier(User $user)
     {
         return $user->getPoints() >= 2500;
     }
