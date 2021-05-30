@@ -48,8 +48,11 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
 
     // Explore
     Route::group(['prefix' => 'explore', 'as' => 'explore.'], function () {
-        Route::view('', 'explore.explore')->name('explore');
-        Route::view('/makers', 'explore.makers')->middleware('feature:explore_makers')->name('makers');
+        Route::view('', 'explore.explore')
+            ->name('explore');
+        Route::view('/makers', 'explore.makers')
+            ->middleware('feature:explore_makers')
+            ->name('makers');
     });
 
     // User
