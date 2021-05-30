@@ -169,9 +169,13 @@ class WebhookController extends Controller
 
         if ($webhook->type === 'web') {
             return $this->simpleWebhook($request, $webhook);
-        } elseif ($webhook->type === 'github') {
+        }
+
+        if ($webhook->type === 'github') {
             return $this->githubWebhook($request, $webhook);
-        } elseif ($webhook->type === 'gitlab') {
+        }
+
+        if ($webhook->type === 'gitlab') {
             return $this->gitlabWebhook($request, $webhook);
         }
     }
