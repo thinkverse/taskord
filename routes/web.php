@@ -305,7 +305,9 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     });
 
     // Zen mode tasks
-    Route::view('tasks', 'tasks.tasks')->name('tasks')->middleware('auth');
+    Route::view('tasks', 'tasks.tasks')
+        ->name('tasks')
+        ->middleware('auth');
 
     // Pages
     Route::get('about', [PagesController::class, 'about'])->name('about');
