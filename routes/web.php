@@ -180,11 +180,19 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     });
 
     // Questions
-    Route::group(['prefix' => 'questions', 'as' => 'questions.'], function () {
-        Route::get('', [QuestionController::class, 'newest'])->name('newest');
-        Route::get('unanswered', [QuestionController::class, 'unanswered'])->name('unanswered');
-        Route::get('popular', [QuestionController::class, 'popular'])->name('popular');
-        Route::view('new', 'question.new')->middleware('auth')->name('new');
+    Route::group([
+        'prefix' => 'questions',
+        'as' => 'questions.',
+    ], function () {
+        Route::get('', [QuestionController::class, 'newest'])
+            ->name('newest');
+        Route::get('unanswered', [QuestionController::class, 'unanswered'])
+            ->name('unanswered');
+        Route::get('popular', [QuestionController::class, 'popular'])
+            ->name('popular');
+        Route::view('new', 'question.new')
+            ->middleware('auth')
+            ->name('new');
     });
 
     // Milestone
