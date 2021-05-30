@@ -33,7 +33,7 @@ class PatronController extends Controller
                 $request->alert_name === 'subscription_cancelled' or
                 $request->alert_name === 'subscription_payment_refunded'
             ) {
-                return $this->handleSubscriptionCancelled($user, $request);
+                return $this->handleSubscriptionCancelled($user);
             }
         } else {
             return 'Forbidden';
@@ -80,7 +80,7 @@ class PatronController extends Controller
         }
     }
 
-    public function handleSubscriptionCancelled($user, $request)
+    public function handleSubscriptionCancelled($user)
     {
         if ($user) {
             $user->patron->delete();
