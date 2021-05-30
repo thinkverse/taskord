@@ -45,7 +45,7 @@ class CreateReply extends Component
             $this->reply = Helper::parseUserMentionsToMarkdownLinks($this->reply, $users);
         }
 
-        $reply = auth()->user()->comment_replies()->create([
+        $reply = auth()->user()->commentReplies()->create([
             'comment_id' => $this->comment->id,
             'reply' => $this->reply,
         ]);
