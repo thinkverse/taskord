@@ -101,7 +101,7 @@ class CreateTask extends Component
         }
 
         $task = (new CreateNewTask(auth()->user(), [
-            'product_id' =>  $product_id,
+            'product_id' => $product_id,
             'task' => $this->task,
             'done' => $state,
             'done_at' => $done_at,

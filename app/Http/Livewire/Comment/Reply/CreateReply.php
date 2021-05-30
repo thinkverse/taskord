@@ -46,7 +46,7 @@ class CreateReply extends Component
         }
 
         $reply = auth()->user()->comment_replies()->create([
-            'comment_id' =>  $this->comment->id,
+            'comment_id' => $this->comment->id,
             'reply' => $this->reply,
         ]);
         auth()->user()->touch();

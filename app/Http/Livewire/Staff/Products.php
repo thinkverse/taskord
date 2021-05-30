@@ -10,9 +10,8 @@ class Products extends Component
 {
     use WithPagination;
 
-    protected string $paginationTheme = 'bootstrap';
-
     public bool $readyToLoad = false;
+    protected string $paginationTheme = 'bootstrap';
 
     public function loadProducts()
     {
