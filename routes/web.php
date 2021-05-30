@@ -298,8 +298,10 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
 
     // Single Task and comment
     Route::group(['prefix' => 'task'], function () {
-        Route::get('{id}', [TaskController::class, 'task'])->name('task');
-        Route::get('{id}/{comment_id}', [TaskController::class, 'comment'])->name('comment');
+        Route::get('{id}', [TaskController::class, 'task'])
+            ->name('task');
+        Route::get('{id}/{comment_id}', [TaskController::class, 'comment'])
+            ->name('comment');
     });
 
     // Zen mode tasks
