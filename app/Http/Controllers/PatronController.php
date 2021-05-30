@@ -27,9 +27,13 @@ class PatronController extends Controller
             $user = User::whereEmail($request->email)->first();
             if ($request->alert_name === 'subscription_created') {
                 return $this->handleSubscriptionCreated($user, $request);
-            } elseif ($request->alert_name === 'subscription_updated') {
+            }
+
+            if ($request->alert_name === 'subscription_updated') {
                 return $this->handleSubscriptionUpdated($user, $request);
-            } elseif (
+            }
+
+            if (
                 $request->alert_name === 'subscription_cancelled' or
                 $request->alert_name === 'subscription_payment_refunded'
             ) {
@@ -57,12 +61,12 @@ class PatronController extends Controller
                 $user->save();
 
                 return 'Success';
-            } else {
-                return 'Already Subscribed';
             }
-        } else {
-            return 'No user';
+
+            return 'Already Subscribed';
         }
+
+        return 'No user';
     }
 
     public function handleSubscriptionUpdated($user, $request)
@@ -75,9 +79,9 @@ class PatronController extends Controller
             $user->patron->save();
 
             return 'Success';
-        } else {
-            return 'No user';
         }
+
+        return 'No user';
     }
 
     public function handleSubscriptionCancelled($user)
@@ -89,8 +93,8 @@ class PatronController extends Controller
             $user->save();
 
             return 'Success';
-        } else {
-            return 'No user';
         }
+
+        return 'No user';
     }
 }
