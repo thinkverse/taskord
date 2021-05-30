@@ -341,7 +341,9 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
         Route::get('/rsvpd', [MeetupController::class, 'rsvpd'])
             ->middleware('staff')
             ->name('rsvpd');
-        Route::get('/finished', [MeetupController::class, 'finished'])->name('finished')->middleware('staff');
+        Route::get('/finished', [MeetupController::class, 'finished'])
+            ->middleware('staff')
+            ->name('finished');
     });
 
     // https://web.dev/change-password-url
