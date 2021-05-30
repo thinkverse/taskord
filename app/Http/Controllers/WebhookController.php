@@ -84,7 +84,7 @@ class WebhookController extends Controller
 
         $requestBody = $request->json()->all();
 
-        if (mb_strtolower($requestBody['sender']['type'], 'UTF-8') == 'bot') {
+        if (mb_strtolower($requestBody['sender']['type'], 'UTF-8') === 'bot') {
             return response('Bot cannot log tasks', 200);
         }
 
