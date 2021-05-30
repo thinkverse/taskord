@@ -81,7 +81,7 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     Route::group([
         'prefix' => 'settings',
         'as' => 'user.settings.',
-        'middleware' => ['auth']
+        'middleware' => ['auth'],
     ], function () {
         Route::get('', [UserController::class, 'profileSettings'])
             ->name('profile');
@@ -117,7 +117,7 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     Route::group([
         'prefix' => 'notifications',
         'as' => 'notifications.',
-        'middleware' => ['auth']
+        'middleware' => ['auth'],
     ], function () {
         Route::view('', 'notifications.unread')
             ->name('unread');
@@ -156,7 +156,7 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     // Products
     Route::group([
         'prefix' => 'products',
-        'as' => 'products.'
+        'as' => 'products.',
     ], function () {
         Route::get('', [ProductController::class, 'newest'])
             ->name('newest');
