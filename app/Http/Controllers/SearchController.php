@@ -78,7 +78,7 @@ class SearchController extends Controller
             return view('search.result', [
                 'type' => 'comments',
                 'searchTerm' => $searchTerm,
-                'comments' =>  $comments,
+                'comments' => $comments,
             ]);
         }
 
