@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Jobs\AuthGetIP;
 use App\Models\User;
 use App\Notifications\Welcome;
-use App\Providers\RouteServiceProvider;
 use App\Rules\ReservedSlug;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
