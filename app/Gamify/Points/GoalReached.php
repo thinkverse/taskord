@@ -8,11 +8,6 @@ class GoalReached extends PointType
 {
     public $allowDuplicates = false;
 
-    /**
-     * Point constructor.
-     *
-     * @param $subject
-     */
     public function __construct($subject, $award)
     {
         $this->subject = $subject;
@@ -24,11 +19,6 @@ class GoalReached extends PointType
         return $this->award;
     }
 
-    /**
-     * User who will be receive points.
-     *
-     * @return mixed
-     */
     public function payee()
     {
         return $this->getSubject()->user;
