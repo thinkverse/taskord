@@ -18,7 +18,9 @@ class TaskController extends Controller
             auth()->check() && auth()->user()->staff_mode
         ) {
             return view('task/task', $response);
-        } elseif ($task->user->spammy or $task->user->is_private) {
+        }
+
+        if ($task->user->spammy or $task->user->is_private) {
             return abort(404);
         }
 
