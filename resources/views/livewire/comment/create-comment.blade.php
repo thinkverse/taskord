@@ -9,7 +9,7 @@
         @enderror
         <div class="mb-2">
             <x:markdown-toolbar htmlFor="comment-box" />
-            <textarea placeholder="Add a comment" id="comment-box" class="form-control mentionInput mt-2" rows="3" wire:model.defer="comment"></textarea>
+            <textarea placeholder="Add a comment" id="comment-box" class="form-control mentionInput mt-2" rows="3" wire:model.lazy="comment"></textarea>
         </div>
         <div class="d-flex justify-content-between align-items-center">
             <div class="small fw-bold text-secondary">
