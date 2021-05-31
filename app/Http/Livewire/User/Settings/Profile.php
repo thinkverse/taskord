@@ -154,7 +154,7 @@ class Profile extends Component
     {
         if (auth()->user()->id === $this->user->id) {
             $this->validate([
-                'daily_goal' => ['integer', 'max:1000', 'min:5'],
+                'dailyGoal' => ['integer', 'max:1000', 'min:5'],
             ]);
 
             $this->user->daily_goal = $this->dailyGoal;
