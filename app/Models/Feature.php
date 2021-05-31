@@ -30,15 +30,12 @@ class Feature extends Model
             if ($feature->public) {
                 return true;
             }
-
             if (auth()->user()->staff_mode) {
                 return $feature->staff ? true : false;
             }
-
             if (auth()->user()->is_beta) {
                 return $feature->beta ? true : false;
             }
-
             if (auth()->user()->is_contributor) {
                 return $feature->contributor ? true : false;
             }
