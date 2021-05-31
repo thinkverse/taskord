@@ -23,7 +23,7 @@ class TaskFactory extends Factory
     {
         return [
             'user_id' => $this->faker->numberBetween($min = 1, $max = 50),
-            'product_id' => $this->faker->numberBetween($min = 1, $max = 100),
+            'product_id' => $this->faker->numberBetween($min = 1, $max = 50),
             'task' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
             'done' => $this->faker->boolean($chanceOfGettingTrue = 80),
             'source' => 'Taskord for Web',
