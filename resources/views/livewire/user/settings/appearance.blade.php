@@ -5,25 +5,19 @@
             <div>Choose how Taskord looks to you.</div>
         </div>
         <div class="card-body d-flex">
-            <div class="me-3 card {{ $user->dark_mode ? '' : 'border-primary'  }}">
+            <div class="cursor-pointer me-3 card {{ $user->dark_mode ? '' : 'border-primary'  }}" wire:click="toggleMode('light')">
                 <img class="rounded-top" src="https://ik.imagekit.io/taskordimg/light_preview_vbmoVL43E.svg" />
                 <div class="card-footer">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="lightMode" id="lightMode" wire:click="toggleMode('light')" {{ $user->dark_mode ? '' : 'checked'  }}>
-                        <label class="form-check-label fw-bold" for="lightMode">
-                            Default light
-                        </label>
+                    <div class="fw-bold">
+                        Default light
                     </div>
                 </div>
             </div>
-            <div class="card {{ $user->dark_mode ? 'border-primary' : ''  }}">
+            <div class="cursor-pointer card {{ $user->dark_mode ? 'border-primary' : ''  }}" wire:click="toggleMode('dark')">
                 <img class="rounded-top" src="https://ik.imagekit.io/taskordimg/dark_preview_9AcAIKv8K.svg" />
                 <div class="card-footer">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="darkMode" id="darkMode" wire:click="toggleMode('dark')" {{ $user->dark_mode ? 'checked' : ''  }}>
-                        <label class="form-check-label fw-bold" for="darkMode">
-                            Default dark
-                        </label>
+                    <div class="fw-bold">
+                        Default dark
                     </div>
                 </div>
             </div>
