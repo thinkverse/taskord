@@ -58,6 +58,13 @@ Housekeeping:
   only:
     - main
 
+Rebase MRs:
+  stage: clean
+  script:
+    - ./script/auto-rebase.sh
+  only:
+    - main
+
 Merged Branches:
   stage: clean
   script:
