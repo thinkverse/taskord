@@ -9,20 +9,19 @@
         @enderror
         <div class="mb-2">
             <markdown-toolbar for="comment-box">
-                <md-bold>bold</md-bold>
-                <md-header>header</md-header>
-                <md-italic>italic</md-italic>
-                <md-quote>quote</md-quote>
-                <md-code>code</md-code>
-                <md-link>link</md-link>
-                <md-image>image</md-image>
-                <md-unordered-list>unordered-list</md-unordered-list>
-                <md-ordered-list>ordered-list</md-ordered-list>
-                <md-task-list>task-list</md-task-list>
-                <md-mention>mention</md-mention>
-                <md-ref>ref</md-ref>
+                <md-bold><img src="/images/md/bold.svg" /></md-bold>
+                <md-header><img src="/images/md/heading.svg" /></md-header>
+                <md-italic><img src="/images/md/italic.svg" /></md-italic>
+                <md-quote><img src="/images/md/quote.svg" /></md-quote>
+                <md-code><img src="/images/md/code.svg" /></md-code>
+                <md-link><img src="/images/md/link.svg" /></md-link>
+                <md-image><img src="/images/md/image.svg" /></md-image>
+                <md-unordered-list><img src="/images/md/list-unordered.svg" /></md-unordered-list>
+                <md-ordered-list><img src="/images/md/list-ordered.svg" /></md-ordered-list>
+                <md-task-list><img src="/images/md/tasklist.svg" /></md-task-list>
+                <md-mention><img src="/images/md/mention.svg" /></md-mention>
             </markdown-toolbar>
-            <textarea placeholder="Add a comment" id="comment-box" class="form-control mentionInput" rows="3" wire:model.defer="comment"></textarea>
+            <textarea placeholder="Add a comment" id="comment-box" class="mt-2 form-control mentionInput" rows="3" wire:model.defer="comment"></textarea>
         </div>
         <div class="d-flex justify-content-between align-items-center">
             <div class="small fw-bold text-secondary">
