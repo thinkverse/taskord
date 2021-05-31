@@ -59,9 +59,11 @@ Housekeeping:
     - main
 
 Rebase MRs:
+  image: node:latest-alpine
   stage: clean
   script:
-    - ./script/auto-rebase.sh
+    - apk add jq curl
+    - sh script/auto-rebase.sh
   only:
     - main
 
