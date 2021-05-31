@@ -1,29 +1,17 @@
 import { getLCP, getFID, getCLS, getFCP, getTTFB } from 'web-vitals';
 
-function sendToGoogleAnalytics({ name, delta, id }) {
-  ga('send', 'event', {
-    eventCategory: 'Web Vitals',
-    eventAction: name,
-    eventLabel: id,
-    eventValue: Math.round(name === 'CLS' ? delta * 1000 : delta),
-    nonInteraction: true,
-    transport: 'beacon',
-  });
-}
-
-function logInConsole(metric) {
-  const body = JSON.stringify({ [metric.name]: metric.value });
+function logInConsole({ name, delta }) {
   console.log(
-    `%c${metric.name}: ${metric.value}`,
+    `%c${name}: ${delta}`,
     "color: #6a63ec; font-family: monospace; font-size: 15px; font-weight: bold"
   );
 }
 
-getCLS(sendToGoogleAnalytics);
-getFID(sendToGoogleAnalytics);
-getLCP(sendToGoogleAnalytics);
-getFCP(sendToGoogleAnalytics);
-getTTFB(sendToGoogleAnalytics);
+getCLS(logInConsole);
+getFID(logInConsole);
+getLCP(logInConsole);
+getFCP(logInConsole);
+getTTFB(logInConsole);
 
 // Toggle stats in adminbar
 var expandStats = document.getElementById("expand-stats");
