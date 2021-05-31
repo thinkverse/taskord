@@ -14,10 +14,10 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
-        Comment::factory()->count(50)->create([
+        Comment::factory()->count(30)->create([
             'task_id' => 1,
         ]);
 
-        Comment::factory()->count(950)->create();
+        Comment::factory()->count(70)->create();
     }
 }

@@ -32,6 +32,6 @@ class QuestionSeeder extends Seeder
             'patron_only' => true,
         ]);
 
-        Question::factory()->count(98)->create();
+        Question::factory()->count(48)->create();
     }
 }

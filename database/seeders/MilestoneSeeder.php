@@ -14,6 +14,6 @@ class MilestoneSeeder extends Seeder
      */
     public function run()
     {
-        Milestone::factory()->count(500)->create();
+        Milestone::factory()->count(30)->create();
     }
 }

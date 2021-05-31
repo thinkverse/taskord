@@ -14,6 +14,6 @@ class MeetupSeeder extends Seeder
      */
     public function run()
     {
-        Meetup::factory()->count(30)->create();
+        Meetup::factory()->count(20)->create();
     }
 }

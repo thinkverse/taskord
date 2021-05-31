@@ -22,6 +22,6 @@ class ProductSeeder extends Seeder
             'launched' => true,
         ]);
 
-        Product::factory()->count(99)->create();
+        Product::factory()->count(49)->create();
     }
 }
