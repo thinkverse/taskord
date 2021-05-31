@@ -21,10 +21,13 @@ function logInConsole({ key, value }) {
   );
 }
 
+// Collect vital values
 getCLS(logVitalsInConsole);
 getFID(logVitalsInConsole);
 getLCP(logVitalsInConsole);
 getFCP(logVitalsInConsole);
+
+// Log Git SHA in console
 logInConsole({
   key: "Site SHA",
   value: document.getElementById("site-sha").innerHTML
