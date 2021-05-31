@@ -59,7 +59,7 @@ Housekeeping:
     - main
 
 Rebase MRs:
-  image: node:latest-alpine
+  image: node:16-alpine
   stage: clean
   script:
     - apk add jq curl
