@@ -2,7 +2,7 @@ import { getLCP, getFID, getCLS, getFCP, getTTFB } from 'web-vitals';
 
 function logInConsole({ name, delta }) {
   console.log(
-    `%c${name}: ${delta}`,
+    `%c${name}: ${parseFloat(name === 'CLS' ? delta * 1000 : delta).toFixed(2)}`,
     "color: #6a63ec; font-family: monospace; font-size: 15px; font-weight: bold"
   );
 }
