@@ -8,7 +8,21 @@
             </div>
         @enderror
         <div class="mb-2">
-            <textarea placeholder="Add a comment" class="form-control mentionInput" rows="3" wire:model.defer="comment"></textarea>
+            <markdown-toolbar for="comment-box">
+                <md-bold>bold</md-bold>
+                <md-header>header</md-header>
+                <md-italic>italic</md-italic>
+                <md-quote>quote</md-quote>
+                <md-code>code</md-code>
+                <md-link>link</md-link>
+                <md-image>image</md-image>
+                <md-unordered-list>unordered-list</md-unordered-list>
+                <md-ordered-list>ordered-list</md-ordered-list>
+                <md-task-list>task-list</md-task-list>
+                <md-mention>mention</md-mention>
+                <md-ref>ref</md-ref>
+            </markdown-toolbar>
+            <textarea placeholder="Add a comment" id="comment-box" class="form-control mentionInput" rows="3" wire:model.defer="comment"></textarea>
         </div>
         <div class="d-flex justify-content-between align-items-center">
             <div class="small fw-bold text-secondary">
