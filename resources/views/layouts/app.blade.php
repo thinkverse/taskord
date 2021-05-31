@@ -38,9 +38,6 @@
             <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
         @endif
     @endauth
-    @if (App::environment() === 'production')
-        <script async src="https://cdn.splitbee.io/sb.js"></script>
-    @endif
     <livewire:styles />
 </head>
 <body>
@@ -99,6 +96,17 @@
 <script src="{{ mix('js/bootstrap.js') }}" defer></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
 @yield('scripts')
+@if (App::environment() === 'production')
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-98MP737L0B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-98MP737L0B', {
+            'user_id': "{{ auth()->check() ? auth()->user()->username.'_'.auth()->user()->id : '' }}"
+        });
+    </script>
+@endif
 @can('staff.ops')
     <script src="{{ mix('js/stafftools.js') }}" defer></script>
 @endcan
