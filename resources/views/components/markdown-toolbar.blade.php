@@ -1,4 +1,4 @@
-<div>
+<markdown-toolbar for="{{ $htmlFor }}">
     <md-header class="me-2"><img src="/images/md/heading.svg" /></md-header>
     <md-bold class="me-2"><img src="/images/md/bold.svg" /></md-bold>
     <md-italic class="me-4"><img src="/images/md/italic.svg" /></md-italic>
@@ -10,4 +10,4 @@
     <md-ordered-list class="me-2"><img src="/images/md/list-ordered.svg" /></md-ordered-list>
     <md-task-list class="me-4"><img src="/images/md/tasklist.svg" /></md-task-list>
     <md-mention><img src="/images/md/mention.svg" /></md-mention>
-</div>
+</markdown-toolbar>

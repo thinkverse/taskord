@@ -6,21 +6,13 @@ use Illuminate\View\Component;
 
 class MarkdownToolbar extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $htmlFor;
+
+    public function __construct($htmlFor)
     {
-        //
+        $this->htmlFor = $htmlFor;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
     public function render()
     {
         return view('components.markdown-toolbar');
