@@ -85,7 +85,7 @@ return [
     ],
 
     'remove' => [
-        
+
     ],
 
     'config' => [
