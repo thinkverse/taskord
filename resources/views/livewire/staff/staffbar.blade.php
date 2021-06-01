@@ -3,9 +3,9 @@
         <span class="float-start">
             <span class="fw-bold">
                 <x-heroicon-o-terminal class="heroicon me-1" />
-                <a class="text-white" href="https://gitlab.com/yo/taskord/-/tree/{{ $branch_name }}" target="_blank" rel="noreferrer">{{ $branch_name }}</a>
+                <a class="text-white" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branch_name }}" target="_blank" rel="noreferrer">{{ $branch_name }}</a>
                 <x-heroicon-s-arrow-sm-right class="heroicon mx-0" />
-                <a class="text-white" href="https://gitlab.com/yo/taskord/-/commit/{{ $head_ref }}" target="_blank" rel="noreferrer">{{ Str::limit($head_ref, 8, '') }}</a>
+                <a class="text-white" href="https://gitlab.com/taskord/taskord/-/commit/{{ $head_ref }}" target="_blank" rel="noreferrer">{{ Str::limit($head_ref, 8, '') }}</a>
             </span>
             <a class="text-white-50 ms-3 d-none d-md-inline"
                 href="https://github.com/laravel/framework/releases/tag/v{{ $laravel_version }}" target="_blank" rel="noreferrer">

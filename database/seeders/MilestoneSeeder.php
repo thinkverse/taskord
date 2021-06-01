@@ -14,6 +14,10 @@ class MilestoneSeeder extends Seeder
      */
     public function run()
     {
-        Milestone::factory()->count(30)->create();
+        Milestone::factory()->create([
+            'user_id' => 1,
+        ]);
+
+        Milestone::factory()->count(29)->create();
     }
 }

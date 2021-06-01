@@ -6,7 +6,7 @@
 
 Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. Fork the project, ie. https://gitlab.com/yo/taskord/-/forks/new
+1. Fork the project, ie. https://gitlab.com/taskord/taskord/-/forks/new
 2. Clone your forked repository, ie. `git clone https://gitlab.com/<your-username>/taskord.git`
 3. Create your Feature Branch (`git checkout -b AmazingFeature`)
 4. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
