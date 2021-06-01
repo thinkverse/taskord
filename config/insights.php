@@ -71,20 +71,21 @@ return [
     'add' => [
         Classes::class => [
             ForbiddenFinalClasses::class,
+            AlphabeticallySortedUsesSniff::class,
+            DeclareStrictTypesSniff::class,
+            DisallowMixedTypeHintSniff::class,
+            ForbiddenDefineFunctions::class,
+            ForbiddenNormalClasses::class,
+            ForbiddenTraits::class,
+            ParameterTypeHintSniff::class,
+            PropertyTypeHintSniff::class,
+            ReturnTypeHintSniff::class,
+            UselessFunctionDocCommentSniff::class,
         ],
     ],
 
     'remove' => [
-        AlphabeticallySortedUsesSniff::class,
-        DeclareStrictTypesSniff::class,
-        DisallowMixedTypeHintSniff::class,
-        ForbiddenDefineFunctions::class,
-        ForbiddenNormalClasses::class,
-        ForbiddenTraits::class,
-        ParameterTypeHintSniff::class,
-        PropertyTypeHintSniff::class,
-        ReturnTypeHintSniff::class,
-        UselessFunctionDocCommentSniff::class,
+        
     ],
 
     'config' => [
