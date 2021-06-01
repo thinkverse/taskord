@@ -191,9 +191,9 @@ class UserController extends Controller
                 ->search($request['query'])
                 ->take(10)
                 ->get();
+        } else {
+            $users = '';
         }
-
-        $users = '';
 
         return $users;
     }
