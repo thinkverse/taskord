@@ -18,6 +18,6 @@ class MilestoneSeeder extends Seeder
             'user_id' => 1,
         ]);
 
-        Milestone::factory()->count(30)->create();
+        Milestone::factory()->count(29)->create();
     }
 }
