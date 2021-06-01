@@ -73,7 +73,6 @@ return [
             ForbiddenFinalClasses::class,
             AlphabeticallySortedUsesSniff::class,
             DeclareStrictTypesSniff::class,
-            DisallowMixedTypeHintSniff::class,            
             ForbiddenNormalClasses::class,
             ForbiddenTraits::class,
             ParameterTypeHintSniff::class,
@@ -85,6 +84,7 @@ return [
 
     'remove' => [
         ForbiddenDefineFunctions::class,
+        DisallowMixedTypeHintSniff::class,
     ],
 
     'config' => [
