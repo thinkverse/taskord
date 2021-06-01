@@ -20,7 +20,7 @@
                     <div>
                         <x:markdown-toolbar htmlFor="question-box" />
                     </div>
-                    <textarea id="question-box" class="form-control @error('body') is-invalid @enderror mentionInput mt-2" rows="6" placeholder="What's on your mind?" wire:model.lazy="body"></textarea>
+                    <textarea id="question-box" class="form-control @error('body') is-invalid @enderror mentionInput mt-3" rows="6" placeholder="What's on your mind?" wire:model.lazy="body"></textarea>
                     @error('body')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
