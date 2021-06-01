@@ -39,7 +39,7 @@ Insights:
   script:
     - sudo composer self-update --2
     - sudo composer install --no-progress --ignore-platform-reqs
-    - php artisan insights
+    - php artisan insights -v
 
 Validate GraphQL:
   image: edbizarro/gitlab-ci-pipeline-php:latest
