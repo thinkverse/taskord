@@ -71,6 +71,7 @@ return [
     'add' => [
         Classes::class => [
             ForbiddenFinalClasses::class,
+            UselessFunctionDocCommentSniff::class,
         ],
     ],
 
@@ -84,7 +85,6 @@ return [
         ForbiddenTraits::class,
         ParameterTypeHintSniff::class,
         PropertyTypeHintSniff::class,
-        UselessFunctionDocCommentSniff::class,
     ],
 
     'config' => [
