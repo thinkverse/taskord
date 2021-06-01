@@ -9,7 +9,7 @@
         @enderror
         <div class="mb-2">
             <x:markdown-toolbar htmlFor="reply-box-{{ $comment->id }}" />
-            <textarea placeholder="Add a reply" id="reply-box-{{ $comment->id }}" class="form-control mentionInput mt-2" rows="3" wire:model.lazy="reply"></textarea>
+            <textarea placeholder="Add a reply" id="reply-box-{{ $comment->id }}" class="form-control mentionInput mt-3" rows="3" wire:model.lazy="reply"></textarea>
         </div>
         <div class="d-flex justify-content-between align-items-center">
             <div class="small fw-bold text-secondary">
