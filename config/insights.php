@@ -79,13 +79,12 @@ return [
             ForbiddenTraits::class,
             ParameterTypeHintSniff::class,
             PropertyTypeHintSniff::class,
-            ReturnTypeHintSniff::class,
             UselessFunctionDocCommentSniff::class,
         ],
     ],
 
     'remove' => [
-
+        ReturnTypeHintSniff::class,
     ],
 
     'config' => [
