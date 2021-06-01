@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Milestone;
 use Illuminate\Database\Seeder;
+use App\Models\Milestone;
 
 class MilestoneSeeder extends Seeder
 {
