@@ -21,8 +21,7 @@ class UserVerified extends Notification implements ShouldQueue
         return (new MailMessage())
             ->subject('Your account has been verified ✅')
             ->greeting('Hello @'.$notifiable->username.' 👋')
-            ->line('Your account has been verified by one of the staff members 🎉')
-            ->line('You can see the verified badge everywhere next to your name.')
+            ->line('Your account has been verified in Taskord 🎉')
             ->line('Thank you for using Taskord!');
     }
 }
