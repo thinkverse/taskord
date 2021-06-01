@@ -58,15 +58,6 @@ Housekeeping:
   only:
     - main
 
-Rebase MRs:
-  image: node:16-alpine
-  stage: clean
-  script:
-    - apk add jq curl
-    - sh script/auto-rebase.sh
-  only:
-    - main
-
 Merged Branches:
   stage: clean
   script:
