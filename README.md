@@ -20,7 +20,7 @@
         <img src="https://gitlab.styleci.io/repos/20359920/shield" alt="Style CI">
     </a>
     <a href="https://www.codacy.com/gl/taskord/taskord/dashboard">
-        <img src="https://app.codacy.com/project/badge/Grade/07bf3a6ca7db4352a781485c94db59d3" alt="CodeClimate"/>
+        <img src="https://app.codacy.com/project/badge/Grade/7a9d7f0b31cb472185605c5089a6e2d8" alt="CodeClimate"/>
     </a>
     <a href="https://www.php.net">
         <img src="https://img.shields.io/badge/PHP-v8.0-green.svg" alt="PHP version">
