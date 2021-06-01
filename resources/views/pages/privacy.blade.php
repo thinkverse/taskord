@@ -69,7 +69,7 @@
             </div>
             <h5 class="mt-4">Contact Us</h5>
             <div>
-                If you have any questions or suggestions about our Privacy Policy, do not hesitate to <a href="https://taskord.com/contact">Contact Us.</a>
+                If you have any questions or suggestions about our Privacy Policy, do not hesitate to <a href="https://taskord.com/contact">Contact Us</a>.
             </div>
         </div>
     </div>
