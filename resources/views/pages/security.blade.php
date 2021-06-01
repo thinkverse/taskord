@@ -32,7 +32,7 @@
                 <ol>
                     <li>
                         <div>Do not test vulnerabilities in public. We ask that you do not attempt any vulnerabilities, rate-limiting tests, exploits, or any other security/bug-related findings if it will impact another community member. This means you should not leave comments on someone else’s tasks and questions, or otherwise, impact their experience on the platform.</div>
-                        <div class="mt-1">Note that we are open source and have <a href="https://gitlab.com/yo/taskord/-/blob/main/docs/installation.md" target="_blank" rel="noreferrer">documentation</a> available if you're interested in setting up a dev environment for the purposes of testing.</div>
+                        <div class="mt-1">Note that we are open source and have <a href="https://gitlab.com/taskord/taskord/-/blob/main/docs/installation.md" target="_blank" rel="noreferrer">documentation</a> available if you're interested in setting up a dev environment for the purposes of testing.</div>
                     </li>
                     <li class="mt-2">
                          Do not report similar issues or variations of the same issue in different reports. Please report any similar issues in a single report. It's better for both parties to have this information in one place where we can evaluate it all together. Please note any and all areas where your vulnerability might be relevant. You will not be penalized or receive a lower reward for streamlining your report in one place vs. spreading it across different areas.
