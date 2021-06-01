@@ -253,7 +253,7 @@
                                 @endif
                             </a>
                             @if (auth()->user()->is_contributor)
-                                <a class="dropdown-item text-dark" href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
+                                <a class="dropdown-item text-dark" href="https://gitlab.com/taskord/taskord" target="_blank" rel="noreferrer">
                                     <x-heroicon-o-code class="heroicon heroicon-18px text-secondary" />
                                     GitLab
                                 </a>
@@ -274,7 +274,7 @@
                             </form>
                             <div class="dropdown-divider"></div>
                             <div class="dropdown-header text-secondary fw-bold">
-                                <span>SHA</span> • <a id="site-sha" href="https://gitlab.com/yo/taskord/-/commit/{{ config('app.sha') }}" target="_blank" rel="noreferrer">{{ config('app.sha') }}</a>
+                                <span>SHA</span> • <a id="site-sha" href="https://gitlab.com/taskord/taskord/-/commit/{{ config('app.sha') }}" target="_blank" rel="noreferrer">{{ config('app.sha') }}</a>
                             </div>
                         </div>
                     </li>
