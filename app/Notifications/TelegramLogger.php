@@ -19,7 +19,14 @@ class TelegramLogger extends Notification implements ShouldQueue
     protected $message;
     protected $geoDetails;
 
-    public function __construct($ip, $userAgent, $type, $user, $message, $geoDetails)
+    public function __construct(
+        $ip,
+        $userAgent,
+        $type,
+        $user,
+        $message,
+        $geoDetails
+    )
     {
         $this->requestIp = $ip;
         $this->userAgent = $userAgent;
