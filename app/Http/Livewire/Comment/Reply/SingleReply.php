@@ -6,9 +6,12 @@ use App\Models\CommentReply;
 use Helper;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 
 class SingleReply extends Component
 {
+    use WithRateLimiting;
+
     public CommentReply $reply;
 
     public function mount($reply)
