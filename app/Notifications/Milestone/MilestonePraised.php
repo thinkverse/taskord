@@ -55,8 +55,7 @@ class MilestonePraised extends Notification implements ShouldQueue
     public function toDatabase()
     {
         return [
-            'comment_id' => $this->comment->id,
-            'task_id' => $this->comment->task->id,
+            'milestone_id' => $this->milestone->id,
             'user_id' => $this->userId,
         ];
     }
