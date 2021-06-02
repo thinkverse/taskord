@@ -127,10 +127,6 @@ Route::group([
         ->name('all');
 });
 
-// Avatar
-Route::get('avatar/{username}.png', [UserController::class, 'avatar'])
-    ->name('avatar');
-
 // Webhooks
 Route::group(['prefix' => 'webhook'], function () {
     Route::post('web/{token}', [WebhookController::class, 'web']);
