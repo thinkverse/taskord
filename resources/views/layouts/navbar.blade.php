@@ -2,7 +2,7 @@
     <div class="container-md">
         <a class="navbar-brand" href="{{ url('/') }}">
             @if (feature('pride'))
-                <img loading=lazy src="https://ik.imagekit.io/taskordimg/pride_vocaCTHn-.svg" height="35" alt="Happy Pride month">
+                <img loading=lazy src="https://ik.imagekit.io/taskordimg/pride_vocaCTHn-.svg" height="35" alt="Happy Pride month" title="Happy Pride month">
             @else
                 @auth
                     @if (auth()->user()->is_beta)
