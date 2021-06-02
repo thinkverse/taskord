@@ -18,7 +18,7 @@ cache:
     - node_modules/
 
 Test:
-  image: edbizarro/gitlab-ci-pipeline-php:latest
+  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
     - sudo composer self-update --2
@@ -34,7 +34,7 @@ Test:
     - php artisan test
 
 Insights:
-  image: edbizarro/gitlab-ci-pipeline-php:latest
+  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
     - sudo composer self-update --2
@@ -42,7 +42,7 @@ Insights:
     - php artisan insights -v
 
 Validate GraphQL:
-  image: edbizarro/gitlab-ci-pipeline-php:latest
+  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
     - sudo composer self-update --2

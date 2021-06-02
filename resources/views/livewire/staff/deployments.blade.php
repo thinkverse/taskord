@@ -1,4 +1,4 @@
-<div class="card" wire:init="loadUsers">
+<div class="card" wire:init="loadUsers" wire:poll>
     <div class="card-header h6 py-3">
         <div class="h5">Deployments</div>
         Deployments happend on Taskord
