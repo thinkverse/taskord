@@ -3,7 +3,6 @@
 REPO=`openssl rand -hex 12`
 git clone https://gitlab.com/taskord/taskord $REPO
 cd $REPO
-composer
 composer install
 yarn install
 yarn production
