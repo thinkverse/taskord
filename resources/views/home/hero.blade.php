@@ -25,7 +25,7 @@
                 <h4><span class="badge bg-success rounded-end">3</span></h4>
                 <div class="ms-3">
                     <div class="h5">Earn reputations</div>
-                    <div class="lead">Earn streaks and reputations primarily based on your activity on the platform.</div>
+                    <div class="lead">Earn streaks and reputations based on your activity on the platform.</div>
                 </div>
             </div>
         </div>
