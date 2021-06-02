@@ -329,6 +329,8 @@ Route::view('reputation', 'pages.reputation')
     ->middleware('auth');
 Route::view('open', 'pages.open')
     ->name('open');
+Route::view('api', 'pages.api')
+    ->name('api');
 Route::get('deals', [PagesController::class, 'deals'])
     ->name('deals');
 
