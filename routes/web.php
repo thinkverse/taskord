@@ -330,6 +330,7 @@ Route::view('reputation', 'pages.reputation')
 Route::view('open', 'pages.open')
     ->name('open');
 Route::view('api', 'pages.api')
+    ->middleware('feature:api')
     ->name('api');
 Route::get('deals', [PagesController::class, 'deals'])
     ->name('deals');
