@@ -2,60 +2,61 @@
 
 namespace App\Notifications\Comment\Reply;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class ReplyPraised extends Notification
+class ReplyPraised extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    protected $reply;
+    protected $userId;
+
+    public function __construct($reply, $userId)
     {
-        //
+        $this->reply = $reply;
+        $this->userId = $userId;
     }
 
-    /**
-     * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
     public function via($notifiable)
     {
-        return ['mail'];
+        $pref = [];
+
+        if ($notifiable->notifications_email) {
+            array_push($pref, 'mail');
+        }
+
+        if ($notifiable->notifications_web) {
+            array_push($pref, 'database');
+        }
+
+        return $pref;
     }
 
-    /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+        $user = User::find($this->userId);
+
+        if (! $user->spammy) {
+            return (new MailMessage())
+                ->subject('@'.$user->username.' praised your reply')
+                ->greeting('Hello @'.$notifiable->username.' 👋')
+                ->line('👏 Your reply was praised by @'.$user->username)
+                ->line($this->reply->reply)
+                ->line('Thank you for using Taskord!');
+        }
+
+        return null;
     }
 
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
+    public function toDatabase()
     {
         return [
-            //
+            'reply_id' => $this->reply->id,
+            'user_id' => $this->userId,
         ];
     }
 }
