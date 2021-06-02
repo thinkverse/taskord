@@ -51,7 +51,7 @@
             @elseif ($type === "App\Notifications\Comment\Reply\Replied")
                 <livewire:notification.type.comment.reply.replied :data="$data" />
             @elseif ($type === "App\Notifications\Milestone\MilestonePraised")
-                <livewire:notification.type.comment.reply.replied :data="$data" />
+                <livewire:notification.type.milestone.milestone-praised :data="$data" />
             @elseif ($type === "App\Notifications\Followed")
                 <div class="mt-2 text-secondary">
                     followed you
