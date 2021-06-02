@@ -30,7 +30,7 @@
                 POST your GraphQL requests to https://taskord.com/graphql
             </div>
             <div class="mt-3">
-                The docs are on the right. Click through to Docs, Query, etc to find all Types. To see just your own products and todos use viewer and authenticate your API request.
+                The docs are on the right. Click through to Docs to find all types.
             </div>
             <div class="mt-3">
                 Sign in to see your personal API token.
