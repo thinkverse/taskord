@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Script to run CI in Buildkite
+
 REPO=`openssl rand -hex 12`
 git clone https://gitlab.com/taskord/taskord $REPO
 cd $REPO
