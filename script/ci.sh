@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPO=openssl rand -hex 12
+REPO=`openssl rand -hex 12`
 git clone https://gitlab.com/taskord/taskord $REPO
 cd $REPO
 composer install
