@@ -1,5 +1,5 @@
 <div>
-    @if ($comment)
+    @if ($reply)
         <div class="mt-2 text-secondary">
             replied your
             <a class="fw-bold" href="{{ route('comment', ['id' => $reply->comment->task->id, 'comment_id' => $reply->comment->id]) }}">
