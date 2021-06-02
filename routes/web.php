@@ -340,20 +340,6 @@ Route::view('open', 'pages.open')
 Route::get('deals', [PagesController::class, 'deals'])
     ->name('deals');
 
-// https://web.dev/change-password-url
-Route::get('.well-known/change-password', function () {
-    return redirect()->route('user.settings.password');
-});
-
-// Sitemaps
-Route::get('sitemap_users.txt', [SitemapController::class, 'users']);
-Route::get('sitemap_products.txt', [SitemapController::class, 'products']);
-Route::get('sitemap_questions.txt', [SitemapController::class, 'questions']);
-Route::get('sitemap_tasks.txt', [SitemapController::class, 'tasks']);
-Route::get('sitemap_comments.txt', [SitemapController::class, 'comments']);
-Route::get('sitemap_milestones.txt', [SitemapController::class, 'milestones']);
-Route::view('sitemap_urls.txt', 'seo.sitemap_urls');
-
 // Status
 Route::group(['prefix' => 'status'], function () {
     Route::get('ping', [StatusController::class, 'ping']);
@@ -404,4 +390,18 @@ Route::group(['prefix' => 'site'], function () {
     Route::get('staffbar', [StaffController::class, 'toggle'])
         ->middleware('staff')
         ->name('staffbar');
+});
+
+// Sitemaps
+Route::get('sitemap_users.txt', [SitemapController::class, 'users']);
+Route::get('sitemap_products.txt', [SitemapController::class, 'products']);
+Route::get('sitemap_questions.txt', [SitemapController::class, 'questions']);
+Route::get('sitemap_tasks.txt', [SitemapController::class, 'tasks']);
+Route::get('sitemap_comments.txt', [SitemapController::class, 'comments']);
+Route::get('sitemap_milestones.txt', [SitemapController::class, 'milestones']);
+Route::view('sitemap_urls.txt', 'seo.sitemap_urls');
+
+// https://web.dev/change-password-url
+Route::get('.well-known/change-password', function () {
+    return redirect()->route('user.settings.password');
 });
