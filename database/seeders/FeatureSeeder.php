@@ -17,7 +17,7 @@ class FeatureSeeder extends Seeder
         Feature::factory()->create([
             'name' => 'Pride flag 🏳️‍🌈',
             'slug' => 'pride',
-            'description' => 'Pride month logo on navbar',
+            'description' => 'Pride month logo on the navbar',
             'staff' => false,
             'beta' => false,
             'contributor' => false,
