@@ -3,10 +3,10 @@
 namespace App\Http\Livewire\Comment\Reply;
 
 use App\Models\CommentReply;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 
 class SingleReply extends Component
 {
