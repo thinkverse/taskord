@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Usage: ./script/ci.sh
 # Script to run CI in Buildkite
 
 REPO=`openssl rand -hex 12`
