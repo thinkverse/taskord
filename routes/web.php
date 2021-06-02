@@ -303,6 +303,22 @@ Route::view('tasks', 'tasks.tasks')
     ->name('tasks')
     ->middleware('auth');
 
+// Meetups
+Route::group([
+    'prefix' => 'meetups',
+    'as' => 'meetups.',
+], function () {
+    Route::get('/', [MeetupController::class, 'meetups'])
+        ->middleware('staff')
+        ->name('home');
+    Route::get('/rsvpd', [MeetupController::class, 'rsvpd'])
+        ->middleware('staff')
+        ->name('rsvpd');
+    Route::get('/finished', [MeetupController::class, 'finished'])
+        ->middleware('staff')
+        ->name('finished');
+});
+
 // Pages
 Route::get('about', [PagesController::class, 'about'])
     ->name('about');
@@ -323,22 +339,6 @@ Route::view('open', 'pages.open')
     ->name('open');
 Route::get('deals', [PagesController::class, 'deals'])
     ->name('deals');
-
-// Meetups
-Route::group([
-    'prefix' => 'meetups',
-    'as' => 'meetups.',
-], function () {
-    Route::get('/', [MeetupController::class, 'meetups'])
-        ->middleware('staff')
-        ->name('home');
-    Route::get('/rsvpd', [MeetupController::class, 'rsvpd'])
-        ->middleware('staff')
-        ->name('rsvpd');
-    Route::get('/finished', [MeetupController::class, 'finished'])
-        ->middleware('staff')
-        ->name('finished');
-});
 
 // https://web.dev/change-password-url
 Route::get('.well-known/change-password', function () {
