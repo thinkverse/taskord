@@ -41,7 +41,7 @@ Route::fallback(function () {
     return response()->view('errors.404', [], 404);
 });
 
-// Home/Dashboard/LandingPage
+// Home/Dashboard/Landing
 Route::view('/', 'home.home')->name('home');
 
 // Explore
