@@ -41,6 +41,10 @@ Route::fallback(function () {
     return response()->view('errors.404', [], 404);
 });
 
+// Suspended
+Route::view('suspended', 'auth.suspended')
+    ->name('suspended');
+
 // Home/Dashboard/Landing
 Route::view('/', 'home.home')->name('home');
 
@@ -122,10 +126,6 @@ Route::group([
     Route::view('all', 'notifications.all')
         ->name('all');
 });
-
-// Suspended
-Route::view('suspended', 'auth.suspended')
-    ->name('suspended');
 
 // Avatar
 Route::get('avatar/{username}.png', [UserController::class, 'avatar'])
