@@ -2,7 +2,7 @@
 
 composer install
 yarn install
-yarn prod
+yarn production
 cp .env.example .env
 php artisan key:generate
 php artisan migrate
