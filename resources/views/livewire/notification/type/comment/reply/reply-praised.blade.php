@@ -8,7 +8,7 @@
         </div>
         <div class="card mt-3">
             <div class="card-body body-font">
-                {!! markdown($body->reply) !!}
+                {!! markdown($reply->reply) !!}
             </div>
         </div>
     @else
