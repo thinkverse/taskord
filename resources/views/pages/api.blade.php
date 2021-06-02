@@ -33,7 +33,11 @@
                 The docs are on the right. Click through to Docs to find all types.
             </div>
             <div class="mt-3">
-                Sign in to see your personal API token.
+                @auth
+                    Get you <a href="{{ route('user.settings.api') }}">API token here</a>.
+                @else
+                    Sign in to see your personal <a href="{{ route('user.settings.api') }}">API token</a>.
+                @endauth
             </div>
         </div>
     </div>
