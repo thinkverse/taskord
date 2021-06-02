@@ -1,5 +1,8 @@
 #!/bin/bash
 
+REPO=openssl rand -hex 12
+git clone https://gitlab.com/taskord/taskord $REPO
+cd $REPO
 composer install
 yarn install
 yarn production
@@ -9,3 +12,5 @@ mysql -uroot --execute="DROP DATABASE taskord; CREATE DATABASE taskord;"
 php artisan migrate
 php artisan db:seed
 php artisan test
+cd ../
+rm -rf $REPO
