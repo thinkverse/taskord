@@ -18,7 +18,7 @@
                 <h4><span class="badge bg-success rounded-end">2</span></h4>
                 <div class="ms-3">
                     <div class="h5">Increase productivity</div>
-                    <div class="lead">You can increase your productivity and work efficiency with other awesome makers.</div>
+                    <div class="lead">You can build better productivity with other awesome makers.</div>
                 </div>
             </div>
             <div class="col-lg mt-4 d-flex align-items-center">
