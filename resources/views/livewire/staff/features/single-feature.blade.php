@@ -23,19 +23,19 @@
         <div>
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="staffCheckBox" wire:click="staffToggle" wire:model="staffStatus">
-                <label class="form-check-label" for="staffCheckBox">Promote to <b>staff</b></label>
+                <label class="form-check-label" for="staffCheckBox">Enable for <b>staff</b></label>
             </div>
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="contributorCheckBox" wire:click="contributorToggle" wire:model="contributorStatus">
-                <label class="form-check-label" for="contributorCheckBox">Promote to <b>contributors</b></label>
+                <label class="form-check-label" for="contributorCheckBox">Enable for <b>contributors</b></label>
             </div>
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="betaCheckBox" wire:click="betaToggle" wire:model="betaStatus">
-                <label class="form-check-label" for="betaCheckBox">Promote to <b>beta</b></label>
+                <label class="form-check-label" for="betaCheckBox">Enable for <b>beta</b></label>
             </div>
             <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" id="publicCheckBox" wire:click="publicToggle" wire:model="publicStatus">
-                <label class="form-check-label" for="publicCheckBox">Promote to <b>public</b></label>
+                <label class="form-check-label" for="publicCheckBox">Enable for <b>public</b></label>
             </div>
         </div>
     </div>
