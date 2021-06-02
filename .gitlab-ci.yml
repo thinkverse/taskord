@@ -1,5 +1,5 @@
 services:
-  - ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/mysql:latest
+  - mysql:latest
 
 variables:
   MYSQL_ROOT_PASSWORD: root
