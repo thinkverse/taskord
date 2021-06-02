@@ -20,6 +20,9 @@
             <div class="mt-3">
                 The API uses GraphQL. It's a relatively new technology that lets you request all the data you need in just one request. If you're unfamiliar with GraphQL we suggest you <a href="https://graphql.org/learn">read up on it first</a>.
             </div>
+            <div class="mt-3">
+                You can find all documentation and play around using our GraphiQL instance. You can make a maximum of 20 requests per minute per IP address. If you need more contact Marc.
+            </div>
         </div>
     </div>
 </div>
