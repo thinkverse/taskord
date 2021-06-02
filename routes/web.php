@@ -229,15 +229,7 @@ Route::group([
         ->name('users');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Stafftools
-|--------------------------------------------------------------------------
-|
-| Stafftools are used by the staffs to analyze Taskord.
-| Stafftools routes are not available to normal users.
-|
-*/
+// Stafftools
 Route::group([
     'prefix' => 'stafftools',
     'as' => 'staff.',
