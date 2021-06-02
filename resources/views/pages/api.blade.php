@@ -24,7 +24,7 @@
                 You can find all documentation and play around using our <a href="/graphiql">GraphiQL instance</a>.
             </div>
             <div class="mt-3">
-                Have a look at some Ruby example code that creates a todo and then completes it.
+                Have a look at some Node.js example code that creates a todo and then completes it.
             </div>
             <div class="mt-3">
                 POST your GraphQL requests to https://taskord.com/graphql
