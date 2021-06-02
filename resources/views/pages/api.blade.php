@@ -23,6 +23,18 @@
             <div class="mt-3">
                 You can find all documentation and play around using our GraphiQL instance. You can make a maximum of 20 requests per minute per IP address. If you need more contact Marc.
             </div>
+            <div class="mt-3">
+                Have a look at some Ruby example code that creates a todo and then completes it.
+            </div>
+            <div class="mt-3">
+                POST your GraphQL requests to https://wip.co/graphql
+            </div>
+            <div class="mt-3">
+                The docs are on the right. Click through to Docs, Query, etc to find all Types. To see just your own products and todos use viewer and authenticate your API request.
+            </div>
+            <div class="mt-3">
+                Sign in to see your personal API token.
+            </div>
         </div>
     </div>
 </div>
