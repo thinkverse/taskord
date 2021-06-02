@@ -31,7 +31,7 @@ class SingleReply extends Component
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        Helper::togglePraise($this->reply, 'COMMENT');
+        Helper::togglePraise($this->reply, 'COMMENT_REPLY');
 
         return loggy(request(), 'Reply', auth()->user(), 'Toggled reply praise | Reply ID: '.$this->reply->id);
     }
