@@ -19,6 +19,23 @@ class SingleReply extends Component
         $this->reply = $reply;
     }
 
+    public function togglePraise()
+    {
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
+        }
+
+        if (Gate::denies('praise/subscribe', $this->reply)) {
+            return toast($this, 'error', config('taskord.error.deny'));
+        }
+
+        Helper::togglePraise($this->reply, 'COMMENT');
+
+        return loggy(request(), 'Reply', auth()->user(), 'Toggled reply praise | Reply ID: '.$this->reply->id);
+    }
+
     public function deleteReply()
     {
         if (Gate::denies('edit/delete', $this->reply)) {
