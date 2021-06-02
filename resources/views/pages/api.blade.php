@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
             <div>
-                The Taskord API lets you build third-party apps for WIP and integrate with existing ones.
+                The Taskord API lets you build third-party apps for Taskord and integrate with existing ones.
             </div>
             <div class="mt-3">
                 The API uses GraphQL. It's a relatively new technology that lets you request all the data you need in just one request. If you're unfamiliar with GraphQL we suggest you <a href="https://graphql.org/learn">read up on it first</a>.
@@ -24,7 +24,7 @@
                 You can find all documentation and play around using our <a href="/graphiql">GraphiQL instance</a>.
             </div>
             <div class="mt-3">
-                Have a look at some Node.js example code that creates a todo and then completes it.
+                Have a look at some <a href="#">Node.js example code</a> that creates a task and then completes it.
             </div>
             <div class="mt-3">
                 POST your GraphQL requests to https://taskord.com/graphql
