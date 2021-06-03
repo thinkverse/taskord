@@ -83,7 +83,7 @@
                         </span>
                     @enderror
                 </div>
-                <button class="btn btn-lg btn-primary w-100" type="submit">
+                <button class="btn btn-lg btn-primary rounded-pill w-100" type="submit">
                     <span class="small">
                         <x-heroicon-o-user-add class="heroicon heroicon-20px" />
                         Sign up
