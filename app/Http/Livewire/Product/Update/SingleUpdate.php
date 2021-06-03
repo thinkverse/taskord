@@ -19,7 +19,7 @@ class SingleUpdate extends Component
         $this->update = $update;
     }
 
-    public function togglePraise()
+    public function toggleLike()
     {
         try {
             $this->rateLimit(50);

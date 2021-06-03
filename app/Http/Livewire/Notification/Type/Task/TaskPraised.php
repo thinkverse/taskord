@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Notification\Type\Task;
 use App\Models\Task;
 use Livewire\Component;
 
-class TaskPraised extends Component
+class TaskLiked extends Component
 {
     public $data;
 

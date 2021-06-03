@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Notification\Type\Milestone;
 use App\Models\Milestone;
 use Livewire\Component;
 
-class MilestonePraised extends Component
+class MilestoneLiked extends Component
 {
     public $data;
 
