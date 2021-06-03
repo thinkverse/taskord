@@ -30,7 +30,7 @@
                 <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
             @endif
             @if ($user->is_patron)
-                <a class="badge tk-badge bg-patron text-capitalize ms-1" href="{{ route('patron.home') }}">
+                <a class="badge tk-badge bg-patron text-capitalize text-white ms-1" href="{{ route('patron.home') }}">
                     Patron
                 </a>
             @endif
