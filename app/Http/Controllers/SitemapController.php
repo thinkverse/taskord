@@ -25,6 +25,12 @@ class SitemapController extends Controller
     public function products()
     {
         $products = Product::select('slug', 'user_id')
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['spammy', false],
+                    ['is_private', false],
+                ]);
+            })
             ->get();
 
         return view('seo.sitemap_products', [
