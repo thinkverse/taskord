@@ -12,7 +12,7 @@
             alt="{{ $user->username }}'s avatar"
         />
     </a>
-    <span class="ms-2 d-flex align-items-center">
+    <span class="ms-2">
         <a
             href="{{ route('user.done', ['username' => $user->username]) }}"
             class="fw-bold text-dark user-popover"
