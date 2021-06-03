@@ -17,7 +17,7 @@
     <div class="mt-2">
         @auth
             @if (auth()->user()->hasLiked($answer))
-                <button type="button" class="btn btn-task btn-praise text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
+                <button type="button" class="btn btn-action btn-praise text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
                     <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                     <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                     <span class="small fw-bold">
@@ -25,7 +25,7 @@
                     </span>
                 </button>
             @else
-                <button type="button" class="btn btn-task btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                <button type="button" class="btn btn-action btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                     <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                     <x-heroicon-o-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                     @if ($answer->likerscount() !== 0)
@@ -38,7 +38,7 @@
             @can('edit/delete', $answer)
                 <button
                     type="button"
-                    class="btn btn-task btn-outline-danger"
+                    class="btn btn-action btn-outline-danger"
                     onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                     wire:click="deleteAnswer"
                     wire:loading.attr="disabled"
@@ -49,13 +49,13 @@
                 </button>
             @endcan
             @can('staff.ops')
-                <button type="button" class="btn btn-task {{ $answer->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $answer->id }}" aria-label="Hide">
+                <button type="button" class="btn btn-action {{ $answer->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $answer->id }}" aria-label="Hide">
                     <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                 </button>
             @endcan
         @endauth
         @guest
-            <a href="/login" class="btn btn-task btn-outline-praise me-1" aria-label="Praises">
+            <a href="/login" class="btn btn-action btn-outline-praise me-1" aria-label="Praises">
                 <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                 @if ($answer->likerscount() !== 0)
                     <span class="small fw-bold">
