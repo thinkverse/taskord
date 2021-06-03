@@ -9,7 +9,7 @@
                 @if (!$update->user->is_private)
                     @if (auth()->user()->hasLiked($update))
                         <span>
-                            <button type="button" class="btn btn-task btn-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praise">
+                            <button type="button" class="btn btn-action btn-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praise">
                                 <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                                 <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                                 <span class="small fw-bold">
@@ -19,7 +19,7 @@
                         </span>
                     @else
                         <span>
-                            <button type="button" class="btn btn-task btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praises">
+                            <button type="button" class="btn btn-action btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praises">
                                 <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                                 <x-heroicon-o-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                                 @if ($update->likerscount() !== 0)
@@ -33,7 +33,7 @@
                 @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-praise me-1" aria-label="Praises">
+                <a href="/login" class="btn btn-action btn-outline-praise me-1" aria-label="Praises">
                     <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                     @if ($update->likerscount() !== 0)
                         <span class="small fw-bold">
@@ -46,7 +46,7 @@
                 @can('edit/delete', $update)
                     <button
                         type="button"
-                        class="btn btn-task btn-outline-danger"
+                        class="btn btn-action btn-outline-danger"
                         onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                         wire:click="deleteUpdate"
                         wire:loading.attr="disabled"
