@@ -3,9 +3,6 @@
 # Usage: ./script/ci.sh
 # Script to run CI in Buildkite
 
-REPO=`openssl rand -hex 12`
-git clone https://gitlab.com/taskord/taskord $REPO
-cd $REPO
 composer install
 yarn install
 yarn production
@@ -16,4 +13,4 @@ php artisan migrate
 php artisan db:seed
 php artisan test
 cd ../
-rm -rf $REPO
+rm -rf taskord
