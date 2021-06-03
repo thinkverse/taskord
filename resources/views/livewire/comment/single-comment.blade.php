@@ -19,7 +19,7 @@
         <div class="mt-2">
             @auth
                 @if (auth()->user()->hasLiked($comment))
-                    <button type="button" class="btn btn-task btn-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
+                    <button type="button" class="btn btn-action btn-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                         <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                         <span class="small fw-bold">
@@ -27,7 +27,7 @@
                         </span>
                     </button>
                 @else
-                    <button type="button" class="btn btn-task btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                    <button type="button" class="btn btn-action btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                         <x-heroicon-o-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                         @if ($comment->likerscount() !== 0)
@@ -37,7 +37,7 @@
                         @endif
                     </button>
                 @endif
-                <button class="btn btn-task btn-outline-primary me-1" wire:click="toggleCommentBox">
+                <button class="btn btn-action btn-outline-primary me-1" wire:click="toggleCommentBox">
                     <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
                     @if ($comment->replies()->count('id') !== 0)
                         <span class="small text-dark fw-bold">
@@ -48,7 +48,7 @@
                 @can('edit/delete', $comment)
                     <button
                         type="button"
-                        class="btn btn-task btn-outline-danger"
+                        class="btn btn-action btn-outline-danger"
                         onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                         wire:click="deleteComment"
                         wire:loading.attr="disabled"
@@ -59,13 +59,13 @@
                     </button>
                 @endcan
                 @can('staff.ops')
-                    <button type="button" class="btn btn-task {{ $comment->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $comment->id }}" aria-label="Hide">
+                    <button type="button" class="btn btn-action {{ $comment->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $comment->id }}" aria-label="Hide">
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                     </button>
                 @endcan
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-praise me-1" aria-label="Praises">
+                <a href="/login" class="btn btn-action btn-outline-praise me-1" aria-label="Praises">
                     <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                     @if ($comment->likerscount() !== 0)
                         <span class="small fw-bold">
