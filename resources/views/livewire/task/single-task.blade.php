@@ -78,11 +78,6 @@
                             <span class="small fw-bold">
                                 {{ number_format($task->likerscount()) }}
                             </span>
-                            <span class="avatar-stack ms-1">
-                                @foreach($task->likers->take(5) as $user)
-                                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                                @endforeach
-                            </span>
                         </button>
                     @else
                         <button type="button" class="btn btn-task btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
@@ -91,11 +86,6 @@
                             @if ($task->likerscount() !== 0)
                                 <span class="small fw-bold">
                                     {{ number_format($task->likerscount()) }}
-                                </span>
-                                <span class="avatar-stack ms-1">
-                                    @foreach($task->likers->take(5) as $user)
-                                        <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                                    @endforeach
                                 </span>
                             @endif
                         </button>
@@ -108,11 +98,6 @@
                     @if ($task->likerscount() !== 0)
                         <span class="small fw-bold">
                             {{ number_format($task->likerscount()) }}
-                        </span>
-                        <span class="avatar-stack ms-1">
-                            @foreach($task->likers->take(5) as $user)
-                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                            @endforeach
                         </span>
                     @endif
                 </a>
