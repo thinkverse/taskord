@@ -92,6 +92,12 @@ class SitemapController extends Controller
     public function milestones()
     {
         $milestones = Milestone::select('id', 'hidden', 'user_id')
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['spammy', false],
+                    ['is_private', false],
+                ]);
+            })
             ->whereHidden(false)
             ->get();
 
