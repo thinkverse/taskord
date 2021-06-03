@@ -43,8 +43,8 @@
                         </label>
                     </span>
                 </div>
-                <button type="submit" class="btn btn-primary">
-                    Create Hook
+                <button type="submit" class="btn btn-sm btn-outline-primary rounded-pill">
+                    Create Webhook
                 </button>
             </form>
             @if (session()->has('created'))
