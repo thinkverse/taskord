@@ -49,7 +49,7 @@
                                 </span>
                             @endif
                             @if ($user->is_patron)
-                                <a class="badge tk-badge bg-patron text-capitalize text-white ms-1" href="{{ route('patron.home') }}">
+                                <a class="badge tk-badge bg-patron text-capitalize text-white ms-2" href="{{ route('patron.home') }}">
                                     Patron
                                 </a>
                             @endif
