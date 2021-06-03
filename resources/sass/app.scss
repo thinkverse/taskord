@@ -374,28 +374,6 @@ input[type="date"]:valid:before {
   border-radius: 6px !important;
 }
 
-.btn-social {
-  &.btn-google {
-    color: $google;
-    border-color: $google;
-  }
-
-  &.btn-twitter {
-    color: $twitter;
-    border-color: $twitter;
-  }
-
-  &.btn-github {
-    color: $github;
-    border-color: $github;
-  }
-
-  &.btn-discord {
-    color: $discord;
-    border-color: $discord;
-  }
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
