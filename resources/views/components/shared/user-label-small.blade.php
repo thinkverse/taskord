@@ -24,13 +24,13 @@
                 <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
             @endif
             @if ($user->is_patron)
-                <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                    <x-heroicon-s-star class="heroicon text-gold" />
-                </a>
+                <span class="badge tk-badge bg-patron text-capitalize ms-1">
+                    Patron
+                </span>
             @endif
             @if ($user->is_staff)
-                <span class="staff" title="Staff">
-                    <x-heroicon-o-shield-check class="heroicon text-primary" />
+                <span class="badge tk-badge bg-staff text-capitalize ms-1">
+                    Staff
                 </span>
             @endif
             <span class="small text-secondary fw-normal">{{ "@" . $user->username }}</span>
