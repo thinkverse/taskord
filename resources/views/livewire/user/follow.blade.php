@@ -7,7 +7,7 @@
                     Unfollow
                 </button>
             @else
-                <button wire:click="toggleFollow" wire:loading.attr="disabled" class="btn btn-sm btn-primary mb-2">
+                <button wire:click="toggleFollow" wire:loading.attr="disabled" class="btn btn-sm btn-outline-primary rounded-pill mb-2">
                     <x-heroicon-o-user-add class="heroicon heroicon-15px" />
                     Follow
                 </button>

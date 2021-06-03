@@ -5,7 +5,7 @@
             {{ $showText ? 'Unfollow' : '' }}
         </button>
     @else
-        <button wire:click="toggleFollow" wire:loading.attr="disabled" class="btn btn-sm btn-primary">
+        <button wire:click="toggleFollow" wire:loading.attr="disabled" class="btn btn-sm btn-outline-primary rounded-pill">
             <x-heroicon-o-user-add class="heroicon heroicon-15px" />
             {{ $showText ? 'Follow' : '' }}
         </button>
