@@ -25,11 +25,6 @@
                         <span class="small fw-bold">
                             {{ number_format($comment->likerscount()) }}
                         </span>
-                        <span class="avatar-stack ms-1">
-                            @foreach($comment->likers->take(5) as $user)
-                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                            @endforeach
-                        </span>
                     </button>
                 @else
                     <button type="button" class="btn btn-task btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
@@ -38,11 +33,6 @@
                         @if ($comment->likerscount() !== 0)
                             <span class="small fw-bold">
                                 {{ number_format($comment->likerscount()) }}
-                            </span>
-                            <span class="avatar-stack ms-1">
-                                @foreach($comment->likers->take(5) as $user)
-                                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                                @endforeach
                             </span>
                         @endif
                     </button>
@@ -78,14 +68,9 @@
                 <a href="/login" class="btn btn-task btn-outline-praise me-1" aria-label="Praises">
                     <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                     @if ($comment->likerscount() !== 0)
-                    <span class="small fw-bold">
-                        {{ number_format($comment->likerscount()) }}
-                    </span>
-                    <span class="avatar-stack ms-1">
-                    @foreach($comment->likers->take(5) as $user)
-                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                    @endforeach
-                    </span>
+                        <span class="small fw-bold">
+                            {{ number_format($comment->likerscount()) }}
+                        </span>
                     @endif
                 </a>
             @endguest
