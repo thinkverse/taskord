@@ -39,7 +39,7 @@ class Subscribe extends Component
             $this->product->user->notify(new Subscribed($this->product, auth()->user()->id));
         }
 
-        return loggy(request(), 'Product', auth()->user(), 'Toggled product subscribe | Product ID: #'.$this->product->slug);
+        return loggy(request(), 'Product', auth()->user(), 'Toggled product subscribe | Product ID: '.$this->product->id);
     }
 
     public function render()
