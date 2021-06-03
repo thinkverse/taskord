@@ -26,11 +26,11 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    <div class="small fw-bold text-secondary mt-3 mb-3">
+                    <a class="small fw-bold text-secondary mt-3 mb-3" href="https://guides.github.com/features/mastering-markdown" target="_blank">
                         <x-heroicon-o-pencil-alt class="heroicon" />
                         Markdown is supported
                          <x:labels.beta />
-                    </div>
+                    </a>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Start Date</label>
                         <input class="form-control" wire:model="startDate" type="date" />
