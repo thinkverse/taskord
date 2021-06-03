@@ -58,7 +58,7 @@
                         <button wire:loading.attr="disabled" wire:click="useGravatar" class="btn btn-sm btn-outline-success rounded-pill mt-3 me-2">
                             Use Gravatar
                         </button>
-                        <button wire:loading.attr="disabled" wire:click="resetAvatar" class="btn btn-danger text-white mt-3">
+                        <button wire:loading.attr="disabled" wire:click="resetAvatar" class="btn btn-sm btn-outline-danger rounded-pill mt-3">
                             Reset
                         </button>
                     </div>
