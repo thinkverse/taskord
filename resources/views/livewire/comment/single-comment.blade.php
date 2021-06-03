@@ -22,7 +22,7 @@
                     <button type="button" class="btn btn-task btn-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                         <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
-                        <span class="small text-white fw-bold">
+                        <span class="small fw-bold">
                             {{ number_format($comment->likerscount()) }}
                         </span>
                         <span class="avatar-stack ms-1">
