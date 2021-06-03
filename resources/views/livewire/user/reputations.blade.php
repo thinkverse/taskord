@@ -37,7 +37,7 @@
                         @if ($point->name === 'GoalReached')
                             earned for reaching the daily goal 🎯
                         @endif
-                        @if ($point->name === 'PraiseCreated')
+                        @if ($point->name === 'LikeCreated')
                             @if ($point->subject_type === 'App\Models\Task')
                                 earned for getting a like for your Task 👍
                             @endif
