@@ -12,11 +12,11 @@
             <textarea placeholder="Add a reply" id="reply-box-{{ $comment->id }}" class="form-control mentionInput mt-3" rows="3" wire:model.lazy="reply"></textarea>
         </div>
         <div class="d-flex justify-content-between align-items-center">
-            <div class="small fw-bold text-secondary">
+            <a class="small fw-bold text-secondary" href="https://guides.github.com/features/mastering-markdown" target="_blank">
                 <x-heroicon-o-pencil-alt class="heroicon" />
                 Markdown is supported
                  <x:labels.beta />
-            </div>
+            </a>
             <button wire:loading.attr="disabled" wire:target="submit" class="btn btn-sm btn-outline-primary rounded-pill" type="submit" wire:click="submit">
                 <x-heroicon-o-plus class="heroicon heroicon-15px" />
                 Add Reply
