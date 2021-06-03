@@ -42,9 +42,9 @@ class ReplyLiked extends Notification implements ShouldQueue
 
         if (! $user->spammy) {
             return (new MailMessage())
-                ->subject('@'.$user->username.' praised your reply')
+                ->subject('@'.$user->username.' liked your reply')
                 ->greeting('Hello @'.$notifiable->username.' 👋')
-                ->line('👏 Your reply was praised by @'.$user->username)
+                ->line('👏 Your reply was liked by @'.$user->username)
                 ->line($this->reply->reply)
                 ->line('Thank you for using Taskord!');
         }

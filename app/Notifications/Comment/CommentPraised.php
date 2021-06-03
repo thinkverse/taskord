@@ -42,9 +42,9 @@ class CommentLiked extends Notification implements ShouldQueue
 
         if (! $user->spammy) {
             return (new MailMessage())
-                ->subject('@'.$user->username.' praised your comment')
+                ->subject('@'.$user->username.' liked your comment')
                 ->greeting('Hello @'.$notifiable->username.' 👋')
-                ->line('👏 Your comment was praised by @'.$user->username)
+                ->line('👏 Your comment was liked by @'.$user->username)
                 ->line($this->comment->comment)
                 ->line('Thank you for using Taskord!');
         }
