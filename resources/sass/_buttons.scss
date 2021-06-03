@@ -78,5 +78,12 @@
 .btn-outline-primary:hover,
 .btn-outline-primary:active {
   background-color: rgb(110 100 255 / 25%);
-  color: #6a63ec;
+  color: $primary;
+}
+
+
+.btn-outline-success:hover,
+.btn-outline-success:active {
+  background-color: rgb(110 250 150 / 25%);
+  color: $success;
 }
