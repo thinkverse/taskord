@@ -18,7 +18,7 @@ class TaskLiked extends Component
     {
         $task = Task::find($this->data['task_id']);
 
-        return view('livewire.notification.type.task.task-praised', [
+        return view('livewire.notification.type.task.task-liked', [
             'task' => $task,
         ]);
     }
