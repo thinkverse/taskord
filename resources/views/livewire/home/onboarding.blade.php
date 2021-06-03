@@ -1,5 +1,5 @@
 <div>
-    @if ($task_count === 0 || $praise_count === 0 || $product_count === 0 || strlen($has_name) === 0)
+    @if ($task_count === 0 || $like_count === 0 || $product_count === 0 || strlen($has_name) === 0)
         <div class="text-uppercase fw-bold text-secondary pb-2">
             👋 Getting Started
         </div>
@@ -44,7 +44,7 @@
                     <label>Add a new task</label>
                 </div>
                 <div class="mb-2 form-check">
-                    <input class="form-check-input" type="checkbox" disabled {{ $praise_count === 0 ? '' : 'checked' }}>
+                    <input class="form-check-input" type="checkbox" disabled {{ $like_count === 0 ? '' : 'checked' }}>
                     <label>Like one task</label>
                 </div>
                 <div class="form-check">
