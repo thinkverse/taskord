@@ -54,7 +54,7 @@
         <div class="mt-3">
             @auth
                 @if (auth()->user()->hasLiked($milestone))
-                    <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                    <button role="button" class="btn btn-action btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                         <x-heroicon-s-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                         <span class="small text-white fw-bold">
@@ -67,7 +67,7 @@
                         </span>
                     </button>
                 @else
-                    <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                    <button role="button" class="btn btn-action btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                         <x-heroicon-o-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0 text-secondary" />
                         @if ($milestone->likerscount() !== 0)
@@ -84,7 +84,7 @@
                 @endif
                 @can('edit/delete', $milestone)
                     @if ($type === "milestones.milestone")
-                        <a href="{{ route('milestones.edit', ['milestone' => $milestone]) }}" class="btn btn-task btn-outline-info me-1">
+                        <a href="{{ route('milestones.edit', ['milestone' => $milestone]) }}" class="btn btn-action btn-outline-info me-1">
                             <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />
                             <span class="small text-dark fw-bold">
                                 Edit
@@ -93,7 +93,7 @@
                     @endif
                     <button
                         role="button"
-                        class="btn btn-task btn-outline-danger me-1"
+                        class="btn btn-action btn-outline-danger me-1"
                         onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                         wire:click="deleteMilestone"
                         wire:loading.attr="disabled"
@@ -104,19 +104,19 @@
                     </button>
                 @endcan
                 @can('staff.ops')
-                    <button type="button" class="btn btn-task {{ $milestone->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $milestone->id }}" aria-label="Hide">
+                    <button type="button" class="btn btn-action {{ $milestone->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $milestone->id }}" aria-label="Hide">
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                     </button>
                 @endcan
                 @if ($type === "milestones.milestone")
                     @can('edit/delete', $milestone)
                         @if ($milestone->status)
-                            <button type="button" class="btn btn-danger btn-task float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
+                            <button type="button" class="btn btn-danger btn-action float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
                                 <x-heroicon-o-x class="heroicon heroicon-15px" />
                                 Close Milestone
                             </button>
                         @else
-                            <button type="button" class="btn btn-success btn-task text-white float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
+                            <button type="button" class="btn btn-success btn-action text-white float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
                                 <x-heroicon-o-check class="heroicon heroicon-15px" />
                                 Open Milestone
                             </button>
@@ -135,7 +135,7 @@
                 @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
+                <a href="/login" class="btn btn-action btn-outline-success me-1" aria-label="Praises">
                     <x-heroicon-o-thumb-up class="heroicon heroicon-15px me-0 text-secondary" />
                     @if ($milestone->likerscount() !== 0)
                         <span class="small text-dark fw-bold">
