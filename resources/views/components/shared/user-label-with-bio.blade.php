@@ -35,8 +35,8 @@
                 </a>
             @endif
             @if ($user->is_staff)
-                <span class="staff" title="Staff">
-                    <x-heroicon-o-shield-check class="heroicon text-primary" />
+                <span class="badge tk-badge bg-staff text-capitalize ms-1">
+                    Staff
                 </span>
             @endif
             @if ($user->bio)
