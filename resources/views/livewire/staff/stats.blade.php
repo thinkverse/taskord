@@ -156,7 +156,7 @@
                         </div>
                         <div class="card-body">
                             <div class="h5 mb-0">
-                                {{ $stats['praises'] }}
+                                {{ $stats['likes'] }}
                                 <span class="fw-light">Likes</span>
                             </div>
                         </div>
