@@ -43,7 +43,7 @@
                         </label>
                     </span>
                 </div>
-                <button type="submit" class="btn btn-sm btn-outline-primary rounded-pill">
+                <button type="submit" class="btn btn-outline-primary rounded-pill">
                     Create Webhook
                 </button>
             </form>
