@@ -54,7 +54,7 @@
                 @if (auth()->user()->hasLiked($question))
                     <button role="button" class="btn btn-task btn-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                        <x-heroicon-s-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
+                        <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                         <span class="small fw-bold">
                             {{ number_format($question->likerscount()) }}
                         </span>
@@ -67,9 +67,9 @@
                 @else
                     <button role="button" class="btn btn-task btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                        <x-heroicon-o-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0 text-secondary" />
+                        <x-heroicon-o-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                         @if ($question->likerscount() !== 0)
-                            <span class="small text-dark fw-bold">
+                            <span class="small fw-bold">
                                 {{ number_format($question->likerscount()) }}
                             </span>
                             <span class="avatar-stack ms-1">
@@ -133,10 +133,10 @@
                 @endcan
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
-                    <x-heroicon-o-thumb-up class="heroicon heroicon-15px me-0 text-secondary" />
+                <a href="/login" class="btn btn-task btn-outline-praise me-1" aria-label="Praises">
+                    <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                     @if ($question->likerscount() !== 0)
-                        <span class="small text-dark fw-bold">
+                        <span class="small fw-bold">
                             {{ number_format($question->likerscount()) }}
                         </span>
                         <span class="avatar-stack ms-1">
