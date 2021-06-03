@@ -194,6 +194,10 @@ input[type="color"]:focus,
   background-image: radial-gradient(at left top, $yellow-500 0%, $yellow-600 100%);
 }
 
+.bg-staffship {
+  background-image: radial-gradient(at left top, $red-500 0%, $red-600 100%);
+}
+
 .bg-staff {
   background-image: radial-gradient(at left top, $primary 0%, #5a53dc 100%);
 }
