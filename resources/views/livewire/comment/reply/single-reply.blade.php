@@ -16,10 +16,10 @@
         <div class="mt-2">
             @auth
                 @if (auth()->user()->hasLiked($reply))
-                    <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
+                    <button type="button" class="btn btn-task btn-praise text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                        <x-heroicon-s-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
-                        <span class="small text-white fw-bold">
+                        <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
+                        <span class="small fw-bold">
                             {{ number_format($reply->likerscount()) }}
                         </span>
                         <span class="avatar-stack ms-1">
@@ -29,11 +29,11 @@
                         </span>
                     </button>
                 @else
-                    <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                    <button type="button" class="btn btn-task btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                        <x-heroicon-o-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0 text-secondary" />
+                        <x-heroicon-o-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                         @if ($reply->likerscount() !== 0)
-                            <span class="small text-dark fw-bold">
+                            <span class="small fw-bold">
                                 {{ number_format($reply->likerscount()) }}
                             </span>
                             <span class="avatar-stack ms-1">
