@@ -54,30 +54,20 @@
         <div class="mt-3">
             @auth
                 @if (auth()->user()->hasLiked($milestone))
-                    <button role="button" class="btn btn-action btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                    <button role="button" class="btn btn-action btn-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                        <x-heroicon-s-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
-                        <span class="small text-white fw-bold">
+                        <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
+                        <span class="small fw-bold">
                             {{ number_format($milestone->likerscount()) }}
-                        </span>
-                        <span class="avatar-stack ms-1">
-                            @foreach($milestone->likers->take(5) as $user)
-                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                            @endforeach
                         </span>
                     </button>
                 @else
-                    <button role="button" class="btn btn-action btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                    <button role="button" class="btn btn-action btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                        <x-heroicon-o-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0 text-secondary" />
+                        <x-heroicon-o-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                         @if ($milestone->likerscount() !== 0)
-                            <span class="small text-dark fw-bold">
+                            <span class="small fw-bold">
                                 {{ number_format($milestone->likerscount()) }}
-                            </span>
-                            <span class="avatar-stack ms-1">
-                                @foreach($milestone->likers->take(5) as $user)
-                                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                                @endforeach
                             </span>
                         @endif
                     </button>
@@ -135,16 +125,11 @@
                 @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-action btn-outline-success me-1" aria-label="Praises">
-                    <x-heroicon-o-thumb-up class="heroicon heroicon-15px me-0 text-secondary" />
+                <a href="/login" class="btn btn-action btn-outline-praise me-1" aria-label="Praises">
+                    <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                     @if ($milestone->likerscount() !== 0)
-                        <span class="small text-dark fw-bold">
+                        <span class="small fw-bold">
                             {{ number_format($milestone->likerscount()) }}
-                        </span>
-                        <span class="avatar-stack ms-1">
-                            @foreach($milestone->likers->take(5) as $user)
-                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                            @endforeach
                         </span>
                     @endif
                 </a>
