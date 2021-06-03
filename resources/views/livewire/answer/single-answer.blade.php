@@ -17,7 +17,7 @@
     <div class="mt-2">
         @auth
             @if (auth()->user()->hasLiked($answer))
-                <button type="button" class="btn btn-action btn-praise text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
+                <button type="button" class="btn btn-action btn-like text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
                     <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                     <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                     <span class="small fw-bold">
@@ -25,7 +25,7 @@
                     </span>
                 </button>
             @else
-                <button type="button" class="btn btn-action btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                <button type="button" class="btn btn-action btn-outline-like me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                     <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                     <x-heroicon-o-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                     @if ($answer->likerscount() !== 0)
@@ -55,7 +55,7 @@
             @endcan
         @endauth
         @guest
-            <a href="/login" class="btn btn-action btn-outline-praise me-1" aria-label="Praises">
+            <a href="/login" class="btn btn-action btn-outline-like me-1" aria-label="Praises">
                 <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                 @if ($answer->likerscount() !== 0)
                     <span class="small fw-bold">
