@@ -70,7 +70,7 @@
                                 </div>
                             </a>
                             <a class="btn btn-sm btn-outline-success rounded-pill float-end ms-auto" href="{{ route('user.settings.profile') }}">
-                                <x-heroicon-o-cog class="heroicon" />
+                                <x-heroicon-o-cog class="heroicon heroicon-15px" />
                                 Update
                             </a>
                         </div>
