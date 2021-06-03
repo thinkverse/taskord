@@ -45,7 +45,7 @@
                 </div>
                 <div class="mb-2 form-check">
                     <input class="form-check-input" type="checkbox" disabled {{ $praise_count === 0 ? '' : 'checked' }}>
-                    <label>Praise one task</label>
+                    <label>Like one task</label>
                 </div>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" disabled {{ $product_count === 0 ? '' : 'checked' }}>
