@@ -203,7 +203,7 @@
                                 <td>
                                     <button wire:loading.attr="disabled" wire:click="deleteWebhook({{ $webhook->id }})"
                                         class="btn btn-sm w-100 btn-outline-danger rounded-pill">
-                                        <x-heroicon-o-trash class="heroicon" />
+                                        <x-heroicon-o-trash class="heroicon heroicon-15px" />
                                         Delete
                                     </button>
                                 </td>
