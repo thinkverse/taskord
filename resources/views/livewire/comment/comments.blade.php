@@ -15,16 +15,12 @@
             </div>
         </div>
     @endif
-    <ul class="list-group mt-4">
-        @foreach ($comments as $comment)
-            <div class="mb-3">
-                <livewire:comment.single-comment :comment="$comment" :wire:key="$comment->id" />
-            </div>
-        @endforeach
-    </ul>
-    <div class="mt-4">
-        @if ($readyToLoad and $comments->hasMorePages())
-            <livewire:comment.load-more :task="$task" :page="$page" :perPage="$perPage" />
-        @endif
-    </div>
+    @foreach ($comments as $comment)
+        <div class="mb-3 {{ $comment->first ?: 'mt-3' }}">
+            <livewire:comment.single-comment :comment="$comment" :wire:key="$comment->id" />
+        </div>
+    @endforeach
+    @if ($readyToLoad and $comments->hasMorePages())
+        <livewire:comment.load-more :task="$task" :page="$page" :perPage="$perPage" />
+    @endif
 </div>
