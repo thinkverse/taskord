@@ -72,10 +72,10 @@
             @auth
                 @if (!$task->user->is_private and !$task->hidden)
                     @if (auth()->user()->hasLiked($task))
-                        <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
+                        <button type="button" class="btn btn-task btn-praise text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
                             <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
                             <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
-                            <span class="small text-white fw-bold">
+                            <span class="small fw-bold">
                                 {{ number_format($task->likerscount()) }}
                             </span>
                             <span class="avatar-stack ms-1">
@@ -85,11 +85,11 @@
                             </span>
                         </button>
                     @else
-                        <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
+                        <button type="button" class="btn btn-task btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
                             <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                            <x-heroicon-o-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
+                            <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                             @if ($task->likerscount() !== 0)
-                                <span class="small text-dark fw-bold">
+                                <span class="small fw-bold">
                                     {{ number_format($task->likerscount()) }}
                                 </span>
                                 <span class="avatar-stack ms-1">
@@ -103,7 +103,7 @@
                 @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
+                <a href="/login" class="btn btn-task btn-outline-praise me-1" aria-label="Praises">
                     <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                     @if ($task->likerscount() !== 0)
                         <span class="small text-dark fw-bold">
