@@ -99,3 +99,9 @@
   background-color: rgb(110 180 235 / 25%);
   color: $info;
 }
+
+.btn-outline-danger:hover,
+.btn-outline-danger:active {
+  background-color: rgb(200 50 50 / 25%);
+  color: $danger;
+}
