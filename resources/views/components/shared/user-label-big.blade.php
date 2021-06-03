@@ -39,7 +39,7 @@
                     Staff
                 </span>
             @endif
-            <div class="small text-secondary fw-normal ms-2">{{ "@" . $user->username }}</div>
+            <div class="small text-secondary fw-normal">{{ "@" . $user->username }}</div>
         </a>
     </span>
 </div>
