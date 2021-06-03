@@ -33,7 +33,7 @@
                         id="username"
                         name="username"
                         value="{{ old('username') }}"
-                        class="form-control {{ session('error') ?: 'is-invalid' }}"
+                        class="form-control {{ session('error') ? 'is-invalid' : '' }}"
                         placeholder="Username or Email"
                         autocomplete="username"
                         required
@@ -46,7 +46,7 @@
                         type="password"
                         id="password"
                         name="password"
-                        class="form-control {{ session('error') ?: 'is-invalid' }}"
+                        class="form-control {{ session('error') ? 'is-invalid' : '' }}"
                         placeholder="Password"
                         autocomplete="current-password"
                     >
