@@ -42,15 +42,15 @@
                         @if ($user->is_verified)
                             <x-heroicon-s-badge-check class="heroicon heroicon-20px text-primary ms-2 me-0 verified" />
                         @endif
-                        @if ($user->is_patron)
-                            <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                                <x-heroicon-s-star class="heroicon heroicon-20px ms-2 me-0 text-gold" />
-                            </a>
-                        @endif
                         @if ($user->vacation_mode)
                             <span title="On Vacation">
                                 <x-heroicon-o-sun class="heroicon heroicon-20px ms-2 me-0 text-success" />
                             </span>
+                        @endif
+                        @if ($user->is_patron)
+                            <a class="badge tk-badge bg-patron text-capitalize text-white ms-1" href="{{ route('patron.home') }}">
+                                Patron
+                            </a>
                         @endif
                         @auth
                             @if ($user->isFollowing(auth()->user()))
