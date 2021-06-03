@@ -42,9 +42,9 @@ class MilestoneLiked extends Notification implements ShouldQueue
 
         if (! $user->spammy) {
             return (new MailMessage())
-                ->subject('@'.$user->username.' praised your milestone')
+                ->subject('@'.$user->username.' liked your milestone')
                 ->greeting('Hello @'.$notifiable->username.' 👋')
-                ->line('👏 Your milestone was praised by @'.$user->username)
+                ->line('👏 Your milestone was liked by @'.$user->username)
                 ->line($this->milestone->title)
                 ->line('Thank you for using Taskord!');
         }
