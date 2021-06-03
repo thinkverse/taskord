@@ -18,7 +18,7 @@ class MilestoneLiked extends Component
     {
         $milestone = Milestone::find($this->data['milestone_id']);
 
-        return view('livewire.notification.type.milestone.milestone-praised', [
+        return view('livewire.notification.type.milestone.milestone-liked', [
             'milestone' => $milestone,
         ]);
     }

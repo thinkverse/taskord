@@ -18,7 +18,7 @@ class QuestionLiked extends Component
     {
         $question = Question::find($this->data['question_id']);
 
-        return view('livewire.notification.type.question.question-praised', [
+        return view('livewire.notification.type.question.question-liked', [
             'question' => $question,
         ]);
     }

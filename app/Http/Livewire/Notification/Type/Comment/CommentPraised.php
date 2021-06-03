@@ -18,7 +18,7 @@ class CommentLiked extends Component
     {
         $comment = Comment::find($this->data['comment_id']);
 
-        return view('livewire.notification.type.comment.comment-praised', [
+        return view('livewire.notification.type.comment.comment-liked', [
             'comment' => $comment,
         ]);
     }

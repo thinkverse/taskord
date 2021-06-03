@@ -18,7 +18,7 @@ class ReplyLiked extends Component
     {
         $reply = CommentReply::find($this->data['reply_id']);
 
-        return view('livewire.notification.type.comment.reply.reply-praised', [
+        return view('livewire.notification.type.comment.reply.reply-liked', [
             'reply' => $reply,
         ]);
     }

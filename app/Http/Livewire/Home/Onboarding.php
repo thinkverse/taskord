@@ -46,7 +46,7 @@ class Onboarding extends Component
 
         return view('livewire.home.onboarding', [
             'task_count' => $taskCount,
-            'like_count' => $praiseCount,
+            'like_count' => $likeCount,
             'product_count' => $productCount,
             'has_name' => $hasName,
             'changed_username' => $changedUsername,
