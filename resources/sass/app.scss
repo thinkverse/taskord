@@ -170,14 +170,13 @@ input[type="color"]:focus,
   }
 }
 
-.bg-hero {
-  background: linear-gradient(90deg, $primary 0%, #6a63ecba 90%);
-  background-size: contain;
-}
-
 .bg-tag {
   background: #eae9ff;
   color: $primary;
+}
+
+.bg-hero {
+  background: linear-gradient(90deg, $primary 0%, #6a63ecba 90%);
 }
 
 .avatar-stack {
