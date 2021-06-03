@@ -27,7 +27,7 @@ class SingleUpdate extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('praise/subscribe', $this->update)) {
+        if (Gate::denies('like/subscribe', $this->update)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
