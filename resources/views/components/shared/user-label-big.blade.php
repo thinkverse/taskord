@@ -12,7 +12,7 @@
             alt="{{ $user->username }}'s avatar"
         />
     </a>
-    <span class="ms-2">
+    <span class="ms-2 d-flex align-items-center">
         <a
             href="{{ route('user.done', ['username' => $user->username]) }}"
             class="fw-bold text-dark user-popover"
@@ -39,7 +39,7 @@
                     Staff
                 </span>
             @endif
-            <div class="small text-secondary fw-normal">{{ "@" . $user->username }}</div>
+            <div class="small text-secondary fw-normal ms-2">{{ "@" . $user->username }}</div>
         </a>
     </span>
 </div>

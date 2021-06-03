@@ -6,7 +6,7 @@
     >
         <img loading=lazy class="avatar-25 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="40" width="40" alt="{{ $user->username }}'s avatar" />
     </a>
-    <div class="ms-2">
+    <div class="ms-2 d-flex align-items-center">
         <a
             href="{{ route('user.done', ['username' => $user->username]) }}"
             class="fw-bold text-dark user-popover"
