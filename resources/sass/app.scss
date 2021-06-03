@@ -179,6 +179,25 @@ input[type="color"]:focus,
   background: linear-gradient(90deg, $primary 0%, #6a63ecba 90%);
 }
 
+.tk-badge {
+  letter-spacing: 0.5px;
+  font-size: 10px;
+  border-radius: 5px;
+  text-shadow: rgb(0 0 0 / 16%) 0px 1px 1px;
+}
+
+.bg-beta {
+  background-image: radial-gradient(at left top, $teal-500 0%, $teal-600 100%);
+}
+
+.bg-patron {
+  background-image: radial-gradient(at left top, $yellow-500 0%, $yellow-600 100%);
+}
+
+.bg-staff {
+  background-image: radial-gradient(at left top, $primary 0%, #5a53dc 100%);
+}
+
 .avatar-stack {
   .avatar {
     height: 30px;
