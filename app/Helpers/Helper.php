@@ -34,7 +34,7 @@ class Helper
     }
 
     /**
-     * Toggle praise on a model.
+     * Toggle like on a model.
      *
      * @param \Illuminate\Database\Eloquent\Model $entity
      * @param string $type
