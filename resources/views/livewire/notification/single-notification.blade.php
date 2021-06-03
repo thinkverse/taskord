@@ -21,17 +21,17 @@
                 @endif
             </div>
             @if ($type === "App\Notifications\Task\TaskLiked")
-                <livewire:notification.type.task.task-praised :data="$data" />
+                <livewire:notification.type.task.task-liked :data="$data" />
             @elseif ($type === "App\Notifications\Mentioned")
                 <livewire:notification.type.mentioned :data="$data" />
             @elseif ($type === "App\Notifications\Comment\CommentLiked")
-                <livewire:notification.type.comment.comment-praised :data="$data" />
+                <livewire:notification.type.comment.comment-liked :data="$data" />
             @elseif ($type === "App\Notifications\Comment\Reply\ReplyLiked")
-                <livewire:notification.type.comment.reply.reply-praised :data="$data" />
+                <livewire:notification.type.comment.reply.reply-liked :data="$data" />
             @elseif ($type === "App\Notifications\Question\QuestionLiked")
-                <livewire:notification.type.question.question-praised :data="$data" />
+                <livewire:notification.type.question.question-liked :data="$data" />
             @elseif ($type === "App\Notifications\Answer\AnswerLiked")
-                <livewire:notification.type.answer.answer-praised :data="$data" />
+                <livewire:notification.type.answer.answer-liked :data="$data" />
             @elseif ($type === "App\Notifications\Comment\Commented")
                 <livewire:notification.type.comment.commented :data="$data" />
             @elseif ($type === "App\Notifications\Answer\Answered")
@@ -51,7 +51,7 @@
             @elseif ($type === "App\Notifications\Comment\Reply\Replied")
                 <livewire:notification.type.comment.reply.replied :data="$data" />
             @elseif ($type === "App\Notifications\Milestone\MilestoneLiked")
-                <livewire:notification.type.milestone.milestone-praised :data="$data" />
+                <livewire:notification.type.milestone.milestone-liked :data="$data" />
             @elseif ($type === "App\Notifications\Followed")
                 <div class="mt-2 text-secondary">
                     followed you
