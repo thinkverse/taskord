@@ -69,7 +69,7 @@
                                     {{ '@'.Str::limit(auth()->user()->username, '20') }}
                                 </div>
                             </a>
-                            <a class="btn btn-sm btn-success text-white float-end ms-auto" href="{{ route('user.settings.profile') }}">
+                            <a class="btn btn-sm btn-outline-success rounded-pill float-end ms-auto" href="{{ route('user.settings.profile') }}">
                                 <x-heroicon-o-cog class="heroicon" />
                                 Update
                             </a>
