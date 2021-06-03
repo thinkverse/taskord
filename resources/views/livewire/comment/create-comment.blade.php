@@ -18,7 +18,7 @@
                  <x:labels.beta />
             </div>
             <button wire:loading.attr="disabled" wire:target="submit" class="btn btn-sm btn-outline-primary rounded-pill" type="submit" wire:click="submit">
-                <x-heroicon-o-plus class="heroicon" />
+                <x-heroicon-o-plus class="heroicon heroicon-15px" />
                 Add Comment
             </button>
         </div>
