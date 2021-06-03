@@ -106,7 +106,7 @@
                 <a href="/login" class="btn btn-task btn-outline-praise me-1" aria-label="Praises">
                     <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                     @if ($task->likerscount() !== 0)
-                        <span class="small text-dark fw-bold">
+                        <span class="small fw-bold">
                             {{ number_format($task->likerscount()) }}
                         </span>
                         <span class="avatar-stack ms-1">
