@@ -87,3 +87,15 @@
   background-color: rgb(110 250 150 / 25%);
   color: $success;
 }
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:active {
+  background-color: rgb(110 115 125 / 20%);
+  color: $secondary;
+}
+
+.btn-outline-info:hover,
+.btn-outline-info:active {
+  background-color: rgb(110 180 235 / 25%);
+  color: $info;
+}
