@@ -150,7 +150,7 @@
                 @if (!$user->is_staff)
                     <div class="mt-3">
                         <button wire:loading.attr="disabled" wire:click="masquerade" class="btn btn-sm btn-outline-info rounded-pill fw-bold">
-                            <x-heroicon-o-eye class="heroicon" />
+                            <x-heroicon-o-eye class="heroicon heroicon-15px" />
                             Masquerade
                         </button>
                     </div>
@@ -161,7 +161,7 @@
                                 <textarea name="staff_notes" id="staff_notes" class="form-control mt-3" rows="3" wire:model="staffNotes" placeholder="Important information about this user..">
                                 </textarea>
                                 <button wire:click="updateUserStaffNotes" type="button" class="btn btn-sm btn-outline-primary rounded-pill mt-2">
-                                    <x-heroicon-o-save class="heroicon" />
+                                    <x-heroicon-o-save class="heroicon heroicon-15px" />
                                     Save Notes
                                 </button>
                             </form>
@@ -183,62 +183,62 @@
                     </div>
                     <div class="mt-3">
                         <button wire:loading.attr="disabled" wire:click="resetAvatar" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
-                            <x-heroicon-o-refresh class="heroicon" />
+                            <x-heroicon-o-refresh class="heroicon heroicon-15px" />
                             Reset avatar
                         </button>
                     </div>
                     <div class="mt-2">
                         <button wire:loading.attr="disabled" wire:click="releaseUsername" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
-                            <x-heroicon-o-switch-horizontal class="heroicon" />
+                            <x-heroicon-o-switch-horizontal class="heroicon heroicon-15px" />
                             Release username
                         </button>
                     </div>
                     <div class="mt-2">
                         <button wire:loading.attr="disabled" wire:click="deleteTasks" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
-                            <x-heroicon-o-trash class="heroicon" />
-                            <x-heroicon-o-check class="heroicon" />
+                            <x-heroicon-o-trash class="heroicon heroicon-15px" />
+                            <x-heroicon-o-check class="heroicon heroicon-15px" />
                             Delete all tasks
                         </button>
                     </div>
                     <div class="mt-2">
                         <button wire:loading.attr="disabled" wire:click="deleteComments" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
-                            <x-heroicon-o-trash class="heroicon" />
-                            <x-heroicon-o-chat-alt class="heroicon" />
+                            <x-heroicon-o-trash class="heroicon heroicon-15px" />
+                            <x-heroicon-o-chat-alt class="heroicon heroicon-15px" />
                             Delete all comments
                         </button>
                     </div>
                     <div class="mt-2">
                         <button wire:loading.attr="disabled" wire:click="deleteQuestions" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
-                            <x-heroicon-o-trash class="heroicon" />
-                            <x-heroicon-o-question-mark-circle class="heroicon" />
+                            <x-heroicon-o-trash class="heroicon heroicon-15px" />
+                            <x-heroicon-o-question-mark-circle class="heroicon heroicon-15px" />
                             Delete all questions
                         </button>
                     </div>
                     <div class="mt-2">
                         <button wire:loading.attr="disabled" wire:click="deleteAnswers" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
-                            <x-heroicon-o-trash class="heroicon" />
-                            <x-heroicon-o-chat-alt-2 class="heroicon" />
+                            <x-heroicon-o-trash class="heroicon heroicon-15px" />
+                            <x-heroicon-o-chat-alt-2 class="heroicon heroicon-15px" />
                             Delete all answers
                         </button>
                     </div>
                     <div class="mt-2">
                         <button wire:loading.attr="disabled" wire:click="deleteMilestones" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
-                            <x-heroicon-o-trash class="heroicon" />
-                            <x-heroicon-o-truck class="heroicon" />
+                            <x-heroicon-o-trash class="heroicon heroicon-15px" />
+                            <x-heroicon-o-truck class="heroicon heroicon-15px" />
                             Delete all milestones
                         </button>
                     </div>
                     <div class="mt-2">
                         <button wire:loading.attr="disabled" wire:click="deleteProducts" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
-                            <x-heroicon-o-trash class="heroicon" />
-                            <x-heroicon-o-cube class="heroicon" />
+                            <x-heroicon-o-trash class="heroicon heroicon-15px" />
+                            <x-heroicon-o-cube class="heroicon heroicon-15px" />
                             Delete all products
                         </button>
                     </div>
                     <div class="mt-2">
                         <button wire:loading.attr="disabled" wire:click="deleteUser" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
-                            <x-heroicon-o-trash class="heroicon" />
-                            <x-heroicon-o-user class="heroicon" />
+                            <x-heroicon-o-trash class="heroicon heroicon-15px" />
+                            <x-heroicon-o-user class="heroicon heroicon-15px" />
                             Delete this user
                         </button>
                     </div>
