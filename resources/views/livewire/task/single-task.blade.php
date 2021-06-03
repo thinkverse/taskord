@@ -87,7 +87,7 @@
                     @else
                         <button type="button" class="btn btn-task btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
                             <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                            <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
+                            <x-heroicon-o-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                             @if ($task->likerscount() !== 0)
                                 <span class="small fw-bold">
                                     {{ number_format($task->likerscount()) }}

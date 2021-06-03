@@ -32,19 +32,19 @@
 }
 
 .btn-praise {
-  color: $pink-600 !important;
-  border-color: $pink-600;
-  background-color: rgb(190 100 120 / 25%);
+  color: $pink !important;
+  border-color: $pink;
+  background-color: rgb(190 100 120 / 20%);
 }
 
 .btn-outline-praise {
-  color: $pink-600;
-  border-color: $pink-600;
+  color: $pink;
+  border-color: $pink;
 
   &:hover,
   &:active,
   &:focus {
-    color: $pink-600;
+    color: $pink;
     background-color: rgb(190 100 120 / 25%);
   }
 }
