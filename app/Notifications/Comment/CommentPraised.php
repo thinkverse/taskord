@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class CommentPraised extends Notification implements ShouldQueue
+class CommentLiked extends Notification implements ShouldQueue
 {
     use Queueable;
 

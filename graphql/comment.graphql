@@ -4,7 +4,7 @@ type Comment {
     comment: String!
     user: User @belongsTo
     task: Task @belongsTo
-    hasPraised: Boolean @field(resolver: "App\\GraphQL\\Queries\\CommentQuery@hasPraised")
+    hasLiked: Boolean @field(resolver: "App\\GraphQL\\Queries\\CommentQuery@hasLiked")
     praises: [User!]! @hasMany(relation: "likers", type: "connection")
     hidden: Boolean!
     created_at: DateTime! @cache(maxAge: 3600)

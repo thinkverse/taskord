@@ -3,7 +3,7 @@ type Answer {
     id: ID!
     answer: String!
     user: User @belongsTo
-    hasPraised: Boolean @field(resolver: "App\\GraphQL\\Queries\\AnswerQuery@hasPraised")
+    hasLiked: Boolean @field(resolver: "App\\GraphQL\\Queries\\AnswerQuery@hasLiked")
     praises: [User!]! @hasMany(relation: "likers", type: "connection")
     question: Question @belongsTo
     hidden: Boolean!
