@@ -6,7 +6,7 @@
         Launched
     </a>
     @auth
-        <a type="button" class="mb-2 btn btn-success float-md-end text-white" href="{{ route('products.new') }}">
+        <a type="button" class="mb-2 btn btn-outline-success rounded-pill float-md-end" href="{{ route('products.new') }}">
             <x-heroicon-o-plus class="heroicon" />
             Add your Product
         </a>
