@@ -201,6 +201,10 @@ input[type="color"]:focus,
   background-image: radial-gradient(at left top, $primary 0%, #5a53dc 100%);
 }
 
+.bg-patron-question {
+  background-color: rgb(255 235 75 / 25%);
+}
+
 .avatar-stack {
   .avatar {
     height: 30px;

@@ -1,4 +1,4 @@
-<div class="card mb-2 {{ $question->patron_only ? 'bg-patron' : '' }}">
+<div class="card mb-2 {{ $question->patron_only ? 'bg-patron-question' : '' }}">
     <div class="card-body">
         <div class="d-flex align-items-center">
             <x:shared.user-label-big :user="$question->user" />
