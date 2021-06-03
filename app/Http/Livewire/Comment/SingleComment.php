@@ -21,7 +21,7 @@ class SingleComment extends Component
         $this->comment = $comment;
     }
 
-    public function togglePraise()
+    public function toggleLike()
     {
         try {
             $this->rateLimit(50);
@@ -33,7 +33,7 @@ class SingleComment extends Component
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        Helper::togglePraise($this->comment, 'COMMENT');
+        Helper::toggleLike($this->comment, 'COMMENT');
 
         return loggy(request(), 'Comment', auth()->user(), 'Toggled comment like | Comment ID: '.$this->comment->id);
     }

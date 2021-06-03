@@ -22,7 +22,7 @@ class SingleMilestone extends Component
         $this->type = $type;
     }
 
-    public function togglePraise()
+    public function toggleLike()
     {
         try {
             $this->rateLimit(50);
@@ -34,7 +34,7 @@ class SingleMilestone extends Component
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        Helper::togglePraise($this->milestone, 'MILESTONE');
+        Helper::toggleLike($this->milestone, 'MILESTONE');
 
         return loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone like | Milestone ID: '.$this->milestone->id);
     }

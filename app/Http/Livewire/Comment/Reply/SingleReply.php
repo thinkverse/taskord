@@ -19,7 +19,7 @@ class SingleReply extends Component
         $this->reply = $reply;
     }
 
-    public function togglePraise()
+    public function toggleLike()
     {
         try {
             $this->rateLimit(50);
@@ -31,7 +31,7 @@ class SingleReply extends Component
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        Helper::togglePraise($this->reply, 'REPLY');
+        Helper::toggleLike($this->reply, 'REPLY');
 
         return loggy(request(), 'Reply', auth()->user(), 'Toggled reply like | Reply ID: '.$this->reply->id);
     }

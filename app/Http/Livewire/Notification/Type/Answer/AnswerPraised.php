@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Notification\Type\Answer;
 use App\Models\Answer;
 use Livewire\Component;
 
-class AnswerPraised extends Component
+class AnswerLiked extends Component
 {
     public $data;
 
