@@ -149,7 +149,7 @@
                 </div>
                 @if (!$user->is_staff)
                     <div class="mt-3">
-                        <button wire:loading.attr="disabled" wire:click="masquerade" class="btn btn-sm btn-outline-warning rounded-pill fw-bold">
+                        <button wire:loading.attr="disabled" wire:click="masquerade" class="btn btn-sm btn-outline-info rounded-pill fw-bold">
                             <x-heroicon-o-eye class="heroicon" />
                             Masquerade
                         </button>
