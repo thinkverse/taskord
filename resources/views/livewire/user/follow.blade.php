@@ -3,12 +3,12 @@
         @can('user.follow', $user)
             @if (auth()->user()->isFollowing($user))
                 <button wire:click="toggleFollow" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
-                    <x-heroicon-o-user-remove class="heroicon" />
+                    <x-heroicon-o-user-remove class="heroicon heroicon-15px" />
                     Unfollow
                 </button>
             @else
                 <button wire:click="toggleFollow" wire:loading.attr="disabled" class="btn btn-sm btn-primary mb-2">
-                    <x-heroicon-o-user-add class="heroicon" />
+                    <x-heroicon-o-user-add class="heroicon heroicon-15px" />
                     Follow
                 </button>
             @endif
