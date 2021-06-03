@@ -149,7 +149,7 @@
                 </div>
                 @if (!$user->is_staff)
                     <div class="mt-3">
-                        <button wire:loading.attr="disabled" wire:click="masquerade" class="btn btn-sm btn-warning fw-bold">
+                        <button wire:loading.attr="disabled" wire:click="masquerade" class="btn btn-sm btn-outline-warning rounded-pill fw-bold">
                             <x-heroicon-o-eye class="heroicon" />
                             Masquerade
                         </button>
@@ -160,7 +160,7 @@
                             <form wire:submit.prevent="updateUserStaffNotes">
                                 <textarea name="staff_notes" id="staff_notes" class="form-control mt-3" rows="3" wire:model="staffNotes" placeholder="Important information about this user..">
                                 </textarea>
-                                <button wire:click="updateUserStaffNotes" type="button" class="btn btn-sm btn-primary mt-2">
+                                <button wire:click="updateUserStaffNotes" type="button" class="btn btn-sm btn-outline-primary rounded-pill mt-2">
                                     <x-heroicon-o-save class="heroicon" />
                                     Save Notes
                                 </button>
@@ -182,13 +182,13 @@
                         <label for="suspendUser" class="ms-1 text-danger fw-bold">Suspend this user</label>
                     </div>
                     <div class="mt-3">
-                        <button wire:loading.attr="disabled" wire:click="resetAvatar" class="btn btn-sm btn-danger fw-bold">
+                        <button wire:loading.attr="disabled" wire:click="resetAvatar" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
                             <x-heroicon-o-refresh class="heroicon" />
                             Reset avatar
                         </button>
                     </div>
                     <div class="mt-2">
-                        <button wire:loading.attr="disabled" wire:click="releaseUsername" class="btn btn-sm btn-danger fw-bold">
+                        <button wire:loading.attr="disabled" wire:click="releaseUsername" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
                             <x-heroicon-o-switch-horizontal class="heroicon" />
                             Release username
                         </button>
