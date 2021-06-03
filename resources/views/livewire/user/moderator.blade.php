@@ -208,35 +208,35 @@
                         </button>
                     </div>
                     <div class="mt-2">
-                        <button wire:loading.attr="disabled" wire:click="deleteQuestions" class="btn btn-sm btn-danger fw-bold">
+                        <button wire:loading.attr="disabled" wire:click="deleteQuestions" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
                             <x-heroicon-o-trash class="heroicon" />
                             <x-heroicon-o-question-mark-circle class="heroicon" />
                             Delete all questions
                         </button>
                     </div>
                     <div class="mt-2">
-                        <button wire:loading.attr="disabled" wire:click="deleteAnswers" class="btn btn-sm btn-danger fw-bold">
+                        <button wire:loading.attr="disabled" wire:click="deleteAnswers" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
                             <x-heroicon-o-trash class="heroicon" />
                             <x-heroicon-o-chat-alt-2 class="heroicon" />
                             Delete all answers
                         </button>
                     </div>
                     <div class="mt-2">
-                        <button wire:loading.attr="disabled" wire:click="deleteMilestones" class="btn btn-sm btn-danger fw-bold">
+                        <button wire:loading.attr="disabled" wire:click="deleteMilestones" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
                             <x-heroicon-o-trash class="heroicon" />
                             <x-heroicon-o-truck class="heroicon" />
                             Delete all milestones
                         </button>
                     </div>
                     <div class="mt-2">
-                        <button wire:loading.attr="disabled" wire:click="deleteProducts" class="btn btn-sm btn-danger fw-bold">
+                        <button wire:loading.attr="disabled" wire:click="deleteProducts" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
                             <x-heroicon-o-trash class="heroicon" />
                             <x-heroicon-o-cube class="heroicon" />
                             Delete all products
                         </button>
                     </div>
                     <div class="mt-2">
-                        <button wire:loading.attr="disabled" wire:click="deleteUser" class="btn btn-sm btn-danger fw-bold">
+                        <button wire:loading.attr="disabled" wire:click="deleteUser" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
                             <x-heroicon-o-trash class="heroicon" />
                             <x-heroicon-o-user class="heroicon" />
                             Delete this user
