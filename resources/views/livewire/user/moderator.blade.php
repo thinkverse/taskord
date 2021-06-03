@@ -194,14 +194,14 @@
                         </button>
                     </div>
                     <div class="mt-2">
-                        <button wire:loading.attr="disabled" wire:click="deleteTasks" class="btn btn-sm btn-danger fw-bold">
+                        <button wire:loading.attr="disabled" wire:click="deleteTasks" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
                             <x-heroicon-o-trash class="heroicon" />
                             <x-heroicon-o-check class="heroicon" />
                             Delete all tasks
                         </button>
                     </div>
                     <div class="mt-2">
-                        <button wire:loading.attr="disabled" wire:click="deleteComments" class="btn btn-sm btn-danger fw-bold">
+                        <button wire:loading.attr="disabled" wire:click="deleteComments" class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
                             <x-heroicon-o-trash class="heroicon" />
                             <x-heroicon-o-chat-alt class="heroicon" />
                             Delete all comments
