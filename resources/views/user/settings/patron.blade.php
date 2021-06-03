@@ -56,7 +56,7 @@
                                         </a>
                                     @endif
                                     @if ($user->patron->cancel_url)
-                                        <a class="btn btn-danger" href="{{ $user->patron->cancel_url }}" target="_blank" rel="noreferrer">
+                                        <a class="btn btn-outline-danger rounded-pill" href="{{ $user->patron->cancel_url }}" target="_blank" rel="noreferrer">
                                             <x-heroicon-o-x class="heroicon" />
                                             Cancel Patron
                                         </a>
@@ -65,7 +65,7 @@
                             </div>
                         @else
                             <div>You are using gifted account!</div>
-                            <a class="btn btn-success text-white mt-2" href="{{ route('patron.home') }}">
+                            <a class="btn btn-outline-success rounded-pill mt-2" href="{{ route('patron.home') }}">
                                 Support now!
                             </a>
                         @endif
