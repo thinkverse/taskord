@@ -42,9 +42,9 @@ class TaskLiked extends Notification implements ShouldQueue
 
         if (! $user->spammy) {
             return (new MailMessage())
-                ->subject('@'.$user->username.' praised your task')
+                ->subject('@'.$user->username.' liked your task')
                 ->greeting('Hello @'.$notifiable->username.' 👋')
-                ->line('👍 Your task was praised by @'.$user->username)
+                ->line('👍 Your task was liked by @'.$user->username)
                 ->line($this->task->task)
                 ->action('Go to Task', url('/task/'.$this->task->id))
                 ->line('Thank you for using Taskord!');
