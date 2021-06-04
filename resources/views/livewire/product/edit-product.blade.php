@@ -55,18 +55,13 @@
                     <span class="input-group-text">
                         <x-heroicon-o-link class="heroicon" />
                     </span>
-                    <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" wire:model="website">
+                    <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" wire:model.defer="website">
                     @error('website')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
-                @if ($website)
-                    <div class="mb-3">
-                        <button class="btn btn-sm btn-outline-success rounded-pill">Verifiy this domain</button>
-                    </div>
-                @endif
                 <div class="input-group mb-3">
                     <span class="input-group-text">
                         <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" loading=lazy />
