@@ -40,12 +40,12 @@ class Follow extends Component
         if (auth()->user()->isFollowing($this->user)) {
             $this->emitUp('refreshSuggestions');
             $this->user->notify(new Followed(auth()->user()));
-            loggy(request(), 'User', auth()->user(), 'Followed the user | Username: @'.$this->user->username);
+            loggy(request(), 'User', auth()->user(), "Followed the user | Username: @{$this->user->username}");
 
             return toast($this, 'success', 'Followed successfully!');
         }
         $this->emitUp('refreshSuggestions');
-        loggy(request(), 'User', auth()->user(), 'Unfollowed the user | Username: @'.$this->user->username);
+        loggy(request(), 'User', auth()->user(), "Unfollowed the user | Username: @{$this->user->username}");
 
         return toast($this, 'success', 'Unfollowed successfully!');
     }
