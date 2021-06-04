@@ -78,7 +78,7 @@ class SingleMilestone extends Component
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
+        loggy(request(), 'Milestone', auth()->user(), "Deleted a milestone | Milestone ID: {$this->milestone->id}");
         $this->milestone->delete();
         auth()->user()->touch();
 
