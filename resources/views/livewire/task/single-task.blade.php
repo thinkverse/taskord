@@ -73,16 +73,14 @@
                 @if (!$task->user->is_private and !$task->hidden)
                     @if (auth()->user()->hasLiked($task))
                         <button type="button" class="btn btn-action btn-like text-white me-1" wire:click="toggleLike" wire:loading.attr="disabled" wire:key="{{ $task->id }}" aria-label="Likes">
-                            <span wire:loading wire:target="toggleLike" class="spinner-border spinner-border-task" role="status"></span>
-                            <x-heroicon-s-heart wire:loading.remove wire:target="toggleLike" class="heroicon heroicon-15px me-0" />
+                            <x-heroicon-s-heart class="heroicon heroicon-15px me-0" />
                             <span class="small fw-bold">
                                 {{ number_format($task->likerscount()) }}
                             </span>
                         </button>
                     @else
                         <button type="button" class="btn btn-action btn-outline-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" wire:key="{{ $task->id }}" aria-label="Likes">
-                            <span wire:loading wire:target="toggleLike" class="spinner-border spinner-border-task" role="status"></span>
-                            <x-heroicon-o-heart wire:loading.remove wire:target="toggleLike" class="heroicon heroicon-15px me-0" />
+                            <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                             @if ($task->likerscount() !== 0)
                                 <span class="small fw-bold">
                                     {{ number_format($task->likerscount()) }}
