@@ -118,7 +118,7 @@ class Moderator extends Component
                 request(),
                 'Staff',
                 auth()->user(),
-                'Enrolled as Contributor | Username: @'.$this->user->username
+                "Enrolled as Contributor | Username: @{$this->user->username}"
             );
         }
 
@@ -126,7 +126,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Un-enrolled from Contributor | Username: @'.$this->user->username
+            "Un-enrolled from Contributor | Username: @{$this->user->username}"
         );
     }
 
