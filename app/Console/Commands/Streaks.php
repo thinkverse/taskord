@@ -84,7 +84,7 @@ class Streaks extends Command
                 $this->info("Skipped streaks update for @{$user->username}! - {$streaks} Total Streaks");
             } else {
                 $user->streaks = $streaks;
-                $this->info('Calculation Successful for @'.$user->username.'! - '.$streaks.' Total Streaks');
+                $this->info("Calculation Successful for @{$user->username}! - {$streaks} Total Streaks");
                 $user->save();
             }
         }
