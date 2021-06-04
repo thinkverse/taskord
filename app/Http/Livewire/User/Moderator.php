@@ -356,7 +356,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Released the username | Username: @'.$user->username
+            "Released the username | Username: @{$user->username}"
         );
 
         return redirect()->route('user.done', ['username' => $user->username]);
