@@ -22,7 +22,7 @@
 <div class="container-md">
     @include('user.profile')
     <div class="row justify-content-center mt-4">
-        <div class="col-lg-8">
+        <div class="col-lg-8 mb-4">
             <div class="card">
                 <div class="card-body">
                     @livewire('user.stats.all-tasks', [
