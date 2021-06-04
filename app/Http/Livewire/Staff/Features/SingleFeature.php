@@ -33,7 +33,7 @@ class SingleFeature extends Component
         }
         $this->feature->save();
 
-        return loggy(request(), 'Staff', auth()->user(), 'Toggled staff feature flag | Feature ID: '.$this->feature->id);
+        return loggy(request(), 'Staff', auth()->user(), "Toggled staff feature flag | Feature ID: {$this->feature->id}");
     }
 
     public function contributorToggle()
@@ -44,7 +44,7 @@ class SingleFeature extends Component
         }
         $this->feature->save();
 
-        return loggy(request(), 'Staff', auth()->user(), 'Toggled contributor feature flag | Feature ID: '.$this->feature->id);
+        return loggy(request(), 'Staff', auth()->user(), "Toggled contributor feature flag | Feature ID: {$this->feature->id}");
     }
 
     public function betaToggle()
