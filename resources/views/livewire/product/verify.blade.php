@@ -6,6 +6,7 @@
     <div class="card">
         <form wire:target="submit" wire:submit.prevent="submit">
             <div class="card-body">
+                {{ $txt_code }}
                 <button type="submit" class="btn btn-outline-success rounded-pill">
                     Update
                 </button>

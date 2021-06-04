@@ -37,4 +37,15 @@ class Verify extends Component
 
         return redirect()->route('product.done', ['slug' => $product->slug]);
     }
+
+    public function render()
+    {
+        $txtCode = Str::uuid();
+        $this->product->txt_code = $txtCode;
+        $this->product->save();
+
+        return view('livewire.product.verify', [
+            'txt_code' => $txtCode,
+        ]);
+    }
 }
