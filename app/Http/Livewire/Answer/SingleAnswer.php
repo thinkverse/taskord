@@ -55,7 +55,7 @@ class SingleAnswer extends Component
             return toast($this, 'success', 'Answer has been deleted successfully!');
         }
 
-        loggy(request(), 'Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
+        loggy(request(), 'Answer', auth()->user(), "Deleted an answer | Answer ID: {$this->answer->id}");
         $this->answer->delete();
         $this->emit('refreshAnswers');
 
