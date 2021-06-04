@@ -159,7 +159,7 @@ class Profile extends Component
 
             $this->user->daily_goal = $this->dailyGoal;
             $this->user->save();
-            loggy(request(), 'User', auth()->user(), 'Updated the goal '.$this->dailyGoal.'/day');
+            loggy(request(), 'User', auth()->user(), "Updated the goal {$this->dailyGoal}/day");
 
             return toast($this, 'success', 'Your goal has been updated!');
         }
