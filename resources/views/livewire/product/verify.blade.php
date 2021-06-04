@@ -13,9 +13,9 @@
                         1. Create a TXT record in your DNS configuration for the following hostname:
                         </p>
                         <div class="input-group mb-3">
-                            <input type="text" id="personal-access-token" class="form-control @error('token') is-invalid @enderror" value="{{ $txt_record }}" readonly>
+                            <input type="text" id="txt-record" class="form-control @error('token') is-invalid @enderror" value="{{ $txt_record }}" readonly>
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary js-clipboard" type="button" title="Copy" data-bs-toggle="tooltip" data-for="#personal-access-token">
+                                <button class="btn btn-outline-secondary js-clipboard" type="button" title="Copy" data-bs-toggle="tooltip" data-for="#txt-record">
                                     <x-heroicon-o-clipboard-copy class="heroicon heroicon-18px"></x-heroicon-o-clipboard-copy>
                                 </button>
                             </div>
@@ -24,9 +24,9 @@
                             2. Use this code as the value for the TXT record:
                         </p>
                         <div class="input-group mb-3">
-                            <input type="text" id="personal-access-token" class="form-control @error('token') is-invalid @enderror" value="{{ $txt_code }}" readonly>
+                            <input type="text" id="txt-code" class="form-control @error('token') is-invalid @enderror" value="{{ $txt_code }}" readonly>
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary js-clipboard" type="button" title="Copy" data-bs-toggle="tooltip" data-for="#personal-access-token">
+                                <button class="btn btn-outline-secondary js-clipboard" type="button" title="Copy" data-bs-toggle="tooltip" data-for="#txt-code">
                                     <x-heroicon-o-clipboard-copy class="heroicon heroicon-18px"></x-heroicon-o-clipboard-copy>
                                 </button>
                             </div>
