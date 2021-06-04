@@ -77,7 +77,7 @@ class SingleTask extends Component
 
         Helper::toggleLike($this->task, 'TASK');
 
-        return loggy(request(), 'Task', auth()->user(), 'Toggled task like | Task ID: '.$this->task->id);
+        return loggy(request(), 'Task', auth()->user(), "Toggled task like | Task ID: {$this->task->id}");
     }
 
     public function hide()
@@ -87,7 +87,7 @@ class SingleTask extends Component
         }
 
         Helper::hide($this->task);
-        loggy(request(), 'Staff', auth()->user(), 'Toggled task hide | Task ID: '.$this->task->id);
+        loggy(request(), 'Staff', auth()->user(), "Toggled task hide | Task ID: {$this->task->id}");
 
         return toast($this, 'success', 'Task is hidden from public!');
     }
