@@ -83,7 +83,7 @@ class SingleQuestion extends Component
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
+        loggy(request(), 'Question', auth()->user(), "Deleted a question | Question ID: {$this->question->id}");
         $this->question->delete();
         auth()->user()->touch();
 
