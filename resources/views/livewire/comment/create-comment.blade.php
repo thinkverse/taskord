@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card mb-4">
     <div class="card-body">
         @error('comment')
             <div class="alert alert-danger alert-dismissible fade show mt-2">
