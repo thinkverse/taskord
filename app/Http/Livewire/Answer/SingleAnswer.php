@@ -34,7 +34,7 @@ class SingleAnswer extends Component
 
         Helper::toggleLike($this->answer, 'ANSWER');
 
-        return loggy(request(), 'Answer', auth()->user(), 'Toggled answer like | Answer ID: '.$this->answer->id);
+        return loggy(request(), 'Answer', auth()->user(), "Toggled answer like | Answer ID: {$this->answer->id}");
     }
 
     public function hide()
