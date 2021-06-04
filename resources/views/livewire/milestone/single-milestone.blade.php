@@ -55,16 +55,14 @@
             @auth
                 @if (auth()->user()->hasLiked($milestone))
                     <button role="button" class="btn btn-action btn-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Likes">
-                        <span wire:loading wire:target="toggleLike" class="spinner-border spinner-border-task" role="status"></span>
-                        <x-heroicon-s-heart wire:loading.remove wire:target="toggleLike" class="heroicon heroicon-15px me-0" />
+                        <x-heroicon-s-heart class="heroicon heroicon-15px me-0" />
                         <span class="small fw-bold">
                             {{ number_format($milestone->likerscount()) }}
                         </span>
                     </button>
                 @else
                     <button role="button" class="btn btn-action btn-outline-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Likes">
-                        <span wire:loading wire:target="toggleLike" class="spinner-border spinner-border-task" role="status"></span>
-                        <x-heroicon-o-heart wire:loading.remove wire:target="toggleLike" class="heroicon heroicon-15px me-0" />
+                        <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                         @if ($milestone->likerscount() !== 0)
                             <span class="small fw-bold">
                                 {{ number_format($milestone->likerscount()) }}
