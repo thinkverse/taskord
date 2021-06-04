@@ -1,23 +1,7 @@
 FROM gitpod/workspace-mysql
 
 # Instal Requirements
-RUN sudo add-apt-repository ppa:ondrej/php -y \
-    && sudo apt update -y \
-    && sudo apt-get purge apache2* -y \
-    && sudo apt install -y \
-    redis-server \
-    php \
-    php-curl \
-    php-common \
-    php-cli \
-    php-mysql \
-    php-mbstring \
-    php-xml \
-    php-zip \
-    php-redis \
-    php-gd \
-    php-bcmath \
-    && sudo update-alternatives --set php /usr/bin/php8.0
+RUN sudo update-alternatives --set php /usr/bin/php8.0
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
