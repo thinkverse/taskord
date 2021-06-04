@@ -499,7 +499,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Deleted the user | Username: @'.$this->user->username
+            "Deleted the user | Username: @{$this->user->username}"
         );
 
         $user = User::find($this->user->id);
