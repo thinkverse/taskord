@@ -14,7 +14,6 @@
                     type="checkbox"
                     aria-label="Checkbox"
                     wire:click="checkState"
-                    wire:offline.attr="disabled"
                     {{ auth()->check() && auth()->user()->check_state ? 'checked' : 'unchecked' }}
                 >
             </div>
