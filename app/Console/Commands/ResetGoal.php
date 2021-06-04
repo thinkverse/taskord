@@ -41,7 +41,7 @@ class ResetGoal extends Command
         $users = User::all();
         foreach ($users as $user) {
             $user->daily_goal_reached = 0;
-            $this->info('Reset Successful for @'.$user->username.'!');
+            $this->info("Reset Successful for @{$user->username}!");
             $user->save();
         }
         $ops = User::whereUsername('ops')->first();
