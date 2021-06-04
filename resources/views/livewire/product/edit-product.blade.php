@@ -55,7 +55,7 @@
                     <span class="input-group-text">
                         <x-heroicon-o-link class="heroicon" />
                     </span>
-                    <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" wire:model.defer="website">
+                    <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" wire:model="website">
                     @error('website')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
