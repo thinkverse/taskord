@@ -46,7 +46,7 @@ class CreateQuestion extends Component
         auth()->user()->touch();
 
         givePoint(new QuestionCreated($question));
-        loggy(request(), 'Question', auth()->user(), 'Created a new question | Question ID: '.$question->id);
+        loggy(request(), 'Question', auth()->user(), "Created a new question | Question ID: {$question->id}");
 
         return redirect()->route('question.question', ['id' => $question->id]);
     }
