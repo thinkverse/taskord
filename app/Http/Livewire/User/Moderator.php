@@ -456,7 +456,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Deleted all milestones | Username: @'.$this->user->username
+            "Deleted all milestones | Username: @{$this->user->username}"
         );
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
