@@ -21,7 +21,7 @@
 <div class="container-md">
     @include('user.profile')
     <div class="row justify-content-center mt-4">
-        <div class="col-lg-8">
+        <div class="col-lg-8 mb-4">
             @livewire('user.following', ['user' => $user])
         </div>
         @include('user.sidebar')
