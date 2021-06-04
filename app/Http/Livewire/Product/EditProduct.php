@@ -119,7 +119,7 @@ class EditProduct extends Component
 
         auth()->user()->touch();
 
-        loggy(request(), 'Product', auth()->user(), "Updated a product | Product Slug: #{$this->product->slug}");
+        loggy(request(), 'Product', auth()->user(), "Updated a product | Product ID: #{$this->product->id}");
 
         return redirect()->route('product.done', ['slug' => $product->slug]);
     }
@@ -130,7 +130,7 @@ class EditProduct extends Component
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        loggy(request(), 'Product', auth()->user(), "Deleted a product | Product Slug: #{$this->product->slug}");
+        loggy(request(), 'Product', auth()->user(), "Deleted a product | Product ID: #{$this->product->id}");
         $avatar = explode('storage/', $this->product->avatar);
         if (array_key_exists(1, $avatar)) {
             Storage::delete($avatar[1]);
