@@ -36,13 +36,13 @@
                 </div>
                 @if ($product->verified_at)
                     <div class="fw-bold text-success mb-3">
-                        Your domain has been verified at {{ $product->created_at }}
+                        Your domain has been verified at {{ $product->verified_at }}
                     </div>
-                    <button class="btn btn-outline-success rounded-pill" wire:click="verifyDomain">
+                    <button class="btn btn-outline-success rounded-pill" wire:click="verifyDomain" wire:loading.attr="disabled">
                         Reverify domain
                     </button>
                 @else
-                    <button class="btn btn-outline-success rounded-pill" wire:click="verifyDomain">
+                    <button class="btn btn-outline-success rounded-pill" wire:click="verifyDomain" wire:loading.attr="disabled">
                         Verify domain
                     </button>
                 @endif

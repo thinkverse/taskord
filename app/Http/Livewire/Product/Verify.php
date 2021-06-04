@@ -8,10 +8,12 @@ use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Spatie\Dns\Dns;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 
 class Verify extends Component
 {
-    use WithFileUploads;
+    use WithRateLimiting;
 
     public Product $product;
 
@@ -22,6 +24,12 @@ class Verify extends Component
 
     public function verifyDomain()
     {
+        try {
+            $this->rateLimit(10);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
+        }
+
         if (Gate::denies('edit/delete', $this->product)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
