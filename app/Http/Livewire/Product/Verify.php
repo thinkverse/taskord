@@ -3,13 +3,12 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 use Spatie\Dns\Dns;
-use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
-use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 
 class Verify extends Component
 {
@@ -47,7 +46,7 @@ class Verify extends Component
             $this->product->save();
             loggy(request(), 'Product', auth()->user(), "Verified the product and domain | Product ID: {$this->product->id}");
 
-            return toast($this, 'success', "Domain and product has been successfully verified 🎉");
+            return toast($this, 'success', 'Domain and product has been successfully verified 🎉');
         } else {
             return toast($this, 'error', "We can't verify the domain at this time, please try again later!");
         }
