@@ -60,7 +60,7 @@ class SingleTask extends Component
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
+        loggy(request(), 'Task', auth()->user(), "Deleted a task | Task ID: {$this->task->id}");
         foreach ($this->task->images ?? [] as $image) {
             Storage::delete($image);
         }
