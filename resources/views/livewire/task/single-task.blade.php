@@ -71,23 +71,28 @@
         <div class="pt-2">
             @auth
                 @if (!$task->user->is_private and !$task->hidden)
-                    @if (auth()->user()->hasLiked($task))
-                        <button type="button" class="btn btn-action btn-like text-white me-1" wire:click="toggleLike" wire:loading.attr="disabled" wire:key="{{ $task->id }}" aria-label="Likes">
+                    @php
+                        $liked = auth()->user()->hasLiked($task)
+                    @endphp
+                    <button
+                        type="button"
+                        class="btn btn-action {{ $liked ? 'btn-like' : 'btn-outline-like' }} me-1"
+                        wire:click="toggleLike"
+                        wire:loading.attr="disabled"
+                        wire:key="{{ $task->id }}"
+                        aria-label="Likes"
+                    >
+                        @if ($liked)
                             <x-heroicon-s-heart class="heroicon heroicon-15px me-0" />
+                        @else
+                            <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
+                        @endif
+                        @if ($task->likerscount() !== 0)
                             <span class="small fw-bold">
                                 {{ number_format($task->likerscount()) }}
                             </span>
-                        </button>
-                    @else
-                        <button type="button" class="btn btn-action btn-outline-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" wire:key="{{ $task->id }}" aria-label="Likes">
-                            <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
-                            @if ($task->likerscount() !== 0)
-                                <span class="small fw-bold">
-                                    {{ number_format($task->likerscount()) }}
-                                </span>
-                            @endif
-                        </button>
-                    @endif
+                        @endif
+                    </button>
                 @endif
             @endauth
             @guest
