@@ -36,7 +36,7 @@
                 </div>
                 @if ($product->verified_at)
                     <div class="fw-bold text-success mb-3">
-                        Your domain has been verified at {{ $product->verified_at }}
+                        Your domain has been verified at {{ carbon($product->verified_at)->format('d M Y g:i A') }}
                     </div>
                     <button class="btn btn-outline-success rounded-pill" wire:click="verifyDomain" wire:loading.attr="disabled">
                         Reverify domain
