@@ -62,6 +62,11 @@
                         </span>
                     @enderror
                 </div>
+                @if ($website)
+                    <div class="mb-3">
+                        <button class="btn btn-sm btn-outline-success rounded-pill">Verifiy this domain</button>
+                    </div>
+                @endif
                 <div class="input-group mb-3">
                     <span class="input-group-text">
                         <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" loading=lazy />
