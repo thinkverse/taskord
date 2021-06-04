@@ -16,23 +16,28 @@
     @endif
     <div class="mt-2">
         @auth
-            @if (auth()->user()->hasLiked($answer))
-                <button type="button" class="btn btn-action btn-like text-white me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Like">
+            @php
+                $liked = auth()->user()->hasLiked($answer)
+            @endphp
+            <button
+                type="button"
+                class="btn btn-action {{ $liked ? 'btn-like' : 'btn-outline-like' }} me-1"
+                wire:click="toggleLike"
+                wire:loading.attr="disabled"
+                wire:key="{{ $answer->id }}"
+                aria-label="Likes"
+            >
+                @if ($liked)
                     <x-heroicon-s-heart class="heroicon heroicon-15px me-0" />
+                @else
+                    <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
+                @endif
+                @if ($answer->likerscount() !== 0)
                     <span class="small fw-bold">
                         {{ number_format($answer->likerscount()) }}
                     </span>
-                </button>
-            @else
-                <button type="button" class="btn btn-action btn-outline-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Likes">
-                    <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
-                    @if ($answer->likerscount() !== 0)
-                        <span class="small fw-bold">
-                            {{ number_format($answer->likerscount()) }}
-                        </span>
-                    @endif
-                </button>
-            @endif
+                @endif
+            </button>
             @can('edit/delete', $answer)
                 <button
                     type="button"
