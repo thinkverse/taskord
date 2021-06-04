@@ -53,23 +53,7 @@
         <livewire:milestone.progress :milestone="$milestone" :wire:key="$milestone->id" />
         <div class="mt-3">
             @auth
-                @if (auth()->user()->hasLiked($milestone))
-                    <button role="button" class="btn btn-action btn-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Likes">
-                        <x-heroicon-s-heart class="heroicon heroicon-15px me-0" />
-                        <span class="small fw-bold">
-                            {{ number_format($milestone->likerscount()) }}
-                        </span>
-                    </button>
-                @else
-                    <button role="button" class="btn btn-action btn-outline-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Likes">
-                        <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
-                        @if ($milestone->likerscount() !== 0)
-                            <span class="small fw-bold">
-                                {{ number_format($milestone->likerscount()) }}
-                            </span>
-                        @endif
-                    </button>
-                @endif
+                <x:like-button :entity="$milestone" />
                 @can('edit/delete', $milestone)
                     @if ($type === "milestones.milestone")
                         <a href="{{ route('milestones.edit', ['milestone' => $milestone]) }}" class="btn btn-action btn-outline-info me-1">
