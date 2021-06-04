@@ -543,7 +543,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Updated the staff notes for user: @'.$this->user->username
+            "Updated the staff notes for user: @{$this->user->username}"
         );
 
         return toast($this, 'success', 'Note has been updated!');
