@@ -14,7 +14,7 @@ class AddTxtCodeToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            //
+            $table->string('txt_code')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddTxtCodeToProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            //
+            $table->dropColumn('txt_code');
         });
     }
 }
