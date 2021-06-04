@@ -145,7 +145,7 @@ class Moderator extends Component
                 request(),
                 'Staff',
                 auth()->user(),
-                'Enrolled as private user | Username: @'.$this->user->username
+                "Enrolled as private user | Username: @{$this->user->username}"
             );
         }
 
@@ -153,7 +153,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Un-enrolled from private user | Username: @'.$this->user->username
+            "Un-enrolled from private user | Username: @{$this->user->username}"
         );
     }
 
