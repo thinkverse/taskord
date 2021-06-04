@@ -85,7 +85,7 @@ class SocialController extends Controller
             request()->ip(),
             'Auth',
             $user,
-            'Created account with '.$provider.' '.$user->email.' from '.request()->ip()
+            "Created account with {$provider} {$user->email} from ".request()->ip()
         );
 
         return redirect()->route('home');
