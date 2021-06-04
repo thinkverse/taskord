@@ -33,7 +33,7 @@ class SingleReply extends Component
 
         Helper::toggleLike($this->reply, 'REPLY');
 
-        return loggy(request(), 'Reply', auth()->user(), 'Toggled reply like | Reply ID: '.$this->reply->id);
+        return loggy(request(), 'Reply', auth()->user(), "Toggled reply like | Reply ID: {$this->reply->id}");
     }
 
     public function deleteReply()
