@@ -5,17 +5,17 @@ RUN sudo add-apt-repository ppa:ondrej/php -y \
     && sudo apt update -y \
     && sudo apt install -y \
     redis-server \
-    php8.0 \
-    php8.0-curl \
-    php8.0-common \
-    php8.0-cli \
-    php8.0-mysql \
-    php8.0-mbstring \
-    php8.0-xml \
-    php8.0-zip \
-    php8.0-redis \
-    php8.0-gd \
-    php8.0-bcmath \
+    php \
+    php-curl \
+    php-common \
+    php-cli \
+    php-mysql \
+    php-mbstring \
+    php-xml \
+    php-zip \
+    php-redis \
+    php-gd \
+    php-bcmath \
     && sudo update-alternatives --set php /usr/bin/php8.0
 
 # Install Composer
