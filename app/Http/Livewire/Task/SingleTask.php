@@ -45,7 +45,7 @@ class SingleTask extends Component
         if ($this->task->done) {
             $this->task->done_at = carbon();
             auth()->user()->touch();
-            loggy(request(), 'Task', auth()->user(), 'Updated a task as pending | Task ID: '.$this->task->id);
+            loggy(request(), 'Task', auth()->user(), "Updated a task as pending | Task ID: {$this->task->id}");
         } else {
             $this->task->done_at = carbon();
             auth()->user()->touch();
