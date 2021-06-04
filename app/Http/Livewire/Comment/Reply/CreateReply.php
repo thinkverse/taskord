@@ -58,7 +58,7 @@ class CreateReply extends Component
             $this->comment->user->notify(new Replied($reply));
         }
 
-        loggy(request(), 'Reply', auth()->user(), 'Created a new comment reply | Reply ID: '.$reply->id);
+        loggy(request(), 'Reply', auth()->user(), "Created a new comment reply | Reply ID: {$reply->id}");
 
         return toast($this, 'success', 'Reply has been added!');
     }
