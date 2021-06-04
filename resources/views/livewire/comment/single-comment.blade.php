@@ -18,23 +18,7 @@
         @endif
         <div class="mt-2">
             @auth
-                @if (auth()->user()->hasLiked($comment))
-                    <button type="button" class="btn btn-action btn-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Like">
-                        <x-heroicon-s-heart class="heroicon heroicon-15px me-0" />
-                        <span class="small fw-bold">
-                            {{ number_format($comment->likerscount()) }}
-                        </span>
-                    </button>
-                @else
-                    <button type="button" class="btn btn-action btn-outline-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Likes">
-                        <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
-                        @if ($comment->likerscount() !== 0)
-                            <span class="small fw-bold">
-                                {{ number_format($comment->likerscount()) }}
-                            </span>
-                        @endif
-                    </button>
-                @endif
+                <x:like-button :entity="$comment" />
                 <button class="btn btn-action btn-outline-primary me-1" wire:click="toggleCommentBox">
                     <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
                     @if ($comment->replies()->count('id') !== 0)
