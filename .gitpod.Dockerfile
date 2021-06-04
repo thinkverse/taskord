@@ -3,7 +3,6 @@ FROM gitpod/workspace-mysql
 # Instal Requirements
 RUN sudo add-apt-repository ppa:ondrej/php -y \
     && sudo apt update -y \
-    && sudo apt-get purge php* -y \
     && sudo apt install -y \
     redis-server \
     php8.0 \
@@ -17,7 +16,7 @@ RUN sudo add-apt-repository ppa:ondrej/php -y \
     php8.0-redis \
     php8.0-gd \
     php8.0-bcmath \
-    && sudo rm -rf /var/lib/apt/lists/*
+    && sudo update-alternatives --set php /usr/bin/php8.0
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
