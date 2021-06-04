@@ -34,7 +34,7 @@ class AddMember extends Component
         }
         $user->products()->attach($this->product);
         $user->notify(new MemberAdded($this->product, auth()->user()->id));
-        loggy(request(), 'Product', auth()->user(), 'Added @'.$user->username.' to #'.$this->product->slug);
+        loggy(request(), 'Product', auth()->user(), "Added @{$user->username} to #{$this->product->slug}");
 
         return redirect()->route('product.done', ['slug' => $this->product->slug]);
     }
