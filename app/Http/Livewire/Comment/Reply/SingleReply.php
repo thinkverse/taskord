@@ -57,7 +57,7 @@ class SingleReply extends Component
         }
 
         Helper::hide($this->reply);
-        loggy(request(), 'Staff', auth()->user(), 'Toggled hide reply | Reply ID: '.$this->reply->id);
+        loggy(request(), 'Staff', auth()->user(), "Toggled hide reply | Reply ID: {$this->reply->id}");
 
         return toast($this, 'success', 'Reply is hidden from public!');
     }
