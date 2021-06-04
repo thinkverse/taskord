@@ -54,7 +54,7 @@ class EditMilestone extends Component
         $milestone->save();
         auth()->user()->touch();
 
-        loggy(request(), 'Milestone', auth()->user(), 'Updated a milestone | Milestone ID: '.$milestone->id);
+        loggy(request(), 'Milestone', auth()->user(), "Updated a milestone | Milestone ID: {$milestone->id}");
 
         return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
     }
