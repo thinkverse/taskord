@@ -31,7 +31,8 @@ class NewUpdate extends Component
         $update = auth()->user()->productUpdates()->create([
             'user_id' => auth()->user()->id,
             'product_id' => $this->product->id,
-            'title' => $this->title, $this->body,
+            'title' => $this->title,
+            'body' => $this->body,
         ]);
         auth()->user()->touch();
         $users = Product::find($this->product->id)->subscribers()->get();
