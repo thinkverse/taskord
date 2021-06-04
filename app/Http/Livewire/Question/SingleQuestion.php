@@ -50,7 +50,7 @@ class SingleQuestion extends Component
         }
 
         Helper::hide($this->question);
-        loggy(request(), 'Staff', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
+        loggy(request(), 'Staff', auth()->user(), "Toggled hide question | Question ID: {$this->question->id}");
 
         return toast($this, 'success', 'Question is hidden from public!');
     }
