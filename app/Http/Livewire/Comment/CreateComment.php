@@ -64,7 +64,7 @@ class CreateComment extends Component
             $this->task->user->notify(new Commented($comment));
             givePoint(new CommentCreated($comment));
         }
-        loggy(request(), 'Comment', auth()->user(), 'Created a new comment | Comment ID: '.$comment->id);
+        loggy(request(), 'Comment', auth()->user(), "Created a new comment | Comment ID: {$comment->id}");
 
         return toast($this, 'success', 'Comment has been added!');
     }
