@@ -15,23 +15,7 @@
         @endif
         <div class="mt-2">
             @auth
-                @if (auth()->user()->hasLiked($reply))
-                    <button type="button" class="btn btn-action btn-like text-white me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Like">
-                        <x-heroicon-s-heart class="heroicon heroicon-15px me-0" />
-                        <span class="small fw-bold">
-                            {{ number_format($reply->likerscount()) }}
-                        </span>
-                    </button>
-                @else
-                    <button type="button" class="btn btn-action btn-outline-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Likes">
-                        <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
-                        @if ($reply->likerscount() !== 0)
-                            <span class="small fw-bold">
-                                {{ number_format($reply->likerscount()) }}
-                            </span>
-                        @endif
-                    </button>
-                @endif
+                <x:like-button :entity="$reply" />
                 @can('edit/delete', $reply)
                     <button
                         type="button"
