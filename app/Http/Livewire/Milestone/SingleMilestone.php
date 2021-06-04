@@ -46,7 +46,7 @@ class SingleMilestone extends Component
         }
 
         Helper::hide($this->milestone);
-        loggy(request(), 'Staff', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
+        loggy(request(), 'Staff', auth()->user(), "Toggled hide milestone | Milestone ID: {$this->milestone->id}");
 
         return toast($this, 'success', 'Milestone is hidden from public!');
     }
@@ -60,7 +60,7 @@ class SingleMilestone extends Component
         if ($this->milestone->status) {
             $this->milestone->status = false;
             $this->milestone->save();
-            loggy(request(), 'Milestone', auth()->user(), 'Closed the milestone | Milestone ID: '.$this->milestone->id);
+            loggy(request(), 'Milestone', auth()->user(), "Closed the milestone | Milestone ID: {$this->milestone->id}");
 
             return redirect()->route('milestones.milestone', ['milestone' => $this->milestone]);
         }
