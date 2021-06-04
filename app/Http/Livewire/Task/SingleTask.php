@@ -55,7 +55,7 @@ class SingleTask extends Component
                 CheckGoal::dispatch(auth()->user(), $this->task);
             }
             givePoint(new TaskCompleted($this->task));
-            loggy(request(), 'Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
+            loggy(request(), 'Task', auth()->user(), "Updated a task as done | Task ID: {$this->task->id}");
         }
         $this->task->done = ! $this->task->done;
         $this->task->save();
