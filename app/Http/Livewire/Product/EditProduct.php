@@ -94,6 +94,11 @@ class EditProduct extends Component
             $isNewelyLaunched = true;
         }
 
+        if ($this->website !== $product->website) {
+            $product->verified_at = null;
+            $product->txt_code = "_taskord-challenge-{$this->product->slug}-".Str::uuid();
+        }
+
         $product->name = $this->name;
         $product->slug = $this->slug;
         $product->description = $this->description;
