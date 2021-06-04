@@ -35,9 +35,18 @@
                             3. Wait until your DNS configuration changes. This could take up to 72 hours.
                         </p>
                     </div>
-                    <button type="submit" class="btn btn-outline-success rounded-pill">
-                        Verify domain
-                    </button>
+                    @if (! $product->verified_at)
+                        <div class="fw-bold text-success mb-3">
+                            Your domain has been verified at {{ $product->created_at }}
+                        </div>
+                        <button type="submit" class="btn btn-outline-success rounded-pill">
+                            Reverify domain
+                        </button>
+                    @else
+                        <button type="submit" class="btn btn-outline-success rounded-pill">
+                            Verify domain
+                        </button>
+                    @endif
                 @else
                     <div>
                         <h5 class="mb-3">Add domain name in edit page</h5>
