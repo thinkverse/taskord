@@ -63,7 +63,7 @@ class EditQuestion extends Component
         $question->retag($this->selectedTags);
         auth()->user()->touch();
 
-        loggy(request(), 'Question', auth()->user(), 'Updated a question | Question ID: '.$question->id);
+        loggy(request(), 'Question', auth()->user(), "Updated a question | Question ID: {$question->id}");
 
         return redirect()->route('question.question', ['id' => $question->id]);
     }
