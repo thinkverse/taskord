@@ -15,6 +15,7 @@ class AddTxtCodeToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->string('txt_code')->nullable();
+            $table->timestamp('verified_at')->nullable();
         });
     }
 
@@ -27,6 +28,7 @@ class AddTxtCodeToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->dropColumn('txt_code');
+            $table->dropColumn('verified_at');
         });
     }
 }
