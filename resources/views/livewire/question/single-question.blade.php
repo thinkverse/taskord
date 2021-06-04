@@ -93,7 +93,6 @@
                         onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                         wire:click="deleteQuestion"
                         wire:loading.attr="disabled"
-                        wire:offline.attr="disabled"
                         aria-label="Delete"
                     >
                         <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
@@ -104,7 +103,6 @@
                             class="btn btn-action btn-outline-success me-1"
                             wire:click="toggleSolve"
                             wire:loading.attr="disabled"
-                            wire:offline.attr="disabled"
                         >
                             @if ($question->solved)
                                 <x-heroicon-s-check-circle class="heroicon heroicon-15px me-0 text-success" />
