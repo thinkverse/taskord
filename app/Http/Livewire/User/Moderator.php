@@ -266,7 +266,7 @@ class Moderator extends Component
                 request(),
                 'Staff',
                 auth()->user(),
-                'Verified the user | Username: @'.$this->user->username
+                "Verified the user | Username: @{$this->user->username}"
             );
         }
 
@@ -274,7 +274,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Un-verified the user | Username: @'.$this->user->username
+            "Un-verified the user | Username: @{$this->user->username}"
         );
     }
 
