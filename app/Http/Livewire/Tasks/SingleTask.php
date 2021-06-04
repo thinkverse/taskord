@@ -51,7 +51,7 @@ class SingleTask extends Component
             CheckGoal::dispatch(auth()->user(), $this->task);
         }
 
-        return loggy(request(), 'Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
+        return loggy(request(), 'Task', auth()->user(), "Updated a task as done | Task ID: {$this->task->id}");
     }
 
     public function deleteTask()
