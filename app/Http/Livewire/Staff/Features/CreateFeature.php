@@ -30,7 +30,7 @@ class CreateFeature extends Component
             'slug' => $this->slug,
         ]);
 
-        loggy(request(), 'Staff', auth()->user(), 'Created a new feature flag | Feature ID: '.$feature->id);
+        loggy(request(), 'Staff', auth()->user(), "Created a new feature flag | Feature ID: {$feature->id}");
 
         return redirect()->route('staff.features');
     }
