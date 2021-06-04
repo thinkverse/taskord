@@ -37,7 +37,7 @@ class Products extends Component
 
         $this->user->touch();
 
-        loggy(request(), 'Product', $this->user, 'Left the team #'.$product->slug);
+        loggy(request(), 'Product', $this->user, "Left the team #{$product->slug}");
 
         return toast($this, 'success', 'You are no longer member of the team!');
     }
