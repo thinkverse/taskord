@@ -7,7 +7,7 @@
                         <x-heroicon-o-bell class="heroicon" />
                         Write a product update
                     </button>
-                    <a href="{{ route('product.edit', ['slug' => $product->slug]) }}" class="btn mt-2 btn-success text-white fw-bold">
+                    <a href="{{ route('product.edit', ['slug' => $product->slug]) }}" class="btn mt-2 btn-outline-success rouunded-pill fw-bold">
                         <x-heroicon-o-pencil class="heroicon" />
                         Edit Product
                     </a>
