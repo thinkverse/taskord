@@ -118,7 +118,6 @@
                         onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                         wire:click="deleteTask"
                         wire:loading.attr="disabled"
-                        wire:offline.attr="disabled"
                         aria-label="Delete"
                     >
                         <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
