@@ -61,7 +61,7 @@ class SingleComment extends Component
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        loggy(request(), 'Comment', auth()->user(), 'Deleted a comment | Comment ID: '.$this->comment->id);
+        loggy(request(), 'Comment', auth()->user(), "Deleted a comment | Comment ID: {$this->comment->id}");
         $this->comment->delete();
         $this->emit('refreshComments');
         auth()->user()->touch();
