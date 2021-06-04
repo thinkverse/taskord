@@ -237,7 +237,7 @@ class Moderator extends Component
                 request(),
                 'Staff',
                 auth()->user(),
-                'Enrolled as Patron | Username: @'.$this->user->username
+                "Enrolled as Patron | Username: @{$this->user->username}"
             );
         }
 
@@ -245,7 +245,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Un-enrolled from Patron | Username: @'.$this->user->username
+            "Un-enrolled from Patron | Username: @{$this->user->username}"
         );
     }
 
