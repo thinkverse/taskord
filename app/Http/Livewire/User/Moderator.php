@@ -293,7 +293,7 @@ class Moderator extends Component
                 request(),
                 'Staff',
                 auth()->user(),
-                'Enrolled to Dark mode | Username: @'.$this->user->username
+                "Enrolled to Dark mode | Username: @{$this->user->username}"
             );
         }
 
@@ -301,7 +301,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Un-enrolled from Dark mode | Username: @'.$this->user->username
+            "Un-enrolled from Dark mode | Username: @{$this->user->username}"
         );
     }
 
