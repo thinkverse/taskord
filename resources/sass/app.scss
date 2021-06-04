@@ -340,13 +340,13 @@ input[type="date"]:valid:before {
 }
 
 .rounded-top {
-  border-top-left-radius: 5px !important;
-  border-top-right-radius: 5px !important;
+  border-top-left-radius: 0.4rem !important;
+  border-top-right-radius: 0.4rem !important;
 }
 
 .rounded-bottom {
-  border-bottom-right-radius: 5px !important;
-  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 0.4rem !important;
+  border-bottom-left-radius: 0.4rem !important;
 }
 
 .card-header:first-child,
