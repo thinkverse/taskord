@@ -121,7 +121,7 @@ class EditProduct extends Component
 
         loggy(request(), 'Product', auth()->user(), "Updated a product | Product ID: #{$this->product->id}");
 
-        return redirect()->route('product.done', ['slug' => $product->slug]);
+        return redirect()->route('product.edit', ['slug' => $product->slug]);
     }
 
     public function deleteProduct()
