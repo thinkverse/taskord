@@ -172,7 +172,7 @@ class Moderator extends Component
                 request(),
                 'Staff',
                 auth()->user(),
-                'Flagged the user | Username: @'.$this->user->username
+                "Flagged the user | Username: @{$this->user->username}"
             );
         }
 
@@ -180,7 +180,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Un-flagged the user | Username: @'.$this->user->username
+            "Un-flagged the user | Username: @{$this->user->username}"
         );
     }
 
