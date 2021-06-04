@@ -39,7 +39,7 @@ class NewUpdate extends Component
         foreach ($users as $user) {
             $user->notify(new NewProductUpdate($update));
         }
-        loggy(request(), 'Product', auth()->user(), 'Created a new product update on #'.$this->product->slug.' | Update ID: '.$update->id);
+        loggy(request(), 'Product', auth()->user(), "Created a new product update on #{$this->product->slug} | Update ID: {$update->id}");
 
         return redirect()->route('product.updates', ['slug' => $update->product->slug]);
     }
