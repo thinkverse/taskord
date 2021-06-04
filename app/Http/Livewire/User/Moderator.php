@@ -62,7 +62,7 @@ class Moderator extends Component
                 request(),
                 'Staff',
                 auth()->user(),
-                'Enrolled to Beta | Username: @'.$this->user->username
+                "Enrolled to Beta | Username: @{$this->user->username}"
             );
         }
 
@@ -70,7 +70,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Un-enrolled from Beta | Username: @'.$this->user->username
+            "Un-enrolled from Beta | Username: @{$this->user->username}"
         );
     }
 
