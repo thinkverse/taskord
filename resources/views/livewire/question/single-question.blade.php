@@ -51,23 +51,7 @@
         @endif
         <div class="mt-3">
             @auth
-                @if (auth()->user()->hasLiked($question))
-                    <button role="button" class="btn btn-action btn-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Likes">
-                        <x-heroicon-s-heart class="heroicon heroicon-15px me-0" />
-                        <span class="small fw-bold">
-                            {{ number_format($question->likerscount()) }}
-                        </span>
-                    </button>
-                @else
-                    <button role="button" class="btn btn-action btn-outline-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Likes">
-                        <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
-                        @if ($question->likerscount() !== 0)
-                            <span class="small fw-bold">
-                                {{ number_format($question->likerscount()) }}
-                            </span>
-                        @endif
-                    </button>
-                @endif
+                <x:like-button :entity="$question" />
                 <a href="{{ route('question.question', ['id' => $question->id]) }}" class="btn btn-action btn-outline-primary me-1" aria-label="Questions">
                     <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
                     @if ($question->answers->count('id') !== 0)

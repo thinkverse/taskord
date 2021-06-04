@@ -7,27 +7,7 @@
         <div class="mt-2">
             @auth
                 @if (!$update->user->is_private)
-                    @if (auth()->user()->hasLiked($update))
-                        <span>
-                            <button type="button" class="btn btn-action btn-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" wire:key="{{ $update->id }}" aria-label="Like">
-                                <x-heroicon-s-heart class="heroicon heroicon-15px me-0" />
-                                <span class="small fw-bold">
-                                    {{ number_format($update->likerscount()) }}
-                                </span>
-                            </button>
-                        </span>
-                    @else
-                        <span>
-                            <button type="button" class="btn btn-action btn-outline-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" wire:key="{{ $update->id }}" aria-label="Likes">
-                                <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
-                                @if ($update->likerscount() !== 0)
-                                    <span class="small fw-bold">
-                                        {{ number_format($update->likerscount()) }}
-                                    </span>
-                                @endif
-                            </button>
-                        </span>
-                    @endif
+                    <x:like-button :entity="$update" />
                 @endif
             @endauth
             @guest
