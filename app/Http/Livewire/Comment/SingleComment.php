@@ -35,7 +35,7 @@ class SingleComment extends Component
 
         Helper::toggleLike($this->comment, 'COMMENT');
 
-        return loggy(request(), 'Comment', auth()->user(), 'Toggled comment like | Comment ID: '.$this->comment->id);
+        return loggy(request(), 'Comment', auth()->user(), "Toggled comment like | Comment ID: {$this->comment->id}");
     }
 
     public function toggleCommentBox()
