@@ -44,7 +44,7 @@ class SingleAnswer extends Component
         }
 
         Helper::hide($this->answer);
-        loggy(request(), 'Staff', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
+        loggy(request(), 'Staff', auth()->user(), "Toggled hide answer | Answer ID: {$this->answer->id}");
 
         return toast($this, 'success', 'Answer is hidden from public!');
     }
