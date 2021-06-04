@@ -66,7 +66,7 @@ class SingleQuestion extends Component
         }
 
         if (auth()->user()->staff_mode or auth()->user()->id === $this->question->user_id) {
-            loggy(request(), 'Question', auth()->user(), 'Toggled solve question | Question ID: '.$this->question->id);
+            loggy(request(), 'Question', auth()->user(), "Toggled solve question | Question ID: {$this->question->id}");
             $this->question->solved = ! $this->question->solved;
             $this->question->save();
             auth()->user()->touch();
