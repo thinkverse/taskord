@@ -1,6 +1,8 @@
 FROM gitpod/workspace-mysql
 
-RUN sudo apt-get update \
- && sudo apt-get install -y \
-  redis-server \
- && sudo rm -rf /var/lib/apt/lists/*
+USER gitpod
+
+RUN sudo add-apt-repository ppa:ondrej/php && \
+    sudo apt-get update && \
+    sudo apt-get install -y php8.0  && \
+    sudo rm -rf /var/lib/apt/lists/*
