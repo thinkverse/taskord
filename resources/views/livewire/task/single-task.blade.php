@@ -32,7 +32,7 @@
                     {!! clean(Helper::renderTask($task->task)) !!}
                     @if ($task->type === 'product')
                         <span class="small text-secondary ms-1">
-                            <img loading=lazy class="rounded mb-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar, 80) }}" height="15" width="15" alt="{{ $task->product->slug }}'s avatar" />
+                            <img loading=lazy class="rounded-2 mb-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar, 80) }}" height="15" width="15" alt="{{ $task->product->slug }}'s avatar" />
                             <a
                                 class="text-secondary product-popover fw-bold"
                                 href="{{ route('product.done', ['slug' => $task->product->slug]) }}"
