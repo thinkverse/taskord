@@ -208,7 +208,7 @@ class Moderator extends Component
                 request(),
                 'Staff',
                 auth()->user(),
-                'Suspended the user | Username: @'.$this->user->username
+                "Suspended the user | Username: @{$this->user->username}"
             );
         }
 
@@ -216,7 +216,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Un-suspended the user | Username: @'.$this->user->username
+            "Un-suspended the user | Username: @{$this->user->username}"
         );
     }
 
