@@ -53,7 +53,7 @@ class LoginController extends Controller
         }
 
         if (! $user) {
-            $request->session()->flash('error', 'No user found with "'.$request->input('username').'"');
+            $request->session()->flash('error', "No user found with {$request->input('username')}");
 
             return redirect()->back();
         }
