@@ -52,7 +52,7 @@
         <div class="mt-3">
             @auth
                 @if (auth()->user()->hasLiked($question))
-                    <button role="button" class="btn btn-action btn-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Likes">
+                    <button role="button" class="btn btn-action btn-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Likes">
                         <span wire:loading wire:target="toggleLike" class="spinner-border spinner-border-task" role="status"></span>
                         <x-heroicon-s-heart wire:loading.remove wire:target="toggleLike" class="heroicon heroicon-15px me-0" />
                         <span class="small fw-bold">
@@ -60,7 +60,7 @@
                         </span>
                     </button>
                 @else
-                    <button role="button" class="btn btn-action btn-outline-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Likes">
+                    <button role="button" class="btn btn-action btn-outline-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" aria-label="Likes">
                         <span wire:loading wire:target="toggleLike" class="spinner-border spinner-border-task" role="status"></span>
                         <x-heroicon-o-heart wire:loading.remove wire:target="toggleLike" class="heroicon heroicon-15px me-0" />
                         @if ($question->likerscount() !== 0)
@@ -117,7 +117,7 @@
                     @endif
                 @endcan
                 @can('staff.ops')
-                    <button type="button" class="btn btn-action {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" aria-label="Hide">
+                    <button type="button" class="btn btn-action {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $question->id }}" aria-label="Hide">
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                     </button>
                 @endcan
