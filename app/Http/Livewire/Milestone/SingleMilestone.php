@@ -67,7 +67,7 @@ class SingleMilestone extends Component
 
         $this->milestone->status = true;
         $this->milestone->save();
-        loggy(request(), 'Milestone', auth()->user(), 'Opened the milestone | Milestone ID: '.$this->milestone->id);
+        loggy(request(), 'Milestone', auth()->user(), "Opened the milestone | Milestone ID: {$this->milestone->id}");
 
         return redirect()->route('milestones.milestone', ['milestone' => $this->milestone]);
     }
