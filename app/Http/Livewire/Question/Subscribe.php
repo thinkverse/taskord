@@ -39,7 +39,7 @@ class Subscribe extends Component
         $this->question->refresh();
         auth()->user()->touch();
 
-        return loggy(request(), 'Question', auth()->user(), 'Toggled question subscribe | Question ID: '.$this->question->id);
+        return loggy(request(), 'Question', auth()->user(), "Toggled question subscribe | Question ID: {$this->question->id}");
     }
 
     public function render()
