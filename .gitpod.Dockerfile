@@ -1,8 +1,5 @@
 FROM gitpod/workspace-mysql
 
-# Instal Requirements
-RUN sudo update-alternatives --set php /usr/bin/php8.0
-
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer -o composer-setup.php \
     && HASH=`curl -sS https://composer.github.io/installer.sig` \
