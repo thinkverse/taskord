@@ -89,7 +89,7 @@ class Moderator extends Component
                 request(),
                 'Staff',
                 auth()->user(),
-                'Enrolled as Staff | Username: @'.$this->user->username
+                "Enrolled as Staff | Username: @{$this->user->username}"
             );
         }
 
@@ -97,7 +97,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Un-enrolled from Staff | Username: @'.$this->user->username
+            "Un-enrolled from Staff | Username: @{$this->user->username}"
         );
     }
 
