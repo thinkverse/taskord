@@ -54,7 +54,7 @@ class Integrations extends Component
                 ]);
                 $this->reset(['name', 'product']);
                 session()->flash('created', $webhook);
-                loggy(request(), 'User', auth()->user(), 'Created a new webhook | Webhook ID: '.$webhook->id);
+                loggy(request(), 'User', auth()->user(), "Created a new webhook | Webhook ID: {$webhook->id}");
 
                 return toast($this, 'success', 'New webhook has been created!');
             }
