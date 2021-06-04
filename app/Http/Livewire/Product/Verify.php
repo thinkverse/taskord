@@ -40,12 +40,13 @@ class Verify extends Component
 
     public function render()
     {
-        $txtCode = Str::uuid();
-        $this->product->txt_code = $txtCode;
-        $this->product->save();
+        if (! $this->product->txt_code) {
+            $this->product->txt_code = Str::uuid();
+            $this->product->save();
+        }
 
         return view('livewire.product.verify', [
-            'txt_code' => $txtCode,
+            'txt_code' => $this->product->txt_code,
         ]);
     }
 }
