@@ -12,7 +12,7 @@
                        1. Create a TXT record in your DNS configuration for the following hostname:
                     </p>
                     <div class="input-group mb-3">
-                        <input type="text" id="personal-access-token" class="form-control @error('token') is-invalid @enderror" value="{{ $txt_code }}" readonly>
+                        <input type="text" id="personal-access-token" class="form-control @error('token') is-invalid @enderror" value="{{ $txt_record }}" readonly>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary js-clipboard" type="button" title="Copy" data-bs-toggle="tooltip" data-for="#personal-access-token">
                                 <x-heroicon-o-clipboard-copy class="heroicon heroicon-18px"></x-heroicon-o-clipboard-copy>
@@ -35,7 +35,7 @@
                     </p>
                 </div>
                 <button type="submit" class="btn btn-outline-success rounded-pill">
-                    Update
+                    Verify domain
                 </button>
             </div>
         </form>

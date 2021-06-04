@@ -38,6 +38,17 @@ class Verify extends Component
         return redirect()->route('product.done', ['slug' => $product->slug]);
     }
 
+    public function getDomain($url)
+    {
+        $pieces = parse_url($url);
+        $domain = isset($pieces['host']) ? $pieces['host'] : $pieces['path'];
+        if (preg_match('/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i', $domain, $regs)) {
+            return $regs['domain'];
+        }
+
+        return false;
+    }
+
     public function render()
     {
         if (! $this->product->txt_code) {
@@ -45,7 +56,11 @@ class Verify extends Component
             $this->product->save();
         }
 
+        $domain = $this->getDomain($this->product->website);
+        $txtRecord = "_taskord-challenge-{$this->product->slug}.{$domain}";
+
         return view('livewire.product.verify', [
+            'txt_record' => $txtRecord,
             'txt_code' => $this->product->txt_code,
         ]);
     }
