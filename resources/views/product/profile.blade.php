@@ -16,6 +16,11 @@
                         <x-heroicon-o-shield-exclamation class="heroicon text-danger" />
                     </span>
                 @endif
+                @if ($product->verified_at)
+                    <span class="badge tk-badge bg-patron text-capitalize text-white ms-1">
+                        Verified
+                    </span>
+                @endif
                 @can('staff.ops')
                     <span class="ms-1 text-secondary small">#{{ $product->id }}</span>
                 @endcan
