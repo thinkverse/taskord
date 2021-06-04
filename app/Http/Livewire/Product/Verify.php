@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Spatie\Dns\Dns;
 
 class Verify extends Component
 {
@@ -19,11 +20,16 @@ class Verify extends Component
         $this->product = $product;
     }
 
-    public function submit()
+    public function verifyDomain()
     {
         if (Gate::denies('edit/delete', $this->product)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
+
+        $dns = new Dns();
+        $records = $dns->getRecords($this->getDomain($this->product->website), 'TXT');
+
+        dd($records);
 
         auth()->user()->touch();
 
@@ -46,12 +52,11 @@ class Verify extends Component
     public function render()
     {
         if (! $this->product->txt_code) {
-            $this->product->txt_code = Str::uuid();
+            $this->product->txt_code = "_taskord-challenge-{$this->product->slug}-".Str::uuid();
             $this->product->save();
         }
 
-        $domain = $this->getDomain($this->product->website);
-        $txtRecord = "_taskord-challenge-{$this->product->slug}.{$domain}";
+        $txtRecord = $this->getDomain($this->product->website);
 
         return view('livewire.product.verify', [
             'txt_record' => $txtRecord,

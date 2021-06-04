@@ -35,7 +35,7 @@
                             3. Wait until your DNS configuration changes. This could take up to 72 hours.
                         </p>
                     </div>
-                    @if (! $product->verified_at)
+                    @if ($product->verified_at)
                         <div class="fw-bold text-success mb-3">
                             Your domain has been verified at {{ $product->created_at }}
                         </div>
@@ -43,7 +43,7 @@
                             Reverify domain
                         </button>
                     @else
-                        <button type="submit" class="btn btn-outline-success rounded-pill">
+                        <button class="btn btn-outline-success rounded-pill" wire:click="verifyDomain">
                             Verify domain
                         </button>
                     @endif
