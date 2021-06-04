@@ -36,7 +36,7 @@ class SingleMilestone extends Component
 
         Helper::toggleLike($this->milestone, 'MILESTONE');
 
-        return loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone like | Milestone ID: '.$this->milestone->id);
+        return loggy(request(), 'Milestone', auth()->user(), "Toggled milestone like | Milestone ID: {$this->milestone->id}");
     }
 
     public function hide()
