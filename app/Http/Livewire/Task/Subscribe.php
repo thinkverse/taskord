@@ -39,7 +39,7 @@ class Subscribe extends Component
         $this->task->refresh();
         auth()->user()->touch();
 
-        return loggy(request(), 'Task', auth()->user(), 'Toggled task subscribe | Task ID: '.$this->task->id);
+        return loggy(request(), 'Task', auth()->user(), "Toggled task subscribe | Task ID: {$this->task->id}");
     }
 
     public function render()
