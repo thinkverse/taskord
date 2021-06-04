@@ -68,7 +68,7 @@ class Integrations extends Component
     public function deleteWebhook($webhookId)
     {
         if (auth()->user()->id === $this->user->id) {
-            loggy(request(), 'User', auth()->user(), 'Deleted a webhook | Webhook ID: '.$webhookId);
+            loggy(request(), 'User', auth()->user(), "Deleted a webhook | Webhook ID: {$webhookId}");
             $webhook = Webhook::find($webhookId);
             $webhook->delete();
             $this->emit('refreshIntegrations');
