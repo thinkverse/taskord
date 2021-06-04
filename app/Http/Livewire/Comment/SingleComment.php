@@ -50,7 +50,7 @@ class SingleComment extends Component
         }
 
         Helper::hide($this->comment);
-        loggy(request(), 'Staff', auth()->user(), 'Toggled hide comment | Comment ID: '.$this->comment->id);
+        loggy(request(), 'Staff', auth()->user(), "Toggled hide comment | Comment ID: {$this->comment->id}");
 
         return toast($this, 'success', 'Comment is hidden from public!');
     }
