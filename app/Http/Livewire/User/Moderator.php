@@ -315,7 +315,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Masqueraded | Username: @'.$this->user->username
+            "Masqueraded | Username: @{$this->user->username}"
         );
         Auth::loginUsingId($this->user->id);
 
