@@ -47,7 +47,7 @@ Validate GraphQL:
   script:
     - sudo composer self-update --2
     - sudo composer install --no-progress --ignore-platform-reqs
-    - cp .env.ci .env
+    - cp .env.example .env
     - php artisan key:generate
     - php artisan lighthouse:validate-schema
 
