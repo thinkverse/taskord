@@ -380,7 +380,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Deleted all tasks | Username: @'.$this->user->username
+            "Deleted all tasks | Username: @{$this->user->username}"
         );
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
