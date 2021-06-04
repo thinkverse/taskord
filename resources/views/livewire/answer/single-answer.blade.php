@@ -16,28 +16,7 @@
     @endif
     <div class="mt-2">
         @auth
-            @php
-                $liked = auth()->user()->hasLiked($answer)
-            @endphp
-            <button
-                type="button"
-                class="btn btn-action {{ $liked ? 'btn-like' : 'btn-outline-like' }} me-1"
-                wire:click="toggleLike"
-                wire:loading.attr="disabled"
-                wire:key="{{ $answer->id }}"
-                aria-label="Likes"
-            >
-                @if ($liked)
-                    <x-heroicon-s-heart class="heroicon heroicon-15px me-0" />
-                @else
-                    <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
-                @endif
-                @if ($answer->likerscount() !== 0)
-                    <span class="small fw-bold">
-                        {{ number_format($answer->likerscount()) }}
-                    </span>
-                @endif
-            </button>
+            <x:like-button :entity="$answer" />
             @can('edit/delete', $answer)
                 <button
                     type="button"
