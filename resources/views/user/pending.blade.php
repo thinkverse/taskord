@@ -21,7 +21,7 @@
 <div class="container-md">
     @include('user.profile')
     <div class="row justify-content-center mt-4">
-        <div class="col-lg-8">
+        <div class="col-lg-8 mb-4">
             @auth
                 @if (auth()->user()->id === $user->id && !$user->spammy)
                     <div class="card mb-3">
