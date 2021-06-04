@@ -42,7 +42,7 @@ class SingleReply extends Component
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        loggy(request(), 'Reply', auth()->user(), 'Deleted a reply | Reply ID: '.$this->reply->id);
+        loggy(request(), 'Reply', auth()->user(), "Deleted a reply | Reply ID: {$this->reply->id}");
         $this->reply->delete();
         $this->emit('refreshReplies');
         auth()->user()->touch();
