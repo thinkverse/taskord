@@ -483,7 +483,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Deleted all products | Username: @'.$this->user->username
+            "Deleted all products | Username: @{$this->user->username}"
         );
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
