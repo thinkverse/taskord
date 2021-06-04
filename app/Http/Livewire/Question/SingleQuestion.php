@@ -40,7 +40,7 @@ class SingleQuestion extends Component
 
         Helper::toggleLike($this->question, 'QUESTION');
 
-        return loggy(request(), 'Question', auth()->user(), 'Toggled question like | Question ID: '.$this->question->id);
+        return loggy(request(), 'Question', auth()->user(), "Toggled question like | Question ID: {$this->question->id}");
     }
 
     public function hide()
