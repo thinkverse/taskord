@@ -119,7 +119,7 @@ class EditProduct extends Component
 
         auth()->user()->touch();
 
-        loggy(request(), 'Product', auth()->user(), 'Updated a product | Product Slug: #'.$this->product->slug);
+        loggy(request(), 'Product', auth()->user(), "Updated a product | Product Slug: #{$this->product->slug}");
 
         return redirect()->route('product.done', ['slug' => $product->slug]);
     }
