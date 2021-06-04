@@ -37,9 +37,9 @@ class SelectMilestone extends Component
         $this->task->milestone()->associate($milestone);
         $this->task->save();
         $this->emitUp('refreshSingleTask');
-        loggy(request(), 'Milestone', auth()->user(), 'Added milestone to the task | Task ID: '.$this->task->id);
+        loggy(request(), 'Milestone', auth()->user(), "Added milestone to the task | Task ID: {$this->task->id}");
 
-        return toast($this, 'success', 'Task has been added to the milestone #'.$milestone->id);
+        return toast($this, 'success', "Task has been added to the milestone <b>{$milestone->name}</b>");
     }
 
     public function render()
