@@ -336,7 +336,7 @@ class Moderator extends Component
             request(),
             'Staff',
             auth()->user(),
-            'Resetted avatar | Username: @'.$this->user->username
+            "Resetted avatar | Username: @{$this->user->username}"
         );
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
