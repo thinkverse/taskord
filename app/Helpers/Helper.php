@@ -95,12 +95,6 @@ class Helper
         $entity->refresh();
     }
 
-    public static function flagAccount($user)
-    {
-        $user->spammy = true;
-        $user->save();
-    }
-
     public static function mentionUsers($users, $body, $auth, $type)
     {
         if ($users) {
