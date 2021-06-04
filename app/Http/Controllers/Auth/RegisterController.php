@@ -79,7 +79,7 @@ class RegisterController extends Controller
             'api_token' => Str::random(60),
         ]);
         AuthGetIP::dispatch($user, request()->ip());
-        loggy(request(), 'Auth', $user, 'Created account with the email '.$user->email.' from '.request()->ip());
+        loggy(request(), 'Auth', $user, "Created account with the email {$user->email} from ".request()->ip());
         $user->notify(new Welcome(true));
 
         return $user;
