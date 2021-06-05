@@ -24,8 +24,7 @@ class CreateMilestone extends Component
             'description' => ['required', 'min:3', 'max:10000'],
         ]);
 
-        $milestone = Milestone::create([
-            'user_id' => auth()->user()->id,
+        $milestone = auth()->user()->milestones()->create([
             'name' => $this->name,
             'description' => $this->description,
             'start_date' => $this->startDate,

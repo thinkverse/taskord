@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Livewire\Milestone\CreateMilestone;
+use App\Models\Question;
+use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
 it('has milestones page', function ($url, $expected, $auth) {
@@ -34,3 +37,10 @@ it('has single milestone page', function ($url, $expected, $auth) {
     ['/milestones/1', 200, false],
     ['/milestones/1', 200, true],
 ]);
+
+it('cannot create milestone as un-authed user', function () {
+    livewire(CreateAnswer::class, ['question' => $question])
+        ->set('answer', 'Hello world from test!')
+        ->call('submit')
+        ->assertNotEmitted('refreshAnswers');
+});
