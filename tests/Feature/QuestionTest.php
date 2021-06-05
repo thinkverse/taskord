@@ -65,12 +65,4 @@ it('can create question as authed user', function ($question, $user, $status) {
         ->set('body', $question)
         ->call('submit')
         ->assertNotEmitted('refreshQuestion');
-})->with([
-    ['Hello world from test!', 2, true],
-    ['😊🤗💜✨👍', 2, true],
-    ['', 2, false],
-    ['12', 2, false],
-    ['Hello from suspended account!', 3, false],
-    ['Hello from spammy account!', 4, false],
-    ['Hello from un-verified account!', 5, false],
-]);
+})->with('model-content');
