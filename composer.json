@@ -60,16 +60,6 @@
         "pestphp/pest-plugin-livewire": "1.0.0",
         "phpunit/phpunit": "9.5.4"
     },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "dont-discover": []
-        }
-    },
     "autoload": {
         "psr-4": {
             "App\\": "app/",
@@ -85,8 +75,6 @@
             "Tests\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
@@ -101,5 +89,17 @@
         "post-update-cmd": [
             "@php artisan horizon:publish --ansi"
         ]
-    }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
