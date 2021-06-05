@@ -332,6 +332,16 @@ input[type="date"]:valid:before {
   border-radius: 0.5rem !important;
 }
 
+.rounded-start {
+  border-bottom-left-radius: 0.4rem !important;
+  border-top-left-radius: 0.4rem !important;
+}
+
+.rounded-end {
+  border-top-right-radius: 0.4rem !important;
+  border-bottom-right-radius: 0.4rem !important;
+}
+
 .rounded-top {
   border-top-left-radius: 0.4rem !important;
   border-top-right-radius: 0.4rem !important;
