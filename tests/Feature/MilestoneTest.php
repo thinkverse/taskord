@@ -46,22 +46,20 @@ it('cannot create milestone as un-authed user', function () {
         ->assertNotEmitted('refreshMilestones');
 });
 
-it('can create milestone as authed user', function ($answer, $user, $status) {
-    $question = Question::factory()->create();
-
+it('can create milestone as authed user', function ($question, $user, $status) {
     if ($status) {
         return actingAs($user)
             ->livewire(CreateMilestone::class)
-            ->set('name', 'Hello world from test!')
-            ->set('description', 'Hello world from test!')
+            ->set('name', $question)
+            ->set('description', $question)
             ->call('submit')
             ->assertEmitted('refreshMilestones');
     }
 
     return actingAs($user)
         ->livewire(CreateMilestone::class)
-        ->set('name', 'Hello world from test!')
-        ->set('description', 'Hello world from test!')
+        ->set('name', $question)
+        ->set('description', $question)
         ->call('submit')
         ->assertNotEmitted('refreshMilestones');
 })->with([
