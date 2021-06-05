@@ -22,24 +22,23 @@ it('cannot create task as un-authed user', function () {
         ->assertNotEmitted('refreshTasks');
 });
 
-it('can create task as authed user', function ($task) {
-    actingAs(2)
-        ->livewire(CreateTask::class)
-        ->set('task', $task)
-        ->call('submit')
-        ->assertEmitted('refreshTasks');
-})->with([
-    ['Hello world from test!'],
-    ['😊🤗💜✨👍'],
-]);
+it('can create task as authed user', function ($task, $user, $status) {
+    if ($status) {
+        return actingAs($user)
+            ->livewire(CreateTask::class)
+            ->set('task', $task)
+            ->call('submit')
+            ->assertEmitted('refreshTasks');
+    }
 
-it('cannot create task - task validation', function ($task) {
-    actingAs(2)
+    return actingAs(2)
         ->livewire(CreateTask::class)
         ->set('task', $task)
         ->call('submit')
-        ->assertHasErrors('task');
+        ->assertNotEmitted('refreshTasks');
 })->with([
-    [''],
-    ['1234'],
+    ['Hello world from test!', 2, true],
+    ['😊🤗💜✨👍', 2, true],
+    ['', 2, false],
+    ['1234', 2, false],
 ]);
