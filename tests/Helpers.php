@@ -15,7 +15,7 @@ function assertExample(): void
 
 function actingAs($user, string $driver = null)
 {
-    return test()->actingAs(User::find($user)->first(), $driver);
+    return test()->actingAs(User::find($user), $driver);
 }
 
 function faker($property = null)

@@ -66,8 +66,6 @@ class CreateTask extends Component
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        dump($this->task);
-
         $this->validate([
             'task' => ['required', 'min:3', 'max:10000'],
             'images' => ['max:5'],
