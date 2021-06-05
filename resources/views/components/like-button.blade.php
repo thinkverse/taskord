@@ -10,7 +10,7 @@
         wire:key="{{ $entity->id }}"
         aria-label="Likes"
     >
-        <span wire:loading wire:target="toggleLike" class="spinner-border spinner-border-task" role="status"></span>
+        <span wire:loading wire:target="toggleLike" class="spinner-border spinner-border-action" role="status"></span>
         @if ($liked)
             <x-heroicon-s-heart wire:loading.remove wire:target="toggleLike" class="heroicon heroicon-15px me-0" />
         @else
