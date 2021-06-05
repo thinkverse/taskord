@@ -44,6 +44,7 @@ class CreateQuestion extends Component
 
         $question->retag($this->selectedTags);
         auth()->user()->touch();
+        $this->emit('refreshQuestion');
 
         givePoint(new QuestionCreated($question));
         loggy(request(), 'Question', auth()->user(), "Created a new question | Question ID: {$question->id}");
