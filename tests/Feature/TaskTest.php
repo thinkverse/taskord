@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\CreateTask;
+use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
 it('has task page', function ($url, $expected, $auth) {
