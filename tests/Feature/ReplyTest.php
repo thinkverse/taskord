@@ -1,11 +1,11 @@
 <?php
 
 use App\Models\Task;
-use App\Http\Livewire\Comment\CreateComment;
+use App\Http\Livewire\Comment\Reply\CreateReply;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
-it('cannot create comment as un-authed user', function () {
+it('cannot create reply as un-authed user', function () {
     $task = Task::factory()->create();
 
     livewire(CreateComment::class, ['task' => $task])
