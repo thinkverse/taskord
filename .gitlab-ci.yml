@@ -33,22 +33,6 @@ Test:
     - php artisan migrate:fresh --seed
     - php artisan test
 
-Coverage:
-  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
-  stage: test
-  script:
-    - sudo composer self-update --2
-    - sudo composer install --no-progress --ignore-platform-reqs
-    - cp .env.example .env
-    - php artisan key:generate
-    - sudo npm i -g yarn
-    - sudo yarn install
-    - sudo yarn production
-    - php artisan horizon:install
-    - php artisan horizon:publish
-    - php artisan migrate:fresh --seed
-    - ./vendor/bin/pest --coverage
-
 Insights:
   image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
