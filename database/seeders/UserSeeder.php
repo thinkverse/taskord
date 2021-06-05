@@ -46,20 +46,29 @@ class UserSeeder extends Seeder
         // 4
         User::factory()->create([
             'firstname' => 'Taskord',
+            'lastname' => 'Spammy',
+            'username' => 'spammy',
+            'spammy' => true,
+            'email' => 'spammy@taskord.com',
+        ]);
+
+        // 5
+        User::factory()->create([
+            'firstname' => 'Taskord',
             'lastname' => 'Unverified',
             'username' => 'unverified',
             'email' => 'unverified@taskord.com',
             'email_verified_at' => null,
         ]);
 
-        // 5
+        // 6
         User::factory()->create([
             'firstname' => 'Taskord',
             'lastname' => 'Ops',
             'username' => 'ops',
         ]);
 
-        // 6
+        // 7
         User::factory()->create([
             'firstname' => 'Taskord',
             'lastname' => 'Ghost',
