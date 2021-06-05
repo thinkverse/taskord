@@ -1,5 +1,8 @@
 <?php
 
+
+use App\Http\Livewire\Comment\CreateComment;
+use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
 it('has comment page', function ($url, $expected, $auth) {
