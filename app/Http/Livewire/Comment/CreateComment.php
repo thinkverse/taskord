@@ -15,7 +15,8 @@ class CreateComment extends Component
     public Task $task;
 
     protected $rules = [
-        'comment' => ['required', 'max:20000'],
+        'comment' => ['required', 'min:3', 'max:20000'],
+        'task' => ['required'],
     ];
 
     public function mount($task)
