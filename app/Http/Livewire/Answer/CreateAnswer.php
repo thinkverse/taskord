@@ -15,7 +15,7 @@ class CreateAnswer extends Component
     public Question $question;
 
     protected $rules = [
-        'answer' => ['required', 'max:20000'],
+        'answer' => ['required', 'min:3', 'max:20000'],
     ];
 
     public function mount($question)
