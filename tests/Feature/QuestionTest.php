@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Livewire\Question\CreateQuestion;
-use App\Models\Question;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 

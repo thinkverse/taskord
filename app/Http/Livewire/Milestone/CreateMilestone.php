@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Milestone;
 
-use App\Models\Milestone;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
