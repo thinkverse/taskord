@@ -240,6 +240,13 @@ input[type="color"]:focus,
   border-width: 0.2em;
 }
 
+.spinner-border-task {
+  width: 0.80rem;
+  height: 0.80rem;
+  border-width: .2em;
+  margin-right: 2px;
+}
+
 .dropdown-item:active {
   color: white !important;
 
