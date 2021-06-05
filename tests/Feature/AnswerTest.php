@@ -1,35 +1,35 @@
 <?php
 
-use App\Http\Livewire\Answer\AnswerReply;
+use App\Http\Livewire\Answer\CreateAnswer;
 use App\Models\Question;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
 it('cannot create answer as un-authed user', function () {
-    $comment = Question::factory()->create();
+    $question = Question::factory()->create();
 
-    livewire(CreateReply::class, ['comment' => $comment])
+    livewire(CreateAnswer::class, ['question' => $question])
         ->set('answer', 'Hello world from test!')
         ->call('submit')
-        ->assertNotEmitted('refreshComments');
+        ->assertNotEmitted('refreshAnswers');
 });
 
 it('can create answer as authed user', function ($answer, $user, $status) {
-    $comment = Question::factory()->create();
+    $question = Question::factory()->create();
 
     if ($status) {
         return actingAs($user)
-            ->livewire(CreateReply::class, ['comment' => $comment])
-            ->set('answer', $reply)
+            ->livewire(CreateAnswer::class, ['question' => $question])
+            ->set('answer', $answer)
             ->call('submit')
-            ->assertEmitted('refreshReplies');
+            ->assertEmitted('refreshAnswers');
     }
 
     return actingAs($user)
-        ->livewire(CreateReply::class, ['comment' => $comment])
-        ->set('reply', $reply)
+        ->livewire(CreateAnswer::class, ['question' => $question])
+        ->set('answer', $answer)
         ->call('submit')
-        ->assertNotEmitted('refreshReplies');
+        ->assertNotEmitted('refreshAnswers');
 })->with([
     ['Hello world from test!', 2, true],
     ['😊🤗💜✨👍', 2, true],
