@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Task;
 use App\Http\Livewire\Comment\CreateComment;
+use App\Models\Task;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
