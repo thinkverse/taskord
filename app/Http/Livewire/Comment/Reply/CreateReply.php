@@ -15,6 +15,7 @@ class CreateReply extends Component
 
     protected $rules = [
         'reply' => ['required', 'min:3', 'max:20000'],
+        'comment' => ['required'],
     ];
 
     public function mount($comment)
