@@ -39,8 +39,37 @@ it('has single milestone page', function ($url, $expected, $auth) {
 ]);
 
 it('cannot create milestone as un-authed user', function () {
-    livewire(CreateAnswer::class, ['question' => $question])
-        ->set('answer', 'Hello world from test!')
+    livewire(CreateMilestone::class)
+        ->set('name', 'Hello world from test!')
+        ->set('description', 'Hello world from test!')
         ->call('submit')
-        ->assertNotEmitted('refreshAnswers');
+        ->assertNotEmitted('refreshMilestones');
 });
+
+it('can create milestone as authed user', function ($answer, $user, $status) {
+    $question = Question::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(CreateMilestone::class)
+            ->set('name', 'Hello world from test!')
+            ->set('description', 'Hello world from test!')
+            ->call('submit')
+            ->assertEmitted('refreshMilestones');
+    }
+
+    return actingAs($user)
+        ->livewire(CreateMilestone::class)
+        ->set('name', 'Hello world from test!')
+        ->set('description', 'Hello world from test!')
+        ->call('submit')
+        ->assertNotEmitted('refreshMilestones');
+})->with([
+    ['Hello world from test!', 2, true],
+    ['😊🤗💜✨👍', 2, true],
+    ['', 2, false],
+    ['12', 2, false],
+    ['Hello from suspended account!', 3, false],
+    ['Hello from spammy account!', 4, false],
+    ['Hello from un-verified account!', 5, false],
+]);
