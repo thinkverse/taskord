@@ -25,7 +25,7 @@ it('can create reply as authed user', function ($reply, $user, $status) {
             ->assertEmitted('refreshReplies');
     }
 
-    return actingAs(2)
+    return actingAs($user)
         ->livewire(CreateReply::class, ['comment' => $comment])
         ->set('reply', $reply)
         ->call('submit')
@@ -34,5 +34,4 @@ it('can create reply as authed user', function ($reply, $user, $status) {
     ['Hello world from test!', 2, true],
     ['😊🤗💜✨👍', 2, true],
     ['', 2, false],
-    ['1234', 2, false],
 ]);

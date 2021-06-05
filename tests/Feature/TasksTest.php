@@ -31,7 +31,7 @@ it('can create task as authed user', function ($task, $user, $status) {
             ->assertEmitted('refreshTasks');
     }
 
-    return actingAs(2)
+    return actingAs($user)
         ->livewire(CreateTask::class)
         ->set('task', $task)
         ->call('submit')

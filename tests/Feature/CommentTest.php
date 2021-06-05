@@ -36,7 +36,7 @@ it('can create comment as authed user', function ($comment, $user, $status) {
             ->assertEmitted('refreshComments');
     }
 
-    return actingAs(2)
+    return actingAs($user)
         ->livewire(CreateComment::class, ['task' => $task])
         ->set('task', $task)
         ->call('submit')
