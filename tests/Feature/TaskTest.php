@@ -41,4 +41,5 @@ it('can create task as authed user', function ($task, $user, $status) {
     ['😊🤗💜✨👍', 2, true],
     ['', 2, false],
     ['1234', 2, false],
+    ['Hello from suspended account!', 3, false],
 ]);
