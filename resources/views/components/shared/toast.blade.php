@@ -1,6 +1,6 @@
 <div class="position-fixed top-0 end-0" style="z-index: 5">
     <div id="liveToast" class="d-flex toast hide m-3" role="alert" aria-live="assertive" aria-atomic="true">
-        <div id="toast-icon" class="rounded-start d-flex align-items-center bg-success px-3 me-2"></div>
+        <div id="toast-icon" class="rounded-start d-flex align-items-center px-3 me-2"></div>
         <div class="toast-body d-flex w-100 justify-content-between align-items-center py-3">
             <div class="d-flex align-items-center pe-2">
                 <div id="toast-body"></div>
