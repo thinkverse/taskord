@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Livewire\Products\CreateProduct;
 use App\Http\Livewire\Product\EditProduct;
+use App\Http\Livewire\Products\CreateProduct;
 use App\Models\Product;
 use Illuminate\Support\Str;
 use function Pest\Livewire\livewire;
