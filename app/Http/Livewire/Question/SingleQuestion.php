@@ -39,6 +39,7 @@ class SingleQuestion extends Component
         }
 
         Helper::toggleLike($this->question, 'QUESTION');
+        $this->emit('questionLiked');
 
         return loggy(request(), 'Question', auth()->user(), "Toggled question like | Question ID: {$this->question->id}");
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Question\CreateQuestion;
+use App\Http\Livewire\Question\SingleQuestion;
 use App\Http\Livewire\Question\EditQuestion;
 use App\Models\Question;
 use function Pest\Livewire\livewire;
@@ -96,3 +97,25 @@ it('can edit question as authed user', function ($question, $user, $status) {
         ->call('submit')
         ->assertNotEmitted('refreshQuestion');
 })->with('model-data');
+
+it('can toggle like on question', function ($user, $status) {
+    $question = Question::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleQuestion::class, [
+                'question' => $question,
+                'type' => 'question.newest',
+            ])
+            ->call('toggleLike')
+            ->assertEmitted('questionLiked');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleQuestion::class, [
+            'question' => $question,
+            'type' => 'question.newest',
+        ])
+        ->call('toggleLike')
+        ->assertNotEmitted('questionLiked');
+})->with('like-data');
