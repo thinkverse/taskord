@@ -92,6 +92,16 @@ it('cannot create product as un-authed user', function () {
         ->assertNotEmitted('refreshProducts');
 });
 
+it('cannot edit product as un-authed user', function () {
+    $product = Product::factory()->create();
+
+    livewire(EditProduct::class, ['product' => $product])
+        ->set('name', 'Test Product')
+        ->set('slug', Str::random(8))
+        ->call('submit')
+        ->assertNotEmitted('refreshProducts');
+});
+
 it('can create product as authed user', function ($product, $user, $status) {
     if ($status) {
         return actingAs($user)
