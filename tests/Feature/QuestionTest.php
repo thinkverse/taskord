@@ -98,6 +98,20 @@ it('can edit question as authed user', function ($question, $user, $status) {
         ->assertNotEmitted('refreshQuestion');
 })->with('model-data');
 
+it('cannot toggle like on question', function ($user, $status) {
+    $question = Question::factory()->create([
+        'user_id' => $user,
+    ]);
+
+    actingAs($user)
+        ->livewire(SingleQuestion::class, [
+            'question' => $question,
+            'type' => 'question.newest',
+        ])
+        ->call('toggleLike')
+        ->assertNotEmitted('questionLiked');
+})->with('like-data');
+
 it('can toggle like on question', function ($user, $status) {
     $question = Question::factory()->create();
 
