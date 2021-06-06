@@ -103,13 +103,19 @@ it('can toggle like on milestone', function ($user, $status) {
 
     if ($status) {
         return actingAs($user)
-            ->livewire(SingleMilestone::class, ['milestone' => $milestone])
+            ->livewire(SingleMilestone::class, [
+                'milestone' => $milestone,
+                'type' => 'milestones.opened',
+            ])
             ->call('toggleLike')
             ->assertEmitted('milestoneLiked');
     }
 
     return actingAs($user)
-        ->livewire(SingleMilestone::class, ['milestone' => $milestone])
+        ->livewire(SingleMilestone::class, [
+            'milestone' => $milestone,
+            'type' => 'milestones.opened',
+        ])
         ->call('toggleLike')
         ->assertNotEmitted('milestoneLiked');
 })->with('like-data');
