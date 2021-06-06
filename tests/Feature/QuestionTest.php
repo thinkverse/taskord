@@ -74,3 +74,23 @@ it('can create question as authed user', function ($question, $user, $status) {
         ->call('submit')
         ->assertNotEmitted('refreshQuestion');
 })->with('model-content');
+
+it('can edit question as authed user', function ($question, $user, $status) {
+    $question = Question::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(EditQuestion::class, ['question' => $question])
+            ->set('title', $question)
+            ->set('body', $question)
+            ->call('submit')
+            ->assertEmitted('refreshQuestion');
+    }
+
+    return actingAs($user)
+        ->livewire(EditQuestion::class, ['question' => $question])
+        ->set('title', $question)
+        ->set('body', $question)
+        ->call('submit')
+        ->assertNotEmitted('refreshQuestion');
+})->with('model-content');
