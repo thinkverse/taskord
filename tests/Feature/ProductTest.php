@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Livewire\Products\CreateProduct;
+use App\Http\Livewire\Product\EditProduct;
+use App\Models\Product;
 use Illuminate\Support\Str;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
