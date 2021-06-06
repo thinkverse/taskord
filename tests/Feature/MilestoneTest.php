@@ -76,7 +76,7 @@ it('can create milestone as authed user', function ($question, $user, $status) {
 })->with('model-content');
 
 it('can edit milestone as authed user', function ($milestone, $user, $status) {
-    $newMilestone = Question::factory()->create([
+    $newMilestone = Milestone::factory()->create([
         'user_id' => $user,
     ]);
 
