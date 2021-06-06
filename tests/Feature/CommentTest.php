@@ -71,3 +71,21 @@ it('can toggle like on comment', function ($user, $status) {
         ->call('toggleLike')
         ->assertNotEmitted('commentLiked');
 })->with('like-data');
+
+it('can delete comment', function ($user, $status) {
+    $comment = Comment::factory()->create([
+        'user_id' => $user,
+    ]);
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleComment::class, ['comment' => $comment])
+            ->call('deleteComment')
+            ->assertEmitted('refreshComments');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleComment::class, ['comment' => $comment])
+        ->call('deleteComment')
+        ->assertNotEmitted('refreshComments');
+})->with('like-data');
