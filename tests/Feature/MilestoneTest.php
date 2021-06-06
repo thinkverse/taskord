@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Livewire\Milestone\CreateMilestone;
-use App\Http\Livewire\Milestone\SingleMilestone;
 use App\Http\Livewire\Milestone\EditMilestone;
+use App\Http\Livewire\Milestone\SingleMilestone;
 use App\Models\Milestone;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
