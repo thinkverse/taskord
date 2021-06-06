@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6441a0afb791b8c1b866ba3cc932ee76",
+    "content-hash": "000d2cd34cac31528a506c944171d3d6",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -10899,12 +10899,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/phpinsights.git",
-                "reference": "872320c60726e0dbf98f5aa7cd91b94945108068"
+                "reference": "ff4127fac46bba5a1aebf491efa65b5be0a1d434"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/phpinsights/zipball/872320c60726e0dbf98f5aa7cd91b94945108068",
-                "reference": "872320c60726e0dbf98f5aa7cd91b94945108068",
+                "url": "https://api.github.com/repos/nunomaduro/phpinsights/zipball/ff4127fac46bba5a1aebf491efa65b5be0a1d434",
+                "reference": "ff4127fac46bba5a1aebf491efa65b5be0a1d434",
                 "shasum": ""
             },
             "require": {
@@ -11000,7 +11000,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-05-25T13:04:03+00:00"
+            "time": "2021-06-05T18:36:56+00:00"
         },
         {
             "name": "pestphp/pest",
@@ -12425,16 +12425,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.4",
+            "version": "9.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c73c6737305e779771147af66c96ca6a7ed8a741"
+                "reference": "89ff45ea9d70e35522fb6654a2ebc221158de276"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c73c6737305e779771147af66c96ca6a7ed8a741",
-                "reference": "c73c6737305e779771147af66c96ca6a7ed8a741",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/89ff45ea9d70e35522fb6654a2ebc221158de276",
+                "reference": "89ff45ea9d70e35522fb6654a2ebc221158de276",
                 "shasum": ""
             },
             "require": {
@@ -12464,7 +12464,7 @@
                 "sebastian/global-state": "^5.0.1",
                 "sebastian/object-enumerator": "^4.0.3",
                 "sebastian/resource-operations": "^3.0.3",
-                "sebastian/type": "^2.3",
+                "sebastian/type": "^2.3.2",
                 "sebastian/version": "^3.0.2"
             },
             "require-dev": {
@@ -12512,7 +12512,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.4"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.5"
             },
             "funding": [
                 {
@@ -12524,7 +12524,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-23T07:16:29+00:00"
+            "time": "2021-06-05T04:49:07+00:00"
         },
         {
             "name": "psr/cache",
