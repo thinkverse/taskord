@@ -56,7 +56,7 @@ it('can toggle like on comment', function ($user, $status) {
     }
 
     return actingAs($user)
-        ->livewire(SingleComment::class, ['milestone' => $milestone)
+        ->livewire(SingleComment::class, ['comment' => $comment])
         ->call('toggleLike')
         ->assertNotEmitted('commentLiked');
 })->with('like-data');
