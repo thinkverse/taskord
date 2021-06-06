@@ -61,6 +61,17 @@ it('can toggle like on answer', function ($user, $status) {
         ->assertNotEmitted('answerLiked');
 })->with('like-data');
 
+it('cannot delete answer', function ($user, $status) {
+    $answer = Answer::factory()->create([
+        'user_id' => 10,
+    ]);
+
+    actingAs($user)
+        ->livewire(SingleAnswer::class, ['answer' => $answer])
+        ->call('deleteAnswer')
+        ->assertNotEmitted('answerLiked');
+})->with('like-data');
+
 it('can delete answer', function ($user, $status) {
     $answer = Answer::factory()->create([
         'user_id' => $user,
