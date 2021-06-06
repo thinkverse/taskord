@@ -67,6 +67,17 @@ it('cannot toggle like on task', function ($user, $status) {
         ->assertNotEmitted('taskLiked');
 })->with('like-data');
 
+it('cannot toggle check on task', function ($user, $status) {
+    $task = Task::factory()->create([
+        'user_id' => 10,
+    ]);
+
+    actingAs($user)
+        ->livewire(SingleTask::class, ['task' => $task])
+        ->call('checkTask')
+        ->assertNotEmitted('refreshTasks');
+})->with('like-data');
+
 it('can toggle check on task', function ($user, $status) {
     $task = Task::factory()->create([
         'user_id' => $user,
