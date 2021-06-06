@@ -76,11 +76,13 @@ it('can create question as authed user', function ($question, $user, $status) {
 })->with('model-content');
 
 it('can edit question as authed user', function ($question, $user, $status) {
-    $question = Question::factory()->create();
+    $newQuestion = Question::factory()->create([
+        'user_id' => $user,
+    ]);
 
     if ($status) {
         return actingAs($user)
-            ->livewire(EditQuestion::class, ['question' => $question])
+            ->livewire(EditQuestion::class, ['question' => $newQuestion])
             ->set('title', $question)
             ->set('body', $question)
             ->call('submit')
@@ -88,7 +90,7 @@ it('can edit question as authed user', function ($question, $user, $status) {
     }
 
     return actingAs($user)
-        ->livewire(EditQuestion::class, ['question' => $question])
+        ->livewire(EditQuestion::class, ['question' => $newQuestion])
         ->set('title', $question)
         ->set('body', $question)
         ->call('submit')
