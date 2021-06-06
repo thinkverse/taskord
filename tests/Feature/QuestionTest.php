@@ -134,6 +134,20 @@ it('can toggle like on question', function ($user, $status) {
         ->assertNotEmitted('questionLiked');
 })->with('like-data');
 
+it('cannot delete question', function ($user, $status) {
+    $question = Question::factory()->create([
+        'user_id' => 10,
+    ]);
+
+    actingAs($user)
+        ->livewire(SingleQuestion::class, [
+            'question' => $question,
+            'type' => 'question.newest',
+        ])
+        ->call('deleteQuestion')
+        ->assertNotEmitted('refreshQuestions');
+})->with('like-data');
+
 it('can delete question', function ($user, $status) {
     $question = Question::factory()->create([
         'user_id' => $user,
