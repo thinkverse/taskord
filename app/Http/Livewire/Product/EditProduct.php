@@ -60,7 +60,7 @@ class EditProduct extends Component
         }
 
         $this->validate([
-            'name' => ['required', 'max:30'],
+            'name' => ['required', 'min:3', 'max:30'],
             'slug' => ['required', 'min:3', 'max:20', 'alpha_dash', 'unique:products,slug,'.$this->product->id, new ReservedSlug()],
             'description' => ['nullable', 'max:160'],
             'website' => ['nullable', 'active_url'],
@@ -123,6 +123,7 @@ class EditProduct extends Component
         }
 
         auth()->user()->touch();
+        $this->emit('refreshProducts');
 
         loggy(request(), 'Product', auth()->user(), "Updated a product | Product ID: #{$this->product->id}");
 
