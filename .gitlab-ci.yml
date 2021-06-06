@@ -1,3 +1,5 @@
+image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
+
 services:
   - mysql:latest
 
@@ -17,55 +19,37 @@ cache:
     - vendor/
     - node_modules/
 
+before_script:
+  - sudo composer self-update --2
+  - sudo composer install --no-progress --ignore-platform-reqs
+  - cp .env.example .env
+  - php artisan key:generate
+  - sudo npm i -g yarn
+  - sudo yarn install
+  - sudo yarn production
+  - php artisan horizon:install
+  - php artisan horizon:publish
+  - php artisan migrate:fresh --seed
+
 Test:
-  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
-    - sudo composer self-update --2
-    - sudo composer install --no-progress --ignore-platform-reqs
-    - cp .env.example .env
-    - php artisan key:generate
-    - sudo npm i -g yarn
-    - sudo yarn install
-    - sudo yarn production
-    - php artisan horizon:install
-    - php artisan horizon:publish
-    - php artisan migrate:fresh --seed
     - php artisan test
 
 Coverage:
-  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
-    - sudo composer self-update --2
-    - sudo composer install --no-progress --ignore-platform-reqs
-    - cp .env.example .env
-    - php artisan key:generate
-    - sudo npm i -g yarn
-    - sudo yarn install
-    - sudo yarn production
-    - php artisan horizon:install
-    - php artisan horizon:publish
-    - php artisan migrate:fresh --seed
     - echo xdebug.mode=coverage > /usr/local/etc/php/conf.d/xdebug.ini 
     - XDEBUG_MODE=coverage ./vendor/bin/pest -d memory_limit=4G --coverage --coverage-text --colors=never
 
 Insights:
-  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
-    - sudo composer self-update --2
-    - sudo composer install --no-progress --ignore-platform-reqs
     - php artisan insights -v
 
 Validate GraphQL:
-  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
-    - sudo composer self-update --2
-    - sudo composer install --no-progress --ignore-platform-reqs
-    - cp .env.example .env
-    - php artisan key:generate
     - php artisan lighthouse:validate-schema
 
 Housekeeping:
