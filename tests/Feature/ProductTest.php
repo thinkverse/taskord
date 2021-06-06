@@ -89,3 +89,21 @@ it('cannot create product as un-authed user', function () {
         ->call('submit')
         ->assertNotEmitted('refreshProducts');
 });
+
+it('can create product as authed user', function ($product, $user, $status) {
+    if ($status) {
+        return actingAs($user)
+            ->ivewire(CreateProduct::class)
+            ->set('name', $product)
+            ->set('slug', Str::random(8))
+            ->call('submit')
+            ->assertEmitted('refreshProducts');
+    }
+
+    return actingAs($user)
+        ->ivewire(CreateProduct::class)
+        ->set('name', $product)
+        ->set('slug', Str::random(8))
+        ->call('submit')
+        ->assertNotEmitted('refreshProducts');
+})->with('model-content');
