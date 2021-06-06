@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Livewire\Milestone\CreateMilestone;
+use App\Http\Livewire\Milestone\EditMilestone;
+use App\Models\Milestone;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
@@ -38,6 +40,14 @@ it('has single milestone page', function ($url, $expected, $auth) {
 ]);
 
 it('cannot create milestone as un-authed user', function () {
+    livewire(CreateMilestone::class)
+        ->set('name', 'Hello world from test!')
+        ->set('description', 'Hello world from test!')
+        ->call('submit')
+        ->assertNotEmitted('refreshMilestones');
+});
+
+it('cannot edit milestone as un-authed user', function () {
     livewire(CreateMilestone::class)
         ->set('name', 'Hello world from test!')
         ->set('description', 'Hello world from test!')
