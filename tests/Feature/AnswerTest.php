@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Livewire\Answer\CreateAnswer;
+use App\Http\Livewire\Answer\SingleAnswer;
+use App\Models\Answer;
 use App\Models\Question;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
@@ -31,3 +33,19 @@ it('can create answer as authed user', function ($answer, $user, $status) {
         ->call('submit')
         ->assertNotEmitted('refreshAnswers');
 })->with('model-data');
+
+it('can toggle like on answer', function ($user, $status) {
+    $answer = Answer::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleAnswer::class, ['answer' => $answer])
+            ->call('toggleLike')
+            ->assertEmitted('answerLiked');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleAnswer::class, ['answer' => $answer])
+        ->call('toggleLike')
+        ->assertNotEmitted('answerLiked');
+})->with('like-data');
