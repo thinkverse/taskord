@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Livewire\CreateTask;
+use App\Http\Livewire\Task\SingleTask;
+use App\Models\Task;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
@@ -37,3 +39,21 @@ it('can create task as authed user', function ($task, $user, $status) {
         ->call('submit')
         ->assertNotEmitted('refreshTasks');
 })->with('model-content');
+
+it('can toggle like task', function ($user, $status) {
+    $task = Task::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleTask::class, ['task' => $task])
+            ->call('toggleLike')
+            ->assertEmitted('taskLiked');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleTask::class, ['task' => $task])
+        ->call('submit')
+        ->assertNotEmitted('taskLiked');
+})->with([
+    [2, true]
+]);
