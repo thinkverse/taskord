@@ -133,3 +133,27 @@ it('can toggle like on milestone', function ($user, $status) {
         ->call('toggleLike')
         ->assertNotEmitted('milestoneLiked');
 })->with('like-data');
+
+it('can delete milestone', function ($user, $status) {
+    $milestone = Milestone::factory()->create([
+        'user_id' => $user,
+    ]);
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleMilestone::class, [
+                'milestone' => $milestone,
+                'type' => 'milestones.opened',
+            ])
+            ->call('deleteMilestone')
+            ->assertEmitted('refreshMilestones');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleMilestone::class, [
+            'milestone' => $milestone,
+            'type' => 'milestones.opened',
+        ])
+        ->call('deleteMilestone')
+        ->assertNotEmitted('refreshMilestones');
+})->with('like-data');
