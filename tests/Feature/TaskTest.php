@@ -55,3 +55,21 @@ it('can toggle like on task', function ($user, $status) {
         ->call('toggleLike')
         ->assertNotEmitted('taskLiked');
 })->with('like-data');
+
+it('can toggle check on task', function ($user, $status) {
+    $task = Task::factory()->create([
+        'user_id' => $user,
+    ]);
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleTask::class, ['task' => $task])
+            ->call('checkTask')
+            ->assertEmitted('refreshTasks');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleTask::class, ['task' => $task])
+        ->call('checkTask')
+        ->assertNotEmitted('refreshTasks');
+})->with('like-data');
