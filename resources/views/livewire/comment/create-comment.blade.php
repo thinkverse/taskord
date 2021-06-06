@@ -8,20 +8,8 @@
             </div>
         @enderror
         <div class="mb-2">
-            <div class="d-flex justify-content-between align-items-center">
-                <button wire:click="preview" wire:loading.attr="disabled" class="btn btn-sm {{ $preview ? 'btn-secondary' : 'btn-outline-secondary' }}">
-                    <x-heroicon-o-eye class="heroicon" />
-                    <span>{{ $preview ? 'Edit' : 'Preview' }}</span>
-                </button>
-                @if (! $preview)
-                    <x:markdown-toolbar htmlFor="comment-box" />
-                @endif
-            </div>
-            @if ($preview)
-                <div class="mt-3 bg-white" rows="3" wire:model.lazy="comment">{!! markdown($comment) !!}</div>
-            @else
-                <textarea placeholder="Add a comment" id="comment-box" class="form-control mentionInput mt-3" rows="3" wire:model.lazy="comment"></textarea>
-            @endif
+            <x:markdown-toolbar htmlFor="comment-box" />
+            <textarea placeholder="Add a comment" id="comment-box" class="form-control mentionInput mt-3" rows="3" wire:model.lazy="comment"></textarea>
         </div>
         <div class="d-flex justify-content-between align-items-center">
             <a class="small fw-bold text-secondary" href="https://guides.github.com/features/mastering-markdown" target="_blank">

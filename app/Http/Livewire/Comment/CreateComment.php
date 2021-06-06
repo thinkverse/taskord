@@ -11,8 +11,7 @@ use Livewire\Component;
 
 class CreateComment extends Component
 {
-    public $comment = '';
-    public $preview = false;
+    public $comment;
     public Task $task;
 
     protected $rules = [
@@ -23,11 +22,6 @@ class CreateComment extends Component
     public function mount($task)
     {
         $this->task = $task;
-    }
-
-    public function preview()
-    {
-        $this->preview = ! $this->preview;
     }
 
     public function updated($field)
@@ -60,7 +54,7 @@ class CreateComment extends Component
         auth()->user()->touch();
         $this->emit('refreshComments');
 
-        $this->reset(['comment', 'preview']);
+        $this->reset('comment');
         Helper::mentionUsers($users, $comment, auth()->user(), 'comment');
         Helper::notifySubscribers($comment->task->subscribers, $comment, 'comment');
         if (auth()->user()->id !== $this->task->user->id) {
