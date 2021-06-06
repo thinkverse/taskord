@@ -54,6 +54,4 @@ it('can toggle like task', function ($user, $status) {
         ->livewire(SingleTask::class, ['task' => $task])
         ->call('submit')
         ->assertNotEmitted('taskLiked');
-})->with([
-    [2, true]
-]);
+})->with('like-data');
