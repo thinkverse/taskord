@@ -39,7 +39,8 @@ Test:
 Coverage:
   stage: test
   script:
-    - echo xdebug.mode=coverage > /usr/local/etc/php/conf.d/xdebug.ini 
+    - pecl install xdebug
+    - docker-php-ext-enable xdebug
     - XDEBUG_MODE=coverage ./vendor/bin/pest -d memory_limit=4G --coverage --coverage-text --colors=never
 
 Insights:
