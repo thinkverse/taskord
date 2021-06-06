@@ -74,3 +74,25 @@ it('can create milestone as authed user', function ($question, $user, $status) {
         ->call('submit')
         ->assertNotEmitted('refreshMilestones');
 })->with('model-content');
+
+it('can edit milestone as authed user', function ($milestone, $user, $status) {
+    $newMilestone = Question::factory()->create([
+        'user_id' => $user,
+    ]);
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(EditMilestone::class, ['milestone' => $newMilestone])
+            ->set('name', $milestone)
+            ->set('description', $milestone)
+            ->call('submit')
+            ->assertEmitted('refreshMilestones');
+    }
+
+    return actingAs($user)
+        ->livewire(EditMilestone::class, ['milestone' => $newMilestone])
+        ->set('name', $milestone)
+        ->set('description', $milestone)
+        ->call('submit')
+        ->assertNotEmitted('refreshMilestones');
+})->with('model-content');
