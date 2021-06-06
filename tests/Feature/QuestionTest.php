@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Question;
 use App\Http\Livewire\Question\CreateQuestion;
 use App\Http\Livewire\Question\EditQuestion;
 use function Pest\Livewire\livewire;
@@ -43,10 +44,17 @@ it('cannot create question as un-authed user', function () {
         ->set('title', 'Hello world from test!')
         ->set('body', 'Hello world from test!')
         ->call('submit')
-        ->assertDispatchedBrowserEvent('toast', [
-            'type' => 'error',
-            'body' => config('taskord.error.deny'),
-        ]);
+        ->assertNotEmitted('refreshQuestion');
+});
+
+it('cannot edit question as un-authed user', function () {
+    $question = Question::factory()->create();
+
+    livewire(EditQuestion::class, ['question' => $question])
+        ->set('title', 'Hello world from test!')
+        ->set('body', 'Hello world from test!')
+        ->call('submit')
+        ->assertNotEmitted('refreshQuestion');
 });
 
 it('can create question as authed user', function ($question, $user, $status) {
