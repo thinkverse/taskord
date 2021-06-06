@@ -1,8 +1,8 @@
 <?php
 
-use App\Models\Question;
 use App\Http\Livewire\Question\CreateQuestion;
 use App\Http\Livewire\Question\EditQuestion;
+use App\Models\Question;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
