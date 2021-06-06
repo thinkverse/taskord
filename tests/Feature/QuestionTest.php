@@ -133,3 +133,27 @@ it('can toggle like on question', function ($user, $status) {
         ->call('toggleLike')
         ->assertNotEmitted('questionLiked');
 })->with('like-data');
+
+it('can delete question', function ($user, $status) {
+    $question = Question::factory()->create([
+        'user_id' => $user,
+    ]);
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleQuestion::class, [
+                'question' => $question,
+                'type' => 'question.newest',
+            ])
+            ->call('deleteQuestion')
+            ->assertEmitted('refreshQuestions');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleQuestion::class, [
+            'question' => $question,
+            'type' => 'question.newest',
+        ])
+        ->call('deleteQuestion')
+        ->assertNotEmitted('refreshQuestions');
+})->with('like-data');

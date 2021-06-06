@@ -87,6 +87,7 @@ class SingleQuestion extends Component
         loggy(request(), 'Question', auth()->user(), "Deleted a question | Question ID: {$this->question->id}");
         $this->question->delete();
         auth()->user()->touch();
+        $this->emit('refreshQuestions');
 
         return redirect()->route('questions.newest');
     }
