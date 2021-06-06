@@ -72,6 +72,17 @@ it('can toggle like on comment', function ($user, $status) {
         ->assertNotEmitted('commentLiked');
 })->with('like-data');
 
+it('cannot delete comment', function ($user, $status) {
+    $comment = Comment::factory()->create([
+        'user_id' => 10,
+    ]);
+
+    actingAs($user)
+        ->livewire(SingleComment::class, ['comment' => $comment])
+        ->call('deleteComment')
+        ->assertNotEmitted('refreshComments');
+})->with('like-data');
+
 it('can delete comment', function ($user, $status) {
     $comment = Comment::factory()->create([
         'user_id' => $user,
