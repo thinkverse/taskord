@@ -46,7 +46,9 @@ it('cannot toggle like on reply', function ($user, $status) {
 })->with('like-data');
 
 it('can toggle like on reply', function ($user, $status) {
-    $reply = CommentReply::factory()->create();
+    $reply = CommentReply::factory()->create([
+        'user_id' => 10,
+    ]);
 
     if ($status) {
         return actingAs($user)

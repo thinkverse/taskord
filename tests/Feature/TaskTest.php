@@ -41,7 +41,9 @@ it('can create task as authed user', function ($task, $user, $status) {
 })->with('model-data');
 
 it('can toggle like on task', function ($user, $status) {
-    $task = Task::factory()->create();
+    $task = Task::factory()->create([
+        'user_id' => 10,
+    ]);
 
     if ($status) {
         return actingAs($user)

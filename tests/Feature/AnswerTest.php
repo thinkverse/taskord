@@ -46,7 +46,9 @@ it('cannot toggle like on answer', function ($user, $status) {
 })->with('like-data');
 
 it('can toggle like on answer', function ($user, $status) {
-    $answer = Answer::factory()->create();
+    $answer = Answer::factory()->create([
+        'user_id' => 10,
+    ]);
 
     if ($status) {
         return actingAs($user)

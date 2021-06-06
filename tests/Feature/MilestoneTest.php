@@ -113,7 +113,9 @@ it('cannot toggle like on milestone', function ($user, $status) {
 })->with('like-data');
 
 it('can toggle like on milestone', function ($user, $status) {
-    $milestone = Milestone::factory()->create();
+    $milestone = Milestone::factory()->create([
+        'user_id' => 10,
+    ]);
 
     if ($status) {
         return actingAs($user)

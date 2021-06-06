@@ -57,7 +57,9 @@ it('cannot toggle like on comment', function ($user, $status) {
 })->with('like-data');
 
 it('can toggle like on comment', function ($user, $status) {
-    $comment = Comment::factory()->create();
+    $comment = Comment::factory()->create([
+        'user_id' => 10,
+    ]);
 
     if ($status) {
         return actingAs($user)

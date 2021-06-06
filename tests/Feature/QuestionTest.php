@@ -113,7 +113,9 @@ it('cannot toggle like on question', function ($user, $status) {
 })->with('like-data');
 
 it('can toggle like on question', function ($user, $status) {
-    $question = Question::factory()->create();
+    $question = Question::factory()->create([
+        'user_id' => 10,
+    ]);
 
     if ($status) {
         return actingAs($user)
