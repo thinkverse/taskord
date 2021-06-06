@@ -25,7 +25,6 @@
         "laravel/socialite": "5.2.3",
         "laravel/tinker": "2.6.1",
         "laravel/ui": "3.3.0",
-        "league/commonmark": "1.6.2",
         "livewire/livewire": "2.4.4",
         "mews/purifier": "3.3.5",
         "mll-lab/laravel-graphql-playground": "2.5.0",

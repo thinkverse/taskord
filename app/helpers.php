@@ -7,7 +7,6 @@ use App\Models\Feature;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
-use League\CommonMark\GithubFlavoredMarkdownConverter;
 
 if (! function_exists('git')) {
     function git(string $args): ?string
@@ -94,12 +93,12 @@ if (! function_exists('formatBytes')) {
 if (! function_exists('markdown')) {
     function markdown($content)
     {
-        $converter = new GithubFlavoredMarkdownConverter([
+        $markdown = Str::markdown($content, [
             'html_input' => 'strip',
             'allow_unsafe_links' => false,
         ]);
 
-        return $converter->convertToHtml($content);
+        return $markdown;
     }
 }
 
