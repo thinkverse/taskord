@@ -78,3 +78,10 @@ it('has product popover', function ($url, $expected, $auth) {
     ['/popover/product/1', 200, false],
     ['/popover/product/1', 200, true],
 ]);
+
+it('cannot create task as un-authed user', function () {
+    livewire(CreateTask::class)
+        ->set('task', 'Hello world from test!')
+        ->call('submit')
+        ->assertNotEmitted('refreshTasks');
+});
