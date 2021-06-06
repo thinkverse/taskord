@@ -73,7 +73,7 @@ it('can create milestone as authed user', function ($question, $user, $status) {
         ->set('description', $question)
         ->call('submit')
         ->assertNotEmitted('refreshMilestones');
-})->with('model-content');
+})->with('model-data');
 
 it('can edit milestone as authed user', function ($milestone, $user, $status) {
     $newMilestone = Milestone::factory()->create([
@@ -95,4 +95,4 @@ it('can edit milestone as authed user', function ($milestone, $user, $status) {
         ->set('description', $milestone)
         ->call('submit')
         ->assertNotEmitted('refreshMilestones');
-})->with('model-content');
+})->with('model-data');

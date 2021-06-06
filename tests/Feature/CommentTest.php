@@ -41,4 +41,4 @@ it('can create comment as authed user', function ($comment, $user, $status) {
         ->set('task', $task)
         ->call('submit')
         ->assertNotEmitted('refreshComments');
-})->with('model-content');
+})->with('model-data');

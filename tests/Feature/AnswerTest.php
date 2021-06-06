@@ -30,4 +30,4 @@ it('can create answer as authed user', function ($answer, $user, $status) {
         ->set('answer', $answer)
         ->call('submit')
         ->assertNotEmitted('refreshAnswers');
-})->with('model-content');
+})->with('model-data');

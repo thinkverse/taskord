@@ -73,7 +73,7 @@ it('can create question as authed user', function ($question, $user, $status) {
         ->set('body', $question)
         ->call('submit')
         ->assertNotEmitted('refreshQuestion');
-})->with('model-content');
+})->with('model-data');
 
 it('can edit question as authed user', function ($question, $user, $status) {
     $newQuestion = Question::factory()->create([
@@ -95,4 +95,4 @@ it('can edit question as authed user', function ($question, $user, $status) {
         ->set('body', $question)
         ->call('submit')
         ->assertNotEmitted('refreshQuestion');
-})->with('model-content');
+})->with('model-data');

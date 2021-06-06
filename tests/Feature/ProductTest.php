@@ -118,6 +118,6 @@ it('can create product as authed user', function ($product, $user, $status) {
         ->set('slug', Str::random(8))
         ->call('submit')
         ->assertNotEmitted('refreshProducts');
-})->with('model-content');
+})->with('model-data');
 
 // TODO: Edit Product

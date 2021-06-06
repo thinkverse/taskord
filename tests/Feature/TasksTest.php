@@ -36,4 +36,4 @@ it('can create task as authed user', function ($task, $user, $status) {
         ->set('task', $task)
         ->call('submit')
         ->assertNotEmitted('refreshTasks');
-})->with('model-content');
+})->with('model-data');

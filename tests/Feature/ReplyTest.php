@@ -30,4 +30,4 @@ it('can create reply as authed user', function ($reply, $user, $status) {
         ->set('reply', $reply)
         ->call('submit')
         ->assertNotEmitted('refreshReplies');
-})->with('model-content');
+})->with('model-data');
