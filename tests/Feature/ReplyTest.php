@@ -34,6 +34,17 @@ it('can create reply as authed user', function ($reply, $user, $status) {
         ->assertNotEmitted('refreshReplies');
 })->with('model-data');
 
+it('cannot toggle like on reply', function ($user, $status) {
+    $reply = CommentReply::factory()->create([
+        'user_id' => $user,
+    ]);
+
+    actingAs($user)
+        ->livewire(SingleReply::class, ['reply' => $reply])
+        ->call('toggleLike')
+        ->assertNotEmitted('replyLiked');
+})->with('like-data');
+
 it('can toggle like on reply', function ($user, $status) {
     $reply = CommentReply::factory()->create();
 
