@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Question\CreateQuestion;
+use App\Http\Livewire\Question\EditQuestion;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
@@ -37,7 +38,7 @@ it('has single question page', function ($url, $expected, $auth) {
     ['/question/1', 200, true],
 ]);
 
-it('cannot create task as un-authed user', function () {
+it('cannot create question as un-authed user', function () {
     livewire(CreateQuestion::class)
         ->set('title', 'Hello world from test!')
         ->set('body', 'Hello world from test!')
