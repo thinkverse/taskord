@@ -119,3 +119,5 @@ it('can create product as authed user', function ($product, $user, $status) {
         ->call('submit')
         ->assertNotEmitted('refreshProducts');
 })->with('model-content');
+
+// TODO: Edit Product

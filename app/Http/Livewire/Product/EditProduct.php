@@ -60,7 +60,7 @@ class EditProduct extends Component
         }
 
         $this->validate([
-            'name' => ['required', 'min:3', 'max:30'],
+            'name' => ['required', 'max:30'],
             'slug' => ['required', 'min:3', 'max:20', 'alpha_dash', 'unique:products,slug,'.$this->product->id, new ReservedSlug()],
             'description' => ['nullable', 'max:160'],
             'website' => ['nullable', 'active_url'],
