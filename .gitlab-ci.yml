@@ -47,7 +47,7 @@ Coverage:
     - php artisan horizon:install
     - php artisan horizon:publish
     - php artisan migrate:fresh --seed
-    - XDEBUG_MODE=coverage ./vendor/bin/pest --coverage
+    - XDEBUG_MODE=coverage ./vendor/bin/pest -d memory_limit=4G --coverage
 
 Insights:
   image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
