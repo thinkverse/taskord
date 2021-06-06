@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Str;
 use App\Http\Livewire\Products\CreateProduct;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
@@ -82,8 +83,9 @@ it('has product popover', function ($url, $expected, $auth) {
 ]);
 
 it('cannot create product as un-authed user', function () {
-    livewire(CreateTask::class)
-        ->set('task', 'Hello world from test!')
+    livewire(CreateProduct::class)
+        ->set('name', 'Test Product')
+        ->set('slug', Str::random(8))
         ->call('submit')
-        ->assertNotEmitted('refreshTasks');
+        ->assertNotEmitted('refreshProducts');
 });
