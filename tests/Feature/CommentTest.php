@@ -45,6 +45,22 @@ it('can create comment as authed user', function ($comment, $user, $status) {
         ->assertNotEmitted('refreshComments');
 })->with('model-data');
 
+it('cannot toggle like on comment', function ($user, $status) {
+    $comment = Comment::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleComment::class, ['comment' => $comment])
+            ->call('toggleLike')
+            ->assertEmitted('commentLiked');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleComment::class, ['comment' => $comment])
+        ->call('toggleLike')
+        ->assertNotEmitted('commentLiked');
+})->with('like-data');
+
 it('can toggle like on comment', function ($user, $status) {
     $comment = Comment::factory()->create();
 

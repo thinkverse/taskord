@@ -34,6 +34,17 @@ it('can create answer as authed user', function ($answer, $user, $status) {
         ->assertNotEmitted('refreshAnswers');
 })->with('model-data');
 
+it('cannot toggle like on answer', function ($user, $status) {
+    $answer = Answer::factory()->create([
+        'user_id' => $user,
+    ]);
+
+    actingAs($user)
+        ->livewire(SingleAnswer::class, ['answer' => $answer])
+        ->call('toggleLike')
+        ->assertNotEmitted('answerLiked');
+})->with('like-data');
+
 it('can toggle like on answer', function ($user, $status) {
     $answer = Answer::factory()->create();
 
