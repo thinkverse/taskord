@@ -1,4 +1,4 @@
-image: ubuntu:latest
+image: alpine:latest
 
 before_script:
   - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
