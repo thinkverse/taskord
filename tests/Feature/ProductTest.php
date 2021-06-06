@@ -93,7 +93,7 @@ it('cannot create product as un-authed user', function () {
 it('can create product as authed user', function ($product, $user, $status) {
     if ($status) {
         return actingAs($user)
-            ->ivewire(CreateProduct::class)
+            ->livewire(CreateProduct::class)
             ->set('name', $product)
             ->set('slug', Str::random(8))
             ->call('submit')
@@ -101,7 +101,7 @@ it('can create product as authed user', function ($product, $user, $status) {
     }
 
     return actingAs($user)
-        ->ivewire(CreateProduct::class)
+        ->livewire(CreateProduct::class)
         ->set('name', $product)
         ->set('slug', Str::random(8))
         ->call('submit')
