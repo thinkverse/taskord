@@ -48,7 +48,9 @@ it('cannot create milestone as un-authed user', function () {
 });
 
 it('cannot edit milestone as un-authed user', function () {
-    livewire(CreateMilestone::class)
+    $milestone = Milestone::factory()->create();
+
+    livewire(EditMilestone::class, ['milestone' => $milestone])
         ->set('name', 'Hello world from test!')
         ->set('description', 'Hello world from test!')
         ->call('submit')
