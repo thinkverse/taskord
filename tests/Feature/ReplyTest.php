@@ -61,6 +61,17 @@ it('can toggle like on reply', function ($user, $status) {
         ->assertNotEmitted('replyLiked');
 })->with('like-data');
 
+it('cannot delete reply', function ($user, $status) {
+    $reply = CommentReply::factory()->create([
+        'user_id' => 10,
+    ]);
+
+    actingAs($user)
+        ->livewire(SingleReply::class, ['reply' => $reply])
+        ->call('deleteReply')
+        ->assertNotEmitted('refreshReplies');
+})->with('like-data');
+
 it('can delete reply', function ($user, $status) {
     $reply = CommentReply::factory()->create([
         'user_id' => $user,
