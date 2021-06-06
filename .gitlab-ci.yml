@@ -47,7 +47,8 @@ Coverage:
     - php artisan horizon:install
     - php artisan horizon:publish
     - php artisan migrate:fresh --seed
-    - XDEBUG_MODE=coverage ./vendor/bin/pest -d memory_limit=4G --coverage
+    - echo xdebug.mode=coverage > /usr/local/etc/php/conf.d/xdebug.ini 
+    - XDEBUG_MODE=coverage ./vendor/bin/pest -d memory_limit=4G --coverage --coverage-text --colors=never
 
 Insights:
   image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
