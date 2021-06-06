@@ -35,6 +35,7 @@ class SingleMilestone extends Component
         }
 
         Helper::toggleLike($this->milestone, 'MILESTONE');
+        $this->emit('milestoneLiked');
 
         return loggy(request(), 'Milestone', auth()->user(), "Toggled milestone like | Milestone ID: {$this->milestone->id}");
     }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Milestone\CreateMilestone;
+use App\Http\Livewire\Milestone\SingleMilestone;
 use App\Http\Livewire\Milestone\EditMilestone;
 use App\Models\Milestone;
 use function Pest\Livewire\livewire;
@@ -96,3 +97,19 @@ it('can edit milestone as authed user', function ($milestone, $user, $status) {
         ->call('submit')
         ->assertNotEmitted('refreshMilestones');
 })->with('model-data');
+
+it('can toggle like on milestone', function ($user, $status) {
+    $milestone = Milestone::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleMilestone::class, ['milestone' => $milestone])
+            ->call('toggleLike')
+            ->assertEmitted('milestoneLiked');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleMilestone::class, ['milestone' => $milestone])
+        ->call('toggleLike')
+        ->assertNotEmitted('milestoneLiked');
+})->with('like-data');

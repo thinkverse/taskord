@@ -40,7 +40,7 @@ it('can create task as authed user', function ($task, $user, $status) {
         ->assertNotEmitted('refreshTasks');
 })->with('model-data');
 
-it('can toggle like task', function ($user, $status) {
+it('can toggle like on task', function ($user, $status) {
     $task = Task::factory()->create();
 
     if ($status) {
