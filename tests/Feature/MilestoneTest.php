@@ -98,6 +98,20 @@ it('can edit milestone as authed user', function ($milestone, $user, $status) {
         ->assertNotEmitted('refreshMilestones');
 })->with('model-data');
 
+it('cannot toggle like on milestone', function ($user, $status) {
+    $milestone = Milestone::factory()->create([
+        'user_id' => $user,
+    ]);
+
+    actingAs($user)
+        ->livewire(SingleMilestone::class, [
+            'milestone' => $milestone,
+            'type' => 'milestones.opened',
+        ])
+        ->call('toggleLike')
+        ->assertNotEmitted('milestoneLiked');
+})->with('like-data');
+
 it('can toggle like on milestone', function ($user, $status) {
     $milestone = Milestone::factory()->create();
 
