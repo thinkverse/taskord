@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class CreateReply extends Component
 {
-    public $reply;
+    public $reply = '';
     public Comment $comment;
 
     protected $rules = [

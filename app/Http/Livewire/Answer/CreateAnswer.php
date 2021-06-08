@@ -11,7 +11,7 @@ use Livewire\Component;
 
 class CreateAnswer extends Component
 {
-    public $answer;
+    public $answer = '';
     public Question $question;
 
     protected $rules = [
