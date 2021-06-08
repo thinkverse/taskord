@@ -26,11 +26,16 @@
             <div class="mb-2">
                 <textarea x-show="tab === 'edit'" placeholder="Leave a answer" id="answer-box" class="form-control mentionInput" rows="3" wire:model.lazy="answer"></textarea>
                 <div x-show="tab === 'preview'">
-                    @if ($answer)
-                        {!! markdown($answer) !!}
-                    @else
-                        Nothing to preview...
-                    @endif
+                    <div wire:loading>
+                        Loading preview...
+                    </div>
+                    <div wire:loading.remove>
+                        @if ($answer)
+                            {!! markdown($answer) !!}
+                        @else
+                            Nothing to preview...
+                        @endif
+                    </div>
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center">
