@@ -36,4 +36,5 @@ dataset('follow-data', [
     [3, 1, false], // Cannot follow suspended -> staff
     [4, 2, false], // Cannot follow spammy -> staff
     [2, 1, true], // Can follow test -> staff
+    [1, 3, true], // Can follow staff -> suspended
 ]);
