@@ -1,29 +1,29 @@
 <div class="card mb-4">
-    <div class="card-body">
-        @error('comment')
-            <div class="alert alert-danger alert-dismissible fade show mt-2">
-                <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                <x-heroicon-o-exclamation class="heroicon" />
-                {{ $message }}
+    <div x-data="{ tab: 'edit' }">
+        <ul class="nav nav-tabs d-flex justify-content-between px-3 mt-3">
+            <div class="d-flex">
+                <li class="nav-item">
+                    <div class="cursor-pointer nav-link active" :class="{ 'active': tab === 'edit' }" @click="tab = 'edit'">Edit</div>
+                </li>
+                <li class="nav-item">
+                    <div class="cursor-pointer nav-link" :class="{ 'active': tab === 'preview' }" @click="tab = 'preview'">Preview</div>
+                </li>
             </div>
-        @enderror
-        <div x-data="{ tab: 'edit' }">
-            <ul class="nav nav-tabs d-flex justify-content-between">
-                <div class="d-flex">
-                    <li class="nav-item">
-                        <div class="cursor-pointer nav-link active" :class="{ 'active': tab === 'edit' }" @click="tab = 'edit'">Edit</div>
-                    </li>
-                    <li class="nav-item">
-                        <div class="cursor-pointer nav-link" :class="{ 'active': tab === 'preview' }" @click="tab = 'preview'">Preview</div>
-                    </li>
+            <div x-show="tab === 'edit'">
+                <x:markdown-toolbar htmlFor="comment-box" />
+            </div>
+        </ul>
+        <div class="card-body">
+            @error('comment')
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
+                    <x-heroicon-o-exclamation class="heroicon" />
+                    {{ $message }}
                 </div>
-                <div x-show="tab === 'edit'">
-                    <x:markdown-toolbar htmlFor="comment-box" />
-                </div>
-            </ul>
+            @enderror
             <div class="mb-2">
-                <textarea x-show="tab === 'edit'" placeholder="Leave a comment" id="comment-box" class="form-control mentionInput mt-3" rows="3" wire:model.lazy="comment"></textarea>
-                <div x-show="tab === 'preview'" class="mt-3">
+                <textarea x-show="tab === 'edit'" placeholder="Leave a comment" id="comment-box" class="form-control mentionInput" rows="3" wire:model.lazy="comment"></textarea>
+                <div x-show="tab === 'preview'">
                     @if ($comment)
                         {!! markdown($comment) !!}
                     @else
