@@ -41,6 +41,7 @@ class Follow extends Component
 
             return toast($this, 'success', 'Followed successfully!');
         }
+        $this->emit('toggleFollow');
         loggy(request(), 'User', auth()->user(), "Unfollowed the user | Username: @{$this->user->username}");
 
         return toast($this, 'success', 'Unfollowed successfully!');
