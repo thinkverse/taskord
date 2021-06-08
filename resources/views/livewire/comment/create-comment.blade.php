@@ -31,7 +31,7 @@
                     Markdown is supported
                     <x:labels.beta />
                 </a>
-                <button wire:loading.attr="disabled" wire:target="submit" class="btn btn-sm btn-outline-primary rounded-pill" type="submit" wire:click="submit">
+                <button wire:loading.attr="disabled" wire:target="submit" class="btn btn-sm btn-outline-primary rounded-pill" type="submit" wire:click="submit" @click="tab = 'edit'">
                     <x-heroicon-o-plus class="heroicon heroicon-15px" />
                     Comment
                 </button>
