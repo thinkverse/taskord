@@ -1,18 +1,20 @@
 <div class="card mb-4">
     <div x-data="{ tab: 'edit' }">
-        <ul class="nav nav-tabs d-flex justify-content-between px-3 mt-3">
-            <div class="d-flex">
-                <li class="nav-item">
-                    <div class="cursor-pointer nav-link active" :class="{ 'active': tab === 'edit' }" @click="tab = 'edit'">Edit</div>
-                </li>
-                <li class="nav-item">
-                    <div class="cursor-pointer nav-link" :class="{ 'active': tab === 'preview' }" @click="tab = 'preview'">Preview</div>
-                </li>
-            </div>
-            <div x-show="tab === 'edit'">
-                <x:markdown-toolbar htmlFor="comment-box" />
-            </div>
-        </ul>
+        <div class="pt-2 rounded-top bg-body">
+            <ul class="nav nav-tabs d-flex justify-content-between px-3">
+                <div class="d-flex">
+                    <li class="nav-item">
+                        <div class="cursor-pointer nav-link active" :class="{ 'bg-white active': tab === 'edit' }" @click="tab = 'edit'">Edit</div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="cursor-pointer nav-link" :class="{ 'active bg-white': tab === 'preview' }" @click="tab = 'preview'">Preview</div>
+                    </li>
+                </div>
+                <div x-show="tab === 'edit'" class="pt-1">
+                    <x:markdown-toolbar htmlFor="comment-box" />
+                </div>
+            </ul>
+        </div>
         <div class="card-body">
             @error('comment')
                 <div class="alert alert-danger alert-dismissible fade show">
