@@ -25,10 +25,10 @@ dataset('model-data', [
 ]);
 
 dataset('like-data', [
-    [2, true],
-    [3, false],
-    [4, false],
-    [5, false],
+    [2, true], // test can like
+    [3, false], // suspend can't like
+    [4, false], // spammy can't like
+    [5, false], // un-verified can't like
 ]);
 
 dataset('follow-data', [
