@@ -13,11 +13,12 @@ class Repo implements Rule
             'github.com/',
             'gitlab.com/',
             'bitbucket.org/',
+            'codeberg.org/',
         ]);
     }
 
     public function message()
     {
-        return 'Repo should be GitHub / GitLab / Bitbucket URL';
+        return 'Repo should be GitHub / GitLab / Bitbucket / Codeberg URL';
     }
 }
