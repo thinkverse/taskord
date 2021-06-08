@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Livewire\User\Follow as ProfileFollow;
+use App\Http\Livewire\Home\Follow as HomeFollow;
+use App\Http\Livewire\Notification\Follow as NotificationFollow;
 use App\Models\User;
 use function Tests\actingAs;
 
@@ -95,4 +97,42 @@ it('can toggle follow user from profile page', function ($sourceUser, $targetUse
         ->livewire(ProfileFollow::class, ['user' => $targetUser])
         ->call('toggleFollow')
         ->assertNotEmitted('toggleFollow');
+})->with('follow-data');
+
+it('can toggle follow user from notification page', function ($sourceUser, $targetUser, $status) {
+    $targetUser = User::find($targetUser);
+
+    if ($status) {
+        return actingAs($sourceUser)
+            ->livewire(NotificationFollow::class, ['user' => $targetUser])
+            ->call('toggleFollow')
+            ->assertEmitted('toggleFollow');
+    }
+
+    return actingAs($sourceUser)
+        ->livewire(NotificationFollow::class, ['user' => $targetUser])
+        ->call('toggleFollow')
+        ->assertNotEmitted('toggleFollow');
+})->with('follow-data');
+
+it('can toggle follow user from home page', function ($sourceUser, $targetUser, $status) {
+    $targetUser = User::find($targetUser);
+
+    if ($status) {
+        return actingAs($sourceUser)
+            ->livewire(HomeFollow::class, [
+                'user' => $targetUser,
+                'showText' => true,
+            ])
+            ->call('toggleFollow')
+            ->assertEmitted('refreshSuggestions');
+    }
+
+    return actingAs($sourceUser)
+        ->livewire(HomeFollow::class, [
+            'user' => $targetUser,
+            'showText' => true,
+        ])
+        ->call('toggleFollow')
+        ->assertNotEmitted('refreshSuggestions');
 })->with('follow-data');

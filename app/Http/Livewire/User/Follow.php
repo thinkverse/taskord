@@ -36,6 +36,7 @@ class Follow extends Component
         $this->user->refresh();
         auth()->user()->touch();
         $this->emit('toggleFollow');
+
         if (auth()->user()->isFollowing($this->user)) {
             $this->user->notify(new Followed(auth()->user()));
             loggy(request(), 'User', auth()->user(), "Followed the user | Username: @{$this->user->username}");
