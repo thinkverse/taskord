@@ -26,11 +26,16 @@
             <div class="mb-2">
                 <textarea x-show="tab === 'edit'" placeholder="Leave a reply" id="reply-box-{{ $comment->id }}" class="form-control mentionInput" rows="3" wire:model.lazy="reply"></textarea>
                 <div x-show="tab === 'preview'">
-                    @if ($reply)
-                        {!! markdown($reply) !!}
-                    @else
-                        Nothing to preview...
-                    @endif
+                    <div wire:loading>
+                        Loading preview...
+                    </div>
+                    <div wire:loading.remove>
+                        @if ($reply)
+                            {!! markdown($reply) !!}
+                        @else
+                            Nothing to preview...
+                        @endif
+                    </div>
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center">
