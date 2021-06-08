@@ -17,12 +17,12 @@
                         <div class="cursor-pointer nav-link" :class="{ 'active': tab === 'preview' }" @click="tab = 'preview'">Preview</div>
                     </li>
                 </div>
-                <div>
+                <div x-show="tab === 'edit'">
                     <x:markdown-toolbar htmlFor="comment-box" />
                 </div>
             </ul>
             <div class="mb-2">
-                <textarea x-show="tab === 'edit'" placeholder="Add a comment" id="comment-box" class="form-control mentionInput mt-3" rows="3" wire:model.lazy="comment"></textarea>
+                <textarea x-show="tab === 'edit'" placeholder="Leave a comment" id="comment-box" class="form-control mentionInput mt-3" rows="3" wire:model.lazy="comment"></textarea>
                 <div x-show="tab === 'preview'" class="mt-3">
                     @if ($comment)
                         {!! markdown($comment) !!}
