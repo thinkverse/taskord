@@ -42,6 +42,7 @@
     @if (App::environment() === 'production')
         <script async src="https://cdn.splitbee.io/sb.js"></script>
     @endif
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 </head>
 <body>
     <div id="app">
