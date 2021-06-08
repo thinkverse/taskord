@@ -30,3 +30,10 @@ dataset('like-data', [
     [4, false],
     [5, false],
 ]);
+
+dataset('follow-data', [
+    [1, 1, false], // Cannot follow staff -> staff
+    [3, 1, false], // Cannot follow suspended -> staff
+    [4, 2, false], // Cannot follow spammy -> staff
+    [2, 1, true], // Can follow test -> staff
+]);

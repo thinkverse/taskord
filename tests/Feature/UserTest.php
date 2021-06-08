@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Livewire\User\Follow;
+use App\Http\Livewire\User\Follow as ProfileFollow;
 use App\Models\User;
 use function Tests\actingAs;
 
@@ -81,23 +81,18 @@ it('has user popover', function ($url, $expected, $auth) {
     ['/popover/user/1', 200, true],
 ]);
 
-it('can toggle follow on user', function ($sourceUser, $targetUser, $status) {
+it('can toggle follow user from profile page', function ($sourceUser, $targetUser, $status) {
     $targetUser = User::find($targetUser);
 
     if ($status) {
         return actingAs($sourceUser)
-            ->livewire(Follow::class, ['user' => $targetUser])
+            ->livewire(ProfileFollow::class, ['user' => $targetUser])
             ->call('toggleFollow')
             ->assertEmitted('toggleFollow');
     }
 
     return actingAs($sourceUser)
-        ->livewire(Follow::class, ['user' => $targetUser])
+        ->livewire(ProfileFollow::class, ['user' => $targetUser])
         ->call('toggleFollow')
         ->assertNotEmitted('toggleFollow');
-})->with([
-    [1, 1, false], // Cannot follow staff -> staff
-    [3, 1, false], // Cannot follow suspended -> staff
-    [4, 2, false], // Cannot follow spammy -> staff
-    [2, 1, true], // Can follow test -> staff
-]);
+})->with('follow-data');
