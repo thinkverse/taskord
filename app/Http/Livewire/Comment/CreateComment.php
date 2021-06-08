@@ -11,7 +11,7 @@ use Livewire\Component;
 
 class CreateComment extends Component
 {
-    public $comment;
+    public $comment = '';
     public Task $task;
 
     protected $rules = [
