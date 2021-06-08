@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Livewire\User\Follow as ProfileFollow;
 use App\Http\Livewire\Home\Follow as HomeFollow;
 use App\Http\Livewire\Notification\Follow as NotificationFollow;
+use App\Http\Livewire\User\Follow as ProfileFollow;
 use App\Models\User;
 use function Tests\actingAs;
 
