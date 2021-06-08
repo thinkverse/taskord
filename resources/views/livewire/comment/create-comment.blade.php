@@ -27,7 +27,7 @@
                     @if ($comment)
                         {!! markdown($comment) !!}
                     @else
-                        Loading preview...
+                        Nothing to preview...
                     @endif
                 </div>
             </div>
