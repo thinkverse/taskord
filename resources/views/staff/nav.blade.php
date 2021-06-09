@@ -24,13 +24,13 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link rounded-pill {{ Route::is('staff.stats') ? 'active' : '' }} @if (Route::currentRouteName() === 'staff.products') active @endif" href="{{ route('staff.products') }}">
+        <a class="nav-link rounded-pill {{ Route::is('staff.products') ? 'active' : '' }}" href="{{ route('staff.products') }}">
             <x-heroicon-o-cube class="heroicon heroicon-18px" />
             Products
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link rounded-pill {{ Route::is('staff.stats') ? 'active' : '' }} @if (Route::currentRouteName() === 'staff.system') active @endif" href="{{ route('staff.system') }}">
+        <a class="nav-link rounded-pill {{ Route::is('staff.system') ? 'active' : '' }}" href="{{ route('staff.system') }}">
             <x-heroicon-o-chip class="heroicon heroicon-18px" />
             System
         </a>
