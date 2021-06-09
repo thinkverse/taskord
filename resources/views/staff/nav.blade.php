@@ -6,19 +6,19 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link rounded-pill {{ Route::is('staff.stats') ? 'active' : '' }} @if (Route::currentRouteName() === 'staff.users') active @endif" href="{{ route('staff.users') }}">
+        <a class="nav-link rounded-pill {{ Route::is('staff.users') ? 'active' : '' }}" href="{{ route('staff.users') }}">
             <x-heroicon-o-users class="heroicon heroicon heroicon-18px" />
             Users
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link rounded-pill {{ Route::is('staff.stats') ? 'active' : '' }} @if (Route::currentRouteName() === 'staff.tasks') active @endif" href="{{ route('staff.tasks') }}">
+        <a class="nav-link rounded-pill {{ Route::is('staff.tasks') ? 'active' : '' }}" href="{{ route('staff.tasks') }}">
             <x-heroicon-o-check-circle class="heroicon heroicon-18px" />
             Tasks
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link rounded-pill {{ Route::is('staff.stats') ? 'active' : '' }} @if (Route::currentRouteName() === 'staff.activities') active @endif" href="{{ route('staff.activities') }}">
+        <a class="nav-link rounded-pill {{ Route::is('staff.activities') ? 'active' : '' }}" href="{{ route('staff.activities') }}">
             <x-heroicon-o-fire class="heroicon heroicon-18px" />
             Activities
         </a>
