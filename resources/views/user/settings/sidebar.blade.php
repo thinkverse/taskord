@@ -34,42 +34,42 @@
                 Products
             </a>
             <a
-                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.profile') ? 'active text-white' : '' }} @if (Route::currentRouteName() === 'user.settings.patron') active text-white @endif"
+                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.patron') ? 'active text-white' : '' }}"
                 href="{{ route('user.settings.patron') }}"
             >
                 <x-heroicon-o-heart class="heroicon" />
                 Patron
             </a>
             <a
-                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.profile') ? 'active text-white' : '' }} @if (Route::currentRouteName() === 'user.settings.password') active text-white @endif"
+                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.password') ? 'active text-white' : '' }}"
                 href="{{ route('user.settings.password') }}"
             >
                 <x-heroicon-o-key class="heroicon" />
                 Password
             </a>
             <a
-                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.profile') ? 'active text-white' : '' }} @if (Route::currentRouteName() === 'user.settings.notifications') active text-white @endif"
+                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.notifications') ? 'active text-white' : '' }}"
                 href="{{ route('user.settings.notifications') }}"
             >
                 <x-heroicon-o-bell class="heroicon" />
                 Notifications
             </a>
             <a
-                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.profile') ? 'active text-white' : '' }} @if (Route::currentRouteName() === 'user.settings.integrations') active text-white @endif"
+                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.integrations') ? 'active text-white' : '' }}"
                 href="{{ route('user.settings.integrations') }}"
             >
                 <x-heroicon-o-cloud-upload class="heroicon" />
                 Integrations
             </a>
             <a
-                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.profile') ? 'active text-white' : '' }} @if (Route::currentRouteName() === 'user.settings.api') active text-white @endif"
+                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.api') ? 'active text-white' : '' }}"
                 href="{{ route('user.settings.api') }}"
             >
                 <x-heroicon-o-code class="heroicon" />
                 API
             </a>
             <a
-                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.profile') ? 'active text-white' : '' }} @if (Route::currentRouteName() === 'user.settings.logs') active text-white @endif"
+                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.logs') ? 'active text-white' : '' }}"
                 href="{{ route('user.settings.logs') }}"
             >
                 <x-heroicon-o-collection class="heroicon" />
