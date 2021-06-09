@@ -76,7 +76,7 @@
                 Logs
             </a>
             <a
-                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.profile') ? 'active text-white' : '' }} @if (Route::currentRouteName() === 'user.settings.data') active text-white @endif"
+                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.data') ? 'active text-white' : '' }}"
                 href="{{ route('user.settings.data') }}"
             >
                 <x-heroicon-o-database class="heroicon" />
