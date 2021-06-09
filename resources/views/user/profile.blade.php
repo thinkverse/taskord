@@ -174,7 +174,7 @@
                 <span class="small fw-normal text-secondary">{{ number_format($done_count) }}</span>
             </a>
             <a class="text-dark fw-bold me-4" href="{{ route('user.pending', ['username' => $user->username]) }}">
-                <span class="{{ Route::is('user.done') ? 'text-primary' : '' }}@if (Route::currentRouteName() === 'user.pending') text-primary @endif me-1">Pending</span>
+                <span class="{{ Route::is('user.pending') ? 'text-primary' : '' }} me-1">Pending</span>
                 <span class="small fw-normal text-secondary">{{ number_format($pending_count) }}</span>
             </a>
         @endif
