@@ -30,7 +30,7 @@
         <div class="small">Questions</div>
     </div>
     <div class="text-center">
-        <div class="h4">{{ $milestonesf }}</div>
+        <div class="h4">{{ $milestones }}</div>
         <div class="small">Milestones</div>
     </div>
 </div>
