@@ -23,7 +23,7 @@
                             Last accessed on {{ carbon($session->last_activity)->format('M d, Y') }}
                         </div>
                         <div class="mt-2 small text-secondary">
-                            User agent: {{ $session->user_agent }}
+                            User agent: {{ Str::limit($session->user_agent, 100) }}
                         </div>
                     </div>
                 </li>
