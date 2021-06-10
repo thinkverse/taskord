@@ -21,8 +21,6 @@ class Sessions extends Component
             ->whereUserId($this->user->id)
             ->get();
 
-        // dd($sessions);
-
         return view('livewire.user.settings.sessions', [
             'sessions' => $sessions,
         ]);
