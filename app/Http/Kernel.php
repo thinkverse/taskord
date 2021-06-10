@@ -40,6 +40,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\CheckUser::class,
             \App\Http\Middleware\Sentry::class,
+            \Honeybadger\HoneybadgerLaravel\Middleware\UserContext::class,
         ],
 
         'api' => [
