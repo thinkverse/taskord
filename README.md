@@ -22,6 +22,9 @@
     <a href="https://www.codacy.com/gl/taskord/taskord/dashboard">
         <img src="https://app.codacy.com/project/badge/Grade/7a9d7f0b31cb472185605c5089a6e2d8" alt="CodeClimate"/>
     </a>
+    <a href="https://app.honeybadger.io">
+        <img src="https://img.shields.io/badge/honeybadger-active-informational" alt="Honeybadger badge">
+    </a>
     <a href="https://www.php.net">
         <img src="https://img.shields.io/badge/PHP-v8.0-green.svg" alt="PHP version">
     </a>
