@@ -218,6 +218,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <div class="card-header fw-bold d-flex align-items-center">
+                            <x-heroicon-o-identification class="heroicon me-1" />
+                            <span>Sessions</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="h5 mb-0">
+                                {{ $stats['sessions'] }}
+                                <span class="fw-light">Sessions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         @endif
     </div>

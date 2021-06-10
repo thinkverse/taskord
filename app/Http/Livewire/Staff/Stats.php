@@ -40,6 +40,7 @@ class Stats extends Component
         $webhooks = Webhook::count('id');
         $notifications = DB::table('notifications')->count('id');
         $logs = Activity::count('id');
+        $sessions = DB::table('sessions')->count();
         $interactions = DB::table('interactions')->count();
         $likes = DB::table('interactions')->whereRelation('like')->count();
 
@@ -62,6 +63,7 @@ class Stats extends Component
             'notifications' => number_format($notifications),
             'interactions' => number_format($interactions),
             'logs' => number_format($logs),
+            'sessions' => number_format($sessions),
             'likes' => number_format($likes),
             'webhooks' => number_format($webhooks),
         ];
