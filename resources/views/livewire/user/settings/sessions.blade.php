@@ -14,16 +14,20 @@
         @endif
         <ul class="list-group list-group-flush">
             @foreach ($sessions as $session)
+                @php
+                    $isMobile = is_numeric(strpos(strtolower($session->user_agent), "mobile"));
+                @endphp
                 <li class="list-group-item py-3 d-flex align-items-center">
                     <div>
+                        {{ $isMobile ? 'true' : 'false' }}
                         <div class="h6">
                             {{ $session->ip_address }}
                         </div>
                         <div class="small">
                             Last accessed on {{ carbon($session->last_activity)->format('M d, Y') }}
                         </div>
-                        <div class="mt-2 small text-secondary">
-                            User agent: {{ Str::limit($session->user_agent, 100) }}
+                        <div class="mt-2 small text-secondary" title="{{ $session->user_agent }}">
+                            User agent: {{ Str::limit($session->user_agent, 50) }}
                         </div>
                     </div>
                 </li>
