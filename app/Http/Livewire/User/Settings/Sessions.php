@@ -19,6 +19,7 @@ class Sessions extends Component
     {
         $sessions = DB::table('sessions')
             ->whereUserId($this->user->id)
+            ->latest('last_activity')
             ->get();
 
         return view('livewire.user.settings.sessions', [
