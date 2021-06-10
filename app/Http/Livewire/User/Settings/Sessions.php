@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Support\Facades\DB;
 
 class Sessions extends Component
 {
@@ -16,6 +17,12 @@ class Sessions extends Component
 
     public function render()
     {
-        return view('livewire.user.settings.sessions');
+        $sessions = DB::table('sessions')
+            ->whereUserId($this->user->id)
+            ->get();
+
+        return view('livewire.user.settings.sessions', [
+            'sessions' => $sessions,
+        ]);
     }
 }
