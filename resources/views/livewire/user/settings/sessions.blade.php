@@ -22,6 +22,9 @@
                         <div class="small">
                             Last accessed on {{ carbon($session->last_activity)->format('M d, Y') }}
                         </div>
+                        <div class="mt-2 small text-secondary">
+                            User agent: {{ $session->user_agent }}
+                        </div>
                     </div>
                 </li>
             @endforeach
