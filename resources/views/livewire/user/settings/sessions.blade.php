@@ -1,7 +1,7 @@
 <div class="col-lg-8">
     <div class="card mb-4">
         <div class="card-header py-3">
-            <span class="h5">Sessions</span>
+            <span class="h5">Sessions - {{ count($sessions) }}</span>
             <div>This is a list of devices that have logged into your account. Revoke any sessions that you do not recognize.</div>
         </div>
         @if (count($sessions) === 0)
