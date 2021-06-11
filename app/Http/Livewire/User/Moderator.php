@@ -216,12 +216,6 @@ class Moderator extends Component
         $user->username = strtolower(Str::random(6));
         $user->save();
         toast($this, 'success', config('taskord.toast.settings-updated'));
-        loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Released the username | Username: @{$user->username}"
-        );
 
         return redirect()->route('user.done', ['username' => $user->username]);
     }
