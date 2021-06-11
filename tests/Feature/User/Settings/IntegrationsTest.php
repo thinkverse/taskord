@@ -39,6 +39,7 @@ it('can create new webhook', function ($status) {
 
 it('can delete a webhook', function ($status) {
     $newUser = User::factory()->create();
+    $newWebhook = Webhook::factory()->create();
 
     if ($status) {
         return actingAs($newUser->id)
