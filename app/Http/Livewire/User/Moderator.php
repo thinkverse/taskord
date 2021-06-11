@@ -159,25 +159,12 @@ class Moderator extends Component
         $this->user->is_verified = ! $this->user->is_verified;
         $this->user->timestamps = false;
         $this->user->save();
-        toast($this, 'success', config('taskord.toast.settings-updated'));
 
         if ($this->user->is_verified) {
             $this->user->notify(new UserVerified(true));
-
-            return loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                "Verified the user | Username: @{$this->user->username}"
-            );
         }
 
-        return loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Un-verified the user | Username: @{$this->user->username}"
-        );
+        return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
     public function enrollDarkMode()
