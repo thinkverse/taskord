@@ -387,6 +387,7 @@ class Moderator extends Component
             }
         }
         $user->tasks()->delete();
+        toast($this, 'success', config('taskord.toast.settings-updated'));
         loggy(
             request(),
             'Staff',
