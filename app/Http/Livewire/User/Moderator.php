@@ -313,12 +313,6 @@ class Moderator extends Component
         }
         $user->ownedProducts()->delete();
         toast($this, 'success', config('taskord.toast.settings-updated'));
-        loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Deleted all products | Username: @{$this->user->username}"
-        );
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
     }
