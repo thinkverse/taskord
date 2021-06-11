@@ -33,3 +33,22 @@ it('can edit notification (notificationsEmail) settings', function ($status) {
     [true],
     [false],
 ]);
+
+it('can edit notification (notificationsWeb) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs($newUser->id)
+            ->livewire(Notifications::class, ['user' => $newUser])
+            ->call('notificationsWeb')
+            ->assertEmitted('toggledNotificationsWeb');
+    }
+
+    return actingAs(1)
+        ->livewire(Notifications::class, ['user' => $newUser])
+        ->call('notificationsWeb')
+        ->assertNotEmitted('toggledNotificationsWeb');
+})->with([
+    [true],
+    [false],
+]);
