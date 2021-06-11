@@ -263,12 +263,6 @@ class Moderator extends Component
         $user->timestamps = false;
         $user->questions()->delete();
         toast($this, 'success', config('taskord.toast.settings-updated'));
-        loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Deleted all questions | Username: @{$this->user->username}"
-        );
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
     }
