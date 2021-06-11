@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Livewire\User\Settings\Appearance;
-use App\Models\User;
 use function Tests\actingAs;
 
 it('has settings/appearance page', function ($url, $expected, $auth) {
