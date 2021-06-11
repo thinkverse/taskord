@@ -101,6 +101,17 @@ it('has settings/api page', function ($url, $expected, $auth) {
     ['/settings/api', 200, true],
 ]);
 
+it('has settings/sessions page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/sessions', 302, false],
+    ['/settings/sessions', 200, true],
+]);
+
 it('has settings/logs page', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);
