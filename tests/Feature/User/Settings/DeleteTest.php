@@ -15,19 +15,19 @@ it('has settings/delete page', function ($url, $expected, $auth) {
     ['/settings/delete', 200, true],
 ]);
 
-it('can edit api (regenerateToken) settings', function ($status) {
+it('can reset the account', function ($status) {
     $newUser = User::factory()->create();
 
     if ($status) {
         return actingAs($newUser->id)
-            ->livewire(Api::class, ['user' => $newUser])
-            ->call('regenerateToken')
+            ->livewire(Delete::class, ['user' => $newUser])
+            ->call('resetAccount')
             ->assertEmitted('refreshApiToken');
     }
 
     return actingAs(1)
-        ->livewire(Api::class, ['user' => $newUser])
-        ->call('regenerateToken')
+        ->livewire(Delete::class, ['user' => $newUser])
+        ->call('resetAccount')
         ->assertNotEmitted('refreshApiToken');
 })->with([
     [true],
