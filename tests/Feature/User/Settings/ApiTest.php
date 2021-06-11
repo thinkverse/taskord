@@ -15,7 +15,7 @@ it('has settings/api page', function ($url, $expected, $auth) {
     ['/settings/api', 200, true],
 ]);
 
-it('can edit account (enrollBeta) settings', function ($status) {
+it('can edit api (regenerateToken) settings', function ($status) {
     $newUser = User::factory()->create();
 
     if ($status) {
