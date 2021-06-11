@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Livewire\User\Settings\Profile;
+use App\Models\User;
+use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
 it('has settings/profile page', function ($url, $expected, $auth) {
@@ -163,4 +166,27 @@ test('can download user logs data', function ($url, $expected, $auth) {
     }
 })->with([
     ['/settings/export/logs', 302, false],
+]);
+
+it('can edit profile settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs($newUser->id)
+            ->livewire(Profile::class, ['user' => $newUser])
+            ->set('firstname', 'New firstname')
+            ->set('lastname', 'New lastaname')
+            ->call('updateProfile')
+            ->assertEmitted('profileUpdated');
+    }
+
+    return actingAs(1)
+        ->livewire(Profile::class, ['user' => $newUser])
+        ->set('firstname', 'New firstname')
+        ->set('lastname', 'New lastaname')
+        ->call('updateProfile')
+        ->assertNotEmitted('profileUpdated');
+})->with([
+    [true],
+    [false],
 ]);

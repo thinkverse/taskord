@@ -96,6 +96,7 @@ class Profile extends Component
             $this->user->location = $this->location;
             $this->user->company = $this->company;
             $this->user->save();
+            $this->emit('profileUpdated');
             loggy(request(), 'User', auth()->user(), 'Updated the profile settings');
 
             return toast($this, 'success', 'Your profile has been updated!');
