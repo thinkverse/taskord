@@ -323,13 +323,6 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Deleted the user | Username: @{$this->user->username}"
-        );
-
         $user = User::find($this->user->id);
         // Delete Task Images
         foreach ($user->tasks as $task) {
