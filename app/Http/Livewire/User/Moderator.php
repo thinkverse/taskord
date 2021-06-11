@@ -56,7 +56,7 @@ class Moderator extends Component
         $this->user->is_beta = ! $this->user->is_beta;
         $this->user->timestamps = false;
         $this->user->save();
-        return toast($this, 'success', 'Settings has been updated!');
+        toast($this, 'success', config('taskord.toast.settings-updated'));
 
         if ($this->user->is_beta) {
             return loggy(
