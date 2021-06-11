@@ -495,6 +495,7 @@ class Moderator extends Component
             }
         }
         $user->ownedProducts()->delete();
+        toast($this, 'success', config('taskord.toast.settings-updated'));
         loggy(
             request(),
             'Staff',
