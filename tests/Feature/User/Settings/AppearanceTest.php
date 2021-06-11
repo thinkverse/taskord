@@ -15,21 +15,4 @@ it('has settings/appearance page', function ($url, $expected, $auth) {
     ['/settings/appearance', 200, true],
 ]);
 
-it('can edit appearance (toggleMode) settings', function ($status) {
-    $newUser = User::factory()->create();
-
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Appearance::class, ['user' => $newUser])
-            ->call('toggleMode("light")')
-            ->assertEmitted('toggledMode');
-    }
-
-    return actingAs(1)
-        ->livewire(Appearance::class, ['user' => $newUser])
-        ->call('toggleMode("light")')
-        ->assertNotEmitted('toggledMode');
-})->with([
-    [true],
-    [false],
-]);
+// TODO: can edit appearance (toggleMode) settings
