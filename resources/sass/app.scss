@@ -491,3 +491,7 @@ input[type="date"]:valid:before {
 :target {
   background-color: $yellow-100;
 }
+
+[x-cloak] {
+  display: none;
+}
