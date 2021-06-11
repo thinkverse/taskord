@@ -235,6 +235,7 @@ class Moderator extends Component
         $this->user->is_patron = ! $this->user->is_patron;
         $this->user->timestamps = false;
         $this->user->save();
+        toast($this, 'success', config('taskord.toast.settings-updated'));
 
         if ($this->user->is_patron) {
             $this->user->notify(new PatronGifted(true));
