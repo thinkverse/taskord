@@ -2,8 +2,8 @@
 
 use App\Http\Livewire\User\Settings\Account;
 use App\Models\User;
-use function Tests\actingAs;
 use Illuminate\Support\Str;
+use function Tests\actingAs;
 
 it('has settings/account page', function ($url, $expected, $auth) {
     if ($auth) {
