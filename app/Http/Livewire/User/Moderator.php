@@ -170,6 +170,7 @@ class Moderator extends Component
         $this->user->spammy = ! $this->user->spammy;
         $this->user->timestamps = false;
         $this->user->save();
+        toast($this, 'success', config('taskord.toast.settings-updated'));
 
         if ($this->user->spammy) {
             return loggy(
