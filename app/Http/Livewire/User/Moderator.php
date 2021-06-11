@@ -80,25 +80,12 @@ class Moderator extends Component
         $this->user->is_contributor = ! $this->user->is_contributor;
         $this->user->timestamps = false;
         $this->user->save();
-        toast($this, 'success', config('taskord.toast.settings-updated'));
 
         if ($this->user->is_contributor) {
             $this->user->notify(new ContributorEnabled(true));
-
-            return loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                "Enrolled as Contributor | Username: @{$this->user->username}"
-            );
         }
 
-        return loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Un-enrolled from Contributor | Username: @{$this->user->username}"
-        );
+        return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
     public function privateUser()
