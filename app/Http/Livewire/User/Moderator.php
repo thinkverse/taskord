@@ -176,23 +176,7 @@ class Moderator extends Component
         $this->user->dark_mode = ! $this->user->dark_mode;
         $this->user->timestamps = false;
         $this->user->save();
-        toast($this, 'success', config('taskord.toast.settings-updated'));
-
-        if ($this->user->dark_mode) {
-            return loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                "Enrolled to Dark mode | Username: @{$this->user->username}"
-            );
-        }
-
-        return loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Un-enrolled from Dark mode | Username: @{$this->user->username}"
-        );
+        return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
     public function masquerade()
