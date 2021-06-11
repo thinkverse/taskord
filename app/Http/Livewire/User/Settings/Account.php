@@ -29,7 +29,7 @@ class Account extends Component
 
                 return toast($this, 'success', 'Your are now beta member!');
             }
-
+            $this->emit('enrolledBeta');
             loggy(request(), 'User', auth()->user(), 'Opted out from beta');
 
             return toast($this, 'success', 'Your are no longer a beta member!');

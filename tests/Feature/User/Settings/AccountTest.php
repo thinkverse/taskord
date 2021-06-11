@@ -15,24 +15,20 @@ it('has settings/account page', function ($url, $expected, $auth) {
     ['/settings/account', 200, true],
 ]);
 
-it('can edit profile (updateProfile) settings', function ($status) {
+it('can edit account (enrollBeta) settings', function ($status) {
     $newUser = User::factory()->create();
 
     if ($status) {
         return actingAs($newUser->id)
             ->livewire(Profile::class, ['user' => $newUser])
-            ->set('firstname', 'New firstname')
-            ->set('lastname', 'New lastaname')
-            ->call('updateProfile')
-            ->assertEmitted('profileUpdated');
+            ->call('enrollBeta')
+            ->assertEmitted('enrolledBeta');
     }
 
     return actingAs(1)
         ->livewire(Profile::class, ['user' => $newUser])
-        ->set('firstname', 'New firstname')
-        ->set('lastname', 'New lastaname')
-        ->call('updateProfile')
-        ->assertNotEmitted('profileUpdated');
+        ->call('enrollBeta')
+        ->assertNotEmitted('enrolledBeta');
 })->with([
     [true],
     [false],
