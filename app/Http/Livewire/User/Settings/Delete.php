@@ -88,6 +88,7 @@ class Delete extends Component
             $user->notifications()->delete();
             $user->likes()->delete();
             $user->delete();
+            $this->emit('accountDeleted');
 
             return redirect()->route('home');
         }
