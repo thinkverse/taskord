@@ -114,6 +114,7 @@ class Profile extends Component
             }
             $this->user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($this->user->username, 0, 2));
             $this->user->save();
+            $this->emit('avatarResetted');
             loggy(request(), 'User', auth()->user(), 'Resetted avatar to default');
 
             return toast($this, 'success', 'Your avatar has been resetted!');

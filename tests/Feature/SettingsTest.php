@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\User\Settings\Profile;
+use App\Http\Livewire\User\Settings\Account;
 use App\Models\User;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
@@ -186,6 +187,25 @@ it('can edit profile settings', function ($status) {
         ->set('lastname', 'New lastaname')
         ->call('updateProfile')
         ->assertNotEmitted('profileUpdated');
+})->with([
+    [true],
+    [false],
+]);
+
+it('can edit profile (resetAvatar) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs($newUser->id)
+            ->livewire(Profile::class, ['user' => $newUser])
+            ->call('resetAvatar')
+            ->assertEmitted('avatarResetted');
+    }
+
+    return actingAs(1)
+        ->livewire(Profile::class, ['user' => $newUser])
+        ->call('resetAvatar')
+        ->assertNotEmitted('avatarResetted');
 })->with([
     [true],
     [false],
