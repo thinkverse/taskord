@@ -97,23 +97,7 @@ class Moderator extends Component
         $this->user->is_private = ! $this->user->is_private;
         $this->user->timestamps = false;
         $this->user->save();
-        toast($this, 'success', config('taskord.toast.settings-updated'));
-
-        if ($this->user->is_private) {
-            loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                "Enrolled as private user | Username: @{$this->user->username}"
-            );
-        }
-
-        return loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Un-enrolled from private user | Username: @{$this->user->username}"
-        );
+        return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
     public function flagUser()
