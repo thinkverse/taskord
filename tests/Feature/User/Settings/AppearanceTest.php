@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\User\Settings\Appearance;
+use App\Models\User;
 use function Tests\actingAs;
 
 it('has settings/appearance page', function ($url, $expected, $auth) {
@@ -13,4 +15,22 @@ it('has settings/appearance page', function ($url, $expected, $auth) {
     ['/settings/appearance', 200, true],
 ]);
 
-// TODO: can edit appearance (toggleMode) settings
+
+it('can edit appearance (toggleMode) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs($newUser->id)
+            ->livewire(Appearance::class, ['user' => $newUser])
+            ->call('regenerateToken')
+            ->assertEmitted('refreshApiToken');
+    }
+
+    return actingAs(1)
+        ->livewire(Appearance::class, ['user' => $newUser])
+        ->call('regenerateToken')
+        ->assertNotEmitted('refreshApiToken');
+})->with([
+    [true],
+    [false],
+]);
