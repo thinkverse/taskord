@@ -33,3 +33,22 @@ it('can edit account (enrollBeta) settings', function ($status) {
     [true],
     [false],
 ]);
+
+it('can edit account (enrollPrivate) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs($newUser->id)
+            ->livewire(Account::class, ['user' => $newUser])
+            ->call('enrollPrivate')
+            ->assertEmitted('enrolledPrivate');
+    }
+
+    return actingAs(1)
+        ->livewire(Account::class, ['user' => $newUser])
+        ->call('enrollPrivate')
+        ->assertNotEmitted('enrolledPrivate');
+})->with([
+    [true],
+    [false],
+]);

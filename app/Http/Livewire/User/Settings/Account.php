@@ -46,6 +46,7 @@ class Account extends Component
             }
             $this->user->is_private = ! $this->user->is_private;
             $this->user->save();
+            $this->emit('enrolledPrivate');
             if ($this->user->is_private) {
                 loggy(request(), 'User', auth()->user(), 'Enrolled as a private user');
 
