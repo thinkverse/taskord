@@ -341,6 +341,7 @@ class Moderator extends Component
         $user->timestamps = false;
         $user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($user->username, 0, 2));
         $user->save();
+        toast($this, 'success', config('taskord.toast.settings-updated'));
         loggy(
             request(),
             'Staff',
