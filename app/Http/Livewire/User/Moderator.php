@@ -68,23 +68,7 @@ class Moderator extends Component
         $this->user->is_staff = ! $this->user->is_staff;
         $this->user->timestamps = false;
         $this->user->save();
-        toast($this, 'success', config('taskord.toast.settings-updated'));
-
-        if ($this->user->is_staff) {
-            return loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                "Enrolled as Staff | Username: @{$this->user->username}"
-            );
-        }
-
-        return loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Un-enrolled from Staff | Username: @{$this->user->username}"
-        );
+        return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
     public function enrollDeveloper()
