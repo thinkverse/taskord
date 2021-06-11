@@ -24,6 +24,7 @@ class WebhookFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->userName,
+            'user_id' => $this->faker->numberBetween($min = 1, $max = 50),
             'product_id' => $this->faker->numberBetween($min = 1, $max = 50),
             'token' => Str::uuid(),
             'type' => 'web',
