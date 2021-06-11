@@ -157,3 +157,24 @@ it('can edit profile (updateSponsor) settings', function ($status) {
     [true],
     [false],
 ]);
+
+it('can edit profile (updateSocial) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs($newUser->id)
+            ->livewire(Profile::class, ['user' => $newUser])
+            ->set('website', 'https://taskord.com')
+            ->call('updateSocial')
+            ->assertEmitted('socialUpdated');
+    }
+
+    return actingAs(1)
+        ->livewire(Profile::class, ['user' => $newUser])
+        ->set('website', 'https://taskord.com')
+        ->call('updateSocial')
+        ->assertNotEmitted('socialUpdated');
+})->with([
+    [true],
+    [false],
+]);

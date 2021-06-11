@@ -228,6 +228,7 @@ class Profile extends Component
             $this->user->github = $this->github;
             $this->user->youtube = $this->youtube;
             $this->user->save();
+            $this->emit('socialUpdated');
             loggy(request(), 'User', auth()->user(), 'Updated the social URLs');
 
             return toast($this, 'success', 'Your social links has been updated!');
