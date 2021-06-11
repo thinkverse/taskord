@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Livewire\User\Settings\Account;
+use App\Http\Livewire\User\Settings\Api;
 use App\Models\User;
 use function Tests\actingAs;
 
@@ -20,15 +20,15 @@ it('can edit account (enrollBeta) settings', function ($status) {
 
     if ($status) {
         return actingAs($newUser->id)
-            ->livewire(Account::class, ['user' => $newUser])
-            ->call('enrollBeta')
-            ->assertEmitted('enrolledBeta');
+            ->livewire(Api::class, ['user' => $newUser])
+            ->call('regenerateToken')
+            ->assertEmitted('refreshApiToken');
     }
 
     return actingAs(1)
-        ->livewire(Account::class, ['user' => $newUser])
-        ->call('enrollBeta')
-        ->assertNotEmitted('enrolledBeta');
+        ->livewire(Api::class, ['user' => $newUser])
+        ->call('regenerateToken')
+        ->assertNotEmitted('refreshApiToken');
 })->with([
     [true],
     [false],
