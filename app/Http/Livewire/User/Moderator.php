@@ -185,12 +185,6 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Masqueraded | Username: @{$this->user->username}"
-        );
         Auth::loginUsingId($this->user->id);
 
         return redirect()->route('home');
@@ -207,12 +201,6 @@ class Moderator extends Component
         $user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($user->username, 0, 2));
         $user->save();
         toast($this, 'success', config('taskord.toast.settings-updated'));
-        loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Resetted avatar | Username: @{$this->user->username}"
-        );
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
     }
