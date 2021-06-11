@@ -362,6 +362,7 @@ class Moderator extends Component
         $user->timestamps = false;
         $user->username = strtolower(Str::random(6));
         $user->save();
+        toast($this, 'success', config('taskord.toast.settings-updated'));
         loggy(
             request(),
             'Staff',
