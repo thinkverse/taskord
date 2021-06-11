@@ -210,3 +210,22 @@ it('can edit profile (resetAvatar) settings', function ($status) {
     [true],
     [false],
 ]);
+
+it('can edit profile (useGravatar) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs($newUser->id)
+            ->livewire(Profile::class, ['user' => $newUser])
+            ->call('useGravatar')
+            ->assertEmitted('gravatarUsed');
+    }
+
+    return actingAs(1)
+        ->livewire(Profile::class, ['user' => $newUser])
+        ->call('useGravatar')
+        ->assertNotEmitted('gravatarUsed');
+})->with([
+    [true],
+    [false],
+]);

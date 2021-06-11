@@ -132,6 +132,7 @@ class Profile extends Component
             }
             $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(auth()->user()->email).'?s=500&d=identicon';
             $this->user->save();
+            $this->emit('gravatarUsed');
             loggy(request(), 'User', auth()->user(), 'Updated avatar provider to Gravatar');
 
             return toast($this, 'success', 'Your avatar has been switched to Gravatar!');
