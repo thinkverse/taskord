@@ -56,23 +56,7 @@ class Moderator extends Component
         $this->user->is_beta = ! $this->user->is_beta;
         $this->user->timestamps = false;
         $this->user->save();
-        toast($this, 'success', config('taskord.toast.settings-updated'));
-
-        if ($this->user->is_beta) {
-            return loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                "Enrolled to Beta | Username: @{$this->user->username}"
-            );
-        }
-
-        return loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Un-enrolled from Beta | Username: @{$this->user->username}"
-        );
+        return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
     public function enrollStaff()
@@ -555,14 +539,7 @@ class Moderator extends Component
 
         $this->user->staff_notes = $this->staffNotes;
         $this->user->save();
-        toast($this, 'success', config('taskord.toast.settings-updated'));
-
-        return loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Updated the staff notes for user: @{$this->user->username}"
-        );
+        return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
     public function render()
