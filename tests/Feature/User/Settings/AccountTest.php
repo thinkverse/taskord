@@ -20,13 +20,13 @@ it('can edit account (enrollBeta) settings', function ($status) {
 
     if ($status) {
         return actingAs($newUser->id)
-            ->livewire(Profile::class, ['user' => $newUser])
+            ->livewire(Account::class, ['user' => $newUser])
             ->call('enrollBeta')
             ->assertEmitted('enrolledBeta');
     }
 
     return actingAs(1)
-        ->livewire(Profile::class, ['user' => $newUser])
+        ->livewire(Account::class, ['user' => $newUser])
         ->call('enrollBeta')
         ->assertNotEmitted('enrolledBeta');
 })->with([
