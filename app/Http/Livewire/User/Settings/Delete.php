@@ -47,6 +47,7 @@ class Delete extends Component
             $user->ownedProducts()->delete();
             $user->notifications()->delete();
             $user->likes()->delete();
+            $this->emit('accountResetted');
 
             return redirect()->route('home');
         }

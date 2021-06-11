@@ -22,13 +22,13 @@ it('can reset the account', function ($status) {
         return actingAs($newUser->id)
             ->livewire(Delete::class, ['user' => $newUser])
             ->call('resetAccount')
-            ->assertEmitted('refreshApiToken');
+            ->assertEmitted('accountResetted');
     }
 
     return actingAs(1)
         ->livewire(Delete::class, ['user' => $newUser])
         ->call('resetAccount')
-        ->assertNotEmitted('refreshApiToken');
+        ->assertNotEmitted('accountResetted');
 })->with([
     [true],
     [false],
