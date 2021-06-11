@@ -142,25 +142,12 @@ class Moderator extends Component
         $this->user->is_patron = ! $this->user->is_patron;
         $this->user->timestamps = false;
         $this->user->save();
-        toast($this, 'success', config('taskord.toast.settings-updated'));
 
         if ($this->user->is_patron) {
             $this->user->notify(new PatronGifted(true));
-
-            return loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                "Enrolled as Patron | Username: @{$this->user->username}"
-            );
         }
 
-        return loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Un-enrolled from Patron | Username: @{$this->user->username}"
-        );
+        return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
     public function verifyUser()
