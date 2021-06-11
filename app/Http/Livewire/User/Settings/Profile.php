@@ -146,6 +146,7 @@ class Profile extends Component
         if (auth()->user()->id === $this->user->id) {
             $this->user->has_goal = ! $this->user->has_goal;
             $this->user->save();
+            $this->emit('goalEnabled');
 
             return loggy(request(), 'User', auth()->user(), 'Toggled goals settings');
         }
@@ -175,6 +176,7 @@ class Profile extends Component
         if (auth()->user()->id === $this->user->id) {
             $this->user->vacation_mode = ! $this->user->vacation_mode;
             $this->user->save();
+            $this->emit('toggledVacationMode');
             if ($this->user->vacation_mode) {
                 loggy(request(), 'User', auth()->user(), 'Enabled vacation mode');
 
