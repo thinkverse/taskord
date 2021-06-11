@@ -23,7 +23,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('cache:clear')->everyMinute();
+        $schedule->command('app:clean')->everyTenMinutes();
     }
 
     /**
