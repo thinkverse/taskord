@@ -28,6 +28,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('backup:clean')->everyThreeHours();
         $schedule->command('backup:run')->everyThreeHours();
         $schedule->command('disposable:update')->daily();
+        $schedule->command('user:reset-goal')->dailyAt('00:00');
+        $schedule->command('user:streaks')->hourly();
     }
 
     /**
