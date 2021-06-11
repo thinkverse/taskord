@@ -19,6 +19,7 @@ class Notifications extends Component
         if (auth()->user()->id === $this->user->id) {
             $this->user->notifications_email = ! $this->user->notifications_email;
             $this->user->save();
+            $this->emit('toggledNotificationsEmail');
             loggy(request(), 'User', auth()->user(), 'Toggled the email notification settings');
 
             return toast($this, 'success', 'Notification settings has been updated');
@@ -32,6 +33,7 @@ class Notifications extends Component
         if (auth()->user()->id === $this->user->id) {
             $this->user->notifications_web = ! $this->user->notifications_web;
             $this->user->save();
+            $this->emit('toggledNotificationsWeb');
             loggy(request(), 'User', auth()->user(), 'Toggled the web notification settings');
 
             return toast($this, 'success', 'Notification settings has been updated');

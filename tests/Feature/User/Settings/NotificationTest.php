@@ -1,34 +1,34 @@
 <?php
 
-use App\Http\Livewire\User\Settings\Delete;
+use App\Http\Livewire\User\Settings\Notifications;
 use App\Models\User;
 use function Tests\actingAs;
 
-it('has settings/delete page', function ($url, $expected, $auth) {
+it('has settings/notifications page', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);
     } else {
         $this->get($url)->assertStatus($expected);
     }
 })->with([
-    ['/settings/delete', 302, false],
-    ['/settings/delete', 200, true],
+    ['/settings/notifications', 302, false],
+    ['/settings/notifications', 200, true],
 ]);
 
-it('can reset the account', function ($status) {
+it('can edit notification (notificationsEmail) settings', function ($status) {
     $newUser = User::factory()->create();
 
     if ($status) {
         return actingAs($newUser->id)
-            ->livewire(Delete::class, ['user' => $newUser])
-            ->call('resetAccount')
-            ->assertEmitted('accountResetted');
+            ->livewire(Notifications::class, ['user' => $newUser])
+            ->call('notificationsEmail')
+            ->assertEmitted('toggledNotificationsEmail');
     }
 
     return actingAs(1)
-        ->livewire(Delete::class, ['user' => $newUser])
-        ->call('resetAccount')
-        ->assertNotEmitted('accountResetted');
+        ->livewire(Notifications::class, ['user' => $newUser])
+        ->call('notificationsEmail')
+        ->assertNotEmitted('toggledNotificationsEmail');
 })->with([
     [true],
     [false],
