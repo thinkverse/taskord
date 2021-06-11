@@ -130,23 +130,7 @@ class Moderator extends Component
 
         $this->user->timestamps = false;
         $this->user->save();
-        toast($this, 'success', config('taskord.toast.settings-updated'));
-
-        if ($this->user->is_suspended) {
-            return loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                "Suspended the user | Username: @{$this->user->username}"
-            );
-        }
-
-        return loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Un-suspended the user | Username: @{$this->user->username}"
-        );
+        return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
     public function enrollPatron()
