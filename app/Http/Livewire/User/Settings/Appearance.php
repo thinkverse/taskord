@@ -26,6 +26,7 @@ class Appearance extends Component
             }
             $this->user->dark_mode = true;
             $this->user->save();
+            $this->emit('toggledMode');
             loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
 
             return redirect()->route('user.settings.appearance');
