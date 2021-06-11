@@ -163,6 +163,7 @@ class Profile extends Component
 
             $this->user->daily_goal = $this->dailyGoal;
             $this->user->save();
+            $this->emit('goalUpdated');
             loggy(request(), 'User', auth()->user(), "Updated the goal {$this->dailyGoal}/day");
 
             return toast($this, 'success', 'Your goal has been updated!');
@@ -199,6 +200,7 @@ class Profile extends Component
 
             $this->user->sponsor = $this->sponsor;
             $this->user->save();
+            $this->emit('sponsorsUpdated');
             loggy(request(), 'User', auth()->user(), 'Updated the sponsor URL');
 
             return toast($this, 'success', 'Your sponsor link has been updated!');
