@@ -45,15 +45,15 @@ it('can delete a webhook', function ($status) {
         return actingAs($newUser->id)
             ->livewire(Integrations::class, ['user' => $newUser])
             ->set('name', 'Test webhook')
-            ->call('submit')
-            ->assertEmitted('webhookCreated');
+            ->call('deleteWebhook', $newWebhook->id)
+            ->assertEmitted('refreshIntegrations');
     }
 
     return actingAs(1)
         ->livewire(Integrations::class, ['user' => $newUser])
         ->set('name', 'Test webhook')
-        ->call('submit')
-        ->assertNotEmitted('webhookCreated');
+        ->call('deleteWebhook', $newWebhook->id)
+        ->assertNotEmitted('refreshIntegrations');
 })->with([
     [true],
     [false],
