@@ -68,17 +68,6 @@ it('has settings/integrations page', function ($url, $expected, $auth) {
     ['/settings/integrations', 200, true],
 ]);
 
-it('has settings/api page', function ($url, $expected, $auth) {
-    if ($auth) {
-        actingAs(1)->get($url)->assertStatus($expected);
-    } else {
-        $this->get($url)->assertStatus($expected);
-    }
-})->with([
-    ['/settings/api', 302, false],
-    ['/settings/api', 200, true],
-]);
-
 it('has settings/sessions page', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);
