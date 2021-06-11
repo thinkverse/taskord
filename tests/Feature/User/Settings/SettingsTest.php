@@ -2,17 +2,6 @@
 
 use function Tests\actingAs;
 
-it('has settings/account page', function ($url, $expected, $auth) {
-    if ($auth) {
-        actingAs(1)->get($url)->assertStatus($expected);
-    } else {
-        $this->get($url)->assertStatus($expected);
-    }
-})->with([
-    ['/settings/account', 302, false],
-    ['/settings/account', 200, true],
-]);
-
 it('has settings/appearance page', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);
