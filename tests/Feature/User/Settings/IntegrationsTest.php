@@ -21,14 +21,16 @@ it('can create new webhook', function ($status) {
     if ($status) {
         return actingAs($newUser->id)
             ->livewire(Integrations::class, ['user' => $newUser])
+            ->set('name', 'Test webhook')
             ->call('submit')
-            ->assertEmitted('toggledNotificationsEmail');
+            ->assertEmitted('webhookCreated');
     }
 
     return actingAs(1)
         ->livewire(Integrations::class, ['user' => $newUser])
-        ->call('notificationsEmail')
-        ->assertNotEmitted('toggledNotificationsEmail');
+        ->set('name', 'Test webhook')
+        ->call('submit')
+        ->assertNotEmitted('webhookCreated');
 })->with([
     [true],
     [false],
