@@ -235,12 +235,6 @@ class Moderator extends Component
         }
         $user->tasks()->delete();
         toast($this, 'success', config('taskord.toast.settings-updated'));
-        loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Deleted all tasks | Username: @{$this->user->username}"
-        );
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
     }
