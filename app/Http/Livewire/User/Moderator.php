@@ -407,6 +407,7 @@ class Moderator extends Component
         $user = User::find($this->user->id);
         $user->timestamps = false;
         $user->comments()->delete();
+        toast($this, 'success', config('taskord.toast.settings-updated'));
         loggy(
             request(),
             'Staff',
