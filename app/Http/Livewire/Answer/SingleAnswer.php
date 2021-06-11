@@ -29,7 +29,7 @@ class SingleAnswer extends Component
         }
 
         if (Gate::denies('like/subscribe', $this->answer)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         Helper::toggleLike($this->answer, 'ANSWER');
@@ -41,7 +41,7 @@ class SingleAnswer extends Component
     public function hide()
     {
         if (Gate::denies('staff.ops')) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         Helper::hide($this->answer);

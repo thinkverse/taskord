@@ -40,7 +40,7 @@ class Api extends Component
             return toast($this, 'success', 'New API key been generated successfully');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function render()

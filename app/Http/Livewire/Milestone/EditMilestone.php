@@ -31,7 +31,7 @@ class EditMilestone extends Component
     public function updated($field)
     {
         if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         $this->validateOnly($field);
@@ -40,7 +40,7 @@ class EditMilestone extends Component
     public function submit()
     {
         if (Gate::denies('edit/delete', $this->milestone)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         $this->validate();

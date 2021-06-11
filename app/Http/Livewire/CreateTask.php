@@ -34,7 +34,7 @@ class CreateTask extends Component
     public function checkState()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         auth()->user()->check_state = ! auth()->user()->check_state;
@@ -45,7 +45,7 @@ class CreateTask extends Component
     public function updatedImage()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         $this->validate([
@@ -63,7 +63,7 @@ class CreateTask extends Component
         }
 
         if (Gate::denies('create')) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         $this->validate([

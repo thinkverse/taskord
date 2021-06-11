@@ -80,7 +80,7 @@ class SingleFeature extends Component
     public function deleteFeature()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         loggy(request(), 'Staff', auth()->user(), "Deleted a feature flag | Feature ID: {$this->feature->id}");

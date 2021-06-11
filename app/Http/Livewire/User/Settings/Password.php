@@ -48,6 +48,6 @@ class Password extends Component
             return toast($this, 'success', 'Your password has been changed!');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 }

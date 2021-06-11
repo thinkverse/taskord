@@ -35,14 +35,14 @@ class Account extends Component
             return toast($this, 'success', 'Your are no longer a beta member!');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function enrollPrivate()
     {
         if (auth()->user()->id === $this->user->id) {
             if (! $this->user->is_patron) {
-                toast($this, 'error', config('taskord.error.deny'));
+                toast($this, 'error', config('taskord.toast.deny'));
             }
             $this->user->is_private = ! $this->user->is_private;
             $this->user->save();
@@ -58,7 +58,7 @@ class Account extends Component
             return toast($this, 'success', 'All your tasks are now public');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function updated($field)
@@ -92,6 +92,6 @@ class Account extends Component
             }
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 }

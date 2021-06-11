@@ -52,7 +52,7 @@ class Delete extends Component
             return redirect()->route('home');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function deleteAccount()
@@ -93,6 +93,6 @@ class Delete extends Component
             return redirect()->route('home');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 }

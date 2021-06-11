@@ -117,7 +117,7 @@ class UserController extends Controller
             return $response;
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function exportLogs()
@@ -139,7 +139,7 @@ class UserController extends Controller
             return $response;
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function integrationsSettings()

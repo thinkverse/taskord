@@ -36,7 +36,7 @@ class SingleTask extends Component
         }
 
         if (Gate::denies('task.check', $this->task)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         $this->task->done = ! $this->task->done;
@@ -57,7 +57,7 @@ class SingleTask extends Component
     public function deleteTask()
     {
         if (Gate::denies('edit/delete', $this->task)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         loggy(request(), 'Task', auth()->user(), "Deleted a task | Task ID: {$this->task->id}");

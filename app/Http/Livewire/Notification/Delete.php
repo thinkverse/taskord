@@ -9,7 +9,7 @@ class Delete extends Component
     public function deleteAll()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         auth()->user()->notifications()->delete();

@@ -33,6 +33,6 @@ class Appearance extends Component
             return redirect()->route('user.settings.appearance');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 }

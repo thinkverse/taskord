@@ -21,7 +21,7 @@ class Status extends Component
     public function clearStatus()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         auth()->user()->status = null;
@@ -36,7 +36,7 @@ class Status extends Component
     public function submit($event)
     {
         if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         if (strlen($event['status_emoji']) === 0) {

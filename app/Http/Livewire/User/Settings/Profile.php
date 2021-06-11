@@ -102,7 +102,7 @@ class Profile extends Component
             return toast($this, 'success', 'Your profile has been updated!');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function resetAvatar()
@@ -120,7 +120,7 @@ class Profile extends Component
             return toast($this, 'success', 'Your avatar has been resetted!');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function useGravatar()
@@ -138,7 +138,7 @@ class Profile extends Component
             return toast($this, 'success', 'Your avatar has been switched to Gravatar!');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function enableGoal()
@@ -151,7 +151,7 @@ class Profile extends Component
             return loggy(request(), 'User', auth()->user(), 'Toggled goals settings');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function updateGoal()
@@ -169,7 +169,7 @@ class Profile extends Component
             return toast($this, 'success', 'Your goal has been updated!');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function toggleVacationMode()
@@ -188,7 +188,7 @@ class Profile extends Component
             return toast($this, 'success', 'Vacation mode has been disabled!');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function updateSponsor()
@@ -206,7 +206,7 @@ class Profile extends Component
             return toast($this, 'success', 'Your sponsor link has been updated!');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function updateSocial()
@@ -234,7 +234,7 @@ class Profile extends Component
             return toast($this, 'success', 'Your social links has been updated!');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function onlyFollowingsTasks()
@@ -252,6 +252,6 @@ class Profile extends Component
             return loggy(request(), 'User', auth()->user(), 'Toggled only following users tasks in settings');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 }

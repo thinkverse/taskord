@@ -31,7 +31,7 @@ class NewMeetup extends Component
     public function submit()
     {
         if (Gate::denies('create')) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         $this->validate([

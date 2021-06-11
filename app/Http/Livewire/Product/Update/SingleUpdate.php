@@ -28,7 +28,7 @@ class SingleUpdate extends Component
         }
 
         if (Gate::denies('like/subscribe', $this->update)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         if (auth()->user()->hasLiked($this->update)) {
@@ -46,7 +46,7 @@ class SingleUpdate extends Component
     public function deleteUpdate()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         if (auth()->user()->spammy) {
@@ -60,6 +60,6 @@ class SingleUpdate extends Component
             return $this->emitUp('refreshProduct');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 }

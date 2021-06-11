@@ -32,7 +32,7 @@ class Subscribe extends Component
         }
 
         if (Gate::denies('like/subscribe', $this->question)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         auth()->user()->toggleSubscribe($this->question);

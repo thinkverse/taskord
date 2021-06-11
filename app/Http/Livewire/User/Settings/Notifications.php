@@ -25,7 +25,7 @@ class Notifications extends Component
             return toast($this, 'success', 'Notification settings has been updated');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function notificationsWeb()
@@ -39,6 +39,6 @@ class Notifications extends Component
             return toast($this, 'success', 'Notification settings has been updated');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 }

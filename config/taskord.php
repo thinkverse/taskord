@@ -15,7 +15,7 @@ return [
         ],
     ],
 
-    'error' => [
+    'toast' => [
         'deny' => "Oops! You can't perform this action",
         'rate-limit' => 'Oops! You are rate limited.',
     ],

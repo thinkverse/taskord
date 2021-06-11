@@ -19,7 +19,7 @@ class AddMember extends Component
     public function submit()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         $user = User::whereUsername($this->username)->first();

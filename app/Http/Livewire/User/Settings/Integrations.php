@@ -60,10 +60,10 @@ class Integrations extends Component
                 return toast($this, 'success', 'New webhook has been created!');
             }
 
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function deleteWebhook($webhookId)
@@ -77,7 +77,7 @@ class Integrations extends Component
             return toast($this, 'success', 'Webhook has been deleted!');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function render()

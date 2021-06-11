@@ -31,7 +31,7 @@ class Follow extends Component
         }
 
         if (Gate::denies('user.follow', $this->user)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         auth()->user()->toggleFollow($this->user);

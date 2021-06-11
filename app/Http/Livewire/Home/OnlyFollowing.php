@@ -9,7 +9,7 @@ class OnlyFollowing extends Component
     public function onlyFollowingsTasks()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         auth()->user()->only_followings_tasks = ! auth()->user()->only_followings_tasks;

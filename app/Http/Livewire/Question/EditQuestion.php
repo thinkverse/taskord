@@ -47,7 +47,7 @@ class EditQuestion extends Component
         $this->validate();
 
         if (Gate::denies('edit/delete', $this->question)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         $question = Question::where('id', $this->question->id)->firstOrFail();

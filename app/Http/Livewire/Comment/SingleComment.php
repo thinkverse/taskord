@@ -30,7 +30,7 @@ class SingleComment extends Component
         }
 
         if (Gate::denies('like/subscribe', $this->comment)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         Helper::toggleLike($this->comment, 'COMMENT');
@@ -47,7 +47,7 @@ class SingleComment extends Component
     public function hide()
     {
         if (Gate::denies('staff.ops')) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         Helper::hide($this->comment);
@@ -60,7 +60,7 @@ class SingleComment extends Component
     public function deleteComment()
     {
         if (Gate::denies('edit/delete', $this->comment)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         loggy(request(), 'Comment', auth()->user(), "Deleted a comment | Comment ID: {$this->comment->id}");

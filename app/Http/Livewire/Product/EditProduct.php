@@ -56,7 +56,7 @@ class EditProduct extends Component
     public function submit()
     {
         if (Gate::denies('edit/delete', $this->product)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         $this->validate([
@@ -133,7 +133,7 @@ class EditProduct extends Component
     public function deleteProduct()
     {
         if (Gate::denies('edit/delete', $this->product)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         loggy(request(), 'Product', auth()->user(), "Deleted a product | Product ID: #{$this->product->id}");

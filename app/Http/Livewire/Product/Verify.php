@@ -30,7 +30,7 @@ class Verify extends Component
         }
 
         if (Gate::denies('edit/delete', $this->product)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         $dns = new Dns();

@@ -35,7 +35,7 @@ class SingleQuestion extends Component
         }
 
         if (Gate::denies('like/subscribe', $this->question)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         Helper::toggleLike($this->question, 'QUESTION');
@@ -47,7 +47,7 @@ class SingleQuestion extends Component
     public function hide()
     {
         if (Gate::denies('staff.ops')) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         Helper::hide($this->question);
@@ -60,7 +60,7 @@ class SingleQuestion extends Component
     public function toggleSolve()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         if (auth()->user()->spammy) {
@@ -76,13 +76,13 @@ class SingleQuestion extends Component
             return $this->emit('refreshSingleQuestion');
         }
 
-        return toast($this, 'error', config('taskord.error.deny'));
+        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function deleteQuestion()
     {
         if (Gate::denies('edit/delete', $this->question)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         loggy(request(), 'Question', auth()->user(), "Deleted a question | Question ID: {$this->question->id}");

@@ -28,7 +28,7 @@ class SingleReply extends Component
         }
 
         if (Gate::denies('like/subscribe', $this->reply)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         Helper::toggleLike($this->reply, 'REPLY');
@@ -40,7 +40,7 @@ class SingleReply extends Component
     public function deleteReply()
     {
         if (Gate::denies('edit/delete', $this->reply)) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         loggy(request(), 'Reply', auth()->user(), "Deleted a reply | Reply ID: {$this->reply->id}");
@@ -54,7 +54,7 @@ class SingleReply extends Component
     public function hide()
     {
         if (Gate::denies('staff.ops')) {
-            return toast($this, 'error', config('taskord.error.deny'));
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         Helper::hide($this->reply);
