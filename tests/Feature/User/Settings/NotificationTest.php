@@ -33,22 +33,3 @@ it('can edit notification (notificationsEmail) settings', function ($status) {
     [true],
     [false],
 ]);
-
-it('can delete the account', function ($status) {
-    $newUser = User::factory()->create();
-
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Delete::class, ['user' => $newUser])
-            ->call('deleteAccount')
-            ->assertEmitted('accountDeleted');
-    }
-
-    return actingAs(1)
-        ->livewire(Delete::class, ['user' => $newUser])
-        ->call('deleteAccount')
-        ->assertNotEmitted('accountDeleted');
-})->with([
-    [true],
-    [false],
-]);
