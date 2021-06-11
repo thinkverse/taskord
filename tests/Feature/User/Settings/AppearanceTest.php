@@ -21,13 +21,13 @@ it('can edit appearance (toggleMode) settings', function ($status) {
     if ($status) {
         return actingAs($newUser->id)
             ->livewire(Appearance::class, ['user' => $newUser])
-            ->call('toggleMode()')
+            ->call('toggleMode("light")')
             ->assertEmitted('toggledMode');
     }
 
     return actingAs(1)
         ->livewire(Appearance::class, ['user' => $newUser])
-        ->call('toggleMode')
+        ->call('toggleMode("light")')
         ->assertNotEmitted('toggledMode');
 })->with([
     [true],
