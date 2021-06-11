@@ -242,6 +242,7 @@ class Profile extends Component
         if (auth()->user()->id === $this->user->id) {
             $this->user->only_followings_tasks = ! $this->user->only_followings_tasks;
             $this->user->save();
+            $this->emit('toggledOnlyFollowingsTasks');
             if ($this->user->only_followings_tasks) {
                 toast($this, 'success', 'Only following user\'s task will be show on homepage');
             } else {

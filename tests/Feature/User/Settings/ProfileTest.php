@@ -1,9 +1,7 @@
 <?php
 
 use App\Http\Livewire\User\Settings\Profile;
-use App\Http\Livewire\User\Settings\Account;
 use App\Models\User;
-use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
 it('has settings/profile page', function ($url, $expected, $auth) {
@@ -174,6 +172,25 @@ it('can edit profile (updateSocial) settings', function ($status) {
         ->set('website', 'https://taskord.com')
         ->call('updateSocial')
         ->assertNotEmitted('socialUpdated');
+})->with([
+    [true],
+    [false],
+]);
+
+it('can edit profile (onlyFollowingsTasks) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs($newUser->id)
+            ->livewire(Profile::class, ['user' => $newUser])
+            ->call('onlyFollowingsTasks')
+            ->assertEmitted('toggledOnlyFollowingsTasks');
+    }
+
+    return actingAs(1)
+        ->livewire(Profile::class, ['user' => $newUser])
+        ->call('onlyFollowingsTasks')
+        ->assertNotEmitted('toggledOnlyFollowingsTasks');
 })->with([
     [true],
     [false],

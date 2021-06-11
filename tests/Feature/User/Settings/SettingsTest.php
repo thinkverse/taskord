@@ -1,9 +1,5 @@
 <?php
 
-use App\Http\Livewire\User\Settings\Profile;
-use App\Http\Livewire\User\Settings\Account;
-use App\Models\User;
-use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
 it('has settings/account page', function ($url, $expected, $auth) {
