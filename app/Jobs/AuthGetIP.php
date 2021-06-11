@@ -23,13 +23,18 @@ class AuthGetIP implements ShouldQueue
 
     public function handle()
     {
-        $this->user->last_ip = $this->ip;
-
-        $ipInfo = file_get_contents('http://ip-api.com/json/'.$this->ip);
-        $ipInfo = json_decode($ipInfo);
-        if ($ipInfo->status !== 'fail') {
-            $this->user->timezone = $ipInfo->timezone;
-            $this->user->save();
+        if (App::environment() === 'production') {
+            try {
+                $ipInfo = file_get_contents('http://ip-api.com/json/'.$this->ip);
+                $ipInfo = json_decode($ipInfo);
+                if ($ipInfo->status !== 'fail') {
+                    $this->user->last_ip = $this->ip;
+                    $this->user->timezone = $ipInfo->timezone;
+                    $this->user->save();
+                }
+            } catch (Exception $e) {
+                return 'IP API Rate limited';
+            }
         }
     }
 }

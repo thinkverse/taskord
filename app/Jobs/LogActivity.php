@@ -45,31 +45,27 @@ class LogActivity implements ShouldQueue
 
     public function getGeoDetails()
     {
-        try {
-            if (App::environment() === 'production') {
-                try {
-                    $ipInfo = json_decode(file_get_contents('http://ip-api.com/json/'.$this->ip));
-                    if ($ipInfo->status === 'fail') {
-                        return null;
-                    }
-
-                    return [
-                        'location' => $ipInfo->city.', '.$ipInfo->regionName.', '.$ipInfo->country,
-                        'lon' => $ipInfo->lat,
-                        'lat' => $ipInfo->lon,
-                    ];
-                } catch (Exception $e) {
-                    return 'IP API Rate limited';
+        if (App::environment() === 'production') {
+            try {
+                $ipInfo = json_decode(file_get_contents('http://ip-api.com/json/'.$this->ip));
+                if ($ipInfo->status === 'fail') {
+                    return null;
                 }
-            } else {
+
                 return [
-                    'location' => 'Test Location',
-                    'lon' => '0.000',
-                    'lat' => '0.000',
+                    'location' => $ipInfo->city.', '.$ipInfo->regionName.', '.$ipInfo->country,
+                    'lon' => $ipInfo->lat,
+                    'lat' => $ipInfo->lon,
                 ];
+            } catch (Exception $e) {
+                return 'IP API Rate limited';
             }
-        } catch (Exception $e) {
-            return null;
+        } else {
+            return [
+                'location' => 'Test Location',
+                'lon' => '0.000',
+                'lat' => '0.000',
+            ];
         }
     }
 }
