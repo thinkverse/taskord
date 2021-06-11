@@ -24,12 +24,12 @@ class Account extends Component
         if (auth()->user()->id === $this->user->id) {
             $this->user->is_beta = ! $this->user->is_beta;
             $this->user->save();
+            $this->emit('enrolledBeta');
             if ($this->user->is_beta) {
                 loggy(request(), 'User', auth()->user(), 'Enrolled to beta');
 
                 return toast($this, 'success', 'Your are now beta member!');
             }
-            $this->emit('enrolledBeta');
             loggy(request(), 'User', auth()->user(), 'Opted out from beta');
 
             return toast($this, 'success', 'Your are no longer a beta member!');
