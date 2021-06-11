@@ -295,6 +295,7 @@ class Moderator extends Component
         $this->user->dark_mode = ! $this->user->dark_mode;
         $this->user->timestamps = false;
         $this->user->save();
+        toast($this, 'success', config('taskord.toast.settings-updated'));
 
         if ($this->user->dark_mode) {
             return loggy(
