@@ -35,17 +35,6 @@ it('has settings/password page', function ($url, $expected, $auth) {
     ['/settings/password', 200, true],
 ]);
 
-it('has settings/integrations page', function ($url, $expected, $auth) {
-    if ($auth) {
-        actingAs(1)->get($url)->assertStatus($expected);
-    } else {
-        $this->get($url)->assertStatus($expected);
-    }
-})->with([
-    ['/settings/integrations', 302, false],
-    ['/settings/integrations', 200, true],
-]);
-
 it('has settings/sessions page', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);

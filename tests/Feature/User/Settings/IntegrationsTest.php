@@ -1,18 +1,18 @@
 <?php
 
-use App\Http\Livewire\User\Settings\Notifications;
+use App\Http\Livewire\User\Settings\Integrations;
 use App\Models\User;
 use function Tests\actingAs;
 
-it('has settings/notifications page', function ($url, $expected, $auth) {
+it('has settings/integrations page', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);
     } else {
         $this->get($url)->assertStatus($expected);
     }
 })->with([
-    ['/settings/notifications', 302, false],
-    ['/settings/notifications', 200, true],
+    ['/settings/integrations', 302, false],
+    ['/settings/integrations', 200, true],
 ]);
 
 it('can edit notification (notificationsEmail) settings', function ($status) {
