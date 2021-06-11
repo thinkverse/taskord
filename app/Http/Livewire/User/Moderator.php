@@ -109,23 +109,7 @@ class Moderator extends Component
         $this->user->spammy = ! $this->user->spammy;
         $this->user->timestamps = false;
         $this->user->save();
-        toast($this, 'success', config('taskord.toast.settings-updated'));
-
-        if ($this->user->spammy) {
-            return loggy(
-                request(),
-                'Staff',
-                auth()->user(),
-                "Flagged the user | Username: @{$this->user->username}"
-            );
-        }
-
-        return loggy(
-            request(),
-            'Staff',
-            auth()->user(),
-            "Un-flagged the user | Username: @{$this->user->username}"
-        );
+        return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
     public function suspendUser()
