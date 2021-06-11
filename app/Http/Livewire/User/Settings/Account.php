@@ -85,6 +85,7 @@ class Account extends Component
                 }
                 $this->user->email = $this->email;
                 $this->user->save();
+                $this->emit('accountUpdated');
                 loggy(request(), 'User', auth()->user(), 'Updated account settings');
 
                 toast($this, 'success', 'Your account has been updated!');
