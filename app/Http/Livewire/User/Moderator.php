@@ -142,6 +142,7 @@ class Moderator extends Component
         $this->user->is_private = ! $this->user->is_private;
         $this->user->timestamps = false;
         $this->user->save();
+        toast($this, 'success', config('taskord.toast.settings-updated'));
 
         if ($this->user->is_private) {
             loggy(
