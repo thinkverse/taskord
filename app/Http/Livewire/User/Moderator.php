@@ -84,6 +84,7 @@ class Moderator extends Component
         $this->user->is_staff = ! $this->user->is_staff;
         $this->user->timestamps = false;
         $this->user->save();
+        toast($this, 'success', config('taskord.toast.settings-updated'));
 
         if ($this->user->is_staff) {
             return loggy(
