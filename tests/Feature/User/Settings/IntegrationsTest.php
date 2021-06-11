@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\User\Settings\Integrations;
 use App\Models\User;
+use App\Models\Webhook;
 use function Tests\actingAs;
 
 it('has settings/integrations page', function ($url, $expected, $auth) {
@@ -16,6 +17,27 @@ it('has settings/integrations page', function ($url, $expected, $auth) {
 ]);
 
 it('can create new webhook', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs($newUser->id)
+            ->livewire(Integrations::class, ['user' => $newUser])
+            ->set('name', 'Test webhook')
+            ->call('submit')
+            ->assertEmitted('webhookCreated');
+    }
+
+    return actingAs(1)
+        ->livewire(Integrations::class, ['user' => $newUser])
+        ->set('name', 'Test webhook')
+        ->call('submit')
+        ->assertNotEmitted('webhookCreated');
+})->with([
+    [true],
+    [false],
+]);
+
+it('can delete a webhook', function ($status) {
     $newUser = User::factory()->create();
 
     if ($status) {
