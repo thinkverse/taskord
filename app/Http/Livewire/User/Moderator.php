@@ -555,15 +555,14 @@ class Moderator extends Component
 
         $this->user->staff_notes = $this->staffNotes;
         $this->user->save();
+        toast($this, 'success', config('taskord.toast.settings-updated'));
 
-        loggy(
+        return loggy(
             request(),
             'Staff',
             auth()->user(),
             "Updated the staff notes for user: @{$this->user->username}"
         );
-
-        return toast($this, 'success', 'Note has been updated!');
     }
 
     public function render()
