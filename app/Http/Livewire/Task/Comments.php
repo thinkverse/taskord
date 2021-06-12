@@ -23,7 +23,7 @@ class Comments extends Component
     {
         return $this->task->comments()
             ->withCount('replies')
-            ->latest('updated_at')
+            ->oldest()
             ->get();
     }
 
