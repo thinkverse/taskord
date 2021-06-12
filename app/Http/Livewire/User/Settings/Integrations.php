@@ -6,9 +6,9 @@ use App\Models\User;
 use App\Models\Webhook;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Livewire\Component;
-use Illuminate\Support\Facades\Gate;
 
 class Integrations extends Component
 {
