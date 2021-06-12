@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Livewire\User\Settings\Integrations;
-use App\Models\User;
 use App\Models\Webhook;
 use function Tests\actingAs;
 
