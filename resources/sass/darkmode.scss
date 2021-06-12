@@ -193,7 +193,11 @@ hr {
 }
 
 .bg-light {
-  background-color: $border-bg !important;
+  background-color: $card-bg !important;
+}
+
+.bg-white {
+  background-color: $input-bg !important;
 }
 
 .btn-close {
@@ -203,6 +207,14 @@ hr {
 .toast {
   background-color: $card-bg !important;
   border: 1px solid $border-bg;
+}
+
+.border-reply {
+  border: 1px solid $border-bg !important;
+}
+
+.border-top {
+  border-top: 1px solid $border-bg !important;
 }
 
 ::-webkit-scrollbar {
