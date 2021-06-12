@@ -18,6 +18,14 @@ body {
 
 .nav-link {
   color: white !important;
+
+  .active {
+    border-color: $border-bg $border-bg $border-bg !important;
+  }
+}
+
+.nav-link.active,
+.nav-link:hover {
   border-color: $border-bg $border-bg $border-bg !important;
 }
 
