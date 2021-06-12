@@ -94,9 +94,8 @@
                             {{ $agent->browser() }} on {{ $agent->platform() }}
                         </span>
                     @else
-                        <x-heroicon-o-lightning-bolt class="heroicon text-secondary" />
                         <span title="{{ $activity->getExtraProperty('user_agent') }}">
-                            {{ $activity->getExtraProperty('user_agent') }}
+                            <x-heroicon-o-lightning-bolt class="heroicon text-secondary" />
                         </span>
                     @endif
                     <span class="vertical-separator"></span>
