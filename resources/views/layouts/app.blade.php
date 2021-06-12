@@ -42,6 +42,9 @@
         @if (Cookie::get('color_mode') === 'dark')
             <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
         @endif
+        @if (Cookie::get('color_mode') === 'auto')
+            <link href="{{ mix('css/automode.css') }}" rel="stylesheet">
+        @endif
     @endauth
     <livewire:styles />
     @if (App::environment() === 'production')
