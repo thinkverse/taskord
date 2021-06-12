@@ -28,14 +28,15 @@
                             @endif
                         </div>
                         <div>
-                            <div class="fw-bold mb-1 d-flex align-items-center">
+                            <div class="fw-bold mb-1">
                                 {{ $session->ip_address }}
-                                @if (session()->getId() === $session->id)
-                                    <span class="badge bg-success ms-2">Current session</span>
-                                @endif
                             </div>
                             <div class="small">
-                                Last accessed on {{ carbon($session->last_activity)->format('M d, Y') }}
+                                @if (session()->getId() === $session->id)
+                                    Your current session
+                                @else
+                                    Last accessed on {{ carbon($session->last_activity)->format('M d, Y') }}
+                                @endif
                             </div>
                             @if ($agent->browser() and $agent->platform())
                                 <div class="mt-2 small text-secondary" title="{{ $session->user_agent }}">
