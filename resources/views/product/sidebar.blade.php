@@ -66,6 +66,8 @@
                             <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" loading=lazy />
                         @elseif (parse_url($product->repo)['host'] === 'bitbucket.org')
                             <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/bitbucket_f5ZE6ZhmF.svg" loading=lazy />
+                        @elseif (parse_url($product->repo)['host'] === 'codeberg.org')
+                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/codeberg_-jtBYVntyMx.svg" loading=lazy />
                         @endif
                         {{ trim(parse_url($product->repo)['path'], '/') }}
                     </a>
