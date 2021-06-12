@@ -3,7 +3,6 @@
         <div class="card-header py-3">
             <span class="h5">Theme preferences</span>
             <div>Choose how Taskord looks to you.</div>
-            {{ Cookie::get('color_mode') }}
         </div>
         <div class="card-body d-flex">
             <div class="cursor-pointer me-3 card {{ Cookie::get('color_mode') === 'light' ? 'border-primary' : ''  }}" wire:click="toggleMode('light')">
