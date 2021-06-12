@@ -18,7 +18,7 @@ class Appearance extends Component
     public function toggleMode($mode)
     {
         if (auth()->user()->id === $this->user->id) {
-            Cookie::queue('color_mode', $mode, 15);
+            Cookie::queue('color_mode', $mode, config('session.lifetime'));
             if ($mode === 'light') {
                 $this->user->dark_mode = false;
                 $this->user->save();
