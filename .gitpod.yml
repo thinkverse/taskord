@@ -1,17 +1,1 @@
-image:
-  file: .gitpod.Dockerfile
-
-tasks:
-  - name: Taskord Server
-    init: bash ./script/gitpod-init.sh
-    command: php artisan serve --host=0.0.0.0
-
-  - name: Assets Server
-    init: yarn install
-    command: yarn watch
-
-  - name: Horizon
-    command: php artisan horizon
-
-ports:
-  - port: 8000
+image: gitpod/workspace-full
