@@ -4,6 +4,8 @@
         if (!$user) {
             $user = \App\Models\User::whereUsername('ghost')->first();
         }
+        $agent = new Jenssegers\Agent\Agent;
+        $agent->setUserAgent($activity->getExtraProperty('user_agent'));
     @endphp
     <a href="{{ route('user.done', ['username' => $user->username]) }}">
         <img loading=lazy class="avatar-30 rounded-circle me-3" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="40" width="40" alt="{{ $user->username }}'s avatar" />
@@ -82,14 +84,9 @@
             @endif
             @can('staff.ops')
                 @if ($activity->getExtraProperty('user_agent'))
-                    <a
-                        class="cursor-pointer text-dark"
-                        href="https://userstack.com/ua_api.php?ua={{ $activity->getExtraProperty('user_agent') }}"
-                        title="{{ $activity->getExtraProperty('user_agent') }}"
-                        target="_blank"
-                    >
-                        <x-heroicon-o-globe-alt class="heroicon" />
-                    </a>
+                    <span title="{{ $activity->getExtraProperty('user_agent') }}">
+                        {{ $agent->browser() }} on {{ $agent->platform() }}
+                    </span>
                     <span class="vertical-separator"></span>
                 @endif
             @endcan
