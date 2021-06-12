@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Spatie\Activitylog\Models\Activity;
+use Illuminate\Support\Facades\Cookie;
 
 class UserController extends Controller
 {
@@ -207,19 +208,17 @@ class UserController extends Controller
 
     public function darkMode()
     {
-        if (auth()->user()->dark_mode) {
-            auth()->user()->dark_mode = false;
-            auth()->user()->save();
-            loggy(request(), 'User', auth()->user(), 'Disabled dark mode');
+        if (Cookie::get('color_mode') === 'light') {
+            Cookie::queue('color_mode', 'dark', config('session.lifetime'));
+            loggy(request(), 'User', auth()->user(), 'Toggled appearance');
 
             return response()->json([
                 'status' => 'disabled',
             ]);
         }
 
-        auth()->user()->dark_mode = true;
-        auth()->user()->save();
-        loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
+        Cookie::queue('color_mode', 'light', config('session.lifetime'));
+        loggy(request(), 'User', auth()->user(), 'Toggled appearance');
 
         return response()->json([
             'status' => 'enabled',
