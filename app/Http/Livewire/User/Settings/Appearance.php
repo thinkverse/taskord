@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
-use Livewire\Component;
 use Illuminate\Support\Facades\Cookie;
+use Livewire\Component;
 
 class Appearance extends Component
 {
