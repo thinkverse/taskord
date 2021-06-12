@@ -8,11 +8,9 @@
     <div class="card mb-3">
         <div class="card-body">
             <div class="d-flex justify-content-between">
-                @if ($type !== "App\Notifications\Welcome")
-                    <x:shared.user-label-small :user="$user" />
-                @endif
+                <x:shared.user-label-small :user="$user" />
                 @if ($pageType === 'unread')
-                    <button wire:click="markSingleNotificationAsRead" class="btn btn-sm btn-action ms-5" title="Mark as read">
+                    <button wire:click="markSingleNotificationAsRead" class="btn btn-sm btn-action ms-5 float-end" title="Mark as read">
                         <span wire:loading.remove wire:target="markSingleNotificationAsRead">
                             <x-heroicon-s-check class="heroicon heroicon-20px text-secondary me-0" />
                         </span>
@@ -62,7 +60,7 @@
                     ])
                 </div>
             @elseif ($type === "App\Notifications\Welcome")
-                <div class="mt-2 fw-bold">
+                <div class="mt-4 fw-bold">
                     Welcome to Taskord! 👋
                 </div>
                 <div class="mt-2">
