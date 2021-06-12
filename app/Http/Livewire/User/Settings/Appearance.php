@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Cookie;
 
 class Appearance extends Component
 {
+    public $listeners = [
+        'toggledMode' => 'render',
+    ];
     public User $user;
 
     public function mount($user)
@@ -25,5 +28,10 @@ class Appearance extends Component
         }
 
         return toast($this, 'error', config('taskord.toast.deny'));
+    }
+
+    public function render()
+    {
+        return view('livewire.user.settings.appearance');
     }
 }
