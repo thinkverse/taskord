@@ -16,6 +16,15 @@ body {
   background-color: $input-bg !important;
 }
 
+.nav-link {
+  color: white !important;
+  border-color: $border-bg $border-bg $border-bg !important;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid $border-bg !important;
+}
+
 #search-input {
   background-color: $card-bg !important;
 }
