@@ -8,7 +8,7 @@ console.log(
 function logVitalsInConsole({ name, delta }) {
   console.log(
     `%c[${name}] %c${parseFloat(name === "CLS" ? delta * 1000 : delta).toFixed(2)}`,
-    "color: #9146FF; font-family: monospace; font-size: 15px; font-weight: bold",
+    "color: #6a63ec; font-family: monospace; font-size: 15px; font-weight: bold",
     "font-family: monospace; font-size: 15px; font-weight: bold",
   );
 }
@@ -16,7 +16,7 @@ function logVitalsInConsole({ name, delta }) {
 function logInConsole({ key, value }) {
   console.log(
     `%c[${key}] %c${value}`,
-    "color: #9146FF; font-family: monospace; font-size: 15px; font-weight: bold",
+    "color: #6a63ec; font-family: monospace; font-size: 15px; font-weight: bold",
     "font-family: monospace; font-size: 15px; font-weight: bold",
   );
 }
