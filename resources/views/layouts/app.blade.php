@@ -34,7 +34,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @auth
-        @if (auth()->user()->dark_mode)
+        @if (Cookie::get('color_mode') === 'dark')
             <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
         @endif
     @endauth

@@ -33,7 +33,6 @@ class Moderator extends Component
         $this->isBeta = $user->is_beta;
         $this->isStaff = $user->is_staff;
         $this->isPatron = $user->is_patron;
-        $this->darkMode = $user->dark_mode;
         $this->isContributor = $user->is_contributor;
         $this->isPrivate = $user->is_private;
         $this->isVerified = $user->is_verified;
@@ -168,19 +167,6 @@ class Moderator extends Component
         if ($this->user->is_verified) {
             $this->user->notify(new UserVerified(true));
         }
-
-        return toast($this, 'success', config('taskord.toast.settings-updated'));
-    }
-
-    public function enrollDarkMode()
-    {
-        if (Gate::denies('staff.ops')) {
-            return toast($this, 'error', config('taskord.toast.deny'));
-        }
-
-        $this->user->dark_mode = ! $this->user->dark_mode;
-        $this->user->timestamps = false;
-        $this->user->save();
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }

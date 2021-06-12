@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Support\Facades\Cookie;
 
 class Appearance extends Component
 {
@@ -17,20 +18,17 @@ class Appearance extends Component
     public function toggleMode($mode)
     {
         if (auth()->user()->id === $this->user->id) {
+            Cookie::queue('color_mode', $mode, 15);
             if ($mode === 'light') {
                 $this->user->dark_mode = false;
                 $this->user->save();
                 $this->emit('toggledMode');
-                loggy(request(), 'User', auth()->user(), 'Disabled dark mode');
-
-                return redirect()->route('user.settings.appearance');
+                return loggy(request(), 'User', auth()->user(), 'Disabled dark mode');
             }
             $this->user->dark_mode = true;
             $this->user->save();
             $this->emit('toggledMode');
-            loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
-
-            return redirect()->route('user.settings.appearance');
+            return loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
         }
 
         return toast($this, 'error', config('taskord.toast.deny'));
