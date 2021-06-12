@@ -128,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
+                <div class="accordion-item rounded-bottom">
                     <h2 class="accordion-header" id="gitlab-webhook">
                         <button class="accordion-button collapsed bg-light text-dark" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapse-gitlab-webhook" aria-expanded="false"
