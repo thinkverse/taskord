@@ -8,6 +8,7 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 
 class Integrations extends Component
 {
@@ -35,35 +36,22 @@ class Integrations extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (auth()->user()->id === $this->user->id) {
-            $this->validate([
-                'name' => ['required', 'min:2', 'max:20'],
-                'product' => ['nullable'],
-            ]);
-
-            if (auth()->user()->spammy) {
-                toast($this, 'error', 'Your account is flagged!');
-            }
-
-            if (auth()->user()->id === $this->user->id) {
-                $webhook = auth()->user()->webhooks()->create([
-                    'name' => $this->name,
-                    'product_id' => $this->product,
-                    'token' => Str::uuid(),
-                    'type' => $this->type,
-                ]);
-                $this->reset(['name', 'product']);
-                session()->flash('created', $webhook);
-                $this->emit('webhookCreated');
-                loggy(request(), 'User', auth()->user(), "Created a new webhook | Webhook ID: {$webhook->id}");
-
-                return toast($this, 'success', 'New webhook has been created!');
-            }
-
+        if (Gate::denies('create')) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        return toast($this, 'error', config('taskord.toast.deny'));
+        $webhook = auth()->user()->webhooks()->create([
+            'name' => $this->name,
+            'product_id' => $this->product,
+            'token' => Str::uuid(),
+            'type' => $this->type,
+        ]);
+        $this->reset(['name', 'product']);
+        session()->flash('created', $webhook);
+        $this->emit('webhookCreated');
+        loggy(request(), 'User', auth()->user(), "Created a new webhook | Webhook ID: {$webhook->id}");
+
+        return toast($this, 'success', 'New webhook has been created!');
     }
 
     public function deleteWebhook($webhookId)
