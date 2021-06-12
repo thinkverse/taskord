@@ -38,7 +38,11 @@
     @endguest
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
+    @auth
+        @if (Cookie::get('color_mode') === 'dark')
+            <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
+        @endif
+    @endauth
     <livewire:styles />
     @if (App::environment() === 'production')
         <script async src="https://cdn.splitbee.io/sb.js"></script>
