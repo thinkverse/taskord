@@ -27,8 +27,11 @@
                             @endif
                         </div>
                         <div>
-                            <div class="h6">
+                            <div class="fw-bold mb-1 d-flex align-items-center">
                                 {{ $session->ip_address }}
+                                @if (Session::getId() === $session->id)
+                                    <span class="badge bg-success ms-2">Current session</span>
+                                @endif
                             </div>
                             <div class="small">
                                 Last accessed on {{ carbon($session->last_activity)->format('M d, Y') }}
