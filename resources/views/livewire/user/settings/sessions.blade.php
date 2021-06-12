@@ -16,6 +16,8 @@
             @foreach ($sessions as $session)
                 @php
                     $isMobile = is_numeric(strpos(strtolower($session->user_agent), "mobile"));
+                    $agent = new Jenssegers\Agent\Agent;
+                    $agent->setUserAgent($session->user_agent);
                 @endphp
                 <li class="list-group-item py-3 d-flex align-items-center">
                     <div class="d-flex align-items-center">
@@ -26,6 +28,7 @@
                                 <x-heroicon-o-desktop-computer class="heroicon heroicon-50px text-secondary" />
                             @endif
                         </div>
+                        {{ $agent->device() }}
                         <div>
                             <div class="fw-bold mb-1 d-flex align-items-center">
                                 {{ $session->ip_address }}
