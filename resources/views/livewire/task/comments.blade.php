@@ -8,8 +8,8 @@
             @else
                 @foreach ($comments as $comment)
                     <x:shared.user-label-small :user="$comment->user" />
-                    <div class="d-flex align-items-center">
-                        <div class="mt-2 card d-inline-block bg-light {{ $loop->last ? '' : 'mb-3' }}">
+                    <div class="d-flex align-items-center mt-2 {{ $loop->last ? '' : 'mb-3' }}">
+                        <div class="card d-inline-block bg-light">
                             <div class="card-body px-2 py-1 body-font">
                                 {!! markdown($comment->comment) !!}
                             </div>
