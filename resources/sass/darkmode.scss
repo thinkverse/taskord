@@ -217,6 +217,11 @@ hr {
   border-top: 1px solid $border-bg !important;
 }
 
+.border-start {
+  border-left: 1px solid $border-bg !important;
+}
+
+
 ::-webkit-scrollbar {
   background-color: $border-bg;
 }
