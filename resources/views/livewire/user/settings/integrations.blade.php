@@ -69,7 +69,7 @@
             <div class="accordion accordion-flush" id="webhookDocs">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="simple-webhook">
-                        <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse"
+                        <button class="accordion-button bg-light text-dark" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapse-simple-webhook" aria-expanded="true" aria-controls="collapse-simple-webhook">
                             <x-heroicon-o-globe-alt class="heroicon me-2" />
                             Simple Webhook
@@ -107,7 +107,7 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="github-webhook">
-                        <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                        <button class="accordion-button collapsed bg-light text-dark" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapse-github-webhook" aria-expanded="false" aria-controls="collapse-github-webhook">
                             <img class="me-2 github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15" width="15" loading=lazy />
                             GitHub
@@ -130,7 +130,7 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="gitlab-webhook">
-                        <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                        <button class="accordion-button collapsed bg-light text-dark" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapse-gitlab-webhook" aria-expanded="false"
                             aria-controls="collapse-gitlab-webhook">
                             <img class="me-2" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" height="15" width="15" loading=lazy />
