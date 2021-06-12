@@ -84,14 +84,21 @@
             @endif
             @can('staff.ops')
                 @if ($activity->getExtraProperty('user_agent'))
-                    @if ($agent->isPhone())
-                        <x-heroicon-o-device-mobile class="heroicon text-secondary" />
+                    @if ($agent->browser() and $agent->platform())
+                        @if ($agent->isPhone())
+                            <x-heroicon-o-device-mobile class="heroicon text-secondary" />
+                        @else
+                            <x-heroicon-o-desktop-computer class="heroicon text-secondary" />
+                        @endif
+                        <span title="{{ $activity->getExtraProperty('user_agent') }}">
+                            {{ $agent->browser() }} on {{ $agent->platform() }}
+                        </span>
                     @else
-                        <x-heroicon-o-desktop-computer class="heroicon text-secondary" />
+                        <x-heroicon-o-lightning-bolt class="heroicon text-secondary" />
+                        <span title="{{ $activity->getExtraProperty('user_agent') }}">
+                            {{ $activity->getExtraProperty('user_agent') }}
+                        </span>
                     @endif
-                    <span title="{{ $activity->getExtraProperty('user_agent') }}">
-                        {{ $agent->browser() }} on {{ $agent->platform() }}
-                    </span>
                     <span class="vertical-separator"></span>
                 @endif
             @endcan
