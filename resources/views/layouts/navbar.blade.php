@@ -12,7 +12,7 @@
                     @endif
                 @endauth
                 @guest
-                    <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
+                    <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_jQixOG23S.svg" height="35" alt="Taskord">
                 @endguest
             @endif
         </a>
