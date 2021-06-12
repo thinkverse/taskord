@@ -1,8 +1,13 @@
 <div class="card" wire:init="loadUsers">
-    <div class="card-header h6 py-3">
-        <div class="h5">Users</div>
-        <span class="fw-bold">{{ $readyToLoad ? $count : '···' }}</span>
-        total users
+    <div class="card-header h6 py-3 d-flex justify-content-between align-items-center">
+        <div>
+            <div class="h5">Users</div>
+            <span class="fw-bold">{{ $readyToLoad ? $count : '···' }}</span>
+            total users
+        </div>
+        <div>
+            <input wire:model="query" type="text" class="form-control" placeholder="Search users...">
+        </div>
     </div>
     <div class="px-3">
         @if (!$readyToLoad)

@@ -10,6 +10,7 @@ class Users extends Component
 {
     use WithPagination;
 
+    public $query;
     public $readyToLoad = false;
     protected $paginationTheme = 'bootstrap';
 
@@ -20,7 +21,9 @@ class Users extends Component
 
     public function getUsers()
     {
-        return User::latest('last_active')->paginate(50);
+        return User::search($this->query)
+            ->latest('last_active')
+            ->paginate(20);
     }
 
     public function render()
