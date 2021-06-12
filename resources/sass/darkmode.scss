@@ -117,6 +117,10 @@ body {
   border: 1px solid $border-bg;
 }
 
+.accordion-item {
+  border: 1px solid $border-bg;
+}
+
 .form-file-label {
   border-color: $border-bg;
 }
@@ -136,7 +140,8 @@ hr {
   }
 }
 
-.modal-content {
+.modal-content,
+.accordion-body {
   background-color: $card-bg;
 }
 
