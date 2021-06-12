@@ -84,6 +84,11 @@
             @endif
             @can('staff.ops')
                 @if ($activity->getExtraProperty('user_agent'))
+                    @if ($agent->isPhone())
+                        <x-heroicon-o-device-mobile class="heroicon text-secondary" />
+                    @else
+                        <x-heroicon-o-desktop-computer class="heroicon text-secondary" />
+                    @endif
                     <span title="{{ $activity->getExtraProperty('user_agent') }}">
                         {{ $agent->browser() }} on {{ $agent->platform() }}
                     </span>
