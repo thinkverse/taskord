@@ -7,7 +7,7 @@ use App\Notifications\Product\NewProductUpdate;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
-class NewUpdate extends Component
+class CreateUpdate extends Component
 {
     public $title;
     public $body;

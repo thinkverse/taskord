@@ -17,7 +17,7 @@
                     </button>
                 </div>
             </div>
-            @livewire('product.update.new-update', [
+            @livewire('product.update.create-update', [
                 'product' => $product
             ])
         @endif
