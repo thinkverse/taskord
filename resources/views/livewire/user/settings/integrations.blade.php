@@ -139,7 +139,7 @@
                     </h2>
                     <div id="collapse-gitlab-webhook" class="accordion-collapse collapse"
                         aria-labelledby="gitlab-webhook" data-bs-parent="#webhookDocs">
-                        <div class="accordion-body">
+                        <div class="accordion-body rounded-bottom">
                             <ol class="mb-0">
                                 <li>Go to Settings ➜ Webhooks</li>
                                 <li>In "URL" paste the URL generated below</li>
