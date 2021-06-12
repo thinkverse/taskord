@@ -56,16 +56,16 @@ class Integrations extends Component
 
     public function deleteWebhook($webhookId)
     {
-        if (auth()->user()->id === $this->user->id) {
-            loggy(request(), 'User', auth()->user(), "Deleted a webhook | Webhook ID: {$webhookId}");
-            $webhook = Webhook::find($webhookId);
-            $webhook->delete();
-            $this->emit('refreshIntegrations');
-
-            return toast($this, 'success', 'Webhook has been deleted!');
+        $webhook = Webhook::find($webhookId);
+        if (Gate::denies('edit/delete', $webhook)) {
+            return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        return toast($this, 'error', config('taskord.toast.deny'));
+        $webhook->delete();
+        $this->emit('refreshIntegrations');
+        loggy(request(), 'User', auth()->user(), "Deleted a webhook | Webhook ID: {$webhookId}");
+
+        return toast($this, 'success', 'Webhook has been deleted!');
     }
 
     public function render()

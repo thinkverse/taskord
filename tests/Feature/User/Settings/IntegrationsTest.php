@@ -16,45 +16,5 @@ it('has settings/integrations page', function ($url, $expected, $auth) {
     ['/settings/integrations', 200, true],
 ]);
 
-it('can create new webhook', function ($status) {
-    $newUser = User::factory()->create();
-
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Integrations::class, ['user' => $newUser])
-            ->set('name', 'Test webhook')
-            ->call('submit')
-            ->assertEmitted('webhookCreated');
-    }
-
-    return actingAs(1)
-        ->livewire(Integrations::class, ['user' => $newUser])
-        ->set('name', 'Test webhook')
-        ->call('submit')
-        ->assertNotEmitted('webhookCreated');
-})->with([
-    [true],
-    [false],
-]);
-
-it('can delete a webhook', function ($status) {
-    $newUser = User::factory()->create();
-    $newWebhook = Webhook::factory()->create();
-
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Integrations::class, ['user' => $newUser])
-            ->set('name', 'Test webhook')
-            ->call('deleteWebhook', $newWebhook->id)
-            ->assertEmitted('refreshIntegrations');
-    }
-
-    return actingAs(1)
-        ->livewire(Integrations::class, ['user' => $newUser])
-        ->set('name', 'Test webhook')
-        ->call('deleteWebhook', $newWebhook->id)
-        ->assertNotEmitted('refreshIntegrations');
-})->with([
-    [true],
-    [false],
-]);
+// TODO: can create new webhook
+// TODO: can delete a webhook
