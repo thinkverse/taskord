@@ -14,8 +14,10 @@
                         </div>
                     </div>
                     @if ($comment->replies_count > 0)
-                        <x-heroicon-o-chat-alt-2 class="heroicon heroicon-15px me-0" />
-                        {{ $comment->replies_count }}
+                        <span class="text-secondary d-inline-flex align-items-center">
+                            <x-heroicon-o-chat-alt-2 class="heroicon heroicon-15px me-0" />
+                            <span class="ms-1">{{ $comment->replies_count }}</span>
+                        </span>
                     @endif
                 @endforeach
             @endif
