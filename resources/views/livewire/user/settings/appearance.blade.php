@@ -22,10 +22,10 @@
                 </div>
             </div>
             <div class="cursor-pointer card {{ Cookie::get('color_mode') === 'auto' ? 'border-primary' : ''  }}" wire:click="toggleMode('auto')">
-                <img class="rounded-top" src="https://ik.imagekit.io/taskordimg/dark_preview_9AcAIKv8K.svg" />
+                <img class="rounded-top" src="https://ik.imagekit.io/taskordimg/auto_preview_ucGhJPhO-.svg" />
                 <div class="card-footer">
                     <div class="fw-bold">
-                        System pref
+                        System
                     </div>
                 </div>
             </div>
