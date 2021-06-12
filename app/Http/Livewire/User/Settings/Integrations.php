@@ -46,7 +46,7 @@ class Integrations extends Component
             'token' => Str::uuid(),
             'type' => $this->type,
         ]);
-        $this->reset(['name', 'product']);
+        $this->reset(['name', 'product', 'type']);
         session()->flash('created', $webhook);
         $this->emit('webhookCreated');
         loggy(request(), 'User', auth()->user(), "Created a new webhook | Webhook ID: {$webhook->id}");
