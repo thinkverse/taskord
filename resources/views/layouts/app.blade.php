@@ -29,7 +29,7 @@
         @endif
     @endauth
     @guest
-        <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" sizes="any" type="image/svg+xml">
+        <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_jQixOG23S.svg" sizes="any" type="image/svg+xml">
     @endguest
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
