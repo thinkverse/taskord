@@ -29,7 +29,7 @@
                         <div>
                             <div class="fw-bold mb-1 d-flex align-items-center">
                                 {{ $session->ip_address }}
-                                @if (Session::getId() === $session->id)
+                                @if (session()->getId() === $session->id)
                                     <span class="badge bg-success ms-2">Current session</span>
                                 @endif
                             </div>
