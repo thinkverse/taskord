@@ -11,7 +11,7 @@
                 <div class="text-center mb-4">
                     <img
                         class="mb-4"
-                        src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg"
+                        src="https://ik.imagekit.io/taskordimg/logo_FLhAmih_U.svg"
                         alt="Taskord Logo"
                         height="60"
                         loading=lazy

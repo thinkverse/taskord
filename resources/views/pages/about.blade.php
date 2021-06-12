@@ -9,7 +9,7 @@
 @section('content')
 <div class="container col-lg-6">
     <div class="text-center my-5">
-        <img class="mb-3" src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="70" alt="Taskord Logo">
+        <img class="mb-3" src="https://ik.imagekit.io/taskordimg/logo_FLhAmih_U.svg" height="70" alt="Taskord Logo">
         <div class="h1">Get things done in public</div>
         <div class="mt-3 h4 lh-sm text-secondary fw-normal" style="letter-spacing:1px">
             Taskord is a community of makers in tech shipping and working together. Makers post their daily tasks and grow a network of supportive, like-minded people.
@@ -46,7 +46,7 @@
                     <img class="avatar-20" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" loading=lazy />
                 </a>
                 <a href="https://taskord.com/product/taskord" target="_blank">
-                    <img class="avatar-20" src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" loading=lazy />
+                    <img class="avatar-20" src="https://ik.imagekit.io/taskordimg/logo_FLhAmih_U.svg" loading=lazy />
                 </a>
             </div>
         </div>

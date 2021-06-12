@@ -21,7 +21,7 @@
             </a>
         </div>
         <div class="col-1 d-flex justify-content-evenly my-2">
-            <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="30" alt="Taskord Beta">
+            <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_FLhAmih_U.svg" height="30" alt="Taskord Beta">
         </div>
         <div class="col-lg d-flex justify-content-evenly flex-wrap">
             <a class="me-2" href="{{ route('terms') }}">
