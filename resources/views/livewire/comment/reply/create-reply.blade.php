@@ -1,6 +1,6 @@
 <div class="card {{ $comment->replies()->count('id') > 0 ? '' : 'mt-3' }}">
     <div x-data="{ tab: 'edit' }">
-        <div class="pt-2 rounded-top bg-body">
+        <div class="pt-2 rounded-top bg-light">
             <ul class="nav nav-tabs d-flex justify-content-between px-3">
                 <div class="d-flex">
                     <li class="nav-item">
