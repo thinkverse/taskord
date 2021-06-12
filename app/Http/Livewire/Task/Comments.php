@@ -19,10 +19,18 @@ class Comments extends Component
         $this->readyToLoad = true;
     }
 
+    public function getComments()
+    {
+        return $this->task->comments()
+            ->withCount('replies')
+            ->latest('updated_at')
+            ->get();
+    }
+
     public function render()
     {
         return view('livewire.task.comments', [
-            'comments' => $this->readyToLoad ? $this->task->comments : [],
+            'comments' => $this->readyToLoad ? $this->getComments() : [],
         ]);
     }
 }
