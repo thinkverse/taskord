@@ -17,7 +17,7 @@
                                     #{{ $loop->index + 1 }}
                                 </span>
                             @elseif ($loop->index === 1)
-                                <span class="fw-bold" style="color:#6a63ec">
+                                <span class="fw-bold" style="color:#772ce8">
                                     #{{ $loop->index + 1 }}
                                 </span>
                             @elseif ($loop->index === 2)
