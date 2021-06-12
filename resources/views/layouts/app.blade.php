@@ -1,5 +1,10 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    data-color-mode="{{ Cookie::get('color_mode') }}"
+    data-light-theme="light"
+    data-dark-theme="dark"
+>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,11 +38,7 @@
     @endguest
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    @auth
-        @if (Cookie::get('color_mode') === 'dark')
-            <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
-        @endif
-    @endauth
+    <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
     <livewire:styles />
     @if (App::environment() === 'production')
         <script async src="https://cdn.splitbee.io/sb.js"></script>

@@ -13,11 +13,19 @@
                     </div>
                 </div>
             </div>
-            <div class="cursor-pointer card {{ Cookie::get('color_mode') === 'dark' ? 'border-primary' : ''  }}" wire:click="toggleMode('dark')">
+            <div class="cursor-pointer me-3 card {{ Cookie::get('color_mode') === 'dark' ? 'border-primary' : ''  }}" wire:click="toggleMode('dark')">
                 <img class="rounded-top" src="https://ik.imagekit.io/taskordimg/dark_preview_9AcAIKv8K.svg" />
                 <div class="card-footer">
                     <div class="fw-bold">
                         Default dark
+                    </div>
+                </div>
+            </div>
+            <div class="cursor-pointer card {{ Cookie::get('color_mode') === 'auto' ? 'border-primary' : ''  }}" wire:click="toggleMode('auto')">
+                <img class="rounded-top" src="https://ik.imagekit.io/taskordimg/dark_preview_9AcAIKv8K.svg" />
+                <div class="card-footer">
+                    <div class="fw-bold">
+                        System pref
                     </div>
                 </div>
             </div>
