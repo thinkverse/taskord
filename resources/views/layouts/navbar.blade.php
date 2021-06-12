@@ -8,7 +8,7 @@
                     @if (auth()->user()->is_beta)
                         <img loading=lazy src="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" height="35" alt="Taskord Beta" title="Taskord Beta">
                     @else
-                        <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
+                        <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_jQixOG23S.svg" height="35" alt="Taskord">
                     @endif
                 @endauth
                 @guest
