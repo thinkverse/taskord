@@ -8,19 +8,19 @@
             @else
                 @foreach ($comments as $comment)
                     <x:shared.user-label-small :user="$comment->user" />
-                    <div class="d-flex align-items-center mt-2 {{ $loop->last ? '' : 'mb-3' }}">
+                    <a class="d-flex align-items-center mt-2 {{ $loop->last ? '' : 'mb-3' }}" href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}">
                         <div class="card d-inline-block bg-light">
                             <div class="card-body px-2 py-1 body-font">
                                 {!! markdown($comment->comment) !!}
                             </div>
                         </div>
                         @if ($comment->replies_count > 0)
-                            <a class="text-secondary d-inline-flex align-items-center ms-2">
+                            <span class="text-secondary d-inline-flex align-items-center ms-2">
                                 <x-heroicon-o-chat-alt-2 class="heroicon heroicon-15px me-0" />
                                 <span class="ms-1">{{ $comment->replies_count }}</span>
                             </a>
                         @endif
-                    </div>
+                    </a>
                 @endforeach
             @endif
         </div>
