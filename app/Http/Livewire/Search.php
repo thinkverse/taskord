@@ -46,7 +46,6 @@ class Search extends Component
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['spammy', false],
-                    ['is_private', false],
                 ]);
             })
             ->whereHidden(false)
