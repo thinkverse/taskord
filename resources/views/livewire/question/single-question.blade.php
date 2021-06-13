@@ -60,48 +60,48 @@
                         </span>
                     @endif
                 </a>
-                @can('edit/delete', $question)
-                    @if ($type === "question.question")
-                        <a href="{{ route('question.edit', ['question' => $question]) }}" class="btn btn-action btn-outline-info me-1">
-                            <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />
-                            <span class="small text-dark fw-bold">
-                                Edit
-                            </span>
-                        </a>
-                    @endif
+            @endauth
+            @can('edit/delete', $question)
+                @if ($type === "question.question")
+                    <a href="{{ route('question.edit', ['question' => $question]) }}" class="btn btn-action btn-outline-info me-1">
+                        <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />
+                        <span class="small text-dark fw-bold">
+                            Edit
+                        </span>
+                    </a>
+                @endif
+                <button
+                    role="button"
+                    class="btn btn-action btn-outline-danger me-1"
+                    onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
+                    wire:click="deleteQuestion"
+                    wire:loading.attr="disabled"
+                    aria-label="Delete"
+                >
+                    <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
+                </button>
+                @if ($question->is_solvable)
                     <button
                         role="button"
-                        class="btn btn-action btn-outline-danger me-1"
-                        onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
-                        wire:click="deleteQuestion"
+                        class="btn btn-action btn-outline-success me-1"
+                        wire:click="toggleSolve"
                         wire:loading.attr="disabled"
-                        aria-label="Delete"
                     >
-                        <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
+                        @if ($question->solved)
+                            <x-heroicon-s-check-circle class="heroicon heroicon-15px me-0 text-success" />
+                            Unsolve
+                        @else
+                            <x-heroicon-s-check-circle class="heroicon heroicon-15px me-0 text-success" />
+                            Solve
+                        @endif
                     </button>
-                    @if ($question->is_solvable)
-                        <button
-                            role="button"
-                            class="btn btn-action btn-outline-success me-1"
-                            wire:click="toggleSolve"
-                            wire:loading.attr="disabled"
-                        >
-                            @if ($question->solved)
-                                <x-heroicon-s-check-circle class="heroicon heroicon-15px me-0 text-success" />
-                                Unsolve
-                            @else
-                                <x-heroicon-s-check-circle class="heroicon heroicon-15px me-0 text-success" />
-                                Solve
-                            @endif
-                        </button>
-                    @endif
-                @endcan
-                @can('staff.ops')
-                    <button type="button" class="btn btn-action {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $question->id }}" aria-label="Hide">
-                        <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
-                    </button>
-                @endcan
-            @endauth
+                @endif
+            @endcan
+            @can('staff.ops')
+                <button type="button" class="btn btn-action {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $question->id }}" aria-label="Hide">
+                    <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
+                </button>
+            @endcan
             @guest
                 <a href="/login" class="btn btn-action btn-outline-like me-1" aria-label="Likes">
                     <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
