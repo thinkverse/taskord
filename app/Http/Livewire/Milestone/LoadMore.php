@@ -45,6 +45,7 @@ class LoadMore extends Component
                     ->whereHas('user', function ($q) {
                         $q->where([
                             ['spammy', false],
+                            ['is_private', false],
                         ]);
                     })
                     ->latest()
@@ -54,6 +55,7 @@ class LoadMore extends Component
                     ->whereHas('user', function ($q) {
                         $q->where([
                             ['spammy', false],
+                            ['is_private', false],
                         ]);
                     })
                     ->latest()
