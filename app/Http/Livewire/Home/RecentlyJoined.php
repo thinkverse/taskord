@@ -19,6 +19,7 @@ class RecentlyJoined extends Component
         return User::select('id', 'username', 'firstname', 'lastname', 'avatar', 'bio', 'is_verified', 'status', 'status_emoji', 'created_at')
             ->where([
                 ['spammy', false],
+                ['is_private', false],
             ])
             ->orderBy('created_at', 'DESC')
             ->take(5)
