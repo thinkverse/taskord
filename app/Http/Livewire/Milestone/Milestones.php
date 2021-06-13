@@ -35,6 +35,7 @@ class Milestones extends Component
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['spammy', false],
+                        ['is_private', false],
                     ]);
                 })
                 ->latest()
@@ -44,6 +45,7 @@ class Milestones extends Component
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['spammy', false],
+                        ['is_private', false],
                     ]);
                 })
                 ->latest()
