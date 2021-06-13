@@ -31,6 +31,7 @@ class Suggestions extends Component
             ->whereNotIn('id', $this->user->followings->pluck('id'))
             ->where([
                 ['spammy', false],
+                ['is_private', false],
                 ['id', '!=', $this->user->id],
             ])
             ->latest('last_active')
