@@ -92,28 +92,26 @@
                     </span>
                 @endif
             </a>
-            @auth
-                @can('edit/delete', $task)
-                    <button
-                        type="button"
-                        class="btn btn-action btn-outline-danger me-1"
-                        onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
-                        wire:click="deleteTask"
-                        wire:loading.attr="disabled"
-                        aria-label="Delete"
-                    >
-                        <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
-                    </button>
-                    @livewire('task.select-milestone', [
-                        'task' => $task
-                    ])
-                @endcan
-                @can('staff.ops')
-                    <button type="button" class="btn btn-action {{ $task->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $task->id }}" aria-label="Hide">
-                        <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
-                    </button>
-                @endcan
-            @endauth
+            @can('edit/delete', $task)
+                <button
+                    type="button"
+                    class="btn btn-action btn-outline-danger me-1"
+                    onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
+                    wire:click="deleteTask"
+                    wire:loading.attr="disabled"
+                    aria-label="Delete"
+                >
+                    <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
+                </button>
+                @livewire('task.select-milestone', [
+                    'task' => $task
+                ])
+            @endcan
+            @can('staff.ops')
+                <button type="button" class="btn btn-action {{ $task->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $task->id }}" aria-label="Hide">
+                    <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
+                </button>
+            @endcan
         </div>
         @if (!$task->hidden)
             @if ($task->comments->count('id') !== 0 and $showComments)
