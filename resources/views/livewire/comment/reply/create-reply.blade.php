@@ -4,10 +4,10 @@
             <ul class="nav nav-tabs d-flex justify-content-between px-3">
                 <div class="d-flex">
                     <li class="nav-item">
-                        <div class="cursor-pointer nav-link active" :class="{ 'bg-white active': tab === 'edit' }" @click="tab = 'edit'">Edit</div>
+                        <div class="cursor-pointer nav-link active" :class="{ 'bg-white active': tab === 'edit' }" x-on:click="tab = 'edit'">Edit</div>
                     </li>
                     <li class="nav-item">
-                        <div class="cursor-pointer nav-link" :class="{ 'active bg-white': tab === 'preview' }" @click="tab = 'preview'">Preview</div>
+                        <div class="cursor-pointer nav-link" :class="{ 'active bg-white': tab === 'preview' }" x-on:click="tab = 'preview'">Preview</div>
                     </li>
                 </div>
                 <div x-show="tab === 'edit'" class="pt-1">
@@ -44,7 +44,7 @@
                     Markdown is supported
                     <x:labels.beta />
                 </a>
-                <button wire:loading.attr="disabled" wire:target="submit" class="btn btn-sm btn-outline-primary rounded-pill" type="submit" wire:click="submit" @click="tab = 'edit'">
+                <button wire:loading.attr="disabled" wire:target="submit" class="btn btn-sm btn-outline-primary rounded-pill" type="submit" wire:click="submit" x-on:click="tab = 'edit'">
                     <x-heroicon-o-plus class="heroicon heroicon-15px" />
                     Reply
                 </button>
