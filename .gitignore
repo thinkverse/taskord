@@ -19,3 +19,4 @@ yarn-error.log
 /public/.phpliteadmin.php.swp
 /public/.phpminiadmin.php.swp
 Brewfile.lock.json
+/.idea
