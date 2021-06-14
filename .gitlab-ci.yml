@@ -20,7 +20,8 @@ before_script:
   - apt-get install gnupg -yqq
   - curl -sL https://deb.nodesource.com/setup_16.x | bash -
   - apt-get install nodejs -yqq
-  - pecl install xdebug pcntl
+  - pecl install xdebug
+  - pecl install pcntl
   - docker-php-ext-enable xdebug
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
