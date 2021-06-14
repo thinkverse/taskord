@@ -208,7 +208,15 @@ class UserController extends Controller
 
     public function json($username)
     {
-        $user = User::withCount(['questions', 'answers', 'milestones'])
+        $user = User::withCount([
+                'tasks',
+                'comments',
+                'questions',
+                'answers',
+                'milestones',
+                'followers',
+                'followings',
+            ])
             ->whereUsername($username)->firstOrFail();
 
         return [
@@ -238,6 +246,13 @@ class UserController extends Controller
             'daily_goal_reached' => $user->daily_goal_reached ? true : false,
             'vacation_mode' => $user->vacation_mode ? true : false,
             'streaks' => $user->streaks,
+            'tasks' => $user->tasks_count,
+            'comments' => $user->comments_count,
+            'questions' => $user->questions_count,
+            'answers' => $user->answers_count,
+            'milestones' => $user->milestones_count,
+            'followers' => $user->followers_count,
+            'following' => $user->followings_count,
             'status' => [
                 'status_emoji' => $user->status_emoji,
                 'status' => $user->status,
