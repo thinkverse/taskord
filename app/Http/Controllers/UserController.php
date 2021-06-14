@@ -206,6 +206,45 @@ class UserController extends Controller
         ]);
     }
 
+    public function json($username)
+    {
+        $user = User::withCount(['questions', 'answers', 'milestones'])
+            ->whereUsername($username)->firstOrFail();
+
+        return [
+            'id' => $user->id,
+            'username' => $user->username,
+            'firstname' => $user->firstname,
+            'lastname' => $user->lastname,
+            'avatar' => $user->avatar,
+            'bio' => $user->bio,
+            'location' => $user->location,
+            'company' => $user->company,
+            'website' => $user->website,
+            'twitter' => $user->twitter,
+            'twitch' => $user->twitch,
+            'github' => $user->github,
+            'telegram' => $user->telegram,
+            'youtube' => $user->youtube,
+            'sponsor' => $user->sponsor,
+            'is_staff' => $user->is_staff ? true : false,
+            'is_contributor' => $user->is_contributor ? true : false,
+            'is_beta' => $user->is_beta ? true : false,
+            'is_patron' => $user->is_patron ? true : false,
+            'is_private' => $user->is_private ? true : false,
+            'is_verified' => $user->is_verified ? true : false,
+            'has_goal' => $user->has_goal ? true : false,
+            'daily_goal' => $user->daily_goal,
+            'daily_goal_reached' => $user->daily_goal_reached ? true : false,
+            'vacation_mode' => $user->vacation_mode ? true : false,
+            'streaks' => $user->streaks,
+            'status' => [
+                'status_emoji' => $user->status_emoji,
+                'status' => $user->status,
+            ],
+        ];
+    }
+
     public function darkMode()
     {
         if (Cookie::get('color_mode') === 'light') {

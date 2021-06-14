@@ -77,6 +77,8 @@ Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
         ->name('followers');
     Route::get('stats', [UserController::class, 'profile'])
         ->name('stats');
+    Route::get('/json', [UserController::class, 'json'])
+        ->name('json');
 });
 
 // Settings
