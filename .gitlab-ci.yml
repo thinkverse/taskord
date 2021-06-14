@@ -19,7 +19,7 @@ before_script:
   - apt-get update -yqq
   - apt-get install gnupg -yqq
   - curl -sL https://deb.nodesource.com/setup_16.x | bash -
-  - apt-get install nodejs -yqq
+  - apt-get install nodejs libzip -yqq
   - pecl install xdebug
   - docker-php-ext-install pcntl zip
   - docker-php-ext-enable xdebug
