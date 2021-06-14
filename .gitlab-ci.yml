@@ -25,9 +25,10 @@ before_script:
   - docker-php-ext-enable xdebug
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
-  - npm install
+  - npm install yarn -g
   - cp .env.example .env
-  - npm run dev
+  - yarn install
+  - yarn prod
   - php artisan key:generate
   - php artisan config:cache
   - php artisan migrate
