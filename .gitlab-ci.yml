@@ -36,4 +36,4 @@ before_script:
 
 test:
   script:
-    - php vendor/bin/pest
+    - php artisan test
