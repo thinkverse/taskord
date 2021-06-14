@@ -36,6 +36,11 @@ Test:
   script:
     - php artisan test
 
+Coverage:
+  stage: test
+  script:
+    - ./vendor/bin/pest --coverage
+
 Insights:
   stage: test
   script:
