@@ -208,7 +208,7 @@
                             <div class="dropdown-divider"></div>
                             <div class="px-2 text-dark">
                                 @if (auth()->user()->status)
-                                    <a href="{{ route('user.done', ['username' => auth()->user()->username]) }}" class="border border-dark border-1 d-flex px-2 py-1 rounded text-dark text-start">
+                                    <a href="{{ route('user.done', ['username' => auth()->user()->username]) }}" class="border border-2 d-flex px-2 py-1 rounded text-dark text-start">
                                         {{ auth()->user()->status_emoji }} {{ Str::limit(auth()->user()->status, 10) }}
                                     </a>
                                     @else
