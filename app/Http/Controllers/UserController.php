@@ -209,14 +209,14 @@ class UserController extends Controller
     public function json($username)
     {
         $user = User::withCount([
-                'tasks',
-                'comments',
-                'questions',
-                'answers',
-                'milestones',
-                'followers',
-                'followings',
-            ])
+            'tasks',
+            'comments',
+            'questions',
+            'answers',
+            'milestones',
+            'followers',
+            'followings',
+        ])
             ->whereUsername($username)->firstOrFail();
 
         return [
