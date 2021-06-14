@@ -26,7 +26,7 @@
             </div>
             <div>
                 @if ($user->status)
-                    <div class="d-inline-block border border-dark border-1 mt-2 px-2 py-1 rounded text-dark">
+                    <div class="d-inline-block border border-2 mt-2 px-2 py-1 rounded text-dark">
                         <span>{{ $user->status_emoji }}</span>
                         <span title="{{ $user->status }}">{{ Str::limit($user->status, '50') }}</span>
                     </div>
