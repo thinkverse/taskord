@@ -21,7 +21,7 @@ before_script:
   - curl -sL https://deb.nodesource.com/setup_16.x | bash -
   - apt-get install git nodejs libzip-dev -yqq
   - pecl install xdebug
-  - docker-php-ext-install pcntl zip
+  - docker-php-ext-install pcntl zip pdo_mysql
   - docker-php-ext-enable xdebug
   - curl -sS https://getcomposer.org/installer | php
   - php composer.phar install
