@@ -1,9 +1,0 @@
-image: Ubuntu
-
-install:
-- yarn install
-
-test_script:
-- yarn prod
-
-build: off
