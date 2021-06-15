@@ -1,4 +1,4 @@
-image: php:latest
+image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/edbizarro/gitlab-ci-pipeline-php:latest
 
 services:
   - mysql:latest
@@ -10,30 +10,52 @@ variables:
   MYSQL_DATABASE: taskord
   DB_HOST: mysql
 
+stages:
+  - test
+  - clean
+
 cache:
   paths:
     - vendor/
     - node_modules/
 
 before_script:
-  - apt-get update -yqq
-  - apt-get install gnupg -yqq
-  - curl -sL https://deb.nodesource.com/setup_16.x | bash -
-  - apt-get install git nodejs libzip-dev -yqq
-  - pecl install xdebug
-  - docker-php-ext-install pcntl zip pdo_mysql
-  - docker-php-ext-enable xdebug
-  - curl -sS https://getcomposer.org/installer | php
-  - php composer.phar install
-  - npm install yarn -g
+  - sudo composer self-update --2
+  - sudo composer install --no-progress --ignore-platform-reqs
   - cp .env.example .env
-  - yarn install
-  - yarn prod
   - php artisan key:generate
-  - php artisan config:cache
-  - php artisan migrate
-  - php artisan db:seed
+  - sudo npm i -g yarn
+  - sudo yarn install
+  - sudo yarn production
+  - php artisan horizon:install
+  - php artisan horizon:publish
+  - php artisan migrate:fresh --seed
 
-test:
+Test:
+  stage: test
   script:
     - php artisan test
+
+Insights:
+  stage: test
+  script:
+    - php artisan insights -v
+
+Validate GraphQL:
+  stage: test
+  script:
+    - php artisan lighthouse:validate-schema
+
+Housekeeping:
+  stage: clean
+  script:
+    - curl --request POST --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/housekeeping
+  only:
+    - main
+
+Merged Branches:
+  stage: clean
+  script:
+    - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches
+  only:
+    - main
