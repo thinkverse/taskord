@@ -30,15 +30,15 @@ class StaffController extends Controller
     public static function commitData()
     {
         $client = new Client(['http_errors' => false]);
-        $commit = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/repository/commits', [
+        $commits = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/repository/commits', [
             'query' => [
-                'ref_name' => git('rev-parse HEAD')."...main",
+                'ref_name' => "70a9c37a...main",
             ],
         ]);
 
-        if ($commit->getStatusCode() === 200) {
+        if ($commits->getStatusCode() === 200) {
             return view('site.commit', [
-                'commit' => json_decode($commit->getBody()->getContents()),
+                'commits' => json_decode($commits->getBody()->getContents()),
             ]);
         }
 
