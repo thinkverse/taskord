@@ -17,6 +17,7 @@ type User {
     sponsor: String
     timezone: String
     reputation: Int!
+    streaks: Int!
     is_staff: Boolean!
     is_verified: Boolean!
     is_contributor: Boolean!
