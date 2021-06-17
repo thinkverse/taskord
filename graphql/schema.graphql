@@ -8,7 +8,7 @@ type Query {
     me: User @auth(guard: "api")
     users: [User!]! @paginate
     user(id: ID @eq): User @find
-    products(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Product!]! @paginate(type: "connection")
+    products(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Product!]! @paginate
     product(id: ID @eq): Product @find
     productUpdates(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [ProductUpdate!]! @paginate(type: "connection")
     productUpdate(id: ID @eq): ProductUpdate @find
