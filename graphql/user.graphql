@@ -18,6 +18,8 @@ type User {
     timezone: String
     reputation: Int!
     streaks: Int!
+    daily_goal: Boolean!
+    daily_goal_reached: Boolean!
     is_staff: Boolean!
     is_verified: Boolean!
     is_contributor: Boolean!
