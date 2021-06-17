@@ -20,7 +20,7 @@ type Query {
     question(id: ID @eq @where(clause: "whereHidden")): Question @find
     answers(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Answer!]! @paginate
     answer(id: ID @eq @where(clause: "whereHidden")): Answer @find
-    milestones(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Milestone!]! @paginate(type: "connection")
+    milestones(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Milestone!]! @paginate
     milestone(id: ID @eq @where(clause: "whereHidden")): Milestone @find
 }
 
