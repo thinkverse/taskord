@@ -12,7 +12,7 @@ type Query {
     product(id: ID @eq): Product @find
     productUpdates(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [ProductUpdate!]! @paginate(type: "connection")
     productUpdate(id: ID @eq): ProductUpdate @find
-    tasks(done: Boolean! @eq, orderBy: _ @orderBy(columns: ["created_at", "updated_at", "done_at"])): [Task!]! @paginate(type: "connection")
+    tasks(done: Boolean! @eq, orderBy: _ @orderBy(columns: ["created_at", "updated_at", "done_at"])): [Task!]! @paginate
     task(id: ID @eq @where(clause: "whereHidden")): Task @find
     comments(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Comment!]! @paginate(type: "connection")
     comment(id: ID @eq @where(clause: "whereHidden")): Comment @find
