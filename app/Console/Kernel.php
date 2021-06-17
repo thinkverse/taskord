@@ -29,6 +29,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('disposable:update')->daily();
         $schedule->command('user:reset-goal')->dailyAt('00:00');
         $schedule->command('user:streaks')->hourly();
+        $schedule->command('auth:clear-resets')->weekly();
     }
 
     /**
