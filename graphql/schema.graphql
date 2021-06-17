@@ -16,7 +16,7 @@ type Query {
     task(id: ID @eq @where(clause: "whereHidden")): Task @find
     comments(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Comment!]! @paginate
     comment(id: ID @eq @where(clause: "whereHidden")): Comment @find
-    questions(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Question!]! @paginate(type: "connection")
+    questions(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Question!]! @paginate
     question(id: ID @eq @where(clause: "whereHidden")): Question @find
     answers(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Answer!]! @paginate(type: "connection")
     answer(id: ID @eq @where(clause: "whereHidden")): Answer @find
