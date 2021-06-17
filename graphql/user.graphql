@@ -22,6 +22,7 @@ type User {
     is_beta: Boolean!
     is_patron: Boolean!
     is_private: Boolean!
+    vacation_mode: Boolean!
     tasks: [Task!]! @hasMany(type: "connection")
     comments: [Comment!]! @hasMany(type: "connection")
     ownedProducts: [Product!]! @hasMany(type: "connection")
