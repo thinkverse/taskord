@@ -57,6 +57,8 @@ class Clean extends Command
         Artisan::call('queue:flush');
         $this->info('Queue Cleared ✅');
         $this->info('Cleaning Ended ✅');
+        rtisan::call('optimize');
+        $this->info('Optimize the app ✅');
 
         return 0;
     }
