@@ -7,11 +7,13 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
     <title>Taskord GraphQL Playground</title>
 
-    <link rel="stylesheet"
-          href="{{\MLL\GraphQLPlayground\DownloadAssetsCommand::cssPath()}}"
+    <link
+        rel="stylesheet"
+        href="{{\MLL\GraphQLPlayground\DownloadAssetsCommand::cssPath()}}"
     />
-    <link rel="shortcut icon"
-          href="{{\MLL\GraphQLPlayground\DownloadAssetsCommand::faviconPath()}}"
+    <link
+        rel="shortcut icon"
+        href="{{\MLL\GraphQLPlayground\DownloadAssetsCommand::faviconPath()}}"
     />
     <script src="{{\MLL\GraphQLPlayground\DownloadAssetsCommand::jsPath()}}"></script>
 </head>
