@@ -47,9 +47,7 @@
             </div>
         @endif
         @can('edit/delete', $task)
-            @livewire('task.select-milestone', [
-                'task' => $task
-            ])
+            <livewire:task.select-milestone :task="$task" />
             @if ($show_delete)
                 <button
                     type="button"
