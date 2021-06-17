@@ -27,14 +27,14 @@ type User {
     is_patron: Boolean!
     is_private: Boolean!
     vacation_mode: Boolean!
-    tasks: [Task!]! @hasMany(type: "connection")
-    comments: [Comment!]! @hasMany(type: "connection")
-    ownedProducts: [Product!]! @hasMany(type: "connection")
-    products: [Product!]! @belongsToMany(type: "connection")
-    questions: [Question!]! @hasMany(type: "connection")
-    answers: [Answer!]! @hasMany(type: "connection")
-    followings: [User!]! @hasMany(type: "connection")
-    followers:  [User!]! @hasMany(type: "connection")
+    tasks: [Task!]! @hasMany(type: SIMPLE)
+    comments: [Comment!]! @hasMany(type: SIMPLE)
+    ownedProducts: [Product!]! @hasMany(type: SIMPLE)
+    products: [Product!]! @belongsToMany(type: SIMPLE)
+    questions: [Question!]! @hasMany(type: SIMPLE)
+    answers: [Answer!]! @hasMany(type: SIMPLE)
+    followings: [User!]! @hasMany(type: SIMPLE)
+    followers:  [User!]! @hasMany(type: SIMPLE)
     created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime! @cache(maxAge: 3600)
 }
