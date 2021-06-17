@@ -103,9 +103,7 @@
                 >
                     <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
                 </button>
-                @livewire('task.select-milestone', [
-                    'task' => $task
-                ])
+                <livewire:task.select-milestone :task="$task" />
             @endcan
             @can('staff.ops')
                 <button type="button" class="btn btn-action {{ $task->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $task->id }}" aria-label="Hide">
