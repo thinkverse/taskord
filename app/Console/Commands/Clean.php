@@ -52,6 +52,8 @@ class Clean extends Command
         $this->info('Views Cleared ✅');
         Artisan::call('cache:clear');
         $this->info('Cache Cleared ✅');
+        Artisan::call('clear-compiled');
+        $this->info('Clear compiled class files ✅');
         Artisan::call('queue:flush');
         $this->info('Queue Cleared ✅');
         $this->info('Cleaning Ended ✅');
