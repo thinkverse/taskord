@@ -152,7 +152,7 @@
                             <x-heroicon-o-bell class="heroicon-23px me-0" />
                             @auth
                                 @if (auth()->user()->unreadNotifications->count('id') !== 0)
-                                    <span class="badge badge-pill bg-danger fw-bold small p-1 mb-2"></span>
+                                    <span class="badge badge-pill bg-danger fw-bold small p-1 mb-2">{{ ' ' }}</span>
                                 @endif
                             @endauth
                         </a>
