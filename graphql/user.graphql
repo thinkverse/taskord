@@ -15,6 +15,7 @@ type User {
     github: String
     youtube: String
     sponsor: String
+    timezone: String
     reputation: Int!
     is_staff: Boolean!
     is_verified: Boolean!
