@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Staff;
 
 use App\Jobs\Clean;
-use App\Jobs\Deploy;
 use Illuminate\Support\Facades\Queue;
 use Jean85\PrettyVersions;
 use Livewire\Component;
