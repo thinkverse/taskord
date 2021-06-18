@@ -266,9 +266,6 @@ Route::group([
     Route::view('jobs', 'staff.jobs')
         ->middleware('password.confirm')
         ->name('jobs');
-    Route::view('deployments', 'staff.deployments')
-        ->middleware('password.confirm')
-        ->name('deployments');
 });
 
 // Patron
