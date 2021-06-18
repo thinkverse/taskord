@@ -15,6 +15,17 @@
         </div>
         <div class="card-body d-flex justify-content-center">
             <div class="col-lg-7">
+                <div class="text-center mb-5 pt-2">
+                    <div>
+                        <img loading=lazy height="70" src="https://ik.imagekit.io/taskordimg/macstadium_rSBB5WsBB.png" />
+                    </div>
+                    <div class="h6 mt-4 lh-base">
+                        MacStadium is the only provider of enterprise-class cloud solutions for Mac and iOS app development. Whether you need a Mac cloud for large-scale CI/CD or just need a single Mac mini to test your iOS app, MacStadium has a solution for all of your Mac development needs.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://macstadium.com" target="_blank" rel="noreferrer">➜ Go to MacStadium</a>
+                    </div>
+                </div>
                 <div class="text-center mb-5 pt-4">
                     <div>
                         <img loading=lazy height="80" src="https://ik.imagekit.io/taskordimg/aws_iB7lIW64k.png" />
@@ -35,17 +46,6 @@
                     </div>
                     <div class="mt-2">
                         <a href="https://www.digitalocean.com" target="_blank" rel="noreferrer">➜ Go to DigitalOcean</a>
-                    </div>
-                </div>
-                <div class="text-center mb-5 pt-2">
-                    <div>
-                        <img loading=lazy height="70" src="https://ik.imagekit.io/taskordimg/macstadium_rSBB5WsBB.png" />
-                    </div>
-                    <div class="h6 mt-4 lh-base">
-                        MacStadium is the only provider of enterprise-class cloud solutions for Mac and iOS app development. Whether you need a Mac cloud for large-scale CI/CD or just need a single Mac mini to test your iOS app, MacStadium has a solution for all of your Mac development needs.
-                    </div>
-                    <div class="mt-2">
-                        <a href="https://macstadium.com" target="_blank" rel="noreferrer">➜ Go to MacStadium</a>
                     </div>
                 </div>
                 <div class="text-center mb-5 pt-2">
