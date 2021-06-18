@@ -12,6 +12,7 @@ variables:
 
 stages:
   - test
+  - deploy
   - clean
 
 cache:
@@ -45,6 +46,15 @@ Validate GraphQL:
   stage: test
   script:
     - php artisan lighthouse:validate-schema
+
+Staging:
+  stage: deploy
+  script:
+    - cat $PRIVATE_KEY > taskord.pem
+    - chmod 400 taskord.pem
+    - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@stg-deploy.taskord.com 'cd /var/www/taskord; php vendor/bin/envoy run deploy'
+  only:
+    - main
 
 Housekeeping:
   stage: clean
