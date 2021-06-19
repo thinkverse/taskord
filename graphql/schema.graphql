@@ -35,7 +35,7 @@ type Mutation {
     createTask(
         task: String @rules(apply: ["required", "string", "max:5000"])
         done: Boolean @rules(apply: ["required"])
-    ): TaskPayload @field(resolver: "TaskMutator")
+    ): TaskPayload @field(resolver: "TaskMutator@createTask")
 }
 
 #import auth.graphql

@@ -10,7 +10,7 @@ use Helper;
 
 class TaskMutator
 {
-    public function __invoke($_, array $args)
+    public function createTask($_, array $args)
     {
         if (Gate::denies('create')) {
             return [
