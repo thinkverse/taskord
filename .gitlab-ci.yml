@@ -53,6 +53,9 @@ Staging:
     - cat $PRIVATE_KEY > taskord.pem
     - chmod 400 taskord.pem
     - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@stg-deploy.taskord.com 'cd /var/www/taskord; ./script/deploy-staging.sh'
+  environment:
+    name: staging
+    url: https://staging.taskord.com
   only:
     - main
 
