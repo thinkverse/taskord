@@ -7,15 +7,24 @@ use App\Gamify\Points\TaskCreated;
 use Illuminate\Support\Facades\Gate;
 use App\Actions\CreateNewTask;
 use Helper;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 
 class TaskMutator
 {
-    /**
-     * @param  null  $_
-     * @param  array<string, mixed>  $args
-     */
+    use WithRateLimiting;
+
     public function __invoke($_, array $args)
     {
+        try {
+            $this->rateLimit(2);
+        } catch (TooManyRequestsException $exception) {
+            return [
+                'status' => false,
+                'message' => config('taskord.error.rate-limit'),
+            ];
+        }
+
         if (Gate::denies('create')) {
             return [
                 'status' => false,
