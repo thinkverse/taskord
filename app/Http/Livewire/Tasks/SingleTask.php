@@ -65,9 +65,7 @@ class SingleTask extends Component
             Storage::delete($image);
         }
         $this->task->delete();
-        $this->emitUp('refreshTasks');
-
-        return auth()->user()->touch();
+        return $this->emitUp('refreshTasks');
     }
 
     public function render()
