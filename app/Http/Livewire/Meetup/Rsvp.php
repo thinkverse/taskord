@@ -31,8 +31,6 @@ class Rsvp extends Component
         }
 
         auth()->user()->toggleSubscribe($this->meetup);
-        $this->meetup->refresh();
-
-        return auth()->user()->touch();
+        return $this->meetup->refresh();
     }
 }
