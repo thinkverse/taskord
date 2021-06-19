@@ -31,6 +31,7 @@ class TaskMutator
             'done' => $args['done'],
             'done_at' => $args['done'] ? carbon() : null,
             'type' => 'user',
+            'type' => $product_id ? 'product' : 'user',
             'source' => 'Taskord API',
         ]))();
 
