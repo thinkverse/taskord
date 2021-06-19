@@ -33,6 +33,13 @@ type Task {
 }
 
 # Mutation
+
+# Create Task - createTask
+input CreateTaskInput {
+  task: String! @rules(apply: ["required", "string", "max:5000"])
+  done: Boolean! @rules(apply: ["required"])
+}
+
 type TaskPayload {
     task: Task
     status: Boolean!
