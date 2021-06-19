@@ -12,7 +12,6 @@ variables:
 
 stages:
   - test
-  - deploy
   - clean
 
 cache:
@@ -46,13 +45,6 @@ Validate GraphQL:
   stage: test
   script:
     - php artisan lighthouse:validate-schema
-
-Sync Schema:
-  stage: deploy
-  script:
-    - npx graphcdn push schema
-  only:
-    - main
 
 Housekeeping:
   stage: clean
