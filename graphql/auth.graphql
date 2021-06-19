@@ -9,5 +9,6 @@ input LoginInput {
 type LoginPayload {
     user: User
     token: String
-    message: String
+    status: Boolean!
+    message: String!
 }
