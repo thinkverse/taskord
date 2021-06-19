@@ -26,10 +26,7 @@ type Query {
 
 type Mutation {
     # Auth
-    login(
-        email: String! @rules(apply: ["required", "email"])
-        password: String! @rules(apply: ["required"])
-    ): LoginPayload @field(resolver: "AuthMutator")
+    login(input: LoginInput! @spread): LoginPayload @field(resolver: "AuthMutator")
 
     # Task
     createTask(input: CreateTaskInput! @spread): TaskPayload @field(resolver: "TaskMutator@createTask")
