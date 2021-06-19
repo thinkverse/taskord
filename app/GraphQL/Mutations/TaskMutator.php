@@ -1,6 +1,7 @@
 <?php
 
 namespace App\GraphQL\Mutations;
+use Illuminate\Support\Facades\Auth;
 
 class TaskMutator
 {
