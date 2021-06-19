@@ -64,6 +64,7 @@ class SingleTask extends Component
             Storage::delete($image);
         }
         $this->task->delete();
+
         return $this->emitUp('refreshTasks');
     }
 

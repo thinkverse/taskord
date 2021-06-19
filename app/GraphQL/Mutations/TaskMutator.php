@@ -3,8 +3,8 @@
 namespace App\GraphQL\Mutations;
 
 use App\Actions\CreateNewTask;
-use App\Models\Task;
 use App\Gamify\Points\TaskCreated;
+use App\Models\Task;
 use Helper;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
@@ -48,7 +48,7 @@ class TaskMutator
         if (! $task) {
             return [
                 'status' => false,
-                'message' => "No task found!",
+                'message' => 'No task found!',
             ];
         }
 
