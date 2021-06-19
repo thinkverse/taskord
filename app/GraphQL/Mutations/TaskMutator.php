@@ -64,7 +64,6 @@ class TaskMutator
             Storage::delete($image);
         }
         $task->delete();
-        auth()->user()->touch();
 
         return [
             'status' => true,

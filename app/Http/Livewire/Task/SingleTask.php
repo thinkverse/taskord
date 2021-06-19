@@ -106,7 +106,6 @@ class SingleTask extends Component
         }
         $this->task->delete();
         $this->emitUp('refreshTasks');
-        auth()->user()->touch();
 
         return toast($this, 'success', 'Task has been deleted successfully!');
     }
