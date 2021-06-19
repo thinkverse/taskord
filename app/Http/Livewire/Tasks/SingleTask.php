@@ -41,7 +41,6 @@ class SingleTask extends Component
 
         $this->task->done = ! $this->task->done;
         $this->task->done_at = carbon();
-        auth()->user()->touch();
         givePoint(new TaskCompleted($this->task));
         $this->task->save();
         $this->emit('refreshTasks');
