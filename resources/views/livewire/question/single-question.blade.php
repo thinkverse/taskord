@@ -22,7 +22,7 @@
                         @endif
                     @endif
                 </div>
-                <a class="text-secondary" href="{{ route('question.question', ['id' => $question->id]) }}">
+                <a class="text-secondary" href="{{ route('question.question', ['slug' => $question->slug]) }}">
                     {{ carbon($question->created_at)->diffForHumans() }}
                 </a>
             </span>
