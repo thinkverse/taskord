@@ -31,3 +31,10 @@ type Task {
     created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime! @cache(maxAge: 3600)
 }
+
+# Mutation
+type TaskPayload {
+    task: Task
+    done: Boolean
+    message: String
+}
