@@ -28,7 +28,11 @@
     <a class="pe-2" href="{{ route('sponsors') }}">
         Sponsors
     </a>
-    <a class="pe-2 cursor-pointer" data-feedback-fish>
+    <a
+        class="pe-2 cursor-pointer"
+        data-feedback-fish
+        data-feedback-fish-userid="{{ auth()->check() ? auth()->id().'|@'.auth()->user()->username : '' }}"
+    >
         Feedback
     </a>
     @auth
