@@ -53,6 +53,6 @@ class CreateQuestion extends Component
         givePoint(new QuestionCreated($question));
         loggy(request(), 'Question', auth()->user(), "Created a new question | Question ID: {$question->id}");
 
-        return redirect()->route('question.question', ['id' => $question->id]);
+        return redirect()->route('question.question', ['slug' => $question->slug]);
     }
 }
