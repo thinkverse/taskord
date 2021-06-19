@@ -1,12 +1,11 @@
 <?php
 
 namespace App\GraphQL\Mutations;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Task;
-use App\Gamify\Points\TaskCreated;
-use Illuminate\Support\Facades\Gate;
+
 use App\Actions\CreateNewTask;
+use App\Gamify\Points\TaskCreated;
 use Helper;
+use Illuminate\Support\Facades\Gate;
 
 class TaskMutator
 {
