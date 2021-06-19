@@ -36,13 +36,12 @@ type Task {
 
 # Create Task - createTask
 input CreateTaskInput {
-  task: String! @rules(apply: ["string", "min:3", "max:5000"])
+  task: String! @rules(apply: ["min:3", "max:5000"])
   done: Boolean!
 }
 
 input DeleteTaskInput {
-  task: String! @rules(apply: ["string", "min:3", "max:5000"])
-  done: Boolean!
+  id: Int!
 }
 
 type TaskPayload {
