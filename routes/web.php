@@ -175,7 +175,7 @@ Route::group([
 ], function () {
     Route::get('{slug}', [QuestionController::class, 'question'])
         ->name('question');
-    Route::get('{question}/edit', [QuestionController::class, 'edit'])
+    Route::get('{slug}/edit', [QuestionController::class, 'edit'])
         ->middleware('auth')
         ->name('edit');
 });

@@ -63,7 +63,7 @@
             @endauth
             @can('edit/delete', $question)
                 @if ($type === "question.question")
-                    <a href="{{ route('question.edit', ['question' => $question]) }}" class="btn btn-action btn-outline-info me-1">
+                    <a href="{{ route('question.edit', ['slug' => $question->slug]) }}" class="btn btn-action btn-outline-info me-1">
                         <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />
                         <span class="small text-dark fw-bold">
                             Edit
