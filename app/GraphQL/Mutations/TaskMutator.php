@@ -17,6 +17,7 @@ class TaskMutator
     {
         if (Gate::denies('create')) {
             return [
+                'status' => false,
                 'message' => 'Permission denied!',
             ];
         }
@@ -33,7 +34,9 @@ class TaskMutator
         givePoint(new TaskCreated($task));
 
         return [
-            'message' => 'Task Created',
+            'status' => true,
+            'message' => 'Task created successfully',
+            'task' => $task,
         ];
     }
 }

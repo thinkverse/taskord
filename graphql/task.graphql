@@ -35,6 +35,6 @@ type Task {
 # Mutation
 type TaskPayload {
     task: Task
-    done: Boolean
-    message: String
+    status: Boolean!
+    message: String!
 }
