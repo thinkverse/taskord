@@ -32,7 +32,7 @@
         @if ($question->hidden)
             <span class="fst-italic text-secondary">Question was hidden by moderator</span>
         @else
-        <a href="{{ route('question.question', ['id' => $question->id]) }}" class="h5 align-text-top fw-bold text-dark">
+        <a href="{{ route('question.question', ['slug' => $question->slug]) }}" class="h5 align-text-top fw-bold text-dark">
             @if ($type !== "question.question")
                 {{ Str::words($question->title, '10') }}
             @else
@@ -52,7 +52,7 @@
         <div class="mt-3">
             @auth
                 <x:like-button :entity="$question" />
-                <a href="{{ route('question.question', ['id' => $question->id]) }}" class="btn btn-action btn-outline-primary me-1" aria-label="Questions">
+                <a href="{{ route('question.question', ['slug' => $question->slug]) }}" class="btn btn-action btn-outline-primary me-1" aria-label="Questions">
                     <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
                     @if ($question->answers->count('id') !== 0)
                         <span class="small text-dark fw-bold">
@@ -125,7 +125,7 @@
                 </span>
             @endif
             @if ($type !== "question.question")
-                <a href="{{ route('question.question', ['id' => $question->id]) }}" class="avatar-stack text-dark">
+                <a href="{{ route('question.question', ['slug' => $question->slug]) }}" class="avatar-stack text-dark">
                     @foreach ($question->answers->groupBy('user_id')->take(5) as $answer)
                         <img
                             loading=lazy
