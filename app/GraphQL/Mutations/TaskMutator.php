@@ -22,14 +22,10 @@ class TaskMutator
             ];
         }
 
-        if (! $this->product) {
-            $product_id = Helper::getProductIDFromMention($this->task, auth()->user());
-        } else {
-            $product_id = $this->product->id;
-        }
+        $product_id = Helper::getProductIDFromMention($args['done'], auth()->user());
 
         $task = (new CreateNewTask(auth()->user(), [
-            'product_id' => null,
+            'product_id' => $product_id,
             'task' => $args['task'],
             'done' => $args['done'],
             'done_at' => $args['done'] ? carbon() : null,
