@@ -27,9 +27,9 @@ class QuestionController extends Controller
         ]);
     }
 
-    public function question($questionId)
+    public function question($questionSlug)
     {
-        $question = Question::where('id', $questionId)->firstOrFail();
+        $question = Question::where('slug', $questionSlug)->firstOrFail();
         $response = [
             'type' => 'question.question',
             'question' => $question,

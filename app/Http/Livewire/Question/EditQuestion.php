@@ -66,6 +66,6 @@ class EditQuestion extends Component
 
         loggy(request(), 'Question', auth()->user(), "Updated a question | Question ID: {$question->id}");
 
-        return redirect()->route('question.question', ['id' => $question->id]);
+        return redirect()->route('question.question', ['slug' => $question->slug]);
     }
 }
