@@ -63,13 +63,12 @@ class TaskMutator
         foreach ($task->images ?? [] as $image) {
             Storage::delete($image);
         }
-        $this->task->delete();
-        $this->emitUp('refreshTasks');
+        $task->delete();
         auth()->user()->touch();
 
         return [
             'status' => true,
-            'message' => 'Task created successfully',
+            'message' => 'Task deleted successfully',
             'task' => $task,
         ];
     }
