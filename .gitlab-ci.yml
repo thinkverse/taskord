@@ -12,7 +12,6 @@ variables:
 
 stages:
   - test
-  - deploy
   - clean
 
 cache:
