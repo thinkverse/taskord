@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use function Sentry\configureScope;
+use Sentry\State\Scope;
 
 class Sentry
 {
