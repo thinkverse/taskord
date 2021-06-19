@@ -28,7 +28,7 @@
     <a class="pe-2" href="{{ route('sponsors') }}">
         Sponsors
     </a>
-    <a class="pe-2" href="{{ route('contact') }}">
+    <a class="pe-2" href="{{ route('contact') }}" data-feedback-fish>
         Contact
     </a>
     @auth
@@ -47,3 +47,4 @@
         @endif
     @endauth
 </div>
+<script defer src="https://feedback.fish/ff.js?pid=c0bc4379534829"></script>
