@@ -52,7 +52,7 @@ class TaskMutator
             ];
         }
 
-        if (Gate::denies('edit/delete', $this->task)) {
+        if (Gate::denies('edit/delete', $task)) {
             return [
                 'status' => false,
                 'message' => config('taskord.toast.deny'),
