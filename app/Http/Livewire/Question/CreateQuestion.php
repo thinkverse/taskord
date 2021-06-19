@@ -4,8 +4,8 @@ namespace App\Http\Livewire\Question;
 
 use App\Gamify\Points\QuestionCreated;
 use Illuminate\Support\Facades\Gate;
-use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Component;
 
 class CreateQuestion extends Component
 {
