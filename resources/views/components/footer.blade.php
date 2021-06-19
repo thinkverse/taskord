@@ -28,8 +28,8 @@
     <a class="pe-2" href="{{ route('sponsors') }}">
         Sponsors
     </a>
-    <a class="pe-2" href="{{ route('contact') }}" data-feedback-fish>
-        Contact
+    <a class="pe-2 cursor-pointer" data-feedback-fish>
+        Feedback
     </a>
     @auth
         @if (auth()->user()->is_staff)
