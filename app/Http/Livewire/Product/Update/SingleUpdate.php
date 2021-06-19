@@ -38,9 +38,7 @@ class SingleUpdate extends Component
             return auth()->user()->touch();
         }
         auth()->user()->like($this->update);
-        $this->update->refresh();
-
-        return auth()->user()->touch();
+        return $this->update->refresh();
     }
 
     public function deleteUpdate()
