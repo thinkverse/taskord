@@ -18,6 +18,18 @@ class Sentry
      */
     public function handle(Request $request, Closure $next)
     {
+        if (app()->bound('sentry')) {
+            if (auth()->check()) {
+                configureScope(function (Scope $scope): void {
+                    $scope->setUser([
+                        'id' => auth()->user()->id,
+                        'username' => auth()->user()->username,
+                        'email' => auth()->user()->email,
+                    ]);
+                });
+            }
+        }
+
         return $next($request);
     }
 }
