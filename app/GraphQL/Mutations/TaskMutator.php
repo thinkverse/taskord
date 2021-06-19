@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Gamify\Points\TaskCreated;
 use Illuminate\Support\Facades\Gate;
 use App\Actions\CreateNewTask;
+use Helper;
 
 class TaskMutator
 {
@@ -22,7 +23,7 @@ class TaskMutator
             ];
         }
 
-        $product_id = Helper::getProductIDFromMention($args['done'], auth()->user());
+        $product_id = Helper::getProductIDFromMention($args['task'], auth()->user());
 
         $task = (new CreateNewTask(auth()->user(), [
             'product_id' => $product_id,
