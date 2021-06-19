@@ -14,7 +14,7 @@ class AddSlugToQuestionsTable extends Migration
     public function up()
     {
         Schema::table('questions', function (Blueprint $table) {
-            //
+            $table->string('slug')->unique();
         });
     }
 
@@ -26,7 +26,7 @@ class AddSlugToQuestionsTable extends Migration
     public function down()
     {
         Schema::table('questions', function (Blueprint $table) {
-            //
+            $table->dropColumn('slug');
         });
     }
 }
