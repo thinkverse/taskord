@@ -40,6 +40,11 @@ input CreateTaskInput {
   done: Boolean!
 }
 
+input DeleteTaskInput {
+  task: String! @rules(apply: ["string", "min:3", "max:5000"])
+  done: Boolean!
+}
+
 type TaskPayload {
     task: Task
     status: Boolean!
