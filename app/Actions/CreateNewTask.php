@@ -5,6 +5,7 @@ namespace App\Actions;
 use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
 use App\Models\User;
+use App\Models\Product;
 use Helper;
 
 class CreateNewTask
@@ -13,10 +14,12 @@ class CreateNewTask
 
     protected array $data;
     protected User $user;
+    protected $product;
 
-    public function __construct(User $user, array $data)
+    public function __construct(User $user, $product, array $data)
     {
         $this->user = $user;
+        $this->product = $product;
         $this->data = $data;
     }
 
@@ -39,9 +42,17 @@ class CreateNewTask
 
     public function createTaskModel(): Task
     {
+        if (! $this->product) {
+            $product_id = Helper::getProductIDFromMention($this->data['task'], auth()->user());
+        } else {
+            $product_id = $this->product->id;
+        }
+
         return Task::create(
             \array_merge([
+                'product_id' => $product_id,
                 'user_id' => $this->user->id,
+                'type' => $product_id ? 'product' : 'user',
                 'source' => self::DEFAULT_SOURCE,
             ], $this->data)
         );
