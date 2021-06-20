@@ -27,7 +27,7 @@ type Task {
     product: Product @belongsTo
     hasLiked: Boolean @field(resolver: "App\\GraphQL\\Queries\\TaskQuery@hasLiked")
     comments: [Comment!]! @hasMany(type: SIMPLE)
-    likes: [User!]! @hasMany(relation: "likers", type: "connection")
+    likes: [User!]! @hasMany(relation: "likers", type: SIMPLE)
     created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime! @cache(maxAge: 3600)
 }

@@ -6,8 +6,8 @@ type Question {
     patron_only: Boolean!
     user: User @belongsTo
     hasLiked: Boolean @field(resolver: "App\\GraphQL\\Queries\\QuestionQuery@hasLiked")
-    likes: [User!]! @hasMany(relation: "likers", type: "connection")
-    answers: [Answer!]! @hasMany(relation: "answer", type: "connection")
+    likes: [User!]! @hasMany(relation: "likers", type: SIMPLE)
+    answers: [Answer!]! @hasMany(relation: "answer", type: SIMPLE)
     created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime! @cache(maxAge: 3600)
 }
