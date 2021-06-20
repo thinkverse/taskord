@@ -83,7 +83,7 @@ class TaskMutator
             ];
         }
 
-        if (Gate::denies('edit/delete', $task)) {
+        if (Gate::denies('like/subscribe', $task)) {
             return [
                 'status' => false,
                 'message' => config('taskord.toast.deny'),
