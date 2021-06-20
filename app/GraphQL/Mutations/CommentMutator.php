@@ -51,4 +51,32 @@ class CommentMutator
             'comment' => $comment,
         ];
     }
+
+    public function deleteComment($_, array $args)
+    {
+        $comment = Comment::find($args['id']);
+
+        if (! $comment) {
+            return [
+                'status' => false,
+                'message' => 'No comment found!',
+            ];
+        }
+
+        if (Gate::denies('edit/delete', $comment)) {
+            return [
+                'status' => false,
+                'message' => config('taskord.toast.deny'),
+            ];
+        }
+
+        loggy(request(), 'Comment', auth()->user(), "Deleted a comment | Comment ID: {$comment->id}");
+        $comment->delete();
+
+        return [
+            'status' => true,
+            'message' => 'Comment deleted successfully',
+            'comment' => $comment,
+        ];
+    }
 }
