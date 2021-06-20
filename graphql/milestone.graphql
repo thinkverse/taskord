@@ -1,7 +1,7 @@
 # Query
 type Milestone {
     id: ID!
-    tasks: [Task!]! @hasMany(relation: "tasks", type: SIMPLE)
+    tasks: [Task!]! @hasMany(type: SIMPLE)
     likes: [User!]! @hasMany(relation: "likers", type: SIMPLE)
     hidden: Boolean!
     created_at: DateTime! @cache(maxAge: 3600)
