@@ -20,15 +20,17 @@ class CommentMutator
             ];
         }
 
-        $users = Helper::getUsernamesFromMentions($args['comment']);
+        $commentBody = $args['comment'];
+
+        $users = Helper::getUsernamesFromMentions($commentBody);
 
         if ($users) {
-            $comment = Helper::parseUserMentionsToMarkdownLinks($comment, $users);
+            $commentBody = Helper::parseUserMentionsToMarkdownLinks($commentBody, $users);
         }
 
         $comment = auth()->user()->comments()->create([
             'task_id' => $args['taskId'],
-            'comment' => $args['comment'],
+            'comment' => $commentBody,
         ]);
 
         Helper::mentionUsers($users, $comment, auth()->user(), 'comment');
