@@ -2,12 +2,11 @@
 
 namespace App\GraphQL\Mutations;
 
-use App\Gamify\Points\TaskCreated;
+use App\Gamify\Points\CommentCreated;
 use App\Models\Comment;
+use App\Notifications\Comment\Commented;
 use Helper;
 use Illuminate\Support\Facades\Gate;
-use App\Notifications\Comment\Commented;
-use App\Gamify\Points\CommentCreated;
 
 class CommentMutator
 {
