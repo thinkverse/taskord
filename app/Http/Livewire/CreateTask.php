@@ -88,12 +88,20 @@ class CreateTask extends Component
 
         $state = auth()->user()->check_state;
 
-        $task = (new CreateNewTask(auth()->user(), $this->product, [
+        if (! $this->product) {
+            $product_id = Helper::getProductIDFromMention($this->task, auth()->user());
+        } else {
+            $product_id = $this->product->id;
+        }
+
+        $task = (new CreateNewTask(auth()->user(), [
+            'product_id' => $product_id,
             'task' => $this->task,
             'done' => $state,
             'done_at' => $state ? carbon() : null,
             'images' => $images,
             'due_at' => $this->dueAt,
+            'type' => $product_id ? 'product' : 'user',
         ]))();
 
         $this->emit('refreshTasks');
