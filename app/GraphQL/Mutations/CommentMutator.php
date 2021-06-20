@@ -6,6 +6,8 @@ use App\Gamify\Points\TaskCreated;
 use App\Models\Comment;
 use Helper;
 use Illuminate\Support\Facades\Gate;
+use App\Notifications\Comment\Commented;
+use App\Gamify\Points\CommentCreated;
 
 class CommentMutator
 {
