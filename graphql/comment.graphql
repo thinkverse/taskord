@@ -14,18 +14,18 @@ type Comment {
 # Mutation
 
 # Create Comment - createComment
-input CreateTaskInput {
-
+input CreateCommentInput {
+    taskId: Int!
     comment: String! @rules(apply: ["min:3", "max:5000"])
 }
 
 # Delete Comment - deleteComment
-input DeleteTaskInput {
+input DeleteCommentInput {
   id: Int!
 }
 
-type TaskPayload {
-    task: Task
+type CommentPayload {
+    comment: Comment
     status: Boolean!
     message: String!
 }
