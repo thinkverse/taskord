@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Gate;
 
 class CommentMutator
 {
-    public function createTask($_, array $args)
+    public function createComment($_, array $args)
     {
         if (Gate::denies('create')) {
             return [
