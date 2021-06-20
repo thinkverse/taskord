@@ -90,11 +90,8 @@ class TaskMutator
             ];
         }
 
-        loggy(request(), 'Task', auth()->user(), "Deleted a task | Task ID: {$task->id}");
-        foreach ($task->images ?? [] as $image) {
-            Storage::delete($image);
-        }
-        $task->delete();
+        Helper::toggleLike($task, 'TASK');
+        loggy(request(), 'Task', auth()->user(), "Toggled task like | Task ID: {$task->id}");
 
         return [
             'status' => true,
