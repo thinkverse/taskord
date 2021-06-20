@@ -45,8 +45,8 @@ input DeleteTaskInput {
     id: Int!
 }
 
-# Praise Task - praiseTask
-input PraiseTaskInput {
+# Like Task - likeTask
+input LikeTaskInput {
     id: Int!
 }
 
