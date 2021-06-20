@@ -25,7 +25,7 @@ class CommentMutator
         }
 
         $comment = auth()->user()->comments()->create([
-            'task_id' => $args['task_id'],
+            'task_id' => $args['taskId'],
             'comment' => $args['comment'],
         ]);
 
