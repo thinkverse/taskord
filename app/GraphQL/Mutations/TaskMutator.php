@@ -72,7 +72,7 @@ class TaskMutator
         ];
     }
 
-    public function praiseTask($_, array $args)
+    public function likeTask($_, array $args)
     {
         $task = Task::find($args['id']);
 
