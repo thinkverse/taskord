@@ -15,8 +15,8 @@ type Comment {
 
 # Create Comment - createComment
 input CreateTaskInput {
-  task: String! @rules(apply: ["min:3", "max:5000"])
-  done: Boolean!
+
+    comment: String! @rules(apply: ["min:3", "max:5000"])
 }
 
 # Delete Comment - deleteComment
