@@ -18,7 +18,11 @@ class CommentMutator
             ];
         }
 
-        $product_id = Helper::getProductIDFromMention($args['task'], auth()->user());
+        $users = Helper::getUsernamesFromMentions($args['comment']);
+
+        if ($users) {
+            $comment = Helper::parseUserMentionsToMarkdownLinks($comment, $users);
+        }
 
         $task = (new CreateNewTask(auth()->user(), [
             'product_id' => $product_id,
