@@ -45,6 +45,11 @@ input DeleteTaskInput {
     id: Int!
 }
 
+# Praise Task - praiseTask
+input PraiseTaskInput {
+    id: Int!
+}
+
 type TaskPayload {
     task: Task
     status: Boolean!
