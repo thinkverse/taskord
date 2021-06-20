@@ -72,7 +72,7 @@ class TaskMutator
         ];
     }
 
-    public function likeTask($_, array $args)
+    public function toggleLikeTask($_, array $args)
     {
         $task = Task::find($args['id']);
 

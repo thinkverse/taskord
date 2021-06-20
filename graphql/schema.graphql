@@ -31,7 +31,7 @@ type Mutation {
     # Task
     createTask(input: CreateTaskInput! @spread): TaskPayload @field(resolver: "TaskMutator@createTask")
     deleteTask(input: DeleteTaskInput! @spread): TaskPayload @field(resolver: "TaskMutator@deleteTask")
-    likeTask(input: LikeTaskInput! @spread): TaskPayload @field(resolver: "TaskMutator@likeTask")
+    toggleLikeTask(input: ToggleLikeTaskInput! @spread): TaskPayload @field(resolver: "TaskMutator@toggleLikeTask")
 
     # Comment
     createComment(input: CreateCommentInput! @spread): CommentPayload @field(resolver: "CommentMutator@createComment")

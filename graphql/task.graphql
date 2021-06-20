@@ -46,7 +46,7 @@ input DeleteTaskInput {
 }
 
 # Like Task - likeTask
-input LikeTaskInput {
+input ToggleLikeTaskInput {
     id: Int!
 }
 
