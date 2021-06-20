@@ -71,4 +71,35 @@ class TaskMutator
             'task' => $task,
         ];
     }
+
+    public function praiseTask($_, array $args)
+    {
+        $task = Task::find($args['id']);
+
+        if (! $task) {
+            return [
+                'status' => false,
+                'message' => 'No task found!',
+            ];
+        }
+
+        if (Gate::denies('edit/delete', $task)) {
+            return [
+                'status' => false,
+                'message' => config('taskord.toast.deny'),
+            ];
+        }
+
+        loggy(request(), 'Task', auth()->user(), "Deleted a task | Task ID: {$task->id}");
+        foreach ($task->images ?? [] as $image) {
+            Storage::delete($image);
+        }
+        $task->delete();
+
+        return [
+            'status' => true,
+            'message' => 'Task deleted successfully',
+            'task' => $task,
+        ];
+    }
 }
