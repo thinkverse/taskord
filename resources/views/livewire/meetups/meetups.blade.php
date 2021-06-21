@@ -15,7 +15,7 @@
             </div>
         </div>
     @endif
-    @foreach ($meetups as $milestone)
+    @foreach ($meetups as $meetup)
         <livewire:meetups.single-meetup :type="$type" :meetup="$meetup" :wire:key="$meetup->id" />
     @endforeach
     @if ($readyToLoad and $meetups->hasMorePages())
