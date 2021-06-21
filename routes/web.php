@@ -306,7 +306,7 @@ Route::group([
 ], function () {
     Route::get('/', [MeetupController::class, 'meetups'])
         ->middleware('feature:meetups')
-        ->name('home');
+        ->name('upcoming');
     Route::get('/rsvpd', [MeetupController::class, 'rsvpd'])
         ->middleware('feature:meetups')
         ->name('rsvpd');
