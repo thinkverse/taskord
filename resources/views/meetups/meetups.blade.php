@@ -11,9 +11,11 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 @include('meetups.nav')
-                @foreach ($meetups as $meetup)
-                    @livewire('meetups.single-meetup', ['meetup' => $meetup])
-                @endforeach
+                @livewire('meetups.meetups', [
+                    'type' => $type,
+                    'page' => 1,
+                    'perPage' => 10
+                ])
             </div>
             <div class="col-sm">
                 <div class="card mb-4">
