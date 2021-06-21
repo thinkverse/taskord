@@ -62,8 +62,8 @@ class LoadMore extends Component
                     ->get();
             }
 
-            return view('livewire.milestone.milestones', [
-                'milestones' => $this->paginate($milestones),
+            return view('livewire.meetups.meetups', [
+                'meetups' => $this->paginate($meetups),
             ]);
         }
 
