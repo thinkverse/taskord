@@ -12,41 +12,7 @@
         <div class="container-md">
             @include('staff.nav')
             <div class="card">
-                <div class="card-header h6 py-3">
-                    <div class="h5">System Info</div>
-                    Taskord's system info
-                </div>
-                <div class="card-body">
-                    <h5 class="mb-3">System</h4>
-                    <div class="row">
-                        <div class="col-md-3 mb-4">
-                            <div class="card">
-                                <div class="card-header fw-bold d-flex align-items-center">
-                                    <x-heroicon-o-database class="heroicon me-1" />
-                                    <span>Disk usage</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="h5 mb-0">
-                                        {{ formatBytes(disk_total_space('/') - disk_free_space('/')) }} / {{ formatBytes(disk_total_space('/')) }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-4">
-                            <div class="card">
-                                <div class="card-header fw-bold d-flex align-items-center">
-                                    <x-heroicon-o-clock class="heroicon me-1" />
-                                    <span>Uptime</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="h5 mb-0">
-                                        {{ $uptime }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <iframe src="https://p.datadoghq.eu/sb/b0c5b97c-d25c-11eb-85ec-da7ad0900005-4e34db2b858119245ce51dec85fb9bde?theme=light&from_ts=1624258169264&to_ts=1624261769264&live=true" style="height:73vh">
             </div>
         </div>
     </div>
