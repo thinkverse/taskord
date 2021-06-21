@@ -26,17 +26,20 @@
         <div class="mt-3">
             @auth
                 @if (auth()->user()->hasSubscribed($meetup))
-                    <button class="btn btn-sm btn-danger text-white fw-bold" wire:click="toggleRSVP" wire:loading.attr="disabled" aria-label="Can't Attend">
-                        ❌ Can't attend
+                    <button class="btn btn-sm btn-danger text-white fw-bold d-flex align-items-center" wire:click="toggleRSVP" wire:loading.attr="disabled" aria-label="Can't Attend">
+                        <x-heroicon-o-x-circle class="heroicon me-1" />
+                        <span>Can't attend</span>
                     </button>
                 @else
-                    <button class="btn btn-sm btn-outline-success text-dark" wire:click="toggleRSVP" wire:loading.attr="disabled" aria-label="RSVP">
-                        ✅ RSVP
+                    <button class="btn btn-sm btn-outline-success text-success d-flex align-items-center" wire:click="toggleRSVP" wire:loading.attr="disabled" aria-label="RSVP">
+                        <x-heroicon-o-check-circle class="heroicon me-1" />
+                        <span>RSVP</span>
                     </button>
                 @endif
             @else
-                <a class="btn btn-sm btn-outline-secondary text-dark" href="{{ route('login') }}" aria-label="RSVP">
-                    ✅ RSVP
+                <a class="btn btn-sm btn-outline-secondary text-dark d-flex align-items-center" href="{{ route('login') }}" aria-label="RSVP">
+                    <x-heroicon-o-check-circle class="heroicon me-1" />
+                    <span>RSVP</span>
                 </a>
             @endauth
         </div>
