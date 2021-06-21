@@ -23,6 +23,22 @@
                 <img loading=lazy class="avatar-25 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="25" width="25" alt="{{ $user->username }}'s avatar" />
             @endforeach
         </div>
+        <div class="mt-3">
+            @auth
+                @if (auth()->user()->hasSubscribed($meetup))
+                    <button class="btn btn-sm btn-danger text-white fw-bold" wire:click="toggleRSVP" wire:loading.attr="disabled" aria-label="Can't Attend">
+                        ❌ Can't attend
+                    </button>
+                @else
+                    <button class="btn btn-sm btn-outline-success text-dark" wire:click="toggleRSVP" wire:loading.attr="disabled" aria-label="RSVP">
+                        ✅ RSVP
+                    </button>
+                @endif
+            @else
+                <a class="btn btn-sm btn-outline-secondary text-dark" href="{{ route('login') }}" aria-label="RSVP">
+                    ✅ RSVP
+                </a>
+            @endauth
+        </div>
     </div>
-    <livewire:meetups.rsvp :meetup="$meetup" :wire:key="$meetup->id" />
 </div>
