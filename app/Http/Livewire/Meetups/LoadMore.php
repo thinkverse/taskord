@@ -40,7 +40,7 @@ class LoadMore extends Component
     public function render()
     {
         if ($this->loadMore) {
-            if ($this->type === 'milestones.opened') {
+            if ($this->type === 'meetups.upcoming') {
                 $milestones = Milestone::whereStatus(true)
                     ->whereHas('user', function ($q) {
                         $q->where([
@@ -50,7 +50,7 @@ class LoadMore extends Component
                     })
                     ->latest()
                     ->get();
-            } elseif ($this->type === 'milestones.closed') {
+            } elseif ($this->type === 'meetups.finished') {
                 $milestones = Milestone::whereStatus(false)
                     ->whereHas('user', function ($q) {
                         $q->where([
