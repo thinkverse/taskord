@@ -12,6 +12,10 @@ class SingleMeetup extends Component
 {
     use WithRateLimiting;
 
+    public $listeners = [
+        'refreshMeetup' => 'render',
+    ];
+
     public Meetup $meetup;
 
     public function mount($meetup)
@@ -33,6 +37,11 @@ class SingleMeetup extends Component
 
         auth()->user()->toggleSubscribe($this->meetup);
 
-        return $this->meetup->refresh();
+        return $this->emitSelf('refreshMeetup');
+    }
+
+    public function render()
+    {
+        return view('livewire.meetups.single-meetup');
     }
 }
