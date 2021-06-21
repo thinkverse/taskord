@@ -260,7 +260,7 @@ Route::group([
     Route::view('features', 'staff.features')
         ->middleware('password.confirm')
         ->name('features');
-    Route::get('system', [StaffController::class, 'system'])
+    Route::view('system', 'staff.system')
         ->middleware('password.confirm')
         ->name('system');
     Route::view('jobs', 'staff.jobs')

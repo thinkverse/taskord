@@ -63,14 +63,4 @@ class StaffController extends Controller
 
         return 'Something went wrong!';
     }
-
-    public static function system()
-    {
-        // Uptime
-        $uptime = explode(',', explode(' up ', shell_exec('uptime'))[1])[0];
-
-        return view('staff.system', [
-            'uptime' => $uptime,
-        ]);
-    }
 }
