@@ -41,7 +41,7 @@ class LoadMore extends Component
     {
         if ($this->loadMore) {
             if ($this->type === 'meetups.upcoming') {
-                $milestones = Milestone::whereStatus(true)
+                $meetups = Meetup::whereStatus(true)
                     ->whereHas('user', function ($q) {
                         $q->where([
                             ['spammy', false],
@@ -51,7 +51,7 @@ class LoadMore extends Component
                     ->latest()
                     ->get();
             } elseif ($this->type === 'meetups.finished') {
-                $milestones = Milestone::whereStatus(false)
+                $meetups = Meetup::whereStatus(false)
                     ->whereHas('user', function ($q) {
                         $q->where([
                             ['spammy', false],
