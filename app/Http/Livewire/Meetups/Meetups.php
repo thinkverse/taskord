@@ -41,11 +41,11 @@ class Meetups extends Component
                 ->get();
         } elseif ($this->type === 'meetups.finished') {
             return Meetup::whereHas('user', function ($q) {
-                    $q->where([
-                        ['spammy', false],
-                        ['is_private', false],
-                    ]);
-                })
+                $q->where([
+                    ['spammy', false],
+                    ['is_private', false],
+                ]);
+            })
                 ->latest()
                 ->get();
         }
