@@ -205,7 +205,7 @@ Route::group([
         ->name('opened');
     Route::get('closed', [MilestoneController::class, 'closed'])
         ->name('closed');
-    Route::view('new', 'milestone.new')
+    Route::view('new', 'milestones.new')
         ->middleware('auth')
         ->name('new');
     Route::get('{milestone}/edit', [MilestoneController::class, 'edit'])

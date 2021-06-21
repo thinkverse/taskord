@@ -1,4 +1,4 @@
-<div class="card mb-3">
+<div class="card mb-2">
     <a href="#url">
         <img loading=lazy class="card-img-top" src="{{ $meetup->cover }}" alt="{{ $meetup->name }}">
     </a>
