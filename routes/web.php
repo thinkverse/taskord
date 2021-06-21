@@ -305,13 +305,13 @@ Route::group([
     'as' => 'meetups.',
 ], function () {
     Route::get('/', [MeetupController::class, 'meetups'])
-        ->middleware('staff')
+        ->middleware('feature:meetups')
         ->name('home');
     Route::get('/rsvpd', [MeetupController::class, 'rsvpd'])
-        ->middleware('staff')
+        ->middleware('feature:meetups')
         ->name('rsvpd');
     Route::get('/finished', [MeetupController::class, 'finished'])
-        ->middleware('staff')
+        ->middleware('feature:meetups')
         ->name('finished');
 });
 
