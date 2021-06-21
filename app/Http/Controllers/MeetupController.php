@@ -23,7 +23,7 @@ class MeetupController extends Controller
             ->latest()
             ->paginate(12);
 
-        return view('meetups.finished', [
+        return view('meetups.meetups', [
             'meetups' => $meetups,
         ]);
     }
@@ -34,7 +34,7 @@ class MeetupController extends Controller
             ->orderBy('date')
             ->get();
 
-        return view('meetups.rsvpd', [
+        return view('meetups.meetups', [
             'meetups' => $meetups,
         ]);
     }
