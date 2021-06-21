@@ -8,7 +8,7 @@ class MilestoneController extends Controller
 {
     public function opened()
     {
-        return view('milestone.milestones', [
+        return view('milestones.milestones', [
             'type' => 'milestones.opened',
         ]);
     }
