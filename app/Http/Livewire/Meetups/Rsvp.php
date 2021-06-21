@@ -6,6 +6,7 @@ use App\Models\Meetup;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Livewire\Component;
+use Illuminate\Support\Facades\Gate;
 
 class Rsvp extends Component
 {
