@@ -30,14 +30,14 @@ class MilestoneController extends Controller
             auth()->check() && auth()->user()->id === $milestone->user->id or
             auth()->check() && auth()->user()->staff_mode
         ) {
-            return view('milestone/milestone', $response);
+            return view('milestones.milestone', $response);
         }
 
         if ($milestone->user->spammy or $milestone->user->is_private) {
             return abort(404);
         }
 
-        return view('milestone/milestone', $response);
+        return view('milestones.milestone', $response);
     }
 
     public function edit(Milestone $milestone)
