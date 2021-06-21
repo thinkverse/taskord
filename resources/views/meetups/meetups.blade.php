@@ -12,7 +12,7 @@
             <div class="col-lg-8">
                 @include('meetups.nav')
                 @foreach ($meetups as $meetup)
-                    @livewire('meetup.single-meetup', ['meetup' => $meetup])
+                    @livewire('meetups.single-meetup', ['meetup' => $meetup])
                 @endforeach
             </div>
             <div class="col-sm">

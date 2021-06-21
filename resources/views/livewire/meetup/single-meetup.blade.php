@@ -21,6 +21,6 @@
                 {{ $meetup->tagline }}
             </div>
         </div>
-        <livewire:meetup.rsvp :meetup="$meetup" :wire:key="$meetup->id" />
+        <livewire:meetups.rsvp :meetup="$meetup" :wire:key="$meetup->id" />
     </div>
 </div>
