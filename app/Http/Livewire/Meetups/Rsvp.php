@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Meetup;
+namespace App\Http\Livewire\Meetups;
 
 use App\Models\Meetup;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
