@@ -29,7 +29,7 @@ class Meetups extends Component
 
     public function getMeetups()
     {
-        if ($this->type === 'milestones.opened') {
+        if ($this->type === 'meetups.upcoming') {
             return Milestone::with('user')
                 ->whereStatus(true)
                 ->whereHas('user', function ($q) {
@@ -40,7 +40,7 @@ class Meetups extends Component
                 })
                 ->latest()
                 ->get();
-        } elseif ($this->type === 'milestones.closed') {
+        } elseif ($this->type === 'meetups.finished') {
             return Milestone::whereStatus(false)
                 ->whereHas('user', function ($q) {
                     $q->where([
