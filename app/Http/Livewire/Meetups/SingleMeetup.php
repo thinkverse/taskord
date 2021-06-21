@@ -13,4 +13,21 @@ class SingleMeetup extends Component
     {
         $this->meetup = $meetup;
     }
+
+    public function toggleRSVP()
+    {
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
+        }
+
+        if (Gate::denies('like/subscribe', $this->meetup)) {
+            return toast($this, 'error', config('taskord.toast.deny'));
+        }
+
+        auth()->user()->toggleSubscribe($this->meetup);
+
+        return $this->meetup->refresh();
+    }
 }
