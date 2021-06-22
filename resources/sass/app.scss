@@ -190,6 +190,10 @@ input[type="color"]:focus,
   background-image: radial-gradient(at left top, $green-500 0%, $green-600 100%);
 }
 
+.bg-oembed {
+  background-color: $gray-100 !important;
+}
+
 .bg-patron {
   background-image: radial-gradient(at left top, $yellow-600 0%, $yellow-700 100%);
 }
