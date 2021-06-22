@@ -4,12 +4,12 @@
         <span>Recent questions</span>
     </div>
     <div class="card mb-4">
+        @if (!$readyToLoad)
+            <div class="card-body">
+                <x:loaders.home.question-skeleton count="5" />
+            </div>
+        @else
         <div class="card-body">
-            @if (!$readyToLoad)
-                <div class="card-body text-center">
-                    <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
-                </div>
-            @endif
             @foreach ($recent_questions as $question)
                 <div class="{{ $loop->index === count($recent_questions) - 1 ? '' : 'mb-2' }} {{ $question->patron_only ? 'bg-patron-question recent-questions' : '' }} d-flex align-items-center">
                     <a
@@ -54,5 +54,6 @@
                 </div>
             @endforeach
         </div>
+        @endif
     </div>
 </div>
