@@ -14,6 +14,7 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OembedController;
 use App\Http\Controllers\WebhookController;
 use Illuminate\Support\Facades\Route;
 
@@ -386,6 +387,8 @@ Route::group(['prefix' => 'site'], function () {
     Route::get('staffbar', [StaffController::class, 'toggle'])
         ->middleware('staff')
         ->name('staffbar');
+    Route::get('oembed', [OembedController::class, 'oembed'])
+        ->name('oembed');
 });
 
 // Sitemaps
