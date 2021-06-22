@@ -6,7 +6,7 @@
                 <div class="w-70 ms-3">
                     <div class="ssc-line w-70"></div>
                 </div>
-                <div class="ssc-circle rounded-circle avatar-30 ms-auto"></div>
+                <div class="ssc-circle avatar-30 ms-auto"></div>
             </div>            
         </div>
     @endfor
