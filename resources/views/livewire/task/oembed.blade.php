@@ -3,7 +3,7 @@
     style="border: 1px solid {{ $oembed->theme_color ? $oembed->theme_color : 'rgba(0,0,0,.125)'}}"
 >
     <div class="{{ $oembed->type !== 'summary_large_image' ? 'd-flex align-items-center' : '' }}">
-        <div class="card-body d-flex align-items-center">
+        <div class="card-body d-flex align-items-center justify-content-between">
             <div>
                 <div class="d-flex align-items-center mb-1">
                     <img src="{{ Helper::getCDNImage($oembed->favicon, 20) }}" height="15" width="15" />
