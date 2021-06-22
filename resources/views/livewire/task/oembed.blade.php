@@ -11,7 +11,7 @@
                         {{ $oembed->provider_name }}
                     </a>
                 </div>
-                <a href="{{ $oembed->url }}">
+                <a href="{{ $oembed->url }}" target="_blank">
                     <div class="fw-bold text-dark">
                         {{ $oembed->title }}
                     </div>
