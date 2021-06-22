@@ -48,7 +48,7 @@ class GetOembed implements ShouldQueue
         $oembed->provider_name = $info->providerName;
         $oembed->provider_url = $info->providerUrl;
         $oembed->type = $metas->str('twitter:card');
-        $oembed->theme_color = $metas->str('twitter:card');
+        $oembed->theme_color = $metas->str('theme-color');
         $oembed->thumbnail_url = $info->image;
         $oembed->favicon = $info->favicon;
         $this->task->oembed()->save($oembed);
