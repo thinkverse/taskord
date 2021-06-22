@@ -4,7 +4,11 @@
             <div class="ssc-circle avatar-30"></div>
             <div class="w-70 ms-2">
                 <div class="ssc-line"></div>
-                <div class="ssc-line w-30"></div>
+                <div class="d-flex align-items-center">
+                    <div class="ssc-line w-20 m-0"></div>
+                    <div class="ssc-line w-5 m-0 ms-1"></div>
+                    <div class="ssc-line w-5 m-0 ms-1"></div>
+                </div>
             </div>
         </div>
     @endfor
