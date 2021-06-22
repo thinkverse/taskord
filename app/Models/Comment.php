@@ -47,9 +47,4 @@ class Comment extends Model
     {
         return $this->hasMany(CommentReply::class);
     }
-
-    public function oembed()
-    {
-        return $this->hasOne(Oembed::class);
-    }
 }

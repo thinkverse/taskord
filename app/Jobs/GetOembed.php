@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Embed\Embed;
+use App\Models\Oembed;
 
 class GetOembed implements ShouldQueue
 {
@@ -36,6 +37,11 @@ class GetOembed implements ShouldQueue
         $embed = new Embed();
         $info = $embed->get($match[0][0]);
 
-        dd($info->description);
+        $oembed = new Oembed;
+        $oembed->description = $info->description;
+        $oembed->description = $info->description;
+        $this->task->oembed()->save($oembed);
+
+        return true;
     }
 }

@@ -17,16 +17,6 @@ class Oembed extends Model
 
     protected static $flushCacheOnUpdate = true;
 
-    // protected $fillable = [
-    //     'name',
-    //     'offer',
-    //     'coupon',
-    //     'referral',
-    //     'description',
-    //     'website',
-    //     'logo',
-    // ];
-
     public function task()
     {
         return $this->belongsTo(Task::class);
