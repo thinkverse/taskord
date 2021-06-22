@@ -3,10 +3,10 @@
 namespace App\Actions;
 
 use App\Gamify\Points\TaskCreated;
+use App\Jobs\GetOembed;
 use App\Models\Task;
 use App\Models\User;
 use Helper;
-use App\Jobs\GetOembed;
 
 class CreateNewTask
 {

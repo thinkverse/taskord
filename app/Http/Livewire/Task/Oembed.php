@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Task;
 
-use Livewire\Component;
 use App\Models\Oembed as OembedType;
+use Livewire\Component;
 
 class Oembed extends Component
 {
