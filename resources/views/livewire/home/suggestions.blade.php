@@ -3,9 +3,15 @@
         Who to follow
     </div>
     <div class="card mb-4">
-        @if (!$readyToLoad)
-            <div class="card-body text-center">
-                <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
+        @if ($readyToLoad)
+            <div class="card-body ssc">
+                <div class="d-flex align-items-center">
+                    <div class="ssc-circle avatar-40"></div>
+                    <div class="w-70 ms-3">
+                        <div class="ssc-line w-70"></div>
+                        <div class="ssc-line"></div>
+                    </div>
+                </div>
             </div>
         @else
             @if (count($users) === 0)
