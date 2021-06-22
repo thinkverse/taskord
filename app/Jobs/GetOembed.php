@@ -14,13 +14,15 @@ class GetOembed implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public function __construct()
+    protected $task;
+
+    public function __construct($task)
     {
-        //
+        $this->task = $task;
     }
 
     public function handle()
     {
-        //
+        dd($this->task->task);
     }
 }
