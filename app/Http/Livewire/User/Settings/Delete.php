@@ -22,7 +22,9 @@ class Delete extends Component
             $user = User::find($this->user->id);
             // Delete Task Images
             foreach ($user->tasks as $task) {
-                $task->oembed->delete();
+                if ($task->oembed) {
+                    $task->oembed->delete();
+                }
                 foreach ($task->images ?? [] as $image) {
                     Storage::delete($image);
                 }
@@ -63,7 +65,9 @@ class Delete extends Component
             $user = User::find($this->user->id);
             // Delete Task Images
             foreach ($user->tasks as $task) {
-                $task->oembed->delete();
+                if ($task->oembed) {
+                    $task->oembed->delete();
+                }
                 foreach ($task->images ?? [] as $image) {
                     Storage::delete($image);
                 }
