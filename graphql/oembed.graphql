@@ -10,4 +10,5 @@ type Oembed {
     thumbnail_url: String
     favicon: String
     type: String
+    task: Task @belongsTo
 }
