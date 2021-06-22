@@ -3,7 +3,7 @@
         Who to follow
     </div>
     <div class="card mb-4">
-        @if (!$readyToLoad)
+        @if ($readyToLoad)
             <div class="card-body">
                 <x:loaders.profile-loader count="5" />
             </div>
