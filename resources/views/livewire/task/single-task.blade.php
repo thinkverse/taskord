@@ -55,7 +55,7 @@
                     @endforeach
                 </div>
             @endif
-            @if (feature('social_auth'))
+            @if (feature('oembed'))
                 @if ($task->oembed)
                     <livewire:task.oembed :oembed="$task->oembed" />
                 @endif
