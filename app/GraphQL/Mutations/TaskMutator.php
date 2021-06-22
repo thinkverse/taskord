@@ -63,7 +63,7 @@ class TaskMutator
         foreach ($task->images ?? [] as $image) {
             Storage::delete($image);
         }
-        $task->oembed->delete();
+        $task->oembed()->delete();
         $task->delete();
 
         return [
