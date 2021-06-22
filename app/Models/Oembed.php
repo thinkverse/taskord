@@ -26,4 +26,9 @@ class Oembed extends Model
     //     'website',
     //     'logo',
     // ];
+
+    public function task()
+    {
+        return $this->belongsTo(Task::class);
+    }
 }
