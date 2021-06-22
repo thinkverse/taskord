@@ -9,12 +9,14 @@
                 @endif
             @endif
             <div class="card-body">
-                <div class="fw-bold">
-                    {{ $oembed->title }}
-                </div>
-                <div class="mt-1">
-                    {{ $oembed->description }}
-                </div>
+                <a href="{{ $oembed->url }}">
+                    <div class="fw-bold text-dark">
+                        {{ $oembed->title }}
+                    </div>
+                    <div class="mt-1 text-dark">
+                        {{ $oembed->description }}
+                    </div>
+                </a>
                 <div class="mt-1 d-flex align-items-center">
                     <img src="{{ $oembed->favicon }}" height="15" width="15" />
                     <a class="ms-2 text-secondary" href="{{ $oembed->provider_url }}" target="_blank">
