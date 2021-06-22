@@ -10,6 +10,7 @@ type Task {
     done_at: DateTime
     user: User @belongsTo
     product: Product @belongsTo
+    oembed: Oembed @hasOne
     hasLiked: Boolean @field(resolver: "App\\GraphQL\\Queries\\TaskQuery@hasLiked")
     comments: [Comment!]! @hasMany(type: SIMPLE)
     likes: [User!]! @hasMany(relation: "likers", type: SIMPLE)
