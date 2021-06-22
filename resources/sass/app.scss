@@ -507,10 +507,10 @@ input[type="date"]:valid:before {
 .ssc-head-line,
 .ssc-line,
 .ssc-square {
-  background-color: $gray-400;
+  background-color: $gray-300;
 
   &:after {
-    background: linear-gradient(90deg, transparent, #dee2e6, transparent);
+    background: linear-gradient(90deg, transparent, #e9ecef, transparent);
   }
 }
 
