@@ -1,7 +1,4 @@
-<div
-    class="card mt-3 mb-2 w-75 bg-oembed"
-    style="border: 1px solid {{ $oembed->theme_color ? $oembed->theme_color : 'rgba(0,0,0,.125)'}}"
->
+<div class="card mt-3 mb-2 w-75 bg-oembed">
     <div class="{{ $oembed->type !== 'summary_large_image' ? 'd-flex align-items-center' : '' }}">
         <div class="card-body d-flex align-items-center justify-content-between">
             <div>
