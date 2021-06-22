@@ -28,6 +28,14 @@ class GetOembed implements ShouldQueue
             $this->task->task,
             $match
         );
-        dd($match[0]);
+
+        if (count($match[0]) === 0) {
+            return true;
+        }
+
+        $embed = new Embed();
+        $info = $embed->get($match[0][0]);
+
+        dd($info->description);
     }
 }
