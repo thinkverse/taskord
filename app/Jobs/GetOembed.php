@@ -38,8 +38,13 @@ class GetOembed implements ShouldQueue
         $info = $embed->get($match[0][0]);
 
         $oembed = new Oembed;
+        $oembed->url = $info->url;
+        $oembed->title = $info->title;
         $oembed->description = $info->description;
-        $oembed->description = $info->description;
+        $oembed->provider_name = $info->providerName;
+        $oembed->provider_url = $info->providerUrl;
+        $oembed->thumbnail_url = $info->image;
+        $oembed->favicon = $info->favicon;
         $this->task->oembed()->save($oembed);
 
         return true;
