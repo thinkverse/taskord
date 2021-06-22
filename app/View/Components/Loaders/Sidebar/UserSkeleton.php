@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\Loaders;
+namespace App\View\Components\Loaders\Sidebar;
 
 use Illuminate\View\Component;
 
-class ProfileLoader extends Component
+class UserSkeleton extends Component
 {
     public $count;
 
@@ -15,6 +15,6 @@ class ProfileLoader extends Component
 
     public function render()
     {
-        return view('components.loaders.profile-loader');
+        return view('components.loaders.sidebar.user-skeleton');
     }
 }
