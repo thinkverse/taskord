@@ -14,6 +14,7 @@ type Query {
     productUpdate(id: ID @eq): ProductUpdate @find
     tasks(done: Boolean! @eq, orderBy: _ @orderBy(columns: ["created_at", "updated_at", "done_at"])): [Task!]! @paginate
     task(id: ID @eq @where(clause: "whereHidden")): Task @find
+    oembed(id: ID @eq): Oembed @find
     comments(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Comment!]! @paginate
     comment(id: ID @eq @where(clause: "whereHidden")): Comment @find
     questions(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Question!]! @paginate
