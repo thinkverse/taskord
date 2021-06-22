@@ -23,6 +23,11 @@ class GetOembed implements ShouldQueue
 
     public function handle()
     {
-        dd($this->task->task);
+        preg_match_all(
+            '#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#',
+            $this->task->task,
+            $match
+        );
+        dd($match[0]);
     }
 }
