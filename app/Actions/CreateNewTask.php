@@ -3,6 +3,7 @@
 namespace App\Actions;
 
 use App\Gamify\Points\TaskCreated;
+use App\Jobs\GetOembed;
 use App\Models\Task;
 use App\Models\User;
 use Helper;
@@ -33,6 +34,7 @@ class CreateNewTask
         givePoint(new TaskCreated($task));
         $users = Helper::getUsernamesFromMentions($task->task);
         Helper::mentionUsers($users, $task, $this->user, 'task');
+        GetOembed::dispatch($task);
         $message = "Created a new task via {$task->source}";
         loggy(request(), 'Task', $this->user, \sprintf('%s | Task ID: %d', $message, $task->id));
     }
