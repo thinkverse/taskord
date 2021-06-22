@@ -15,6 +15,7 @@ class CreateOembedsTable extends Migration
     {
         Schema::create('oembeds', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('task_id')->onDelete('cascade')->nullable();
             $table->string('url')->nullable();
             $table->string('title')->nullable();
             $table->string('provider_name')->nullable();
