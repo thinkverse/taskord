@@ -4,14 +4,8 @@
     </div>
     <div class="card mb-4">
         @if ($readyToLoad)
-            <div class="card-body ssc">
-                <div class="d-flex align-items-center">
-                    <div class="ssc-circle avatar-40"></div>
-                    <div class="w-70 ms-3">
-                        <div class="ssc-line w-70"></div>
-                        <div class="ssc-line"></div>
-                    </div>
-                </div>
+            <div class="card-body">
+                <x:loaders.profile-loader count="5" />
             </div>
         @else
             @if (count($users) === 0)
