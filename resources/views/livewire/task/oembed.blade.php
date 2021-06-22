@@ -3,7 +3,7 @@
         <div class="{{ $oembed->type !== 'summary_large_image' ? 'd-flex align-items-center' : '' }}">
             @if ($oembed->thumbnail_url)
                 @if ($oembed->type === 'summary_large_image')
-                    <img class="card-img-top" src="{{ $oembed->thumbnail_url }}" alt="{{ $oembed->title }}">
+                    <img class="card-img-top border-bottom" src="{{ $oembed->thumbnail_url }}" alt="{{ $oembed->title }}">
                 @else
                     <img class="rounded-start w-20" src="{{ $oembed->thumbnail_url }}" alt="{{ $oembed->title }}">
                 @endif
