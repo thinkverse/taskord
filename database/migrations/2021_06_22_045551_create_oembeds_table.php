@@ -15,6 +15,12 @@ class CreateOembedsTable extends Migration
     {
         Schema::create('oembeds', function (Blueprint $table) {
             $table->id();
+            $table->string('url')->nullable();
+            $table->string('title')->nullable();
+            $table->string('provider_name')->nullable();
+            $table->string('description')->nullable();
+            $table->string('thumbnail_url')->nullable();
+            $table->string('favicon')->nullable();
             $table->timestamps();
         });
     }

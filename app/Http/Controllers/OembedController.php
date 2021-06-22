@@ -13,7 +13,7 @@ class OembedController extends Controller
         $embed = new Embed();
         $info = $embed->get($url);
 
-        dd($info->license);
+        dd($info->icon);
 
         return $embed;
     }
