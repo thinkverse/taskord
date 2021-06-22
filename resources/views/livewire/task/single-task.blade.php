@@ -56,7 +56,7 @@
                 </div>
             @endif
             @if ($task->oembed)
-                {{ $task->oembed }}
+                <livewire:task.oembed :oembed="$task->oembed" />
             @endif
         @endif
         @if ($task->milestone)
