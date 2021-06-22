@@ -1,5 +1,5 @@
 <div>
-    <div class="card mt-3 mb-2 w-75">
+    <div class="card mt-3 mb-2 w-75 bg-body">
         <div class="{{ $oembed->type !== 'summary_large_image' ? 'd-flex align-items-center' : '' }}">
             @if ($oembed->thumbnail_url)
                 @if ($oembed->type === 'summary_large_image')
