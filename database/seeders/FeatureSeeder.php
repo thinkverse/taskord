@@ -17,7 +17,7 @@ class FeatureSeeder extends Seeder
         Feature::factory()->create([
             'name' => 'Task oEmbed',
             'slug' => 'oembed',
-            'description' => 'OEmbed for Tasks',
+            'description' => 'oEmbed for Tasks',
         ]);
 
         Feature::factory()->create([
