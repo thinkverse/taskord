@@ -18,9 +18,10 @@ class CreateOembedsTable extends Migration
             $table->foreignId('task_id')->onDelete('cascade')->nullable();
             $table->string('url')->nullable();
             $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('type')->nullable();
             $table->string('provider_name')->nullable();
             $table->string('provider_url')->nullable();
-            $table->text('description')->nullable();
             $table->string('thumbnail_url')->nullable();
             $table->string('favicon')->nullable();
             $table->timestamps();

@@ -36,14 +36,16 @@ class GetOembed implements ShouldQueue
 
         $embed = new Embed();
         $info = $embed->get($match[0][0]);
+        $metas = $info->getMetas();
 
         $oembed = new Oembed;
         $oembed->url = $info->url;
-        $oembed->title = $info->title;
-        $oembed->description = $info->description;
+        $oembed->title = $metas->str('og:title');
+        $oembed->description = $metas->str('og:description');
         $oembed->provider_name = $info->providerName;
         $oembed->provider_url = $info->providerUrl;
-        $oembed->thumbnail_url = $info->image;
+        $oembed->type = $metas->str('twitter:card');
+        $oembed->thumbnail_url = $metas->str('og:image');
         $oembed->favicon = $info->favicon;
         $this->task->oembed()->save($oembed);
 

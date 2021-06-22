@@ -10,9 +10,6 @@
             {{ !$task->done_at ? carbon($task->created_at)->diffForHumans() : carbon($task->done_at)->diffForHumans() }}
         </span>
     </div>
-    @if ($task->oembed)
-        {{ $task->oembed->thumbnail_url }}
-    @endif
     <div class="pt-3">
         @if ($task->hidden)
             <span class="fst-italic text-secondary">Task was hidden by moderator</span>
@@ -57,6 +54,9 @@
                         </div>
                     @endforeach
                 </div>
+            @endif
+            @if ($task->oembed)
+                {{ $task->oembed }}
             @endif
         @endif
         @if ($task->milestone)
