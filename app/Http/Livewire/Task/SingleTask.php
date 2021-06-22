@@ -102,7 +102,7 @@ class SingleTask extends Component
         foreach ($this->task->images ?? [] as $image) {
             Storage::delete($image);
         }
-        $this->task->oembed()->delete();
+        $this->task->oembed->delete();
         $this->task->delete();
         $this->emitUp('refreshTasks');
 
