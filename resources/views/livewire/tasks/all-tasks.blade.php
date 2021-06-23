@@ -15,21 +15,22 @@
                 <div class="card-body text-center mt-3 mb-3">
                     <div class="spinner-border taskord-spinner text-secondary" role="status"></div>
                 </div>
-            @endif
-            @if ($readyToLoad and count($tasks) === 0)
-                <div class="card-body text-center mt-3 mb-3">
-                    <x-heroicon-o-check-circle class="heroicon heroicon-60px text-primary mb-2" />
-                    <div class="h4">
-                        All done!
+            @else
+                @if (count($tasks) === 0)
+                    <div class="card-body text-center mt-3 mb-3">
+                        <x-heroicon-o-check-circle class="heroicon heroicon-60px text-primary mb-2" />
+                        <div class="h4">
+                            All done!
+                        </div>
                     </div>
-                </div>
+                @endif
+                @foreach ($tasks as $task)
+                    @livewire('tasks.single-task', [
+                    'task' => $task
+                    ], key($task->id))
+                @endforeach
+                {{ $tasks->links() }}
             @endif
-            @foreach ($tasks as $task)
-                @livewire('tasks.single-task', [
-                'task' => $task
-                ], key($task->id))
-            @endforeach
-            {{ $readyToLoad ? $tasks->links() : '' }}
         </ul>
     </div>
 </div>
