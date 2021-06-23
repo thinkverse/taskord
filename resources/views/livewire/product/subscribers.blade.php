@@ -6,43 +6,44 @@
                 Loading subscribers...
             </div>
         </div>
-    @endif
-    @if ($readyToLoad and count($product->subscribers) === 0)
-        <div class="card-body text-center mt-3 mb-3">
-            <x-heroicon-o-users class="heroicon heroicon-60px text-primary mb-2" />
-            <div class="h4">
-                {{ $product->name }} doesn’t have any subscribers yet.
+    @else
+        @if (count($product->subscribers) === 0)
+            <div class="card-body text-center mt-3 mb-3">
+                <x-heroicon-o-users class="heroicon heroicon-60px text-primary mb-2" />
+                <div class="h4">
+                    {{ $product->name }} doesn’t have any subscribers yet.
+                </div>
             </div>
-        </div>
-    @endif
-    @foreach ($subscribers as $user)
-        <div class="card mb-3">
-            <div class="card-body d-flex align-items-center">
-                <img loading=lazy class="rounded-circle avatar-40 mt-1"
-                    src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="40" width="40"
-                    alt="{{ $user->username }}'s avatar" />
-                <span class="ms-3">
-                    <a href="{{ route('user.done', ['username' => $user->username]) }}"
-                        class="align-text-top text-dark">
-                        <span class="fw-bold">
-                            @if ($user->firstname or $user->lastname)
-                                {{ $user->firstname }}{{ ' ' . $user->lastname }}
-                            @else
-                                {{ $user->username }}
+        @endif
+        @foreach ($subscribers as $user)
+            <div class="card mb-3">
+                <div class="card-body d-flex align-items-center">
+                    <img loading=lazy class="rounded-circle avatar-40 mt-1"
+                        src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="40" width="40"
+                        alt="{{ $user->username }}'s avatar" />
+                    <span class="ms-3">
+                        <a href="{{ route('user.done', ['username' => $user->username]) }}"
+                            class="align-text-top text-dark">
+                            <span class="fw-bold">
+                                @if ($user->firstname or $user->lastname)
+                                    {{ $user->firstname }}{{ ' ' . $user->lastname }}
+                                @else
+                                    {{ $user->username }}
+                                @endif
+                            </span>
+                            <div class="mb-2">{{ $user->bio }}</div>
+                        </a>
+                        @auth
+                            @if (auth()->user()->id !== $user->id && !$user->spammy)
+                                @livewire('user.follow', [
+                                'user' => $user
+                                ], key($user->id))
                             @endif
-                        </span>
-                        <div class="mb-2">{{ $user->bio }}</div>
-                    </a>
-                    @auth
-                        @if (auth()->user()->id !== $user->id && !$user->spammy)
-                            @livewire('user.follow', [
-                            'user' => $user
-                            ], key($user->id))
-                        @endif
-                    @endauth
-                </span>
+                        @endauth
+                    </span>
+                </div>
             </div>
-        </div>
-    @endforeach
-    {{ $readyToLoad ? $subscribers->links() : '' }}
+        @endforeach
+        {{ $subscribers->links() }}
+    @endif
 </div>
