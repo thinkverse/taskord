@@ -1,12 +1,12 @@
 <div wire:init="loadComments">
-    @if ($readyToLoad)
+    @if (!$readyToLoad)
         <div class="mt-3">
             <x:loaders.reply-skeleton count="1" />
         </div>
         <div class="mt-3">
             <x:loaders.reply-skeleton count="1" />
         </div>
-        <div class="mt-3">
+        <div class="mt-3 mb-3">
             <x:loaders.reply-skeleton count="1" />
         </div>
     @endif
