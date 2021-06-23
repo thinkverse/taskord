@@ -6,7 +6,7 @@
                     <div class="d-flex align-items-center">
                         <div class="ssc-circle rounded avatar-50"></div>
                         <div class="w-70 ms-2">
-                            <div class="ssc-line w-30"></div>
+                            <div class="ssc-line w-30 mb-3"></div>
                             <div class="ssc-line w-20"></div>
                         </div>
                         <div class="ssc-circle avatar-30 ms-auto"></div>
