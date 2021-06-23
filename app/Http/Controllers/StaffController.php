@@ -70,6 +70,7 @@ class StaffController extends Controller
         $deploymentData = $client->request('GET', 'https://api.buddy.works/workspaces/yogi/projects/taskord/pipelines/334241/executions', [
             'query' => [
                 'access_token' => config('services.buddy.access_token'),
+                'per_page' => 5,
             ],
         ]);
 
