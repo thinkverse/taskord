@@ -12,7 +12,7 @@
                 <span class="badge bg-danger">
                     Deployment Failed
                 </span>
-            @elseif ($deployment->status === 'pending')
+            @elseif ($deployment->status === 'ENQUEUED')
                 <span class="badge bg-secondary">
                     Deployment Pending
                 </span>
@@ -20,9 +20,9 @@
                 <span class="badge bg-info">
                     In Progress
                 </span>
-            @elseif ($deployment->status === 'preparing')
-                <span class="badge bg-info">
-                    Preparing to deploy
+            @elseif ($deployment->status === 'TERMINATED')
+                <span class="badge bg-danger">
+                    Deployment Terminated
                 </span>
             @elseif ($deployment->status === 'SKIPPED')
                 <span class="badge bg-info">
