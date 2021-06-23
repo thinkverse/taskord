@@ -1,5 +1,5 @@
 <div wire:init="loadQuestions">
-    @if ($readyToLoad)
+    @if (!$readyToLoad)
         <div>
             <x:loaders.question-big-skeleton count="1" />
         </div>
