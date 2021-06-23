@@ -63,4 +63,22 @@ class StaffController extends Controller
 
         return 'Something went wrong!';
     }
+
+    public static function deploymentData()
+    {
+        $client = new Client(['http_errors' => false]);
+        $deploymentData = $client->request('GET', 'https://api.buddy.works/workspaces/yogi/projects/taskord/pipelines/334241/executions', [
+            'query' => [
+                'access_token' => config('services.buddy.access_token'),
+            ],
+        ]);
+
+        if ($deploymentData->getStatusCode() === 200) {
+            return view('site.deployment', [
+                'deployments' => json_decode($deploymentData->getBody()->getContents()),
+            ]);
+        }
+
+        return 'Something went wrong!';
+    }
 }
