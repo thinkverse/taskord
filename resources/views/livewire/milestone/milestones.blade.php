@@ -1,12 +1,12 @@
 <div wire:init="loadMilestones">
     @if (!$readyToLoad)
-        <div class="mt-3">
+        <div>
             <x:loaders.milestone-skeleton count="1" />
         </div>
-        <div class="mt-3">
+        <div class="mt-2">
             <x:loaders.milestone-skeleton count="1" />
         </div>
-        <div class="mt-3 mb-3">
+        <div class="mt-2">
             <x:loaders.milestone-skeleton count="1" />
         </div>
     @endif
