@@ -1,10 +1,13 @@
 <div wire:init="loadMilestones">
-    @if (!$readyToLoad)
-        <div class="card-body text-center mt-3 mb-3">
-            <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
-            <div class="h6">
-                Loading milestones...
-            </div>
+    @if ($readyToLoad)
+        <div class="mt-3">
+            <x:loaders.milestone-skeleton count="1" />
+        </div>
+        <div class="mt-3">
+            <x:loaders.milestone-skeleton count="1" />
+        </div>
+        <div class="mt-3 mb-3">
+            <x:loaders.milestone-skeleton count="1" />
         </div>
     @endif
     @if ($readyToLoad and count($milestones) === 0)
