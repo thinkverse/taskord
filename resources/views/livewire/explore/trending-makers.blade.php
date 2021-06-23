@@ -6,8 +6,8 @@
     <div class="card mb-4">
         <div class="pt-2 pb-2">
             @if (!$readyToLoad)
-                <div class="card-body text-center">
-                    <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
+                <div class="card-body">
+                    <x:loaders.sidebar.user-skeleton count="5" />
                 </div>
             @endif
             @foreach ($users as $user)
