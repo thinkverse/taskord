@@ -48,8 +48,6 @@ class Verify extends Component
             return toast($this, 'success', 'Domain and product has been successfully verified 🎉');
         }
         return toast($this, 'error', "We can't verify the domain at this time, please try again later!");
-
-    
     }
 
     public function getDomain($url)

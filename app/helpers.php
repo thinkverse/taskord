@@ -93,12 +93,10 @@ if (! function_exists('formatBytes')) {
 if (! function_exists('markdown')) {
     function markdown($content)
     {
-        $markdown = Str::markdown($content, [
+        return Str::markdown($content, [
             'html_input' => 'strip',
             'allow_unsafe_links' => false,
         ]);
-
-        return $markdown;
     }
 }
 
