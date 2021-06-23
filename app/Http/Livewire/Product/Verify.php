@@ -46,16 +46,15 @@ class Verify extends Component
             loggy(request(), 'Product', auth()->user(), "Verified the product and domain | Product ID: {$this->product->id}");
 
             return toast($this, 'success', 'Domain and product has been successfully verified 🎉');
-        } else {
-            return toast($this, 'error', "We can't verify the domain at this time, please try again later!");
         }
+        return toast($this, 'error', "We can't verify the domain at this time, please try again later!");
+
+    
     }
 
     public function getDomain($url)
     {
-        $domain = parse_url($url)['host'];
-
-        return $domain;
+        return parse_url($url)['host'];
     }
 
     public function render()
