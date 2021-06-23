@@ -10,9 +10,6 @@
     <a href="https://gitlab.com/taskord/taskord/-/commits/main">
         <img src="https://img.shields.io/gitlab/pipeline/taskord/taskord/main?label=build" alt="Build CI">
     </a>
-    <a href="https://gitlab.com/taskord/taskord-deploy/-/pipelines">
-        <img src="https://img.shields.io/gitlab/pipeline/taskord/taskord-deploy/master?color=%236a63ec&label=deploy" alt="Deploy">
-    </a>
     <a href="https://github.com/taskordhq/web/actions/workflows/test.yml">
         <img src="https://github.com/taskordhq/web/actions/workflows/test.yml/badge.svg?branch=main" alt="GitHub Action">
     </a>
