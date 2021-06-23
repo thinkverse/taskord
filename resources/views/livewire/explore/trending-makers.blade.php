@@ -7,7 +7,7 @@
         <div class="pt-2 pb-2">
             @if (!$readyToLoad)
                 <div class="card-body">
-                    <x:loaders.sidebar.user-skeleton count="5" />
+                    <x:loaders.user-skeleton count="5" />
                 </div>
             @else
                 @foreach ($users as $user)
