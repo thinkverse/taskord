@@ -9,7 +9,7 @@
     @section('image', Helper::getCDNImage($milestone->user->avatar))
     @section('url', url()->current())
 @endif
-
+ 
 @section('content')
     <div class="container-md">
         <div class="row justify-content-center">
