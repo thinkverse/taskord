@@ -1,8 +1,8 @@
 <div>
     @foreach ($deployments->executions as $deployment)
         <div>
-            <code>
-                ID: {{ $deployment->id }}
+            <code class="me-2">
+                {{ $deployment->id }}
             </code>
             @if ($deployment->status === 'SUCCESSFUL')
                 <span class="badge bg-success">
