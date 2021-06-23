@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Loaders\Home;
+namespace App\View\Components\Loaders;
 
 use Illuminate\View\Component;
 
@@ -15,6 +15,6 @@ class QuestionSkeleton extends Component
 
     public function render()
     {
-        return view('components.loaders.home.question-skeleton');
+        return view('components.loaders.question-skeleton');
     }
 }
