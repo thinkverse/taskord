@@ -1,5 +1,5 @@
 <div wire:init="loadProducts">
-    @if ($readyToLoad)
+    @if (!$readyToLoad)
         <div class="ssc">
             <div class="ssc-head-line w-10 mb-3"></div>
             <x:loaders.product-big-skeleton count="1" />
