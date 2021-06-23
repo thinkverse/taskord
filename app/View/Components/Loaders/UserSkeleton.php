@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Loaders\Sidebar;
+namespace App\View\Components\Loaders;
 
 use Illuminate\View\Component;
 
@@ -15,6 +15,6 @@ class UserSkeleton extends Component
 
     public function render()
     {
-        return view('components.loaders.sidebar.user-skeleton');
+        return view('components.loaders.user-skeleton');
     }
 }
