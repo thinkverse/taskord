@@ -66,6 +66,11 @@ return [
         'email'   => env('CLOUDFLARE_EMAIL'),
     ],
 
+    'buddy' => [
+        'webhook_token' => env('BUDDY_WEBHOOK_TOKEN'),
+        'access_token'   => env('BUDDY_ACCESS_TOKEN'),
+    ],
+
     'paddle' => [
         'public_key' => env('PADDLE_PUBLIC_KEY'),
     ],
