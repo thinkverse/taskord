@@ -19,13 +19,12 @@ class Deploy implements ShouldQueue
     {
         if (App::environment() === 'production') {
             $client = new Client();
-            $res = $client->request('GET', 'https://app.buddy.works/yogi/taskord/pipelines/pipeline/334241/trigger-webhook', [
+
+            return $client->request('GET', 'https://app.buddy.works/yogi/taskord/pipelines/pipeline/334241/trigger-webhook', [
                 'query' => [
                     'token' => config('services.buddy.webhook_token'),
                 ],
             ]);
-
-            dd($res);
         }
     }
 }
