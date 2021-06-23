@@ -4,7 +4,7 @@ namespace App\View\Components\Loaders;
 
 use Illuminate\View\Component;
 
-class ProductSkeleton extends Component
+class ProductSmallSkeleton extends Component
 {
     public $count;
 
@@ -15,6 +15,6 @@ class ProductSkeleton extends Component
 
     public function render()
     {
-        return view('components.loaders.product-skeleton');
+        return view('components.loaders.product-small-skeleton');
     }
 }
