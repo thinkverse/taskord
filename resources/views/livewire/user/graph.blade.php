@@ -12,8 +12,6 @@
         @else
             <div id="activityGraph"></div>
         @endif
-    @endif
-    @if ($readyToLoad)
         <script>
             var options = {
                 chart: {
