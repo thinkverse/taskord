@@ -9,8 +9,7 @@
                             <div class="ssc-line w-20"></div>
                             <div class="ssc-line w-10"></div>
                         </div>
-                        <div class="ssc-head-line w-5 m-0 ms-auto"></div>
-                        <div class="ssc-line w-10 m-0 ms-2"></div>
+                        <div class="ssc-line w-10 m-0 ms-auto"></div>
                     </div>
                     <div class="mt-3">
                         <div class="ssc-head-line w-50"></div>
