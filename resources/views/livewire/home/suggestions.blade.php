@@ -5,7 +5,7 @@
     <div class="card mb-4">
         @if (!$readyToLoad)
             <div class="card-body">
-                <x:loaders.sidebar.user-skeleton count="5" />
+                <x:loaders.user-skeleton count="5" />
             </div>
         @else
             @if (count($users) === 0)
