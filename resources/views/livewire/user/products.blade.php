@@ -3,10 +3,10 @@
         <div>
             <x:loaders.product-big-skeleton count="1" />
         </div>
-        <div class="mt-3">
+        <div class="mt-2">
             <x:loaders.product-big-skeleton count="1" />
         </div>
-        <div class="mt-3">
+        <div class="mt-2">
             <x:loaders.product-big-skeleton count="1" />
         </div>
     @endif
