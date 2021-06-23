@@ -41,7 +41,7 @@ class GetOembed implements ShouldQueue
             return true;
         }
 
-        $oembed = new Oembed;
+        $oembed = new Oembed();
         $oembed->url = $info->url;
         $oembed->title = $info->title;
         $oembed->description = $info->description;
