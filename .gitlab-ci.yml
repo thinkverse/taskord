@@ -36,15 +36,20 @@ Test:
   script:
     - php artisan test
 
+Validate GraphQL:
+  stage: test
+  script:
+    - php artisan lighthouse:validate-schema
+
 Insights:
   stage: test
   script:
     - php artisan insights -v
 
-Validate GraphQL:
+Patrol:
   stage: test
   script:
-    - php artisan lighthouse:validate-schema
+    - ./vendor/bin/patrol
 
 Housekeeping:
   stage: clean
