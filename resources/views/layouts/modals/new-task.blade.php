@@ -11,9 +11,7 @@
             </div>
             <div class="modal-body px-4 pb-4">
                 @if (!auth()->user()->spammy)
-                    @livewire('create-task', [
-                    'showLatestTask' => true
-                    ])
+                    @livewire('create-task', ['showLatestTask' => true])
                 @else
                     <div class="text-center">
                         <div class="alert alert-danger mb-0" role="alert">
