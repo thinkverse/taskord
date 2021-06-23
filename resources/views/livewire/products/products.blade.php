@@ -1,10 +1,12 @@
 <div wire:init="loadProducts">
-    @if (!$readyToLoad)
-        <div class="card-body text-center mt-3 mb-3">
-            <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
-            <div class="h6">
-                Loading products...
-            </div>
+    @if ($readyToLoad)
+        <div class="ssc">
+            <div class="ssc-head-line w-10 mb-3"></div>
+            <x:loaders.product-big-skeleton count="1" />
+        </div>
+        <div class="mt-3 ssc">
+            <div class="ssc-head-line w-10 mb-3"></div>
+            <x:loaders.product-big-skeleton count="1" />
         </div>
     @endif
     @if ($readyToLoad and count($products) === 0)
