@@ -1,13 +1,13 @@
 <div wire:init="loadQuestions">
     @if ($readyToLoad)
         <div>
-            <x:loaders.product-big-skeleton count="1" />
+            <x:loaders.question-big-skeleton count="1" />
         </div>
         <div class="mt-2">
-            <x:loaders.product-big-skeleton count="1" />
+            <x:loaders.question-big-skeleton count="1" />
         </div>
         <div class="mt-2">
-            <x:loaders.product-big-skeleton count="1" />
+            <x:loaders.question-big-skeleton count="1" />
         </div>
     @endif
     @if ($readyToLoad and count($questions) === 0)
