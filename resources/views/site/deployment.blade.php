@@ -16,7 +16,7 @@
                 <span class="badge bg-secondary">
                     Deployment Pending
                 </span>
-            @elseif ($deployment->status === 'running')
+            @elseif ($deployment->status === 'INPROGRESS')
                 <span class="badge bg-info">
                     In Progress
                 </span>
