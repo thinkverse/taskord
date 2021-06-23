@@ -6,7 +6,7 @@
     <div class="card mb-4">
         @if (!$readyToLoad)
             <div class="card-body">
-                <x:loaders.home.question-skeleton count="5" />
+                <x:loaders.question-skeleton count="5" />
             </div>
         @else
             <div class="card-body">
