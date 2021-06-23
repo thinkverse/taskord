@@ -10,7 +10,7 @@
                     target="_blank" rel="noreferrer">{{ Str::limit($head_ref, 8, '') }}</a>
             </span>
             <a class="text-white-50 ms-3 d-none d-md-inline"
-                href="https://github.com/laravel/framework/releases/tag/v{{ $laravel_version }}" target="_blank"
+                href="https://github.com/laravel/framework/releases/tag/{{ $laravel_version }}" target="_blank"
                 rel="noreferrer">
                 <x-heroicon-o-chip class="heroicon" />
                 Laravel {{ $laravel_version }}.<span class="fw-bold">{{ $laravel_ref }}</span>
