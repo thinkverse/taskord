@@ -9,22 +9,23 @@
         <div class="mt-2">
             <x:loaders.product-big-skeleton count="1" />
         </div>
-    @endif
-    @if ($readyToLoad and count($products) === 0)
-        <div class="card-body text-center mt-3 mb-3">
-            <x-heroicon-o-cube class="heroicon heroicon-60px text-primary mb-2" />
-            <div class="h4">
-                No products made
+    @else
+        @if (count($products) === 0)
+            <div class="card-body text-center mt-3 mb-3">
+                <x-heroicon-o-cube class="heroicon heroicon-60px text-primary mb-2" />
+                <div class="h4">
+                    No products made
+                </div>
             </div>
-        </div>
-    @endif
-    @foreach ($products as $product)
-        <div class="card mb-2">
-            <div class="card-body">
-                <livewire:product.single-product :product="$product" :wire-key="$product->id" />
+        @endif
+        @foreach ($products as $product)
+            <div class="card mb-2">
+                <div class="card-body">
+                    <livewire:product.single-product :product="$product" :wire-key="$product->id" />
+                </div>
             </div>
-        </div>
-    @endforeach
+        @endforeach
 
-    {{ $readyToLoad ? $products->links() : '' }}
+        {{ $products->links() }}
+    @endif
 </div>
