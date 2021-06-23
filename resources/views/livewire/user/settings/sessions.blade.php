@@ -2,8 +2,10 @@
     <div class="card mb-4">
         <div class="card-header py-3">
             <span class="h5">Sessions</span>
-            <div>This is a list of devices that have logged into your account. Revoke any sessions that you do not
-                recognize.</div>
+            <div>
+                This is a list of devices that have logged into your account. Revoke any sessions that you do not
+                recognize.
+            </div>
         </div>
         @if (count($sessions) === 0)
             <div class="card-body text-center mt-3 mb-3">
