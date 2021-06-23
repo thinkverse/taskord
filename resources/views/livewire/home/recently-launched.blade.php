@@ -48,11 +48,9 @@
                     </div>
                 @endforeach
             </div>
-            @if ($readyToLoad)
-                <div class="card-footer">
-                    <a class="fw-bold" href="{{ route('products.newest') }}">More Products...</a>
-                </div>
-            @endif
+            <div class="card-footer">
+                <a class="fw-bold" href="{{ route('products.newest') }}">More Products...</a>
+            </div>
         @endif
     </div>
 </div>
