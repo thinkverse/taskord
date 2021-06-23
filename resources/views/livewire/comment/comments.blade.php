@@ -1,10 +1,13 @@
 <div wire:init="loadComments">
-    @if (!$readyToLoad)
-        <div class="card-body text-center mt-3">
-            <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
-            <div class="h6">
-                Loading comments...
-            </div>
+    @if ($readyToLoad)
+        <div class="mt-3">
+            <x:loaders.reply-skeleton count="1" />
+        </div>
+        <div class="mt-3">
+            <x:loaders.reply-skeleton count="1" />
+        </div>
+        <div class="mt-3">
+            <x:loaders.reply-skeleton count="1" />
         </div>
     @endif
     @if ($readyToLoad and count($comments) === 0)
