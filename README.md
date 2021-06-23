@@ -13,6 +13,9 @@
     <a href="https://github.com/taskordhq/web/actions/workflows/test.yml">
         <img src="https://github.com/taskordhq/web/actions/workflows/test.yml/badge.svg?branch=main" alt="GitHub Action">
     </a>
+    <a href="https://depfu.com/gitlab/taskord/taskord">
+        <img src="https://badges.depfu.com/badges/f0625abc743939efb59a25395cc964cb/overview.svg" alt="Depfu">
+    </a>
     <a href="https://gitlab.styleci.io/repos/20359920?branch=main">
         <img src="https://gitlab.styleci.io/repos/20359920/shield" alt="Style CI">
     </a>
