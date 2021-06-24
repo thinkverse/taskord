@@ -70,7 +70,7 @@ class CreateTask extends Component
 
         (new CreateNewTask(auth()->user(), [
             'product_id' => $product_id,
-            'task' => $this->task,
+            'task' => Str::of($this->task)->trim(),
             'done' => false,
             'images' => $images,
             'due_at' => $this->dueAt,
