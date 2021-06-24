@@ -40,6 +40,10 @@ class Integrations extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
+        $this->validate([
+            'name' => ['required', 'max:30'],
+        ]);
+
         $webhook = auth()->user()->webhooks()->create([
             'name' => $this->name,
             'product_id' => $this->product,
