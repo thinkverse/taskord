@@ -34,6 +34,7 @@ class LoadMore extends Component
     {
         if ($this->loadMore) {
             $tasks = $this->user->tasks()
+                ->with(['user', 'product', 'milestone', 'comments.user', 'oembed'])
                 ->whereDone($this->type === 'user.done' ? true : false)
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, '*', null, $this->page);

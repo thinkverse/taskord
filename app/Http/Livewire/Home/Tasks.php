@@ -30,8 +30,7 @@ class Tasks extends Component
             $userIds = auth()->user()->followings->pluck('id');
             $userIds->push(auth()->user()->id);
 
-            return Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'milestone_id', 'source', 'images', 'hidden')
-                ->with(['user', 'comments.user', 'oembed'])
+            return Task::with(['user', 'product', 'milestone', 'comments.user', 'oembed'])
                 ->whereIn('user_id', $userIds)
                 ->whereHas('user', function ($q) {
                     $q->where([
