@@ -41,21 +41,23 @@ class LoadMore extends Component
     {
         if ($this->loadMore) {
             if ($this->type === 'meetups.upcoming') {
-                $meetups = Meetup::whereHas('user', function ($q) {
-                    $q->where([
-                        ['spammy', false],
-                        ['is_private', false],
-                    ]);
-                })
+                $meetups = Meetup::with(['user', 'subscribers'])
+                    ->whereHas('user', function ($q) {
+                        $q->where([
+                            ['spammy', false],
+                            ['is_private', false],
+                        ]);
+                    })
                     ->latest()
                     ->get();
             } elseif ($this->type === 'meetups.finished') {
-                $meetups = Meetup::whereHas('user', function ($q) {
-                    $q->where([
-                        ['spammy', false],
-                        ['is_private', false],
-                    ]);
-                })
+                $meetups = Meetup::with(['user', 'subscribers'])
+                    ->whereHas('user', function ($q) {
+                        $q->where([
+                            ['spammy', false],
+                            ['is_private', false],
+                        ]);
+                    })
                     ->latest()
                     ->get();
             }
