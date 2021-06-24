@@ -99,9 +99,9 @@ class EditProduct extends Component
             $product->txt_code = "_taskord-challenge-{$this->product->slug}-".Str::uuid();
         }
 
-        $product->name = $this->name;
+        $product->name = trim($this->name);
         $product->slug = $this->slug;
-        $product->description = $this->description;
+        $product->description = trim($this->description);
         $product->website = $this->website;
         $product->twitter = $this->twitter;
         $product->repo = $this->repo;
