@@ -34,6 +34,7 @@ class Tasks extends Component
         $members->push($this->product->user->id);
 
         return $this->product->tasks()
+            ->with(['comments.user', 'oembed'])
             ->whereDone($this->type === 'product.done' ? true : false)
             ->whereIn('user_id', $members)
             ->latest('updated_at')
