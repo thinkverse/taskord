@@ -9,6 +9,7 @@ class TaskController extends Controller
     public function task($id)
     {
         $task = Task::where('id', $id)
+            ->with(['user', 'product', 'milestone', 'comments.user', 'oembed'])
             ->firstOrFail();
         $response = [
             'task' => $task,
