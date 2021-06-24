@@ -36,6 +36,7 @@ class LoadMore extends Component
             $members = $this->product->members->pluck('id');
             $members->push($this->product->user->id);
             $tasks = $this->product->tasks()
+                ->with(['user', 'product', 'milestone', 'comments.user', 'oembed'])
                 ->whereDone($this->type === 'product.done' ? true : false)
                 ->whereIn('user_id', $members)
                 ->orderBy('created_at', 'desc')
