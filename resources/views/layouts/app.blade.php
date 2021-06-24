@@ -19,17 +19,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>@yield('pageTitle') Taskord</title>
     @auth
-        @if (App::environment() === 'production')
+        @production
             @if (auth()->user()->is_beta)
-                <link rel="icon" href="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" sizes="any"
-                    type="image/svg+xml">
+                <link rel="icon" href="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" sizes="any" type="image/svg+xml">
             @else
-                <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_FLhAmih_U.svg" sizes="any"
-                    type="image/svg+xml">
+                <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_FLhAmih_U.svg" sizes="any" type="image/svg+xml">
             @endif
         @else
             <link rel="icon" href="https://ik.imagekit.io/taskordimg/dev_nRoZHKwhy.svg" sizes="any" type="image/svg+xml">
-        @endif
+        @endproduction
     @endauth
     @guest
         <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_FLhAmih_U.svg" sizes="any" type="image/svg+xml">
@@ -45,9 +43,9 @@
         @endif
     @endauth
     <livewire:styles />
-    @if (App::environment() === 'production')
+    @production
         <script async src="https://cdn.splitbee.io/sb.js"></script>
-    @endif
+    @endproduction
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
