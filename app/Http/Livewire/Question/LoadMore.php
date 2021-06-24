@@ -50,11 +50,12 @@ class LoadMore extends Component
                     ->latest()
                     ->get();
             } elseif ($this->type === 'questions.unanswered') {
-                $questions = Question::whereHas('user', function ($q) {
-                    $q->where([
-                        ['spammy', false],
-                    ]);
-                })
+                $questions = Question::with(['user', 'answers', 'answers.user'])
+                    ->whereHas('user', function ($q) {
+                        $q->where([
+                            ['spammy', false],
+                        ]);
+                    })
                     ->doesntHave('answers')
                     ->latest()
                     ->get();
