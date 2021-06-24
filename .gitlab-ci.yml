@@ -19,7 +19,7 @@ cache:
     - vendor/
     - node_modules/
 
-.prepare
+.prepare:
   before_script:
     - sudo composer self-update --2
     - sudo composer install --no-progress --ignore-platform-reqs
