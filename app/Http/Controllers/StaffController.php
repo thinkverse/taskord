@@ -33,6 +33,7 @@ class StaffController extends Controller
         $commits = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/repository/commits', [
             'query' => [
                 'ref_name' => git('rev-parse HEAD').'...main',
+                'per_page' => '1000',
             ],
         ]);
 
