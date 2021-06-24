@@ -75,6 +75,7 @@ class SitemapController extends Controller
     public function comments()
     {
         $comments = Comment::select('id', 'hidden', 'task_id', 'user_id')
+            ->with(['task'])
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['spammy', false],
