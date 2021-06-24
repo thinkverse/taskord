@@ -29,7 +29,7 @@ class Tasks extends Component
     public function getTasks()
     {
         return $this->milestone->tasks()
-            ->with(['user', 'comments.user', 'oembed'])
+            ->with(['user', 'product', 'milestone', 'comments.user', 'oembed'])
             ->orderBy('created_at', 'desc')
             ->paginate(10, '*', null, $this->page);
     }
