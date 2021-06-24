@@ -120,11 +120,12 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $answers = Answer::whereHas('user', function ($q) {
-                $q->where([
-                    ['spammy', false],
-                ]);
-            })
+            $answers = Answer::with(['user', 'question', 'question.user'])
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['spammy', false],
+                    ]);
+                })
                 ->whereHidden(false)
                 ->search($searchTerm)
                 ->paginate(10)
@@ -148,11 +149,12 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $products = Product::whereHas('user', function ($q) {
-                $q->where([
-                    ['spammy', false],
-                ]);
-            })
+            $products = Product::with(['user'])
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['spammy', false],
+                    ]);
+                })
                 ->search($searchTerm)
                 ->paginate(10)
                 ->onEachSide(1);
@@ -175,7 +177,8 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $users = User::search($searchTerm)
+            $users = User::with(['followings', 'followers'])
+                ->search($searchTerm)
                 ->paginate(10)
                 ->onEachSide(1);
 
