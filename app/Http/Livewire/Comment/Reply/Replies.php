@@ -13,8 +13,22 @@ class Replies extends Component
 
     public Comment $comment;
 
+    public function getReplies()
+    {
+        return $this->comment->replies()
+            ->with(['user'])
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['spammy', false],
+                ]);
+            })
+            ->get();
+    }
+
     public function render()
     {
-        return view('livewire.comment.reply.replies');
+        return view('livewire.comment.reply.replies', [
+            'replies' => $this->getReplies(),
+        ]);
     }
 }
