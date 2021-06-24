@@ -24,6 +24,7 @@ class Search extends Component
     public function updatedQuery()
     {
         $this->tasks = Task::select('id', 'task', 'done', 'hidden', 'user_id')
+            ->with(['user'])
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['spammy', false],
@@ -39,10 +40,12 @@ class Search extends Component
             ->take(3)
             ->get();
         $this->products = Product::select('slug', 'name', 'avatar', 'user_id')
+            ->with(['user'])
             ->search($this->query)
             ->take(3)
             ->get();
         $this->questions = Question::select('id', 'slug', 'title', 'user_id')
+            ->with(['user'])
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['spammy', false],
