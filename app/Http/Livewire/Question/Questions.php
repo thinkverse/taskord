@@ -30,24 +30,27 @@ class Questions extends Component
     public function getQuestions()
     {
         if ($this->type === 'questions.newest') {
-            return Question::whereHas('user', function ($q) {
-                $q->where([
-                    ['spammy', false],
-                ]);
-            })
+            return Question::with(['user', 'answers'])
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['spammy', false],
+                    ]);
+                })
                 ->latest()
                 ->get();
         } elseif ($this->type === 'questions.unanswered') {
-            return Question::whereHas('user', function ($q) {
-                $q->where([
-                    ['spammy', false],
-                ]);
-            })
+            return Question::with(['user', 'answers'])
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['spammy', false],
+                    ]);
+                })
                 ->doesntHave('answers')
                 ->latest()
                 ->get();
         } elseif ($this->type === 'questions.popular') {
-            return Question::withCount('answers')
+            return Question::with(['user', 'answers'])
+                ->withCount('answers')
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['spammy', false],
