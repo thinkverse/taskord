@@ -168,7 +168,7 @@ class Helper
 
     public static function renderTask($task)
     {
-        $urlRegex = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,100}(\/\S*)?/";
+        $urlRegex = "/(http|https)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,100}(\/\S*)?/";
 
         $task = preg_replace('/#([\w-]+)/', '<a href="/product/$1">#$1</a>', $task);
         $task = preg_replace('/@([\w-]+)/', '<a href="/@$1">@$1</a>', $task);
