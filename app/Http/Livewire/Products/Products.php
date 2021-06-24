@@ -30,13 +30,15 @@ class Products extends Component
     public function getProducts()
     {
         if ($this->type === 'products.newest') {
-            return Product::orderBy('created_at', 'desc')
+            return Product::with(['user'])
+                ->orderBy('created_at', 'desc')
                 ->get()
                 ->groupBy(function ($date) {
                     return $date->created_at->format('Y,W');
                 });
         } elseif ($this->type === 'products.launched') {
-            return Product::whereLaunched(true)
+            return Product::with(['user'])
+                ->whereLaunched(true)
                 ->orderBy('created_at', 'desc')
                 ->get()
                 ->groupBy(function ($date) {

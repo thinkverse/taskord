@@ -41,13 +41,15 @@ class LoadMore extends Component
     {
         if ($this->loadMore) {
             if ($this->type === 'products.newest') {
-                $products = Product::orderBy('created_at', 'desc')
+                $products = Product::with(['user'])
+                    ->orderBy('created_at', 'desc')
                     ->get()
                     ->groupBy(function ($date) {
                         return $date->created_at->format('Y,W');
                     });
             } elseif ($this->type === 'products.launched') {
-                $products = Product::whereLaunched(true)
+                $products = Product::with(['user'])
+                    ->whereLaunched(true)
                     ->orderBy('created_at', 'desc')
                     ->get()
                     ->groupBy(function ($date) {
