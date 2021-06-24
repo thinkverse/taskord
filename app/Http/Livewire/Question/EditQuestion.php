@@ -62,7 +62,7 @@ class EditQuestion extends Component
             $question->slug = $titleSlug.'-'.$randomForSlug;
         }
 
-        $question->title = $this->title;
+        $question->title = trim($this->title);
         $question->body = $this->body;
         $question->is_solvable = $solvable;
         $question->patron_only = $patronOnly;
