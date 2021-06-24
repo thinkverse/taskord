@@ -8,6 +8,7 @@ use App\Models\Task;
 use Helper;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class TaskMutator
 {
@@ -24,7 +25,7 @@ class TaskMutator
 
         $task = (new CreateNewTask(auth()->user(), [
             'product_id' => $product_id,
-            'task' => $args['task'],
+            'task' => Str::of($args['task'])->trim(),
             'done' => $args['done'],
             'done_at' => $args['done'] ? carbon() : null,
             'type' => 'user',
