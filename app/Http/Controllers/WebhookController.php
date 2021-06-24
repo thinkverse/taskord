@@ -27,7 +27,7 @@ class WebhookController extends Controller
 
             $task = (new CreateNewTask($webhook->user, [
                 'user_id' => $webhook->user_id,
-                'task' => $task,
+                'task' => Str::of($task)->trim(),
                 'done' => $done,
                 'done_at' => $done_at,
                 'product_id' => $product_id,
