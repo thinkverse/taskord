@@ -75,10 +75,10 @@ class CreateProduct extends Component
         }
 
         $product = auth()->user()->ownedProducts()->create([
-            'name' => $this->name,
+            'name' => trim($this->name),
             'slug' => $this->slug,
             'avatar' => $url,
-            'description' => $this->description,
+            'description' => trim($this->description),
             'website' => $this->website,
             'twitter' => $this->twitter,
             'repo' => $this->repo,
