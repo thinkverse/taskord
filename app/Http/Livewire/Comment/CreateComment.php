@@ -49,7 +49,7 @@ class CreateComment extends Component
 
         $comment = auth()->user()->comments()->create([
             'task_id' => $this->task->id,
-            'comment' => $this->comment,
+            'comment' => trim($this->comment),
         ]);
         $this->emit('refreshComments');
 
