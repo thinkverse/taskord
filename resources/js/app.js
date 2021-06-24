@@ -78,5 +78,6 @@ var lightboxModal = document.getElementById('lightboxModal')
 lightboxModal.addEventListener('show.bs.modal', function (event) {
   var button = event.relatedTarget
   var image = button.getAttribute('data-bs-whatever')
-  document.getElementById("lightbox-viewer").src = image;
+  document.getElementById("lightbox-img").src = image;
+  document.getElementById("lightbox-src").href = image;
 })
