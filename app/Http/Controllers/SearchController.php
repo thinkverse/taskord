@@ -31,12 +31,13 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $tasks = Task::whereHas('user', function ($q) {
-                $q->where([
-                    ['spammy', false],
-                    ['is_private', false],
-                ]);
-            })
+            $tasks = Task::with(['user', 'product', 'milestone', 'comments.user', 'oembed'])
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['spammy', false],
+                        ['is_private', false],
+                    ]);
+                })
                 ->whereHidden(false)
                 ->search($searchTerm)
                 ->paginate(10)

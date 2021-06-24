@@ -22,6 +22,7 @@ class Comments extends Component
     public function getComments()
     {
         return $this->task->comments()
+            ->with(['user'])
             ->withCount('replies')
             ->oldest()
             ->get();
