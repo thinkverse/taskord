@@ -60,7 +60,8 @@ class LoadMore extends Component
                     ->latest()
                     ->get();
             } elseif ($this->type === 'questions.popular') {
-                $questions = Question::withCount('answers')
+                $questions = Question::with(['user', 'answers', 'answers.user'])
+                    ->withCount('answers')
                     ->whereHas('user', function ($q) {
                         $q->where([
                             ['spammy', false],
