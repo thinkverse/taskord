@@ -21,6 +21,7 @@ class Updates extends Component
     public function render()
     {
         $updates = $this->product->productUpdates()
+            ->with(['user'])
             ->latest()
             ->paginate(10);
 
