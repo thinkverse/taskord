@@ -4,16 +4,13 @@
             @if (auth()->user()->hasSubscribed($product))
                 <button wire:click="subscribeProduct" wire:loading.attr="disabled"
                     class="btn btn-sm btn-outline-danger rounded-pill mb-2">
-                    <div wire:loading wire:target="subscribeProduct" class="spinner-border spinner-border-sm me-1"></div>
-                    <x-heroicon-o-minus-circle wire:loading.remove wire:target="subscribeProduct"
-                        class="heroicon heroicon-15px" />
+                    <x-heroicon-o-minus-circle class="heroicon heroicon-15px" />
                     Unsubscribe
                 </button>
             @else
                 <button wire:click="subscribeProduct" wire:loading.attr="disabled"
                     class="btn btn-sm btn-outline-primary rounded-pill mb-2">
-                    <div wire:loading wire:target="subscribeProduct" class="spinner-border spinner-border-sm me-1"></div>
-                    <x-heroicon-o-plus wire:loading.remove wire:target="subscribeProduct" class="heroicon heroicon-15px" />
+                    <x-heroicon-o-plus class="heroicon heroicon-15px" />
                     Subscribe
                 </button>
             @endif
