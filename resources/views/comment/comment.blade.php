@@ -16,14 +16,15 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <span class="p-3">
-                            <livewire:task.single-task :task="$task" :showComments="false" :wire:key="$task->id" />
+                            <livewire:task.single-task :task="$comment->task" :showComments="false"
+                                :wire:key="$comment->task->id" />
                         </span>
                     </div>
                     <div class="ms-4 vertical-line"></div>
                     <div class="mb-4">
                         <livewire:comment.single-comment :comment="$comment" :showReplyBox="true" :wire:key="$comment->id" />
                     </div>
-                    <a href="{{ route('task', ['id' => $task->id]) }}"
+                    <a href="{{ route('task', ['id' => $comment->task->id]) }}"
                         class="btn w-100 btn-outline-success rounded-pill mt-4 fw-bold">
                         Go back to task
                     </a>
