@@ -25,7 +25,7 @@ class TaskMutator
 
         $task = (new CreateNewTask(auth()->user(), [
             'product_id' => $product_id,
-            'task' => Str::of($args['task'])->trim(),
+            'task' => trim($args['task']),
             'done' => $args['done'],
             'done_at' => $args['done'] ? carbon() : null,
             'type' => 'user',

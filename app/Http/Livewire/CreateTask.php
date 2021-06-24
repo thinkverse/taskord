@@ -96,7 +96,7 @@ class CreateTask extends Component
 
         $task = (new CreateNewTask(auth()->user(), [
             'product_id' => $product_id,
-            'task' => Str::of($this->task)->trim(),
+            'task' => trim($this->task),
             'done' => $state,
             'done_at' => $state ? carbon() : null,
             'images' => $images,
