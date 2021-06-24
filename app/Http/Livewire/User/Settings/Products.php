@@ -19,7 +19,8 @@ class Products extends Component
     {
         $this->user = $user;
 
-        $this->products = Product::whereUserId($this->user->id)
+        $this->products = Product::with(['user'])
+            ->whereUserId($this->user->id)
             ->orWhereHas('members', function (Builder $query) {
                 $query->whereUserId($this->user->id);
             })->get();
