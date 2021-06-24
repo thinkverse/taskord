@@ -30,9 +30,9 @@ class GetOembed implements ShouldQueue
         );
 
         if (
-            count($match[0] or
+            count($match[0]) === 0 or
             ! @get_headers($match[0][0])
-        ) === 0) {
+        ) {
             return true;
         }
 
