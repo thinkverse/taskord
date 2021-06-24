@@ -4,10 +4,14 @@ namespace App\Http\Livewire\Staff\Features;
 
 use App\Models\Feature;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Features extends Component
 {
+    use WithPagination;
+
     public $readyToLoad = false;
+    protected $paginationTheme = 'bootstrap';
 
     public function loadFeatures()
     {
@@ -17,7 +21,7 @@ class Features extends Component
     public function render()
     {
         return view('livewire.staff.features.features', [
-            'features' => $this->readyToLoad ? Feature::latest()->get() : [],
+            'features' => $this->readyToLoad ? Feature::latest()->paginate(10) : [],
         ]);
     }
 }

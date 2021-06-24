@@ -23,6 +23,7 @@
             @foreach ($features as $feature)
                 <livewire:staff.features.single-feature :feature="$feature" :wire:key="$feature->id" />
             @endforeach
+            {{ $features->links() }}
         @endif
     </div>
     <livewire:staff.features.create-feature />
