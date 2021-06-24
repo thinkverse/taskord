@@ -3,7 +3,7 @@
     <div class="card mt-3">
         <div class="card-body">
             @if (!$readyToLoad)
-            <x:loaders.stat-skeleton />
+                <x:loaders.stat-skeleton />
             @endif
             <div id="answers"></div>
         </div>
