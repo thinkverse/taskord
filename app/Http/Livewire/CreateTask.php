@@ -105,7 +105,7 @@ class CreateTask extends Component
         ]))();
 
         $this->emit('refreshTasks');
-        $this->reset(['task', 'images', 'dueAt']);
+        $this->reset();
         if (auth()->user()->has_goal and $task->done) {
             auth()->user()->daily_goal_reached += 1;
             auth()->user()->save();

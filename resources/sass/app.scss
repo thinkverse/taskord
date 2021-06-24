@@ -387,20 +387,6 @@ input[type="date"]:valid:before {
   border-bottom-left-radius: 0.5rem;
 }
 
-.gallery {
-  display: flex;
-
-  img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-  }
-}
-
-.gallery > div:not(:last-child) {
-  margin-right: 1%;
-}
-
 .tippy-box {
   border-radius: 0.5rem !important;
 }

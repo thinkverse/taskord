@@ -40,13 +40,15 @@
                 </label>
             </div>
             @if ($task->images)
-                <div class="gallery">
+                <div class="row row-cols-2">
                     @foreach ($task->images ?? [] as $image)
-                        <div type="button" data-bs-toggle="modal" data-bs-target="#lightboxModal"
-                            data-bs-whatever="{{ asset('storage/' . $image) }}">
-                            <img loading=lazy class="gallery img-fluid mt-3 rounded"
-                                src="{{ Helper::getCDNImage(asset('storage/' . $image), 500) }}"
-                                alt="{{ asset('storage/' . $image) }}" />
+                        <div class="col">
+                            <div type="button" data-bs-toggle="modal" data-bs-target="#lightboxModal"
+                                data-bs-whatever="{{ asset('storage/' . $image) }}">
+                                <img loading=lazy class="img-fluid mt-3 rounded"
+                                    src="{{ Helper::getCDNImage(asset('storage/' . $image), 500) }}"
+                                    alt="{{ asset('storage/' . $image) }}" />
+                            </div>
                         </div>
                     @endforeach
                 </div>

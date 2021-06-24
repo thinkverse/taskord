@@ -37,12 +37,10 @@
             <div class="spinner-border spinner-border-sm mt-4" role="status"></div>
         </div>
         @if ($images)
-            <div class="gallery">
+            <div class="row row-cols-2">
                 @foreach ($images ?? [] as $image)
-                    <div>
-                        <img loading=lazy
-                            class="{{ count($images) === 1 ? 'w-50' : 'gallery' }} img-fluid mt-3 rounded"
-                            src="{{ $image->temporaryUrl() }}" />
+                    <div class="col">
+                        <img loading=lazy class="img-fluid mt-3 rounded" src="{{ $image->temporaryUrl() }}" />
                     </div>
                 @endforeach
             </div>
