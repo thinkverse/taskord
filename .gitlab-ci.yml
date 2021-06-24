@@ -19,34 +19,39 @@ cache:
     - vendor/
     - node_modules/
 
-before_script:
-  - sudo composer self-update --2
-  - sudo composer install --no-progress --ignore-platform-reqs
-  - cp .env.example .env
-  - php artisan key:generate
-  - sudo npm i -g yarn
-  - sudo yarn install
-  - sudo yarn production
-  - php artisan horizon:install
-  - php artisan horizon:publish
-  - php artisan migrate:fresh --seed
+.prepare
+  before_script:
+    - sudo composer self-update --2
+    - sudo composer install --no-progress --ignore-platform-reqs
+    - cp .env.example .env
+    - php artisan key:generate
+    - sudo npm i -g yarn
+    - sudo yarn install
+    - sudo yarn production
+    - php artisan horizon:install
+    - php artisan horizon:publish
+    - php artisan migrate:fresh --seed
 
 Test:
+  extends: .prepare
   stage: test
   script:
     - php artisan test
 
 Validate GraphQL:
+  extends: .prepare
   stage: test
   script:
     - php artisan lighthouse:validate-schema
 
 Insights:
+  extends: .prepare
   stage: test
   script:
     - php artisan insights -v
 
 Patrol:
+  extends: .prepare
   stage: test
   script:
     - ./vendor/bin/patrol
