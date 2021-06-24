@@ -1,11 +1,6 @@
 <div wire:init="loadAllNotifications">
-    @if (!$readyToLoad)
-        <div class="card-body text-center mt-3">
-            <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
-            <div class="h6">
-                Loading notifications...
-            </div>
-        </div>
+    @if ($readyToLoad)
+        <x:loaders.notification-skeleton count="3" />
     @else
         @if (count($notifications) === 0)
             <div class="card-body text-center mt-5">
@@ -26,8 +21,6 @@
                 ], key($notification->id))
             </div>
         @endforeach
-        @if ($notifications->hasMorePages())
-            <livewire:notification.load-more type="all" :page="$page" :perPage="$perPage" />
-        @endif
+
     @endif
 </div>
