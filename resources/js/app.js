@@ -74,10 +74,10 @@ window.addEventListener("toast", event => {
   document.getElementById("toast-body").innerHTML = event.detail.body;
 });
 
-var lightboxModal = document.getElementById('lightboxModal')
-lightboxModal.addEventListener('show.bs.modal', function (event) {
-  var button = event.relatedTarget
-  var image = button.getAttribute('data-bs-whatever')
+var lightboxModal = document.getElementById("lightboxModal");
+lightboxModal.addEventListener("show.bs.modal", function (event) {
+  var button = event.relatedTarget;
+  var image = button.getAttribute("data-bs-whatever");
   document.getElementById("lightbox-img").src = image;
   document.getElementById("lightbox-src").href = image;
-})
+});
