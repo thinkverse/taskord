@@ -174,7 +174,7 @@ class Helper
         $task = preg_replace('/@([\w-]+)/', '<a href="/@$1">@$1</a>', $task);
 
         if (preg_match($urlRegex, $task, $url)) {
-            $truncate = strlen($url[0]) > 30 ? substr($url[0], 0, 30).'...' : $url[0];
+            $truncate = strlen($url[0]) > 35 ? substr($url[0], 0, 35).'...' : $url[0];
 
             return preg_replace($urlRegex, "<a class='link' target='_blank' href='{$url[0]}'>${truncate}</a>", $task);
         }
