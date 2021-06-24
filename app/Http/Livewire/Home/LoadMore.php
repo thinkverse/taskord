@@ -32,7 +32,7 @@ class LoadMore extends Component
             if (auth()->check() && auth()->user()->only_followings_tasks) {
                 $userIds = auth()->user()->followings->pluck('id');
                 $userIds->push(auth()->user()->id);
-                $tasks = Task::with(['user', 'comments.user'])
+                $tasks = Task::with(['user', 'product', 'milestone', 'comments.user', 'oembed'])
                     ->whereIn('user_id', $userIds)
                     ->whereHas('user', function ($q) {
                         $q->where([
@@ -44,7 +44,7 @@ class LoadMore extends Component
                     ->orderBy('done_at', 'desc')
                     ->paginate(10, '*', null, $this->page);
             } else {
-                $tasks = Task::with(['user', 'comments.user'])
+                $tasks = Task::with(['user', 'product', 'milestone', 'comments.user', 'oembed'])
                     ->whereHas('user', function ($q) {
                         $q->where([
                             ['spammy', false],
