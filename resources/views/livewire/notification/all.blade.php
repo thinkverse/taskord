@@ -1,5 +1,5 @@
 <div wire:init="loadAllNotifications">
-    @if ($readyToLoad)
+    @if (!$readyToLoad)
         <x:loaders.notification-skeleton count="3" />
     @else
         @if (count($notifications) === 0)
@@ -21,6 +21,8 @@
                 ], key($notification->id))
             </div>
         @endforeach
-
+        @if ($notifications->hasMorePages())
+            <livewire:notification.load-more type="all" :page="$page" :perPage="$perPage" />
+        @endif
     @endif
 </div>
