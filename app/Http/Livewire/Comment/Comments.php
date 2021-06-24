@@ -34,6 +34,7 @@ class Comments extends Component
     public function getComments()
     {
         return $this->task->comments()
+            ->with(['user', 'task', 'replies'])
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['spammy', false],
