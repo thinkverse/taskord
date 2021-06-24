@@ -40,7 +40,7 @@ class CreateQuestion extends Component
 
         $question = auth()->user()->questions()->create([
             'slug' => $titleSlug.'-'.$randomForSlug,
-            'title' => $this->title,
+            'title' => trim($this->title),
             'body' => $this->body,
             'is_solvable' => $solvable,
             'patron_only' => $patronOnly,
