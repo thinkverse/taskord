@@ -3,12 +3,7 @@
     <div class="card mt-3">
         <div class="card-body">
             @if (!$readyToLoad)
-                <div class="card-body text-center mt-3">
-                    <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
-                    <div class="h6">
-                        Loading comments stats...
-                    </div>
-                </div>
+                <x:loaders.stat-skeleton />
             @endif
             <div id="comments"></div>
         </div>
