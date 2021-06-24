@@ -106,8 +106,6 @@ it('can render task with links correctly', function ($task, $expected) {
     ['http://example.com/test Lorem', "<a class='link' target='_blank' href='http://example.com/test'>http://example.com/test</a> Lorem"],
     ['https://example.com/test', "<a class='link' target='_blank' href='https://example.com/test'>https://example.com/test</a>"],
     ['http://example.com/test', "<a class='link' target='_blank' href='http://example.com/test'>http://example.com/test</a>"],
-    ['ftps://example.com/test', "<a class='link' target='_blank' href='ftps://example.com/test'>ftps://example.com/test</a>"],
-    ['ftp://example.com/test', "<a class='link' target='_blank' href='ftp://example.com/test'>ftp://example.com/test</a>"],
 ]);
 
 it('can render task with plain text correctly', function () {
