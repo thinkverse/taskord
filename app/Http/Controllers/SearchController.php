@@ -61,12 +61,13 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $comments = Comment::whereHas('user', function ($q) {
-                $q->where([
-                    ['spammy', false],
-                    ['is_private', false],
-                ]);
-            })
+            $comments = Comment::with(['user', 'task', 'replies'])
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['spammy', false],
+                        ['is_private', false],
+                    ]);
+                })
                 ->whereHidden(false)
                 ->search($searchTerm)
                 ->paginate(10)
