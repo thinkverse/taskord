@@ -33,6 +33,10 @@ class GetOembed implements ShouldQueue
             return true;
         }
 
+        if (! @get_headers($match[0][0])) {
+            return true;
+        }
+
         $embed = new Embed();
         $info = $embed->get($match[0][0]);
         $metas = $info->getMetas();
