@@ -102,7 +102,6 @@ it('can render task with both user and product mentions correctly', function ($t
 it('can render task with links correctly', function ($task, $expected) {
     expect(Helper::renderTask($task))->toEqual($expected);
 })->with([
-    ['ftp://example.com/loremipsumtest', "<a class='link' target='_blank' href='ftp://example.com/loremipsumtest'>ftp://example.com/loremipsumte...</a>"],
     ['http://example.com/test Lorem', "<a class='link' target='_blank' href='http://example.com/test'>http://example.com/test</a> Lorem"],
     ['https://example.com/test', "<a class='link' target='_blank' href='https://example.com/test'>https://example.com/test</a>"],
     ['http://example.com/test', "<a class='link' target='_blank' href='http://example.com/test'>http://example.com/test</a>"],
