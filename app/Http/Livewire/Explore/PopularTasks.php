@@ -20,7 +20,7 @@ class PopularTasks extends Component
 
     public function getPopularTasks()
     {
-        return Task::with(['user', 'comments.user'])
+        return Task::with(['user', 'comments.user', 'product', 'oembed', 'milestone'])
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['spammy', false],
