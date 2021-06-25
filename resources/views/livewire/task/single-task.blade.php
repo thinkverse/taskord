@@ -23,7 +23,7 @@
                     {{ auth()->check() && auth()->user()->id === $task->user_id ? 'enabled' : 'disabled' }} />
                 <label for="task-{{ $task->id }}"
                     class="task-font ms-2 {{ $launched ? 'fw-bold text-success' : 'text-dark' }}">
-                    @if ($launched)<span class="mx-1">🚀</span>@endif
+                    @if ($launched)<span class="mx-1 small">🚀</span>@endif
                     {!! clean(Helper::renderTask($task->task)) !!}
                     @if ($task->type === 'product')
                         <span class="small text-secondary ms-1">
