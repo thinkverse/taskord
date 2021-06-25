@@ -7,7 +7,7 @@
     </form>
     <ul class="position-absolute mt-2 w-50 list-group shadow-sm search-dropdown" style="z-index:3">
         @if (!empty($query))
-            <li class="align-items-center d-flex list-group-item">
+            <li class="align-items-center d-flex list-group-item text-dark">
                 <x-heroicon-o-check class="heroicon me-1" />
                 <span class="h5 mb-0">Tasks</span>
             </li>
@@ -34,7 +34,7 @@
                 <li class="list-group-item">We couldn’t find any tasks matching <span
                         class="fw-bold">{{ $query }}</span>!</li>
             @endif
-            <li class="align-items-center d-flex list-group-item">
+            <li class="align-items-center d-flex list-group-item text-dark">
                 <x-heroicon-o-users class="heroicon me-1" />
                 <span class="h5 mb-0">Users</span>
             </li>
@@ -66,7 +66,7 @@
                 <li class="list-group-item">We couldn’t find any users matching <span
                         class="fw-bold">{{ $query }}</span>!</li>
             @endif
-            <li class="align-items-center d-flex list-group-item">
+            <li class="align-items-center d-flex list-group-item text-dark">
                 <x-heroicon-o-cube class="heroicon me-1" />
                 <span class="h5 mb-0">Products</span>
             </li>
