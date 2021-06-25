@@ -11,17 +11,15 @@ use Livewire\Component;
 
 class EditComment extends Component
 {
-    public $comment = '';
-    public Task $task;
+    public $comment;
 
     protected $rules = [
         'comment' => ['required', 'min:3', 'max:20000'],
-        'task' => ['required'],
     ];
 
-    public function mount($task)
+    public function mount($comment)
     {
-        $this->task = $task;
+        $this->comment = $comment;
     }
 
     public function updated($field)
