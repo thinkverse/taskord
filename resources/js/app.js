@@ -60,7 +60,7 @@ window.addEventListener("toast", (event) => {
   const toastList = toastElList.map(function (toastEl) {
     return new bootstrap.Toast(toastEl);
   });
-  toastList.forEach(toast => toast.show());
+  toastList.forEach((toast) => toast.show());
   const toastIcon = document.getElementById("toast-icon");
   if (event.detail.type === "success") {
     toastIcon.innerHTML = `<svg width="21" height="21" viewBox="0 0 21 21" fill="#ffffff" class="transform transition-transform duration-500 ease-in-out"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>`;
