@@ -41,8 +41,9 @@ class EditComment extends Component
         }
 
         $this->validate();
-        Comment::whereId($this->commentId)
-            ->update(["comment" => $this->comment]);
+        $comment = Comment::find($this->commentId);
+        $comment->comment = $this->comment;
+        $comment->save();
 
         $this->emit('refreshComments');
         $this->reset();
