@@ -12,7 +12,7 @@
         @else
             @if ($edit)
                 <div class="mt-3">
-                    <livewire:comment.create-comment :task="$comment->task" />
+                    <livewire:comment.edit-comment :task="$comment->task" />
                 </div>
             @else
                 <span class="body-font">
