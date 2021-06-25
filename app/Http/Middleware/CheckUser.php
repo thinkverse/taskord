@@ -17,10 +17,10 @@ class CheckUser
      */
     public function handle(Request $request, Closure $next)
     {
+        app('debugbar')->disable();
         if (auth()->check()) {
             $request->user()->last_active = carbon();
             $request->user()->save();
-            app('debugbar')->disable();
 
             if (auth()->user()->staff_mode) {
                 app('debugbar')->enable();
