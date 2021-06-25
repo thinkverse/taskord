@@ -13,7 +13,7 @@
                     </div>
                 </div>
             @endif
-            @foreach ($products as $product)
+            @foreach ($products->take(5) as $product)
                 <div class="py-2 px-3">
                     <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="product-popover"
                         data-id="{{ $product->id }}">
