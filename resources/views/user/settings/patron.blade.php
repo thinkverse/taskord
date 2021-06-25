@@ -54,7 +54,7 @@
                                             <td class="py-4 border-0">
                                                 <h4 class="text-secondary">Subscribed to</h4>
                                                 <div>
-                                                    <x-heroicon-o-clock class="heroicon text-secondary" />
+                                                    <x-heroicon-o-cash class="heroicon text-secondary" />
                                                     <span>13</span>
                                                 </div>
                                             </td>
@@ -70,14 +70,14 @@
                                             <td class="py-4 border-0">
                                                 <h4 class="text-secondary">Last transaction</h4>
                                                 <div>
-                                                    <x-heroicon-o-clock class="heroicon text-secondary" />
+                                                    <x-heroicon-o-currency-dollar class="heroicon text-secondary" />
                                                     <span>13</span>
                                                 </div>
                                             </td>
                                             <td class="py-4 border-0">
                                                 <h4 class="text-secondary">Next bill date</h4>
                                                 <div>
-                                                    <x-heroicon-o-clock class="heroicon text-secondary" />
+                                                    <x-heroicon-o-arrow-circle-right class="heroicon text-secondary" />
                                                     <span>13</span>
                                                 </div>
                                             </td>
