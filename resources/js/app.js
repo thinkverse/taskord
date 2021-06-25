@@ -55,7 +55,7 @@ if (darkMode) {
   });
 }
 
-window.addEventListener("toast", event => {
+window.addEventListener("toast", (event) => {
   const toastElList = [].slice.call(document.querySelectorAll(".toast"));
   const toastList = toastElList.map(function (toastEl) {
     return new bootstrap.Toast(toastEl);
