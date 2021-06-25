@@ -56,15 +56,6 @@ Patrol:
   script:
     - ./vendor/bin/patrol
 
-Semgrep:
-  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/returntocorp/semgrep-agent:v1
-  script: semgrep-agent
-  variables:
-    SEMGREP_APP_DEPLOYMENT_ID: 1737
-  rules:
-  - if: $CI_MERGE_REQUEST_IID
-  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-
 Housekeeping:
   stage: clean
   script:
