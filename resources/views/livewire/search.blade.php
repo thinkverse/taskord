@@ -63,7 +63,7 @@
                     </li>
                 @endforeach
             @else
-                <li class="list-group-item">We couldn’t find any users matching <span
+                <li class="list-group-item text-secondary">We couldn’t find any users matching <span
                         class="fw-bold">{{ $query }}</span>!</li>
             @endif
             <li class="align-items-center d-flex list-group-item text-dark">
@@ -90,7 +90,7 @@
                     </li>
                 @endforeach
             @else
-                <li class="list-group-item">We couldn’t find any products matching <span
+                <li class="list-group-item text-secondary">We couldn’t find any products matching <span
                         class="fw-bold">{{ $query }}</span>!</li>
             @endif
             <li class="align-items-center d-flex list-group-item text-dark">
