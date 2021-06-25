@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Comment;
 
 use App\Gamify\Points\CommentCreated;
 use App\Models\Task;
+use App\Models\Comment;
 use App\Notifications\Comment\Commented;
 use Helper;
 use Illuminate\Support\Facades\Gate;
@@ -40,13 +41,13 @@ class EditComment extends Component
         }
 
         $this->validate();
-
-        $comment = Comment::find($this->commentId)->update(["comment" => $this->comment]);
+        Comment::whereId($this->commentId)
+            ->update(["comment" => $this->comment]);
 
         $this->emit('refreshComments');
-        $this->reset('comment');
+        $this->reset();
 
-        loggy(request(), 'Comment', auth()->user(), "Edited a comment | Comment ID: {$comment->id}");
+        loggy(request(), 'Comment', auth()->user(), "Edited a comment | Comment ID: {$this->commentId}");
 
         return toast($this, 'success', 'Comment has been edited!');
     }
