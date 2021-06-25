@@ -21,9 +21,9 @@
                 <input class="form-check-input task-check" id="task-{{ $task->id }}" type="checkbox"
                     wire:click="checkTask" {{ $task->done ? 'checked' : 'unchecked' }}
                     {{ auth()->check() && auth()->user()->id === $task->user_id ? 'enabled' : 'disabled' }} />
-                @if ($launched)<span class="ms-2">🚀</span>@endif
                 <label for="task-{{ $task->id }}"
                     class="task-font ms-2 {{ $launched ? 'fw-bold text-success' : 'text-dark' }}">
+                    @if ($launched)<span class="mx-1">🚀</span>@endif
                     {!! clean(Helper::renderTask($task->task)) !!}
                     @if ($task->type === 'product')
                         <span class="small text-secondary ms-1">
