@@ -85,14 +85,14 @@
                                                 <h4 class="text-secondary">Last transaction</h4>
                                                 <div>
                                                     <x-heroicon-o-currency-dollar class="heroicon text-secondary" />
-                                                    <span>13</span>
+                                                    <span>{{ carbon($user->patron->event_time)->format('d M Y') }}</span>
                                                 </div>
                                             </td>
                                             <td class="py-4 border-0">
                                                 <h4 class="text-secondary">Next bill date</h4>
                                                 <div>
                                                     <x-heroicon-o-arrow-circle-right class="heroicon text-secondary" />
-                                                    <span>13</span>
+                                                    <span>{{ carbon($user->patron->next_bill_date)->format('d M Y') }}</span>
                                                 </div>
                                             </td>
                                         </tr>
