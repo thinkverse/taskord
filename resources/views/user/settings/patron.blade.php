@@ -76,7 +76,7 @@
                                                 <h4 class="text-secondary">Subscribed at</h4>
                                                 <div>
                                                     <x-heroicon-o-clock class="heroicon text-secondary" />
-                                                    <span>13</span>
+                                                    <span>{{ carbon($user->patron->created_at)->format('d M Y') }}</span>
                                                 </div>
                                             </td>
                                         </tr>
