@@ -41,9 +41,10 @@
                                                                 Update Payment
                                                             </a>
                                                         @endif
-                                                        @if (true)
-                                                            <a class="btn btn-outline-danger rounded-pill" href=""
-                                                                target="_blank" rel="noreferrer">
+                                                        @if ($user->patron->cancel_url)
+                                                            <a class="btn btn-outline-danger rounded-pill"
+                                                                href="{{ $user->patron->cancel_url }}" target="_blank"
+                                                                rel="noreferrer">
                                                                 <x-heroicon-o-x class="heroicon" />
                                                                 Cancel Patron
                                                             </a>
