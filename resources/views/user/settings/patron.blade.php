@@ -18,7 +18,7 @@
                                 Support now!
                             </a>
                         @else
-                            @if (!$user->patron)
+                            @if ($user->patron)
                                 <table class="table mb-0">
                                     <tbody>
                                         <tr class="fw-bold">
@@ -28,7 +28,9 @@
                                                         <h4 class="text-secondary">Checkout ID</h4>
                                                         <div>
                                                             <x-heroicon-o-hashtag class="heroicon text-secondary" />
-                                                            <span class="text-success font-monospace">123</span>
+                                                            <span class="text-success font-monospace">
+                                                                {{ $user->patron->checkout_id }}
+                                                            </span>
                                                         </div>
                                                     </div>
                                                     <div>
@@ -55,7 +57,17 @@
                                                 <h4 class="text-secondary">Subscribed to</h4>
                                                 <div>
                                                     <x-heroicon-o-cash class="heroicon text-secondary" />
-                                                    <span>13</span>
+                                                    @if ($user->patron->subscription_plan_id === 619848)
+                                                        <span>Tier 1 - $5/month</span>
+                                                    @elseif ($user->patron->subscription_plan_id === 621377)
+                                                        <span>Tier 2 - $10/month</span>
+                                                    @elseif ($user->patron->subscription_plan_id === 621379)
+                                                        <span>Tier 3 - $20/month</span>
+                                                    @elseif ($user->patron->subscription_plan_id === 621380)
+                                                        <span>Tier 4 - $50/month</span>
+                                                    @elseif ($user->patron->subscription_plan_id === 629491)
+                                                        <span>Tier 5 - $100 onetime</span>
+                                                    @endif
                                                 </div>
                                             </td>
                                             <td class="py-4 border-0">
