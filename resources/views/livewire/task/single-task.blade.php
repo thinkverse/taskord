@@ -45,7 +45,7 @@
                         <div class="col">
                             <div type="button" data-bs-toggle="modal" data-bs-target="#lightboxModal"
                                 data-bs-whatever="{{ asset('storage/' . $image) }}">
-                                <img loading=lazy class="img-fluid mt-3 rounded"
+                                <img loading=lazy class="img-fluid border mt-2 rounded"
                                     src="{{ Helper::getCDNImage(asset('storage/' . $image), 500) }}"
                                     alt="{{ asset('storage/' . $image) }}" />
                             </div>
