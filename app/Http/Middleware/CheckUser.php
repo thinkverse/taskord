@@ -21,6 +21,12 @@ class CheckUser
             $request->user()->last_active = carbon();
             $request->user()->save();
 
+            if (auth()->user()->staff_mode) {
+                \Debugbar::enable();
+            } else {
+                \Debugbar::disable();
+            }
+
             if ($request->user()->is_suspended) {
                 auth()->logout();
 
