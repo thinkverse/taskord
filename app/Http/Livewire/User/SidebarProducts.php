@@ -22,9 +22,9 @@ class SidebarProducts extends Component
 
     public function getProducts()
     {
-        return $this->user->ownedProducts()
-            ->with(['user', 'members'])
-            ->paginate(10);
+        return $this->user
+            ->ownedProducts
+            ->merge($this->user->products);
     }
 
     public function render()
