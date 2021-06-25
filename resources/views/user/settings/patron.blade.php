@@ -22,11 +22,14 @@
                                 <table class="table mb-0">
                                     <tbody>
                                         <tr class="fw-bold">
-                                            <td colspan="2">
+                                            <td colspan="2" class="pb-3">
                                                 <div class="d-flex align-items-center justify-content-between">
                                                     <div>
                                                         <h4 class="text-secondary">Checkout ID</h4>
-                                                        <div class="text-success font-monospace">123</div>
+                                                        <div>
+                                                            <x-heroicon-o-hashtag class="heroicon text-secondary" />
+                                                            <span class="text-success font-monospace">123</span>
+                                                        </div>
                                                     </div>
                                                     <div>
                                                         @if (true)
