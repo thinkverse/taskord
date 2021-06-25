@@ -12,6 +12,7 @@ use Livewire\Component;
 class EditComment extends Component
 {
     public $comment;
+    public $commentId;
 
     protected $rules = [
         'comment' => ['required', 'min:3', 'max:20000'],
@@ -20,6 +21,7 @@ class EditComment extends Component
     public function mount($comment)
     {
         $this->comment = $comment->comment;
+        $this->commentId = $comment->id;
     }
 
     public function updated($field)
@@ -39,10 +41,8 @@ class EditComment extends Component
 
         $this->validate();
 
-        $comment = auth()->user()->comments()->create([
-            'task_id' => $this->task->id,
-            'comment' => $this->comment,
-        ]);
+        $comment = Comment::find($this->commentId)->update(["comment" => $this->comment]);
+
         $this->emit('refreshComments');
         $this->reset('comment');
 
