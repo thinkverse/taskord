@@ -34,7 +34,8 @@
                     <div class="row row-cols-2">
                         @foreach ($images ?? [] as $image)
                             <div class="col">
-                                <img loading=lazy class="img-fluid mt-3 rounded" src="{{ $image->temporaryUrl() }}" />
+                                <img loading=lazy class="img-fluid border mt-2 rounded"
+                                    src="{{ $image->temporaryUrl() }}" />
                             </div>
                         @endforeach
                     </div>
