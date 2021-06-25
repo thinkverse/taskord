@@ -1,5 +1,22 @@
 import Tribute from "tributejs";
 
+const getData = (text, cb, type) => {
+  const URL = type === "user" ? "/mention/users" : "/mention/products";
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        cb(data);
+      } else if (xhr.status === 403) {
+        cb([]);
+      }
+    }
+  };
+  xhr.open("GET", URL + "?query=" + text, true);
+  xhr.send();
+};
+
 // Users
 const userMention = new Tribute({
   values: (text, cb) => {
@@ -66,23 +83,6 @@ const productsMention = new Tribute({
     return "<li>No products Found!</li>";
   },
 });
-
-const getData = (text, cb, type) => {
-  const URL = type === "user" ? "/mention/users" : "/mention/products";
-  const xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        const data = JSON.parse(xhr.responseText);
-        cb(data);
-      } else if (xhr.status === 403) {
-        cb([]);
-      }
-    }
-  };
-  xhr.open("GET", URL + "?query=" + text, true);
-  xhr.send();
-};
 
 userMention.attach(document.querySelectorAll(".mentionInput"));
 productsMention.attach(document.querySelectorAll(".mentionInput"));
