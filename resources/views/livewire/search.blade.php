@@ -114,7 +114,7 @@
                     </li>
                 @endforeach
             @else
-                <li class="list-group-item">We couldn’t find any questions matching <span
+                <li class="list-group-item text-secondary">We couldn’t find any questions matching <span
                         class="fw-bold">{{ $query }}</span>!</li>
             @endif
         @endif
