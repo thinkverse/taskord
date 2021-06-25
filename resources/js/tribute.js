@@ -1,7 +1,7 @@
 import Tribute from "tributejs";
 
 // Users
-var userMention = new Tribute({
+const userMention = new Tribute({
   values: (text, cb) => {
     getData(text, (users) => cb(users), "user");
   },
@@ -37,7 +37,7 @@ var userMention = new Tribute({
 });
 
 // Products
-var productsMention = new Tribute({
+const productsMention = new Tribute({
   values: (text, cb) => {
     getData(text, (products) => cb(products), "product");
   },
@@ -68,12 +68,12 @@ var productsMention = new Tribute({
 });
 
 const getData = (text, cb, type) => {
-  var URL = type === "user" ? "/mention/users" : "/mention/products";
-  var xhr = new XMLHttpRequest();
+  const URL = type === "user" ? "/mention/users" : "/mention/products";
+  const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
-        var data = JSON.parse(xhr.responseText);
+        const data = JSON.parse(xhr.responseText);
         cb(data);
       } else if (xhr.status === 403) {
         cb([]);
