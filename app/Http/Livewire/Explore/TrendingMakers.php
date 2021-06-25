@@ -17,6 +17,7 @@ class TrendingMakers extends Component
     public function getTrendingMakers()
     {
         return User::withCount('tasks')
+            ->with(['reputations'])
             ->where([
                 ['spammy', false],
                 ['is_private', false],
