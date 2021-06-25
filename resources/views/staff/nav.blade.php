@@ -37,7 +37,8 @@
     <li class="nav-item">
         <a class="nav-link rounded-pill {{ Route::is('staff.features') ? 'active' : '' }}"
             href="{{ route('staff.features') }}">
-            <x-heroicon-o-adjustments class="heroicon heroicon-18px" />
+            <x-heroicon-o-adjust
+            ments class="heroicon heroicon-18px" />
             Features
         </a>
     </li>

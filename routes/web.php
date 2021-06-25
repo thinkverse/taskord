@@ -260,9 +260,6 @@ Route::group([
     Route::view('features', 'staff.features')
         ->middleware('password.confirm')
         ->name('features');
-    Route::view('system', 'staff.system')
-        ->middleware('password.confirm')
-        ->name('system');
     Route::view('jobs', 'staff.jobs')
         ->middleware('password.confirm')
         ->name('jobs');
