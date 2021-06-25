@@ -2,11 +2,7 @@
 
 namespace App\Http\Livewire\Comment;
 
-use App\Gamify\Points\CommentCreated;
-use App\Models\Task;
 use App\Models\Comment;
-use App\Notifications\Comment\Commented;
-use Helper;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
