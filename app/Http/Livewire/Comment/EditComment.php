@@ -35,8 +35,7 @@ class EditComment extends Component
         $comment = Comment::find($this->commentId);
         $comment->comment = $this->comment;
         $comment->save();
-
-        $this->emitUp('refreshComments');
+        $this->emit('commentEdited');
 
         loggy(request(), 'Comment', auth()->user(), "Edited a comment | Comment ID: {$this->commentId}");
 

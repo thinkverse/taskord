@@ -13,6 +13,8 @@ class SingleComment extends Component
 {
     use WithRateLimiting;
 
+    protected $listeners = ['commentEdited' => 'commentEdited'];
+
     public Comment $comment;
     public $showReplyBox = false;
     public $edit = false;
@@ -65,6 +67,11 @@ class SingleComment extends Component
         }
 
         $this->edit = ! $this->edit;
+    }
+
+    public function commentEdited()
+    {
+        $this->edit = false;
     }
 
     public function deleteComment()
