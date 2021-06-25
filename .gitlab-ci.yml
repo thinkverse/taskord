@@ -57,7 +57,7 @@ Patrol:
     - ./vendor/bin/patrol
 
 Semgrep:
-  image: returntocorp/semgrep-agent:v1
+  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/returntocorp/semgrep-agent:v1
   script: semgrep-agent
   variables:
     SEMGREP_APP_DEPLOYMENT_ID: 1737
