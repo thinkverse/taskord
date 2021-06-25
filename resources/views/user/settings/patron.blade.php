@@ -34,9 +34,10 @@
                                                         </div>
                                                     </div>
                                                     <div>
-                                                        @if (true)
-                                                            <a class="btn btn-outline-success rounded-pill" href=""
-                                                                target="_blank" rel="noreferrer">
+                                                        @if ($user->patron->update_url)
+                                                            <a class="btn btn-outline-success rounded-pill"
+                                                                href="{{ $user->patron->update_url }}" target="_blank"
+                                                                rel="noreferrer">
                                                                 <x-heroicon-o-pencil class="heroicon" />
                                                                 Update Payment
                                                             </a>
