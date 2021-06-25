@@ -19,7 +19,7 @@ class EditComment extends Component
 
     public function mount($comment)
     {
-        $this->comment = $comment;
+        $this->comment = $comment->comment;
     }
 
     public function updated($field)
