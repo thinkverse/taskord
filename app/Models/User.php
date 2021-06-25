@@ -117,11 +117,6 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Meetup::class);
     }
 
-    public function isOnline()
-    {
-        return Cache::has('user-online-'.$this->id);
-    }
-
     public function sendEmailVerificationNotification()
     {
         VerifyEmailQueue::dispatch($this);
