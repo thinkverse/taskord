@@ -25,15 +25,6 @@ class EditComment extends Component
         $this->commentId = $comment->id;
     }
 
-    public function updated($field)
-    {
-        if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.toast.deny'));
-        }
-
-        $this->validateOnly($field);
-    }
-
     public function submit()
     {
         if (Gate::denies('create')) {
@@ -45,8 +36,7 @@ class EditComment extends Component
         $comment->comment = $this->comment;
         $comment->save();
 
-        $this->emit('refreshComments');
-        $this->reset();
+        $this->emitUp('refreshComments');
 
         loggy(request(), 'Comment', auth()->user(), "Edited a comment | Comment ID: {$this->commentId}");
 
