@@ -35,13 +35,6 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link rounded-pill {{ Route::is('staff.system') ? 'active' : '' }}"
-            href="{{ route('staff.system') }}">
-            <x-heroicon-o-chip class="heroicon heroicon-18px" />
-            System
-        </a>
-    </li>
-    <li class="nav-item">
         <a class="nav-link rounded-pill {{ Route::is('staff.features') ? 'active' : '' }}"
             href="{{ route('staff.features') }}">
             <x-heroicon-o-adjustments class="heroicon heroicon-18px" />
