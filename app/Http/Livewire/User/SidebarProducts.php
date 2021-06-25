@@ -8,6 +8,7 @@ use App\Models\User;
 class SidebarProducts extends Component
 {
     public User $user;
+    public $readyToLoad = false;
 
     public function mount($user)
     {
