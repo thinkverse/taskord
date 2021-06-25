@@ -19,49 +19,68 @@
                             </a>
                         @else
                             @if (!$user->patron)
+                                <table class="table table-bordered border-secondary">
+                                    <tbody>
+                                        <tr class="fw-bold">
+                                            <td colspan="2">
+                                                <h4 class="text-secondary">Checkout ID</h4>
+                                                <div class="text-success font-monospace">123</div>
+                                            </td>
+                                        </tr>
+                                        <tr class="fw-bold">
+                                            <td>
+                                                <h4 class="text-secondary">Subscribed to</h4>
+                                                <div>Tier 1 - $5/month</div>
+                                            </td>
+                                            <td>
+                                                <h4 class="text-secondary">Subscribed at</h4>
+                                                <div>123</div>
+                                            </td>
+                                        </tr>
+                                        <tr class="fw-bold">
+                                            <td>
+                                                <h4 class="text-secondary">Last transaction</h4>
+                                                <div>Tier 1 - $5/month</div>
+                                            </td>
+                                            <td>
+                                                <h4 class="text-secondary">Next bill date</h4>
+                                                <div>123</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <div>
                                     <div>
                                         <span class="fw-bold">Checkout ID:</span>
-                                        <span
-                                            class="text-danger fw-bold font-monospace">{{ $user->patron->checkout_id }}</span>
+                                        <span class="text-danger fw-bold font-monospace">123</span>
                                     </div>
                                     <div>
                                         <span class="fw-bold">Subscribed to:</span>
-                                        @if ($user->patron->subscription_plan_id === 619848)
-                                            <span>Tier 1 - $5/month</span>
-                                        @elseif ($user->patron->subscription_plan_id === 621377)
-                                            <span>Tier 2 - $10/month</span>
-                                        @elseif ($user->patron->subscription_plan_id === 621379)
-                                            <span>Tier 3 - $20/month</span>
-                                        @elseif ($user->patron->subscription_plan_id === 621380)
-                                            <span>Tier 4 - $50/month</span>
-                                        @elseif ($user->patron->subscription_plan_id === 629491)
-                                            <span>Tier 5 - $100 onetime</span>
-                                        @endif
+                                        <span>Tier 1 - $5/month</span>
                                     </div>
                                     <div>
                                         <span class="fw-bold">Subscribed at:</span>
-                                        <span>{{ carbon($user->patron->created_at)->format('d M Y') }}</span>
+                                        <span>{{ carbon()->format('d M Y') }}</span>
                                     </div>
                                     <div>
                                         <span class="fw-bold">Last transaction:</span>
-                                        <span>{{ carbon($user->patron->event_time)->format('d M Y') }}</span>
+                                        <span>{{ carbon()->format('d M Y') }}</span>
                                     </div>
                                     <div>
                                         <span class="fw-bold">Next bill date:</span>
-                                        <span>{{ carbon($user->patron->next_bill_date)->format('d M Y') }}</span>
+                                        <span>{{ carbon()->format('d M Y') }}</span>
                                     </div>
-                                    <div class="mt-2">
-                                        @if ($user->patron->update_url)
-                                            <a class="btn btn-outline-success rounded-pill"
-                                                href="{{ $user->patron->update_url }}" target="_blank" rel="noreferrer">
+                                    <div class="mt-3">
+                                        @if (true)
+                                            <a class="btn btn-outline-success rounded-pill" href="" target="_blank"
+                                                rel="noreferrer">
                                                 <x-heroicon-o-pencil class="heroicon" />
                                                 Update Payment
                                             </a>
                                         @endif
-                                        @if ($user->patron->cancel_url)
-                                            <a class="btn btn-outline-danger rounded-pill"
-                                                href="{{ $user->patron->cancel_url }}" target="_blank" rel="noreferrer">
+                                        @if (true)
+                                            <a class="btn btn-outline-danger rounded-pill" href="" target="_blank"
+                                                rel="noreferrer">
                                                 <x-heroicon-o-x class="heroicon" />
                                                 Cancel Patron
                                             </a>
