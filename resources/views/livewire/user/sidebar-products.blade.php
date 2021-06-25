@@ -1,5 +1,8 @@
 <div wire:init="loadProducts">
     @if (!$readyToLoad)
+        <div class="card-body">
+            <x:loaders.product-small-skeleton count="5" />
+        </div>
     @else
         <div class="pt-2 pb-2">
             @if (count($products) === 0)
