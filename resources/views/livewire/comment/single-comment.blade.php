@@ -11,7 +11,7 @@
             <span class="body-font fst-italic text-secondary">Comment was hidden by moderator</span>
         @else
             @if ($edit)
-                <div class="mt-3">
+                <div class="my-3">
                     <livewire:comment.edit-comment :comment="$comment" />
                 </div>
             @else

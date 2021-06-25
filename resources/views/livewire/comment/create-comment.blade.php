@@ -1,4 +1,4 @@
-<div class="card mb-4">
+<div class="card">
     <div x-data="{ tab: 'edit' }">
         <div class="pt-2 rounded-top bg-light">
             <ul class="nav nav-tabs d-flex justify-content-between px-3">
