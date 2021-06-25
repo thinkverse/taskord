@@ -18,7 +18,7 @@
                                 Support now!
                             </a>
                         @else
-                            @if ($user->patron)
+                            @if (!$user->patron)
                                 <div>
                                     <div>
                                         <span class="fw-bold">Checkout ID:</span>
@@ -28,13 +28,15 @@
                                     <div>
                                         <span class="fw-bold">Subscribed to:</span>
                                         @if ($user->patron->subscription_plan_id === 619848)
-                                            <span>Tier 1</span>
+                                            <span>Tier 1 - $5/month</span>
                                         @elseif ($user->patron->subscription_plan_id === 621377)
-                                            <span>Tier 2</span>
+                                            <span>Tier 2 - $10/month</span>
                                         @elseif ($user->patron->subscription_plan_id === 621379)
-                                            <span>Tier 3</span>
+                                            <span>Tier 3 - $20/month</span>
                                         @elseif ($user->patron->subscription_plan_id === 621380)
-                                            <span>Tier 4</span>
+                                            <span>Tier 4 - $50/month</span>
+                                        @elseif ($user->patron->subscription_plan_id === 629491)
+                                            <span>Tier 5 - $100 onetime</span>
                                         @endif
                                     </div>
                                     <div>
