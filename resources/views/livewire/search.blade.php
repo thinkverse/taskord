@@ -93,7 +93,7 @@
                 <li class="list-group-item">We couldn’t find any products matching <span
                         class="fw-bold">{{ $query }}</span>!</li>
             @endif
-            <li class="align-items-center d-flex list-group-item">
+            <li class="align-items-center d-flex list-group-item text-dark">
                 <x-heroicon-o-question-mark-circle class="heroicon me-1" />
                 <span class="h5 mb-0">Questions</span>
             </li>
