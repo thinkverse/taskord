@@ -63,7 +63,7 @@ hotkeys("c+m", () => {
 });
 
 // New Task Modal
-var newTaskModal = document.getElementById("newTaskModal");
+const newTaskModal = document.getElementById("newTaskModal");
 if (newTaskModal != null) {
   hotkeys("n", async () => {
     (new bootstrap.Modal(newTaskModal)).show();
@@ -76,7 +76,7 @@ hotkeys("shift+/", async () => {
 });
 
 // Deploy Modal
-var deployModal = document.getElementById("deployModal");
+const deployModal = document.getElementById("deployModal");
 if (deployModal != null) {
   hotkeys("shift+d", async () => {
     (new bootstrap.Modal(deployModal)).show();
