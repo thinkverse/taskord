@@ -23,7 +23,6 @@ jobs:
           verbose: true
           output: results.sarif
           format: sarif
-          directory: app, graphql, resources, routes
           gh-code-scanning-compat: true
 
       - name: Upload SARIF results file
