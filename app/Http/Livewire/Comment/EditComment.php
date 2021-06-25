@@ -50,7 +50,7 @@ class EditComment extends Component
 
         loggy(request(), 'Comment', auth()->user(), "Edited a comment | Comment ID: {$comment->id}");
 
-        return toast($this, 'success', 'Comment has been added!');
+        return toast($this, 'success', 'Comment has been edited!');
     }
 
     public function render()
