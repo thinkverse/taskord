@@ -30,7 +30,7 @@ class Following extends Component
         $this->user = $user;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.following', [
             'followings' => $this->readyToLoad ? $this->getFollowing() : [],

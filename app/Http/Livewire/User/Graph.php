@@ -47,7 +47,7 @@ class Graph extends Component
         return $week_dates;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.graph', [
             'week_dates' => $this->readyToLoad ? json_encode($this->getGraph('week_dates'), JSON_NUMERIC_CHECK) : [],
