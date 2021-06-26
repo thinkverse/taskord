@@ -12,6 +12,7 @@
         "onecentlin.laravel5-snippets",
         "robbowen.synthwave-vscode",
         "dbaeumer.vscode-eslint",
-        "shufo.vscode-blade-formatter"
+        "shufo.vscode-blade-formatter",
+        "sibiraj-s.vscode-scss-formatter"
     ]
 }
