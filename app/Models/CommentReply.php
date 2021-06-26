@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CommentReply extends Model
 {
