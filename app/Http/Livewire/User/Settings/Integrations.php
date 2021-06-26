@@ -9,6 +9,7 @@ use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Integrations extends Component
 {
