@@ -60,66 +60,105 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return BelongsTo
+     */
     public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function commentReplies(): HasMany
     {
         return $this->hasMany(CommentReply::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function milestones(): HasMany
     {
         return $this->hasMany(Milestone::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function ownedProducts(): HasMany
     {
         return $this->hasMany(Product::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function productUpdates(): BelongsTo
     {
         return $this->belongsTo(ProductUpdate::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function questions(): HasMany
     {
         return $this->hasMany(Question::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function answers(): HasMany
     {
         return $this->hasMany(Answer::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function patron(): HasOne
     {
         return $this->hasOne(Patron::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function webhooks(): HasMany
     {
         return $this->hasMany(Webhook::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function meetups(): HasMany
     {
         return $this->hasMany(Meetup::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function sendEmailVerificationNotification()
     {
         VerifyEmailQueue::dispatch($this);
