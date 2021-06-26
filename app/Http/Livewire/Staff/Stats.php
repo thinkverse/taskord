@@ -31,7 +31,7 @@ class Stats extends Component
         $users = User::count('id');
         $usersActive = User::whereDate('last_active', '>', carbon()->subDays(30))->count('id');
         $products = Product::count('id');
-        $products_launched = Product::whereLaunched(true)->count('id');
+        $productsLaunched = Product::whereLaunched(true)->count('id');
         $reputations = User::sum('reputation');
         $questions = Question::count('id');
         $questions_unanswered = Question::doesntHave('answers')->count('id');
@@ -52,8 +52,8 @@ class Stats extends Component
             'users' => number_format($users),
             'users_active' => number_format($usersActive),
             'products' => number_format($products),
-            'products_launched' => number_format($products_launched),
-            'products_unlaunched' => number_format($products - $products_launched),
+            'products_launched' => number_format($productsLaunched),
+            'products_unlaunched' => number_format($products - $productsLaunched),
             'reputations' => number_format($reputations),
             'questions' => number_format($questions),
             'questions_answered' => number_format($questions - $questions_unanswered),
