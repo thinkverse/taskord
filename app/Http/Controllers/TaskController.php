@@ -29,9 +29,9 @@ class TaskController extends Controller
         return view('task.task', $response);
     }
 
-    public function comment($id, $commentId): View
+    public function comment($taskId, $commentId): View
     {
-        $task = Task::where('id', $id)
+        $task = Task::where('id', $taskId)
             ->with(['user', 'comments.user'])
             ->firstOrFail();
         $comment = $task->comments()

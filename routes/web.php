@@ -287,7 +287,7 @@ Route::get('darkmode', [UserController::class, 'darkMode'])
 Route::group(['prefix' => 'task'], function () {
     Route::get('{id}', [TaskController::class, 'task'])
         ->name('task');
-    Route::get('{id}/{comment_id}', [TaskController::class, 'comment'])
+    Route::get('{taskId}/{commentId}', [TaskController::class, 'comment'])
         ->name('comment');
 });
 
