@@ -17,7 +17,7 @@ class Oembed extends Model
 
     protected static $flushCacheOnUpdate = true;
 
-    public function task()
+    public function task(): BelongsTo
     {
         return $this->belongsTo(Task::class);
     }
