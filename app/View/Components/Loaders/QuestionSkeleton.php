@@ -14,7 +14,7 @@ class QuestionSkeleton extends Component
         $this->count = $count;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('components.loaders.question-skeleton');
     }

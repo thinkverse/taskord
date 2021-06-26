@@ -14,7 +14,7 @@ class ProductSmallSkeleton extends Component
         $this->count = $count;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('components.loaders.product-small-skeleton');
     }

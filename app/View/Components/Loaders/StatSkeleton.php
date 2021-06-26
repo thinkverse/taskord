@@ -7,7 +7,7 @@ use Illuminate\Contracts\View\View;
 
 class StatSkeleton extends Component
 {
-    public function render()
+    public function render(): View
     {
         return view('components.loaders.stat-skeleton');
     }
