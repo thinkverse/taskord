@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Notification\Type\Question;
 
 use App\Models\Question;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class QuestionLiked extends Component
 {

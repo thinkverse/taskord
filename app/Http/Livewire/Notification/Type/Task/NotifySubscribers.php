@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Notification\Type\Task;
 
 use App\Models\Comment;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class NotifySubscribers extends Component
 {
