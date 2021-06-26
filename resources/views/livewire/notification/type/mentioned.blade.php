@@ -20,7 +20,7 @@
             <div class="mt-2 text-secondary">
                 mentioned you in a
                 <a class="fw-bold"
-                    href="{{ route('comment', ['id' => $body->task->id, 'comment_id' => $body->id]) }}">
+                    href="{{ route('comment', ['taskId' => $body->task->id, 'commentId' => $body->id]) }}">
                     comment
                 </a>
             </div>
@@ -35,7 +35,7 @@
             <div class="mt-2 text-secondary">
                 mentioned you in a
                 <a class="fw-bold"
-                    href="{{ route('comment', ['id' => $body->comment->task->id, 'comment_id' => $body->comment->id]) }}#reply_{{ $body->id }}">
+                    href="{{ route('comment', ['taskId' => $body->comment->task->id, 'commentId' => $body->comment->id]) }}#reply_{{ $body->id }}">
                     reply
                 </a>
             </div>

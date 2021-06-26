@@ -3,7 +3,7 @@
         <div class="mt-2 text-secondary">
             commented on your
             <a class="fw-bold"
-                href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}">
+                href="{{ route('comment', ['taskId' => $comment->task->id, 'commentId' => $comment->id]) }}">
                 task
             </a>
         </div>
