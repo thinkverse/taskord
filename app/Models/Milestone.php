@@ -29,6 +29,14 @@ class Milestone extends Model
         'end_date',
         'hidden',
     ];
+    protected $casts = [
+        'user_id' => 'integer',
+        'name' => 'string',
+        'description' => 'string',
+        'start_date' => 'date',
+        'end_date' => 'date',
+        'hidden' => 'boolean',
+    ];
     protected $dates = [
         'start_date',
         'end_date',
