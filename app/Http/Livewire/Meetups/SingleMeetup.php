@@ -41,7 +41,7 @@ class SingleMeetup extends Component
         return $this->emitSelf('refreshMeetup');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.meetups.single-meetup');
     }
