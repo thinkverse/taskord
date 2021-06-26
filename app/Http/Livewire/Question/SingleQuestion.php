@@ -8,6 +8,7 @@ use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class SingleQuestion extends Component
 {
