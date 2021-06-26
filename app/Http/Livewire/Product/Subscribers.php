@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Product;
 use App\Models\Product;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Contracts\View\View;
 
 class Subscribers extends Component
 {
