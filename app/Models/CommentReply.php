@@ -27,11 +27,17 @@ class CommentReply extends Model
         'hidden',
     ];
 
+    /**
+     * @return BelongsTo
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function comment(): BelongsTo
     {
         return $this->belongsTo(Comment::class);
