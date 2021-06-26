@@ -15,7 +15,7 @@ class MemberAdded extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $product = Product::find($this->data['product_id']);
 

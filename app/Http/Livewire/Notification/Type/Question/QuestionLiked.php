@@ -15,7 +15,7 @@ class QuestionLiked extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $question = Question::find($this->data['question_id']);
 

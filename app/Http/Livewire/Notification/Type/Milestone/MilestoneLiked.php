@@ -15,7 +15,7 @@ class MilestoneLiked extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $milestone = Milestone::find($this->data['milestone_id']);
 

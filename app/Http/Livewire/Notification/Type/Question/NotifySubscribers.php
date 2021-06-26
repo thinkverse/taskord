@@ -15,7 +15,7 @@ class NotifySubscribers extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $answer = Answer::find($this->data['answer_id']);
 
