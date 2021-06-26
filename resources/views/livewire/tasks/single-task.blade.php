@@ -48,7 +48,7 @@
         @endif
         @can('edit/delete', $task)
             <livewire:task.select-milestone :task="$task" />
-            @if ($show_delete)
+            @if ($showDelete)
                 <button type="button" class="btn btn-action btn-outline-danger my-1"
                     onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteTask"
                     wire:target="deleteTask" wire:loading.attr="disabled" aria-label="Delete">

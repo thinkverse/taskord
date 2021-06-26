@@ -21,7 +21,7 @@ class SingleTask extends Component
     ];
 
     public Task $task;
-    public $show_delete = true;
+    public $showDelete = true;
 
     public function mount($task)
     {

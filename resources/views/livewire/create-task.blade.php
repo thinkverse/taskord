@@ -53,7 +53,7 @@
         <div class="mt-3">
             @livewire('tasks.single-task', [
             'task' => $latestTask,
-            'show_delete' => false
+            'showDelete' => false
             ], key($latestTask->id))
         </div>
     @endif
