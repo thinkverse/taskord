@@ -82,7 +82,7 @@ class SocialController extends Controller
         Auth::login($user);
         $user->notify(new Welcome(true));
         loggy(
-            request()->ip(),
+            request(),
             'Auth',
             $user,
             "Created account with {$provider} {$user->email} from ".request()->ip()
