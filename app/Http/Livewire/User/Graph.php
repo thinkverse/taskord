@@ -24,14 +24,14 @@ class Graph extends Component
 
     public function getGraph($type)
     {
-        $start_date = carbon('60 days ago')->format('Y-m-d');
-        $current_date = carbon()->format('Y-m-d');
-        $period = CarbonPeriod::create($start_date, $current_date);
+        $startDate = carbon('60 days ago')->format('Y-m-d');
+        $currentDate = carbon()->format('Y-m-d');
+        $period = CarbonPeriod::create($startDate, $currentDate);
 
-        $week_dates = [];
+        $weekDates = [];
         $tasks = [];
         foreach ($period->toArray() as $date) {
-            array_push($week_dates, carbon($date)->format('d M Y'));
+            array_push($weekDates, carbon($date)->format('d M Y'));
             $count = $this->user->tasks()
                 ->select('id', 'created_at')
                 ->whereDate('created_at', carbon($date))
@@ -44,7 +44,7 @@ class Graph extends Component
             return $tasks;
         }
 
-        return $week_dates;
+        return $weekDates;
     }
 
     public function render(): View

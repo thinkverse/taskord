@@ -27,7 +27,7 @@
                     data: <?php echo $completed_tasks; ?>
                 }],
                 xaxis: {
-                    categories: <?php echo $week_dates; ?>,
+                    categories: <?php echo $weekDates; ?>,
                     labels: {
                         show: false
                     }
