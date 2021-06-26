@@ -4,8 +4,8 @@ namespace App\Http\Livewire\Pages\Open;
 
 use App\Models\Task;
 use Carbon\CarbonPeriod;
-use Livewire\Component;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class AllTasks extends Component
 {

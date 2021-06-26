@@ -6,9 +6,9 @@ use App\Models\Question;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
-use Illuminate\Contracts\View\View;
 
 class SingleQuestion extends Component
 {

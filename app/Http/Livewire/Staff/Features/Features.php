@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\Staff\Features;
 
 use App\Models\Feature;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Contracts\View\View;
 
 class Features extends Component
 {

@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\User\Stats;
 
 use Carbon\CarbonPeriod;
-use Livewire\Component;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class AllTasks extends Component
 {

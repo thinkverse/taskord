@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Notification\Type\Comment\Reply;
 
 use App\Models\CommentReply;
-use Livewire\Component;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class ReplyLiked extends Component
 {

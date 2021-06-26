@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\Staff;
 
 use App\Models\Product;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Contracts\View\View;
 
 class Products extends Component
 {

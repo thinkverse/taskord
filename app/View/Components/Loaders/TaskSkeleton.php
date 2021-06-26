@@ -2,8 +2,8 @@
 
 namespace App\View\Components\Loaders;
 
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
 class TaskSkeleton extends Component
 {

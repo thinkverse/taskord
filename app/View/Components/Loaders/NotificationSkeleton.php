@@ -2,8 +2,8 @@
 
 namespace App\View\Components\loaders;
 
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
 class NotificationSkeleton extends Component
 {

@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\User;
-use Livewire\Component;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class RecentlyJoined extends Component
 {

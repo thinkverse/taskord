@@ -3,11 +3,11 @@
 namespace App\Http\Livewire\Question;
 
 use App\Models\Question;
+use Illuminate\Contracts\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Livewire\Component;
-use Illuminate\Contracts\View\View;
 
 class Questions extends Component
 {

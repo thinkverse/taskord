@@ -4,9 +4,9 @@ namespace App\Http\Livewire\Pages\Open;
 
 use App\Models\User;
 use Carbon\CarbonPeriod;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-use Illuminate\Contracts\View\View;
 
 class Reputations extends Component
 {

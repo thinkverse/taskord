@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Contracts\View\View;
 
 class Answers extends Component
 {

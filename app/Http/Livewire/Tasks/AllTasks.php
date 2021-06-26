@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Tasks;
 
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Contracts\View\View;
 
 class AllTasks extends Component
 {

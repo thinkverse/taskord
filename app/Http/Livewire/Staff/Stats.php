@@ -10,10 +10,10 @@ use App\Models\Question;
 use App\Models\Task;
 use App\Models\User;
 use App\Models\Webhook;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Spatie\Activitylog\Models\Activity;
-use Illuminate\Contracts\View\View;
 
 class Stats extends Component
 {

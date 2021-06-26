@@ -5,11 +5,11 @@ namespace App\Http\Livewire\Product;
 use App\Models\Product;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Spatie\Dns\Dns;
-use Illuminate\Contracts\View\View;
 
 class Verify extends Component
 {

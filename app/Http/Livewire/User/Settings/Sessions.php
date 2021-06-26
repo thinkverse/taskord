@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-use Illuminate\Contracts\View\View;
 
 class Sessions extends Component
 {

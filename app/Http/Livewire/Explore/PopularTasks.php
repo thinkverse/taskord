@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Explore;
 
 use App\Models\Task;
-use Livewire\Component;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class PopularTasks extends Component
 {

@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Notification\Type\Comment;
 
 use App\Models\Comment;
-use Livewire\Component;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class Commented extends Component
 {

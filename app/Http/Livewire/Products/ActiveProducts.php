@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Products;
 
 use App\Models\Product;
-use Livewire\Component;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class ActiveProducts extends Component
 {

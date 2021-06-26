@@ -5,10 +5,10 @@ namespace App\Http\Livewire\User\Settings;
 use App\Models\Product;
 use App\Models\User;
 use App\Notifications\Product\MemberLeft;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
-use Illuminate\Contracts\View\View;
 
 class Products extends Component
 {

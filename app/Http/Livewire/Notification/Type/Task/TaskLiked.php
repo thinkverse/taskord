@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Notification\Type\Task;
 
 use App\Models\Task;
-use Livewire\Component;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class TaskLiked extends Component
 {

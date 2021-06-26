@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Explore;
 
-use Livewire\Component;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class UserCard extends Component
 {

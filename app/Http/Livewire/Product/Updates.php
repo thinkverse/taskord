@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
-use Livewire\Component;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class Updates extends Component
 {

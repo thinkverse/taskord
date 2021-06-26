@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Notification\Type\Question;
 
 use App\Models\Answer;
-use Livewire\Component;
 use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class NotifySubscribers extends Component
 {

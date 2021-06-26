@@ -3,8 +3,8 @@
 namespace App\View\Components\Shared;
 
 use App\Models\User;
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
 class UserLabelBig extends Component
 {
