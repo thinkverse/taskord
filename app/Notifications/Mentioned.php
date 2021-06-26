@@ -82,21 +82,21 @@ class Mentioned extends Notification implements ShouldQueue
     {
         if ($this->type === 'task') {
             $id = $this->body->id;
-            $entity_id = null;
+            $entityId = null;
         } elseif ($this->type === 'comment') {
             $id = $this->body->task->id;
-            $entity_id = $this->body->id;
+            $entityId = $this->body->id;
         } elseif ($this->type === 'comment_reply') {
             $id = $this->body->comment->id;
-            $entity_id = $this->body->id;
+            $entityId = $this->body->id;
         } elseif ($this->type === 'answer') {
             $id = $this->body->question->id;
-            $entity_id = $this->body->id;
+            $entityId = $this->body->id;
         }
 
         return [
             'body_id' => $id,
-            'entity_id' => $entity_id,
+            'entity_id' => $entityId,
             'body_type' => $this->type,
             'user_id' => $this->body->user->id,
         ];
