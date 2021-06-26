@@ -36,6 +36,7 @@ class Answers extends Component
     public function getAnswers()
     {
         return Answer::whereQuestionId($this->question->id)
+            ->with(['user'])
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['spammy', false],
