@@ -10,7 +10,7 @@ type Query {
     user(id: ID @eq): User @find
     products(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Product!]! @paginate(defaultCount: 20)
     product(id: ID @eq): Product @find
-    productUpdates(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [ProductUpdate!]! @paginate
+    productUpdates(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [ProductUpdate!]! @paginate(defaultCount: 20)
     productUpdate(id: ID @eq): ProductUpdate @find
     tasks(done: Boolean! @eq, orderBy: _ @orderBy(columns: ["created_at", "updated_at", "done_at"])): [Task!]! @paginate
     task(id: ID @eq @where(clause: "whereHidden")): Task @find
