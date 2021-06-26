@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\AuthGetIP;
 use App\Models\User;
 use App\Notifications\Welcome;
 use Illuminate\Http\Request;
@@ -34,7 +33,6 @@ class SocialController extends Controller
 
         if ($user) {
             Auth::login($user);
-            AuthGetIP::dispatch($user, $request->ip());
             loggy(request(), 'Auth', $user, 'Logged in via Social auth');
 
             return redirect()->route('home');
@@ -67,7 +65,6 @@ class SocialController extends Controller
             'api_token' => Str::random(60),
             'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
-        AuthGetIP::dispatch($user, $request->ip());
 
         if ($provider === 'twitter') {
             $user->twitter = $userSocial->getNickname();
