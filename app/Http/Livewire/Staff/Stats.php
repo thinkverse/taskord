@@ -27,9 +27,9 @@ class Stats extends Component
     public function getStats()
     {
         $tasks = Task::count('id');
-        $tasks_done = Task::whereDone(true)->count('id');
+        $tasksDone = Task::whereDone(true)->count('id');
         $users = User::count('id');
-        $users_active = User::whereDate('last_active', '>', carbon()->subDays(30))->count('id');
+        $usersActive = User::whereDate('last_active', '>', carbon()->subDays(30))->count('id');
         $products = Product::count('id');
         $products_launched = Product::whereLaunched(true)->count('id');
         $reputations = User::sum('reputation');
@@ -47,10 +47,10 @@ class Stats extends Component
 
         return [
             'tasks' => number_format($tasks),
-            'tasks_done' => number_format($tasks_done),
-            'tasks_pending' => number_format($tasks - $tasks_done),
+            'tasks_done' => number_format($tasksDone),
+            'tasks_pending' => number_format($tasks - $tasksDone),
             'users' => number_format($users),
-            'users_active' => number_format($users_active),
+            'users_active' => number_format($usersActive),
             'products' => number_format($products),
             'products_launched' => number_format($products_launched),
             'products_unlaunched' => number_format($products - $products_launched),
