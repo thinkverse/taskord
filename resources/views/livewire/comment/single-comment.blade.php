@@ -1,11 +1,17 @@
 <div class="card">
     <div class="card-body">
-        <div class="align-items-center d-flex mb-2">
+        <div class="align-items-center justify-content-between d-flex mb-2">
             <x:shared.user-label-small :user="$comment->user" />
-            <a class="align-text-top small float-end ms-auto text-secondary"
-                href="{{ route('comment', ['taskId' => $comment->task->id, 'commentId' => $comment->id]) }}">
-                {{ carbon($comment->created_at)->diffForHumans() }}
-            </a>
+            <div class="text-secondary small">
+                @if ($comment->created_at < $comment->updated_at)
+                    <span title="Edited {{ carbon($comment->updated_at)->diffForHumans() }}">Edited</span>
+                    <span class="mx-1">•</span>
+                @endif
+                <a class="align-text-top float-end ms-auto text-secondary"
+                    href="{{ route('comment', ['taskId' => $comment->task->id, 'commentId' => $comment->id]) }}">
+                    {{ carbon($comment->created_at)->diffForHumans() }}
+                </a>
+            </div>
         </div>
         @if ($comment->hidden)
             <span class="body-font fst-italic text-secondary">Comment was hidden by moderator</span>
