@@ -31,7 +31,7 @@ class Answer extends Model
     protected $casts = [
         'user_id' => 'integer',
         'question_id' => 'integer',
-        'answer' => 'text',
+        'answer' => 'string',
         'hidden' => 'boolean',
     ];
     protected $searchable = [
