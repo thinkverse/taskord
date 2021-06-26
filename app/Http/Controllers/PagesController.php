@@ -11,7 +11,7 @@ use Illuminate\Contracts\View\View;
 
 class PagesController extends Controller
 {
-    public function deals()
+    public function deals(): View
     {
         $deals = Deal::latest()->get();
 
@@ -20,7 +20,7 @@ class PagesController extends Controller
         ]);
     }
 
-    public function about()
+    public function about(): View
     {
         $tasks = Task::count('id');
         $users = User::count('id');
