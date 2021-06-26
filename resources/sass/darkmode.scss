@@ -265,7 +265,7 @@ hr {
 .ssc-square {
   background-color: #212529;
 
-  &:after {
+  &::after {
     background: linear-gradient(90deg, transparent, #343a40, transparent);
   }
 }

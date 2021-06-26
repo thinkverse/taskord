@@ -494,7 +494,7 @@ input[type="date"]:valid:before {
 .ssc-square {
   background-color: $gray-300;
 
-  &:after {
+  &::after {
     animation: ssc-loading 2s infinite;
     background: linear-gradient(90deg, transparent, #e9ecef, transparent);
   }
