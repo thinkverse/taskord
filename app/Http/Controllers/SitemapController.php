@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\Question;
 use App\Models\Task;
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 
 class SitemapController extends Controller
 {

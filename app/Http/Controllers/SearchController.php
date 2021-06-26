@@ -9,6 +9,7 @@ use App\Models\Question;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 
 class SearchController extends Controller
 {
