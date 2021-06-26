@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Notification\Type\Product;
 
 use App\Models\Product;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class MemberLeft extends Component
 {

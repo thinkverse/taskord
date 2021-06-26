@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Notification\Type\Milestone;
 
 use App\Models\Milestone;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class MilestoneLiked extends Component
 {
