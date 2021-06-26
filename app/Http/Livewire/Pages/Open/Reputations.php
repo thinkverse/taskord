@@ -6,6 +6,7 @@ use App\Models\User;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Reputations extends Component
 {
