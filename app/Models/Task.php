@@ -47,26 +47,41 @@ class Task extends Model
         ],
     ];
 
+    /**
+     * @return BelongsTo
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function milestone(): BelongsTo
     {
         return $this->belongsTo(Milestone::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function oembed(): HasOne
     {
         return $this->hasOne(Oembed::class);
