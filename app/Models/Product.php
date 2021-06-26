@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
