@@ -38,7 +38,7 @@ class PopularTasks extends Component
             ->shuffle();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.explore.popular-tasks', [
             'tasks' => $this->readyToLoad ? $this->getPopularTasks() : [],

@@ -32,7 +32,7 @@ class TrendingMakers extends Component
             ->sortByDesc('reputations');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.explore.trending-makers', [
             'users' => $this->readyToLoad ? $this->getTrendingMakers() : [],

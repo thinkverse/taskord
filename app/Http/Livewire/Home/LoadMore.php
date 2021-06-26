@@ -27,7 +27,7 @@ class LoadMore extends Component
         $this->loadMore = true;
     }
 
-    public function render()
+    public function render(): View
     {
         if ($this->loadMore) {
             if (auth()->check() && auth()->user()->only_followings_tasks) {
