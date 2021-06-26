@@ -11,7 +11,7 @@ use Illuminate\Contracts\View\View;
 
 class ProductController extends Controller
 {
-    public function profile($slug)
+    public function profile($slug): View
     {
         $product = Product::whereSlug($slug)
             ->firstOrFail();
@@ -74,7 +74,7 @@ class ProductController extends Controller
         return view($type, $response);
     }
 
-    public function edit($slug)
+    public function edit($slug): View
     {
         $product = Product::whereSlug($slug)
             ->firstOrFail();
@@ -91,7 +91,7 @@ class ProductController extends Controller
         return abort(404);
     }
 
-    public function verify($slug)
+    public function verify($slug): View
     {
         $product = Product::whereSlug($slug)
             ->firstOrFail();
@@ -108,14 +108,14 @@ class ProductController extends Controller
         return abort(404);
     }
 
-    public function newest()
+    public function newest(): View
     {
         return view('products.products', [
             'type' => 'products.newest',
         ]);
     }
 
-    public function launched()
+    public function launched(): View
     {
         return view('products.products', [
             'type' => 'products.launched',
@@ -140,7 +140,7 @@ class ProductController extends Controller
         return $products;
     }
 
-    public function popover(Product $product)
+    public function popover(Product $product): View
     {
         return view('product.popover', [
             'product' => $product,
