@@ -56,7 +56,7 @@ class Task extends Model
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function comments(): HasMany
     {
@@ -80,7 +80,7 @@ class Task extends Model
     }
 
     /**
-     * @return BelongsTo
+     * @return HasOne
      */
     public function oembed(): HasOne
     {
