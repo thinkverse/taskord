@@ -45,7 +45,7 @@ class Task extends Model
         ],
     ];
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -55,12 +55,12 @@ class Task extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function product()
+    public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
     }
 
-    public function milestone()
+    public function milestone(): BelongsTo
     {
         return $this->belongsTo(Milestone::class);
     }
