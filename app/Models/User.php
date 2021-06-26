@@ -82,12 +82,12 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Product::class);
     }
 
-    public function products()
+    public function products(): BelongsTo
     {
         return $this->belongsToMany(Product::class);
     }
 
-    public function productUpdates()
+    public function productUpdates(): BelongsTo
     {
         return $this->belongsTo(ProductUpdate::class);
     }
