@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Comment\Reply;
 
 use App\Models\Comment;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Replies extends Component
 {

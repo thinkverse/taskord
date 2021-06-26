@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Explore;
 
 use App\Models\Task;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class PopularTasks extends Component
 {
