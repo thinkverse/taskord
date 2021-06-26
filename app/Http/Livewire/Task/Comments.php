@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Task;
 
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Comments extends Component
 {

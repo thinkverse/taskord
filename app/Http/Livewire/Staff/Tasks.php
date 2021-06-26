@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Staff;
 use App\Models\Task;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Contracts\View\View;
 
 class Tasks extends Component
 {

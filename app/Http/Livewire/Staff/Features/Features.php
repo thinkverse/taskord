@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Staff\Features;
 use App\Models\Feature;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Contracts\View\View;
 
 class Features extends Component
 {
