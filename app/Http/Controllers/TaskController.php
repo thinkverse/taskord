@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use Illuminate\Contracts\View\View;
 
 class TaskController extends Controller
 {

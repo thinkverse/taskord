@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Route;
 use Spatie\Activitylog\Models\Activity;
+use Illuminate\Contracts\View\View;
 
 class UserController extends Controller
 {
