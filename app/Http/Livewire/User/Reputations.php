@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Contracts\View\View;
 
 class Reputations extends Component
 {
