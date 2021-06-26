@@ -32,17 +32,17 @@ if (! function_exists('laravel_version')) {
     }
 }
 
-if (! function_exists('memory_usage')) {
-    function memory_usage(): string
+if (! function_exists('memoryUsage')) {
+    function memoryUsage(): string
     {
-        $mem_usage = memory_get_usage(true);
+        $memUsage = memory_get_usage(true);
 
-        if ($mem_usage < 1024) {
-            $format = sprintf('%dB', $mem_usage);
-        } elseif ($mem_usage < 1048576) {
-            $format = sprintf('%dKB', round($mem_usage / 1024, 2));
+        if ($memUsage < 1024) {
+            $format = sprintf('%dB', $memUsage);
+        } elseif ($memUsage < 1048576) {
+            $format = sprintf('%dKB', round($memUsage / 1024, 2));
         } else {
-            $format = sprintf('%dMB', round($mem_usage / 1048576, 2));
+            $format = sprintf('%dMB', round($memUsage / 1048576, 2));
         }
 
         return $format;

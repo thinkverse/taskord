@@ -37,7 +37,7 @@
                 </a>
                 <span class="fw-bold me-3" title="Memory usage">
                     <x-heroicon-o-cog class="heroicon" />
-                    {{ memory_usage() }}
+                    {{ memoryUsage() }}
                 </span>
                 <span class="fw-bold me-3">
                     <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#cleanModal" title="Clear Cache">
