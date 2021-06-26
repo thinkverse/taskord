@@ -39,7 +39,7 @@ class EditComment extends Component
         return toast($this, 'success', 'Comment has been edited!');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.comment.create-comment');
     }
