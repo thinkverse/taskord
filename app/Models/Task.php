@@ -8,6 +8,7 @@ use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Task extends Model
 {
