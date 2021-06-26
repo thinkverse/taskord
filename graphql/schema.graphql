@@ -19,7 +19,7 @@ type Query {
     comment(id: ID @eq @where(clause: "whereHidden")): Comment @find
     questions(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Question!]! @paginate(defaultCount: 20)
     question(id: ID @eq @where(clause: "whereHidden")): Question @find
-    answers(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Answer!]! @paginate
+    answers(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Answer!]! @paginate(defaultCount: 20)
     answer(id: ID @eq @where(clause: "whereHidden")): Answer @find
     milestones(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Milestone!]! @paginate
     milestone(id: ID @eq @where(clause: "whereHidden")): Milestone @find
