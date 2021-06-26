@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Notification\Type\Answer;
 
 use App\Models\Answer;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Answered extends Component
 {
