@@ -53,6 +53,10 @@
     <a href="https://gitlab.com/taskord/taskord/-/issues/new"><b>Request Feature</b></a>
 </div>
 
+## About Taskord
+
+WIP
+
 ## Feature Highlights
 
 - **✅ Tasks:** All tasks are public and added to your maker profile.
@@ -66,6 +70,22 @@
 - **🌑 Dark Mode:** A built-in light and dark color scheme.
 
 More features are already planned. Take a look at the [project board](https://gitlab.com/taskord/taskord/-/boards/1919668) for more information.
+
+## Documentation and Community
+
+## 💡 Support for LinkAce
+
+## ⚙️ Setup
+
+## 🚧 Contribution
+
+### Development
+
+#### Requirements
+
+#### Setup
+
+#### Tests
 
 ## License
 
