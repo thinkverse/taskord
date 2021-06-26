@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meetup;
+use Illuminate\Contracts\View\View;
 
 class MeetupController extends Controller
 {
