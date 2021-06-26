@@ -55,17 +55,17 @@ class Product extends Model
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 
-    public function tasks()
+    public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
     }
 
-    public function productUpdates()
+    public function productUpdates(): HasMany
     {
         return $this->hasMany(ProductUpdate::class);
     }
 
-    public function webhooks()
+    public function webhooks(): HasMany
     {
         return $this->hasMany(Webhook::class);
     }
