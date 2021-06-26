@@ -26,12 +26,12 @@ class CommentReply extends Model
         'hidden',
     ];
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function comment()
+    public function comment(): BelongsTo
     {
         return $this->belongsTo(Comment::class);
     }
