@@ -29,7 +29,7 @@ class LoadMoreTasks extends Component
         $this->loadMore = true;
     }
 
-    public function render()
+    public function render(): View
     {
         if ($this->loadMore) {
             $tasks = $this->milestone->tasks()
