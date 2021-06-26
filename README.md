@@ -87,11 +87,19 @@ You can get personal and dedicated support by becoming a [Taskord Patron](https:
 
 ### Development
 
+WIP
+
 #### Requirements
+
+WIP
 
 #### Setup
 
+WIP
+
 #### Tests
+
+WIP
 
 ## ⚖️ License
 
