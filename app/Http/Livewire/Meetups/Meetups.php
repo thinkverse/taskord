@@ -61,7 +61,7 @@ class Meetups extends Component
         return new LengthAwarePaginator($items->forPage($page, $this->perPage), $items->count(), $this->perPage, $page, $options);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.meetups.meetups', [
             'meetups' => $this->readyToLoad ? $this->paginate($this->getMeetups()) : [],
