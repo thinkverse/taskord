@@ -66,15 +66,15 @@ class CreateTask extends Component
             $images = null;
         }
 
-        $product_id = Helper::getProductIDFromMention($this->task, auth()->user());
+        $productId = Helper::getProductIDFromMention($this->task, auth()->user());
 
         (new CreateNewTask(auth()->user(), [
-            'product_id' => $product_id,
+            'product_id' => $productId,
             'task' => trim($this->task),
             'done' => false,
             'images' => $images,
             'due_at' => $this->dueAt,
-            'type' => $product_id ? 'product' : 'user',
+            'type' => $productId ? 'product' : 'user',
         ]))();
 
         $this->emit('refreshTasks');
