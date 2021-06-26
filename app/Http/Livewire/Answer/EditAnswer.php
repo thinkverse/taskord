@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Answer;
 use App\Models\Answer;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class EditAnswer extends Component
 {

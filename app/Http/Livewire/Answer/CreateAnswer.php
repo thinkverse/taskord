@@ -8,6 +8,7 @@ use App\Notifications\Answer\Answered;
 use Helper;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class CreateAnswer extends Component
 {
