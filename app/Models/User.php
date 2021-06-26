@@ -16,6 +16,7 @@ use Multicaret\Acquaintances\Traits\CanSubscribe;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use QCod\Gamify\Gamify;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -103,7 +104,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Answer::class);
     }
 
-    public function patron()
+    public function patron(): HasOne
     {
         return $this->hasOne(Patron::class);
     }
