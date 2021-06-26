@@ -3,6 +3,7 @@
 namespace App\View\Components\Loaders;
 
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class ReputationSkeleton extends Component
 {
