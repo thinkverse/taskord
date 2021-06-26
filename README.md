@@ -71,15 +71,17 @@ Taskord is a community of makers in tech shipping and working together. Makers p
 
 More features are already planned. Take a look at the [project board](https://gitlab.com/taskord/taskord/-/boards/1919668) for more information.
 
-## Documentation and Community
-
-## 💡 Support for LinkAce
-
-## ⚙️ Setup
-
 ## 🤝 Contributing
 
 We encourage you to contribute to Taskord! Please check out the [Contributing guide](CONTRIBUTING.md) for guidelines about how to proceed.
+
+## ✅ Community
+
+Got Questions? Join the conversation in our [Discord](https://discord.gg/9M4Q65b).
+
+## 💡 Support
+
+## ⚙️ Setup
 
 ### Development
 
