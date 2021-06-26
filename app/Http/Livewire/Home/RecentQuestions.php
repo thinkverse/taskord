@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Home;
 
 use App\Models\Question;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class RecentQuestions extends Component
 {
