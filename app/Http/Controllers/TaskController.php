@@ -29,14 +29,14 @@ class TaskController extends Controller
         return view('task.task', $response);
     }
 
-    public function comment($id, $comment_id): View
+    public function comment($id, $commentId): View
     {
         $task = Task::where('id', $id)
             ->with(['user', 'comments.user'])
             ->firstOrFail();
         $comment = $task->comments()
             ->with(['user'])
-            ->where('id', $comment_id)->first();
+            ->where('id', $commentId)->first();
         if (! $comment) {
             return abort(404);
         }
