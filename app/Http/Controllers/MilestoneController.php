@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Milestone;
+use Illuminate\Contracts\View\View;
 
 class MilestoneController extends Controller
 {
