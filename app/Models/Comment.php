@@ -52,7 +52,7 @@ class Comment extends Model
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function replies(): HasMany
     {
