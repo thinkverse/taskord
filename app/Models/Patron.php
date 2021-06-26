@@ -16,7 +16,7 @@ class Patron extends Model
         'next_bill_date',
     ];
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
