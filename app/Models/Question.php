@@ -54,7 +54,7 @@ class Question extends Model implements Viewable
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function answers(): HasMany
     {
