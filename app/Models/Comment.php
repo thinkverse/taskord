@@ -35,12 +35,12 @@ class Comment extends Model
         ],
     ];
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function task()
+    public function task(): BelongsTo
     {
         return $this->belongsTo(Task::class);
     }
