@@ -63,6 +63,9 @@
 - **⛳ Milestones:** Add tasks to the milestone and accomplish them in time.
 - **🤝 Meetups:** Find or create your own meetup and meet people near you who share your interests.
 - **🎁 Deals:** Discounts and special deals for Taskord members. Only available to patrons.
+- **🌑 Dark Mode:** A built-in light and dark color scheme.
+
+More features are already planned. Take a look at the [project board](https://gitlab.com/taskord/taskord/-/boards/1919668) for more information.
 
 ## License
 
