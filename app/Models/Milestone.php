@@ -37,10 +37,6 @@ class Milestone extends Model
         'end_date' => 'date',
         'hidden' => 'boolean',
     ];
-    protected $dates = [
-        'start_date',
-        'end_date',
-    ];
 
     /**
      * @return BelongsTo
