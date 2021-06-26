@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Jobs\VerifyEmailQueue;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Multicaret\Acquaintances\Traits\CanBeFollowed;
@@ -14,7 +15,6 @@ use Multicaret\Acquaintances\Traits\CanSubscribe;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use QCod\Gamify\Gamify;
 use Rennokki\QueryCache\Traits\QueryCacheable;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
