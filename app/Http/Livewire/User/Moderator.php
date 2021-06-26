@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Moderator extends Component
 {
