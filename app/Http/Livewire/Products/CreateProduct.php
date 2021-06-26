@@ -106,7 +106,7 @@ class CreateProduct extends Component
         return redirect()->route('product.done', ['slug' => $product->slug]);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.products.create-product');
     }

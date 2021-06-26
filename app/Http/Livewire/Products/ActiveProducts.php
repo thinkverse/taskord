@@ -26,7 +26,7 @@ class ActiveProducts extends Component
             });
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.products.active-products', [
             'products' => $this->readyToLoad ? $this->getActiveProducts() : [],

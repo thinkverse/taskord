@@ -19,7 +19,7 @@ class Updates extends Component
         $this->product = $product;
     }
 
-    public function render()
+    public function render(): View
     {
         $updates = $this->product->productUpdates()
             ->with(['user'])
