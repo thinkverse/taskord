@@ -25,7 +25,7 @@ class Progress extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function render(): View
     {
         $completed = $this->milestone->tasks()->whereDone(true)->count();
         $pending = $this->milestone->tasks()->whereDone(false)->count();
