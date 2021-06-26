@@ -87,6 +87,6 @@ More features are already planned. Take a look at the [project board](https://gi
 
 #### Tests
 
-## License
+## ⚖️ License
 
 Taskord is open-sourced software licensed under the [MIT license](LICENSE).
