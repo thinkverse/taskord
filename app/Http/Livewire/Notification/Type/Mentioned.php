@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\CommentReply;
 use App\Models\Task;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Mentioned extends Component
 {

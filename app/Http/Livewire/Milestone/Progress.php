@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Progress extends Component
 {
