@@ -4,6 +4,7 @@ namespace App\View\Components\Shared;
 
 use App\Models\User;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class UserLabelWithBio extends Component
 {
