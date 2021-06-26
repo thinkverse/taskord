@@ -15,7 +15,7 @@ class ReplyLiked extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $reply = CommentReply::find($this->data['reply_id']);
 

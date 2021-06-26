@@ -15,7 +15,7 @@ class CommentLiked extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $comment = Comment::find($this->data['comment_id']);
 
