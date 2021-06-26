@@ -10,6 +10,7 @@ use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class SingleTask extends Component
 {
