@@ -15,6 +15,7 @@ use Multicaret\Acquaintances\Traits\CanSubscribe;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use QCod\Gamify\Gamify;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
