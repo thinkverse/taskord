@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Comment;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class EditComment extends Component
 {
