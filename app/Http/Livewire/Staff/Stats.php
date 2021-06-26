@@ -70,7 +70,7 @@ class Stats extends Component
         ];
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.staff.stats', [
             'stats' => $this->readyToLoad ? $this->getStats() : [],

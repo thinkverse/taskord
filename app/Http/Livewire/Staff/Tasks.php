@@ -24,7 +24,7 @@ class Tasks extends Component
         return Task::latest()->paginate(50);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.staff.tasks', [
             'tasks' => $this->readyToLoad ? $this->getTasks() : [],

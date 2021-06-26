@@ -27,7 +27,7 @@ class Users extends Component
             ->paginate(20);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.staff.users', [
             'users' => $this->readyToLoad ? $this->getUsers() : [],

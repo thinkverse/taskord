@@ -29,7 +29,7 @@ class Comments extends Component
             ->get();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.task.comments', [
             'comments' => $this->readyToLoad ? $this->getComments() : [],

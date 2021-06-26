@@ -15,7 +15,7 @@ class Oembed extends Component
         $this->oembed = $oembed;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.task.oembed');
     }

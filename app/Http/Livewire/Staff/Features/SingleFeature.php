@@ -90,7 +90,7 @@ class SingleFeature extends Component
         return redirect()->route('staff.features');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.staff.features.single-feature');
     }
