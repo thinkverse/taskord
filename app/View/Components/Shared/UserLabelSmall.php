@@ -15,7 +15,7 @@ class UserLabelSmall extends Component
         $this->user = $user;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('components.shared.user-label-small');
     }

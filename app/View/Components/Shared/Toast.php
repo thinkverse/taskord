@@ -7,7 +7,7 @@ use Illuminate\Contracts\View\View;
 
 class Toast extends Component
 {
-    public function render()
+    public function render(): View
     {
         return view('components.shared.toast');
     }

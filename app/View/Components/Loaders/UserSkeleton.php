@@ -14,7 +14,7 @@ class UserSkeleton extends Component
         $this->count = $count;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('components.loaders.user-skeleton');
     }
