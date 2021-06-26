@@ -23,7 +23,10 @@ class SocialController extends Controller
 
     public function callback(Request $request, $provider)
     {
-        if ($provider === 'twitter') {
+        if (
+            $provider === 'twitter' or
+            $provider === 'github'
+        ) {
             $userSocial = Socialite::driver($provider)->user();
         } else {
             $userSocial = Socialite::driver($provider)->stateless()->user();
