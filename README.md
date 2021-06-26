@@ -93,4 +93,4 @@ Got Questions? Join the conversation in our [Discord](https://discord.gg/9M4Q65b
 
 ## ⚖️ License
 
-Taskord is open-sourced software licensed under the [MIT license](LICENSE).
+Taskord is open-sourced software licensed under the © [MIT license](LICENSE).
