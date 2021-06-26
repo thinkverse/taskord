@@ -12,7 +12,7 @@ use Illuminate\Contracts\View\View;
 
 class SitemapController extends Controller
 {
-    public function users()
+    public function users(): View
     {
         $users = User::select('username', 'spammy')
             ->where('spammy', false)
@@ -23,7 +23,7 @@ class SitemapController extends Controller
         ]);
     }
 
-    public function products()
+    public function products(): View
     {
         $products = Product::select('slug', 'user_id')
             ->whereHas('user', function ($q) {
@@ -39,7 +39,7 @@ class SitemapController extends Controller
         ]);
     }
 
-    public function questions()
+    public function questions(): View
     {
         $questions = Question::select('id', 'slug', 'hidden', 'user_id')
             ->whereHas('user', function ($q) {
@@ -56,7 +56,7 @@ class SitemapController extends Controller
         ]);
     }
 
-    public function tasks()
+    public function tasks(): View
     {
         $tasks = Task::select('id', 'source', 'hidden', 'user_id')
             ->whereHas('user', function ($q) {
@@ -73,7 +73,7 @@ class SitemapController extends Controller
         ]);
     }
 
-    public function comments()
+    public function comments(): View
     {
         $comments = Comment::select('id', 'hidden', 'task_id', 'user_id')
             ->with(['task'])
@@ -91,7 +91,7 @@ class SitemapController extends Controller
         ]);
     }
 
-    public function milestones()
+    public function milestones(): View
     {
         $milestones = Milestone::select('id', 'hidden', 'user_id')
             ->whereHas('user', function ($q) {
