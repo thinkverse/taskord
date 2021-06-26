@@ -34,7 +34,7 @@ class Stats extends Component
         $productsLaunched = Product::whereLaunched(true)->count('id');
         $reputations = User::sum('reputation');
         $questions = Question::count('id');
-        $questions_unanswered = Question::doesntHave('answers')->count('id');
+        $questionsUnanswered = Question::doesntHave('answers')->count('id');
         $answers = Answer::count('id');
         $comments = Comment::count('id');
         $milestones = Milestone::count('id');
@@ -56,8 +56,8 @@ class Stats extends Component
             'products_unlaunched' => number_format($products - $productsLaunched),
             'reputations' => number_format($reputations),
             'questions' => number_format($questions),
-            'questions_answered' => number_format($questions - $questions_unanswered),
-            'questions_unanswered' => number_format($questions_unanswered),
+            'questions_answered' => number_format($questions - $questionsUnanswered),
+            'questions_unanswered' => number_format($questionsUnanswered),
             'answers' => number_format($answers),
             'comments' => number_format($comments),
             'milestones' => number_format($milestones),
