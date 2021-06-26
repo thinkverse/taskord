@@ -31,7 +31,7 @@ class Onboarding extends Component
         return count($completed);
     }
 
-    public function render()
+    public function render(): View
     {
         $taskCount = auth()->user()->tasks()->count('id');
         $likeCount = auth()->user()->likes(Task::class)->count();

@@ -27,7 +27,7 @@ class RecentlyJoined extends Component
             ->get();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.home.recently-joined', [
             'recently_joined' => $this->readyToLoad ? $this->getRecentlyJoined() : [],
