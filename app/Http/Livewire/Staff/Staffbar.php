@@ -7,6 +7,7 @@ use App\Jobs\Deploy;
 use Illuminate\Support\Facades\Queue;
 use Jean85\PrettyVersions;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Staffbar extends Component
 {

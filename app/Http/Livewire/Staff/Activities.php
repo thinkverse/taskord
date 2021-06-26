@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Staff;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Spatie\Activitylog\Models\Activity;
+use Illuminate\Contracts\View\View;
 
 class Activities extends Component
 {

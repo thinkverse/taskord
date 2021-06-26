@@ -13,6 +13,7 @@ use App\Models\Webhook;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Spatie\Activitylog\Models\Activity;
+use Illuminate\Contracts\View\View;
 
 class Stats extends Component
 {
