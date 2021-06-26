@@ -42,7 +42,7 @@ class Subscribe extends Component
         return loggy(request(), 'Question', auth()->user(), "Toggled question subscribe | Question ID: {$this->question->id}");
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.question.subscribe');
     }

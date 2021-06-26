@@ -27,7 +27,7 @@ class Products extends Component
             ->paginate(50);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.staff.products', [
             'products' => $this->readyToLoad ? $this->getProducts() : [],

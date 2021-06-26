@@ -27,7 +27,7 @@ class Trending extends Component
             });
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.question.trending', [
             'trending' => $this->readyToLoad ? $this->getTrending() : [],

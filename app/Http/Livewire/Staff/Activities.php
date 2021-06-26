@@ -24,7 +24,7 @@ class Activities extends Component
         return Activity::latest()->paginate('50');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.staff.activities', [
             'activities' => $this->readyToLoad ? $this->getActivities() : [],

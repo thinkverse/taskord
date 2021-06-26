@@ -92,7 +92,7 @@ class SingleQuestion extends Component
         return redirect()->route('questions.newest');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.question.single-question');
     }
