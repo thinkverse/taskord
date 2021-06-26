@@ -14,7 +14,7 @@ class MarkdownToolbar extends Component
         $this->htmlFor = $htmlFor;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('components.markdown-toolbar');
     }

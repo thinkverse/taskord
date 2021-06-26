@@ -14,12 +14,7 @@ class UserActivity extends Component
         $this->activity = $activity;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|string
-     */
-    public function render()
+    public function render(): View
     {
         return view('components.user-activity');
     }

@@ -7,7 +7,7 @@ use Illuminate\Contracts\View\View;
 
 class Beta extends Component
 {
-    public function render()
+    public function render(): View
     {
         return view('components.labels.beta');
     }

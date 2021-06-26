@@ -14,7 +14,7 @@ class LikeButton extends Component
         $this->entity = $entity;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('components.like-button');
     }
