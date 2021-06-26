@@ -77,7 +77,9 @@ More features are already planned. Take a look at the [project board](https://gi
 
 ## ⚙️ Setup
 
-## 🚧 Contribution
+## 🤝 Contributing
+
+We encourage you to contribute to Taskord! Please check out the [Contributing guide](CONTRIBUTING.md) for guidelines about how to proceed.
 
 ### Development
 
