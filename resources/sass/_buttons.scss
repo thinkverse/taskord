@@ -57,7 +57,7 @@
   &:active {
     color: white;
 
-    & > [class*='text-'] {
+    & > [class*="text-"] {
       color: inherit !important;
     }
   }
