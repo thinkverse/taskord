@@ -9,10 +9,9 @@
         "onecentlin.laravel-blade",
         "austenc.laravel-blade-spacer",
         "amiralizadeh9480.laravel-extra-intellisense",
-        "codingyu.laravel-goto-view",
         "onecentlin.laravel5-snippets",
-        "stef-k.laravel-goto-controller",
         "robbowen.synthwave-vscode",
-        "ms-vscode-remote.remote-containers",
+        "dbaeumer.vscode-eslint",
+        "shufo.vscode-blade-formatter"
     ]
 }
