@@ -15,7 +15,7 @@ class SingleProduct extends Component
         $this->product = $product;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.single-product');
     }

@@ -17,7 +17,7 @@ class Reputations extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function render(): View
     {
         $createdAt = carbon('Sep 1 2020')->format('Y-m-d');
         $currentDate = carbon()->format('Y-m-d');

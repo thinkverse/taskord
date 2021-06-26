@@ -42,7 +42,7 @@ class Subscribe extends Component
         return loggy(request(), 'Product', auth()->user(), "Toggled product subscribe | Product ID: {$this->product->id}");
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.subscribe');
     }

@@ -25,7 +25,7 @@ class Subscribers extends Component
         $this->product = $product;
     }
 
-    public function render()
+    public function render(): View
     {
         $subscribers = $this->product->subscribers()->paginate(10);
 
