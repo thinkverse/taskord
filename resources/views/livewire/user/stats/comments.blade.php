@@ -27,7 +27,7 @@
                     data: <?php echo $comments; ?>
                 }],
                 xaxis: {
-                    categories: <?php echo $weekDates; ?>,
+                    categories: <?php echo $week_dates; ?>,
                     labels: {
                         show: false
                     }
