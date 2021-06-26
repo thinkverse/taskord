@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
+use Illuminate\Contracts\View\View;
 
 class StaffController extends Controller
 {
