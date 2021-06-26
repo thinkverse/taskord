@@ -57,7 +57,7 @@ class Product extends Model
     }
 
     /**
-     * @return BelongsTo
+     * @return BelongsToMany
      */
     public function members(): BelongsToMany
     {
@@ -65,7 +65,7 @@ class Product extends Model
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function tasks(): HasMany
     {
@@ -73,7 +73,7 @@ class Product extends Model
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function productUpdates(): HasMany
     {
@@ -81,7 +81,7 @@ class Product extends Model
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function webhooks(): HasMany
     {
