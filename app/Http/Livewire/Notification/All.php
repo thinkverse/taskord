@@ -39,7 +39,7 @@ class All extends Component
         return new LengthAwarePaginator($items->forPage($page, $this->perPage), $items->count(), $this->perPage, $page, $options);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.notification.all', [
             'notifications' => $this->readyToLoad ? $this->paginate(auth()->user()->notifications) : [],

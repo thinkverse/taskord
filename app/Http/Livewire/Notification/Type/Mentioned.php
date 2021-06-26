@@ -18,7 +18,7 @@ class Mentioned extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         if ($this->data['body_type'] === 'task') {
             $body = Task::find($this->data['body_id']);
