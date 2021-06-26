@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Status extends Component
 {

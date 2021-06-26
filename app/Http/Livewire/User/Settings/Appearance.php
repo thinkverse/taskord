@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User\Settings;
 use App\Models\User;
 use Illuminate\Support\Facades\Cookie;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Appearance extends Component
 {

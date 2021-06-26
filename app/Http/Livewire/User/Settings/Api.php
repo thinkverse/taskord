@@ -7,6 +7,7 @@ use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Api extends Component
 {
