@@ -14,7 +14,7 @@ class WebhookController extends Controller
 {
     use WithRateLimiting;
 
-    public function createTask($webhook, $task, $done, $doneAt, $product_id, $type)
+    public function createTask($webhook, $task, $done, $doneAt, $productId, $type)
     {
         $ignoreList = [
             'styleci',
@@ -30,8 +30,8 @@ class WebhookController extends Controller
                 'task' => trim($task),
                 'done' => $done,
                 'done_at' => $doneAt,
-                'product_id' => $product_id,
-                'type' => $product_id ? 'product' : 'user',
+                'product_id' => $productId,
+                'type' => $productId ? 'product' : 'user',
                 'source' => $type,
             ]))();
         }
