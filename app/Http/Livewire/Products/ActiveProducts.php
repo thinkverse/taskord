@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Products;
 
 use App\Models\Product;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class ActiveProducts extends Component
 {

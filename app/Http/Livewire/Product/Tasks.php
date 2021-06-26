@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
 use Livewire\Component;
+use Illuminate\Contracts\View\View;
 
 class Tasks extends Component
 {

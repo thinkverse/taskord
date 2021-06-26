@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Spatie\Dns\Dns;
+use Illuminate\Contracts\View\View;
 
 class Verify extends Component
 {
