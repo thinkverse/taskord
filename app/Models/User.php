@@ -56,27 +56,27 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function tasks()
+    public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
     }
 
-    public function comments()
+    public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
     }
 
-    public function commentReplies()
+    public function commentReplies(): HasMany
     {
         return $this->hasMany(CommentReply::class);
     }
 
-    public function milestones()
+    public function milestones(): HasMany
     {
         return $this->hasMany(Milestone::class);
     }
 
-    public function ownedProducts()
+    public function ownedProducts(): HasMany
     {
         return $this->hasMany(Product::class);
     }
@@ -91,12 +91,12 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(ProductUpdate::class);
     }
 
-    public function questions()
+    public function questions(): HasMany
     {
         return $this->hasMany(Question::class);
     }
 
-    public function answers()
+    public function answers(): HasMany
     {
         return $this->hasMany(Answer::class);
     }
@@ -106,12 +106,12 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Patron::class);
     }
 
-    public function webhooks()
+    public function webhooks(): HasMany
     {
         return $this->hasMany(Webhook::class);
     }
 
-    public function meetups()
+    public function meetups(): HasMany
     {
         return $this->hasMany(Meetup::class);
     }
