@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Nicolaslopezj\Searchable\SearchableTrait;
@@ -66,7 +67,7 @@ class Task extends Model
         return $this->belongsTo(Milestone::class);
     }
 
-    public function oembed()
+    public function oembed(): HasOne
     {
         return $this->hasOne(Oembed::class);
     }
