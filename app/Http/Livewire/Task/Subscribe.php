@@ -42,7 +42,7 @@ class Subscribe extends Component
         return loggy(request(), 'Task', auth()->user(), "Toggled task subscribe | Task ID: {$this->task->id}");
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.task.subscribe');
     }

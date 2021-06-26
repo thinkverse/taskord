@@ -30,7 +30,7 @@ class AllTasks extends Component
             ->paginate(30);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.tasks.all-tasks', [
             'tasks' => $this->readyToLoad ? $this->getAllTasks() : [],

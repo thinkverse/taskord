@@ -43,7 +43,7 @@ class SelectMilestone extends Component
         return toast($this, 'success', "Task has been added to the milestone <b>{$milestone->name}</b>");
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.task.select-milestone');
     }

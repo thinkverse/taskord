@@ -112,7 +112,7 @@ class SingleTask extends Component
         return toast($this, 'success', 'Task has been deleted successfully!');
     }
 
-    public function render()
+    public function render(): View
     {
         $this->launched = false;
         $launchList = [

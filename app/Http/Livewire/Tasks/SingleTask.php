@@ -72,7 +72,7 @@ class SingleTask extends Component
         return $this->emitUp('refreshTasks');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.tasks.single-task');
     }
