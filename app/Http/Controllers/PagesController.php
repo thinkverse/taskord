@@ -7,6 +7,7 @@ use App\Models\Milestone;
 use App\Models\Question;
 use App\Models\Task;
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 
 class PagesController extends Controller
 {
