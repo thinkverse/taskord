@@ -34,11 +34,17 @@ class Milestone extends Model
         'end_date',
     ];
 
+    /**
+     * @return BelongsTo
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
