@@ -56,7 +56,7 @@ class Products extends Component
         return new LengthAwarePaginator($items->forPage($page, $this->perPage), $items->count(), $this->perPage, $page, $options);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.products.products', [
             'products' => $this->readyToLoad ? $this->paginate($this->getProducts()) : [],
