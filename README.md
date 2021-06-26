@@ -55,7 +55,7 @@
 
 ## 🍭 About Taskord
 
-WIP
+Taskord is a community of makers in tech shipping and working together. Makers post their daily tasks, questions, milestones in public and grow a network of supportive, like-minded people!
 
 ## ✨ Feature Highlights
 
