@@ -43,7 +43,7 @@ class Milestone extends Model
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function tasks(): HasMany
     {
