@@ -81,6 +81,8 @@ Got Questions? Join the conversation in our [Discord](https://discord.gg/9M4Q65b
 
 ## 💡 Support
 
+You can get personal and dedicated support by becoming a [Taskord Patron](https://taskord.com/patron). ⭐
+
 ## ⚙️ Setup
 
 ### Development
