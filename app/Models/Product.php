@@ -48,26 +48,41 @@ class Product extends Model
         ],
     ];
 
+    /**
+     * @return BelongsTo
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function members(): BelongsToMany
     {
         return $this->belongsToMany(User::class)->withTimestamps();
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function tasks(): HasMany
     {
         return $this->hasMany(Task::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function productUpdates(): HasMany
     {
         return $this->hasMany(ProductUpdate::class);
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function webhooks(): HasMany
     {
         return $this->hasMany(Webhook::class);
