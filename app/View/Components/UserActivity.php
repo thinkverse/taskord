@@ -3,16 +3,12 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class UserActivity extends Component
 {
     public $activity;
 
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
     public function __construct($activity)
     {
         $this->activity = $activity;
