@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Contracts\View\View;
 
 class Followers extends Component
 {
