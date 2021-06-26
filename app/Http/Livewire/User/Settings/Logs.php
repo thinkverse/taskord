@@ -20,7 +20,7 @@ class Logs extends Component
         $this->user = $user;
     }
 
-    public function render()
+    public function render(): View
     {
         $activities = Activity::causedBy($this->user)
             ->latest()

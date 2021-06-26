@@ -16,7 +16,7 @@ class Sessions extends Component
         $this->user = $user;
     }
 
-    public function render()
+    public function render(): View
     {
         $sessions = DB::table('sessions')
             ->whereUserId($this->user->id)

@@ -73,7 +73,7 @@ class Integrations extends Component
         return toast($this, 'success', 'Webhook has been deleted!');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.settings.integrations');
     }
