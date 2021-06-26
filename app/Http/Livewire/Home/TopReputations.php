@@ -27,7 +27,7 @@ class TopReputations extends Component
             ->get();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.home.top-reputations', [
             'reputations' => $this->readyToLoad ? $this->getTopReputations() : [],
