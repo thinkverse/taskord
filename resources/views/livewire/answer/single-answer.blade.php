@@ -1,11 +1,15 @@
 <div class="card-body">
-    <div class="align-items-center d-flex mb-2">
+    <div class="align-items-center justify-content-between d-flex mb-2">
         <x:shared.user-label-small :user="$answer->user" />
-        <span class="align-text-top small float-end ms-auto">
-            <a class="text-secondary" href="">
+        <div class="text-secondary small">
+            @if ($answer->created_at < $answer->updated_at)
+                <span title="Edited {{ carbon($answer->updated_at)->diffForHumans() }}">Edited</span>
+                <span class="mx-1">•</span>
+            @endif
+            <a class="align-text-top float-end ms-auto text-secondary" href="">
                 {{ carbon($answer->created_at)->diffForHumans() }}
             </a>
-        </span>
+        </div>
     </div>
     @if ($answer->hidden)
         <span class="body-font fst-italic text-secondary">Answer was hidden by moderator</span>
