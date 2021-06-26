@@ -61,7 +61,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function tasks(): HasMany
     {
@@ -69,7 +69,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function comments(): HasMany
     {
@@ -77,7 +77,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function commentReplies(): HasMany
     {
@@ -85,7 +85,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function milestones(): HasMany
     {
@@ -93,7 +93,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function ownedProducts(): HasMany
     {
@@ -101,7 +101,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return BelongsTo
+     * @return BelongsToMany
      */
     public function products(): BelongsToMany
     {
@@ -117,7 +117,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function questions(): HasMany
     {
@@ -125,7 +125,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function answers(): HasMany
     {
@@ -133,7 +133,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return BelongsTo
+     * @return HasOne
      */
     public function patron(): HasOne
     {
@@ -141,7 +141,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function webhooks(): HasMany
     {
@@ -149,16 +149,13 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * @return BelongsTo
+     * @return HasMany
      */
     public function meetups(): HasMany
     {
         return $this->hasMany(Meetup::class);
     }
 
-    /**
-     * @return BelongsTo
-     */
     public function sendEmailVerificationNotification()
     {
         VerifyEmailQueue::dispatch($this);
