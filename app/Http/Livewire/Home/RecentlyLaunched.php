@@ -25,7 +25,7 @@ class RecentlyLaunched extends Component
             ->get();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.home.recently-launched', [
             'products' => $this->readyToLoad ? $this->getRecentlyLaunched() : [],

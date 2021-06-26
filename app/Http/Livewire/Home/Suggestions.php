@@ -42,7 +42,7 @@ class Suggestions extends Component
             ->shuffle();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.home.suggestions', [
             'users' => $this->readyToLoad ? $this->getSuggestions() : [],

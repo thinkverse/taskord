@@ -25,7 +25,7 @@ class RecentQuestions extends Component
             ->get();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.home.recent-questions', [
             'recent_questions' => $this->readyToLoad ? $this->getRecentQuestions() : [],
