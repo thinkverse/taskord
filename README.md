@@ -53,7 +53,7 @@
     <a href="https://gitlab.com/taskord/taskord/-/issues/new"><b>Request Feature</b></a>
 </div>
 
-## About Taskord
+## Feature Highlights
 
 - **✅ Tasks:** All tasks are public and added to your maker profile.
 - **🔥 Reputation:** Earn reputations by completing, liking, and commenting on tasks and questions, which helps you to stay productive.
