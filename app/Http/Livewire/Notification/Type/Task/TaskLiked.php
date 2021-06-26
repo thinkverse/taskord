@@ -15,7 +15,7 @@ class TaskLiked extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $task = Task::find($this->data['task_id']);
 
