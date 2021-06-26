@@ -359,7 +359,7 @@ class Moderator extends Component
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.moderator', [
             'user' => $this->readyToLoad ? $this->user : [],

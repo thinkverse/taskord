@@ -62,7 +62,7 @@ class Status extends Component
         return toast($this, 'success', 'Status cleared successfully!');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.status');
     }

@@ -44,7 +44,7 @@ class Api extends Component
         return toast($this, 'error', config('taskord.toast.deny'));
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.settings.api');
     }

@@ -27,7 +27,7 @@ class Reputations extends Component
             ->paginate(50);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.reputations', [
             'points' => $this->readyToLoad ? $this->getReputations() : [],

@@ -32,7 +32,7 @@ class Products extends Component
             ->paginate(10);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.products', [
             'products' => $this->readyToLoad ? $this->getProducts() : [],

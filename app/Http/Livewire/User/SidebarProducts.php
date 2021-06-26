@@ -28,7 +28,7 @@ class SidebarProducts extends Component
             ->merge($this->user->products);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.sidebar-products', [
             'products' => $this->readyToLoad ? $this->getProducts() : [],

@@ -33,7 +33,7 @@ class Questions extends Component
             ->paginate(10);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.questions', [
             'questions' => $this->readyToLoad ? $this->getQuestions() : [],

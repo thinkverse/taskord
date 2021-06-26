@@ -38,7 +38,7 @@ class Tasks extends Component
             ->paginate(10, '*', null, $this->page);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.tasks', [
             'tasks' => $this->readyToLoad ? $this->getTasks() : [],
