@@ -14,7 +14,7 @@ class WebhookController extends Controller
 {
     use WithRateLimiting;
 
-    public function createTask($webhook, $task, $done, $done_at, $product_id, $type)
+    public function createTask($webhook, $task, $done, $doneAt, $product_id, $type)
     {
         $ignoreList = [
             'styleci',
@@ -29,7 +29,7 @@ class WebhookController extends Controller
                 'user_id' => $webhook->user_id,
                 'task' => trim($task),
                 'done' => $done,
-                'done_at' => $done_at,
+                'done_at' => $doneAt,
                 'product_id' => $product_id,
                 'type' => $product_id ? 'product' : 'user',
                 'source' => $type,
@@ -47,16 +47,16 @@ class WebhookController extends Controller
             return response('Invalid parameters', 422);
         }
         if ($requestBody['done']) {
-            $done_at = carbon();
+            $doneAt = carbon();
         } else {
-            $done_at = null;
+            $doneAt = null;
         }
 
         $this->createTask(
             $webhook,
             $requestBody['task'],
             $requestBody['done'],
-            $done_at,
+            $doneAt,
             $webhook->product_id,
             'Webhook'
         );
