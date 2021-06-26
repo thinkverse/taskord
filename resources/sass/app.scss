@@ -247,17 +247,17 @@ input[type="color"]:focus,
 }
 
 .spinner-border-action {
-  width: 0.80rem;
-  height: 0.80rem;
-  border-width: .2em;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-width: 0.2em;
   margin-right: 2px;
 }
 
 .dropdown-item:active {
   color: white !important;
 
-  & > [class^='heroicon-'],
-  & > [class^='heroicon'] {
+  & > [class^="heroicon-"],
+  & > [class^="heroicon"] {
     color: inherit !important;
   }
 }
@@ -381,8 +381,7 @@ input[type="date"]:valid:before {
 }
 
 .list-group-item:last-child,
-.accordion-flush .accordion-item:last-of-type
-.accordion-button.collapsed {
+.accordion-flush .accordion-item:last-of-type .accordion-button.collapsed {
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
 }
