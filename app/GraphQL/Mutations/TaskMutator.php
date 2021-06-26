@@ -20,15 +20,15 @@ class TaskMutator
             ];
         }
 
-        $product_id = Helper::getProductIDFromMention($args['task'], auth()->user());
+        $productId = Helper::getProductIDFromMention($args['task'], auth()->user());
 
         $task = (new CreateNewTask(auth()->user(), [
-            'product_id' => $product_id,
+            'product_id' => $productId,
             'task' => trim($args['task']),
             'done' => $args['done'],
             'done_at' => $args['done'] ? carbon() : null,
             'type' => 'user',
-            'type' => $product_id ? 'product' : 'user',
+            'type' => $productId ? 'product' : 'user',
             'source' => 'Taskord API',
         ]))();
 
