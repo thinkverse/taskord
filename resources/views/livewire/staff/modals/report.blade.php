@@ -1,5 +1,5 @@
-<div wire:ignore.self class="modal fade" data-bs-backdrop="static" id="reportModal" tabindex="-1"
-    aria-labelledby="reportModalLabel" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
