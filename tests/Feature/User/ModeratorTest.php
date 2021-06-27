@@ -309,3 +309,22 @@ it('can edit (deleteProducts) settings', function ($status) {
     [true],
     [false],
 ]);
+
+it('can edit (deleteUser) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs(1)
+            ->livewire(Moderator::class, ['user' => $newUser])
+            ->call('deleteUser')
+            ->assertRedirect('/');
+    }
+
+    return actingAs($newUser->id)
+        ->livewire(Moderator::class, ['user' => $newUser])
+        ->call('deleteUser')
+        ->assertNoRedirect();
+})->with([
+    [true],
+    [false],
+]);
