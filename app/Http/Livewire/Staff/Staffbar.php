@@ -22,8 +22,7 @@ class Staffbar extends Component
             'description' => ['max:10000'],
         ]);
 
-        dd($this->title);
-        // Report::dispatch();
+        Report::dispatch($this->title, $this->description);
         loggy(request(), 'Staff', auth()->user(), 'Reported an issue to GitLab');
 
         return toast($this, 'success', 'A new issue has been submitted to GitLab successfully');
