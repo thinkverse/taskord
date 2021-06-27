@@ -175,22 +175,7 @@
                                 </div>
                                 <div class="mt-1">
                                     <span>Via:</span>
-                                    @if ($user->provider === 'google')
-                                        <span>
-                                            <img class="brand-icon"
-                                                src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg"
-                                                loading=lazy />
-                                            <span>Google</span>
-                                        </span>
-                                    @elseif ($user->provider === 'twitter')
-                                        <span class="badge bg-info">Twitter</span>
-                                    @elseif ($user->provider === 'github')
-                                        <span class="badge bg-dark">GitHub</span>
-                                    @elseif ($user->provider === 'discord')
-                                        <span class="badge bg-secondary">Discord</span>
-                                    @else
-                                        <span class="badge bg-primary">Web</span>
-                                    @endif
+                                    <span class="badge bg-info">{{ $user->provider }}</span>
                                 </div>
                                 <div class="mt-1">
                                     <span>Timezone:</span>
