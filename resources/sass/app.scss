@@ -492,11 +492,10 @@ input[type="date"]:valid:before {
 .ssc-head-line,
 .ssc-line,
 .ssc-square {
-  background-color: $gray-300;
+  background-color: $gray-200;
 
   &::after {
-    animation: ssc-loading 2s infinite;
-    background: linear-gradient(90deg, transparent, #e9ecef, transparent);
+    background: none;
   }
 }
 
