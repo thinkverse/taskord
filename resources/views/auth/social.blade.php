@@ -45,6 +45,13 @@
                         <span class="ms-1">GitLab</span>
                     </a>
                 </li>
+                <li>
+                    <a class="dropdown-item cursor-pointer" href="/login/twitch">
+                        <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitch_ZzpKWQt7T.svg"
+                            loading=lazy />
+                        <span class="ms-1">Twitch</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
