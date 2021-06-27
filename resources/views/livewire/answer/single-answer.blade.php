@@ -29,7 +29,7 @@
             <x:like-button :entity="$answer" />
             <button class="btn btn-action btn-outline-primary me-1" wire:click="toggleReplyBox">
                 <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
-                @if ($comment->replies()->count('id') !== 0)
+                @if ($answer->replies()->count('id') !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($answer->replies()->count('id')) }}
                     </span>
@@ -63,5 +63,33 @@
                 @endif
             </a>
         @endguest
+    </div>
+    <div class="bg-light rounded-bottom {{ $answer->replies()->count('id') > 0 ? 'border-1 border-top' : '' }}">
+        <div class="px-3">
+            <livewire:answer.reply.replies :answer="$answer" />
+        </div>
+        @auth
+            @if ($showReplyBox)
+                <div class="px-3 pb-3">
+                    <livewire:answer.reply.create-reply :answer="$answer" />
+                </div>
+            @else
+                <div class="p-2 border-1 border-top d-flex align-items-center">
+                    <a href="{{ route('user.done', ['username' => auth()->user()->username]) }}" class="user-popover ms-2"
+                        data-id="{{ auth()->id() }}">
+                        <img loading=lazy class="avatar-25 rounded-circle"
+                            src="{{ Helper::getCDNImage(auth()->user()->avatar, 80) }}" height="40" width="40"
+                            alt="{{ auth()->user()->username }}'s avatar" />
+                    </a>
+                    <div class="ms-2 w-100 btn btn-sm border-1 border-reply text-dark text-start bg-white"
+                        wire:click="toggleReplyBox">
+                        Reply now
+                    </div>
+                </div>
+                <div wire:loading wire:target="toggleReplyBox">
+                    <div class="spinner-border spinner-border-sm taskord-spinner text-secondary m-3" role="status"></div>
+                </div>
+            @endif
+        @endauth
     </div>
 </div>
