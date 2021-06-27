@@ -70,11 +70,6 @@
 }
 
 .btn-social {
-  &.btn-google {
-    color: $google;
-    border-color: $google;
-  }
-
   &.btn-twitter {
     color: $twitter;
     border-color: $twitter;
@@ -83,11 +78,6 @@
   &.btn-github {
     color: $github;
     border-color: $github;
-  }
-
-  &.btn-discord {
-    color: $discord;
-    border-color: $discord;
   }
 }
 
