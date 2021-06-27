@@ -60,3 +60,22 @@ it('can edit (enrollDeveloper) settings', function ($status) {
     [true],
     [false],
 ]);
+
+it('can edit (privateUser) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs(1)
+            ->livewire(Moderator::class, ['user' => $newUser])
+            ->call('privateUser')
+            ->assertEmitted('modSettingsUpdated');
+    }
+
+    return actingAs($newUser->id)
+        ->livewire(Moderator::class, ['user' => $newUser])
+        ->call('privateUser')
+        ->assertNotEmitted('modSettingsUpdated');
+})->with([
+    [true],
+    [false],
+]);
