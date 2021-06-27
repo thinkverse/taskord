@@ -174,3 +174,22 @@ it('can edit (masquerade) settings', function ($status) {
     [true],
     [false],
 ]);
+
+it('can edit (resetAvatar) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs(1)
+            ->livewire(Moderator::class, ['user' => $newUser])
+            ->call('resetAvatar')
+            ->assertRedirect(route('user.done', ['username' => $newUser->username]));
+    }
+
+    return actingAs($newUser->id)
+        ->livewire(Moderator::class, ['user' => $newUser])
+        ->call('resetAvatar')
+        ->assertNoRedirect();
+})->with([
+    [true],
+    [false],
+]);
