@@ -23,6 +23,7 @@ class Staffbar extends Component
         ]);
 
         Report::dispatch($this->title, $this->description);
+        $this->reset();
         loggy(request(), 'Staff', auth()->user(), 'Reported an issue to GitLab');
 
         return toast($this, 'success', 'A new issue has been submitted to GitLab successfully');

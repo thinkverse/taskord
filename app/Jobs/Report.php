@@ -26,19 +26,15 @@ class Report implements ShouldQueue
 
     public function handle()
     {
-        if (App::environment() === 'production') {
-            $client = new Client();
-            $client->request('POST', 'https://gitlab.com/api/v4/projects/20359920/issues', [
-                'headers' => [
-                    'PRIVATE-TOKEN' => config('services.gitlab.pat'),
-                ],
-                'json' => [
-                    'title' => $this->title,
-                    'description' => $this->description,
-                ],
-            ]);
-        }
-
-        Artisan::call('app:clean');
+        $client = new Client();
+        $client->request('POST', 'https://gitlab.com/api/v4/projects/20359920/issues', [
+            'headers' => [
+                'PRIVATE-TOKEN' => config('services.gitlab.pat'),
+            ],
+            'json' => [
+                'title' => $this->title,
+                'description' => "{$this->description}\n\n<small>Reported from Taskord Stafftools</small>",
+            ],
+        ]);
     }
 }
