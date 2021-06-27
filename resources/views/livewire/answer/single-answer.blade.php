@@ -27,6 +27,14 @@
     <div class="mt-2">
         @auth
             <x:like-button :entity="$answer" />
+            <button class="btn btn-action btn-outline-primary me-1" wire:click="toggleReplyBox">
+                <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
+                @if ($comment->replies()->count('id') !== 0)
+                    <span class="small text-dark fw-bold">
+                        {{ number_format($answer->replies()->count('id')) }}
+                    </span>
+                @endif
+            </button>
         @endauth
         @can('edit/delete', $answer)
             <button type="button" class="btn btn-action btn-outline-primary me-1" wire:click="editAnswer"
