@@ -55,4 +55,12 @@ class Answer extends Model
     {
         return $this->belongsTo(Question::class);
     }
+
+    /**
+     * @return HasMany
+     */
+    public function replies(): HasMany
+    {
+        return $this->hasMany(AnswerReply::class);
+    }
 }
