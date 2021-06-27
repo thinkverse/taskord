@@ -102,7 +102,7 @@
                     aria-expanded="false">
                     <x-heroicon-o-dots-vertical class="heroicon heroicon-15px text-secondary" />
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="taskMenuItem-{{ $task->id }}">
+                <ul class="dropdown-menu mt-2 mb-4" aria-labelledby="taskMenuItem-{{ $task->id }}">
                     @can('edit/delete', $task)
                         <li>
                             <a class="dropdown-item cursor-pointer text-danger"

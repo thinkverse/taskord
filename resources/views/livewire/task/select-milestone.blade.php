@@ -3,7 +3,7 @@
         aria-expanded="false">
         <x-heroicon-o-truck class="heroicon heroicon-15px text-secondary" />
     </button>
-    <ul class="dropdown-menu" aria-labelledby="milestoneMenuItem">
+    <ul class="dropdown-menu mt-2 mb-4" aria-labelledby="milestoneMenuItem">
         @if ($task->milestone)
             <li>
                 <a class="dropdown-item cursor-pointer" wire:click="noMilestone">
