@@ -19,6 +19,12 @@
                 <span>•</span>
                 <span>PHP v{{ PHP_VERSION }}</span>
             </span>
+            <span class="fw-bold ms-3">
+                <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#reportModal"
+                    title="Report issue to GitLab">
+                    <x-heroicon-o-puzzle class="heroicon text-white" />
+                </a>
+            </span>
         </span>
         <span class="float-end">
             @php
@@ -66,6 +72,7 @@
             </span>
         </span>
     </div>
+    @include('livewire.staff.modals.report')
     @include('livewire.staff.modals.clean')
     @include('livewire.staff.modals.deploy')
 </div>

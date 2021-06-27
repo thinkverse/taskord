@@ -12,9 +12,18 @@ use Livewire\Component;
 
 class Staffbar extends Component
 {
+    public $title;
+    public $description;
+
     public function report()
     {
-        Report::dispatch();
+        $this->validate([
+            'title' => ['required', 'min:3', 'max:10000'],
+            'description' => ['max:10000'],
+        ]);
+
+        dd($this->title);
+        // Report::dispatch();
         loggy(request(), 'Staff', auth()->user(), 'Reported an issue to GitLab');
 
         return toast($this, 'success', 'A new issue has been submitted to GitLab successfully');
