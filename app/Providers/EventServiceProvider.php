@@ -22,6 +22,7 @@ class EventServiceProvider extends ServiceProvider
             'SocialiteProviders\\Discord\\DiscordExtendSocialite@handle',
             'SocialiteProviders\\GitHub\\GitHubExtendSocialite@handle',
             'SocialiteProviders\\Twitter\\TwitterExtendSocialite@handle',
+            'SocialiteProviders\\GitLab\\GitLabExtendSocialite@handle',
         ],
     ];
 
