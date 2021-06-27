@@ -37,8 +37,11 @@
                         Created by
                     </div>
                     <div class="card mb-4">
-                        <div class="card-body d-flex align-items-center">
+                        <div class="card-body">
                             <x:shared.user-label-with-bio :user="$task->user" />
+                            <div class="mt-3 text-secondary">
+                                Created via <span class="fw-bold">{{ $task->source }}</span>
+                            </div>
                         </div>
                     </div>
                     @if ($task->product_id)
