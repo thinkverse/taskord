@@ -328,3 +328,24 @@ it('can edit (deleteUser) settings', function ($status) {
     [true],
     [false],
 ]);
+
+it('can edit (updateUserStaffNotes) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs(1)
+            ->livewire(Moderator::class, ['user' => $newUser])
+            ->set('staffNotes', 'Test Staff Notes')
+            ->call('updateUserStaffNotes')
+            ->assertEmitted('modSettingsUpdated');
+    }
+
+    return actingAs($newUser->id)
+        ->livewire(Moderator::class, ['user' => $newUser])
+        ->set('staffNotes', 'Test Staff Notes')
+        ->call('updateUserStaffNotes')
+        ->assertNotEmitted('modSettingsUpdated');
+})->with([
+    [true],
+    [false],
+]);

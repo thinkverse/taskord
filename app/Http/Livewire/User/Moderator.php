@@ -363,6 +363,7 @@ class Moderator extends Component
 
         $this->user->staff_notes = $this->staffNotes;
         $this->user->save();
+        $this->emit('modSettingsUpdated');
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
