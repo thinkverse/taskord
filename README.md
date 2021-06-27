@@ -91,13 +91,48 @@ You can get personal and dedicated support by becoming a [Taskord Patron](https:
 
 - [PHP](https://www.php.net)
 - [Node.js](https://nodejs.org/en)
+- [Yarn](https://yarnpkg.com)
 - [Redis](https://redis.io)
-
-WIP
 
 #### Setup
 
-WIP
+The following steps assume that you are using Linux or Mac for development, which we highly encourage. If you use other ways to work with PHP projects you must adapt the commands to your system. Fork and clone the repository to your machine and run the following commands to start the development.
+
+Setup environment variables
+
+```sh
+cp .env.example .env
+```
+
+Now, install all php and yarn dependencies
+
+```sh
+composer install
+npm install
+OR
+yarn install
+```
+
+Last step: compile all assets. Node 14 LTS is the minimum version required and recommended to use. You may use either NPM or Yarn for installing the asset dependencies.
+
+```sh
+yarn watch
+```
+
+Generate appliaction key and migrate the database
+
+```sh
+php artisan key:generate
+php artisan migrate --seed
+```
+
+Start the application
+
+```sh
+php artisan serve
+```
+
+Visit http://localhost:8000
 
 #### Tests
 
