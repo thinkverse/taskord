@@ -465,11 +465,11 @@ input[type="date"]:valid:before {
 }
 
 .bg-staffbar {
-  background-color: #161818 !important;
+  background-color: $black !important;
 }
 
 .border-staffbar {
-  border-color: #161818 !important;
+  border-color: $black !important;
 }
 
 .border-reply {
