@@ -175,6 +175,7 @@ class Moderator extends Component
         if ($this->user->is_verified) {
             $this->user->notify(new UserVerified(true));
         }
+        $this->emit('modSettingsUpdated');
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
