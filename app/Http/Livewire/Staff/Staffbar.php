@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Staff;
 
 use App\Jobs\Clean;
 use App\Jobs\Deploy;
+use App\Jobs\Report;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Queue;
 use Jean85\PrettyVersions;
@@ -11,6 +12,14 @@ use Livewire\Component;
 
 class Staffbar extends Component
 {
+    public function report()
+    {
+        Report::dispatch();
+        loggy(request(), 'Staff', auth()->user(), 'Reported an issue to GitLab');
+
+        return toast($this, 'success', 'A new issue has been submitted to GitLab successfully');
+    }
+
     public function clean()
     {
         Clean::dispatch();
