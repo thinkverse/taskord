@@ -1,4 +1,4 @@
-<span class="dropdown">
+<span class="dropdown ms-1">
     <button class="btn btn-action btn-outline-info dropdown-toggle" id="milestoneMenuItem" data-bs-toggle="dropdown"
         aria-expanded="false">
         <x-heroicon-o-truck class="heroicon heroicon-15px text-secondary" />
@@ -12,7 +12,8 @@
             </li>
             <div class="dropdown-divider"></div>
         @endif
-        @foreach ($task->user->milestones()->whereStatus(true)->latest()->get() as $milestone)
+        @foreach ($task->user->milestones()->whereStatus(true)->latest()->get()
+    as $milestone)
             <li wire:key="{{ $task->id }}_{{ $milestone->id }}">
                 <a class="dropdown-item cursor-pointer" wire:click="selectMilestone({{ $milestone }})">
                     <span class="text-secondary me-2 fw-bold">#{{ $milestone->id }}</span>

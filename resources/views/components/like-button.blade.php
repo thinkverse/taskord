@@ -4,7 +4,7 @@
             ->user()
             ->hasLiked($entity);
     @endphp
-    <button type="button" class="btn btn-action {{ $liked ? 'btn-like' : 'btn-outline-like' }} me-1"
+    <button type="button" class="btn btn-action {{ $liked ? 'btn-like' : 'btn-outline-like' }}"
         wire:click="toggleLike" wire:loading.attr="disabled" wire:key="{{ $entity->id }}" aria-label="Likes">
         <span wire:loading wire:target="toggleLike" class="spinner-border spinner-border-action" role="status"></span>
         @if ($liked)

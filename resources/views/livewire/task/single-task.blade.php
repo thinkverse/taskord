@@ -76,7 +76,7 @@
                 @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-action btn-outline-like me-1" aria-label="Likes">
+                <a href="/login" class="btn btn-action btn-outline-like" aria-label="Likes">
                     <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                     @if ($task->likerscount() !== 0)
                         <span class="small fw-bold">
@@ -85,7 +85,7 @@
                     @endif
                 </a>
             @endguest
-            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-action btn-outline-primary me-1"
+            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-action btn-outline-primary ms-1"
                 aria-label="Comments">
                 <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
                 @if ($task->comments()->count('id') !== 0)
@@ -95,19 +95,41 @@
                 @endif
             </a>
             @can('edit/delete', $task)
-                <button type="button" class="btn btn-action btn-outline-danger me-1"
-                    onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteTask"
-                    wire:loading.attr="disabled" aria-label="Delete">
-                    <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
-                </button>
                 <livewire:task.select-milestone :task="$task" />
             @endcan
-            @can('staff.ops')
-                <button type="button" class="btn btn-action {{ $task->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1"
-                    wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $task->id }}" aria-label="Hide">
-                    <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
+            <span class="dropdown">
+                <button class="btn btn-action px-1" id="taskMenuItem-{{ $task->id }}" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <x-heroicon-o-dots-vertical class="heroicon heroicon-15px text-secondary" />
                 </button>
-            @endcan
+                <ul class="dropdown-menu" aria-labelledby="taskMenuItem-{{ $task->id }}">
+                    @can('edit/delete', $task)
+                        <li>
+                            <a class="dropdown-item cursor-pointer text-danger"
+                                onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
+                                wire:click="deleteTask">
+                                <x-heroicon-o-trash class="heroicon" />
+                                <span>Delete</span>
+                            </a>
+                        </li>
+                    @endcan
+                    <li>
+                        <a class="dropdown-item cursor-pointer">
+                            <x-heroicon-o-clipboard-copy class="heroicon" />
+                            <span>Copy link</span>
+                        </a>
+                    </li>
+                    @can('staff.ops')
+                        <li>
+                            <a class="dropdown-item cursor-pointer" wire:click="hide">
+                                <x-heroicon-o-eye-off class="heroicon" />
+                                <span>{{ $task->hidden ? 'Unhide' : 'Hide' }}</span>
+                            </a>
+                        </li>
+                    @endcan
+                </ul>
+            </span>
+
         </div>
         @if (!$task->hidden)
             @if ($task->comments->count('id') !== 0 and $showComments)
