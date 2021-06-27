@@ -15,6 +15,10 @@
                 <x-heroicon-o-chip class="heroicon" />
                 Laravel {{ $laravel_version }}.<span class="fw-bold">{{ $laravel_ref }}</span>
             </a>
+            <span class="text-secondary">
+                <span>•</span>
+                <span>PHP v{{ PHP_VERSION }}</span>
+            </span>
         </span>
         <span class="float-end">
             @php
