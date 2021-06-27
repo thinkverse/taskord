@@ -136,7 +136,11 @@ Visit http://localhost:8000
 
 #### Tests
 
-WIP
+You can run existing tests with the following command
+
+```sh
+php artisan test
+```
 
 ## ⚖️ License
 
