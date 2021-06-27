@@ -77,7 +77,7 @@ window.addEventListener("toast", (event) => {
 const lightboxModal = document.getElementById("lightboxModal");
 lightboxModal.addEventListener("show.bs.modal", function (event) {
   const button = event.relatedTarget;
-  const image = button.getAttribute("data-bs-whatever");
+  const image = button.getAttribute("data-bs-image");
   document.getElementById("lightbox-img").src = image;
   document.getElementById("lightbox-src").href = image;
 });

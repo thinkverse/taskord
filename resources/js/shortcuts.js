@@ -81,6 +81,9 @@ if (reportModal != null) {
   hotkeys("shift+r", async () => {
     (new bootstrap.Modal(reportModal)).show();
   });
+  reportModal.addEventListener("shown.bs.modal", function (event) {
+    document.getElementById("issue-title").focus();
+  });
 }
 
 // Deploy Modal

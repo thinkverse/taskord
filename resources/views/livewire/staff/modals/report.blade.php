@@ -7,8 +7,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <input type="text" placeholder="Issue title" class="form-control @error('title') is-invalid @enderror"
-                    wire:model="title">
+                <input type="text" placeholder="Issue title" id="issue-title"
+                    class="form-control @error('title') is-invalid @enderror" wire:model="title">
                 @error('title')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
