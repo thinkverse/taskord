@@ -51,6 +51,9 @@ return [
     'gitlab' => [
         'trigger_token'      => env('GITLAB_TRIGGER_TOKEN'),
         'pat'      => env('GITLAB_TOKEN'),
+        'client_id' => env('GITLAB_CLIENT_ID'),
+        'client_secret' => env('GITLAB_CLIENT_SECRET'),
+        'redirect' => env('GITLAB_REDIRECT_URI'),
     ],
 
     'discord' => [

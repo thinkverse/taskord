@@ -42,6 +42,7 @@
         "sentry/sentry-laravel": "2.7.0",
         "socialiteproviders/discord": "4.1.1",
         "socialiteproviders/github": "4.1.0",
+        "socialiteproviders/gitlab": "^4.1",
         "socialiteproviders/google": "4.1.0",
         "socialiteproviders/twitter": "4.1.1",
         "spatie/dns": "2.0.2",

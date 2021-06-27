@@ -25,23 +25,23 @@
             </button>
             <ul class="dropdown-menu mt-2 mb-4" aria-labelledby="moreSocialMenuItem">
                 <li>
-                    <a class="dropdown-item cursor-pointer">
-                        <img class="brand-icon" href="/login/google"
-                            src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg" loading=lazy />
+                    <a class="dropdown-item cursor-pointer" href="/login/google">
+                        <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg"
+                            loading=lazy />
                         <span class="ms-1">Google</span>
                     </a>
                 </li>
                 <li>
-                    <a class="dropdown-item cursor-pointer">
-                        <img class="brand-icon" href="/login/discord"
-                            src="https://ik.imagekit.io/taskordimg/icons/discord_MCCBaztWr.webp" loading=lazy />
+                    <a class="dropdown-item cursor-pointer" href="/login/discord">
+                        <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/discord_MCCBaztWr.webp"
+                            loading=lazy />
                         <span class="ms-1">Discord</span>
                     </a>
                 </li>
                 <li>
-                    <a class="dropdown-item cursor-pointer">
-                        <img class="brand-icon" href="/login/gitlab"
-                            src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" loading=lazy />
+                    <a class="dropdown-item cursor-pointer" href="/login/gitlab">
+                        <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg"
+                            loading=lazy />
                         <span class="ms-1">GitLab</span>
                     </a>
                 </li>
