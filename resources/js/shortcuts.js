@@ -75,6 +75,14 @@ hotkeys("shift+/", async () => {
   (new bootstrap.Modal(document.getElementById("shortcutsModal"))).show();
 });
 
+// New issue Modal
+const reportModal = document.getElementById("reportModal");
+if (reportModal != null) {
+  hotkeys("shift+n", async () => {
+    (new bootstrap.Modal(reportModal)).show();
+  });
+}
+
 // Deploy Modal
 const deployModal = document.getElementById("deployModal");
 if (deployModal != null) {
