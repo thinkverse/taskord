@@ -114,15 +114,15 @@
                         </li>
                     @endcan
                     <li>
-                        <a class="dropdown-item cursor-pointer">
-                            <x-heroicon-o-clipboard-copy class="heroicon" />
-                            <span>Copy link</span>
+                        <a class="dropdown-item cursor-pointer" href="{{ route('task', ['id' => $task->id]) }}">
+                            <x-heroicon-o-link class="heroicon" />
+                            <span>Permalink</span>
                         </a>
                     </li>
                     @can('staff.ops')
                         <li>
                             <a class="dropdown-item cursor-pointer" wire:click="hide">
-                                <x-heroicon-o-eye-off class="heroicon" />
+                                <x-heroicon-o-ban class="heroicon" />
                                 <span>{{ $task->hidden ? 'Unhide' : 'Hide' }}</span>
                             </a>
                         </li>

@@ -17,8 +17,7 @@
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary js-clipboard" type="button" title="Copy"
                                 data-bs-toggle="tooltip" data-for="#txt-record">
-                                <x-heroicon-o-clipboard-copy class="heroicon heroicon-18px">
-                                </x-heroicon-o-clipboard-copy>
+                                <x-heroicon-o-clipboard-copy class="heroicon heroicon-18px" />
                             </button>
                         </div>
                     </div>
@@ -31,8 +30,7 @@
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary js-clipboard" type="button" title="Copy"
                                 data-bs-toggle="tooltip" data-for="#txt-code">
-                                <x-heroicon-o-clipboard-copy class="heroicon heroicon-18px">
-                                </x-heroicon-o-clipboard-copy>
+                                <x-heroicon-o-clipboard-copy class="heroicon heroicon-18px" />
                             </button>
                         </div>
                     </div>
