@@ -155,3 +155,22 @@ it('can edit (verifyUser) settings', function ($status) {
     [true],
     [false],
 ]);
+
+it('can edit (masquerade) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs(1)
+            ->livewire(Moderator::class, ['user' => $newUser])
+            ->call('masquerade')
+            ->assertRedirect('/');
+    }
+
+    return actingAs($newUser->id)
+        ->livewire(Moderator::class, ['user' => $newUser])
+        ->call('masquerade')
+        ->assertNotRedirect('/');
+})->with([
+    [true],
+    [false],
+]);
