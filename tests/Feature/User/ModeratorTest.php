@@ -194,24 +194,7 @@ it('can edit (resetAvatar) settings', function ($status) {
     [false],
 ]);
 
-it('can edit (releaseUsername) settings', function ($status) {
-    $newUser = User::factory()->create();
-
-    if ($status) {
-        return actingAs(1)
-            ->livewire(Moderator::class, ['user' => $newUser])
-            ->call('releaseUsername')
-            ->assertRedirect(route('user.done', ['username' => $newUser->username]));
-    }
-
-    return actingAs($newUser->id)
-        ->livewire(Moderator::class, ['user' => $newUser])
-        ->call('releaseUsername')
-        ->assertNoRedirect();
-})->with([
-    [true],
-    [false],
-]);
+// TODO: can edit (releaseUsername) settings
 
 it('can edit (deleteTasks) settings', function ($status) {
     $newUser = User::factory()->create();
@@ -226,6 +209,25 @@ it('can edit (deleteTasks) settings', function ($status) {
     return actingAs($newUser->id)
         ->livewire(Moderator::class, ['user' => $newUser])
         ->call('deleteTasks')
+        ->assertNoRedirect();
+})->with([
+    [true],
+    [false],
+]);
+
+it('can edit (deleteComments) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs(1)
+            ->livewire(Moderator::class, ['user' => $newUser])
+            ->call('deleteComments')
+            ->assertRedirect(route('user.done', ['username' => $newUser->username]));
+    }
+
+    return actingAs($newUser->id)
+        ->livewire(Moderator::class, ['user' => $newUser])
+        ->call('deleteComments')
         ->assertNoRedirect();
 })->with([
     [true],
