@@ -87,9 +87,11 @@ You can get personal and dedicated support by becoming a [Taskord Patron](https:
 
 ### Development
 
-WIP
+#### Prerequisites
 
-#### Requirements
+- [PHP](https://www.php.net)
+- [Node.js](https://nodejs.org/en)
+- [Redis](https://redis.io)
 
 WIP
 
