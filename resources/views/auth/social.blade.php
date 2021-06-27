@@ -38,6 +38,13 @@
                         <span class="ms-1">Discord</span>
                     </a>
                 </li>
+                <li>
+                    <a class="dropdown-item cursor-pointer">
+                        <img class="brand-icon" href="/login/gitlab"
+                            src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" loading=lazy />
+                        <span class="ms-1">GitLab</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
