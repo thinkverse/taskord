@@ -19,7 +19,7 @@
             </div>
         @endif
         @foreach ($answers as $answer)
-            <div class="mb-4">
+            <div class="mb-3">
                 <livewire:answer.single-answer :answer="$answer" :wire:key="$answer->id" />
             </div>
         @endforeach
