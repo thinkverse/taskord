@@ -290,3 +290,22 @@ it('can edit (deleteMilestones) settings', function ($status) {
     [true],
     [false],
 ]);
+
+it('can edit (deleteProducts) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs(1)
+            ->livewire(Moderator::class, ['user' => $newUser])
+            ->call('deleteProducts')
+            ->assertRedirect(route('user.done', ['username' => $newUser->username]));
+    }
+
+    return actingAs($newUser->id)
+        ->livewire(Moderator::class, ['user' => $newUser])
+        ->call('deleteProducts')
+        ->assertNoRedirect();
+})->with([
+    [true],
+    [false],
+]);
