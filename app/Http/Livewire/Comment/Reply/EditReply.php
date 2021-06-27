@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Http\Livewire\Comment;
+namespace App\Http\Livewire\Comment\Reply;
 
-use App\Models\Comment;
+use App\Models\CommentReply;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
-class EditComment extends Component
+class EditReply extends Component
 {
-    public $comment;
-    public $commentId;
+    public $reply;
+    public $replyId;
 
     protected $rules = [
-        'comment' => ['required', 'min:3', 'max:20000'],
+        'reply' => ['required', 'min:3', 'max:20000'],
     ];
 
-    public function mount($comment)
+    public function mount($reply)
     {
-        $this->comment = $comment->comment;
-        $this->commentId = $comment->id;
+        $this->reply = $reply->reply;
+        $this->replyId = $reply->id;
     }
 
     public function submit()
