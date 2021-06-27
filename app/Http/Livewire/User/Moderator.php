@@ -84,6 +84,7 @@ class Moderator extends Component
         $this->user->is_contributor = ! $this->user->is_contributor;
         $this->user->timestamps = false;
         $this->user->save();
+        $this->emit('modSettingsUpdated');
 
         if ($this->user->is_contributor) {
             $this->user->notify(new ContributorEnabled(true));
