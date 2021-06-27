@@ -169,7 +169,7 @@ it('can edit (masquerade) settings', function ($status) {
     return actingAs($newUser->id)
         ->livewire(Moderator::class, ['user' => $newUser])
         ->call('masquerade')
-        ->assertNotRedirect('/');
+        ->assertNoRedirect();
 })->with([
     [true],
     [false],
