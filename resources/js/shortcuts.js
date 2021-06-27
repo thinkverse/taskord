@@ -78,7 +78,7 @@ hotkeys("shift+/", async () => {
 // New issue Modal
 const reportModal = document.getElementById("reportModal");
 if (reportModal != null) {
-  hotkeys("shift+n", async () => {
+  hotkeys("shift+r", async () => {
     (new bootstrap.Modal(reportModal)).show();
   });
 }
