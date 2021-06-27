@@ -253,19 +253,19 @@ it('can edit (deleteQuestions) settings', function ($status) {
     [false],
 ]);
 
-it('can edit (deleteQuestions) settings', function ($status) {
+it('can edit (deleteAnswers) settings', function ($status) {
     $newUser = User::factory()->create();
 
     if ($status) {
         return actingAs(1)
             ->livewire(Moderator::class, ['user' => $newUser])
-            ->call('deleteQuestions')
+            ->call('deleteAnswers')
             ->assertRedirect(route('user.done', ['username' => $newUser->username]));
     }
 
     return actingAs($newUser->id)
         ->livewire(Moderator::class, ['user' => $newUser])
-        ->call('deleteQuestions')
+        ->call('deleteAnswers')
         ->assertNoRedirect();
 })->with([
     [true],
