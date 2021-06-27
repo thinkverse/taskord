@@ -157,6 +157,7 @@ class Moderator extends Component
         if ($this->user->is_patron) {
             $this->user->notify(new PatronGifted(true));
         }
+        $this->emit('modSettingsUpdated');
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
