@@ -22,3 +22,22 @@ it('can edit (enrollBeta) settings', function ($status) {
     [true],
     [false],
 ]);
+
+it('can edit (enrollStaff) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs(1)
+            ->livewire(Moderator::class, ['user' => $newUser])
+            ->call('enrollStaff')
+            ->assertEmitted('modSettingsUpdated');
+    }
+
+    return actingAs($newUser->id)
+        ->livewire(Moderator::class, ['user' => $newUser])
+        ->call('enrollStaff')
+        ->assertNotEmitted('modSettingsUpdated');
+})->with([
+    [true],
+    [false],
+]);
