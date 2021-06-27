@@ -22,13 +22,13 @@ class AnswerReply extends Model
 
     protected $fillable = [
         'user_id',
-        'comment_id',
+        'answer_id',
         'reply',
         'hidden',
     ];
     protected $casts = [
         'user_id' => 'integer',
-        'comment_id' => 'integer',
+        'answer_id' => 'integer',
         'reply' => 'string',
         'hidden' => 'boolean',
     ];
@@ -44,8 +44,8 @@ class AnswerReply extends Model
     /**
      * @return BelongsTo
      */
-    public function comment(): BelongsTo
+    public function answer(): BelongsTo
     {
-        return $this->belongsTo(Comment::class);
+        return $this->belongsTo(Answer::class);
     }
 }
