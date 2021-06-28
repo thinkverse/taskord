@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Pages\Open;
 
 use App\Models\Task;
 use Carbon\CarbonPeriod;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class CompletedTasks extends Component
