@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Explore;
 
 use App\Models\User;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class TrendingMakers extends Component

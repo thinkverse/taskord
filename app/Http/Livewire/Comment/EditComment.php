@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Comment;
 
 use App\Models\Comment;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 

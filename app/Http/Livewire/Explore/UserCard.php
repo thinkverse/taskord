@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Explore;
 
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class UserCard extends Component

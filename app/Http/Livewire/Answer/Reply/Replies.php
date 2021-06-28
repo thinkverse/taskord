@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Answer\Reply;
 
 use App\Models\Answer;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Replies extends Component
