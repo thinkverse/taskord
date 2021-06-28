@@ -2,7 +2,7 @@
 
 namespace App\View\Components\Loaders;
 
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Illuminate\View\Component;
 
 class UserSkeleton extends Component
