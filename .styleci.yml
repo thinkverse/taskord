@@ -1,8 +1,5 @@
 version: 8
-preset: recommended
-
-enabled:
-  - binary_operator_spaces
+preset: laravel
 
 finder:
   not-name:
