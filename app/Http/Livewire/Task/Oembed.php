@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Task;
 
 use App\Models\Oembed as OembedType;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Oembed extends Component
