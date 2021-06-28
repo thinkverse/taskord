@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Answer\Reply;
 use App\Models\Answer;
 use App\Notifications\Answer\Reply\Replied;
 use Helper;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 

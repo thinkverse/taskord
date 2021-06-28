@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 
 class QuestionController extends Controller
 {
