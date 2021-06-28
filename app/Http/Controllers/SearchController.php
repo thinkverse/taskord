@@ -9,10 +9,12 @@ use App\Models\Question;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class SearchController extends Controller
 {
-    public function search()
+    public function search(): View
     {
         $phrases = [
             number_format(Task::count('id')).' tasks',
