@@ -3,6 +3,8 @@ preset: recommended
 
 disabled:
   - concat_without_spaces
+enable:
+  - concat_with_spaces
 
 finder:
   not-name:
