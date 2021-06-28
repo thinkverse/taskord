@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Question;
 
 use App\Models\Question;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Trending extends Component

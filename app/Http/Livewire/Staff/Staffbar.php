@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Staff;
 use App\Jobs\Clean;
 use App\Jobs\Deploy;
 use App\Jobs\Report;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Queue;
 use Jean85\PrettyVersions;
 use Livewire\Component;

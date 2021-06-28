@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Staff;
 
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Spatie\Activitylog\Models\Activity;
