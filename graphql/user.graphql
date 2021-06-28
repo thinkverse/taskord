@@ -1,40 +1,40 @@
 # Query
 type User {
-    id: ID!
-    username: String!
-    firstname: String
-    lastname: String
-    avatar: String
-    bio: String
-    location: String
-    company: String
-    website: String
-    twitter: String
-    twitch: String
-    telegram: String
-    github: String
-    youtube: String
-    sponsor: String
-    timezone: String
-    reputation: Int!
-    streaks: Int!
-    daily_goal: Boolean!
-    daily_goal_reached: Boolean!
-    is_staff: Boolean!
-    is_verified: Boolean!
-    is_contributor: Boolean!
-    is_beta: Boolean!
-    is_patron: Boolean!
-    is_private: Boolean!
-    vacation_mode: Boolean!
-    tasks: [Task!]! @hasMany(type: SIMPLE)
-    comments: [Comment!]! @hasMany(type: SIMPLE)
-    ownedProducts: [Product!]! @hasMany(type: SIMPLE)
-    products: [Product!]! @belongsToMany(type: SIMPLE)
-    questions: [Question!]! @hasMany(type: SIMPLE)
-    answers: [Answer!]! @hasMany(type: SIMPLE)
-    followings: [User!]! @hasMany(type: SIMPLE)
-    followers:  [User!]! @hasMany(type: SIMPLE)
-    created_at: DateTime! @cache(maxAge: 3600)
-    updated_at: DateTime! @cache(maxAge: 3600)
+  id: ID!
+  username: String!
+  firstname: String
+  lastname: String
+  avatar: String
+  bio: String
+  location: String
+  company: String
+  website: String
+  twitter: String
+  twitch: String
+  telegram: String
+  github: String
+  youtube: String
+  sponsor: String
+  timezone: String
+  reputation: Int!
+  streaks: Int!
+  daily_goal: Boolean!
+  daily_goal_reached: Boolean!
+  is_staff: Boolean!
+  is_verified: Boolean!
+  is_contributor: Boolean!
+  is_beta: Boolean!
+  is_patron: Boolean!
+  is_private: Boolean!
+  vacation_mode: Boolean!
+  tasks: [Task!]! @hasMany(type: SIMPLE)
+  comments: [Comment!]! @hasMany(type: SIMPLE)
+  ownedProducts: [Product!]! @hasMany(type: SIMPLE)
+  products: [Product!]! @belongsToMany(type: SIMPLE)
+  questions: [Question!]! @hasMany(type: SIMPLE)
+  answers: [Answer!]! @hasMany(type: SIMPLE)
+  followings: [User!]! @hasMany(type: SIMPLE)
+  followers: [User!]! @hasMany(type: SIMPLE)
+  created_at: DateTime! @cache(maxAge: 3600)
+  updated_at: DateTime! @cache(maxAge: 3600)
 }
