@@ -1,19 +1,19 @@
 # Query
 type Product {
-    id: ID!
-    slug: String!
-    name: String
-    avatar: String
-    description: String
-    website: String
-    twitter: String
-    repo: String
-    producthunt: String @cache(maxAge: 3600)
-    launched: Boolean! @cache(maxAge: 3600)
-    launched_at: DateTime @cache(maxAge: 3600)
-    user: User @belongsTo @cache(maxAge: 3600)
-    tasks: [Task!]! @hasMany(type: SIMPLE)
-    subscribers: [User!]! @hasMany(type: SIMPLE)
-    created_at: DateTime! @cache(maxAge: 3600)
-    updated_at: DateTime @cache(maxAge: 3600)
+  id: ID!
+  slug: String!
+  name: String
+  avatar: String
+  description: String
+  website: String
+  twitter: String
+  repo: String
+  producthunt: String @cache(maxAge: 3600)
+  launched: Boolean! @cache(maxAge: 3600)
+  launched_at: DateTime @cache(maxAge: 3600)
+  user: User @belongsTo @cache(maxAge: 3600)
+  tasks: [Task!]! @hasMany(type: SIMPLE)
+  subscribers: [User!]! @hasMany(type: SIMPLE)
+  created_at: DateTime! @cache(maxAge: 3600)
+  updated_at: DateTime @cache(maxAge: 3600)
 }
