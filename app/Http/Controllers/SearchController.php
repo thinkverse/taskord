@@ -17,11 +17,11 @@ class SearchController extends Controller
     public function search(): View
     {
         $phrases = [
-            number_format(Task::count('id')).' tasks',
-            number_format(Comment::count('id')).' task comments',
-            number_format(Question::count('id')).' questions',
-            number_format(User::count('id')).' users',
-            number_format(Product::count('id')).' products',
+            number_format(Task::count('id')) . ' tasks',
+            number_format(Comment::count('id')) . ' task comments',
+            number_format(Question::count('id')) . ' questions',
+            number_format(User::count('id')) . ' users',
+            number_format(Product::count('id')) . ' products',
         ];
 
         return view('search.search', [
