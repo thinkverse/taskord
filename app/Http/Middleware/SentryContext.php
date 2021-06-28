@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use function Sentry\configureScope;
 use Sentry\State\Scope;
 
-class Sentry
+class SentryContext
 {
     /**
      * Handle an incoming request.
