@@ -16,6 +16,7 @@
         "sibiraj-s.vscode-scss-formatter",
         "ryannaddy.laravel-artisan",
         "mikestead.dotenv",
-        "ctf0.laravel-goto-controller"
+        "ctf0.laravel-goto-controller",
+        "codingyu.laravel-goto-view"
     ]
 }
