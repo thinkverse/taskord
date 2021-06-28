@@ -28,6 +28,8 @@ class Sentry
                         'username' => $user->username,
                         'email' => $user->email,
                     ]);
+                    $scope->setTag('page.route.name', Route::currentRouteName() ?? '');
+                    $scope->setTag('page.route.action', Route::currentRouteAction() ?? '');
                 });
             }
         }
