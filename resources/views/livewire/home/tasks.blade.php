@@ -1,4 +1,4 @@
-<div wire:init="loadTasks">
+<div wire:init="loadTasks" wire:poll>
     @if (!$readyToLoad)
         <x:loaders.task-skeleton count="3" />
     @else
