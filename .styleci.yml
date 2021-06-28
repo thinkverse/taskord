@@ -1,7 +1,7 @@
 version: 8
 preset: recommended
 
-disabled:
+enabled:
   - binary_operator_spaces
 
 finder:
