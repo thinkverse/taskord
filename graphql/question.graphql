@@ -1,13 +1,14 @@
 # Query
 type Question {
-    id: ID!
-    title: String!
-    body: String!
-    patron_only: Boolean!
-    user: User @belongsTo
-    hasLiked: Boolean @field(resolver: "App\\GraphQL\\Queries\\QuestionQuery@hasLiked")
-    likes: [User!]! @hasMany(relation: "likers", type: SIMPLE)
-    answers: [Answer!]! @hasMany(type: SIMPLE)
-    created_at: DateTime! @cache(maxAge: 3600)
-    updated_at: DateTime! @cache(maxAge: 3600)
+  id: ID!
+  title: String!
+  body: String!
+  patron_only: Boolean!
+  user: User @belongsTo
+  hasLiked: Boolean
+    @field(resolver: "App\\GraphQL\\Queries\\QuestionQuery@hasLiked")
+  likes: [User!]! @hasMany(relation: "likers", type: SIMPLE)
+  answers: [Answer!]! @hasMany(type: SIMPLE)
+  created_at: DateTime! @cache(maxAge: 3600)
+  updated_at: DateTime! @cache(maxAge: 3600)
 }
