@@ -2,41 +2,63 @@
 scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
 "A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
-scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar DateTime
+  @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
 type Query {
-    me: User @auth(guard: "api")
-    users: [User!]! @paginate(defaultCount: 20)
-    user(id: ID @eq): User @find
-    products(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Product!]! @paginate(defaultCount: 20)
-    product(id: ID @eq): Product @find
-    productUpdates(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [ProductUpdate!]! @paginate(defaultCount: 20)
-    productUpdate(id: ID @eq): ProductUpdate @find
-    tasks(done: Boolean! @eq, orderBy: _ @orderBy(columns: ["created_at", "updated_at", "done_at"])): [Task!]! @paginate(defaultCount: 20)
-    task(id: ID @eq @where(clause: "whereHidden")): Task @find
-    oembed(id: ID @eq): Oembed @find
-    comments(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Comment!]! @paginate(defaultCount: 20)
-    comment(id: ID @eq @where(clause: "whereHidden")): Comment @find
-    questions(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Question!]! @paginate(defaultCount: 20)
-    question(id: ID @eq @where(clause: "whereHidden")): Question @find
-    answers(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Answer!]! @paginate(defaultCount: 20)
-    answer(id: ID @eq @where(clause: "whereHidden")): Answer @find
-    milestones(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Milestone!]! @paginate(defaultCount: 20)
-    milestone(id: ID @eq @where(clause: "whereHidden")): Milestone @find
+  me: User @auth(guard: "api")
+  users: [User!]! @paginate(defaultCount: 20)
+  user(id: ID @eq): User @find
+  products(
+    orderBy: _ @orderBy(columns: ["created_at", "updated_at"])
+  ): [Product!]! @paginate(defaultCount: 20)
+  product(id: ID @eq): Product @find
+  productUpdates(
+    orderBy: _ @orderBy(columns: ["created_at", "updated_at"])
+  ): [ProductUpdate!]! @paginate(defaultCount: 20)
+  productUpdate(id: ID @eq): ProductUpdate @find
+  tasks(
+    done: Boolean! @eq
+    orderBy: _ @orderBy(columns: ["created_at", "updated_at", "done_at"])
+  ): [Task!]! @paginate(defaultCount: 20)
+  task(id: ID @eq @where(clause: "whereHidden")): Task @find
+  oembed(id: ID @eq): Oembed @find
+  comments(
+    orderBy: _ @orderBy(columns: ["created_at", "updated_at"])
+  ): [Comment!]! @paginate(defaultCount: 20)
+  comment(id: ID @eq @where(clause: "whereHidden")): Comment @find
+  questions(
+    orderBy: _ @orderBy(columns: ["created_at", "updated_at"])
+  ): [Question!]! @paginate(defaultCount: 20)
+  question(id: ID @eq @where(clause: "whereHidden")): Question @find
+  answers(
+    orderBy: _ @orderBy(columns: ["created_at", "updated_at"])
+  ): [Answer!]! @paginate(defaultCount: 20)
+  answer(id: ID @eq @where(clause: "whereHidden")): Answer @find
+  milestones(
+    orderBy: _ @orderBy(columns: ["created_at", "updated_at"])
+  ): [Milestone!]! @paginate(defaultCount: 20)
+  milestone(id: ID @eq @where(clause: "whereHidden")): Milestone @find
 }
 
 type Mutation {
-    # Auth
-    login(input: LoginInput! @spread): LoginPayload @field(resolver: "AuthMutator")
+  # Auth
+  login(input: LoginInput! @spread): LoginPayload
+    @field(resolver: "AuthMutator")
 
-    # Task
-    createTask(input: CreateTaskInput! @spread): TaskPayload @field(resolver: "TaskMutator@createTask")
-    deleteTask(input: DeleteTaskInput! @spread): TaskPayload @field(resolver: "TaskMutator@deleteTask")
-    toggleLikeTask(input: ToggleLikeTaskInput! @spread): TaskPayload @field(resolver: "TaskMutator@toggleLikeTask")
+  # Task
+  createTask(input: CreateTaskInput! @spread): TaskPayload
+    @field(resolver: "TaskMutator@createTask")
+  deleteTask(input: DeleteTaskInput! @spread): TaskPayload
+    @field(resolver: "TaskMutator@deleteTask")
+  toggleLikeTask(input: ToggleLikeTaskInput! @spread): TaskPayload
+    @field(resolver: "TaskMutator@toggleLikeTask")
 
-    # Comment
-    createComment(input: CreateCommentInput! @spread): CommentPayload @field(resolver: "CommentMutator@createComment")
-    deleteComment(input: DeleteCommentInput! @spread): CommentPayload @field(resolver: "CommentMutator@deleteComment")
+  # Comment
+  createComment(input: CreateCommentInput! @spread): CommentPayload
+    @field(resolver: "CommentMutator@createComment")
+  deleteComment(input: DeleteCommentInput! @spread): CommentPayload
+    @field(resolver: "CommentMutator@deleteComment")
 }
 
 #import auth.graphql
