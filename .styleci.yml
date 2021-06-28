@@ -1,6 +1,9 @@
 version: 8
 preset: recommended
 
+disabled:
+  - concat_without_spaces
+
 finder:
   not-name:
     - index.php
