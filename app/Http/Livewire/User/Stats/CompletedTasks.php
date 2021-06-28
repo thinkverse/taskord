@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\User\Stats;
 
 use Carbon\CarbonPeriod;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class CompletedTasks extends Component
