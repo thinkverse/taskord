@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\Task;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class LoadMore extends Component

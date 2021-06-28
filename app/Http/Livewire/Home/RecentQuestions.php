@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\Question;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class RecentQuestions extends Component
