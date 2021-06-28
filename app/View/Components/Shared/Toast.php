@@ -2,8 +2,8 @@
 
 namespace App\View\Components\Shared;
 
-use Illuminate\View\View;
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class Toast extends Component
 {

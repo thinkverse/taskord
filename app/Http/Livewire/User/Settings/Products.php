@@ -5,9 +5,9 @@ namespace App\Http\Livewire\User\Settings;
 use App\Models\Product;
 use App\Models\User;
 use App\Notifications\Product\MemberLeft;
-use Illuminate\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Products extends Component

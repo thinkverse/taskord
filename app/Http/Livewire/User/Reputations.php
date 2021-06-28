@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\User;
 
-use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 

@@ -5,8 +5,8 @@ namespace App\Http\Livewire\Comment\Reply;
 use App\Models\Comment;
 use App\Notifications\Comment\Reply\Replied;
 use Helper;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class CreateReply extends Component

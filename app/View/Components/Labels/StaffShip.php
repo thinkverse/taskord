@@ -2,8 +2,8 @@
 
 namespace App\View\Components\Labels;
 
-use Illuminate\View\View;
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class StaffShip extends Component
 {

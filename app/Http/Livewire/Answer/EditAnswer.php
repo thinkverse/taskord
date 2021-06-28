@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Answer;
 
 use App\Models\Answer;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class EditAnswer extends Component

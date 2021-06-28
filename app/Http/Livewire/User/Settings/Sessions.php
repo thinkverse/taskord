@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Sessions extends Component

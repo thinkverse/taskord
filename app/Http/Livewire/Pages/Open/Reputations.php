@@ -4,8 +4,8 @@ namespace App\Http\Livewire\Pages\Open;
 
 use App\Models\User;
 use Carbon\CarbonPeriod;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Reputations extends Component

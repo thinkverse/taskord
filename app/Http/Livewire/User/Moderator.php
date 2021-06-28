@@ -6,11 +6,11 @@ use App\Models\User;
 use App\Notifications\Staff\ContributorEnabled;
 use App\Notifications\Staff\PatronGifted;
 use App\Notifications\Staff\UserVerified;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Moderator extends Component

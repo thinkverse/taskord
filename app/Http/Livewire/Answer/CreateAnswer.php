@@ -6,8 +6,8 @@ use App\Gamify\Points\CommentCreated;
 use App\Models\Question;
 use App\Notifications\Answer\Answered;
 use Helper;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class CreateAnswer extends Component

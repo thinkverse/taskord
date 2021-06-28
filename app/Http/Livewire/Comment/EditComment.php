@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Comment;
 
 use App\Models\Comment;
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class EditComment extends Component
