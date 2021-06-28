@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
+use Illuminate\Http\JsonResponse;
 
 class StaffController extends Controller
 {
-    public static function toggle()
+    public static function toggle(): JsonResponse
     {
         if (auth()->user()->staff_mode) {
             auth()->user()->staff_mode = false;

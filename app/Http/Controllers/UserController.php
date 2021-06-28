@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
 use Spatie\Activitylog\Models\Activity;
+use Illuminate\Http\JsonResponse;
 
 class UserController extends Controller
 {
@@ -261,7 +262,7 @@ class UserController extends Controller
         ];
     }
 
-    public function darkMode()
+    public function darkMode(): JsonResponse
     {
         if (Cookie::get('color_mode') === 'light') {
             Cookie::queue('color_mode', 'dark', config('session.lifetime'));
