@@ -24,7 +24,7 @@
             <span class="fw-bold ms-3">
                 <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#reportModal"
                     title="Report issue to GitLab">
-                    <x-heroicon-o-exclamation class="heroicon text-warning" />
+                    <x-heroicon-o-support class="heroicon text-success" />
                 </a>
             </span>
         </span>
