@@ -18,6 +18,7 @@
         "mikestead.dotenv",
         "ctf0.laravel-goto-controller",
         "codingyu.laravel-goto-view",
-        "mehedidracula.php-namespace-resolver"
+        "mehedidracula.php-namespace-resolver",
+        "esbenp.prettier-vscode"
     ]
 }
