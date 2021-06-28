@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Cookie;
 use Livewire\Component;
 
