@@ -1,9 +1,5 @@
 version: 8
-preset: laravel
-
-disabled:
-  - concat_without_spaces
-  - binary_operator_spaces
+preset: recommended
 
 finder:
   not-name:
