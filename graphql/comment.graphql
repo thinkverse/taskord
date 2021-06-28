@@ -1,22 +1,23 @@
 # Query
 type Comment {
-    id: ID!
-    comment: String!
-    user: User @belongsTo
-    task: Task @belongsTo
-    hasLiked: Boolean @field(resolver: "App\\GraphQL\\Queries\\CommentQuery@hasLiked")
-    likes: [User!]! @hasMany(relation: "likers", type: SIMPLE)
-    hidden: Boolean!
-    created_at: DateTime! @cache(maxAge: 3600)
-    updated_at: DateTime! @cache(maxAge: 3600)
+  id: ID!
+  comment: String!
+  user: User @belongsTo
+  task: Task @belongsTo
+  hasLiked: Boolean
+    @field(resolver: "App\\GraphQL\\Queries\\CommentQuery@hasLiked")
+  likes: [User!]! @hasMany(relation: "likers", type: SIMPLE)
+  hidden: Boolean!
+  created_at: DateTime! @cache(maxAge: 3600)
+  updated_at: DateTime! @cache(maxAge: 3600)
 }
 
 # Mutation
 
 # Create Comment - createComment
 input CreateCommentInput {
-    taskId: Int!
-    comment: String! @rules(apply: ["min:3", "max:5000"])
+  taskId: Int!
+  comment: String! @rules(apply: ["min:3", "max:5000"])
 }
 
 # Delete Comment - deleteComment
@@ -25,7 +26,7 @@ input DeleteCommentInput {
 }
 
 type CommentPayload {
-    comment: Comment
-    status: Boolean!
-    message: String!
+  comment: Comment
+  status: Boolean!
+  message: String!
 }
