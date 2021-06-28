@@ -6,11 +6,10 @@
     @endphp
     <button type="button" class="btn btn-action {{ $liked ? 'btn-like' : 'btn-outline-like' }}"
         wire:click="toggleLike" wire:loading.attr="disabled" wire:key="{{ $entity->id }}" aria-label="Likes">
-        <span wire:loading wire:target="toggleLike" class="spinner-border spinner-border-action" role="status"></span>
         @if ($liked)
-            <x-heroicon-s-heart wire:loading.remove wire:target="toggleLike" class="heroicon heroicon-15px me-0" />
+            <x-heroicon-s-heart class="heroicon heroicon-15px me-0" />
         @else
-            <x-heroicon-o-heart wire:loading.remove wire:target="toggleLike" class="heroicon heroicon-15px me-0" />
+            <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
         @endif
         @if ($entity->likerscount() !== 0)
             <span class="small fw-bold">
