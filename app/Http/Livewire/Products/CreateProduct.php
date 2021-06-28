@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Products;
 use App\Actions\CreateNewTask;
 use App\Rules\Repo;
 use App\Rules\ReservedSlug;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
