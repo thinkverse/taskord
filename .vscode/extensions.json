@@ -13,7 +13,6 @@
         "robbowen.synthwave-vscode",
         "dbaeumer.vscode-eslint",
         "shufo.vscode-blade-formatter",
-        "sibiraj-s.vscode-scss-formatter",
-        "visualstudioexptteam.vscodeintellicode"
+        "sibiraj-s.vscode-scss-formatter"
     ]
 }
