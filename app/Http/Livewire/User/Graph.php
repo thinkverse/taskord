@@ -4,7 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Models\User;
 use Carbon\CarbonPeriod;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Graph extends Component
