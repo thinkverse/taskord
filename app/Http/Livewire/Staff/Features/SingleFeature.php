@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Staff\Features;
 
 use App\Models\Feature;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class SingleFeature extends Component
