@@ -17,6 +17,7 @@
         "ryannaddy.laravel-artisan",
         "mikestead.dotenv",
         "ctf0.laravel-goto-controller",
-        "codingyu.laravel-goto-view"
+        "codingyu.laravel-goto-view",
+        "mehedidracula.php-namespace-resolver"
     ]
 }
