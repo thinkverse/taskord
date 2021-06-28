@@ -15,6 +15,7 @@
         "shufo.vscode-blade-formatter",
         "sibiraj-s.vscode-scss-formatter",
         "ryannaddy.laravel-artisan",
-        "mikestead.dotenv"
+        "mikestead.dotenv",
+        "ctf0.laravel-goto-controller"
     ]
 }
