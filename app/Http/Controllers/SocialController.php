@@ -9,10 +9,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Socialite;
+use Illuminate\Http\RedirectResponse;
 
 class SocialController extends Controller
 {
-    public function redirect($provider)
+    public function redirect($provider): RedirectResponse
     {
         $providerArray = ['twitter', 'google', 'github', 'gitlab', 'discord', 'twitch'];
         if (in_array($provider, $providerArray)) {
@@ -22,7 +23,7 @@ class SocialController extends Controller
         return abort(404);
     }
 
-    public function callback(Request $request, $provider)
+    public function callback(Request $request, $provider): RedirectResponse
     {
         if (count($request->all()) === 0) {
             abort(404);
