@@ -1,7 +1,7 @@
 version: 8
 preset: laravel
 
-disabled:
+enabled:
   - concat_with_spaces
 
 finder:
