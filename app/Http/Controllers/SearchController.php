@@ -89,7 +89,7 @@ class SearchController extends Controller
         return redirect()->route('search.home');
     }
 
-    public function questions(Request $request)
+    public function questions(Request $request): View|RedirectResponse
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
