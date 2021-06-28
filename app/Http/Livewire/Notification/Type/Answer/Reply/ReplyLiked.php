@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Notification\Type\Answer\Reply;
 
 use App\Models\AnswerReply;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class ReplyLiked extends Component
