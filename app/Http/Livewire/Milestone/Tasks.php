@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Tasks extends Component
