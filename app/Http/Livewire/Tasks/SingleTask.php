@@ -40,7 +40,7 @@ class SingleTask extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $this->task->done = !$this->task->done;
+        $this->task->done = ! $this->task->done;
         $this->task->done_at = carbon();
         givePoint(new TaskCompleted($this->task));
         $this->task->save();

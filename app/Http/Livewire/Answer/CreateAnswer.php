@@ -53,7 +53,7 @@ class CreateAnswer extends Component
         Helper::mentionUsers($users, $answer, auth()->user(), 'answer');
         Helper::notifySubscribers($answer->question->subscribers, $answer, 'answer');
         if (auth()->user()->id !== $this->question->user->id) {
-            if (!auth()->user()->hasSubscribed($answer->question)) {
+            if (! auth()->user()->hasSubscribed($answer->question)) {
                 auth()->user()->subscribe($answer->question);
                 $this->emit('refreshQuestionSubscribe');
             }

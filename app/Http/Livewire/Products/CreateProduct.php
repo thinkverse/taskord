@@ -54,7 +54,7 @@ class CreateProduct extends Component
             'avatar'      => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
 
-        $launched = !$this->launched ? false : true;
+        $launched = ! $this->launched ? false : true;
 
         if ($launched) {
             $launchedStatus = true;

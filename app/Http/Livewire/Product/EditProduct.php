@@ -89,7 +89,7 @@ class EditProduct extends Component
 
         $isNewelyLaunched = false;
 
-        if ($this->launched and !$product->launched) {
+        if ($this->launched and ! $product->launched) {
             $product->launched_at = carbon();
             $isNewelyLaunched = true;
         }

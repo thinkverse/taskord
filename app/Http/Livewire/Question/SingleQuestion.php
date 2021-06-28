@@ -60,7 +60,7 @@ class SingleQuestion extends Component
 
     public function toggleSolve()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
@@ -70,7 +70,7 @@ class SingleQuestion extends Component
 
         if (auth()->user()->staff_mode or auth()->user()->id === $this->question->user_id) {
             loggy(request(), 'Question', auth()->user(), "Toggled solve question | Question ID: {$this->question->id}");
-            $this->question->solved = !$this->question->solved;
+            $this->question->solved = ! $this->question->solved;
             $this->question->save();
 
             return $this->emit('refreshSingleQuestion');

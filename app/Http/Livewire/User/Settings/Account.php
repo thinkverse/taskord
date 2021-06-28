@@ -22,7 +22,7 @@ class Account extends Component
     public function enrollBeta()
     {
         if (auth()->user()->id === $this->user->id) {
-            $this->user->is_beta = !$this->user->is_beta;
+            $this->user->is_beta = ! $this->user->is_beta;
             $this->user->save();
             $this->emit('enrolledBeta');
             if ($this->user->is_beta) {
@@ -41,10 +41,10 @@ class Account extends Component
     public function enrollPrivate()
     {
         if (auth()->user()->id === $this->user->id) {
-            if (!$this->user->is_patron) {
+            if (! $this->user->is_patron) {
                 toast($this, 'error', config('taskord.toast.deny'));
             }
-            $this->user->is_private = !$this->user->is_private;
+            $this->user->is_private = ! $this->user->is_private;
             $this->user->save();
             $this->emit('enrolledPrivate');
             if ($this->user->is_private) {

@@ -53,8 +53,8 @@ class EditQuestion extends Component
 
         $question = Question::where('id', $this->question->id)->firstOrFail();
 
-        $solvable = !$this->solvable ? false : true;
-        $patronOnly = !$this->patronOnly ? false : true;
+        $solvable = ! $this->solvable ? false : true;
+        $patronOnly = ! $this->patronOnly ? false : true;
 
         if ($question->title !== $this->title) {
             $titleSlug = Str::slug(Str::limit($this->title, 240));

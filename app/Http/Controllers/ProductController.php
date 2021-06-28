@@ -31,7 +31,7 @@ class ProductController extends Controller
         }
 
         for ($i = 1; $i <= 12; $i++) {
-            if (!empty($taskCount[$i])) {
+            if (! empty($taskCount[$i])) {
                 $countArr[$i] = $taskCount[$i];
             } else {
                 $countArr[$i] = 0;

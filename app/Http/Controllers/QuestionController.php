@@ -47,7 +47,7 @@ class QuestionController extends Controller
         }
 
         if (auth()->check() && $question->patron_only) {
-            if (auth()->check() && !auth()->user()->is_patron) {
+            if (auth()->check() && ! auth()->user()->is_patron) {
                 return redirect()->route('patron.home');
             }
 

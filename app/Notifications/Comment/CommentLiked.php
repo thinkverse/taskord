@@ -40,7 +40,7 @@ class CommentLiked extends Notification implements ShouldQueue
     {
         $user = User::find($this->userId);
 
-        if (!$user->spammy) {
+        if (! $user->spammy) {
             return (new MailMessage())
                 ->subject('@'.$user->username.' liked your comment')
                 ->greeting('Hello @'.$notifiable->username.' 👋')

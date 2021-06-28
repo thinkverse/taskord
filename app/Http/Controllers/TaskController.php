@@ -37,7 +37,7 @@ class TaskController extends Controller
         $comment = $task->comments()
             ->with(['user'])
             ->where('id', $commentId)->first();
-        if (!$comment) {
+        if (! $comment) {
             return abort(404);
         }
 

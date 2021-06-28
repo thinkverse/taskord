@@ -36,7 +36,7 @@ class CommentMutator
         Helper::notifySubscribers($comment->task->subscribers, $comment, 'comment');
 
         if (auth()->user()->id !== $comment->task->user->id) {
-            if (!auth()->user()->hasSubscribed($comment->task)) {
+            if (! auth()->user()->hasSubscribed($comment->task)) {
                 auth()->user()->subscribe($comment->task);
             }
             $comment->task->user->notify(new Commented($comment));
@@ -55,7 +55,7 @@ class CommentMutator
     {
         $comment = Comment::find($args['id']);
 
-        if (!$comment) {
+        if (! $comment) {
             return [
                 'status'  => false,
                 'message' => 'No comment found!',

@@ -40,7 +40,7 @@ class Commented extends Notification implements ShouldQueue
     {
         $user = User::find($this->userId);
 
-        if (!$user->spammy) {
+        if (! $user->spammy) {
             return (new MailMessage())
                 ->subject('@'.$user->username.' commented on your task')
                 ->greeting('Hello @'.$notifiable->username.' 👋')

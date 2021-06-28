@@ -45,7 +45,7 @@ class TaskMutator
     {
         $task = Task::find($args['id']);
 
-        if (!$task) {
+        if (! $task) {
             return [
                 'status'  => false,
                 'message' => 'No task found!',
@@ -79,7 +79,7 @@ class TaskMutator
     {
         $task = Task::find($args['id']);
 
-        if (!$task) {
+        if (! $task) {
             return [
                 'status'  => false,
                 'message' => 'No task found!',

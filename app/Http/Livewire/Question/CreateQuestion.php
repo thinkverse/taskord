@@ -33,8 +33,8 @@ class CreateQuestion extends Component
             'body'  => ['required', 'min:3', 'max:20000'],
         ]);
 
-        $solvable = !$this->solvable ? false : true;
-        $patronOnly = !$this->patronOnly ? false : true;
+        $solvable = ! $this->solvable ? false : true;
+        $patronOnly = ! $this->patronOnly ? false : true;
         $titleSlug = Str::slug(Str::limit($this->title, 240));
         $randomForSlug = Str::lower(Str::random(10));
 

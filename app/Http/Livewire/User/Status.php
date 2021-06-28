@@ -21,7 +21,7 @@ class Status extends Component
 
     public function clearStatus()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
@@ -36,7 +36,7 @@ class Status extends Component
 
     public function submit($event)
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 

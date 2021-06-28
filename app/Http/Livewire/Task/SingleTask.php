@@ -56,7 +56,7 @@ class SingleTask extends Component
             givePoint(new TaskCompleted($this->task));
             loggy(request(), 'Task', auth()->user(), "Updated a task as done | Task ID: {$this->task->id}");
         }
-        $this->task->done = !$this->task->done;
+        $this->task->done = ! $this->task->done;
         $this->task->save();
 
         return $this->emit('refreshTasks');

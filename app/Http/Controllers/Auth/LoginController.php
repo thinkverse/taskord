@@ -53,13 +53,13 @@ class LoginController extends Controller
             $user = User::whereUsername($username)->first();
         }
 
-        if (!$user) {
+        if (! $user) {
             $request->session()->flash('error', "No user found with {$request->input('username')}");
 
             return redirect()->back();
         }
 
-        if (!$user->spammy) {
+        if (! $user->spammy) {
             $generator = new LoginUrl($user);
             $generator->setRedirectUrl('/');
             $url = $generator->generate();

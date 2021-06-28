@@ -30,7 +30,7 @@ class NotifySubscribers extends Notification implements ShouldQueue
     {
         $user = User::find($this->userId);
 
-        if (!$user->spammy) {
+        if (! $user->spammy) {
             return (new MailMessage())
                 ->subject('@'.$user->username.' commented on a subscribed task')
                 ->greeting('Hello @'.$notifiable->username.' 👋')

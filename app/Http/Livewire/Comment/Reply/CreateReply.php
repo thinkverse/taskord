@@ -26,7 +26,7 @@ class CreateReply extends Component
 
     public function updated($field)
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 

@@ -8,11 +8,11 @@ class OnlyFollowing extends Component
 {
     public function onlyFollowingsTasks()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        auth()->user()->only_followings_tasks = !auth()->user()->only_followings_tasks;
+        auth()->user()->only_followings_tasks = ! auth()->user()->only_followings_tasks;
         auth()->user()->save();
         $this->emit('refreshTasks');
         loggy(request(), 'User', auth()->user(), 'Toggled only followings tasks');

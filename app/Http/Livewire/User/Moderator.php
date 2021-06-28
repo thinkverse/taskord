@@ -53,7 +53,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $this->user->is_beta = !$this->user->is_beta;
+        $this->user->is_beta = ! $this->user->is_beta;
         $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
@@ -67,7 +67,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $this->user->is_staff = !$this->user->is_staff;
+        $this->user->is_staff = ! $this->user->is_staff;
         $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
@@ -81,7 +81,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $this->user->is_contributor = !$this->user->is_contributor;
+        $this->user->is_contributor = ! $this->user->is_contributor;
         $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
@@ -99,7 +99,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $this->user->is_private = !$this->user->is_private;
+        $this->user->is_private = ! $this->user->is_private;
         $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
@@ -113,7 +113,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $this->user->spammy = !$this->user->spammy;
+        $this->user->spammy = ! $this->user->spammy;
         $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
@@ -127,7 +127,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $this->user->is_suspended = !$this->user->is_suspended;
+        $this->user->is_suspended = ! $this->user->is_suspended;
 
         if ($this->user->is_suspended) {
             $this->user->spammy = true;
@@ -150,7 +150,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $this->user->is_patron = !$this->user->is_patron;
+        $this->user->is_patron = ! $this->user->is_patron;
         $this->user->timestamps = false;
         $this->user->save();
 
@@ -168,7 +168,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $this->user->is_verified = !$this->user->is_verified;
+        $this->user->is_verified = ! $this->user->is_verified;
         $this->user->timestamps = false;
         $this->user->save();
 

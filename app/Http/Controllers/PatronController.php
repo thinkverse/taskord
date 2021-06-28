@@ -17,7 +17,7 @@ class PatronController extends Controller
         unset($fields['p_signature']);
         ksort($fields);
         foreach ($fields as $k => $v) {
-            if (!in_array(gettype($v), ['object', 'array'])) {
+            if (! in_array(gettype($v), ['object', 'array'])) {
                 $fields[$k] = "${v}";
             }
         }

@@ -27,7 +27,7 @@ class SingleFeature extends Component
     public function staffToggle()
     {
         $this->feature->staff = $this->staffStatus;
-        if (!$this->staffStatus) {
+        if (! $this->staffStatus) {
             $this->feature->beta = false;
             $this->feature->contributor = false;
             $this->feature->public = false;
@@ -80,7 +80,7 @@ class SingleFeature extends Component
 
     public function deleteFeature()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 

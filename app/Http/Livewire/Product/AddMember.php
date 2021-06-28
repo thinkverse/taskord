@@ -18,7 +18,7 @@ class AddMember extends Component
 
     public function submit()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 

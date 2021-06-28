@@ -24,7 +24,7 @@ class CreateTask extends Component
 
     public function updatedImage()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 

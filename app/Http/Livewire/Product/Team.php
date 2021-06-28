@@ -20,7 +20,7 @@ class Team extends Component
 
     public function removeMember()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 

@@ -33,18 +33,18 @@ class CreateTask extends Component
 
     public function checkState()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        auth()->user()->check_state = !auth()->user()->check_state;
+        auth()->user()->check_state = ! auth()->user()->check_state;
 
         return auth()->user()->save();
     }
 
     public function updatedImage()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
@@ -88,7 +88,7 @@ class CreateTask extends Component
 
         $state = auth()->user()->check_state;
 
-        if (!$this->product) {
+        if (! $this->product) {
             $productId = Helper::getProductIDFromMention($this->task, auth()->user());
         } else {
             $productId = $this->product->id;

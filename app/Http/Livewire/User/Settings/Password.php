@@ -37,7 +37,7 @@ class Password extends Component
                 'confirmPassword' => ['required', 'same:newPassword'],
             ]);
 
-            if (!Hash::check($this->currentPassword, auth()->user()->password)) {
+            if (! Hash::check($this->currentPassword, auth()->user()->password)) {
                 toast($this, 'error', 'Current password does not match!');
             }
 

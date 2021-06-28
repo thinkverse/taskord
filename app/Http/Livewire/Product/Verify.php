@@ -59,7 +59,7 @@ class Verify extends Component
 
     public function render(): View
     {
-        if (!$this->product->txt_code) {
+        if (! $this->product->txt_code) {
             $this->product->txt_code = "_taskord-challenge-{$this->product->slug}-".Str::uuid();
             $this->product->save();
         }

@@ -50,7 +50,7 @@ class SocialController extends Controller
 
         if ($provider === 'twitter' or $provider === 'github') {
             $user = User::where(['username' => $userSocial->getNickname()])->first();
-            if (!$user) {
+            if (! $user) {
                 $username = $userSocial->getNickname();
             } else {
                 $username = $userSocial->getNickname().'_'.strtolower(Str::random(5));

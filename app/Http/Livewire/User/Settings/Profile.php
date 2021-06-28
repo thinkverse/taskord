@@ -144,7 +144,7 @@ class Profile extends Component
     public function enableGoal()
     {
         if (auth()->user()->id === $this->user->id) {
-            $this->user->has_goal = !$this->user->has_goal;
+            $this->user->has_goal = ! $this->user->has_goal;
             $this->user->save();
             $this->emit('goalEnabled');
 
@@ -175,7 +175,7 @@ class Profile extends Component
     public function toggleVacationMode()
     {
         if (auth()->user()->id === $this->user->id) {
-            $this->user->vacation_mode = !$this->user->vacation_mode;
+            $this->user->vacation_mode = ! $this->user->vacation_mode;
             $this->user->save();
             $this->emit('toggledVacationMode');
             if ($this->user->vacation_mode) {
@@ -240,7 +240,7 @@ class Profile extends Component
     public function onlyFollowingsTasks()
     {
         if (auth()->user()->id === $this->user->id) {
-            $this->user->only_followings_tasks = !$this->user->only_followings_tasks;
+            $this->user->only_followings_tasks = ! $this->user->only_followings_tasks;
             $this->user->save();
             $this->emit('toggledOnlyFollowingsTasks');
             if ($this->user->only_followings_tasks) {
