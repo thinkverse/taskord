@@ -147,7 +147,7 @@ class SearchController extends Controller
         return redirect()->route('search.home');
     }
 
-    public function products(Request $request)
+    public function products(Request $request): View|RedirectResponse
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
