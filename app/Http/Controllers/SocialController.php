@@ -24,6 +24,10 @@ class SocialController extends Controller
 
     public function callback(Request $request, $provider)
     {
+        if (count($request->all()) === 0) {
+            abort(404);
+        }
+
         if (
             $provider === 'twitter' or
             $provider === 'github'
