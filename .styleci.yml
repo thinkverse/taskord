@@ -2,9 +2,7 @@ version: 8
 preset: recommended
 
 disabled:
-  - concat_without_spaces
-enabled:
-  - concat_with_spaces
+  - binary_operator_spaces
 
 finder:
   not-name:
