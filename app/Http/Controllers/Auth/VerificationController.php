@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class VerificationController extends Controller
 {
@@ -40,7 +41,7 @@ class VerificationController extends Controller
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
 
-    public function resend(Request $request)
+    public function resend(Request $request): RedirectResponse
     {
         if ($request->user()->hasVerifiedEmail()) {
             session()->flash('global', 'Your email is already verified!');
