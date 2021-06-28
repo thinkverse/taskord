@@ -14,6 +14,7 @@
         "dbaeumer.vscode-eslint",
         "shufo.vscode-blade-formatter",
         "sibiraj-s.vscode-scss-formatter",
-        "ryannaddy.laravel-artisan"
+        "ryannaddy.laravel-artisan",
+        "mikestead.dotenv"
     ]
 }
