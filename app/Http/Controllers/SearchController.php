@@ -29,7 +29,7 @@ class SearchController extends Controller
         ]);
     }
 
-    public function tasks(Request $request)
+    public function tasks(Request $request): View|RedirectResponse
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
