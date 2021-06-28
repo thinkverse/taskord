@@ -1,43 +1,44 @@
 # Query
 type Task {
-    id: ID!
-    task: String!
-    image: String
-    done: Boolean!
-    type: String
-    source: String
-    hidden: Boolean!
-    done_at: DateTime
-    user: User @belongsTo
-    product: Product @belongsTo
-    oembed: Oembed @hasOne
-    hasLiked: Boolean @field(resolver: "App\\GraphQL\\Queries\\TaskQuery@hasLiked")
-    comments: [Comment!]! @hasMany(type: SIMPLE)
-    likes: [User!]! @hasMany(relation: "likers", type: SIMPLE)
-    created_at: DateTime! @cache(maxAge: 3600)
-    updated_at: DateTime! @cache(maxAge: 3600)
+  id: ID!
+  task: String!
+  image: String
+  done: Boolean!
+  type: String
+  source: String
+  hidden: Boolean!
+  done_at: DateTime
+  user: User @belongsTo
+  product: Product @belongsTo
+  oembed: Oembed @hasOne
+  hasLiked: Boolean
+    @field(resolver: "App\\GraphQL\\Queries\\TaskQuery@hasLiked")
+  comments: [Comment!]! @hasMany(type: SIMPLE)
+  likes: [User!]! @hasMany(relation: "likers", type: SIMPLE)
+  created_at: DateTime! @cache(maxAge: 3600)
+  updated_at: DateTime! @cache(maxAge: 3600)
 }
 
 # Mutation
 
 # Create Task - createTask
 input CreateTaskInput {
-    task: String! @rules(apply: ["min:3", "max:5000"])
-    done: Boolean!
+  task: String! @rules(apply: ["min:3", "max:5000"])
+  done: Boolean!
 }
 
 # Delete Task - deleteTask
 input DeleteTaskInput {
-    id: Int!
+  id: Int!
 }
 
 # Like Task - likeTask
 input ToggleLikeTaskInput {
-    id: Int!
+  id: Int!
 }
 
 type TaskPayload {
-    task: Task
-    status: Boolean!
-    message: String!
+  task: Task
+  status: Boolean!
+  message: String!
 }
