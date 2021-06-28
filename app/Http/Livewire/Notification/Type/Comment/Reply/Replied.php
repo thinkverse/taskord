@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Notification\Type\Comment\Reply;
 
 use App\Models\CommentReply;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Replied extends Component

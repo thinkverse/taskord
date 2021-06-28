@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Notification\Type\Milestone;
 
 use App\Models\Milestone;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class MilestoneLiked extends Component
