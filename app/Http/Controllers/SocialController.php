@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Jobs\AuthGetIP;
 use App\Models\User;
 use App\Notifications\Welcome;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Socialite;
-use Illuminate\Http\RedirectResponse;
 
 class SocialController extends Controller
 {

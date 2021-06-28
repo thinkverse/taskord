@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class QuestionController extends Controller
 {
@@ -29,7 +29,7 @@ class QuestionController extends Controller
         ]);
     }
 
-    public function question($slug): View|RedirectResponse
+    public function question($slug): View | RedirectResponse
     {
         $question = Question::where('slug', $slug)->firstOrFail();
         $response = [

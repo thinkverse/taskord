@@ -9,8 +9,8 @@ use App\Notifications\Auth\Login;
 use App\Notifications\Auth\MagicLink;
 use Grosv\LaravelPasswordlessLogin\LoginUrl;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {

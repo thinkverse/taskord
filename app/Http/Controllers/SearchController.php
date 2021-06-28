@@ -8,8 +8,8 @@ use App\Models\Product;
 use App\Models\Question;
 use App\Models\Task;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class SearchController extends Controller
@@ -29,7 +29,7 @@ class SearchController extends Controller
         ]);
     }
 
-    public function tasks(Request $request): View|RedirectResponse
+    public function tasks(Request $request): View | RedirectResponse
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
@@ -59,7 +59,7 @@ class SearchController extends Controller
         return redirect()->route('search.home');
     }
 
-    public function comments(Request $request): View|RedirectResponse
+    public function comments(Request $request): View | RedirectResponse
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
@@ -89,7 +89,7 @@ class SearchController extends Controller
         return redirect()->route('search.home');
     }
 
-    public function questions(Request $request): View|RedirectResponse
+    public function questions(Request $request): View | RedirectResponse
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
@@ -118,7 +118,7 @@ class SearchController extends Controller
         return redirect()->route('search.home');
     }
 
-    public function answers(Request $request): View|RedirectResponse
+    public function answers(Request $request): View | RedirectResponse
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
@@ -147,7 +147,7 @@ class SearchController extends Controller
         return redirect()->route('search.home');
     }
 
-    public function products(Request $request): View|RedirectResponse
+    public function products(Request $request): View | RedirectResponse
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
@@ -175,7 +175,7 @@ class SearchController extends Controller
         return redirect()->route('search.home');
     }
 
-    public function users(Request $request): View|RedirectResponse
+    public function users(Request $request): View | RedirectResponse
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
