@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Notification\Type\Product;
 
 use App\Models\Product;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class MemberRemoved extends Component
