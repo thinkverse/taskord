@@ -14,7 +14,7 @@ class CommentMutator
     {
         if (Gate::denies('create')) {
             return [
-                'status' => false,
+                'status'  => false,
                 'message' => 'Permission denied!',
             ];
         }
@@ -36,7 +36,7 @@ class CommentMutator
         Helper::notifySubscribers($comment->task->subscribers, $comment, 'comment');
 
         if (auth()->user()->id !== $comment->task->user->id) {
-            if (! auth()->user()->hasSubscribed($comment->task)) {
+            if (!auth()->user()->hasSubscribed($comment->task)) {
                 auth()->user()->subscribe($comment->task);
             }
             $comment->task->user->notify(new Commented($comment));
@@ -45,7 +45,7 @@ class CommentMutator
         loggy(request(), 'Comment', auth()->user(), "Created a new comment | Comment ID: {$comment->id}");
 
         return [
-            'status' => true,
+            'status'  => true,
             'message' => 'Comment created successfully',
             'comment' => $comment,
         ];
@@ -55,16 +55,16 @@ class CommentMutator
     {
         $comment = Comment::find($args['id']);
 
-        if (! $comment) {
+        if (!$comment) {
             return [
-                'status' => false,
+                'status'  => false,
                 'message' => 'No comment found!',
             ];
         }
 
         if (Gate::denies('edit/delete', $comment)) {
             return [
-                'status' => false,
+                'status'  => false,
                 'message' => config('taskord.toast.deny'),
             ];
         }
@@ -73,7 +73,7 @@ class CommentMutator
         $comment->delete();
 
         return [
-            'status' => true,
+            'status'  => true,
             'message' => 'Comment deleted successfully',
             'comment' => $comment,
         ];

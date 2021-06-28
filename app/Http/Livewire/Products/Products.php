@@ -60,7 +60,7 @@ class Products extends Component
     {
         return view('livewire.products.products', [
             'products' => $this->readyToLoad ? $this->paginate($this->getProducts()) : [],
-            'page' => $this->page,
+            'page'     => $this->page,
         ]);
     }
 }

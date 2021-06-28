@@ -30,12 +30,12 @@ class Milestone extends Model
         'hidden',
     ];
     protected $casts = [
-        'user_id' => 'integer',
-        'name' => 'string',
+        'user_id'     => 'integer',
+        'name'        => 'string',
         'description' => 'string',
-        'start_date' => 'date',
-        'end_date' => 'date',
-        'hidden' => 'boolean',
+        'start_date'  => 'date',
+        'end_date'    => 'date',
+        'hidden'      => 'boolean',
     ];
 
     /**

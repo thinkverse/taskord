@@ -33,7 +33,7 @@ class Comment extends Model
         'user_id' => 'integer',
         'task_id' => 'integer',
         'comment' => 'string',
-        'hidden' => 'boolean',
+        'hidden'  => 'boolean',
     ];
     protected $searchable = [
         'columns' => [

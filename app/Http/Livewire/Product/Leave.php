@@ -17,7 +17,7 @@ class Leave extends Component
 
     public function leaveProduct()
     {
-        if (! auth()->check()) {
+        if (!auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 

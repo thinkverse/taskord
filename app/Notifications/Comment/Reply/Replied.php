@@ -40,7 +40,7 @@ class Replied extends Notification implements ShouldQueue
     {
         $user = User::find($this->userId);
 
-        if (! $user->spammy) {
+        if (!$user->spammy) {
             return (new MailMessage())
                 ->subject('@'.$user->username.' replied to your comment')
                 ->greeting('Hello @'.$notifiable->username.' 👋')
@@ -58,7 +58,7 @@ class Replied extends Notification implements ShouldQueue
     {
         return [
             'reply_id' => $this->reply->id,
-            'user_id' => $this->userId,
+            'user_id'  => $this->userId,
         ];
     }
 }

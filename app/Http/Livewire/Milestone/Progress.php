@@ -38,8 +38,8 @@ class Progress extends Component
 
         return view('livewire.milestone.progress', [
             'completed' => $this->readyToLoad ? $completed : 0,
-            'pending' => $this->readyToLoad ? $pending : 0,
-            'percent' => $this->readyToLoad ? $percent : 0,
+            'pending'   => $this->readyToLoad ? $pending : 0,
+            'percent'   => $this->readyToLoad ? $percent : 0,
         ]);
     }
 }

@@ -15,11 +15,11 @@ class ProductSeeder extends Seeder
     public function run()
     {
         Product::factory()->create([
-            'slug' => 'taskord',
-            'name' => 'Taskord',
+            'slug'        => 'taskord',
+            'name'        => 'Taskord',
             'description' => 'Get things done socially with Taskord',
-            'user_id' => 1,
-            'launched' => true,
+            'user_id'     => 1,
+            'launched'    => true,
         ]);
 
         Product::factory()->count(49)->create();

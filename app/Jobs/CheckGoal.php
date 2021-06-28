@@ -11,7 +11,10 @@ use Illuminate\Queue\SerializesModels;
 
 class CheckGoal implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     protected $user;
     protected $task;
@@ -40,7 +43,7 @@ class CheckGoal implements ShouldQueue
                 $this->giveReputation();
             }
         } else {
-            if (! carbon($lastReached->last()->created_at)->isToday()) {
+            if (!carbon($lastReached->last()->created_at)->isToday()) {
                 if ($this->user->daily_goal_reached === $this->user->daily_goal) {
                     $this->giveReputation();
                 }

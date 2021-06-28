@@ -14,7 +14,8 @@ use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Task extends Model
 {
-    use CanBeLiked, CanBeSubscribed;
+    use CanBeLiked;
+    use CanBeSubscribed;
     use QueryCacheable;
     use HasFactory;
     use SearchableTrait;
@@ -38,16 +39,16 @@ class Task extends Model
         'hidden',
     ];
     protected $casts = [
-        'user_id' => 'integer',
+        'user_id'    => 'integer',
         'product_id' => 'integer',
-        'task' => 'string',
-        'done' => 'boolean',
-        'source' => 'string',
-        'done_at' => 'datetime',
-        'due_at' => 'datetime',
-        'images' => 'array',
-        'type' => 'string',
-        'hidden' => 'boolean',
+        'task'       => 'string',
+        'done'       => 'boolean',
+        'source'     => 'string',
+        'done_at'    => 'datetime',
+        'due_at'     => 'datetime',
+        'images'     => 'array',
+        'type'       => 'string',
+        'hidden'     => 'boolean',
     ];
     protected $searchable = [
         'columns' => [

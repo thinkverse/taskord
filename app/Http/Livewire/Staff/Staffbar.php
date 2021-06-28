@@ -18,7 +18,7 @@ class Staffbar extends Component
     public function report()
     {
         $this->validate([
-            'title' => ['required', 'min:3', 'max:10000'],
+            'title'       => ['required', 'min:3', 'max:10000'],
             'description' => ['max:10000'],
         ]);
 
@@ -53,11 +53,11 @@ class Staffbar extends Component
         $version = PrettyVersions::getVersion('laravel/framework');
 
         return view('livewire.staff.staffbar', [
-            'branch_name' => $branchName,
-            'head_ref' => $headRef,
+            'branch_name'     => $branchName,
+            'head_ref'        => $headRef,
             'laravel_version' => $version->getShortVersion(),
-            'laravel_ref' => $version->getShortReference(),
-            'jobs' => number_format($jobs),
+            'laravel_ref'     => $version->getShortReference(),
+            'jobs'            => number_format($jobs),
         ]);
     }
 }

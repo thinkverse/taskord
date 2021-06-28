@@ -56,7 +56,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         if (
             $currentUser->spammy or
-            ! $currentUser->hasVerifiedEmail() or
+            !$currentUser->hasVerifiedEmail() or
             $currentUser->id === $entityUser->id
         ) {
             return false;
@@ -69,7 +69,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         if (
             $user->spammy or
-            ! $user->hasVerifiedEmail()
+            !$user->hasVerifiedEmail()
         ) {
             return false;
         }
@@ -85,7 +85,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         if (
             $user->spammy or
-            ! $user->hasVerifiedEmail()
+            !$user->hasVerifiedEmail()
         ) {
             return false;
         }

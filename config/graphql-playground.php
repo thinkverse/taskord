@@ -14,8 +14,8 @@ return [
     */
 
     'route' => [
-        'uri' => '/graphiql',
-        'name' => 'Taskord GraphQL Playground',
+        'uri'        => '/graphiql',
+        'name'       => 'Taskord GraphQL Playground',
         'middleware' => ['web'],
         // 'prefix' => '',
         // 'domain' => 'graphql.' . env('APP_DOMAIN', 'localhost'),

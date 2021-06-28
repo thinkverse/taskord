@@ -17,7 +17,8 @@ use Rennokki\QueryCache\Traits\QueryCacheable;
 class Question extends Model implements Viewable
 {
     use InteractsWithViews;
-    use CanBeLiked, CanBeSubscribed;
+    use CanBeLiked;
+    use CanBeSubscribed;
     use Taggable;
     use QueryCacheable;
     use HasFactory;
@@ -40,14 +41,14 @@ class Question extends Model implements Viewable
         'hidden',
     ];
     protected $casts = [
-        'user_id' => 'integer',
-        'slug' => 'string',
-        'title' => 'string',
-        'body' => 'string',
+        'user_id'     => 'integer',
+        'slug'        => 'string',
+        'title'       => 'string',
+        'body'        => 'string',
         'is_solvable' => 'boolean',
-        'solved' => 'boolean',
+        'solved'      => 'boolean',
         'patron_only' => 'boolean',
-        'hidden' => 'boolean',
+        'hidden'      => 'boolean',
     ];
     protected $searchable = [
         'columns' => [

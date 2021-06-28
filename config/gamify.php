@@ -27,13 +27,13 @@ return [
 
     // All the levels for badge
     'badge_levels' => [
-        'beginner' => 1,
-        'novice' => 2,
+        'beginner'     => 1,
+        'novice'       => 2,
         'intermediate' => 3,
         'professional' => 4,
-        'expert' => 5,
-        'master' => 6,
-        'grandmaster' => 7,
-        'enlightened' => 8,
+        'expert'       => 5,
+        'master'       => 6,
+        'grandmaster'  => 7,
+        'enlightened'  => 8,
     ],
 ];

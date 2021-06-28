@@ -46,8 +46,8 @@ return [
 
     'cache' => [
         'enabled' => true,
-        'store' => 'default',
-        'key' => 'disposable_email.domains',
+        'store'   => 'default',
+        'key'     => 'disposable_email.domains',
     ],
 
 ];

@@ -60,15 +60,15 @@ class EditProduct extends Component
         }
 
         $this->validate([
-            'name' => ['required', 'max:30'],
-            'slug' => ['required', 'min:3', 'max:20', 'alpha_dash', 'unique:products,slug,'.$this->product->id, new ReservedSlug()],
+            'name'        => ['required', 'max:30'],
+            'slug'        => ['required', 'min:3', 'max:20', 'alpha_dash', 'unique:products,slug,'.$this->product->id, new ReservedSlug()],
             'description' => ['nullable', 'max:160'],
-            'website' => ['nullable', 'active_url'],
-            'twitter' => ['nullable', 'alpha_dash', 'max:30'],
-            'repo' => ['nullable', 'active_url', new Repo()],
+            'website'     => ['nullable', 'active_url'],
+            'twitter'     => ['nullable', 'alpha_dash', 'max:30'],
+            'repo'        => ['nullable', 'active_url', new Repo()],
             'producthunt' => ['nullable', 'alpha_dash', 'max:30'],
-            'sponsor' => ['nullable', 'active_url'],
-            'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
+            'sponsor'     => ['nullable', 'active_url'],
+            'avatar'      => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
 
         $product = Product::where('id', $this->product->id)->firstOrFail();
@@ -89,7 +89,7 @@ class EditProduct extends Component
 
         $isNewelyLaunched = false;
 
-        if ($this->launched and ! $product->launched) {
+        if ($this->launched and !$product->launched) {
             $product->launched_at = carbon();
             $isNewelyLaunched = true;
         }
@@ -115,10 +115,10 @@ class EditProduct extends Component
             $randomTask = Arr::random(config('taskord.tasks.templates'));
             (new CreateNewTask(auth()->user(), [
                 'product_id' => $product->id,
-                'task' => sprintf($randomTask, $product->slug),
-                'done' => true,
-                'done_at' => $product->launched_at,
-                'type' => 'product',
+                'task'       => sprintf($randomTask, $product->slug),
+                'done'       => true,
+                'done_at'    => $product->launched_at,
+                'type'       => 'product',
             ]))();
         }
 

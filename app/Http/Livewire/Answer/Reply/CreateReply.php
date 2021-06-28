@@ -15,7 +15,7 @@ class CreateReply extends Component
     public Answer $answer;
 
     protected $rules = [
-        'reply' => ['required', 'min:3', 'max:20000'],
+        'reply'  => ['required', 'min:3', 'max:20000'],
         'answer' => ['required'],
     ];
 
@@ -26,7 +26,7 @@ class CreateReply extends Component
 
     public function updated($field)
     {
-        if (! auth()->check()) {
+        if (!auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
@@ -49,7 +49,7 @@ class CreateReply extends Component
 
         $reply = auth()->user()->answerReplies()->create([
             'answer_id' => $this->answer->id,
-            'reply' => $this->reply,
+            'reply'     => $this->reply,
         ]);
         $this->emit('refreshReplies');
         $this->reset('reply');

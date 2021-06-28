@@ -17,11 +17,11 @@ class SearchController extends Controller
     public function search(): View
     {
         $phrases = [
-            number_format(Task::count('id')) . ' tasks',
-            number_format(Comment::count('id')) . ' task comments',
-            number_format(Question::count('id')) . ' questions',
-            number_format(User::count('id')) . ' users',
-            number_format(Product::count('id')) . ' products',
+            number_format(Task::count('id')).' tasks',
+            number_format(Comment::count('id')).' task comments',
+            number_format(Question::count('id')).' questions',
+            number_format(User::count('id')).' users',
+            number_format(Product::count('id')).' products',
         ];
 
         return view('search.search', [
@@ -50,9 +50,9 @@ class SearchController extends Controller
             }
 
             return view('search.result', [
-                'type' => 'tasks',
+                'type'       => 'tasks',
                 'searchTerm' => $searchTerm,
-                'tasks' => $tasks,
+                'tasks'      => $tasks,
             ]);
         }
 
@@ -80,9 +80,9 @@ class SearchController extends Controller
             }
 
             return view('search.result', [
-                'type' => 'comments',
+                'type'       => 'comments',
                 'searchTerm' => $searchTerm,
-                'comments' => $comments,
+                'comments'   => $comments,
             ]);
         }
 
@@ -109,9 +109,9 @@ class SearchController extends Controller
             }
 
             return view('search.result', [
-                'type' => 'questions',
+                'type'       => 'questions',
                 'searchTerm' => $searchTerm,
-                'questions' => $questions,
+                'questions'  => $questions,
             ]);
         }
 
@@ -138,9 +138,9 @@ class SearchController extends Controller
             }
 
             return view('search.result', [
-                'type' => 'answers',
+                'type'       => 'answers',
                 'searchTerm' => $searchTerm,
-                'answers' => $answers,
+                'answers'    => $answers,
             ]);
         }
 
@@ -166,9 +166,9 @@ class SearchController extends Controller
             }
 
             return view('search.result', [
-                'type' => 'products',
+                'type'       => 'products',
                 'searchTerm' => $searchTerm,
-                'products' => $products,
+                'products'   => $products,
             ]);
         }
 
@@ -189,9 +189,9 @@ class SearchController extends Controller
             }
 
             return view('search.result', [
-                'type' => 'users',
+                'type'       => 'users',
                 'searchTerm' => $searchTerm,
-                'users' => $users,
+                'users'      => $users,
             ]);
         }
 

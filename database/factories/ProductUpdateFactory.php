@@ -22,10 +22,10 @@ class ProductUpdateFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween($min = 1, $max = 50),
+            'user_id'    => $this->faker->numberBetween($min = 1, $max = 50),
             'product_id' => $this->faker->numberBetween($min = 1, $max = 50),
-            'title' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
-            'body' => $this->faker->sentence($nbWords = 30, $variableNbWords = true),
+            'title'      => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
+            'body'       => $this->faker->sentence($nbWords = 30, $variableNbWords = true),
         ];
     }
 }

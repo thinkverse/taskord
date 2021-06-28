@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
+        'domain'   => env('MAILGUN_DOMAIN'),
+        'secret'   => env('MAILGUN_SECRET'),
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
@@ -25,15 +25,15 @@ return [
     ],
 
     'ses' => [
-        'key' => env('AWS_ACCESS_KEY_ID'),
+        'key'    => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
     'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => env('GOOGLE_URL'),
+        'redirect'      => env('GOOGLE_URL'),
     ],
 
     'twitter' => [
@@ -50,23 +50,23 @@ return [
 
     'gitlab' => [
         'trigger_token'      => env('GITLAB_TRIGGER_TOKEN'),
-        'pat'      => env('GITLAB_TOKEN'),
-        'client_id' => env('GITLAB_CLIENT_ID'),
-        'client_secret' => env('GITLAB_CLIENT_SECRET'),
-        'redirect' => env('GITLAB_REDIRECT_URI'),
+        'pat'                => env('GITLAB_TOKEN'),
+        'client_id'          => env('GITLAB_CLIENT_ID'),
+        'client_secret'      => env('GITLAB_CLIENT_SECRET'),
+        'redirect'           => env('GITLAB_REDIRECT_URI'),
     ],
 
     'twitch' => [
-        'client_id' => env('TWITCH_CLIENT_ID'),
+        'client_id'     => env('TWITCH_CLIENT_ID'),
         'client_secret' => env('TWITCH_CLIENT_SECRET'),
-        'redirect' => env('TWITCH_REDIRECT_URI'),
+        'redirect'      => env('TWITCH_REDIRECT_URI'),
     ],
 
     'discord' => [
-        'client_id' => env('DISCORD_CLIENT_ID'),
-        'client_secret' => env('DISCORD_CLIENT_SECRET'),
-        'redirect' => env('DISCORD_REDIRECT_URI'),
-        'allow_gif_avatars' => (bool) env('DISCORD_AVATAR_GIF', true),
+        'client_id'                => env('DISCORD_CLIENT_ID'),
+        'client_secret'            => env('DISCORD_CLIENT_SECRET'),
+        'redirect'                 => env('DISCORD_REDIRECT_URI'),
+        'allow_gif_avatars'        => (bool) env('DISCORD_AVATAR_GIF', true),
         'avatar_default_extension' => env('DISCORD_EXTENSION_DEFAULT', 'jpg'),
     ],
 
@@ -76,7 +76,7 @@ return [
     ],
 
     'buddy' => [
-        'webhook_token' => env('BUDDY_WEBHOOK_TOKEN'),
+        'webhook_token'  => env('BUDDY_WEBHOOK_TOKEN'),
         'access_token'   => env('BUDDY_ACCESS_TOKEN'),
     ],
 

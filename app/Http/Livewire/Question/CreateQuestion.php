@@ -30,18 +30,18 @@ class CreateQuestion extends Component
 
         $this->validate([
             'title' => ['required', 'min:3', 'max:150'],
-            'body' => ['required', 'min:3', 'max:20000'],
+            'body'  => ['required', 'min:3', 'max:20000'],
         ]);
 
-        $solvable = ! $this->solvable ? false : true;
-        $patronOnly = ! $this->patronOnly ? false : true;
+        $solvable = !$this->solvable ? false : true;
+        $patronOnly = !$this->patronOnly ? false : true;
         $titleSlug = Str::slug(Str::limit($this->title, 240));
         $randomForSlug = Str::lower(Str::random(10));
 
         $question = auth()->user()->questions()->create([
-            'slug' => $titleSlug.'-'.$randomForSlug,
-            'title' => trim($this->title),
-            'body' => $this->body,
+            'slug'        => $titleSlug.'-'.$randomForSlug,
+            'title'       => trim($this->title),
+            'body'        => $this->body,
             'is_solvable' => $solvable,
             'patron_only' => $patronOnly,
         ]);

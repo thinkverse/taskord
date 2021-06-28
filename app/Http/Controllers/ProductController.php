@@ -31,7 +31,7 @@ class ProductController extends Controller
         }
 
         for ($i = 1; $i <= 12; $i++) {
-            if (! empty($taskCount[$i])) {
+            if (!empty($taskCount[$i])) {
                 $countArr[$i] = $taskCount[$i];
             } else {
                 $countArr[$i] = 0;
@@ -52,10 +52,10 @@ class ProductController extends Controller
             ->count('id');
 
         $response = [
-            'product' => $product,
-            'type' => $type,
-            'graph' => $countArr,
-            'done_count' => $doneCount,
+            'product'       => $product,
+            'type'          => $type,
+            'graph'         => $countArr,
+            'done_count'    => $doneCount,
             'pending_count' => $pendingCount,
             'updates_count' => ProductUpdate::where([
                 ['product_id', $product->id],

@@ -8,10 +8,10 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
-if (! function_exists('git')) {
+if (!function_exists('git')) {
     function git(string $args): ?string
     {
-        if (! in_array(explode(' ', $args)[0], ['rev-parse'], true)) {
+        if (!in_array(explode(' ', $args)[0], ['rev-parse'], true)) {
             return null;
         }
 
@@ -25,14 +25,14 @@ if (! function_exists('git')) {
     }
 }
 
-if (! function_exists('laravel_version')) {
+if (!function_exists('laravel_version')) {
     function laravel_version(): string
     {
         return Application::VERSION;
     }
 }
 
-if (! function_exists('memoryUsage')) {
+if (!function_exists('memoryUsage')) {
     function memoryUsage(): string
     {
         $memUsage = memory_get_usage(true);
@@ -49,14 +49,14 @@ if (! function_exists('memoryUsage')) {
     }
 }
 
-if (! function_exists('pluralize')) {
+if (!function_exists('pluralize')) {
     function pluralize($word, $count): string
     {
         return Str::plural($word, $count);
     }
 }
 
-if (! function_exists('carbon')) {
+if (!function_exists('carbon')) {
     function carbon(...$args): ?Carbon
     {
         try {
@@ -67,7 +67,7 @@ if (! function_exists('carbon')) {
     }
 }
 
-if (! function_exists('loggy')) {
+if (!function_exists('loggy')) {
     function loggy($request, $type, $user, $message)
     {
         return LogActivity::dispatch(
@@ -80,7 +80,7 @@ if (! function_exists('loggy')) {
     }
 }
 
-if (! function_exists('formatBytes')) {
+if (!function_exists('formatBytes')) {
     function formatBytes($size, $precision = 2)
     {
         $base = log($size, 1024);
@@ -90,17 +90,17 @@ if (! function_exists('formatBytes')) {
     }
 }
 
-if (! function_exists('markdown')) {
+if (!function_exists('markdown')) {
     function markdown($content)
     {
         return Str::markdown($content, [
-            'html_input' => 'strip',
+            'html_input'         => 'strip',
             'allow_unsafe_links' => false,
         ]);
     }
 }
 
-if (! function_exists('feature')) {
+if (!function_exists('feature')) {
     function feature($slug)
     {
         try {
@@ -111,7 +111,7 @@ if (! function_exists('feature')) {
     }
 }
 
-if (! function_exists('toast')) {
+if (!function_exists('toast')) {
     function toast($livewire, $type, $body)
     {
         return $livewire->dispatchBrowserEvent('toast', [

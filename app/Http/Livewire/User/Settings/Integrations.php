@@ -46,10 +46,10 @@ class Integrations extends Component
         ]);
 
         $webhook = auth()->user()->webhooks()->create([
-            'name' => $this->name,
+            'name'       => $this->name,
             'product_id' => $this->product,
-            'token' => Str::uuid(),
-            'type' => $this->type,
+            'token'      => Str::uuid(),
+            'type'       => $this->type,
         ]);
         $this->reset(['name', 'product', 'type']);
         session()->flash('created', $webhook);

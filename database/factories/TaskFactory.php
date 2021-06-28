@@ -22,12 +22,12 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween($min = 1, $max = 50),
+            'user_id'    => $this->faker->numberBetween($min = 1, $max = 50),
             'product_id' => $this->faker->numberBetween($min = 1, $max = 50),
-            'task' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
-            'done' => $this->faker->boolean($chanceOfGettingTrue = 80),
-            'source' => 'Taskord for Web',
-            'done_at' => $this->faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
+            'task'       => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
+            'done'       => $this->faker->boolean($chanceOfGettingTrue = 80),
+            'source'     => 'Taskord for Web',
+            'done_at'    => $this->faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
             'created_at' => $this->faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
             'updated_at' => $this->faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
         ];

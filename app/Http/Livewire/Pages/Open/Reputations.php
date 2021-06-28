@@ -37,8 +37,8 @@ class Reputations extends Component
         }
 
         return view('livewire.pages.open.reputations', [
-            'week_dates' => json_encode($weekDates, JSON_NUMERIC_CHECK),
-            'reputations' => $this->readyToLoad ? json_encode($reputations, JSON_NUMERIC_CHECK) : [],
+            'week_dates'        => json_encode($weekDates, JSON_NUMERIC_CHECK),
+            'reputations'       => $this->readyToLoad ? json_encode($reputations, JSON_NUMERIC_CHECK) : [],
             'reputations_count' => $this->readyToLoad ? number_format($reputationsCount) : '···',
         ]);
     }

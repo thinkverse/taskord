@@ -57,7 +57,7 @@ class Comments extends Component
     {
         return view('livewire.comment.comments', [
             'comments' => $this->readyToLoad ? $this->paginate($this->getComments()) : [],
-            'page' => $this->page,
+            'page'     => $this->page,
         ]);
     }
 }

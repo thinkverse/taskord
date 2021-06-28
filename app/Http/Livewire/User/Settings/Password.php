@@ -23,7 +23,7 @@ class Password extends Component
     {
         $this->validateOnly($field, [
             'currentPassword' => ['required'],
-            'newPassword' => ['required', 'string', PasswordRule::min(8)->uncompromised()],
+            'newPassword'     => ['required', 'string', PasswordRule::min(8)->uncompromised()],
             'confirmPassword' => ['required', 'same:newPassword'],
         ]);
     }
@@ -33,11 +33,11 @@ class Password extends Component
         if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'currentPassword' => ['required'],
-                'newPassword' => ['required', 'string', PasswordRule::min(8)->uncompromised()],
+                'newPassword'     => ['required', 'string', PasswordRule::min(8)->uncompromised()],
                 'confirmPassword' => ['required', 'same:newPassword'],
             ]);
 
-            if (! Hash::check($this->currentPassword, auth()->user()->password)) {
+            if (!Hash::check($this->currentPassword, auth()->user()->password)) {
                 toast($this, 'error', 'Current password does not match!');
             }
 

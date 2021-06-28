@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Artisan;
 
 class Clean implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     public function handle()
     {
@@ -22,7 +25,7 @@ class Clean implements ShouldQueue
             $client->request('POST', 'https://api.cloudflare.com/client/v4/zones/06be44cac798e7deeb4abda1378c4339/purge_cache', [
                 'headers' => [
                     'X-Auth-Email' => config('services.cloudflare.email'),
-                    'X-Auth-Key' => config('services.cloudflare.api_key'),
+                    'X-Auth-Key'   => config('services.cloudflare.api_key'),
                     'Content-Type' => 'application/json',
                 ],
                 'json' => [

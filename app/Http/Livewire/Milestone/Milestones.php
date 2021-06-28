@@ -66,7 +66,7 @@ class Milestones extends Component
     {
         return view('livewire.milestone.milestones', [
             'milestones' => $this->readyToLoad ? $this->paginate($this->getMilestones()) : [],
-            'page' => $this->page,
+            'page'       => $this->page,
         ]);
     }
 }

@@ -48,7 +48,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      *
      * @return \Illuminate\Contracts\Validation\Validator
      */
@@ -56,7 +56,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'username' => ['required', 'alpha_dash', 'string', 'min:2', 'max:20', 'unique:users', new ReservedSlug()],
-            'email' => ['required', 'string', 'email', 'indisposable', 'max:255', 'unique:users'],
+            'email'    => ['required', 'string', 'email', 'indisposable', 'max:255', 'unique:users'],
             'password' => ['required', 'string', Password::min(8)->uncompromised()],
         ]);
     }
@@ -64,18 +64,18 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      *
      * @return \App\Models\User
      */
     protected function create(array $data): User
     {
         $user = User::create([
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'avatar' => 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($data['username'], 0, 2)),
-            'password' => Hash::make($data['password']),
-            'last_ip' => request()->ip(),
+            'username'  => $data['username'],
+            'email'     => $data['email'],
+            'avatar'    => 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($data['username'], 0, 2)),
+            'password'  => Hash::make($data['password']),
+            'last_ip'   => request()->ip(),
             'api_token' => Str::random(60),
         ]);
         AuthGetIP::dispatch($user, request()->ip());

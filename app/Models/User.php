@@ -24,7 +24,9 @@ class User extends Authenticatable implements MustVerifyEmail
     use CanLike;
     use Notifiable;
     use Gamify;
-    use CanFollow, CanBeFollowed, CanSubscribe;
+    use CanFollow;
+    use CanBeFollowed;
+    use CanSubscribe;
     use QueryCacheable;
     use HasFactory;
     use SearchableTrait;
@@ -49,7 +51,7 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
     protected $searchable = [
         'columns' => [
-            'users.username' => 10,
+            'users.username'  => 10,
             'users.firstname' => 9,
         ],
     ];

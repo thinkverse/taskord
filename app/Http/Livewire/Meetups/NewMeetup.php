@@ -35,13 +35,13 @@ class NewMeetup extends Component
         }
 
         $this->validate([
-            'name' => ['required', 'max:30'],
-            'slug' => ['required', 'min:3', 'max:20', 'unique:meetups', 'alpha_dash'],
-            'tagline' => ['required', 'max:160'],
+            'name'        => ['required', 'max:30'],
+            'slug'        => ['required', 'min:3', 'max:20', 'unique:meetups', 'alpha_dash'],
+            'tagline'     => ['required', 'max:160'],
             'description' => ['nullable', 'max:50000'],
-            'location' => ['nullable', 'max:50'],
-            'date' => ['required', 'date'],
-            'cover' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
+            'location'    => ['nullable', 'max:50'],
+            'date'        => ['required', 'date'],
+            'cover'       => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
 
         if ($this->cover) {
@@ -57,13 +57,13 @@ class NewMeetup extends Component
         }
 
         auth()->user()->meetups()->create([
-            'name' => $this->name,
-            'slug' => $this->slug,
-            'cover' => $url,
-            'tagline' => $this->tagline,
+            'name'        => $this->name,
+            'slug'        => $this->slug,
+            'cover'       => $url,
+            'tagline'     => $this->tagline,
             'description' => $this->description,
-            'location' => $this->location,
-            'date' => $this->date,
+            'location'    => $this->location,
+            'date'        => $this->date,
         ]);
 
         return redirect()->route('meetups.home');

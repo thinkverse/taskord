@@ -11,9 +11,9 @@ class QuestionSeeder extends Seeder
     {
         // Public Question
         $question = Question::factory()->create([
-            'user_id' => 1,
-            'title' => 'Hello, World this is public question!',
-            'body' => 'Hello, World!',
+            'user_id'     => 1,
+            'title'       => 'Hello, World this is public question!',
+            'body'        => 'Hello, World!',
             'patron_only' => false,
         ]);
 
@@ -26,9 +26,9 @@ class QuestionSeeder extends Seeder
 
         // Patron Only Question
         Question::factory()->create([
-            'user_id' => 1,
-            'title' => 'Hello, World this is patron only question!',
-            'body' => 'Hello, World!',
+            'user_id'     => 1,
+            'title'       => 'Hello, World this is patron only question!',
+            'body'        => 'Hello, World!',
             'patron_only' => true,
         ]);
 

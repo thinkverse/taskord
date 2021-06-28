@@ -15,7 +15,7 @@ class EditMilestone extends Component
     public $endDate;
 
     protected $rules = [
-        'name' => ['required', 'min:3', 'max:150'],
+        'name'        => ['required', 'min:3', 'max:150'],
         'description' => ['required', 'min:3', 'max:10000'],
     ];
 
@@ -30,7 +30,7 @@ class EditMilestone extends Component
 
     public function updated($field)
     {
-        if (! auth()->check()) {
+        if (!auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 

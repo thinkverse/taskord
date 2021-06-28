@@ -24,7 +24,7 @@ class MilestoneController extends Controller
     public function milestone(Milestone $milestone): View
     {
         $response = [
-            'type' => 'milestones.milestone',
+            'type'      => 'milestones.milestone',
             'milestone' => $milestone,
         ];
         if (

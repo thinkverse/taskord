@@ -11,7 +11,10 @@ use Illuminate\Support\Facades\App;
 
 class LogActivity implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     protected $ip;
     protected $userAgent;
@@ -35,10 +38,10 @@ class LogActivity implements ShouldQueue
         return activity()
             ->causedBy($this->user)
             ->withProperties([
-                'type' => $this->type,
-                'ip' => $this->ip,
+                'type'       => $this->type,
+                'ip'         => $this->ip,
                 'user_agent' => $this->userAgent,
-                'location' => $this->ip === '127.0.0.1' ? null : $geoDetails['location'],
+                'location'   => $this->ip === '127.0.0.1' ? null : $geoDetails['location'],
             ])
             ->log($this->message);
     }
@@ -54,8 +57,8 @@ class LogActivity implements ShouldQueue
 
                 return [
                     'location' => $ipInfo->city.', '.$ipInfo->regionName.', '.$ipInfo->country,
-                    'lon' => $ipInfo->lat,
-                    'lat' => $ipInfo->lon,
+                    'lon'      => $ipInfo->lat,
+                    'lat'      => $ipInfo->lon,
                 ];
             } catch (Exception $e) {
                 return 'IP API Rate limited';
@@ -63,8 +66,8 @@ class LogActivity implements ShouldQueue
         } else {
             return [
                 'location' => 'Test Location',
-                'lon' => '0.000',
-                'lat' => '0.000',
+                'lon'      => '0.000',
+                'lat'      => '0.000',
             ];
         }
     }

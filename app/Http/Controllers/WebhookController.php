@@ -22,17 +22,17 @@ class WebhookController extends Controller
             'merge branch',
         ];
 
-        if (! Str::contains(strtolower($task), $ignoreList)) {
+        if (!Str::contains(strtolower($task), $ignoreList)) {
             $webhook->user->touch();
 
             $task = (new CreateNewTask($webhook->user, [
-                'user_id' => $webhook->user_id,
-                'task' => trim($task),
-                'done' => $done,
-                'done_at' => $doneAt,
+                'user_id'    => $webhook->user_id,
+                'task'       => trim($task),
+                'done'       => $done,
+                'done_at'    => $doneAt,
                 'product_id' => $productId,
-                'type' => $productId ? 'product' : 'user',
-                'source' => $type,
+                'type'       => $productId ? 'product' : 'user',
+                'source'     => $type,
             ]))();
         }
     }
@@ -41,8 +41,8 @@ class WebhookController extends Controller
     {
         $requestBody = $request->json()->all();
         if (
-            ! array_key_exists('task', $requestBody) or
-            ! array_key_exists('done', $requestBody)
+            !array_key_exists('task', $requestBody) or
+            !array_key_exists('done', $requestBody)
         ) {
             return response('Invalid parameters', 422);
         }
@@ -159,7 +159,7 @@ class WebhookController extends Controller
         }
 
         $webhook = Webhook::whereToken($token)->first();
-        if (! $webhook) {
+        if (!$webhook) {
             return response('No webhook exists', 404);
         }
 

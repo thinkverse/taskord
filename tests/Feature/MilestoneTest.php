@@ -106,7 +106,7 @@ it('cannot toggle like on milestone', function ($user, $status) {
     actingAs($user)
         ->livewire(SingleMilestone::class, [
             'milestone' => $milestone,
-            'type' => 'milestones.opened',
+            'type'      => 'milestones.opened',
         ])
         ->call('toggleLike')
         ->assertNotEmitted('milestoneLiked');
@@ -121,7 +121,7 @@ it('can toggle like on milestone', function ($user, $status) {
         return actingAs($user)
             ->livewire(SingleMilestone::class, [
                 'milestone' => $milestone,
-                'type' => 'milestones.opened',
+                'type'      => 'milestones.opened',
             ])
             ->call('toggleLike')
             ->assertEmitted('milestoneLiked');
@@ -130,7 +130,7 @@ it('can toggle like on milestone', function ($user, $status) {
     return actingAs($user)
         ->livewire(SingleMilestone::class, [
             'milestone' => $milestone,
-            'type' => 'milestones.opened',
+            'type'      => 'milestones.opened',
         ])
         ->call('toggleLike')
         ->assertNotEmitted('milestoneLiked');
@@ -144,7 +144,7 @@ it('cannot delete milestone', function ($user, $status) {
     actingAs($user)
         ->livewire(SingleMilestone::class, [
             'milestone' => $milestone,
-            'type' => 'milestones.opened',
+            'type'      => 'milestones.opened',
         ])
         ->call('deleteMilestone')
         ->assertNotEmitted('refreshMilestones');
@@ -159,7 +159,7 @@ it('can delete milestone', function ($user, $status) {
         return actingAs($user)
             ->livewire(SingleMilestone::class, [
                 'milestone' => $milestone,
-                'type' => 'milestones.opened',
+                'type'      => 'milestones.opened',
             ])
             ->call('deleteMilestone')
             ->assertEmitted('refreshMilestones');
@@ -168,7 +168,7 @@ it('can delete milestone', function ($user, $status) {
     return actingAs($user)
         ->livewire(SingleMilestone::class, [
             'milestone' => $milestone,
-            'type' => 'milestones.opened',
+            'type'      => 'milestones.opened',
         ])
         ->call('deleteMilestone')
         ->assertNotEmitted('refreshMilestones');
@@ -181,7 +181,7 @@ it('can hide a milestone', function ($user, $status) {
         return actingAs($user)
             ->livewire(SingleMilestone::class, [
                 'milestone' => $milestone,
-                'type' => 'milestones.opened',
+                'type'      => 'milestones.opened',
             ])
             ->call('hide')
             ->assertEmitted('milestonesHidden');
@@ -190,7 +190,7 @@ it('can hide a milestone', function ($user, $status) {
     return actingAs($user)
         ->livewire(SingleMilestone::class, [
             'milestone' => $milestone,
-            'type' => 'milestones.opened',
+            'type'      => 'milestones.opened',
         ])
         ->call('hide')
         ->assertNotEmitted('milestonesHidden');

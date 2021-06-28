@@ -17,7 +17,7 @@ class CreateComment extends Component
 
     protected $rules = [
         'comment' => ['required', 'min:3', 'max:20000'],
-        'task' => ['required'],
+        'task'    => ['required'],
     ];
 
     public function mount($task)
@@ -49,7 +49,7 @@ class CreateComment extends Component
         Helper::mentionUsers($users, $comment, auth()->user(), 'comment');
         Helper::notifySubscribers($comment->task->subscribers, $comment, 'comment');
         if (auth()->user()->id !== $this->task->user->id) {
-            if (! auth()->user()->hasSubscribed($comment->task)) {
+            if (!auth()->user()->hasSubscribed($comment->task)) {
                 auth()->user()->subscribe($comment->task);
                 $this->emit('refreshTaskSubscribed');
             }

@@ -42,7 +42,7 @@ class Tasks extends Component
     {
         return view('livewire.user.tasks', [
             'tasks' => $this->readyToLoad ? $this->getTasks() : [],
-            'page' => $this->page,
+            'page'  => $this->page,
         ]);
     }
 }

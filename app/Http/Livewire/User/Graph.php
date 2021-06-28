@@ -51,8 +51,8 @@ class Graph extends Component
     {
         return view('livewire.user.graph', [
             'week_dates' => $this->readyToLoad ? json_encode($this->getGraph('week_dates'), JSON_NUMERIC_CHECK) : [],
-            'tasks' => $this->readyToLoad ? json_encode($this->getGraph('tasks'), JSON_NUMERIC_CHECK) : [],
-            'count' => $this->readyToLoad ? array_sum($this->getGraph('tasks')) : 0,
+            'tasks'      => $this->readyToLoad ? json_encode($this->getGraph('tasks'), JSON_NUMERIC_CHECK) : [],
+            'count'      => $this->readyToLoad ? array_sum($this->getGraph('tasks')) : 0,
         ]);
     }
 }

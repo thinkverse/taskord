@@ -27,10 +27,10 @@ class AnswerReply extends Model
         'hidden',
     ];
     protected $casts = [
-        'user_id' => 'integer',
+        'user_id'   => 'integer',
         'answer_id' => 'integer',
-        'reply' => 'string',
-        'hidden' => 'boolean',
+        'reply'     => 'string',
+        'hidden'    => 'boolean',
     ];
 
     /**

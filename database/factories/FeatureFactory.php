@@ -22,10 +22,10 @@ class FeatureFactory extends Factory
     public function definition()
     {
         return [
-            'staff' => true,
-            'beta' => true,
+            'staff'       => true,
+            'beta'        => true,
             'contributor' => true,
-            'public' => true,
+            'public'      => true,
         ];
     }
 }

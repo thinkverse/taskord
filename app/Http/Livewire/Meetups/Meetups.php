@@ -65,7 +65,7 @@ class Meetups extends Component
     {
         return view('livewire.meetups.meetups', [
             'meetups' => $this->readyToLoad ? $this->paginate($this->getMeetups()) : [],
-            'page' => $this->page,
+            'page'    => $this->page,
         ]);
     }
 }

@@ -23,11 +23,11 @@ class WebhookFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->unique()->userName,
-            'user_id' => $this->faker->numberBetween($min = 1, $max = 50),
+            'name'       => $this->faker->unique()->userName,
+            'user_id'    => $this->faker->numberBetween($min = 1, $max = 50),
             'product_id' => $this->faker->numberBetween($min = 1, $max = 50),
-            'token' => Str::uuid(),
-            'type' => 'web',
+            'token'      => Str::uuid(),
+            'type'       => 'web',
             'created_at' => $this->faker->dateTimeBetween($startDate = '-600 days', $endDate = 'now'),
             'updated_at' => $this->faker->dateTimeBetween($startDate = '-2 days', $endDate = 'now'),
         ];

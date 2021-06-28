@@ -15,7 +15,7 @@ class TaskMutator
     {
         if (Gate::denies('create')) {
             return [
-                'status' => false,
+                'status'  => false,
                 'message' => 'Permission denied!',
             ];
         }
@@ -24,20 +24,20 @@ class TaskMutator
 
         $task = (new CreateNewTask(auth()->user(), [
             'product_id' => $productId,
-            'task' => trim($args['task']),
-            'done' => $args['done'],
-            'done_at' => $args['done'] ? carbon() : null,
-            'type' => 'user',
-            'type' => $productId ? 'product' : 'user',
-            'source' => 'Taskord API',
+            'task'       => trim($args['task']),
+            'done'       => $args['done'],
+            'done_at'    => $args['done'] ? carbon() : null,
+            'type'       => 'user',
+            'type'       => $productId ? 'product' : 'user',
+            'source'     => 'Taskord API',
         ]))();
 
         givePoint(new TaskCreated($task));
 
         return [
-            'status' => true,
+            'status'  => true,
             'message' => 'Task created successfully',
-            'task' => $task,
+            'task'    => $task,
         ];
     }
 
@@ -45,16 +45,16 @@ class TaskMutator
     {
         $task = Task::find($args['id']);
 
-        if (! $task) {
+        if (!$task) {
             return [
-                'status' => false,
+                'status'  => false,
                 'message' => 'No task found!',
             ];
         }
 
         if (Gate::denies('edit/delete', $task)) {
             return [
-                'status' => false,
+                'status'  => false,
                 'message' => config('taskord.toast.deny'),
             ];
         }
@@ -69,9 +69,9 @@ class TaskMutator
         $task->delete();
 
         return [
-            'status' => true,
+            'status'  => true,
             'message' => 'Task deleted successfully',
-            'task' => $task,
+            'task'    => $task,
         ];
     }
 
@@ -79,16 +79,16 @@ class TaskMutator
     {
         $task = Task::find($args['id']);
 
-        if (! $task) {
+        if (!$task) {
             return [
-                'status' => false,
+                'status'  => false,
                 'message' => 'No task found!',
             ];
         }
 
         if (Gate::denies('like/subscribe', $task)) {
             return [
-                'status' => false,
+                'status'  => false,
                 'message' => config('taskord.toast.deny'),
             ];
         }
@@ -97,9 +97,9 @@ class TaskMutator
         loggy(request(), 'Task', auth()->user(), "Toggled task like | Task ID: {$task->id}");
 
         return [
-            'status' => true,
+            'status'  => true,
             'message' => 'Task deleted successfully',
-            'task' => $task,
+            'task'    => $task,
         ];
     }
 }

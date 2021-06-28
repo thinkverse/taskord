@@ -22,9 +22,9 @@ class AnswerReplyFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween($min = 1, $max = 50),
-            'answer_id' => $this->faker->numberBetween($min = 1, $max = 100),
-            'reply' => $this->faker->sentence($nbWords = 10, $variableNbWords = true),
+            'user_id'    => $this->faker->numberBetween($min = 1, $max = 50),
+            'answer_id'  => $this->faker->numberBetween($min = 1, $max = 100),
+            'reply'      => $this->faker->sentence($nbWords = 10, $variableNbWords = true),
             'created_at' => $this->faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
             'updated_at' => $this->faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
         ];

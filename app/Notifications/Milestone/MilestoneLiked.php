@@ -40,7 +40,7 @@ class MilestoneLiked extends Notification implements ShouldQueue
     {
         $user = User::find($this->userId);
 
-        if (! $user->spammy) {
+        if (!$user->spammy) {
             return (new MailMessage())
                 ->subject('@'.$user->username.' liked your milestone')
                 ->greeting('Hello @'.$notifiable->username.' 👋')
@@ -56,7 +56,7 @@ class MilestoneLiked extends Notification implements ShouldQueue
     {
         return [
             'milestone_id' => $this->milestone->id,
-            'user_id' => $this->userId,
+            'user_id'      => $this->userId,
         ];
     }
 }

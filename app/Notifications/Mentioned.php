@@ -108,10 +108,10 @@ class Mentioned extends Notification implements ShouldQueue
         }
 
         return [
-            'body_id' => $id,
+            'body_id'   => $id,
             'entity_id' => $entityId,
             'body_type' => $this->type,
-            'user_id' => $this->body->user->id,
+            'user_id'   => $this->body->user->id,
         ];
     }
 }

@@ -12,7 +12,10 @@ use Illuminate\Queue\SerializesModels;
 
 class GetOembed implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     protected $task;
 
@@ -31,7 +34,7 @@ class GetOembed implements ShouldQueue
 
         if (
             count($match[0]) === 0 or
-            ! @get_headers($match[0][0])
+            !@get_headers($match[0][0])
         ) {
             return true;
         }
@@ -40,7 +43,7 @@ class GetOembed implements ShouldQueue
         $info = $embed->get($match[0][0]);
         $metas = $info->getMetas();
 
-        if (! $info->title) {
+        if (!$info->title) {
             return true;
         }
 

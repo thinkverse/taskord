@@ -50,7 +50,7 @@ class SocialController extends Controller
 
         if ($provider === 'twitter' or $provider === 'github') {
             $user = User::where(['username' => $userSocial->getNickname()])->first();
-            if (! $user) {
+            if (!$user) {
                 $username = $userSocial->getNickname();
             } else {
                 $username = $userSocial->getNickname().'_'.strtolower(Str::random(5));
@@ -66,13 +66,13 @@ class SocialController extends Controller
         }
 
         $user = User::create([
-            'username' => $username,
-            'firstname' => $userSocial->getName(),
-            'email' => $userSocial->getEmail(),
-            'avatar' => $avatar,
-            'provider_id' => $userSocial->getId(),
-            'provider' => $provider,
-            'api_token' => Str::random(60),
+            'username'          => $username,
+            'firstname'         => $userSocial->getName(),
+            'email'             => $userSocial->getEmail(),
+            'avatar'            => $avatar,
+            'provider_id'       => $userSocial->getId(),
+            'provider'          => $provider,
+            'api_token'         => Str::random(60),
             'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
         AuthGetIP::dispatch($user, $request->ip());

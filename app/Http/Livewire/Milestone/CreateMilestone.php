@@ -19,15 +19,15 @@ class CreateMilestone extends Component
         }
 
         $this->validate([
-            'name' => ['required', 'min:3', 'max:150'],
+            'name'        => ['required', 'min:3', 'max:150'],
             'description' => ['required', 'min:3', 'max:10000'],
         ]);
 
         $milestone = auth()->user()->milestones()->create([
-            'name' => $this->name,
+            'name'        => $this->name,
             'description' => $this->description,
-            'start_date' => $this->startDate,
-            'end_date' => $this->endDate,
+            'start_date'  => $this->startDate,
+            'end_date'    => $this->endDate,
         ]);
         $this->emit('refreshMilestones');
 

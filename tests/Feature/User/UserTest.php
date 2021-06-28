@@ -121,7 +121,7 @@ it('can toggle follow user from home page', function ($sourceUser, $targetUser, 
     if ($status) {
         return actingAs($sourceUser)
             ->livewire(HomeFollow::class, [
-                'user' => $targetUser,
+                'user'     => $targetUser,
                 'showText' => true,
             ])
             ->call('toggleFollow')
@@ -130,7 +130,7 @@ it('can toggle follow user from home page', function ($sourceUser, $targetUser, 
 
     return actingAs($sourceUser)
         ->livewire(HomeFollow::class, [
-            'user' => $targetUser,
+            'user'     => $targetUser,
             'showText' => true,
         ])
         ->call('toggleFollow')

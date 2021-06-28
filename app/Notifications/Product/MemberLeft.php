@@ -28,7 +28,7 @@ class MemberLeft extends Notification implements ShouldQueue
     {
         return [
             'product_id' => $this->product->id,
-            'user_id' => $this->userId,
+            'user_id'    => $this->userId,
         ];
     }
 }

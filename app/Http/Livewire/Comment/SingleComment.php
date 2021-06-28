@@ -44,7 +44,7 @@ class SingleComment extends Component
 
     public function toggleReplyBox()
     {
-        $this->showReplyBox = ! $this->showReplyBox;
+        $this->showReplyBox = !$this->showReplyBox;
     }
 
     public function hide()
@@ -66,7 +66,7 @@ class SingleComment extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $this->edit = ! $this->edit;
+        $this->edit = !$this->edit;
     }
 
     public function commentEdited()

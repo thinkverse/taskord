@@ -43,18 +43,18 @@ class CreateProduct extends Component
         }
 
         $this->validate([
-            'name' => ['required', 'min:3', 'max:30'],
-            'slug' => ['required', 'min:3', 'max:20', 'unique:products', 'alpha_dash', new ReservedSlug()],
+            'name'        => ['required', 'min:3', 'max:30'],
+            'slug'        => ['required', 'min:3', 'max:20', 'unique:products', 'alpha_dash', new ReservedSlug()],
             'description' => ['nullable', 'max:160'],
-            'website' => ['nullable', 'active_url'],
-            'twitter' => ['nullable', 'alpha_dash', 'max:30'],
-            'repo' => ['nullable', 'active_url', new Repo()],
+            'website'     => ['nullable', 'active_url'],
+            'twitter'     => ['nullable', 'alpha_dash', 'max:30'],
+            'repo'        => ['nullable', 'active_url', new Repo()],
             'producthunt' => ['nullable', 'alpha_dash', 'max:30'],
-            'sponsor' => ['nullable', 'active_url'],
-            'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
+            'sponsor'     => ['nullable', 'active_url'],
+            'avatar'      => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
 
-        $launched = ! $this->launched ? false : true;
+        $launched = !$this->launched ? false : true;
 
         if ($launched) {
             $launchedStatus = true;
@@ -76,16 +76,16 @@ class CreateProduct extends Component
         }
 
         $product = auth()->user()->ownedProducts()->create([
-            'name' => trim($this->name),
-            'slug' => $this->slug,
-            'avatar' => $url,
+            'name'        => trim($this->name),
+            'slug'        => $this->slug,
+            'avatar'      => $url,
             'description' => trim($this->description),
-            'website' => $this->website,
-            'twitter' => $this->twitter,
-            'repo' => $this->repo,
+            'website'     => $this->website,
+            'twitter'     => $this->twitter,
+            'repo'        => $this->repo,
             'producthunt' => $this->producthunt,
-            'sponsor' => $this->sponsor,
-            'launched' => $launchedStatus,
+            'sponsor'     => $this->sponsor,
+            'launched'    => $launchedStatus,
             'launched_at' => $launchedAt,
         ]);
 
@@ -93,10 +93,10 @@ class CreateProduct extends Component
             $randomTask = Arr::random(config('taskord.tasks.templates'));
             (new CreateNewTask(auth()->user(), [
                 'product_id' => $product->id,
-                'task' => sprintf($randomTask, $product->slug),
-                'done' => true,
-                'done_at' => $product->launchedAt,
-                'type' => 'product',
+                'task'       => sprintf($randomTask, $product->slug),
+                'done'       => true,
+                'done_at'    => $product->launchedAt,
+                'type'       => 'product',
             ]))();
         }
 

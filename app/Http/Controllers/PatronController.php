@@ -17,7 +17,7 @@ class PatronController extends Controller
         unset($fields['p_signature']);
         ksort($fields);
         foreach ($fields as $k => $v) {
-            if (! in_array(gettype($v), ['object', 'array'])) {
+            if (!in_array(gettype($v), ['object', 'array'])) {
                 $fields[$k] = "${v}";
             }
         }
@@ -49,13 +49,13 @@ class PatronController extends Controller
         if ($user) {
             if (Patron::whereUserId($user->id)->count() === 0) {
                 $user->patron()->create([
-                    'user_id' => $user->id,
-                    'checkout_id' => $request->checkout_id,
+                    'user_id'              => $user->id,
+                    'checkout_id'          => $request->checkout_id,
                     'subscription_plan_id' => $request->subscription_plan_id,
-                    'update_url' => $request->update_url,
-                    'cancel_url' => $request->cancel_url,
-                    'event_time' => $request->event_time,
-                    'next_bill_date' => $request->next_bill_date,
+                    'update_url'           => $request->update_url,
+                    'cancel_url'           => $request->cancel_url,
+                    'event_time'           => $request->event_time,
+                    'next_bill_date'       => $request->next_bill_date,
                 ]);
                 $user->is_patron = true;
                 $user->save();

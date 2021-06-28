@@ -19,15 +19,15 @@ class CreateFeature extends Component
         }
 
         $this->validate([
-            'name' => ['required', 'min:3', 'max:100'],
+            'name'        => ['required', 'min:3', 'max:100'],
             'description' => ['required', 'min:3', 'max:10000'],
-            'slug' => ['required', 'unique:features', 'min:3', 'max:100'],
+            'slug'        => ['required', 'unique:features', 'min:3', 'max:100'],
         ]);
 
         $feature = Feature::create([
-            'name' => $this->name,
+            'name'        => $this->name,
             'description' => $this->description,
-            'slug' => $this->slug,
+            'slug'        => $this->slug,
         ]);
 
         loggy(request(), 'Staff', auth()->user(), "Created a new feature flag | Feature ID: {$feature->id}");

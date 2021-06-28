@@ -58,7 +58,7 @@ class Answers extends Component
     {
         return view('livewire.answer.answers', [
             'answers' => $this->readyToLoad ? $this->paginate($this->getAnswers()) : [],
-            'page' => $this->page,
+            'page'    => $this->page,
         ]);
     }
 }

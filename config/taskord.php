@@ -16,9 +16,9 @@ return [
     ],
 
     'toast' => [
-        'deny' => "Oops! You can't perform this action",
+        'deny'             => "Oops! You can't perform this action",
         'settings-updated' => 'Settings has been updated!',
-        'rate-limit' => 'Oops! You are rate limited.',
+        'rate-limit'       => 'Oops! You are rate limited.',
     ],
 
     'reserved_slugs' => [

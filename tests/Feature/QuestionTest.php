@@ -95,7 +95,7 @@ it('cannot toggle like on question', function ($user, $status) {
     actingAs($user)
         ->livewire(SingleQuestion::class, [
             'question' => $question,
-            'type' => 'question.newest',
+            'type'     => 'question.newest',
         ])
         ->call('toggleLike')
         ->assertNotEmitted('questionLiked');
@@ -110,7 +110,7 @@ it('can toggle like on question', function ($user, $status) {
         return actingAs($user)
             ->livewire(SingleQuestion::class, [
                 'question' => $question,
-                'type' => 'question.newest',
+                'type'     => 'question.newest',
             ])
             ->call('toggleLike')
             ->assertEmitted('questionLiked');
@@ -119,7 +119,7 @@ it('can toggle like on question', function ($user, $status) {
     return actingAs($user)
         ->livewire(SingleQuestion::class, [
             'question' => $question,
-            'type' => 'question.newest',
+            'type'     => 'question.newest',
         ])
         ->call('toggleLike')
         ->assertNotEmitted('questionLiked');
@@ -133,7 +133,7 @@ it('cannot delete question', function ($user, $status) {
     actingAs($user)
         ->livewire(SingleQuestion::class, [
             'question' => $question,
-            'type' => 'question.newest',
+            'type'     => 'question.newest',
         ])
         ->call('deleteQuestion')
         ->assertNotEmitted('refreshQuestions');
@@ -148,7 +148,7 @@ it('can delete question', function ($user, $status) {
         return actingAs($user)
             ->livewire(SingleQuestion::class, [
                 'question' => $question,
-                'type' => 'question.newest',
+                'type'     => 'question.newest',
             ])
             ->call('deleteQuestion')
             ->assertEmitted('refreshQuestions');
@@ -157,7 +157,7 @@ it('can delete question', function ($user, $status) {
     return actingAs($user)
         ->livewire(SingleQuestion::class, [
             'question' => $question,
-            'type' => 'question.newest',
+            'type'     => 'question.newest',
         ])
         ->call('deleteQuestion')
         ->assertNotEmitted('refreshQuestions');
@@ -170,7 +170,7 @@ it('can hide a question', function ($user, $status) {
         return actingAs($user)
             ->livewire(SingleQuestion::class, [
                 'question' => $question,
-                'type' => 'question.newest',
+                'type'     => 'question.newest',
             ])
             ->call('hide')
             ->assertEmitted('questionHidden');
@@ -179,7 +179,7 @@ it('can hide a question', function ($user, $status) {
     return actingAs($user)
         ->livewire(SingleQuestion::class, [
             'question' => $question,
-            'type' => 'question.newest',
+            'type'     => 'question.newest',
         ])
         ->call('hide')
         ->assertNotEmitted('questionHidden');

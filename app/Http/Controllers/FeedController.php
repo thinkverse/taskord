@@ -18,7 +18,7 @@ class FeedController extends Controller
             ->get();
 
         $content = view('feed.user', [
-            'user' => $user,
+            'user'  => $user,
             'tasks' => $tasks,
         ]);
 
@@ -38,7 +38,7 @@ class FeedController extends Controller
 
         $content = view('feed.product', [
             'product' => $product,
-            'tasks' => $tasks,
+            'tasks'   => $tasks,
         ]);
 
         return response($content, 200)

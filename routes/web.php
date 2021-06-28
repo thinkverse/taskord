@@ -83,8 +83,8 @@ Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
 
 // Settings
 Route::group([
-    'prefix' => 'settings',
-    'as' => 'user.settings.',
+    'prefix'     => 'settings',
+    'as'         => 'user.settings.',
     'middleware' => ['auth'],
 ], function () {
     Route::get('', [UserController::class, 'profileSettings'])
@@ -121,8 +121,8 @@ Route::group([
 
 // Notifications
 Route::group([
-    'prefix' => 'notifications',
-    'as' => 'notifications.',
+    'prefix'     => 'notifications',
+    'as'         => 'notifications.',
     'middleware' => ['auth'],
 ], function () {
     Route::view('', 'notifications.unread')
@@ -157,7 +157,7 @@ Route::group(['prefix' => 'product/{slug}', 'as' => 'product.'], function () {
 // Products
 Route::group([
     'prefix' => 'products',
-    'as' => 'products.',
+    'as'     => 'products.',
 ], function () {
     Route::get('', [ProductController::class, 'newest'])
         ->name('newest');
@@ -171,7 +171,7 @@ Route::group([
 // Question
 Route::group([
     'prefix' => 'question',
-    'as' => 'question.',
+    'as'     => 'question.',
 ], function () {
     Route::get('{slug}', [QuestionController::class, 'question'])
         ->name('question');
@@ -183,7 +183,7 @@ Route::group([
 // Questions
 Route::group([
     'prefix' => 'questions',
-    'as' => 'questions.',
+    'as'     => 'questions.',
 ], function () {
     Route::get('', [QuestionController::class, 'newest'])
         ->name('newest');
@@ -199,7 +199,7 @@ Route::group([
 // Milestone
 Route::group([
     'prefix' => 'milestones',
-    'as' => 'milestones.',
+    'as'     => 'milestones.',
 ], function () {
     Route::get('', [MilestoneController::class, 'opened'])
         ->name('opened');
@@ -218,7 +218,7 @@ Route::group([
 // Search
 Route::group([
     'prefix' => 'search',
-    'as' => 'search.',
+    'as'     => 'search.',
 ], function () {
     Route::get('', [SearchController::class, 'search'])
         ->name('home');
@@ -238,8 +238,8 @@ Route::group([
 
 // Stafftools
 Route::group([
-    'prefix' => 'stafftools',
-    'as' => 'staff.',
+    'prefix'     => 'stafftools',
+    'as'         => 'staff.',
     'middleware' => ['staff_mode'],
 ], function () {
     Route::view('', 'staff.stats')
@@ -268,7 +268,7 @@ Route::group([
 // Patron
 Route::group([
     'prefix' => 'patron',
-    'as' => 'patron.',
+    'as'     => 'patron.',
 ], function () {
     Route::view('', 'pages.patron')
         ->name('home');
@@ -299,7 +299,7 @@ Route::view('tasks', 'tasks.tasks')
 // Meetups
 Route::group([
     'prefix' => 'meetups',
-    'as' => 'meetups.',
+    'as'     => 'meetups.',
 ], function () {
     Route::get('/', [MeetupController::class, 'meetups'])
         ->middleware('feature:meetups')
@@ -346,7 +346,7 @@ Route::group(['prefix' => 'status'], function () {
 // Feed
 Route::group([
     'prefix' => 'feed',
-    'as' => 'feed.',
+    'as'     => 'feed.',
 ], function () {
     Route::get('user/{username}/{page?}', [FeedController::class, 'user'])
         ->name('user');
@@ -356,7 +356,7 @@ Route::group([
 
 // Mention
 Route::group([
-    'prefix' => 'mention',
+    'prefix'     => 'mention',
     'middleware' => ['auth'],
 ], function () {
     Route::get('users', [UserController::class, 'mention']);

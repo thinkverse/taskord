@@ -43,7 +43,7 @@ class SingleUpdate extends Component
 
     public function deleteUpdate()
     {
-        if (! auth()->check()) {
+        if (!auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 

@@ -24,12 +24,12 @@ class CreateTask extends Component
 
     public function updatedImage()
     {
-        if (! auth()->check()) {
+        if (!auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
         $this->validate([
-            'images' => ['max:5'],
+            'images'   => ['max:5'],
             'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
         ]);
     }
@@ -43,8 +43,8 @@ class CreateTask extends Component
         }
 
         $this->validate([
-            'task' => ['required', 'min:3', 'max:10000'],
-            'images' => ['max:5'],
+            'task'     => ['required', 'min:3', 'max:10000'],
+            'images'   => ['max:5'],
             'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
         ]);
 
@@ -70,11 +70,11 @@ class CreateTask extends Component
 
         (new CreateNewTask(auth()->user(), [
             'product_id' => $productId,
-            'task' => trim($this->task),
-            'done' => false,
-            'images' => $images,
-            'due_at' => $this->dueAt,
-            'type' => $productId ? 'product' : 'user',
+            'task'       => trim($this->task),
+            'done'       => false,
+            'images'     => $images,
+            'due_at'     => $this->dueAt,
+            'type'       => $productId ? 'product' : 'user',
         ]))();
 
         $this->emit('refreshTasks');

@@ -30,10 +30,10 @@ class Answer extends Model
         'hidden',
     ];
     protected $casts = [
-        'user_id' => 'integer',
+        'user_id'     => 'integer',
         'question_id' => 'integer',
-        'answer' => 'string',
-        'hidden' => 'boolean',
+        'answer'      => 'string',
+        'hidden'      => 'boolean',
     ];
     protected $searchable = [
         'columns' => [

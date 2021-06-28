@@ -29,10 +29,10 @@ class CreateUpdate extends Component
         ]);
 
         $update = auth()->user()->productUpdates()->create([
-            'user_id' => auth()->user()->id,
+            'user_id'    => auth()->user()->id,
             'product_id' => $this->product->id,
-            'title' => $this->title,
-            'body' => $this->body,
+            'title'      => $this->title,
+            'body'       => $this->body,
         ]);
         $users = Product::find($this->product->id)->subscribers()->get();
         foreach ($users as $user) {

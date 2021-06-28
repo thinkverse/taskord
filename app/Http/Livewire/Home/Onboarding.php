@@ -39,19 +39,19 @@ class Onboarding extends Component
         $hasName = auth()->user()->firstname;
         $changedUsername = preg_match('/^[a-f0-9]{32}$/', auth()->user()->username);
         $completed = $this->calculateCompleteness(
-                        $taskCount,
-                        $likeCount,
-                        $productCount,
-                        $hasName,
-                    );
+            $taskCount,
+            $likeCount,
+            $productCount,
+            $hasName,
+        );
 
         return view('livewire.home.onboarding', [
-            'task_count' => $taskCount,
-            'like_count' => $likeCount,
-            'product_count' => $productCount,
-            'has_name' => $hasName,
+            'task_count'       => $taskCount,
+            'like_count'       => $likeCount,
+            'product_count'    => $productCount,
+            'has_name'         => $hasName,
             'changed_username' => $changedUsername,
-            'completed' => $completed,
+            'completed'        => $completed,
         ]);
     }
 }

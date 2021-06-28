@@ -28,7 +28,7 @@ class Activities extends Component
     {
         return view('livewire.staff.activities', [
             'activities' => $this->readyToLoad ? $this->getActivities() : [],
-            'count' => number_format(Activity::count('id')),
+            'count'      => number_format(Activity::count('id')),
         ]);
     }
 }

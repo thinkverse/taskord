@@ -37,7 +37,7 @@ class Helper
      * Toggle like on a model.
      *
      * @param \Illuminate\Database\Eloquent\Model $entity
-     * @param string $type
+     * @param string                              $type
      *
      * @return void
      */
@@ -59,7 +59,7 @@ class Helper
                 : givePoint(new LikeCreated($entity));
         }
 
-        if (! $hasLiked) {
+        if (!$hasLiked) {
             switch ($type) {
                 case 'TASK':
                     $entity->user->notify(new TaskLiked($entity, $user->id));
@@ -90,7 +90,7 @@ class Helper
 
     public static function hide($entity)
     {
-        $entity->hidden = ! $entity->hidden;
+        $entity->hidden = !$entity->hidden;
         $entity->save();
         $entity->refresh();
     }
@@ -156,7 +156,7 @@ class Helper
         $products = collect(str_replace('#', '', $mentions));
 
         return $products
-            ->map(fn ($product) => Product::whereSlug($product)->first())->whereNotNull('id')
+            ->map(fn ($product)    => Product::whereSlug($product)->first())->whereNotNull('id')
             ->filter(fn ($product) => $product->user_id === $user->id or $user->products->contains($product))
             ->pluck('id')->first();
     }

@@ -33,7 +33,7 @@ class QuestionController extends Controller
     {
         $question = Question::where('slug', $slug)->firstOrFail();
         $response = [
-            'type' => 'question.question',
+            'type'     => 'question.question',
             'question' => $question,
         ];
 

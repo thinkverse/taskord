@@ -53,7 +53,7 @@ class StaffController extends Controller
         $ciData = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/pipelines', [
             'query' => [
                 'per_page' => 1,
-                'ref' => 'main',
+                'ref'      => 'main',
             ],
         ]);
 
@@ -72,7 +72,7 @@ class StaffController extends Controller
         $deploymentData = $client->request('GET', 'https://api.buddy.works/workspaces/yogi/projects/taskord/pipelines/334241/executions', [
             'query' => [
                 'access_token' => config('services.buddy.access_token'),
-                'per_page' => 5,
+                'per_page'     => 5,
             ],
         ]);
 

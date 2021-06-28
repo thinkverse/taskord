@@ -31,7 +31,7 @@ class Products extends Component
     {
         return view('livewire.staff.products', [
             'products' => $this->readyToLoad ? $this->getProducts() : [],
-            'count' => $this->readyToLoad ? Product::count('id') : [],
+            'count'    => $this->readyToLoad ? Product::count('id') : [],
         ]);
     }
 }

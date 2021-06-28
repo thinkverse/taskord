@@ -13,8 +13,8 @@ class SentryContext
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
      *
      * @return mixed
      */
@@ -25,9 +25,9 @@ class SentryContext
                 configureScope(function (Scope $scope): void {
                     $user = auth()->user();
                     $scope->setUser([
-                        'id' => $user->id,
+                        'id'       => $user->id,
                         'username' => $user->username,
-                        'email' => $user->email,
+                        'email'    => $user->email,
                     ]);
                     $scope->setTag('page.route.name', Route::currentRouteName() ?? '');
                     $scope->setTag('page.route.action', Route::currentRouteAction() ?? '');

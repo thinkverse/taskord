@@ -32,15 +32,15 @@ class Meetup extends Model
         'hidden',
     ];
     protected $casts = [
-        'user_id' => 'integer',
-        'name' => 'string',
-        'slug' => 'string',
-        'tagline' => 'string',
+        'user_id'     => 'integer',
+        'name'        => 'string',
+        'slug'        => 'string',
+        'tagline'     => 'string',
         'description' => 'string',
-        'location' => 'string',
-        'cover' => 'string',
-        'date' => 'date',
-        'hidden' => 'boolean',
+        'location'    => 'string',
+        'cover'       => 'string',
+        'date'        => 'date',
+        'hidden'      => 'boolean',
     ];
 
     /**

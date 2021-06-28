@@ -23,13 +23,13 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->faker->numberBetween($min = 1, $max = 50),
-            'slug' => Str::lower(Str::random(100)),
-            'title' => $this->faker->sentence($nbWords = 15, $variableNbWords = true),
-            'body' => $this->faker->sentence($nbWords = 60, $variableNbWords = true),
+            'user_id'     => $this->faker->numberBetween($min = 1, $max = 50),
+            'slug'        => Str::lower(Str::random(100)),
+            'title'       => $this->faker->sentence($nbWords = 15, $variableNbWords = true),
+            'body'        => $this->faker->sentence($nbWords = 60, $variableNbWords = true),
             'patron_only' => $this->faker->boolean($chanceOfGettingTrue = 10),
-            'created_at' => $this->faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
-            'updated_at' => $this->faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
+            'created_at'  => $this->faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
+            'updated_at'  => $this->faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
         ];
     }
 }

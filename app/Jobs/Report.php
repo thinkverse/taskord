@@ -11,7 +11,10 @@ use Illuminate\Queue\SerializesModels;
 
 class Report implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     protected $title;
     protected $description;
@@ -30,7 +33,7 @@ class Report implements ShouldQueue
                 'PRIVATE-TOKEN' => config('services.gitlab.pat'),
             ],
             'json' => [
-                'title' => $this->title,
+                'title'       => $this->title,
                 'description' => "{$this->description}\n\n<small>Reported from Taskord Stafftools</small>",
             ],
         ]);

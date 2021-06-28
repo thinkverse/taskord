@@ -8,7 +8,7 @@ class MarkAsRead extends Component
 {
     public function markAsRead()
     {
-        if (! auth()->check()) {
+        if (!auth()->check()) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 

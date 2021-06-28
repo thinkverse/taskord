@@ -40,7 +40,7 @@ class QuestionLiked extends Notification implements ShouldQueue
     {
         $user = User::find($this->userId);
 
-        if (! $user->spammy) {
+        if (!$user->spammy) {
             return (new MailMessage())
                 ->subject('@'.$user->username.' liked your question')
                 ->greeting('Hello @'.$notifiable->username.' 👋')
@@ -57,7 +57,7 @@ class QuestionLiked extends Notification implements ShouldQueue
     {
         return [
             'question_id' => $this->question->id,
-            'user_id' => $this->userId,
+            'user_id'     => $this->userId,
         ];
     }
 }

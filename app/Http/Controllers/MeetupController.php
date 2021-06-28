@@ -14,7 +14,7 @@ class MeetupController extends Controller
             ->paginate(12);
 
         return view('meetups.meetups', [
-            'type' => 'meetups.upcoming',
+            'type'    => 'meetups.upcoming',
             'meetups' => $meetups,
         ]);
     }
@@ -26,7 +26,7 @@ class MeetupController extends Controller
             ->paginate(12);
 
         return view('meetups.meetups', [
-            'type' => 'meetups.finished',
+            'type'    => 'meetups.finished',
             'meetups' => $meetups,
         ]);
     }
@@ -38,7 +38,7 @@ class MeetupController extends Controller
             ->get();
 
         return view('meetups.meetups', [
-            'type' => 'meetups.rsvpd',
+            'type'    => 'meetups.rsvpd',
             'meetups' => $meetups,
         ]);
     }

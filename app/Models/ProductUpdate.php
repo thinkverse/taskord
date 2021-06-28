@@ -27,10 +27,10 @@ class ProductUpdate extends Model
         'body',
     ];
     protected $casts = [
-        'user_id' => 'integer',
+        'user_id'    => 'integer',
         'product_id' => 'integer',
-        'title' => 'string',
-        'body' => 'string',
+        'title'      => 'string',
+        'body'       => 'string',
     ];
 
     /**

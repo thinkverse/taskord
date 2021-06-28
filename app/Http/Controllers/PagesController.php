@@ -28,9 +28,9 @@ class PagesController extends Controller
         $milestones = Milestone::count('id');
 
         return view('pages.about', [
-            'tasks' => number_format($tasks),
-            'users' => number_format($users),
-            'questions' => number_format($questions),
+            'tasks'      => number_format($tasks),
+            'users'      => number_format($users),
+            'questions'  => number_format($questions),
             'milestones' => number_format($milestones),
         ]);
     }

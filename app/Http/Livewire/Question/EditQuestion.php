@@ -18,7 +18,7 @@ class EditQuestion extends Component
 
     protected $rules = [
         'title' => ['required', 'min:3', 'max:150'],
-        'body' => ['required', 'min:3', 'max:20000'],
+        'body'  => ['required', 'min:3', 'max:20000'],
     ];
 
     public function mount($question)
@@ -53,8 +53,8 @@ class EditQuestion extends Component
 
         $question = Question::where('id', $this->question->id)->firstOrFail();
 
-        $solvable = ! $this->solvable ? false : true;
-        $patronOnly = ! $this->patronOnly ? false : true;
+        $solvable = !$this->solvable ? false : true;
+        $patronOnly = !$this->patronOnly ? false : true;
 
         if ($question->title !== $this->title) {
             $titleSlug = Str::slug(Str::limit($this->title, 240));

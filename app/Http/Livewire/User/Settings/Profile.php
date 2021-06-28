@@ -69,11 +69,11 @@ class Profile extends Component
         if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'firstname' => ['nullable', 'max:30'],
-                'lastname' => ['nullable', 'max:30'],
-                'bio' => ['nullable', 'max:160'],
-                'location' => ['nullable', 'max:30'],
-                'company' => ['nullable', 'max:30'],
-                'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
+                'lastname'  => ['nullable', 'max:30'],
+                'bio'       => ['nullable', 'max:160'],
+                'location'  => ['nullable', 'max:30'],
+                'company'   => ['nullable', 'max:30'],
+                'avatar'    => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
 
             if ($this->avatar) {
@@ -144,7 +144,7 @@ class Profile extends Component
     public function enableGoal()
     {
         if (auth()->user()->id === $this->user->id) {
-            $this->user->has_goal = ! $this->user->has_goal;
+            $this->user->has_goal = !$this->user->has_goal;
             $this->user->save();
             $this->emit('goalEnabled');
 
@@ -175,7 +175,7 @@ class Profile extends Component
     public function toggleVacationMode()
     {
         if (auth()->user()->id === $this->user->id) {
-            $this->user->vacation_mode = ! $this->user->vacation_mode;
+            $this->user->vacation_mode = !$this->user->vacation_mode;
             $this->user->save();
             $this->emit('toggledVacationMode');
             if ($this->user->vacation_mode) {
@@ -213,12 +213,12 @@ class Profile extends Component
     {
         if (auth()->user()->id === $this->user->id) {
             $this->validate([
-                'website' => ['nullable', 'active_url'],
-                'twitter' => ['nullable', 'alpha_dash', 'max:30'],
-                'twitch' => ['nullable', 'alpha_dash', 'max:200'],
+                'website'  => ['nullable', 'active_url'],
+                'twitter'  => ['nullable', 'alpha_dash', 'max:30'],
+                'twitch'   => ['nullable', 'alpha_dash', 'max:200'],
                 'telegram' => ['nullable', 'alpha_dash', 'max:30'],
-                'github' => ['nullable', 'alpha_dash', 'max:30'],
-                'youtube' => ['nullable', 'alpha_dash', 'max:30'],
+                'github'   => ['nullable', 'alpha_dash', 'max:30'],
+                'youtube'  => ['nullable', 'alpha_dash', 'max:30'],
             ]);
 
             $this->user->website = $this->website;
@@ -240,7 +240,7 @@ class Profile extends Component
     public function onlyFollowingsTasks()
     {
         if (auth()->user()->id === $this->user->id) {
-            $this->user->only_followings_tasks = ! $this->user->only_followings_tasks;
+            $this->user->only_followings_tasks = !$this->user->only_followings_tasks;
             $this->user->save();
             $this->emit('toggledOnlyFollowingsTasks');
             if ($this->user->only_followings_tasks) {
