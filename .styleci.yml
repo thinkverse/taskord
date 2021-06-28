@@ -1,6 +1,8 @@
 version: 8
 preset: laravel
 
+enabled:
+  - binary_operator_spaces
 disabled:
   - concat_without_spaces
 
