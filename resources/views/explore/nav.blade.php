@@ -6,7 +6,7 @@
     @if (feature('explore_makers'))
         <li class="nav-item px-1">
             <a class="nav-link {{ Route::is('explore.makers') ? 'active' : '' }}"
-                href="{{ route('explore.makers') }}">Makers
+                href="{{ route('explore.makers') }}">Featured Makers
                 <x:labels.beta />
             </a>
         </li>

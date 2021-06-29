@@ -9,16 +9,16 @@
                         <span class="small me-2 text-secondary">{{ $loop->index + 1 }}</span>
                         <x:shared.user-label-big :user="$user" />
                     </div>
-                    <div>
-                        <livewire:notification.follow :user="$user" />
+                    <div class="d-flex">
                         @if ($user->sponsor)
-                            <a class="btn btn-sm btn-outline-primary rounded-pill mt-2" href="{{ $user->sponsor }}"
+                            <a class="btn btn-sm btn-outline-primary rounded-pill me-2" href="{{ $user->sponsor }}"
                                 target="_blank" rel="noreferrer">
                                 <img loading=lazy class="rounded sponsor-icon me-1" rel="preload"
                                     src="https://favicon.splitbee.io/?url={{ parse_url($user->sponsor)['host'] }}" />
                                 <span>Sponsor <span class="fw-bold">{{ '@' . $user->username }}</span></span>
                             </a>
                         @endif
+                        <livewire:notification.follow :user="$user" />
                     </div>
                 </li>
             @endforeach
