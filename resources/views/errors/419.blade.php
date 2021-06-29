@@ -64,7 +64,7 @@
         <img loading=lazy src="https://ik.imagekit.io/taskordimg/pride_vocaCTHn-.svg" />
         <h1>Page Expired</h1>
         <p class="info">
-            <a href="{{ route('contact') }}">Taskord Support</a> —
+            <a href="https://betteruptime.com/report/NQd7RQWtUwZQvQX5TqxYMCeH">Contact</a> —
             <a href="https://status.taskord.com">Taskord Status</a> —
             <a href="https://twitter.com/taskord">@taskord</a>
         </p>

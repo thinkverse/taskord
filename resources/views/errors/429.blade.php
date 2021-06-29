@@ -66,7 +66,7 @@
         <p>You have triggered an abuse detection mechanism.</p>
         <p>Please wait a few minutes before you try again!</p>
         <p class="info">
-            <a href="{{ route('contact') }}">Taskord Support</a> —
+            <a href="https://betteruptime.com/report/NQd7RQWtUwZQvQX5TqxYMCeH">Contact</a> —
             <a href="https://status.taskord.com">Taskord Status</a> —
             <a href="https://twitter.com/taskord">@taskord</a>
         </p>

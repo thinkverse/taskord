@@ -65,7 +65,7 @@
         <h1>Taskord is down!</h1>
         <p>We're doing our best to get Taskord back to normal.</p>
         <p class="info">
-            <a href="{{ route('contact') }}">Taskord Support</a> —
+            <a href="https://betteruptime.com/report/NQd7RQWtUwZQvQX5TqxYMCeH">Contact</a> —
             <a href="https://status.taskord.com">Taskord Status</a> —
             <a href="https://twitter.com/taskord">@taskord</a>
         </p>

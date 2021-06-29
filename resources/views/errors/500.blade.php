@@ -66,7 +66,7 @@
         <p>We track these errors automatically, but if the problem persists feel free to contact us. In the meantime,
             try refreshing.</p>
         <p class="info">
-            <a href="{{ route('contact') }}">Taskord Support</a> —
+            <a href="https://betteruptime.com/report/NQd7RQWtUwZQvQX5TqxYMCeH">Contact</a> —
             <a href="https://status.taskord.com">Taskord Status</a> —
             <a href="https://twitter.com/taskord">@taskord</a>
         </p>
