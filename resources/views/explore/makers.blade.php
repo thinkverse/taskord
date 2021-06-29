@@ -10,7 +10,7 @@
     @include('explore.nav')
     <div class="container-md">
         <div class="row justify-content-center">
-            <div class="col-lg-8 pt-4">
+            <div class="col-lg-9 pt-4">
                 <h5>Featured makers</h5>
                 <div class="card">
                     <div class="card-body">
