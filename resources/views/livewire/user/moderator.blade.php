@@ -129,7 +129,7 @@
                 </div>
                 <div class="mt-3">
                     <button wire:loading.attr="disabled" wire:click="featureUser"
-                        class="btn btn-sm btn-outline-success rounded-pill fw-bold">
+                        class="btn btn-sm {{ $user->featured_at ? 'btn-outline-warning' : 'btn-outline-success' }} rounded-pill fw-bold">
                         <x-heroicon-o-fire class="heroicon heroicon-15px" />
                         {{ $user->featured_at ? 'Unfeature' : 'Feature' }} this user
                     </button>
