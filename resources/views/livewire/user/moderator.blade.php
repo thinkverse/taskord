@@ -133,6 +133,11 @@
                         <x-heroicon-o-fire class="heroicon heroicon-15px" />
                         {{ $user->featured_at ? 'Unfeature' : 'Feature' }} this user
                     </button>
+                    @if ($user->featured_at)
+                        <div class="small mt-2 fw-bold text-secondary">
+                            {{ carbon($user->featured_at)->format('M d, Y g:i A') }}
+                        </div>
+                    @endif
                 </div>
                 <hr>
                 <div class="text-secondary h5 mb-3">
