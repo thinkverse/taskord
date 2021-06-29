@@ -127,19 +127,20 @@
                         wire:model="isVerified">
                     <label for="verifyUser" class="ms-1 text-success fw-bold">Verify this user</label>
                 </div>
-                <div class="text-info h5 mt-3">
-                    <x-heroicon-o-pencil-alt class="heroicon heroicon-20px" />
-                    {{ __('Notes') }}
-                    <form wire:submit.prevent="updateUserStaffNotes">
-                        <textarea class="form-control mt-3" rows="3" wire:model.lazy="staffNotes"
-                            placeholder="Staff notes"></textarea>
-                        <button wire:loading.attr="disabled" wire:click="updateUserStaffNotes" type="button"
-                            class="btn btn-sm btn-outline-primary rounded-pill mt-2">
-                            <x-heroicon-o-save class="heroicon heroicon-15px" />
-                            Save Notes
-                        </button>
-                    </form>
+                <hr>
+                <div class="text-secondary h5 mb-3">
+                    <x-heroicon-o-user class="heroicon heroicon-20px" />
+                    Notes
                 </div>
+                <form wire:submit.prevent="updateUserStaffNotes">
+                    <textarea class="form-control mt-3" rows="3" wire:model.lazy="staffNotes"
+                        placeholder="Staff notes"></textarea>
+                    <button wire:loading.attr="disabled" wire:click="updateUserStaffNotes" type="button"
+                        class="btn btn-sm btn-outline-primary rounded-pill mt-2">
+                        <x-heroicon-o-save class="heroicon heroicon-15px" />
+                        Save Notes
+                    </button>
+                </form>
                 @if (!$user->is_staff)
                     <hr>
                     <div class="text-danger h5 mb-3">
