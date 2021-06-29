@@ -131,10 +131,9 @@
                     <x-heroicon-o-pencil-alt class="heroicon heroicon-20px" />
                     {{ __('Notes') }}
                     <form wire:submit.prevent="updateUserStaffNotes">
-                        <textarea name="staff_notes" id="staff_notes" class="form-control mt-3" rows="3"
-                            wire:model="staffNotes" placeholder="Important information about this user..">
-</textarea>
-                        <button wire:click="updateUserStaffNotes" type="button"
+                        <textarea class="form-control mt-3" rows="3" wire:model.lazy="staffNotes"
+                            placeholder="Staff notes"></textarea>
+                        <button wire:loading.attr="disabled" wire:click="updateUserStaffNotes" type="button"
                             class="btn btn-sm btn-outline-primary rounded-pill mt-2">
                             <x-heroicon-o-save class="heroicon heroicon-15px" />
                             Save Notes
