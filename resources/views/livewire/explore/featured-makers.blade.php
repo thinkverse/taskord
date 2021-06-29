@@ -1,5 +1,7 @@
 <div wire:init="loadFeaturedMakers">
     @foreach ($users as $user)
-        <li>{{ $user->username }} {{ $user->featured_at }}</li>
+        <div>
+            <x:shared.user-label-big :user="$user" />
+        </div>
     @endforeach
 </div>
