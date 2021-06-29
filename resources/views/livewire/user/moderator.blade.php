@@ -127,6 +127,13 @@
                         wire:model="isVerified">
                     <label for="verifyUser" class="ms-1 text-success fw-bold">Verify this user</label>
                 </div>
+                <div class="mt-3">
+                    <button wire:loading.attr="disabled" wire:click="featureUser"
+                        class="btn btn-sm btn-outline-success rounded-pill fw-bold">
+                        <x-heroicon-o-fire class="heroicon heroicon-15px" />
+                        {{ $user->featured_at ? 'Unfeature' : 'Feature' }} this user
+                    </button>
+                </div>
                 <hr>
                 <div class="text-secondary h5 mb-3">
                     <x-heroicon-o-user class="heroicon heroicon-20px" />
