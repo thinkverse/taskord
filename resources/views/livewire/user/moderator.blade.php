@@ -135,6 +135,7 @@
                     </button>
                     @if ($user->featured_at)
                         <div class="small mt-2 fw-bold text-secondary">
+                            <x-heroicon-o-clock class="heroicon heroicon-15px text-secondary" />
                             {{ carbon($user->featured_at)->format('M d, Y g:i A') }}
                         </div>
                     @endif
