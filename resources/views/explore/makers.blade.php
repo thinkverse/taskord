@@ -13,9 +13,7 @@
             <div class="col-lg-9 pt-4">
                 <h5>Featured makers</h5>
                 <div class="card">
-                    <div class="card-body">
-                        <livewire:explore.featured-makers />
-                    </div>
+                    <livewire:explore.featured-makers />
                 </div>
             </div>
             <x-bottom-footer />

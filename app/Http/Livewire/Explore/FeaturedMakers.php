@@ -21,7 +21,6 @@ class FeaturedMakers extends Component
             ->where([
                 ['spammy', false],
                 ['is_private', false],
-                ['is_staff', false],
             ])
             ->where('featured_at', '<>', null)
             ->latest('featured_at')
