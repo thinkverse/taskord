@@ -18,7 +18,9 @@
                                 <span>Sponsor <span class="fw-bold">{{ '@' . $user->username }}</span></span>
                             </a>
                         @endif
-                        <livewire:notification.follow :user="$user" />
+                        @auth
+                            <livewire:notification.follow :user="$user" />
+                        @endauth
                     </div>
                 </li>
             @endforeach
