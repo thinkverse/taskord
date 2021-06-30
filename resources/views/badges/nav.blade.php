@@ -3,7 +3,7 @@
         Badges
     </h5>
     @auth
-        <a type="button" class="mb-2 btn btn-outline-success rounded-pill" href="{{ route('products.new') }}">
+        <a type="button" class="mb-2 btn btn-outline-success rounded-pill" href="{{ route('badges.new') }}">
             <x-heroicon-o-plus class="heroicon" />
             Add new badge
         </a>

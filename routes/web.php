@@ -223,6 +223,9 @@ Route::group([
     Route::view('', 'badges.badges')
         ->middleware('feature:badges')
         ->name('badges');
+    Route::view('new', 'badges.new')
+        ->middleware(['auth', 'feature:badges'])
+        ->name('new');
 });
 
 // Search
