@@ -215,6 +215,16 @@ Route::group([
         ->name('milestone');
 });
 
+// Badges
+Route::group([
+    'prefix' => 'badges',
+    'as'     => 'badges.',
+], function () {
+    Route::view('', 'badges.badges')
+        ->middleware('feature:badges')
+        ->name('badges');
+});
+
 // Search
 Route::group([
     'prefix' => 'search',
