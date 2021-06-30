@@ -11,12 +11,12 @@
             </div>
         @endif
         @foreach ($badges as $badge)
-            @livewire('badge.single-badge', [
+            @livewire('badges.single-badge', [
             'badge' => $badge,
             ], key($badge->id))
         @endforeach
         @if ($badges->hasMorePages())
-            <livewire:question.load-more :page="$page" :perPage="$perPage" />
+            <livewire:badges.load-more :page="$page" :perPage="$perPage" />
         @endif
     @endif
 </div>

@@ -10,7 +10,7 @@ class SingleBadge extends Component
 {
     public ProfileBadge $badge;
 
-    public function mount($question)
+    public function mount($badge)
     {
         $this->badge = $badge;
     }
