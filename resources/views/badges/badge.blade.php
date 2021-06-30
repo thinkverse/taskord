@@ -2,7 +2,7 @@
 
 @section('pageTitle', $badge->title . ' ·')
 @section('title', 'Badge | ' . $badge->title . ' ·')
-@section('description', $title->title)
+@section('description', $badge->title)
 @section('image', '')
 @section('url', url()->current())
 
