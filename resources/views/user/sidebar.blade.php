@@ -17,6 +17,12 @@
                 ])
             @endif
         @endauth
+        <div class="text-uppercase fw-bold text-secondary pb-2">
+            Badges
+        </div>
+        <div class="card mb-4">
+            <livewire:user.badges :user="$user" />
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <div class="text-uppercase fw-bold text-secondary pb-2">
             Activity Graph
