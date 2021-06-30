@@ -59,12 +59,6 @@ class FeatureSeeder extends Seeder
         ]);
 
         Feature::factory()->create([
-            'name'        => 'Explore - Makers',
-            'slug'        => 'explore_makers',
-            'description' => 'Makers explore page that show famous makers',
-        ]);
-
-        Feature::factory()->create([
             'name'        => 'Help menu',
             'slug'        => 'help_menu',
             'description' => 'Help menu in navbar dropdown',
