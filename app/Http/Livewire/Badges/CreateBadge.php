@@ -32,7 +32,11 @@ class CreateBadge extends Component
             'icon' => ['required', 'active_url'],
         ]);
 
+        $titleSlug = Str::slug(Str::limit($this->title, 240));
+        $randomForSlug = Str::lower(Str::random(10));
+
         $badge = auth()->user()->profileBadges()->create([
+            'slug' => $titleSlug.'-'.$randomForSlug,
             'title' => trim($this->title),
             'color' => trim($this->color),
             'icon' => trim($this->icon),
@@ -41,7 +45,7 @@ class CreateBadge extends Component
         $this->emit('refreshBadges');
         loggy(request(), 'Badge', auth()->user(), "Created a new badge | Badge ID: {$badge->id}");
 
-        return redirect()->route('badges.badges', ['slug' => $product->slug]);
+        return redirect()->route('badges.badges', ['slug' => $badge->slug]);
     }
 
     public function render(): View
