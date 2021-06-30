@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Badge;
+use App\Models\ProfileBadge;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class BadgeFactory extends Factory
+class ProfileBadgeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Badge::class;
+    protected $model = ProfileBadge::class;
 
     /**
      * Define the model's default state.
