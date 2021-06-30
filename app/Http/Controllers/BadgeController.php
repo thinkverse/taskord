@@ -17,4 +17,15 @@ class BadgeController extends Controller
             'badge' => $badge,
         ]);
     }
+
+    public function edit($slug): View
+    {
+        $badge = ProfileBadge::where('slug', $slug)
+            ->with(['user'])
+            ->firstOrFail();
+
+        return view('badges.edit', [
+            'badge' => $badge,
+        ]);
+    }
 }

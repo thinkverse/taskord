@@ -33,7 +33,7 @@
                     </button>
                 @endif
                 @can('staff.ops')
-                    <a href="" class="ms-2">
+                    <a href="{{ route('badges.edit', ['slug' => $badge->slug]) }}" class="ms-2">
                         <x-heroicon-o-pencil class="heroicon" />
                     </a>
                     <a onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteBadge"

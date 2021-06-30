@@ -227,6 +227,9 @@ Route::group([
     Route::view('new', 'badges.new')
         ->middleware('staff_mode')
         ->name('new');
+    Route::get('{slug}/edit', [BadgeController::class, 'edit'])
+        ->middleware('staff_mode')
+        ->name('edit');
     Route::get('{slug}', [BadgeController::class, 'badge'])
         ->middleware('feature:badges')
         ->name('badge');
