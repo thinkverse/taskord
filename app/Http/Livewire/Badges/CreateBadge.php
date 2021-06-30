@@ -21,7 +21,7 @@ class CreateBadge extends Component
 
         $this->validate([
             'title' => ['required', 'min:3', 'max:30'],
-            'color' => ['required', 'max:160'],
+            'color' => ['required', 'max:10'],
             'icon' => ['required', 'active_url'],
         ]);
 
@@ -31,7 +31,7 @@ class CreateBadge extends Component
         $badge = auth()->user()->profileBadges()->create([
             'slug' => $titleSlug.'-'.$randomForSlug,
             'title' => trim($this->title),
-            'color' => trim($this->color),
+            'color' => '#'.trim($this->color),
             'icon' => trim($this->icon),
         ]);
 
