@@ -8,7 +8,7 @@
             <div class="col-lg-7">
                 @auth
                     @if (!auth()->user()->spammy)
-                        <livewire:badges.create-badge />
+                        <livewire:products.create-product />
                     @else
                         <div class="text-center">
                             <div class="alert alert-danger" role="alert">
