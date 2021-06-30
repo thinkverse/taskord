@@ -8,8 +8,9 @@
                 </div>
             </a>
             <div class="ms-3">
-                <a class="h5 text-dark"
-                    href="{{ route('badges.badge', ['slug' => $badge->slug]) }}">{{ $badge->title }}</a>
+                <a class="h5 text-dark" href="{{ route('badges.badge', ['slug' => $badge->slug]) }}">
+                    {{ $badge->title }}
+                </a>
                 <div class="text-secondary small mb-2">Created by {{ '@' . $badge->user->username }}</div>
                 <div class="text-secondary">
                     <span class="fw-bold">{{ $badge->subscribersCount() }}</span> people have this badge
@@ -32,11 +33,13 @@
                     </button>
                 @endif
                 @can('staff.ops')
-                    <button onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteBadge"
-                        wire:loading.attr="disabled" class="ms-1 btn btn-sm btn-outline-danger rounded-pill">
-                        <x-heroicon-o-trash class="heroicon heroicon-15px" />
-                        Delete
-                    </button>
+                    <a href="" class="ms-2">
+                        <x-heroicon-o-pencil class="heroicon" />
+                    </a>
+                    <a onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteBadge"
+                        wire:loading.attr="disabled" class="ms-1 cursor-pointer text-danger">
+                        <x-heroicon-o-trash class="heroicon" />
+                    </a>
                 @endcan
             @else
                 <a href="/login" class="btn btn-sm btn-outline-primary rounded-pill">
