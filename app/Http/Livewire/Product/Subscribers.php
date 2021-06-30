@@ -15,14 +15,14 @@ class Subscribers extends Component
     public $readyToLoad = false;
     protected $paginationTheme = 'bootstrap';
 
-    public function loadSubscribers()
-    {
-        $this->readyToLoad = true;
-    }
-
     public function mount($product)
     {
         $this->product = $product;
+    }
+
+    public function loadSubscribers()
+    {
+        $this->readyToLoad = true;
     }
 
     public function render(): View

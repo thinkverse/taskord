@@ -14,15 +14,13 @@
                 @livewire('badges.single-badge', [
                 'badge' => $badge,
                 ], key($badge->id))
+                <div class="h5 mt-4 mb-3">
+                    People with {{ $badge->title }} badge
+                </div>
                 <div class="card">
-                    <div class="card-body">
-                        <div class="h5">
-                            People with {{ $badge->title }} badge
-                        </div>
-                        @livewire('badges.subscribers', [
-                        'badge' => $badge,
-                        ], key($badge->id))
-                    </div>
+                    @livewire('badges.subscribers', [
+                    'badge' => $badge,
+                    ], key($badge->id))
                 </div>
             </div>
         </div>

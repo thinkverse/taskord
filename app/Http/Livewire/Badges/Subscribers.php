@@ -3,11 +3,34 @@
 namespace App\Http\Livewire\Badges;
 
 use Livewire\Component;
+use App\Models\ProfileBadge;
+use Illuminate\View\View;
+use Livewire\WithPagination;
 
 class Subscribers extends Component
 {
-    public function render()
+    use WithPagination;
+
+    public ProfileBadge $badge;
+    public $readyToLoad = false;
+    protected $paginationTheme = 'bootstrap';
+
+    public function mount($badge)
     {
-        return view('livewire.badges.subscribers');
+        $this->badge = $badge;
+    }
+
+    public function loadSubscribers()
+    {
+        $this->readyToLoad = true;
+    }
+
+    public function render(): View
+    {
+        $subscribers = $this->badge->subscribers()->paginate(10);
+
+        return view('livewire.badges.subscribers', [
+            'subscribers' => $this->readyToLoad ? $subscribers : [],
+        ]);
     }
 }
