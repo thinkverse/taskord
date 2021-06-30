@@ -8,7 +8,7 @@ use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Rennokki\QueryCache\Traits\QueryCacheable;
 
-class Badge extends Model
+class ProfileBadge extends Model
 {
     use HasFactory;
     use QueryCacheable;
