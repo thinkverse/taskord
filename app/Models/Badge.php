@@ -16,4 +16,10 @@ class Badge extends Model
     use QueryCacheable;
     use SearchableTrait;
     use CanBeSubscribed;
+
+    public $cacheFor = 3600;
+    public $cacheTags = ['badges'];
+    public $cachePrefix = 'badges_';
+
+    protected static $flushCacheOnUpdate = true;
 }
