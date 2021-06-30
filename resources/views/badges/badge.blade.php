@@ -10,11 +10,9 @@
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                @include('badges.nav')
-                @livewire('badges.badges', [
-                'page' => 1,
-                'perPage' => 10
-                ])
+                @livewire('badges.single-badge', [
+                'badge' => $badge,
+                ], key($badge->id))
             </div>
             <div class="col-sm">
                 <div class="card mb-4">
