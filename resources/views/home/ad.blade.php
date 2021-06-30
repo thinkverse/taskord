@@ -1,14 +1,14 @@
-@if (false)
+@if (true)
     <div class="card border-success mb-4">
         <div class="card-body">
             <h5>
-                <a class="text-dark" href="{{ route('milestones.opened') }}">
-                    <x-heroicon-o-truck class="heroicon heroicon-20px" />
-                    Milestone public beta
+                <a class="text-dark" href="{{ route('badges.badges') }}">
+                    <x-heroicon-o-tag class="heroicon heroicon-20px" />
+                    Profile badges public beta
                 </a>
             </h5>
             <p class="mb-0">
-                <a href="{{ route('milestones.opened') }}">Milestones</a> are now available public beta 🎉
+                <a href="{{ route('badges.badges') }}">Badges</a> are now available public beta 🎉
             </p>
         </div>
     </div>
