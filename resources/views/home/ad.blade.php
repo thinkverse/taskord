@@ -1,14 +1,10 @@
 @if (true)
-    <div class="text-uppercase fw-bold text-secondary pb-2 d-flex align-items-center">
-        <span>Announcement</span>
-        <img src="https://ik.imagekit.io/taskordimg/gif/party-parrot.gif" class="avatar-15 ms-1" />
-    </div>
     <div class="card border-success mb-4">
         <div class="card-body">
             <h5>
-                <a class="text-dark" href="{{ route('badges.badges') }}">
-                    <x-heroicon-o-tag class="heroicon heroicon-20px" />
-                    Profile badges public beta
+                <a class="text-dark d-flex align-items-center" href="{{ route('badges.badges') }}">
+                    <img src="https://ik.imagekit.io/taskordimg/gif/party-parrot.gif" class="me-2" height="17" />
+                    <span>Profile badges public beta</span>
                 </a>
             </h5>
             <p class="mb-0">
