@@ -10,7 +10,10 @@
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                @include('badges.nav')
+                <h5 class="mb-3 d-flex align-items-center">
+                    <span class="me-2">Explore Badges</span>
+                    <x:labels.beta />
+                </h5>
                 @livewire('badges.badges', [
                 'page' => 1,
                 'perPage' => 10
@@ -20,6 +23,16 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         WIP
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        @can('staff.ops')
+                            <a type="button" class="btn btn-outline-success rounded-pill" href="{{ route('badges.new') }}">
+                                <x-heroicon-o-plus class="heroicon" />
+                                Add new badge
+                            </a>
+                        @endcan
                     </div>
                 </div>
                 <x-footer />

@@ -66,7 +66,7 @@
                                 <a class="dropdown-item text-dark" href="{{ route('badges.badges') }}">
                                     <x-heroicon-o-tag class="heroicon heroicon-18px text-secondary" />
                                     Badges
-                                    <x:labels.staff-ship />
+                                    <x:labels.beta />
                                 </a>
                             </li>
                         @endif
@@ -188,7 +188,7 @@
                                         </span>
                                     @else
                                         <span class="badge rounded-pill score text-white
-                                                                    @if (auth()->user()->daily_goal_reached >= auth()->user()->daily_goal) bg-success
+                                                                        @if (auth()->user()->daily_goal_reached >= auth()->user()->daily_goal) bg-success
                                         @else
                                             bg-info @endif">
                                             <x-heroicon-s-check-circle class="heroicon heroicon-15px" />
@@ -294,7 +294,7 @@
                             </a>
                             <a class="dropdown-item text-dark" href="{{ route('logout') }}" data-prefetch="false"
                                 onclick="event.preventDefault();
-                                                                        document.getElementById('logout-form').submit();">
+                                                                            document.getElementById('logout-form').submit();">
                                 <x-heroicon-o-logout class="heroicon heroicon-18px text-secondary" />
                                 Logout
                             </a>
