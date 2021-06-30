@@ -7,6 +7,7 @@ use Livewire\Component;
 class CreateBadge extends Component
 {
     public $title;
+    public $icon;
 
     public function render()
     {
