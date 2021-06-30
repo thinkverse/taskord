@@ -18,8 +18,8 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label fw-bold">Color HEX</label>
-                    <input type="text" class="form-control @error('color') is-invalid @enderror"
-                        placeholder="Digital nomad" wire:model.defer="color">
+                    <input type="text" class="form-control @error('color') is-invalid @enderror" placeholder="#6a63ec"
+                        wire:model.defer="color">
                     @error('color')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -29,7 +29,7 @@
                 <div class="mb-3">
                     <label class="form-label fw-bold">Icon URL</label>
                     <input type="text" class="form-control @error('icon') is-invalid @enderror"
-                        placeholder="Digital nomad" wire:model.defer="icon">
+                        placeholder="https://example.com/icon.svg" wire:model.defer="icon">
                     @error('icon')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
