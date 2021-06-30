@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Badge;
+use App\Models\ProfileBadge;
 use Illuminate\Database\Seeder;
 
-class BadgeSeeder extends Seeder
+class ProfileBadgeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class BadgeSeeder extends Seeder
      */
     public function run()
     {
-        Badge::factory()->count(100)->create();
+        ProfileBadge::factory()->count(100)->create();
     }
 }
