@@ -28,7 +28,7 @@ class SingleBadge extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('like/subscribe', $this->badge)) {
+        if (Gate::denies('create', $this->badge)) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
