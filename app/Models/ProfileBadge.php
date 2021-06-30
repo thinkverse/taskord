@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProfileBadge extends Model
 {
@@ -35,4 +36,12 @@ class ProfileBadge extends Model
         'icon' => 'string',
         'color' => 'string',
     ];
+
+    /**
+     * @return BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

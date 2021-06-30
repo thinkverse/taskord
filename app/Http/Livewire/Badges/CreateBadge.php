@@ -32,7 +32,7 @@ class CreateBadge extends Component
             'icon' => ['required', 'active_url'],
         ]);
 
-        $badge = auth()->user()->badges()->create([
+        $badge = auth()->user()->profileBadges()->create([
             'title' => trim($this->title),
             'color' => trim($this->color),
             'icon' => trim($this->icon),
