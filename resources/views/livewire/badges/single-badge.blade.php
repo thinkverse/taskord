@@ -1,6 +1,6 @@
 <div class="card mb-2">
     <div class="card-body d-flex align-items-center">
-        <span class="card d-inline-block">
+        <span class="card d-inline-block" style="background: {{ $badge->color }}">
             <div class="p-4">
                 <img class="avatar-40" src="{{ $badge->icon }}" />
             </div>
