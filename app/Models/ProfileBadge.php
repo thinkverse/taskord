@@ -20,4 +20,19 @@ class ProfileBadge extends Model
     public $cachePrefix = 'badges_';
 
     protected static $flushCacheOnUpdate = true;
+
+    protected $fillable = [
+        'user_id',
+        'title',
+        'slug',
+        'icon',
+        'color',
+    ];
+    protected $casts = [
+        'user_id' => 'integer',
+        'title' => 'string',
+        'slug' => 'string',
+        'icon' => 'string',
+        'color' => 'string',
+    ];
 }
