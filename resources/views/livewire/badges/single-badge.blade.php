@@ -7,7 +7,7 @@
                 </div>
             </span>
             <div class="ms-3">
-                <div class="h5">{{ $badge->title }}</div>
+                <a class="h5" href="{{ route('badges.badge', ['slug' => $badge->slug]) }}">{{ $badge->title }}</a>
                 <div class="text-secondary small mb-2">Created by {{ '@' . $badge->user->username }}</div>
                 <div class="text-secondary">
                     <span class="fw-bold">{{ $badge->subscribersCount() }}</span> people have this badge

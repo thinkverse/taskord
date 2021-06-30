@@ -15,6 +15,7 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebhookController;
+use App\Http\Controllers\BadgeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -226,6 +227,9 @@ Route::group([
     Route::view('new', 'badges.new')
         ->middleware(['auth', 'feature:badges'])
         ->name('new');
+    Route::get('{slug}', [BadgeController::class, 'badge'])
+        ->middleware('feature:badges')
+        ->name('badge');
 });
 
 // Search
