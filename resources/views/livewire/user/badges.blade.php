@@ -12,11 +12,12 @@
         @else
             <div class="card-body">
                 @foreach ($badges as $badge)
-                    <span class="border py-1 px-3 mb-2 mr-2 rounded-pill d-inline-flex align-items-center"
+                    <a class="border py-1 px-3 mb-2 mr-2 rounded-pill d-inline-flex align-items-center"
+                        href="{{ route('badges.badge', ['slug' => $badge->slug]) }}"
                         style="border-color: {{ $badge->color }} !important; color: {{ $badge->color }}">
-                        <img src="{{ $badge->icon }}" class="avatar-15 me-1" />
+                        <img src="{{ $badge->icon }}" class="avatar-15 me-2" />
                         <span>{{ $badge->title }}</span>
-                    </span>
+                    </a>
                 @endforeach
             </div>
         @endif
