@@ -15,4 +15,5 @@ class Badge extends Model
     use HasFactory;
     use QueryCacheable;
     use SearchableTrait;
+    use CanBeSubscribed;
 }
