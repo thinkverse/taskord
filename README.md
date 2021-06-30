@@ -41,7 +41,7 @@
         <img src="https://img.shields.io/discord/742712073670230026.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2" alt="Discord">
     </a>
     <a href="https://twitter.com/taskord">
-        <img src="https://img.shields.io/twitter/follow/taskord?label=Follow&style=social" alt="Taskord Twitter">
+        <img src="https://img.shields.io/twitter/follow/taskord?label=taskord&style=flat&logo=twitter" alt="Taskord Twitter">
     </a>
 </div>
 <div align="center">
