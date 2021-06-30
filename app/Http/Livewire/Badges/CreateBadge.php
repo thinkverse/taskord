@@ -8,6 +8,7 @@ class CreateBadge extends Component
 {
     public $title;
     public $icon;
+    public $color;
 
     public function render()
     {

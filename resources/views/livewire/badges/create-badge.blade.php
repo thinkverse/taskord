@@ -17,6 +17,16 @@
                     @enderror
                 </div>
                 <div class="mb-3">
+                    <label class="form-label fw-bold">Color HEX</label>
+                    <input type="text" class="form-control @error('color') is-invalid @enderror"
+                        placeholder="Digital nomad" wire:model.defer="color">
+                    @error('color')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="mb-3">
                     <label class="form-label fw-bold">Icon URL</label>
                     <input type="text" class="form-control @error('icon') is-invalid @enderror"
                         placeholder="Digital nomad" wire:model.defer="icon">
