@@ -3,10 +3,11 @@
 namespace App\Http\Livewire\Badges;
 
 use Livewire\Component;
+use Illuminate\View\View;
 
 class SingleBadge extends Component
 {
-    public function render()
+    public function render(): View
     {
         return view('livewire.badges.single-badge');
     }
