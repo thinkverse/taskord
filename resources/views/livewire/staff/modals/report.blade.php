@@ -28,7 +28,7 @@
                     data-bs-dismiss="modal">Close</button>
                 <button class="btn btn-outline-primary rounded-pill" wire:loading.attr="disabled" wire:click="report"
                     data-bs-dismiss="modal">
-                    Report
+                    Create Issue
                 </button>
             </div>
         </div>
