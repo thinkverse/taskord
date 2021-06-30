@@ -1,4 +1,8 @@
 @if (true)
+    <div class="text-uppercase fw-bold text-secondary pb-2 d-flex align-items-center">
+        <span>Announcement</span>
+        <img src="https://ik.imagekit.io/taskordimg/gif/party-parrot.gif" class="avatar-15 ms-1" />
+    </div>
     <div class="card border-success mb-4">
         <div class="card-body">
             <h5>

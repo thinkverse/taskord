@@ -31,6 +31,7 @@
                 <livewire:home.tasks :page="1" />
             </div>
             <div class="col-sm">
+                @include('home.ad')
                 @auth
                     <livewire:home.onboarding />
                     <div class="h5 text-secondary pb-2">
@@ -109,7 +110,6 @@
                         </span>
                     </div>
                 </div>
-                @include('home.ad')
                 <livewire:home.suggestions :user="auth()->user()" :wire:key="$auth()->id()" />
             @endauth
             <livewire:home.recently-joined />
