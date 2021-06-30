@@ -45,6 +45,19 @@ class SingleBadge extends Component
         return loggy(request(), 'Badge', auth()->user(), "Toggled badge add | Badge ID: {$this->badge->id}");
     }
 
+    public function deleteBadge()
+    {
+        if (Gate::denies('staff.ops')) {
+            return toast($this, 'error', config('taskord.toast.deny'));
+        }
+
+        loggy(request(), 'Badge', auth()->user(), "Deleted a badge | Badge ID: {$this->badge->id}");
+        $this->badge->delete();
+        $this->emit('refreshBadges');
+
+        return redirect()->route('badges.badges');
+    }
+
     public function render(): View
     {
         return view('livewire.badges.single-badge');

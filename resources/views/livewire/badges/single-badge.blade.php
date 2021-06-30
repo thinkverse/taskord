@@ -14,25 +14,34 @@
                 </div>
             </div>
         </div>
-        @auth
-            @if ($badge->isSubscribedBy(auth()->user()))
-                <button wire:click="toggleAddBadge" wire:loading.attr="disabled"
-                    class="btn btn-sm btn-outline-danger rounded-pill">
-                    <x-heroicon-o-minus class="heroicon heroicon-15px" />
-                    Remove Badge
-                </button>
+        <div>
+            @auth
+                @if ($badge->isSubscribedBy(auth()->user()))
+                    <button wire:click="toggleAddBadge" wire:loading.attr="disabled"
+                        class="btn btn-sm btn-outline-danger rounded-pill">
+                        <x-heroicon-o-minus class="heroicon heroicon-15px" />
+                        Remove Badge
+                    </button>
+                @else
+                    <button wire:click="toggleAddBadge" wire:loading.attr="disabled"
+                        class="btn btn-sm btn-outline-primary rounded-pill">
+                        <x-heroicon-o-plus class="heroicon heroicon-15px" />
+                        Add Badge
+                    </button>
+                @endif
+                @can('staff.ops')
+                    <button wire:click="deleteBadge" wire:loading.attr="disabled"
+                        class="btn btn-sm btn-outline-danger rounded-pill">
+                        <x-heroicon-o-trash class="heroicon heroicon-15px" />
+                        Delete
+                    </button>
+                @endcan
             @else
-                <button wire:click="toggleAddBadge" wire:loading.attr="disabled"
-                    class="btn btn-sm btn-outline-primary rounded-pill">
+                <a href="/login" class="btn btn-sm btn-outline-primary rounded-pill">
                     <x-heroicon-o-plus class="heroicon heroicon-15px" />
                     Add Badge
-                </button>
-            @endif
-        @else
-            <a href="/login" class="btn btn-sm btn-outline-primary rounded-pill">
-                <x-heroicon-o-plus class="heroicon heroicon-15px" />
-                Add Badge
-            </a>
-        @endauth
+                </a>
+            @endauth
+        </div>
     </div>
 </div>
