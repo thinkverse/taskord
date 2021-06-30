@@ -225,7 +225,7 @@ Route::group([
         ->middleware('feature:badges')
         ->name('badges');
     Route::view('new', 'badges.new')
-        ->middleware(['auth', 'feature:badges'])
+        ->middleware('staff_mode')
         ->name('new');
     Route::get('{slug}', [BadgeController::class, 'badge'])
         ->middleware('feature:badges')

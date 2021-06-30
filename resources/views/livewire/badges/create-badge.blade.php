@@ -1,6 +1,6 @@
 <div>
     <div class="h5 mb-3 text-secondary d-flex align-content-center">
-        <x-heroicon-o-cube class="heroicon heroicon-20px" />
+        <x-heroicon-o-tag class="heroicon heroicon-20px" />
         <span class="ms-1">Create new badge</span>
     </div>
     <div class="card">
