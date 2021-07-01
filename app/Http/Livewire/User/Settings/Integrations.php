@@ -24,9 +24,9 @@ class Integrations extends Component
         'refreshIntegrations' => 'render',
     ];
 
-    public function mount($user)
+    public function mount()
     {
-        $this->user = $user;
+        $this->user = auth()->user();
     }
 
     public function submit()
