@@ -38,33 +38,19 @@ it('can edit profile (updateProfile) settings', function ($status) {
 it('can edit profile (resetAvatar) settings', function ($status) {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Profile::class, ['user' => $newUser])
-            ->call('resetAvatar')
-            ->assertEmitted('avatarResetted');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Profile::class, ['user' => $newUser])
         ->call('resetAvatar')
-        ->assertNotEmitted('avatarResetted');
+        ->assertEmitted('avatarResetted');
 });
 
 it('can edit profile (useGravatar) settings', function ($status) {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Profile::class, ['user' => $newUser])
-            ->call('useGravatar')
-            ->assertEmitted('gravatarUsed');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Profile::class, ['user' => $newUser])
         ->call('useGravatar')
-        ->assertNotEmitted('gravatarUsed');
+        ->assertEmitted('gravatarUsed');
 });
 
 it('can edit profile (enableGoal) settings', function ($status) {
