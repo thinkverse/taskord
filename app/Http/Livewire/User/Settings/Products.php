@@ -16,10 +16,9 @@ class Products extends Component
 
     public Collection $products;
 
-    public function mount($user)
+    public function mount()
     {
-        $this->user = $user;
-
+        $this->user = auth()->user();
         $this->products = Product::with(['user'])
             ->whereUserId($this->user->id)
             ->orWhereHas('members', function (Builder $query) {
