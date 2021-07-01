@@ -12,16 +12,15 @@ class Account extends Component
     public $username;
     public $email;
 
-    public function mount($user)
+    public function mount()
     {
-        $this->user = $user;
-        $this->username = $user->username;
-        $this->email = $user->email;
+        $this->user = auth()->user();
+        $this->username = $this->user->username;
+        $this->email = $this->user->email;
     }
 
     public function enrollBeta()
     {
-        if (auth()->user()->id === $this->user->id) {
             $this->user->is_beta = ! $this->user->is_beta;
             $this->user->save();
             $this->emit('enrolledBeta');
@@ -33,14 +32,10 @@ class Account extends Component
             loggy(request(), 'User', auth()->user(), 'Opted out from beta');
 
             return toast($this, 'success', 'Your are no longer a beta member!');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function enrollPrivate()
     {
-        if (auth()->user()->id === $this->user->id) {
             if (! $this->user->is_patron) {
                 toast($this, 'error', config('taskord.toast.deny'));
             }
@@ -56,9 +51,6 @@ class Account extends Component
             loggy(request(), 'User', auth()->user(), 'Enrolled as a public user');
 
             return toast($this, 'success', 'All your tasks are now public');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function updated($field)
@@ -71,7 +63,6 @@ class Account extends Component
 
     public function updateAccount()
     {
-        if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'username' => ['required', 'min:2', 'max:20', 'alpha_dash', 'unique:users,username,'.$this->user->id, new ReservedSlug()],
                 'email'    => ['required', 'email', 'max:255', 'indisposable', 'unique:users,email,'.$this->user->id],
@@ -88,8 +79,5 @@ class Account extends Component
             loggy(request(), 'User', auth()->user(), 'Updated account settings');
 
             return toast($this, 'success', 'Your account has been updated!');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 }
