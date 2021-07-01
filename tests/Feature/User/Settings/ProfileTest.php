@@ -156,15 +156,8 @@ it('can edit profile (updateSocial) settings', function ($status) {
 it('can edit profile (onlyFollowingsTasks) settings', function ($status) {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Profile::class, ['user' => $newUser])
-            ->call('onlyFollowingsTasks')
-            ->assertEmitted('toggledOnlyFollowingsTasks');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Profile::class, ['user' => $newUser])
         ->call('onlyFollowingsTasks')
-        ->assertNotEmitted('toggledOnlyFollowingsTasks');
+        ->assertEmitted('toggledOnlyFollowingsTasks');
 });
