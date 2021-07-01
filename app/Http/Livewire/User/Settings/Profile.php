@@ -34,27 +34,27 @@ class Profile extends Component
     public $github;
     public $youtube;
 
-    public function mount($user)
+    public function mount()
     {
-        $this->user = $user;
+        $this->user = auth()->user();
         // Profile
-        $this->firstname = $user->firstname;
-        $this->lastname = $user->lastname;
-        $this->bio = $user->bio;
-        $this->location = $user->location;
-        $this->company = $user->company;
+        $this->firstname = $this->user->firstname;
+        $this->lastname = $this->user->lastname;
+        $this->bio = $this->user->bio;
+        $this->location = $this->user->location;
+        $this->company = $this->user->company;
         // Goal
-        $this->hasGoal = $user->has_goal;
-        $this->dailyGoal = $user->daily_goal;
+        $this->hasGoal = $this->user->has_goal;
+        $this->dailyGoal = $this->user->daily_goal;
         // Sponsor
-        $this->sponsor = $user->sponsor;
+        $this->sponsor = $this->user->sponsor;
         // Social
-        $this->website = $user->website;
-        $this->twitter = $user->twitter;
-        $this->twitch = $user->twitch;
-        $this->telegram = $user->telegram;
-        $this->github = $user->github;
-        $this->youtube = $user->youtube;
+        $this->website = $this->user->website;
+        $this->twitter = $this->user->twitter;
+        $this->twitch = $this->user->twitch;
+        $this->telegram = $this->user->telegram;
+        $this->github = $this->user->github;
+        $this->youtube = $this->user->youtube;
     }
 
     public function updatedAvatar()
@@ -66,7 +66,6 @@ class Profile extends Component
 
     public function updateProfile()
     {
-        if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'firstname' => ['nullable', 'max:30'],
                 'lastname'  => ['nullable', 'max:30'],
@@ -100,14 +99,10 @@ class Profile extends Component
             loggy(request(), 'User', auth()->user(), 'Updated the profile settings');
 
             return toast($this, 'success', 'Your profile has been updated!');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function resetAvatar()
     {
-        if (auth()->user()->id === $this->user->id) {
             $oldAvatar = explode('storage/', $this->user->avatar);
             if (array_key_exists(1, $oldAvatar)) {
                 Storage::delete($oldAvatar[1]);
@@ -118,14 +113,10 @@ class Profile extends Component
             loggy(request(), 'User', auth()->user(), 'Resetted avatar to default');
 
             return toast($this, 'success', 'Your avatar has been resetted!');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function useGravatar()
     {
-        if (auth()->user()->id === $this->user->id) {
             $oldAvatar = explode('storage/', $this->user->avatar);
             if (array_key_exists(1, $oldAvatar)) {
                 Storage::delete($oldAvatar[1]);
@@ -136,27 +127,19 @@ class Profile extends Component
             loggy(request(), 'User', auth()->user(), 'Updated avatar provider to Gravatar');
 
             return toast($this, 'success', 'Your avatar has been switched to Gravatar!');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function enableGoal()
     {
-        if (auth()->user()->id === $this->user->id) {
             $this->user->has_goal = ! $this->user->has_goal;
             $this->user->save();
             $this->emit('goalEnabled');
 
             return loggy(request(), 'User', auth()->user(), 'Toggled goals settings');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function updateGoal()
     {
-        if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'dailyGoal' => ['integer', 'max:1000', 'min:5'],
             ]);
@@ -167,14 +150,10 @@ class Profile extends Component
             loggy(request(), 'User', auth()->user(), "Updated the goal {$this->dailyGoal}/day");
 
             return toast($this, 'success', 'Your goal has been updated!');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function toggleVacationMode()
     {
-        if (auth()->user()->id === $this->user->id) {
             $this->user->vacation_mode = ! $this->user->vacation_mode;
             $this->user->save();
             $this->emit('toggledVacationMode');
@@ -186,14 +165,10 @@ class Profile extends Component
             loggy(request(), 'User', auth()->user(), 'Disabled vacation mode');
 
             return toast($this, 'success', 'Vacation mode has been disabled!');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function updateSponsor()
     {
-        if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'sponsor' => ['nullable', 'active_url'],
             ]);
@@ -204,14 +179,10 @@ class Profile extends Component
             loggy(request(), 'User', auth()->user(), 'Updated the sponsor URL');
 
             return toast($this, 'success', 'Your sponsor link has been updated!');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function updateSocial()
     {
-        if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'website'  => ['nullable', 'active_url'],
                 'twitter'  => ['nullable', 'alpha_dash', 'max:30'],
@@ -232,14 +203,10 @@ class Profile extends Component
             loggy(request(), 'User', auth()->user(), 'Updated the social URLs');
 
             return toast($this, 'success', 'Your social links has been updated!');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function onlyFollowingsTasks()
     {
-        if (auth()->user()->id === $this->user->id) {
             $this->user->only_followings_tasks = ! $this->user->only_followings_tasks;
             $this->user->save();
             $this->emit('toggledOnlyFollowingsTasks');
@@ -250,8 +217,5 @@ class Profile extends Component
             }
 
             return loggy(request(), 'User', auth()->user(), 'Toggled only following users tasks in settings');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 }
