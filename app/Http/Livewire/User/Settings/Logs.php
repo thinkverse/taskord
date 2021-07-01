@@ -15,9 +15,9 @@ class Logs extends Component
     public User $user;
     protected $paginationTheme = 'bootstrap';
 
-    public function mount($user)
+    public function mount()
     {
-        $this->user = $user;
+        $this->user = auth()->user();
     }
 
     public function render(): View
