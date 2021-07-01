@@ -33,10 +33,7 @@ it('can edit profile (updateProfile) settings', function ($status) {
         ->set('lastname', 'New lastaname')
         ->call('updateProfile')
         ->assertNotEmitted('profileUpdated');
-})->with([
-    [true],
-    [false],
-]);
+});
 
 it('can edit profile (resetAvatar) settings', function ($status) {
     $newUser = User::factory()->create();
@@ -52,10 +49,7 @@ it('can edit profile (resetAvatar) settings', function ($status) {
         ->livewire(Profile::class, ['user' => $newUser])
         ->call('resetAvatar')
         ->assertNotEmitted('avatarResetted');
-})->with([
-    [true],
-    [false],
-]);
+});
 
 it('can edit profile (useGravatar) settings', function ($status) {
     $newUser = User::factory()->create();
@@ -71,10 +65,7 @@ it('can edit profile (useGravatar) settings', function ($status) {
         ->livewire(Profile::class, ['user' => $newUser])
         ->call('useGravatar')
         ->assertNotEmitted('gravatarUsed');
-})->with([
-    [true],
-    [false],
-]);
+});
 
 it('can edit profile (enableGoal) settings', function ($status) {
     $newUser = User::factory()->create();
@@ -90,10 +81,7 @@ it('can edit profile (enableGoal) settings', function ($status) {
         ->livewire(Profile::class, ['user' => $newUser])
         ->call('enableGoal')
         ->assertNotEmitted('goalEnabled');
-})->with([
-    [true],
-    [false],
-]);
+});
 
 it('can edit profile (updateGoal) settings', function ($status) {
     $newUser = User::factory()->create();
@@ -111,10 +99,7 @@ it('can edit profile (updateGoal) settings', function ($status) {
         ->set('dailyGoal', 10)
         ->call('updateGoal')
         ->assertNotEmitted('goalUpdated');
-})->with([
-    [true],
-    [false],
-]);
+});
 
 it('can edit profile (toggleVacationMode) settings', function ($status) {
     $newUser = User::factory()->create();
@@ -130,10 +115,7 @@ it('can edit profile (toggleVacationMode) settings', function ($status) {
         ->livewire(Profile::class, ['user' => $newUser])
         ->call('toggleVacationMode')
         ->assertNotEmitted('toggledVacationMode');
-})->with([
-    [true],
-    [false],
-]);
+});
 
 it('can edit profile (updateSponsor) settings', function ($status) {
     $newUser = User::factory()->create();
@@ -151,10 +133,7 @@ it('can edit profile (updateSponsor) settings', function ($status) {
         ->set('sponsor', 'https://taskord.com/patron')
         ->call('updateSponsor')
         ->assertNotEmitted('sponsorsUpdated');
-})->with([
-    [true],
-    [false],
-]);
+});
 
 it('can edit profile (updateSocial) settings', function ($status) {
     $newUser = User::factory()->create();
@@ -172,10 +151,7 @@ it('can edit profile (updateSocial) settings', function ($status) {
         ->set('website', 'https://taskord.com')
         ->call('updateSocial')
         ->assertNotEmitted('socialUpdated');
-})->with([
-    [true],
-    [false],
-]);
+});
 
 it('can edit profile (onlyFollowingsTasks) settings', function ($status) {
     $newUser = User::factory()->create();
@@ -191,7 +167,4 @@ it('can edit profile (onlyFollowingsTasks) settings', function ($status) {
         ->livewire(Profile::class, ['user' => $newUser])
         ->call('onlyFollowingsTasks')
         ->assertNotEmitted('toggledOnlyFollowingsTasks');
-})->with([
-    [true],
-    [false],
-]);
+});
