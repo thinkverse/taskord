@@ -14,22 +14,18 @@ class Appearance extends Component
     ];
     public User $user;
 
-    public function mount($user)
+    public function mount()
     {
-        $this->user = $user;
+        $this->user = auth()->user();
     }
 
     public function toggleMode($mode)
     {
-        if (auth()->user()->id === $this->user->id) {
             Cookie::queue('color_mode', $mode, config('session.lifetime'));
             $this->emit('toggledMode');
             loggy(request(), 'User', auth()->user(), 'Toggled appearance');
 
             return redirect()->route('user.settings.appearance');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function render(): View
