@@ -70,17 +70,10 @@ it('can edit profile (useGravatar) settings', function ($status) {
 it('can edit profile (enableGoal) settings', function ($status) {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Profile::class, ['user' => $newUser])
-            ->call('enableGoal')
-            ->assertEmitted('goalEnabled');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Profile::class, ['user' => $newUser])
         ->call('enableGoal')
-        ->assertNotEmitted('goalEnabled');
+        ->assertEmitted('goalEnabled');
 });
 
 it('can edit profile (updateGoal) settings', function ($status) {
