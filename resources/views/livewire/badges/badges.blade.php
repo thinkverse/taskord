@@ -1,12 +1,10 @@
 <div wire:init="loadBadges">
-    <div>
-        <h5 class="mb-3 d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h5 class="d-flex align-items-center mb-0">
             <span class="me-2">Explore Badges</span>
             <x:labels.beta />
         </h5>
-        <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" wire:loading wire:target="query"
-            role="status"></div>
-        <input wire:model="query" type="text" class="form-control ms-2" placeholder="Search badges...">
+        <input wire:model="query" type="text" class="form-control ms-2 w-25" placeholder="Search badges...">
     </div>
     @if (!$readyToLoad)
         <div>
