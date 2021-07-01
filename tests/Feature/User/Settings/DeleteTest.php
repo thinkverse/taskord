@@ -18,21 +18,11 @@ it('has settings/delete page', function ($url, $expected, $auth) {
 it('can reset the account', function ($status) {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Delete::class, ['user' => $newUser])
-            ->call('resetAccount')
-            ->assertEmitted('accountResetted');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Delete::class, ['user' => $newUser])
         ->call('resetAccount')
-        ->assertNotEmitted('accountResetted');
-})->with([
-    [true],
-    [false],
-]);
+        ->assertEmitted('accountResetted');
+});
 
 it('can delete the account', function ($status) {
     $newUser = User::factory()->create();
