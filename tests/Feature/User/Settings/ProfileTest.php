@@ -15,27 +15,18 @@ it('has settings/profile page', function ($url, $expected, $auth) {
     ['/settings', 200, true],
 ]);
 
-it('can edit profile (updateProfile) settings', function ($status) {
+it('can edit profile (updateProfile) settings', function () {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Profile::class, ['user' => $newUser])
-            ->set('firstname', 'New firstname')
-            ->set('lastname', 'New lastaname')
-            ->call('updateProfile')
-            ->assertEmitted('profileUpdated');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Profile::class, ['user' => $newUser])
         ->set('firstname', 'New firstname')
         ->set('lastname', 'New lastaname')
         ->call('updateProfile')
-        ->assertNotEmitted('profileUpdated');
+        ->assertEmitted('profileUpdated');
 });
 
-it('can edit profile (resetAvatar) settings', function ($status) {
+it('can edit profile (resetAvatar) settings', function () {
     $newUser = User::factory()->create();
 
     return actingAs($newUser->id)
@@ -44,7 +35,7 @@ it('can edit profile (resetAvatar) settings', function ($status) {
         ->assertEmitted('avatarResetted');
 });
 
-it('can edit profile (useGravatar) settings', function ($status) {
+it('can edit profile (useGravatar) settings', function () {
     $newUser = User::factory()->create();
 
     return actingAs($newUser->id)
@@ -53,7 +44,7 @@ it('can edit profile (useGravatar) settings', function ($status) {
         ->assertEmitted('gravatarUsed');
 });
 
-it('can edit profile (enableGoal) settings', function ($status) {
+it('can edit profile (enableGoal) settings', function () {
     $newUser = User::factory()->create();
 
     return actingAs($newUser->id)
@@ -62,7 +53,7 @@ it('can edit profile (enableGoal) settings', function ($status) {
         ->assertEmitted('goalEnabled');
 });
 
-it('can edit profile (updateGoal) settings', function ($status) {
+it('can edit profile (updateGoal) settings', function () {
     $newUser = User::factory()->create();
 
     return actingAs($newUser->id)
@@ -72,7 +63,7 @@ it('can edit profile (updateGoal) settings', function ($status) {
         ->assertEmitted('goalUpdated');
 });
 
-it('can edit profile (toggleVacationMode) settings', function ($status) {
+it('can edit profile (toggleVacationMode) settings', function () {
     $newUser = User::factory()->create();
 
     return actingAs($newUser->id)
@@ -81,7 +72,7 @@ it('can edit profile (toggleVacationMode) settings', function ($status) {
         ->assertEmitted('toggledVacationMode');
 });
 
-it('can edit profile (updateSponsor) settings', function ($status) {
+it('can edit profile (updateSponsor) settings', function () {
     $newUser = User::factory()->create();
 
     return actingAs($newUser->id)
@@ -91,7 +82,7 @@ it('can edit profile (updateSponsor) settings', function ($status) {
         ->assertEmitted('sponsorsUpdated');
 });
 
-it('can edit profile (updateSocial) settings', function ($status) {
+it('can edit profile (updateSocial) settings', function () {
     $newUser = User::factory()->create();
 
     return actingAs($newUser->id)
@@ -101,7 +92,7 @@ it('can edit profile (updateSocial) settings', function ($status) {
         ->assertEmitted('socialUpdated');
 });
 
-it('can edit profile (onlyFollowingsTasks) settings', function ($status) {
+it('can edit profile (onlyFollowingsTasks) settings', function () {
     $newUser = User::factory()->create();
 
     return actingAs($newUser->id)
