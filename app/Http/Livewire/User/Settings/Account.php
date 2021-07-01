@@ -77,19 +77,17 @@ class Account extends Component
                 'email'    => ['required', 'email', 'max:255', 'indisposable', 'unique:users,email,'.$this->user->id],
             ]);
 
-            if (auth()->user()->id === $this->user->id) {
-                $this->user->username = $this->username;
-                if ($this->email !== $this->user->email) {
-                    $this->user->email_verified_at = null;
-                    $this->user->sendEmailVerificationNotification();
-                }
-                $this->user->email = $this->email;
-                $this->user->save();
-                $this->emit('accountUpdated');
-                loggy(request(), 'User', auth()->user(), 'Updated account settings');
-
-                toast($this, 'success', 'Your account has been updated!');
+            $this->user->username = $this->username;
+            if ($this->email !== $this->user->email) {
+                $this->user->email_verified_at = null;
+                $this->user->sendEmailVerificationNotification();
             }
+            $this->user->email = $this->email;
+            $this->user->save();
+            $this->emit('accountUpdated');
+            loggy(request(), 'User', auth()->user(), 'Updated account settings');
+
+            return toast($this, 'success', 'Your account has been updated!');
         }
 
         return toast($this, 'error', config('taskord.toast.deny'));
