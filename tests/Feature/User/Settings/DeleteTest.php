@@ -27,18 +27,8 @@ it('can reset the account', function ($status) {
 it('can delete the account', function ($status) {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Delete::class, ['user' => $newUser])
-            ->call('deleteAccount')
-            ->assertEmitted('accountDeleted');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Delete::class, ['user' => $newUser])
         ->call('deleteAccount')
-        ->assertNotEmitted('accountDeleted');
-})->with([
-    [true],
-    [false],
-]);
+        ->assertEmitted('accountDeleted');
+});
