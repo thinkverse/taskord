@@ -19,9 +19,9 @@ class Api extends Component
         'refreshApiToken' => 'render',
     ];
 
-    public function mount($user)
+    public function mount()
     {
-        $this->user = $user;
+        $this->user = auth()->user();
     }
 
     public function regenerateToken()
@@ -32,16 +32,12 @@ class Api extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (auth()->user()->id === $this->user->id) {
             auth()->user()->api_token = Str::random(60);
             auth()->user()->save();
             $this->emit('refreshApiToken');
             loggy(request(), 'User', auth()->user(), 'Created a new API key');
 
             return toast($this, 'success', 'New API key been generated successfully');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function render(): View
