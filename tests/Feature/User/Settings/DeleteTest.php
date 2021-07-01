@@ -15,7 +15,7 @@ it('has settings/delete page', function ($url, $expected, $auth) {
     ['/settings/delete', 200, true],
 ]);
 
-it('can reset the account', function ($status) {
+it('can reset the account', function () {
     $newUser = User::factory()->create();
 
     return actingAs($newUser->id)
@@ -24,7 +24,7 @@ it('can reset the account', function ($status) {
         ->assertEmitted('accountResetted');
 });
 
-it('can delete the account', function ($status) {
+it('can delete the account', function () {
     $newUser = User::factory()->create();
 
     return actingAs($newUser->id)

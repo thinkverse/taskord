@@ -15,40 +15,20 @@ it('has settings/notifications page', function ($url, $expected, $auth) {
     ['/settings/notifications', 200, true],
 ]);
 
-it('can edit notification (notificationsEmail) settings', function ($status) {
+it('can edit notification (notificationsEmail) settings', function () {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Notifications::class, ['user' => $newUser])
-            ->call('notificationsEmail')
-            ->assertEmitted('toggledNotificationsEmail');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Notifications::class, ['user' => $newUser])
         ->call('notificationsEmail')
-        ->assertNotEmitted('toggledNotificationsEmail');
-})->with([
-    [true],
-    [false],
-]);
+        ->assertEmitted('toggledNotificationsEmail');
+});
 
-it('can edit notification (notificationsWeb) settings', function ($status) {
+it('can edit notification (notificationsWeb) settings', function () {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Notifications::class, ['user' => $newUser])
-            ->call('notificationsWeb')
-            ->assertEmitted('toggledNotificationsWeb');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Notifications::class, ['user' => $newUser])
         ->call('notificationsWeb')
-        ->assertNotEmitted('toggledNotificationsWeb');
-})->with([
-    [true],
-    [false],
-]);
+        ->assertEmitted('toggledNotificationsWeb');
+});
