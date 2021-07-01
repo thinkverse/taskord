@@ -1,4 +1,13 @@
 <div wire:init="loadBadges">
+    <div>
+        <h5 class="mb-3 d-flex align-items-center">
+            <span class="me-2">Explore Badges</span>
+            <x:labels.beta />
+        </h5>
+        <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" wire:loading wire:target="query"
+            role="status"></div>
+        <input wire:model="query" type="text" class="form-control ms-2" placeholder="Search badges...">
+    </div>
     @if (!$readyToLoad)
         <div>
             <x:loaders.badge-skeleton count="1" />
@@ -14,7 +23,7 @@
             <div class="card-body text-center mt-3 mb-3">
                 <x-heroicon-o-tag class="heroicon heroicon-60px text-primary mb-2" />
                 <div class="h4">
-                    No badges asked
+                    No badges found
                 </div>
             </div>
         @endif
