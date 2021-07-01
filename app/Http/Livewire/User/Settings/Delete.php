@@ -10,14 +10,13 @@ class Delete extends Component
 {
     public User $user;
 
-    public function mount($user)
+    public function mount()
     {
-        $this->user = $user;
+        $this->user = auth()->user();
     }
 
     public function resetAccount()
     {
-        if (auth()->user()->id === $this->user->id) {
             loggy(request(), 'User', auth()->user(), 'Resetted the user account');
             $user = User::find($this->user->id);
             // Delete Task Images
@@ -53,14 +52,10 @@ class Delete extends Component
             $this->emit('accountResetted');
 
             return redirect()->route('home');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 
     public function deleteAccount()
     {
-        if (auth()->user()->id === $this->user->id) {
             loggy(request(), 'User', auth()->user(), 'Deleted the user account');
             $user = User::find($this->user->id);
             // Delete Task Images
@@ -97,8 +92,5 @@ class Delete extends Component
             $this->emit('accountDeleted');
 
             return redirect()->route('home');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 }
