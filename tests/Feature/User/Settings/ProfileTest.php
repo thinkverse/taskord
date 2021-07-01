@@ -86,19 +86,11 @@ it('can edit profile (enableGoal) settings', function ($status) {
 it('can edit profile (updateGoal) settings', function ($status) {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Profile::class, ['user' => $newUser])
-            ->set('dailyGoal', 10)
-            ->call('updateGoal')
-            ->assertEmitted('goalUpdated');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Profile::class, ['user' => $newUser])
         ->set('dailyGoal', 10)
         ->call('updateGoal')
-        ->assertNotEmitted('goalUpdated');
+        ->assertEmitted('goalUpdated');
 });
 
 it('can edit profile (toggleVacationMode) settings', function ($status) {
