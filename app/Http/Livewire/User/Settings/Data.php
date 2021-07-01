@@ -10,8 +10,8 @@ class Data extends Component
     public User $user;
     public $confirming;
 
-    public function mount($user)
+    public function mount()
     {
-        $this->user = $user;
+        $this->user = auth()->user();
     }
 }
