@@ -120,19 +120,11 @@ it('can edit profile (toggleVacationMode) settings', function ($status) {
 it('can edit profile (updateSponsor) settings', function ($status) {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Profile::class, ['user' => $newUser])
-            ->set('sponsor', 'https://taskord.com/patron')
-            ->call('updateSponsor')
-            ->assertEmitted('sponsorsUpdated');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Profile::class, ['user' => $newUser])
         ->set('sponsor', 'https://taskord.com/patron')
         ->call('updateSponsor')
-        ->assertNotEmitted('sponsorsUpdated');
+        ->assertEmitted('sponsorsUpdated');
 });
 
 it('can edit profile (updateSocial) settings', function ($status) {
