@@ -14,9 +14,9 @@ class Password extends Component
     public $newPassword;
     public $confirmPassword;
 
-    public function mount($user)
+    public function mount()
     {
-        $this->user = $user;
+        $this->user = auth()->user();
     }
 
     public function updated($field)
@@ -30,7 +30,6 @@ class Password extends Component
 
     public function updatePassword()
     {
-        if (auth()->user()->id === $this->user->id) {
             $this->validate([
                 'currentPassword' => ['required'],
                 'newPassword'     => ['required', 'string', PasswordRule::min(8)->uncompromised()],
@@ -46,8 +45,5 @@ class Password extends Component
             loggy(request(), 'User', auth()->user(), 'Changed account password');
 
             return toast($this, 'success', 'Your password has been changed!');
-        }
-
-        return toast($this, 'error', config('taskord.toast.deny'));
     }
 }
