@@ -104,17 +104,10 @@ it('can edit profile (updateGoal) settings', function ($status) {
 it('can edit profile (toggleVacationMode) settings', function ($status) {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Profile::class, ['user' => $newUser])
-            ->call('toggleVacationMode')
-            ->assertEmitted('toggledVacationMode');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Profile::class, ['user' => $newUser])
         ->call('toggleVacationMode')
-        ->assertNotEmitted('toggledVacationMode');
+        ->assertEmitted('toggledVacationMode');
 });
 
 it('can edit profile (updateSponsor) settings', function ($status) {
