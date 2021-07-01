@@ -15,21 +15,11 @@ it('has settings/api page', function ($url, $expected, $auth) {
     ['/settings/api', 200, true],
 ]);
 
-it('can edit api (regenerateToken) settings', function ($status) {
+it('can edit api (regenerateToken) settings', function () {
     $newUser = User::factory()->create();
 
-    if ($status) {
-        return actingAs($newUser->id)
-            ->livewire(Api::class, ['user' => $newUser])
-            ->call('regenerateToken')
-            ->assertEmitted('refreshApiToken');
-    }
-
-    return actingAs(1)
+    return actingAs($newUser->id)
         ->livewire(Api::class, ['user' => $newUser])
         ->call('regenerateToken')
-        ->assertNotEmitted('refreshApiToken');
-})->with([
-    [true],
-    [false],
-]);
+        ->assertEmitted('refreshApiToken');
+});

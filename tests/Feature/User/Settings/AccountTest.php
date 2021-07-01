@@ -29,18 +29,18 @@ it('can edit account (enrollPrivate) settings', function () {
     $newUser = User::factory()->create();
 
     return actingAs($newUser->id)
-            ->livewire(Account::class, ['user' => $newUser])
-            ->call('enrollPrivate')
-            ->assertEmitted('enrolledPrivate');
+        ->livewire(Account::class, ['user' => $newUser])
+        ->call('enrollPrivate')
+        ->assertEmitted('enrolledPrivate');
 });
 
 it('can edit account (updateAccount) settings', function () {
     $newUser = User::factory()->create();
 
     return actingAs($newUser->id)
-            ->livewire(Account::class, ['user' => $newUser])
-            ->set('email', Str::random(8).'@gmail.com')
-            ->set('username', Str::random(8))
-            ->call('updateAccount')
-            ->assertEmitted('accountUpdated');
+        ->livewire(Account::class, ['user' => $newUser])
+        ->set('email', Str::random(8).'@gmail.com')
+        ->set('username', Str::random(8))
+        ->call('updateAccount')
+        ->assertEmitted('accountUpdated');
 });
