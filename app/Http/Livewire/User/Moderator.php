@@ -262,9 +262,8 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $user = User::find($this->user->id);
-        $user->timestamps = false;
-        $user->comments()->delete();
+        $this->user->comments()->delete();
+        $this->user->timestamps = false;
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
