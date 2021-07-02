@@ -61,6 +61,19 @@ class Moderator extends Component
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
+    public function resetLogo()
+    {
+        if (Gate::denies('staff.ops')) {
+            return toast($this, 'error', config('taskord.toast.deny'));
+        }
+
+        $this->product->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text=📦';
+        $this->product->save();
+        toast($this, 'success', config('taskord.toast.settings-updated'));
+
+        return redirect()->route('product.done', ['slug' => $this->product->slug]);
+    }
+
     public function render(): View
     {
         return view('livewire.product.moderator', [

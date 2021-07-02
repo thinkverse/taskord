@@ -59,6 +59,13 @@
                     <x-heroicon-o-user class="heroicon heroicon-20px" />
                     Danger Zone
                 </div>
+                <div class="mt-2">
+                    <button wire:loading.attr="disabled" wire:click="resetLogo"
+                        class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
+                        <x-heroicon-o-refresh class="heroicon heroicon-15px" />
+                        Reset logo
+                    </button>
+                </div>
             @endif
         </div>
     </div>
