@@ -13,11 +13,13 @@ use Livewire\Component;
 class Moderator extends Component
 {
     public Product $product;
+    public $deprecated;
     public $readyToLoad = false;
 
     public function mount($product)
     {
         $this->product = $product;
+        $this->deprecated = $product->deprecated;
     }
 
     public function loadModerator()
@@ -25,15 +27,15 @@ class Moderator extends Component
         $this->readyToLoad = true;
     }
 
-    public function enrollBeta()
+    public function markDeprecated()
     {
         if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $this->user->is_beta = ! $this->user->is_beta;
-        $this->user->timestamps = false;
-        $this->user->save();
+        $this->product->deprecated = ! $this->product->deprecated;
+        $this->product->timestamps = false;
+        $this->product->save();
         $this->emit('modSettingsUpdated');
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));

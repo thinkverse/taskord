@@ -45,9 +45,9 @@
                     Flags
                 </div>
                 <div class="mb-2 mt-3">
-                    <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox"
-                        wire:model="isBeta">
-                    <label for="enrollBeta" class="ms-1">Enroll to Beta</label>
+                    <input wire:click="markDeprecated" id="markDeprecated" class="form-check-input" type="checkbox"
+                        wire:model="deprecated">
+                    <label for="markDeprecated" class="ms-1">Mark as deprecated</label>
                 </div>
             @endif
         </div>
