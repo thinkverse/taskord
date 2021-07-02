@@ -54,7 +54,7 @@
             @auth
                 <x:like-button :entity="$question" />
                 <a href="{{ route('question.question', ['slug' => $question->slug]) }}"
-                    class="btn btn-action btn-outline-primary me-1" aria-label="Questions">
+                    class="btn btn-action btn-outline-primary mx-1" aria-label="Questions">
                     <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
                     @if ($question->answers->count('id') !== 0)
                         <span class="small text-dark fw-bold">
