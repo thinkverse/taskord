@@ -15,7 +15,8 @@
                                     @if ($icon)
                                         <img class="avatar-40" src="{{ $icon }}" />
                                     @else
-                                        <img class="avatar-40" src="{{ $icon }}" />
+                                        <img class="avatar-40"
+                                            src="https://ik.imagekit.io/taskordimg/badges/placeholder.png" />
                                     @endif
                                 </div>
                             </div>
