@@ -51,7 +51,6 @@ class Moderator extends Component
         } else {
             $this->product->verified_at = carbon();
         }
-        $this->product->timestamps = false;
         $this->product->save();
         $this->emit('modSettingsUpdated');
 
@@ -65,7 +64,6 @@ class Moderator extends Component
         }
 
         $this->product->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text=📦';
-        $this->product->timestamps = false;
         $this->product->save();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
