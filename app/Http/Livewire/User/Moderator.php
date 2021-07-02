@@ -67,7 +67,6 @@ class Moderator extends Component
         }
 
         $this->user->is_staff = ! $this->user->is_staff;
-        $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
 
