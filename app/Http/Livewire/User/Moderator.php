@@ -263,7 +263,6 @@ class Moderator extends Component
         }
 
         $this->user->questions()->delete();
-        $this->user->timestamps = false;
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
@@ -276,7 +275,6 @@ class Moderator extends Component
         }
 
         $this->user->answers()->delete();
-        $this->user->timestamps = false;
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
