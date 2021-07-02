@@ -238,7 +238,6 @@ class Moderator extends Component
                 Storage::delete($image);
             }
         }
-        $this->user->timestamps = false;
         $this->user->tasks()->delete();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
@@ -252,7 +251,6 @@ class Moderator extends Component
         }
 
         $this->user->comments()->delete();
-        $this->user->timestamps = false;
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
