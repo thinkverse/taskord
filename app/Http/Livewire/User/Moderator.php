@@ -110,7 +110,6 @@ class Moderator extends Component
         }
 
         $this->user->spammy = ! $this->user->spammy;
-        $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
 
@@ -133,7 +132,6 @@ class Moderator extends Component
             $this->spammy = false;
         }
 
-        $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
 
@@ -147,7 +145,6 @@ class Moderator extends Component
         }
 
         $this->user->is_patron = ! $this->user->is_patron;
-        $this->user->timestamps = false;
         $this->user->save();
 
         if ($this->user->is_patron) {
@@ -169,7 +166,6 @@ class Moderator extends Component
         } else {
             $this->user->featured_at = carbon();
         }
-        $this->user->timestamps = false;
         $this->user->save();
         // TODO: Featured email to user
         $this->emit('modSettingsUpdated');
@@ -184,7 +180,6 @@ class Moderator extends Component
         }
 
         $this->user->is_verified = ! $this->user->is_verified;
-        $this->user->timestamps = false;
         $this->user->save();
 
         if ($this->user->is_verified) {
