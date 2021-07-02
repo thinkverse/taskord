@@ -66,6 +66,13 @@
                         Reset logo
                     </button>
                 </div>
+                <div class="mt-2">
+                    <button wire:loading.attr="disabled" wire:click="releaseSlug"
+                        class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
+                        <x-heroicon-o-switch-horizontal class="heroicon heroicon-15px" />
+                        Release slug
+                    </button>
+                </div>
             @endif
         </div>
     </div>
