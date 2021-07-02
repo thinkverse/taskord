@@ -34,7 +34,6 @@ class Moderator extends Component
         }
 
         $this->product->deprecated = ! $this->product->deprecated;
-        $this->product->timestamps = false;
         $this->product->save();
         $this->emit('modSettingsUpdated');
 
