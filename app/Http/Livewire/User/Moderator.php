@@ -54,7 +54,6 @@ class Moderator extends Component
         }
 
         $this->user->is_beta = ! $this->user->is_beta;
-        $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
 
@@ -301,9 +300,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $user = User::find($this->user->id);
-        $user->timestamps = false;
-        $user->milestones()->delete();
+        $this->user->milestones()->delete();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
