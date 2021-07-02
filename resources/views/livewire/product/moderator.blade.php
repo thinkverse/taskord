@@ -25,7 +25,7 @@
                         @endif
                     </span>
                 </div>
-                <div class="mb-1">
+                <div class="mb-3">
                     <x-heroicon-o-cube class="heroicon text-secondary" />
                     <span class="h6">Launched:</span>
                     <span class="fw-bold">
@@ -39,6 +39,15 @@
                             <span class="small fw-bold text-secondary">Not Set</span>
                         @endif
                     </span>
+                </div>
+                <div class="text-info h5 mb-3">
+                    <x-heroicon-o-flag class="heroicon heroicon-20px" />
+                    Flags
+                </div>
+                <div class="mb-2 mt-3">
+                    <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox"
+                        wire:model="isBeta">
+                    <label for="enrollBeta" class="ms-1">Enroll to Beta</label>
                 </div>
             @endif
         </div>
