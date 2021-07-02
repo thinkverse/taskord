@@ -77,7 +77,6 @@ class Moderator extends Component
         }
 
         $this->product->slug = strtolower(Str::random(6));
-        $this->product->timestamps = false;
         $this->product->save();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
