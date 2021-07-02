@@ -26,7 +26,7 @@
                     </span>
                 </div>
                 <div class="mb-1">
-                    <x-heroicon-o-clock class="heroicon text-secondary" />
+                    <x-heroicon-o-cube class="heroicon text-secondary" />
                     <span class="h6">Launched:</span>
                     <span class="fw-bold">
                         @if ($product->launched_at)
