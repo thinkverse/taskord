@@ -54,6 +54,11 @@
                         wire:model="isVerified">
                     <label for="verifyProduct" class="ms-1 text-success fw-bold">Verify this product</label>
                 </div>
+                <hr>
+                <div class="text-danger h5 mb-3">
+                    <x-heroicon-o-user class="heroicon heroicon-20px" />
+                    Danger Zone
+                </div>
             @endif
         </div>
     </div>
