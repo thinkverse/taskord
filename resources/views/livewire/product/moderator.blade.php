@@ -49,6 +49,11 @@
                         wire:model="deprecated">
                     <label for="markDeprecated" class="ms-1">Mark as deprecated</label>
                 </div>
+                <div>
+                    <input wire:click="verifyProduct" id="verifyProduct" class="form-check-input" type="checkbox"
+                        wire:model="isVerified">
+                    <label for="verifyProduct" class="ms-1 text-success fw-bold">Verify this product</label>
+                </div>
             @endif
         </div>
     </div>

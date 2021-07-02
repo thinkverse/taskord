@@ -14,12 +14,14 @@ class Moderator extends Component
 {
     public Product $product;
     public $deprecated;
+    public $isVerified;
     public $readyToLoad = false;
 
     public function mount($product)
     {
         $this->product = $product;
         $this->deprecated = $product->deprecated;
+        $this->isVerified = $product->verified_at;
     }
 
     public function loadModerator()
@@ -34,6 +36,24 @@ class Moderator extends Component
         }
 
         $this->product->deprecated = ! $this->product->deprecated;
+        $this->product->timestamps = false;
+        $this->product->save();
+        $this->emit('modSettingsUpdated');
+
+        return toast($this, 'success', config('taskord.toast.settings-updated'));
+    }
+
+    public function verifyProduct()
+    {
+        if (Gate::denies('staff.ops')) {
+            return toast($this, 'error', config('taskord.toast.deny'));
+        }
+
+        if ($this->product->verified_at) {
+            $this->product->verified_at = null;
+        } else {
+            $this->product->verified_at = carbon();
+        }
         $this->product->timestamps = false;
         $this->product->save();
         $this->emit('modSettingsUpdated');
