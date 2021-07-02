@@ -208,7 +208,6 @@ class Moderator extends Component
         }
 
         $this->user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($this->user->username, 0, 2));
-        $this->user->timestamps = false;
         $this->user->save();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
@@ -222,7 +221,6 @@ class Moderator extends Component
         }
 
         $this->user->username = strtolower(Str::random(6));
-        $this->user->timestamps = false;
         $this->user->save();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
