@@ -244,14 +244,13 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $user = User::find($this->user->id);
-        $user->timestamps = false;
-        foreach ($user->tasks as $task) {
+        foreach ($this->user->tasks as $task) {
             foreach ($task->images ?? [] as $image) {
                 Storage::delete($image);
             }
         }
-        $user->tasks()->delete();
+        $this->user->timestamps = false;
+        $this->user->tasks()->delete();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
