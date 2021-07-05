@@ -66,20 +66,20 @@ hotkeys("c+m", () => {
 const newTaskModal = document.getElementById("newTaskModal");
 if (newTaskModal != null) {
   hotkeys("n", async () => {
-    (new bootstrap.Modal(newTaskModal)).show();
+    new bootstrap.Modal(newTaskModal).show();
   });
 }
 
 // Shortcut Modal
 hotkeys("shift+/", async () => {
-  (new bootstrap.Modal(document.getElementById("shortcutsModal"))).show();
+  new bootstrap.Modal(document.getElementById("shortcutsModal")).show();
 });
 
 // New issue Modal
 const reportModal = document.getElementById("reportModal");
 if (reportModal != null) {
   hotkeys("shift+r", async () => {
-    (new bootstrap.Modal(reportModal)).show();
+    new bootstrap.Modal(reportModal).show();
   });
   reportModal.addEventListener("shown.bs.modal", function (event) {
     document.getElementById("issue-title").focus();
@@ -90,6 +90,6 @@ if (reportModal != null) {
 const deployModal = document.getElementById("deployModal");
 if (deployModal != null) {
   hotkeys("shift+d", async () => {
-    (new bootstrap.Modal(deployModal)).show();
+    new bootstrap.Modal(deployModal).show();
   });
 }

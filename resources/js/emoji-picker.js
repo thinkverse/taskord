@@ -2,9 +2,9 @@ import { EmojiButton } from "@joeattardi/emoji-button";
 
 const trigger = document.querySelector(".trigger");
 const picker = new EmojiButton({
-  showPreview: false
+  showPreview: false,
 });
-picker.on("emoji", selection => {
+picker.on("emoji", (selection) => {
   trigger.innerHTML = selection.emoji;
   document.getElementById("emoji_input").value = selection.emoji;
 });

@@ -7,9 +7,11 @@ console.log(
 
 function logVitalsInConsole({ name, delta }) {
   console.log(
-    `%c[${name}] %c${parseFloat(name === "CLS" ? delta * 1000 : delta).toFixed(2)}`,
+    `%c[${name}] %c${parseFloat(name === "CLS" ? delta * 1000 : delta).toFixed(
+      2
+    )}`,
     "color: #6a63ec; font-family: monospace; font-size: 15px; font-weight: bold",
-    "font-family: monospace; font-size: 15px; font-weight: bold",
+    "font-family: monospace; font-size: 15px; font-weight: bold"
   );
 }
 
@@ -17,7 +19,7 @@ function logInConsole({ key, value }) {
   console.log(
     `%c[${key}] %c${value}`,
     "color: #6a63ec; font-family: monospace; font-size: 15px; font-weight: bold",
-    "font-family: monospace; font-size: 15px; font-weight: bold",
+    "font-family: monospace; font-size: 15px; font-weight: bold"
   );
 }
 
@@ -30,7 +32,7 @@ getFCP(logVitalsInConsole);
 // Log Git SHA in console
 logInConsole({
   key: "Site SHA",
-  value: document.getElementById("site-sha").innerHTML
+  value: document.getElementById("site-sha").innerHTML,
 });
 
 // Toggle stats in adminbar

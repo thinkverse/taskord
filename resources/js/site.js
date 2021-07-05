@@ -11,7 +11,9 @@ const deployModal = document.getElementById("deployModal");
 if (deployModal) {
   // Load Commit Data
   deployModal.addEventListener("shown.bs.modal", async () => {
-    const deployModalCommitBody = document.getElementById("deployModalCommitBody");
+    const deployModalCommitBody = document.getElementById(
+      "deployModalCommitBody"
+    );
     const res = await window.fetch("/site/commits-data");
     deployModalCommitBody.innerHTML = await res.text();
   });
@@ -25,7 +27,9 @@ if (deployModal) {
 
   // Load Deployment Data
   deployModal.addEventListener("shown.bs.modal", async () => {
-    const deployModalDeploymentBody = document.getElementById("deployModalDeploymentBody");
+    const deployModalDeploymentBody = document.getElementById(
+      "deployModalDeploymentBody"
+    );
     const res = await window.fetch("/site/deployment-data");
     deployModalDeploymentBody.innerHTML = await res.text();
   });

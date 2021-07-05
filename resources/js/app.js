@@ -10,9 +10,16 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Pagination
   Livewire.hook("component.initialized", () => {
     window.addEventListener("scroll", () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      const scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        0;
       const loadMore = document.getElementById("load-more");
-      if (scrollTop + window.innerHeight > document.documentElement.scrollHeight - 100) {
+      if (
+        scrollTop + window.innerHeight >
+        document.documentElement.scrollHeight - 100
+      ) {
         if (loadMore != null) {
           loadMore.click();
           loadMore.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
@@ -24,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Initial Pagination
   const loadMore = document.getElementById("load-more");
-  if (loadMore && await isInViewport(loadMore)) {
+  if (loadMore && (await isInViewport(loadMore))) {
     if (loadMore != null) {
       loadMore.click();
       loadMore.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
