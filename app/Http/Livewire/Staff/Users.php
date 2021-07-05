@@ -23,6 +23,7 @@ class Users extends Component
     public function getUsers()
     {
         return User::search($this->query)
+            ->with(['patron'])
             ->latest('last_active')
             ->paginate(20);
     }
