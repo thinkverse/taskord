@@ -20,7 +20,8 @@ const initHover = () => {
     ...config,
     onShow(instance) {
       const id = instance.reference.getAttribute("data-id");
-      window.fetch(`/popover/user/${id}`)
+      window
+        .fetch(`/popover/user/${id}`)
         .then((response) => response.text())
         .then((blob) => {
           instance.setContent(blob);
@@ -41,7 +42,8 @@ const initHover = () => {
     ...config,
     onShow(instance) {
       const id = instance.reference.getAttribute("data-id");
-      window.fetch(`/popover/product/${id}`)
+      window
+        .fetch(`/popover/product/${id}`)
         .then((response) => response.text())
         .then((blob) => {
           instance.setContent(blob);
@@ -62,7 +64,8 @@ const initHover = () => {
     ...config,
     onShow(instance) {
       const id = instance.reference.getAttribute("data-id");
-      window.fetch(`/popover/milestone/${id}`)
+      window
+        .fetch(`/popover/milestone/${id}`)
         .then((response) => response.text())
         .then((blob) => {
           instance.setContent(blob);
@@ -93,8 +96,8 @@ const initHover = () => {
 
 const init = () => {
   if (
-    document.getElementsByClassName("user-popover").length > 0 &&
-    document.getElementsByClassName("product-popover").length > 0 &&
+    document.getElementsByClassName("user-popover").length > 0 ||
+    document.getElementsByClassName("product-popover").length > 0 ||
     document.getElementsByClassName("milestone-popover").length > 0
   ) {
     initHover();
