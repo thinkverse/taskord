@@ -29,6 +29,19 @@
                             <a href="https://macstadium.com" target="_blank" rel="noreferrer">➜ Go to MacStadium</a>
                         </div>
                     </div>
+                    <div class="text-center mb-5 pt-2">
+                        <div>
+                            <img loading=lazy height="80"
+                                src="https://svgur.com/i/ZMm.svg" />
+                        </div>
+                        <div class="h6 mt-4 lh-base">
+                            Vercel combines the best developer experience with an obsessive focus on end-user performance.
+                            Vercel platform enables frontend teams to do their best work.
+                        </div>
+                        <div class="mt-2">
+                            <a href="https://vercel.com" target="_blank" rel="noreferrer">➜ Go to Vercel</a>
+                        </div>
+                    </div>
                     <div class="text-center mb-5 pt-4">
                         <div>
                             <img loading=lazy height="80" src="https://ik.imagekit.io/taskordimg/aws_iB7lIW64k.png" />
