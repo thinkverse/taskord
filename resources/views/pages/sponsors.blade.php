@@ -31,7 +31,7 @@
                     </div>
                     <div class="text-center mb-5 pt-2">
                         <div>
-                            <img loading=lazy height="80"
+                            <img loading=lazy height="150"
                                 src="https://svgur.com/i/ZMm.svg" />
                         </div>
                         <div class="h6 mt-4 lh-base">
