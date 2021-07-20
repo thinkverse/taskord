@@ -39,7 +39,7 @@
                             Vercel platform enables frontend teams to do their best work.
                         </div>
                         <div class="mt-2">
-                            <a href="https://vercel.com" target="_blank" rel="noreferrer">➜ Go to Vercel</a>
+                            <a href="https://vercel.com?utm_source=Devparty&utm_campaign=oss" target="_blank" rel="noreferrer">➜ Go to Vercel</a>
                         </div>
                     </div>
                     <div class="text-center mb-5 pt-4">
