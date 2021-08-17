@@ -31,6 +31,19 @@
                     </div>
                     <div class="text-center mb-5 pt-2">
                         <div>
+                            <img loading=lazy height="80"
+                                src="https://ik.imagekit.io/taskordimg/kinopio.png" />
+                        </div>
+                        <div class="h6 mt-4 lh-base">
+                            Kinopio is the spatial thinking tool for new ideas and hard problems. By making it easy to get your
+                            thoughts out and form connections organically, Kinopio works the way your mind works.
+                        </div>
+                        <div class="mt-2">
+                            <a href="https://kinopio.club" target="_blank" rel="noreferrer">➜ Go to Kinopio</a>
+                        </div>
+                    </div>
+                    <div class="text-center mb-5 pt-2">
+                        <div>
                             <img loading=lazy height="150"
                                 src="https://svgur.com/i/ZMm.svg" />
                         </div>
