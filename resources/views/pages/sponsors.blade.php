@@ -57,7 +57,7 @@
                     </div>
                     <div class="text-center mb-5 pt-2">
                         <div>
-                            <img loading=lazy height="100"
+                            <img loading=lazy height="80"
                                 src="https://upstash.com/static/logo/logo-light.svg" />
                         </div>
                         <div class="h6 mt-4 lh-base">
