@@ -55,6 +55,18 @@
                             <a href="https://vercel.com?utm_source=Devparty&utm_campaign=oss" target="_blank" rel="noreferrer">➜ Go to Vercel</a>
                         </div>
                     </div>
+                    <div class="text-center mb-5 pt-2">
+                        <div>
+                            <img loading=lazy height="150"
+                                src="https://upstash.com/static/logo/logo-light.svg" />
+                        </div>
+                        <div class="h6 mt-4 lh-base">
+                            Upstash has REST API that enables access to Redis from serverless and Edge functions like Cloudflare Workers and Fastly Compute@Edge.
+                        </div>
+                        <div class="mt-2">
+                            <a href="https://upstash.com" target="_blank" rel="noreferrer">➜ Go to Upstash</a>
+                        </div>
+                    </div>
                     <div class="text-center mb-5 pt-4">
                         <div>
                             <img loading=lazy height="80" src="https://ik.imagekit.io/taskordimg/aws_iB7lIW64k.png" />
