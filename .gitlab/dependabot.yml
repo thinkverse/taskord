@@ -4,26 +4,8 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
-    commit-message:
-      prefix: 'dependency'
-      prefix-development: 'development-dependency'
-    assignees:
-      - yo
-    reviewers:
-      - yo
-    open-pull-requests-limit: 200
-    rebase-strategy: auto
 
   - package-ecosystem: 'composer'
     directory: '/'
     schedule:
       interval: 'daily'
-    commit-message:
-      prefix: 'dependency'
-      prefix-development: 'development-dependency'
-    assignees:
-      - yo
-    reviewers:
-      - yo
-    open-pull-requests-limit: 200
-    rebase-strategy: auto
